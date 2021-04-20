@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "He Yeshuang"
 baseURL = "https://bachwv.github.io"
-copyright = "Copyright © 2008–2019"
+copyright = "Copyright © 2008–2021"
 disqusShortname = "YOURSHORTNAME"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
@@ -9,7 +9,7 @@ googleAnalytics = "UA-FAKE"
 hasCJKLanguage = true
 languageCode = "en"
 theme = "hugo-theme-tokiwa"
-title = "Hugo Themes"
+title = "划水摸鱼做梦无限状态自动机"
 publishDir = "docs"
 
 [markup]
@@ -59,11 +59,11 @@ category = "categories"
 series = "series"
 tag = "tags"
 [social]
-bilibili = "http://example.com/"
-github = "http://github.com/"
+bilibili = "https://space.bilibili.com/36175480"
+github = "http://github.io/bachwv"
 gitlab = "http://gitlab.com/"
 instagram = "http://example.com/"
-mail = "mailto:anon@example.com"
+mail = "lijunlin0012@126.com"
 twitter = "http://twitter.com/"
 weibo = "http://example.com/"
 youtube = "http://youtube.com/"
