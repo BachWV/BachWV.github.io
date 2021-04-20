@@ -1,6 +1,6 @@
 DefaultContentLanguage = "en"
 author = "He Yeshuang"
-baseURL = "https://example.com/"
+baseURL = "https://bachwv.github.io/"
 copyright = "Copyright © 2008–2019"
 disqusShortname = "YOURSHORTNAME"
 enableInlineShortcodes = true
