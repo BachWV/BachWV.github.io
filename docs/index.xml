@@ -7,19 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2019</copyright>
-    <lastBuildDate>Tue, 20 Apr 2021 14:59:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Apr 2021 16:00:12 +0800</lastBuildDate>
     
 	<atom:link href="https://bachwv.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello</title>
-      <link>https://bachwv.github.io/posts/hello/</link>
-      <pubDate>Tue, 20 Apr 2021 14:59:54 +0800</pubDate>
+      <title>Sec</title>
+      <link>https://bachwv.github.io/posts/sec/</link>
+      <pubDate>Tue, 20 Apr 2021 16:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/hello/</guid>
-      <description>&lt;h1 id=&#34;hello-world&#34;&gt;Hello World&lt;/h1&gt;
-&lt;p&gt;Hello world!&lt;/p&gt;
+      <guid>https://bachwv.github.io/posts/sec/</guid>
+      <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 </description>
     </item>
     
