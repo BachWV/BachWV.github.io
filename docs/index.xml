@@ -7,10 +7,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2021</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 20:27:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Apr 2021 21:50:40 +0800</lastBuildDate>
     
 	<atom:link href="https://bachwv.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建与发布blog</title>
+      <link>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
+      <pubDate>Tue, 27 Apr 2021 21:50:40 +0800</pubDate>
+      
+      <guid>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
+      <description>&lt;p&gt;来源https://sspai.com/post/59904&lt;/p&gt;
+&lt;p&gt;利用github + hugo 搭建轻量化的blog ，非常有用的教程！&lt;/p&gt;
+&lt;h4 id=&#34;1-安装-git-和-go&#34;&gt;1. 安装 Git 和 Go&lt;/h4&gt;
+&lt;p&gt;使用Hugo前需要安装&lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; 和 &lt;a href=&#34;https://golang.org/dl/&#34;&gt;Go&lt;/a&gt; 语言开发环境，点击对应网址下载安装包即可。&lt;/p&gt;
+&lt;h4 id=&#34;2-安装hugo&#34;&gt;2. 安装Hugo&lt;/h4&gt;
+&lt;p&gt;网上存在很多用工具安装的方式，我这里讲述一个我认为最简单的方式，不用涉及太多的代码（本方法针对pc）。&lt;/p&gt;
+&lt;p&gt;（1）在Hugo的&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;官网&lt;/a&gt;中选择想要的版本下载zip，将其中的hugo.exe文件解压到想要的地方，比如 &lt;code&gt;C:\Hugo\bin&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;（2）将Hugo添加到Windows的环境变量 &lt;code&gt;PATH&lt;/code&gt;中。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.sspai.com/2020/04/09/06c8b0c6d15bd4bfdf8ba25925aacbd4.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;（3）添加完&lt;code&gt;PATH&lt;/code&gt;后，打开Git Bash 输入 &lt;code&gt;hugo version&lt;/code&gt; 出现&lt;code&gt;hugo static site generator&lt;/code&gt;相关信息表示安装完成。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409131219.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3-生成博客&#34;&gt;3. 生成博客&lt;/h4&gt;
+&lt;p&gt;（1）打开Git Bash 输入&lt;code&gt;hugo new site &amp;quot;你的文件名字&amp;quot;&lt;/code&gt;，便可以生成一个用于存放博客的文件夹。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409131452.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;（2）安装主题。&lt;/p&gt;
+&lt;p&gt;不同于hexo，hugo没有自带主题，所以建立完文件夹后要导入主题文件。导入主题方式和hexo相似，可以用&lt;code&gt;git clone&lt;/code&gt; 的方式，也可以到相应主题的github中下载zip文件然后解压到自己博客的&lt;code&gt;themes&lt;/code&gt;文件夹中。&lt;/p&gt;
+&lt;p&gt;推荐几个主题：&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-pure/&#34;&gt;Pure&lt;/a&gt;、&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-even/&#34;&gt;Even&lt;/a&gt;、&lt;a href=&#34;https://themes.gohugo.io/hugo-coder/&#34;&gt;Coder&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;官网主题库：&lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;Hugo Themes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（3）配置文件&lt;/p&gt;
+&lt;p&gt;Hugo配置文件放置在源文件下，并且支持三种格式：toml，yaml，yml。这个配置文件可以直接从主题文件中的exampleSite 里copy到博客文件夹下，然后进行修改。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意点1：有些主题没有提供相应的配置文件，得进行自己修改，不建议选用这类主题。&lt;/li&gt;
+&lt;li&gt;注意点2：配置文件中要确保里面的主题名字和你themes文件夹中相应的主题文件夹名字一样，比如我的主题是pure，那么配置文件里的theme = pure，并且themes 文件夹中也有一个pure的文件夹。这是为了保证工具能依据名字找到相应的主题文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.sspai.com/2020/04/09/c82da3311e318983133f24173ef33c0f.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;（4）生成博文&lt;/p&gt;
+&lt;p&gt;在 Git Bash 中输入 &lt;code&gt;hugo new posts/xxxx.md&lt;/code&gt;，这时候就会在文件夹 &lt;code&gt;content/posts&lt;/code&gt;形成你要的markdown文件，打开进行编辑即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.sspai.com/2020/04/09/7b5e340c2da79b4bd26ea7f1852a1ecd.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;（5）渲染查看效果&lt;/p&gt;
+&lt;p&gt;在博客文件夹中打开Git Bash，输入 &lt;code&gt;hugo server&lt;/code&gt;，然后打开 http://localhost:1313/ 来查看效果。注意，markdown文件中的 &lt;code&gt;front matter&lt;/code&gt; 部分有一个&lt;code&gt;draft&lt;/code&gt; 参数，如果&lt;code&gt;draft&lt;/code&gt;设置为&lt;code&gt;true&lt;/code&gt; 则可正常渲染，如果设置为&lt;code&gt;false&lt;/code&gt;则不予以渲染。相应的如果想查看全部效果则输入&lt;code&gt;hugo server -D&lt;/code&gt; 表示将草稿文件也进行渲染。&lt;/p&gt;
+&lt;h4 id=&#34;4-代码托管&#34;&gt;4. 代码托管&lt;/h4&gt;
+&lt;p&gt;这里主要以GitHub 作为代码托管，假定你已经建立了一个xxx.github.io的一个仓库。官方提供了三四种&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34;&gt;上传方式&lt;/a&gt;，本文采用生成docs的方式进行部署，个人认为这种方式比较简单明了。&lt;/p&gt;
+&lt;p&gt;（1）修改配置文件。在配置文件config.toml中添加&lt;code&gt;publishDir = docs&lt;/code&gt;，其他格式的配置文件类似。&lt;/p&gt;
+&lt;p&gt;（2）打开Git Bash，输入&lt;code&gt;hugo&lt;/code&gt;，就会发现博客文件中出现了docs文件夹，这是因为hugo将网页的信息都存储在docs里，而不是public中。&lt;/p&gt;
+&lt;p&gt;（3）在博客文件夹中，打开Git Bash，依次输入以下代码（注意 git remote add 后跟随自己github的对应地址）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
+git add .
+git commit -m &amp;quot;first commit&amp;quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（4）在GitHub对应的仓库设置中，将Github Pages source改成branch/docs 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409140359.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;（5）这时候点击网址会发现内容已经成功渲染了，但是跳转连接出现问题，这是因为我们没有在配置文件中的&lt;code&gt;baseURL&lt;/code&gt;中更新我们未来发布的网址链接。因此我们将GitHub Pages 对应的网址进行复制然后添加到配置文件的第一个 &lt;code&gt;baseURL&lt;/code&gt;中，重新进行第二步和第三步即可。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>反转链表</title>

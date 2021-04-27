@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机 </title>
+	<title>划水摸鱼做梦无限状态自动机  | 搭建与发布blog</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/categories/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
-	<link rel="feed" href="/categories/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
 	
 	
 	
@@ -80,11 +77,89 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://bachwv.github.io" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://bachwv.github.io" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+	</h2>
+</div>
+<h1 class="pt-2">搭建与发布blog</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2021-04-27T21:50:40&#43;08:00">2021-4-27</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>来源https://sspai.com/post/59904</p>
+<p>利用github + hugo 搭建轻量化的blog ，非常有用的教程！</p>
+<h4 id="1-安装-git-和-go">1. 安装 Git 和 Go</h4>
+<p>使用Hugo前需要安装<a href="https://git-scm.com/">Git</a> 和 <a href="https://golang.org/dl/">Go</a> 语言开发环境，点击对应网址下载安装包即可。</p>
+<h4 id="2-安装hugo">2. 安装Hugo</h4>
+<p>网上存在很多用工具安装的方式，我这里讲述一个我认为最简单的方式，不用涉及太多的代码（本方法针对pc）。</p>
+<p>（1）在Hugo的<a href="https://github.com/gohugoio/hugo/releases">官网</a>中选择想要的版本下载zip，将其中的hugo.exe文件解压到想要的地方，比如 <code>C:\Hugo\bin</code>。</p>
+<p>（2）将Hugo添加到Windows的环境变量 <code>PATH</code>中。</p>
+<p><img src="https://cdn.sspai.com/2020/04/09/06c8b0c6d15bd4bfdf8ba25925aacbd4.gif" alt="img"></p>
+<p>（3）添加完<code>PATH</code>后，打开Git Bash 输入 <code>hugo version</code> 出现<code>hugo static site generator</code>相关信息表示安装完成。</p>
+<p><img src="https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409131219.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="img"></p>
+<h4 id="3-生成博客">3. 生成博客</h4>
+<p>（1）打开Git Bash 输入<code>hugo new site &quot;你的文件名字&quot;</code>，便可以生成一个用于存放博客的文件夹。</p>
+<p><img src="https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409131452.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="img"></p>
+<p>（2）安装主题。</p>
+<p>不同于hexo，hugo没有自带主题，所以建立完文件夹后要导入主题文件。导入主题方式和hexo相似，可以用<code>git clone</code> 的方式，也可以到相应主题的github中下载zip文件然后解压到自己博客的<code>themes</code>文件夹中。</p>
+<p>推荐几个主题：<a href="https://themes.gohugo.io/hugo-theme-pure/">Pure</a>、<a href="https://themes.gohugo.io/hugo-theme-even/">Even</a>、<a href="https://themes.gohugo.io/hugo-coder/">Coder</a></p>
+<p>官网主题库：<a href="https://themes.gohugo.io/">Hugo Themes</a></p>
+<p>（3）配置文件</p>
+<p>Hugo配置文件放置在源文件下，并且支持三种格式：toml，yaml，yml。这个配置文件可以直接从主题文件中的exampleSite 里copy到博客文件夹下，然后进行修改。</p>
+<ul>
+<li>注意点1：有些主题没有提供相应的配置文件，得进行自己修改，不建议选用这类主题。</li>
+<li>注意点2：配置文件中要确保里面的主题名字和你themes文件夹中相应的主题文件夹名字一样，比如我的主题是pure，那么配置文件里的theme = pure，并且themes 文件夹中也有一个pure的文件夹。这是为了保证工具能依据名字找到相应的主题文件。</li>
+</ul>
+<p><img src="https://cdn.sspai.com/2020/04/09/c82da3311e318983133f24173ef33c0f.gif" alt="img"></p>
+<p>（4）生成博文</p>
+<p>在 Git Bash 中输入 <code>hugo new posts/xxxx.md</code>，这时候就会在文件夹 <code>content/posts</code>形成你要的markdown文件，打开进行编辑即可。</p>
+<p><img src="https://cdn.sspai.com/2020/04/09/7b5e340c2da79b4bd26ea7f1852a1ecd.gif" alt="img"></p>
+<p>（5）渲染查看效果</p>
+<p>在博客文件夹中打开Git Bash，输入 <code>hugo server</code>，然后打开 http://localhost:1313/ 来查看效果。注意，markdown文件中的 <code>front matter</code> 部分有一个<code>draft</code> 参数，如果<code>draft</code>设置为<code>true</code> 则可正常渲染，如果设置为<code>false</code>则不予以渲染。相应的如果想查看全部效果则输入<code>hugo server -D</code> 表示将草稿文件也进行渲染。</p>
+<h4 id="4-代码托管">4. 代码托管</h4>
+<p>这里主要以GitHub 作为代码托管，假定你已经建立了一个xxx.github.io的一个仓库。官方提供了三四种<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">上传方式</a>，本文采用生成docs的方式进行部署，个人认为这种方式比较简单明了。</p>
+<p>（1）修改配置文件。在配置文件config.toml中添加<code>publishDir = docs</code>，其他格式的配置文件类似。</p>
+<p>（2）打开Git Bash，输入<code>hugo</code>，就会发现博客文件中出现了docs文件夹，这是因为hugo将网页的信息都存储在docs里，而不是public中。</p>
+<p>（3）在博客文件夹中，打开Git Bash，依次输入以下代码（注意 git remote add 后跟随自己github的对应地址）：</p>
+<pre><code>git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
+git add .
+git commit -m &quot;first commit&quot;
+git push -u origin master
+</code></pre><p>（4）在GitHub对应的仓库设置中，将Github Pages source改成branch/docs 。</p>
+<p><img src="https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409140359.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="img"></p>
+<p>（5）这时候点击网址会发现内容已经成功渲染了，但是跳转连接出现问题，这是因为我们没有在配置文件中的<code>baseURL</code>中更新我们未来发布的网址链接。因此我们将GitHub Pages 对应的网址进行复制然后添加到配置文件的第一个 <code>baseURL</code>中，重新进行第二步和第三步即可。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
@@ -95,8 +170,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/categories/" title="Categories page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/categories/" title="Categories page" >
 			Categories
 		</a>
 	</li>
@@ -114,10 +188,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/categories/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -130,51 +200,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-
-
-<article>
-	<div>
-		
-	</div>
-</article>
-<div>
-	<section>
-		
-	</section>
-</div>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start md:flex-col  max-h-16">
@@ -305,20 +330,60 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			10 pages, 5056 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1464 words in this page.
 	</div>
 </div>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
-			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        反转链表
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "YOURSHORTNAME" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<hr />
+
 		</footer>
 		
 
