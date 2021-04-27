@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机 </title>
+	<title>划水摸鱼做梦无限状态自动机  | 反转链表</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
-	<link rel="feed" href="/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
 	
 	
 	
@@ -80,11 +77,116 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://bachwv.github.io" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://bachwv.github.io" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+	</h2>
+</div>
+<h1 class="pt-2">反转链表</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2021-04-27T20:27:17&#43;08:00">2021-4-27</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><ul>
+<li>
+<p>这种链表题一定要画图</p>
+</li>
+<li>
+<p>头插法</p>
+</li>
+<li>
+<p>遍历原链表+每次插入到新表最前面</p>
+<h4 id="206-反转链表httpsleetcode-cncomproblemsreverse-linked-list"><a href="https://leetcode-cn.com/problems/reverse-linked-list/">206. 反转链表</a></h4>
+<p>难度简单</p>
+<p>给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg" alt="img"></p>
+<pre><code>输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+</code></pre><p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg" alt="img"></p>
+<pre><code>输入：head = [1,2]
+输出：[2,1]
+</code></pre><p><strong>示例 3：</strong></p>
+<pre><code>输入：head = []
+输出：[]
+</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li>链表中节点的数目范围是 <code>[0, 5000]</code></li>
+<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> <span style="color:#111">Test</span><span style="color:#f92672">;</span>
+<span style="color:#00a8c8">class</span> <span style="color:#75af00">ListNode</span> <span style="color:#f92672">{</span>
+      <span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">;</span>
+      <span style="color:#111">ListNode</span> <span style="color:#111">next</span><span style="color:#f92672">;</span>
+      <span style="color:#111">ListNode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+      <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span> <span style="color:#f92672">=</span> <span style="color:#111">val</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+      <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">,</span> <span style="color:#111">ListNode</span> <span style="color:#111">next</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span> <span style="color:#f92672">=</span> <span style="color:#111">val</span><span style="color:#f92672">;</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span> <span style="color:#f92672">=</span> <span style="color:#111">next</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span><span style="color:#111">5t</span>
+
+<span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">ListNode</span> <span style="color:#75af00">reverseList</span><span style="color:#f92672">(</span><span style="color:#111">ListNode</span> <span style="color:#111">head</span><span style="color:#f92672">){</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">first</span><span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">();</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">copy</span><span style="color:#f92672">;</span>
+
+        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">head</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+            <span style="color:#111">first</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">;</span>
+            <span style="color:#111">copy</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span><span style="color:#00a8c8">else</span> <span style="color:#00a8c8">return</span> <span style="color:#111">head</span><span style="color:#f92672">;</span>
+       <span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">copy</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+           <span style="color:#111">ListNode</span> <span style="color:#111">temp</span><span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">();</span>
+           <span style="color:#111">temp</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">=</span><span style="color:#111">copy</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">;</span>
+           <span style="color:#111">temp</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
+          <span style="color:#111">copy</span><span style="color:#f92672">=</span><span style="color:#111">copy</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+          <span style="color:#111">first</span><span style="color:#f92672">=</span><span style="color:#111">temp</span><span style="color:#f92672">;</span><span style="color:#75715e">//每次first指针前移，让他始终指向第一个元素
+</span><span style="color:#75715e"></span>       <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">first</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">a</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">5</span><span style="color:#f92672">);</span>
+        <span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">4</span><span style="color:#f92672">);</span>
+        <span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">3</span><span style="color:#f92672">);</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">reverseList</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">);</span>
+        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
+            <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">b</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div></div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
@@ -113,10 +215,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -129,142 +227,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-
-<div class="font-serif text-medium-red-violet-400 pt-3">
-	Tokiwa-iro is the theme color of this site.
-</div>
-<hr  class="pt-2"/>
-
-
-<div>
-	<section>
-		
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://bachwv.github.io/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-			反转链表
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-04-27T20:27:17&#43;08:00">2021-4-27</time>
-	</div>
-</div>
-
-		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://bachwv.github.io/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/">
-			云测评
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-04-24T20:15:28&#43;08:00">2021-4-24</time>
-	</div>
-</div>
-
-		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://bachwv.github.io/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">
-			最长公共前缀
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-04-20T16:32:05&#43;08:00">2021-4-20</time>
-	</div>
-</div>
-
-		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://bachwv.github.io/posts/sec/">
-			Sec
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-04-20T16:00:12&#43;08:00">2021-4-20</time>
-	</div>
-</div>
-
-		</div>
-		
-	</section>
-</div>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start md:flex-col  max-h-16">
@@ -395,25 +357,59 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			9 pages, 3592 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 274 words in this page.
 	</div>
 </div>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        云测评
+    </a>
+    
+    
+</div>
+<div >
 
 
 
-
-
-
+</div>
+<hr />
+<div class="pb-2">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "YOURSHORTNAME" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<hr />
 
 		</footer>
 		
