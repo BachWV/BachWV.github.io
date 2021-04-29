@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>划水摸鱼做梦无限状态自动机</title>
-    <link>https://bachwv.github.io/</link>
+    <link>https://uest.xyz/</link>
     <description>Recent content on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2021</copyright>
     <lastBuildDate>Tue, 27 Apr 2021 21:50:40 +0800</lastBuildDate>
     
-	<atom:link href="https://bachwv.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://uest.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>搭建与发布blog</title>
-      <link>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
+      <link>https://uest.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
       <pubDate>Tue, 27 Apr 2021 21:50:40 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
+      <guid>https://uest.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
       <description>&lt;p&gt;来源https://sspai.com/post/59904&lt;/p&gt;
 &lt;p&gt;利用github + hugo 搭建轻量化的blog ，非常有用的教程！&lt;/p&gt;
 &lt;h4 id=&#34;1-安装-git-和-go&#34;&gt;1. 安装 Git 和 Go&lt;/h4&gt;
@@ -65,10 +65,10 @@ git push -u origin master
     
     <item>
       <title>反转链表</title>
-      <link>https://bachwv.github.io/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <link>https://uest.xyz/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Tue, 27 Apr 2021 20:27:17 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://uest.xyz/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;这种链表题一定要画图&lt;/p&gt;
@@ -143,10 +143,10 @@ git push -u origin master
     
     <item>
       <title>云测评</title>
-      <link>https://bachwv.github.io/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
+      <link>https://uest.xyz/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
       <pubDate>Sat, 24 Apr 2021 20:15:28 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
+      <guid>https://uest.xyz/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
       <description>&lt;p&gt;评价手机免不了打打嘴炮，写写垃圾，以下为云评测，如有不对的地方敬请指教。&lt;/p&gt;
 &lt;p&gt;1.K40系列&lt;/p&gt;
 &lt;p&gt;K40系列只有标准版是比较出众的，可以说把性价比做到了极致，卢伟冰可以说很好地完成了雷军交给红米的任务：极致性价比，留下小米的学生党和性价比党用户，并与realme和iqoo相比不落下风。redmi没有品牌转型的任务，价位段封顶4000元，不需要使用最新的技术，所以小米的120W快充不会下放redmi，红米今年的充电上限还是33w。这一点和iqoo不一样，iqoo作为19年的新品牌，初期仍需要打品牌，做充分的推广。所以iqoo从20年失败的iqoo3到120w的iqoo5p，再到今年的iqoo7，努力想做高端手机。&lt;/p&gt;
@@ -173,10 +173,10 @@ git push -u origin master
     
     <item>
       <title>最长公共前缀</title>
-      <link>https://bachwv.github.io/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
+      <link>https://uest.xyz/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
       <pubDate>Tue, 20 Apr 2021 16:32:05 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
+      <guid>https://uest.xyz/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
       <description>&lt;h4 id=&#34;14-最长公共前缀httpsleetcode-cncomproblemslongest-common-prefix&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/longest-common-prefix/&#34;&gt;14. 最长公共前缀&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
 &lt;p&gt;如果不存在公共前缀，返回空字符串 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;。&lt;/p&gt;
@@ -340,10 +340,10 @@ public:
     
     <item>
       <title>Sec</title>
-      <link>https://bachwv.github.io/posts/sec/</link>
+      <link>https://uest.xyz/posts/sec/</link>
       <pubDate>Tue, 20 Apr 2021 16:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/sec/</guid>
+      <guid>https://uest.xyz/posts/sec/</guid>
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 </description>
     </item>
