@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机 </title>
+	<title>划水摸鱼做梦无限状态自动机  | 147链表插入排序</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/posts/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
-	<link rel="feed" href="/posts/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
 	
 	
 	
@@ -80,11 +77,107 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+	</h2>
+</div>
+<h1 class="pt-2">147链表插入排序</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2021-05-04T22:08:41&#43;08:00">2021-5-4</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h1 id="147-对链表进行插入排序httpsleetcode-cncomproblemsinsertion-sort-list"><a href="https://leetcode-cn.com/problems/insertion-sort-list/">147. 对链表进行插入排序</a></h1>
+<blockquote>
+<p>对链表进行插入排序。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" alt="img"></p>
+<p>插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。
+每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。</p>
+<p><strong>插入排序算法：</strong></p>
+<ol>
+<li>插入排序是迭代的，每次只移动一个元素，直到所有元素可以形成一个有序的输出列表。</li>
+<li>每次迭代中，插入排序只从输入数据中移除一个待排序的元素，找到它在序列中适当的位置，并将其插入。</li>
+<li>重复直到所有输入数据插入完为止。</li>
+</ol>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入: 4-&gt;2-&gt;1-&gt;3
+输出: 1-&gt;2-&gt;3-&gt;4
+</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入: -1-&gt;5-&gt;3-&gt;4-&gt;0
+输出: -1-&gt;0-&gt;3-&gt;4-&gt;5
+</code></pre></blockquote>
+<p>看起来很简单的插入排序花了我一晚上.</p>
+<p>插入排序不需要多讲，题面总结得很精辟，每一步将一个待排序的数据插入到前面已经排好序的有序序列中，直到插完所有元素为止。在其实现过程使用双层循环，外层循环对除了第一个元素之外的所有元素，内层循环对当前元素前面有序表进行待插入位置查找，并进行移动。</p>
+<p>插入排序的平均时间复杂度也是 <strong>O(n^2)</strong>，空间复杂度为常数阶 <strong>O(1)</strong>，具体时间复杂度和数组的有序性也是有关联的。</p>
+<p>插入排序中，当待排序数组是有序时，是最优的情况，只需当前数跟前一个数比较一下就可以了，这时一共需要比较 <strong>N-1</strong> 次，时间复杂度为 <strong>O(N)</strong>。最坏的情况是待排序数组是逆序的，此时需要比较次数最多，最坏的情况是 <strong>O(n^2)</strong>。</p>
+<p>但是 链表就不能简单移动了，而是要做到插入（把节点插入相应的地方），遍历找到要插入的地方以后，还要实现交换操作（和数组最大的不同也是最难的地方）</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">ListNode</span> <span style="color:#75af00">insertionSortList</span><span style="color:#f92672">(</span><span style="color:#111">ListNode</span> <span style="color:#111">head</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#111">ListNode</span> <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">/*最坑的地方是在画图，总结到一个经验，画图其实不如调试，调试起来看变化，再画图微调最好，傻乎乎画图最后会绕死进去
+</span><span style="color:#75715e">         * 添加一个表头节点非常有必要，这还是看题解发现的，不然插入时只能分情况讨论越来越复杂
+</span><span style="color:#75715e">         * pre节点防止断裂，注意要及时更新pre节点
+</span><span style="color:#75715e">         * todo这种变量名就不知所云，下次记得用cur
+</span><span style="color:#75715e">         * */</span>
+
+        <span style="color:#111">ListNode</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">);</span>
+        <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">;</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+
+            <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">&gt;</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">){</span>
+                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+
+            <span style="color:#f92672">}</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">==</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">){</span>
+<span style="color:#75715e">/*不能用值的比较！！！！，这个是作为循环终止的条件（使用continue直接下一步，防止进行5步交换）：等到todohead.next循环到todo时，让todo后移，注意不仅仅要使得todo后移，todopre也要后移，todohead要归零*/</span>
+                <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+                <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+                <span style="color:#00a8c8">continue</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+
+            <span style="color:#75715e">//这5步画图吧
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
@@ -113,10 +206,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/posts/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -129,130 +218,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-<article>
-	<section></section>
-	<section>
-		
-		<hr class="p-0 pt-4 m-0" />
-		<section class="flex flex-col md:flex-row items-start items-baseline">
-			<div class="md:pl-4 pb-2 md:sticky top-0 order-1 pr-6">
-				<h2 class=" text-eucalyptus-600">2021</h2>
-			</div>
-			<ul class="order-2 flex-grow">
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">05-04</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
-							147链表插入排序
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-30</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/283.%E7%A7%BB%E5%8A%A80/">
-							283
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-27</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/">
-							搭建与发布blog
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-27</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-							反转链表
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-24</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/">
-							云测评
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-20</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">
-							最长公共前缀
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">04-20</span>
-					<div class="font-serif font-medium">
-						<a href="https://uest.xyz/posts/sec/">
-							Sec
-						</a>
-						
-					</div>
-				</div>
-				
-			</ul>
-		</section>
-		
-		
-	</section>
-</article>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start md:flex-col  max-h-16">
@@ -383,25 +348,59 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			12 pages, 6183 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 929 words in this page.
 	</div>
 </div>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/283.%E7%A7%BB%E5%8A%A80/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        283
+    </a>
+    
+    
+</div>
+<div >
 
 
 
-
-
-
+</div>
+<hr />
+<div class="pb-2">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "YOURSHORTNAME" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<hr />
 
 		</footer>
 		
