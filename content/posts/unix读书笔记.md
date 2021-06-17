@@ -8,8 +8,6 @@ draft: false
 
 
 
-[TOC]
-
 
 
 # 第2章：UNIX 发展历史以及系统架构
@@ -41,9 +39,9 @@ Linux       开放源代码
 
 ## 系统结构：
 
-![image-20210612144726435](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612144726435.png)
+![](https://www.hualigs.cn/image/60cae3c1d34fd.jpg)
 
-![image-20210612145407077](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612145407077.png)
+
 
 内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。
 
@@ -63,7 +61,7 @@ Linux       开放源代码
 
 # 第3章 UNIX入门
 
-![image-20210612145535579](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612145535579.png)
+![](https://www.hualigs.cn/image/60cae3c142359.jpg)
 
 ## 3.1登录与退出
 
@@ -71,7 +69,9 @@ Linux       开放源代码
 
 输入用户名，密码
 
-2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述![image-20210612151234131](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612151234131.png)
+2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述
+
+![](https://img02.sogoucdn.com/app/a/100520146/60DD084CA4B29C887B814737F0774D53)
 
 3.退出系统：[ctrl+d] 或是exit，即可退出
 
@@ -81,15 +81,19 @@ Linux       开放源代码
 
 字段间要用一个或多个空格隔开。选项的前面一般会有连字符```-```，一个命令同时也可以有多个，例如下列著名的命令：
 
-![图片](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-2021061215201111.jpg)
+
+
+![](https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25)
 
 ```rm```表示删除，```-rf```表示两个选项：r和f，```/*```表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件
 
+
+
 下面介绍一些简单的命令：
 
-1.data：显示日期和时间
+1.date：显示日期和时间
 
-![image-20210612152830573](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612152830573.png)
+![](https://www.hualigs.cn/image/60cae3c15ad92.jpg)
 
 2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下
 
@@ -101,23 +105,27 @@ Linux       开放源代码
 >
 >来源：https://github.com/Microsoft/WSL/issues/573
 
-who还有一些的选项：-q -H -b，只能转到虚拟机![image-20210612153124009](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612153124009.png)
+who还有一些的选项：-q -H -b。
 
 
 
 3.显示日历：cal
 
-<img src="C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612153931517.png" alt="image-20210612153931517" style="zoom:67%;" />
+![](https://www.hualigs.cn/image/60cae3c117275.jpg)
 
 ## 3.3 获取帮助信息
 
+
+
 learn和help，使用时需要安装
 
-![image-20210612154208246](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612154208246.png)
+![](https://www.hualigs.cn/image/60cae6036d5bb.jpg)
+
+
 
 比如我不知道exit的用法
 
-![image-20210612154132024](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612154132024.png)
+![](https://www.hualigs.cn/image/60cae3c11b61a.jpg)
 
 ### 3.3.3 man手册：
 
@@ -125,7 +133,7 @@ learn和help，使用时需要安装
 
 在简洁的wsl中也是没有man的，需要先```sudo apt install man-db manpages manpages-dev```,之后才能愉快地使用man
 
-![image-20210612155013826](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612155013826.png)
+![](https://www.hualigs.cn/image/60cae3c27c916.jpg)
 
 
 
@@ -193,7 +201,7 @@ bulitin命令：包含的是一些比较简单的linux系统命令，这些命�
 
 ## 4.1模式：
 
-![image-20210612165940750](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612165940750.png)
+![](https://www.hualigs.cn/image/60cae3c22adf0.jpg)
 
 
 
@@ -242,6 +250,8 @@ bulitin命令：包含的是一些比较简单的linux系统命令，这些命�
 x,dw,dd前都可加上数字，表示同时删除多个单位
 
 .可以重复最近一次对文本的修改操作
+
+
 
 搜索文本
 
@@ -374,7 +384,11 @@ Unix文件系统选择：堆 + 索引
 | -x       | --format=horizontal  --format=across   | 以多列方式列出文件，按行排列                         |
 |          | --help                                 | 显示帮助信息                                         |
 
-例如：![image-20210615181145639](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210615181145639.png)
+例如：
+
+![](https://www.hualigs.cn/image/60cae3c2d6e0c.jpg)
+
+
 
 `drwxr-xr-x` 为属性字段
 
@@ -451,11 +465,11 @@ Linux中的打印请求 `lpr`命令
 | -r   | 删除指定的目录及目录下的所有文件和子目录 |
 | -rf  | 无提示地强制递归删除文件                 |
 
-![image-20210615192218692](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210615192218692.png)
+![](https://img03.sogoucdn.com/app/a/100520146/70F6DA4F485A5007D3CBCE626EC8146D)
 
 如果想无提示删除所有文件，可以作死尝试`sudo rm -rf /*`
 
-![图片](file://C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-2021061215201111.jpg?lastModify=1623756257)
+![](https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25)
 
 # 第6章 vi编辑器的高级用法
 
@@ -545,7 +559,7 @@ vi提供了删除，复制，剪贴操作。就是命令有点复杂。
 
 用户可以调整vi编辑器的设置
 
-![image-20210615203331825](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210615203331825.png)
+![](https://img04.sogoucdn.com/app/a/100520146/00B9329850723F7E7E31D31C7B32613F)
 
 可以看到有众多选项可以自定义。
 
@@ -606,9 +620,7 @@ Basic RE：
 | \ \(\  \)    | BRE         | 定义一个匹配位置，在后部可以引用该位置。例如，\\(ab\\).*\1表示ab字符串包夹了一个任意字符串。 |
 | \n           | BRE         | 引用已经定义的位置，可以从\1到\9                             |
 
-![image-20210322202051002](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210322202051002.png)
 
-> 可能有的md转义字符的显示会出现问题，具体以这张图为准吧。
 
 下面是一些例子：
 
@@ -672,7 +684,9 @@ a{3,}匹配aaa，aaaa，aaaaaa
 cat file.txt | grep -P "^(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}$"
 ```
 
-![image-20210412214052305](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210412214052305.png)
+![](https://img.mukewang.com/user/60cae86e00013d5806290466.jpg)
+
+
 
 简单修改一下在支持re的idea中搜索```(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}$```成功匹配到了正确的电话号码
 
@@ -750,7 +764,9 @@ shell将一个程序的标准输出作为另一个程序的标准输入，形成
 
 `ls -l|grep -e"s.*h"`
 
-![image-20210615214626196](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210615214626196.png)
+![](https://www.hualigs.cn/image/60cae3c1ebe12.jpg)
+
+
 
 ### 8.2.1  Shell如何实现管道？
 
@@ -812,7 +828,7 @@ mv移动文件
 10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
 ```
 
-![image-20210412203635242](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210412203635242.png)
+![](https://img01.sogoucdn.com/app/a/100520146/1EEF5A5F2404C8019FAA9F0604E50BAC)
 
 ```
 endwsl@LAPTOP-U1E6STIA:/home$ cat >>a.txt 
@@ -976,10 +992,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’
 搜索/usr/include目录中，引用EPOLLIN常数的头文件
 
 ```
-find -name "*.h" -type f|xargs grep "EPOLLIN"
-./linux/eventpoll.h:#define EPOLLIN		0x00000001
-./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,
-./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
+find -name "*.h" -type f|xargs grep "EPOLLIN"./linux/eventpoll.h:#define EPOLLIN		0x00000001./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
 ```
 
 
@@ -1033,7 +1046,9 @@ shell是用户和系统交流的工具，自身是一个应用程序。当用户
 
 用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程
 
-![image-20210412205628871](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210412205628871.png)
+![](https://ps.ssl.qhmsg.com/t028671bff381e903da.jpg)
+
+
 
 对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。
 
@@ -1101,7 +1116,7 @@ PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 
 shell执行重音符号\`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。
 
-![image-20210615224416394](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210615224416394.png)
+![](https://img03.sogoucdn.com/app/a/100520146/2F42BA7E520A0FBD61107446BC23EE85)
 
 ### 9.3.2 括号
 
@@ -1454,16 +1469,7 @@ git merge
 开始前我们先创建一个测试目录：
 
 ```
-$ mkdir gitdemo
-$ cd gitdemo/
-$ git init
-Initialized empty Git repository...
-$ touch README
-$ git add README
-$ git commit -m '第一次版本提交'
-[master (root-commit) 3b58100] 第一次版本提交
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 README
+$ mkdir gitdemo$ cd gitdemo/$ git initInitialized empty Git repository...$ touch README$ git add README$ git commit -m '第一次版本提交'[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
 ```
 
 ------
@@ -1481,8 +1487,7 @@ git branch
 没有参数时，**git branch** 会列出你在本地的分支。
 
 ```
-$ git branch
-* master
+$ git branch* master
 ```
 
 此例的意思就是，我们有一个叫做 **master** 的分支，并且该分支是当前分支。
@@ -1492,10 +1497,7 @@ $ git branch
 如果我们要手动创建一个分支。执行 **git branch (branchname)** 即可。
 
 ```
-$ git branch testing
-$ git branch
-* master
-  testing
+$ git branch testing$ git branch* master  testing
 ```
 
 现在我们可以看到，有了一个新分支 **testing**。
@@ -1583,19 +1585,65 @@ $ git checkout -b change_siteSwitched to a new branch 'change_site'$ vim runoob.
 将修改的内容提交到 change_site 分支中。 现在，假如切换回 master 分支我们可以看内容恢复到我们修改前的(空文件，没有代码)，我们再次修改 runoob.php 文件。
 
 ```
-$ git checkout masterSwitched to branch 'master'$ cat runoob.php$ vim runoob.php    # 修改内容如下$ cat runoob.php<?phpecho 1;?>$ git diffdiff --git a/runoob.php b/runoob.phpindex e69de29..ac60739 100644--- a/runoob.php+++ b/runoob.php@@ -0,0 +1,3 @@+<?php+echo 1;+?>$ git commit -am '修改代码'[master c68142b] 修改代码 1 file changed, 3 insertions(+)
+$ git checkout master
+Switched to branch 'master'
+$ cat runoob.php
+$ vim runoob.php    # 修改内容如下
+$ cat runoob.php
+<?php
+echo 1;
+?>
+$ git diff
+diff --git a/runoob.php b/runoob.php
+index e69de29..ac60739 100644
+--- a/runoob.php
++++ b/runoob.php
+@@ -0,0 +1,3 @@
++<?php
++echo 1;
++?>
+$ git commit -am '修改代码'
+[master c68142b] 修改代码
+ 1 file changed, 3 insertions(+)
 ```
 
 现在这些改变已经记录到我的 "master" 分支了。接下来我们将 "change_site" 分支合并过来。
 
 ```
-$ git merge change_siteAuto-merging runoob.phpCONFLICT (content): Merge conflict in runoob.phpAutomatic merge failed; fix conflicts and then commit the result.$ cat runoob.php     # 代开文件，看到冲突内容<?php<<<<<<< HEADecho 1;=======echo 'runoob';>>>>>>> change_site?>
+$ git merge change_site
+Auto-merging runoob.php
+CONFLICT (content): Merge conflict in runoob.php
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat runoob.php     # 代开文件，看到冲突内容
+<?php
+<<<<<<< HEAD
+echo 1;
+=======
+echo 'runoob';
+>>>>>>> change_site
+?>
 ```
 
 我们将前一个分支合并到 master 分支，一个合并冲突就出现了，接下来我们需要手动去修改它。
 
 ```
-$ vim runoob.php $ cat runoob.php<?phpecho 1;echo 'runoob';?>$ git diffdiff --cc runoob.phpindex ac60739,b63d7d7..0000000--- a/runoob.php+++ b/runoob.php@@@ -1,3 -1,3 +1,4 @@@  <?php +echo 1;+ echo 'runoob';  ?>
+$ vim runoob.php 
+$ cat runoob.php
+<?php
+echo 1;
+echo 'runoob';
+?>
+$ git diff
+diff --cc runoob.php
+index ac60739,b63d7d7..0000000
+--- a/runoob.php
++++ b/runoob.php
+@@@ -1,3 -1,3 +1,4 @@@
+  <?php
+ +echo 1;
++ echo 'runoob';
+  ?>
 ```
 
 在 Git 中，我们可以用 git add 要告诉 Git 文件冲突已经解决
@@ -1666,9 +1714,11 @@ echo换行：`echo "\nhello\n"`
 
 从标准输入设备读取用户输入，并将值存入用户自定义变量中。
 
-![image-20210617110658340](C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210617110658340.png)
+![](https://img04.sogoucdn.com/app/a/100520146/BD6A3CA5B35873341AE2765475B9BA93)
 
 ### 12.3.1 注释 #
+
+
 
 ### 12.3.2 变量
 
@@ -1807,10 +1857,7 @@ let命令与expr命令类似，并可以相互替换。
 let命令自动使用变量的值：
 
 ```shell
-minatoxeon@OMEN:~$ x=100
-minatoxeon@OMEN:~$ let x=x+1
-minatoxeon@OMEN:~$ echo $x
-101
+minatoxeon@OMEN:~$ x=100minatoxeon@OMEN:~$ let x=x+1minatoxeon@OMEN:~$ echo $x101
 ```
 
 let命令的缩写：双括号`(())`
@@ -1818,13 +1865,7 @@ let命令的缩写：双括号`(())`
 下面就是i++的经典问题
 
 ```
-endwsl@LAPTOP-U1E6STIA:~$ i=4
-endwsl@LAPTOP-U1E6STIA:~$ echo $i
-4
-endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i
-4 5
-endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i
-6 6
+endwsl@LAPTOP-U1E6STIA:~$ i=4endwsl@LAPTOP-U1E6STIA:~$ echo $i4endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i4 5endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i6 6
 ```
 
 ## 12.5 循环结构
@@ -1835,19 +1876,7 @@ endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i
 ### 12.5.1 for循环：for-in-done 结构
 
 ```
-for variable
-
-in list-of-values
-
-do
-
-	 commands
-
-    ...
-
-	 last-command
-
-done
+for variablein list-of-valuesdo	 commands    ...	 last-commanddone
 ```
 
 例子：
@@ -1863,13 +1892,30 @@ endwsl@LAPTOP-U1E6STIA:~$ cat sum1.sh#! /bin/bashtotal=0for i in "$@"do        t
 直接上例子：
 
 ```
-endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh#! /bin/bash#这里的$#每经过一轮循环就会减1#位置参数可以用shift命令左移total=0while [ $# -gt 0 ]; do        total=$(($total + $1))        printf "$1 + "        shiftdoneprintf "\b\b= $total"
+endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh
+#! /bin/bash
+#这里的$#每经过一轮循环就会减1
+#位置参数可以用shift命令左移
+total=0
+while [ $# -gt 0 ]; do
+        total=$(($total + $1))
+        printf "$1 + "
+        shift
+done
+printf "\b\b= $total"
 ```
 
 ### 12.5.3 until循环
 
 ```
-#! /bin/bashtotal=0until [ $# -le 0 ]; do        total=$(($total + $1))        printf "$1 + "        shiftdoneprintf "\b\b= $total"
+#! /bin/bash
+total=0
+until [ $# -le 0 ]; do
+        total=$(($total + $1))
+        printf "$1 + "
+        shift
+done
+printf "\b\b= $total"
 ```
 
 
@@ -1883,7 +1929,8 @@ endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh#! /bin/bash#这里的$#每经过一轮循�
 相当于：
 
 ```python
-if command1 :    command2
+if command1 :
+    command2
 ```
 
 `command1 || command2`，当command1执行错误，才会执行command2

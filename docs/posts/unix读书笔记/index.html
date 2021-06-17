@@ -106,7 +106,6 @@ onload='renderMathInElement(document.body);'></script>
 <article>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><h1 id="unix-读书笔记">UNIX 读书笔记</h1>
-<p>[TOC]</p>
 <h1 id="第2章unix-发展历史以及系统架构">第2章：UNIX 发展历史以及系统架构</h1>
 <p>发展历史：</p>
 <p>1965年    MULTICS  ( Multiplexed Information and Computing Service) 的开发
@@ -129,8 +128,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码</p>
 <h2 id="系统结构">系统结构：</h2>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612144726435.png" alt="image-20210612144726435"></p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612145407077.png" alt="image-20210612145407077"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c1d34fd.jpg" alt=""></p>
 <p>内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。</p>
 <blockquote>
 <p>注意：系统工具和UNIX命令不是内核组件。</p>
@@ -141,20 +139,21 @@ Linux       开放源代码</p>
 <p>虚拟计算机：UNIX操作系统向系统中的<strong>每个用户指定一个执行环境</strong>，这个环境成为虚拟计算机，包括一个<strong>用户终端</strong>和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。</p>
 <p><strong>进程</strong>：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。</p>
 <h1 id="第3章-unix入门">第3章 UNIX入门</h1>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612145535579.png" alt="image-20210612145535579"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c142359.jpg" alt=""></p>
 <h2 id="31登录与退出">3.1登录与退出</h2>
 <p>1.登录</p>
 <p>输入用户名，密码</p>
-<p>2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述<img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612151234131.png" alt="image-20210612151234131"></p>
+<p>2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述</p>
+<p><img src="https://img02.sogoucdn.com/app/a/100520146/60DD084CA4B29C887B814737F0774D53" alt=""></p>
 <p>3.退出系统：[ctrl+d] 或是exit，即可退出</p>
 <h2 id="32-简单的unix命令">3.2 简单的UNIX命令</h2>
 <p>命令行格式：<code>[命令] [选项] [参数]</code></p>
 <p>字段间要用一个或多个空格隔开。选项的前面一般会有连字符<code>-</code>，一个命令同时也可以有多个，例如下列著名的命令：</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-2021061215201111.jpg" alt="图片"></p>
+<p><img src="https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25" alt=""></p>
 <p><code>rm</code>表示删除，<code>-rf</code>表示两个选项：r和f，<code>/*</code>表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件</p>
 <p>下面介绍一些简单的命令：</p>
-<p>1.data：显示日期和时间</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612152830573.png" alt="image-20210612152830573"></p>
+<p>1.date：显示日期和时间</p>
+<p><img src="https://www.hualigs.cn/image/60cae3c15ad92.jpg" alt=""></p>
 <p>2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下</p>
 <blockquote>
 <p>who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义</p>
@@ -162,18 +161,18 @@ Linux       开放源代码</p>
 <p>解决方案： Use &lsquo;touch /var/run/utmp&rsquo; in some &ldquo;system startup script&rdquo;</p>
 <p>来源：https://github.com/Microsoft/WSL/issues/573</p>
 </blockquote>
-<p>who还有一些的选项：-q -H -b，只能转到虚拟机<img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612153124009.png" alt="image-20210612153124009"></p>
+<p>who还有一些的选项：-q -H -b。</p>
 <p>3.显示日历：cal</p>
-<p><img src="C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612153931517.png" alt="image-20210612153931517" style="zoom:67%;" /></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c117275.jpg" alt=""></p>
 <h2 id="33-获取帮助信息">3.3 获取帮助信息</h2>
 <p>learn和help，使用时需要安装</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612154208246.png" alt="image-20210612154208246"></p>
+<p><img src="https://www.hualigs.cn/image/60cae6036d5bb.jpg" alt=""></p>
 <p>比如我不知道exit的用法</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612154132024.png" alt="image-20210612154132024"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c11b61a.jpg" alt=""></p>
 <h3 id="333-man手册">3.3.3 man手册：</h3>
 <p>学习新命令时使用，可以得到该man(manual)命令的详细说明，当然</p>
 <p>在简洁的wsl中也是没有man的，需要先<code>sudo apt install man-db manpages manpages-dev</code>,之后才能愉快地使用man</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612155013826.png" alt="image-20210612155013826"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c27c916.jpg" alt=""></p>
 <h2 id="34-更正键盘输入错误">3.4 更正键盘输入错误</h2>
 <p>中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了<code>rm -rf /</code>，这是就要猛敲[ctrl-c]</p>
 <h2 id="35-使用shell">3.5 使用shell</h2>
@@ -206,7 +205,7 @@ Linux       开放源代码</p>
 <p><code>vi 文件名</code>启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入<code>:wq</code>，即可保存或退出。</p>
 <p>以上就是最最基础的用法。下面介绍高级用法：</p>
 <h2 id="41模式">4.1模式：</h2>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612165940750.png" alt="image-20210612165940750"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c22adf0.jpg" alt=""></p>
 <p>从命令模式进入文本输入模式：</p>
 <table>
 <thead>
@@ -574,7 +573,8 @@ Linux       开放源代码</p>
 </tr>
 </tbody>
 </table>
-<p>例如：<img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615181145639.png" alt="image-20210615181145639"></p>
+<p>例如：</p>
+<p><img src="https://www.hualigs.cn/image/60cae3c2d6e0c.jpg" alt=""></p>
 <p><code>drwxr-xr-x</code> 为属性字段</p>
 <p><img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" alt="img"></p>
 <p>文件属性字段总共有10个字母组成；第一个字符代表<strong>文件的类型</strong>。</p>
@@ -685,9 +685,9 @@ Linux       开放源代码</p>
 </tr>
 </tbody>
 </table>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615192218692.png" alt="image-20210615192218692"></p>
+<p><img src="https://img03.sogoucdn.com/app/a/100520146/70F6DA4F485A5007D3CBCE626EC8146D" alt=""></p>
 <p>如果想无提示删除所有文件，可以作死尝试<code>sudo rm -rf /*</code></p>
-<p><img src="file://C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-2021061215201111.jpg?lastModify=1623756257" alt="图片"></p>
+<p><img src="https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25" alt=""></p>
 <h1 id="第6章-vi编辑器的高级用法">第6章 vi编辑器的高级用法</h1>
 <h2 id="61-更多vi知识">6.1 更多vi知识</h2>
 <h3 id="611-启动vi编辑器">6.1.1 启动vi编辑器</h3>
@@ -775,7 +775,7 @@ Linux       开放源代码</p>
 </table>
 <h2 id="66-定制vi">6.6 定制vi</h2>
 <p>用户可以调整vi编辑器的设置</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615203331825.png" alt="image-20210615203331825"></p>
+<p><img src="https://img04.sogoucdn.com/app/a/100520146/00B9329850723F7E7E31D31C7B32613F" alt=""></p>
 <p>可以看到有众多选项可以自定义。</p>
 <p>下面介绍一些常用选项：</p>
 <table>
@@ -907,10 +907,6 @@ Linux       开放源代码</p>
 </tr>
 </tbody>
 </table>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210322202051002.png" alt="image-20210322202051002"></p>
-<blockquote>
-<p>可能有的md转义字符的显示会出现问题，具体以这张图为准吧。</p>
-</blockquote>
 <p>下面是一些例子：</p>
 <p>a*g$ 匹配到行尾</p>
 <p>^a*g 匹配到行首（*表示0-任意次）</p>
@@ -948,7 +944,7 @@ Linux       开放源代码</p>
 <p><code>^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) [0-9]{3}-[0-9]{4})$</code>
 当然也可以不同，下面截取一个leetcode网友的题解</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat file.txt <span style="color:#111">|</span> grep -P <span style="color:#d88200">&#34;^(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}</span>$<span style="color:#d88200">&#34;</span>
-</code></pre></div><p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412214052305.png" alt="image-20210412214052305"></p>
+</code></pre></div><p><img src="https://img.mukewang.com/user/60cae86e00013d5806290466.jpg" alt=""></p>
 <p>简单修改一下在支持re的idea中搜索<code>(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}$</code>成功匹配到了正确的电话号码</p>
 <h1 id="第8章-unix文件系统的高级操作">第8章 UNIX文件系统的高级操作</h1>
 <h2 id="81-重定向">8.1 重定向</h2>
@@ -1000,7 +996,7 @@ rmdir: 删除 'ggg' 失败: 没有那个文件或目录
 <p>单向通过，没有格式，以流的形式进行通信</p>
 <p>例如，我想在查找<code>ls -l</code>的结果中以正则表达式搜索<code>s.*h</code>，可以执行</p>
 <p><code>ls -l|grep -e&quot;s.*h&quot;</code></p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615214626196.png" alt="image-20210615214626196"></p>
+<p><img src="https://www.hualigs.cn/image/60cae3c1ebe12.jpg" alt=""></p>
 <h3 id="821--shell如何实现管道">8.2.1  Shell如何实现管道？</h3>
 <p>1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出</p>
 <p>2.fork()创建子进程</p>
@@ -1096,7 +1092,7 @@ rmdir: 删除 'ggg' 失败: 没有那个文件或目录
 <p>再查看一下目录<code>$ ls -li</code></p>
 <pre><code>10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 a.txt
 10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
-</code></pre><p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412203635242.png" alt="image-20210412203635242"></p>
+</code></pre><p><img src="https://img01.sogoucdn.com/app/a/100520146/1EEF5A5F2404C8019FAA9F0604E50BAC" alt=""></p>
 <pre><code>endwsl@LAPTOP-U1E6STIA:/home$ cat &gt;&gt;a.txt 
 atxt
 //修改一下a.txt的内容
@@ -1383,10 +1379,7 @@ action=&quot;SHUTDOWN&quot;&gt;70&lt;/disk_temperature&gt;
 </code></pre><p>查找epoll_wait函数在那个文件：
 find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>搜索/usr/include目录中，引用EPOLLIN常数的头文件</p>
-<pre><code>find -name &quot;*.h&quot; -type f|xargs grep &quot;EPOLLIN&quot;
-./linux/eventpoll.h:#define EPOLLIN		0x00000001
-./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,
-./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
+<pre><code>find -name &quot;*.h&quot; -type f|xargs grep &quot;EPOLLIN&quot;./linux/eventpoll.h:#define EPOLLIN		0x00000001./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
 </code></pre><p>在usr/include中查找文件名以.h结尾的所有普通文件。</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /usr/include -name <span style="color:#d88200">&#34;*.h&#34;</span>
 </code></pre></div><h2 id="89-文件系统">8.9 文件系统</h2>
@@ -1428,7 +1421,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>unix由内核和系统工具组成。内核是核心，所有直接与硬件通信的常规程序都集中在内核中。</p>
 <p>shell是用户和系统交流的工具，自身是一个应用程序。当用户登录到系统时shell被装入内存。</p>
 <p>用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412205628871.png" alt="image-20210412205628871"></p>
+<p><img src="https://ps.ssl.qhmsg.com/t028671bff381e903da.jpg" alt=""></p>
 <p>对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。</p>
 <p>shell的主要功能：</p>
 <ul>
@@ -1469,7 +1462,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 </code></pre></div><h2 id="93-其他元字符">9.3 其他元字符</h2>
 <h3 id="931-重音符号">9.3.1 重音符号</h3>
 <p>shell执行重音符号`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615224416394.png" alt="image-20210615224416394"></p>
+<p><img src="https://img03.sogoucdn.com/app/a/100520146/2F42BA7E520A0FBD61107446BC23EE85" alt=""></p>
 <h3 id="932-括号">9.3.2 括号</h3>
 <p>将几个命令放在括号里，可以编组。一个命令组可以像单条命令一样被重定向。</p>
 <h3 id="933-后台处理">9.3.3 后台处理&amp;</h3>
@@ -1924,31 +1917,18 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <pre><code>git merge 
 </code></pre><p>你可以多次合并到统一分支， 也可以选择在合并之后直接删除被并入的分支。</p>
 <p>开始前我们先创建一个测试目录：</p>
-<pre><code>$ mkdir gitdemo
-$ cd gitdemo/
-$ git init
-Initialized empty Git repository...
-$ touch README
-$ git add README
-$ git commit -m '第一次版本提交'
-[master (root-commit) 3b58100] 第一次版本提交
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 README
+<pre><code>$ mkdir gitdemo$ cd gitdemo/$ git initInitialized empty Git repository...$ touch README$ git add README$ git commit -m '第一次版本提交'[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
 </code></pre><hr>
 <h3 id="git-分支管理">Git 分支管理</h3>
 <h4 id="列出分支">列出分支</h4>
 <p>列出分支基本命令：</p>
 <pre><code>git branch
 </code></pre><p>没有参数时，<strong>git branch</strong> 会列出你在本地的分支。</p>
-<pre><code>$ git branch
-* master
+<pre><code>$ git branch* master
 </code></pre><p>此例的意思就是，我们有一个叫做 <strong>master</strong> 的分支，并且该分支是当前分支。</p>
 <p>当你执行 <strong>git init</strong> 的时候，默认情况下 Git 就会为你创建 <strong>master</strong> 分支。</p>
 <p>如果我们要手动创建一个分支。执行 <strong>git branch (branchname)</strong> 即可。</p>
-<pre><code>$ git branch testing
-$ git branch
-* master
-  testing
+<pre><code>$ git branch testing$ git branch* master  testing
 </code></pre><p>现在我们可以看到，有了一个新分支 <strong>testing</strong>。</p>
 <p>当你以此方式在上次提交更新之后创建了新分支，如果后来又有更新提交， 然后又切换到了 <strong>testing</strong> 分支，Git 将还原你的工作目录到你创建分支时候的样子。</p>
 <p>接下来我们将演示如何切换分支，我们用 git checkout (branch) 切换到我们要修改的分支。</p>
@@ -1980,11 +1960,57 @@ $ git branch
 </code></pre><p>创建 change_site 分支：</p>
 <pre><code>$ git checkout -b change_siteSwitched to a new branch 'change_site'$ vim runoob.php$ head -3 runoob.php&lt;?phpecho 'runoob';?&gt;$ git commit -am 'changed the runoob.php'[change_site 7774248] changed the runoob.php 1 file changed, 3 insertions(+) 
 </code></pre><p>将修改的内容提交到 change_site 分支中。 现在，假如切换回 master 分支我们可以看内容恢复到我们修改前的(空文件，没有代码)，我们再次修改 runoob.php 文件。</p>
-<pre><code>$ git checkout masterSwitched to branch 'master'$ cat runoob.php$ vim runoob.php    # 修改内容如下$ cat runoob.php&lt;?phpecho 1;?&gt;$ git diffdiff --git a/runoob.php b/runoob.phpindex e69de29..ac60739 100644--- a/runoob.php+++ b/runoob.php@@ -0,0 +1,3 @@+&lt;?php+echo 1;+?&gt;$ git commit -am '修改代码'[master c68142b] 修改代码 1 file changed, 3 insertions(+)
+<pre><code>$ git checkout master
+Switched to branch 'master'
+$ cat runoob.php
+$ vim runoob.php    # 修改内容如下
+$ cat runoob.php
+&lt;?php
+echo 1;
+?&gt;
+$ git diff
+diff --git a/runoob.php b/runoob.php
+index e69de29..ac60739 100644
+--- a/runoob.php
++++ b/runoob.php
+@@ -0,0 +1,3 @@
++&lt;?php
++echo 1;
++?&gt;
+$ git commit -am '修改代码'
+[master c68142b] 修改代码
+ 1 file changed, 3 insertions(+)
 </code></pre><p>现在这些改变已经记录到我的 &ldquo;master&rdquo; 分支了。接下来我们将 &ldquo;change_site&rdquo; 分支合并过来。</p>
-<pre><code>$ git merge change_siteAuto-merging runoob.phpCONFLICT (content): Merge conflict in runoob.phpAutomatic merge failed; fix conflicts and then commit the result.$ cat runoob.php     # 代开文件，看到冲突内容&lt;?php&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEADecho 1;=======echo 'runoob';&gt;&gt;&gt;&gt;&gt;&gt;&gt; change_site?&gt;
+<pre><code>$ git merge change_site
+Auto-merging runoob.php
+CONFLICT (content): Merge conflict in runoob.php
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat runoob.php     # 代开文件，看到冲突内容
+&lt;?php
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+echo 1;
+=======
+echo 'runoob';
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; change_site
+?&gt;
 </code></pre><p>我们将前一个分支合并到 master 分支，一个合并冲突就出现了，接下来我们需要手动去修改它。</p>
-<pre><code>$ vim runoob.php $ cat runoob.php&lt;?phpecho 1;echo 'runoob';?&gt;$ git diffdiff --cc runoob.phpindex ac60739,b63d7d7..0000000--- a/runoob.php+++ b/runoob.php@@@ -1,3 -1,3 +1,4 @@@  &lt;?php +echo 1;+ echo 'runoob';  ?&gt;
+<pre><code>$ vim runoob.php 
+$ cat runoob.php
+&lt;?php
+echo 1;
+echo 'runoob';
+?&gt;
+$ git diff
+diff --cc runoob.php
+index ac60739,b63d7d7..0000000
+--- a/runoob.php
++++ b/runoob.php
+@@@ -1,3 -1,3 +1,4 @@@
+  &lt;?php
+ +echo 1;
++ echo 'runoob';
+  ?&gt;
 </code></pre><p>在 Git 中，我们可以用 git add 要告诉 Git 文件冲突已经解决</p>
 <pre><code>$ git status -sUU runoob.php$ git add runoob.php$ git status -sM  runoob.php$ git commit[master 88afe0e] Merge branch 'change_site'
 </code></pre><p>现在我们成功解决了合并中的冲突，并提交了结果。</p>
@@ -2033,7 +2059,7 @@ $ git branch
 <p>可以使用点命令来阻止shell创建子进程。</p>
 <h3 id="1224-读取命令read">12.2.4 读取命令：read</h3>
 <p>从标准输入设备读取用户输入，并将值存入用户自定义变量中。</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210617110658340.png" alt="image-20210617110658340"></p>
+<p><img src="https://img04.sogoucdn.com/app/a/100520146/BD6A3CA5B35873341AE2765475B9BA93" alt=""></p>
 <h3 id="1231-注释">12.3.1 注释</h3>
 <h3 id="1232-变量">12.3.2 变量</h3>
 <p>字符串类型，具体内容在前面讲过。</p>
@@ -2210,50 +2236,47 @@ $ git branch
 <h3 id="1242-算术运算let命令">12.4.2 算术运算：let命令</h3>
 <p>let命令与expr命令类似，并可以相互替换。</p>
 <p>let命令自动使用变量的值：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">minatoxeon@OMEN:~$ <span style="color:#111">x</span><span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>
-minatoxeon@OMEN:~$ <span style="color:#111">let</span> <span style="color:#111">x</span><span style="color:#f92672">=</span>x+1
-minatoxeon@OMEN:~$ <span style="color:#111">echo</span> <span style="color:#111">$x</span>
-<span style="color:#ae81ff">101</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">minatoxeon@OMEN:~$ <span style="color:#111">x</span><span style="color:#f92672">=</span>100minatoxeon@OMEN:~$ <span style="color:#111">let</span> <span style="color:#111">x</span><span style="color:#f92672">=</span>x+1minatoxeon@OMEN:~$ <span style="color:#111">echo</span> <span style="color:#111">$x101</span>
 </code></pre></div><p>let命令的缩写：双括号<code>(())</code></p>
 <p>下面就是i++的经典问题</p>
-<pre><code>endwsl@LAPTOP-U1E6STIA:~$ i=4
-endwsl@LAPTOP-U1E6STIA:~$ echo $i
-4
-endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i
-4 5
-endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i
-6 6
+<pre><code>endwsl@LAPTOP-U1E6STIA:~$ i=4endwsl@LAPTOP-U1E6STIA:~$ echo $i4endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i4 5endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i6 6
 </code></pre><h2 id="125-循环结构">12.5 循环结构</h2>
 <ul>
 <li>Shell提供三种循环：for、while、until</li>
 <li>循环与分支类似，都带有一定的结构，是shell语言的支持</li>
 </ul>
 <h3 id="1251-for循环for-in-done-结构">12.5.1 for循环：for-in-done 结构</h3>
-<pre><code>for variable
-
-in list-of-values
-
-do
-
-	 commands
-
-    ...
-
-	 last-command
-
-done
+<pre><code>for variablein list-of-valuesdo	 commands    ...	 last-commanddone
 </code></pre><p>例子：</p>
 <pre><code>endwsl@LAPTOP-U1E6STIA:~$ cat sum1.sh#! /bin/bashtotal=0for i in &quot;$@&quot;do        total=$(($total + $i))        printf &quot;$i + &quot;doneprintf &quot;\b\b= $total&quot;
 </code></pre><h3 id="1252-while循环">12.5.2 while循环</h3>
 <p>直接上例子：</p>
-<pre><code>endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh#! /bin/bash#这里的$#每经过一轮循环就会减1#位置参数可以用shift命令左移total=0while [ $# -gt 0 ]; do        total=$(($total + $1))        printf &quot;$1 + &quot;        shiftdoneprintf &quot;\b\b= $total&quot;
+<pre><code>endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh
+#! /bin/bash
+#这里的$#每经过一轮循环就会减1
+#位置参数可以用shift命令左移
+total=0
+while [ $# -gt 0 ]; do
+        total=$(($total + $1))
+        printf &quot;$1 + &quot;
+        shift
+done
+printf &quot;\b\b= $total&quot;
 </code></pre><h3 id="1253-until循环">12.5.3 until循环</h3>
-<pre><code>#! /bin/bashtotal=0until [ $# -le 0 ]; do        total=$(($total + $1))        printf &quot;$1 + &quot;        shiftdoneprintf &quot;\b\b= $total&quot;
+<pre><code>#! /bin/bash
+total=0
+until [ $# -le 0 ]; do
+        total=$(($total + $1))
+        printf &quot;$1 + &quot;
+        shift
+done
+printf &quot;\b\b= $total&quot;
 </code></pre><h4 id="逻辑连接">逻辑连接</h4>
 <p>这里的&amp;&amp;和||和预想的会很不一样，举例如下：</p>
 <p><code>command1 &amp;&amp; command2</code>当command1正确执行，才会执行command2</p>
 <p>相当于：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">if</span> <span style="color:#111">command1</span> <span style="color:#111">:</span>    <span style="color:#111">command2</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">if</span> <span style="color:#111">command1</span> <span style="color:#111">:</span>
+    <span style="color:#111">command2</span>
 </code></pre></div><p><code>command1 || command2</code>，当command1执行错误，才会执行command2</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">if</span> <span style="color:#960050;background-color:#1e0010">!</span><span style="color:#111">command1</span> <span style="color:#111">:</span>    <span style="color:#111">command2</span>
 </code></pre></div><h4 id="代码分块">代码分块</h4>
@@ -2629,7 +2652,7 @@ D:\            289083388 253954812  35128576  88% /mnt/d
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 21804 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 21725 words in this page.
 	</div>
 </div>
 

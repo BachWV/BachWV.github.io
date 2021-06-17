@@ -19,7 +19,6 @@
       
       <guid>https://uest.xyz/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h1 id=&#34;unix-读书笔记&#34;&gt;UNIX 读书笔记&lt;/h1&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1 id=&#34;第2章unix-发展历史以及系统架构&#34;&gt;第2章：UNIX 发展历史以及系统架构&lt;/h1&gt;
 &lt;p&gt;发展历史：&lt;/p&gt;
 &lt;p&gt;1965年    MULTICS  ( Multiplexed Information and Computing Service) 的开发
@@ -42,8 +41,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码&lt;/p&gt;
 &lt;h2 id=&#34;系统结构&#34;&gt;系统结构：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612145407077.png&#34; alt=&#34;image-20210612145407077&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c1d34fd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：系统工具和UNIX命令不是内核组件。&lt;/p&gt;
@@ -54,20 +52,21 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;虚拟计算机：UNIX操作系统向系统中的&lt;strong&gt;每个用户指定一个执行环境&lt;/strong&gt;，这个环境成为虚拟计算机，包括一个&lt;strong&gt;用户终端&lt;/strong&gt;和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;进程&lt;/strong&gt;：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。&lt;/p&gt;
 &lt;h1 id=&#34;第3章-unix入门&#34;&gt;第3章 UNIX入门&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612145535579.png&#34; alt=&#34;image-20210612145535579&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c142359.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;31登录与退出&#34;&gt;3.1登录与退出&lt;/h2&gt;
 &lt;p&gt;1.登录&lt;/p&gt;
 &lt;p&gt;输入用户名，密码&lt;/p&gt;
-&lt;p&gt;2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
+&lt;p&gt;2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img02.sogoucdn.com/app/a/100520146/60DD084CA4B29C887B814737F0774D53&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3.退出系统：[ctrl+d] 或是exit，即可退出&lt;/p&gt;
 &lt;h2 id=&#34;32-简单的unix命令&#34;&gt;3.2 简单的UNIX命令&lt;/h2&gt;
 &lt;p&gt;命令行格式：&lt;code&gt;[命令] [选项] [参数]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;字段间要用一个或多个空格隔开。选项的前面一般会有连字符&lt;code&gt;-&lt;/code&gt;，一个命令同时也可以有多个，例如下列著名的命令：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-2021061215201111.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm&lt;/code&gt;表示删除，&lt;code&gt;-rf&lt;/code&gt;表示两个选项：r和f，&lt;code&gt;/*&lt;/code&gt;表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件&lt;/p&gt;
 &lt;p&gt;下面介绍一些简单的命令：&lt;/p&gt;
-&lt;p&gt;1.data：显示日期和时间&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
+&lt;p&gt;1.date：显示日期和时间&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c15ad92.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义&lt;/p&gt;
@@ -75,18 +74,18 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;解决方案： Use &amp;lsquo;touch /var/run/utmp&amp;rsquo; in some &amp;ldquo;system startup script&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;来源：https://github.com/Microsoft/WSL/issues/573&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;who还有一些的选项：-q -H -b，只能转到虚拟机&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612153124009.png&#34; alt=&#34;image-20210612153124009&#34;&gt;&lt;/p&gt;
+&lt;p&gt;who还有一些的选项：-q -H -b。&lt;/p&gt;
 &lt;p&gt;3.显示日历：cal&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:\Users\Charon\AppData\Roaming\Typora\typora-user-images\image-20210612153931517.png&#34; alt=&#34;image-20210612153931517&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c117275.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;33-获取帮助信息&#34;&gt;3.3 获取帮助信息&lt;/h2&gt;
 &lt;p&gt;learn和help，使用时需要安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612154208246.png&#34; alt=&#34;image-20210612154208246&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae6036d5bb.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如我不知道exit的用法&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612154132024.png&#34; alt=&#34;image-20210612154132024&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c11b61a.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;333-man手册&#34;&gt;3.3.3 man手册：&lt;/h3&gt;
 &lt;p&gt;学习新命令时使用，可以得到该man(manual)命令的详细说明，当然&lt;/p&gt;
 &lt;p&gt;在简洁的wsl中也是没有man的，需要先&lt;code&gt;sudo apt install man-db manpages manpages-dev&lt;/code&gt;,之后才能愉快地使用man&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612155013826.png&#34; alt=&#34;image-20210612155013826&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c27c916.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;34-更正键盘输入错误&#34;&gt;3.4 更正键盘输入错误&lt;/h2&gt;
 &lt;p&gt;中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了&lt;code&gt;rm -rf /&lt;/code&gt;，这是就要猛敲[ctrl-c]&lt;/p&gt;
 &lt;h2 id=&#34;35-使用shell&#34;&gt;3.5 使用shell&lt;/h2&gt;
@@ -119,7 +118,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;vi 文件名&lt;/code&gt;启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入&lt;code&gt;:wq&lt;/code&gt;，即可保存或退出。&lt;/p&gt;
 &lt;p&gt;以上就是最最基础的用法。下面介绍高级用法：&lt;/p&gt;
 &lt;h2 id=&#34;41模式&#34;&gt;4.1模式：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210612165940750.png&#34; alt=&#34;image-20210612165940750&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c22adf0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从命令模式进入文本输入模式：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -487,7 +486,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;例如：&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615181145639.png&#34; alt=&#34;image-20210615181145639&#34;&gt;&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c2d6e0c.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;drwxr-xr-x&lt;/code&gt; 为属性字段&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;文件属性字段总共有10个字母组成；第一个字符代表&lt;strong&gt;文件的类型&lt;/strong&gt;。&lt;/p&gt;
@@ -598,9 +598,9 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615192218692.png&#34; alt=&#34;image-20210615192218692&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img03.sogoucdn.com/app/a/100520146/70F6DA4F485A5007D3CBCE626EC8146D&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果想无提示删除所有文件，可以作死尝试&lt;code&gt;sudo rm -rf /*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;file://C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-2021061215201111.jpg?lastModify=1623756257&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;第6章-vi编辑器的高级用法&#34;&gt;第6章 vi编辑器的高级用法&lt;/h1&gt;
 &lt;h2 id=&#34;61-更多vi知识&#34;&gt;6.1 更多vi知识&lt;/h2&gt;
 &lt;h3 id=&#34;611-启动vi编辑器&#34;&gt;6.1.1 启动vi编辑器&lt;/h3&gt;
@@ -688,7 +688,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;66-定制vi&#34;&gt;6.6 定制vi&lt;/h2&gt;
 &lt;p&gt;用户可以调整vi编辑器的设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/00B9329850723F7E7E31D31C7B32613F&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到有众多选项可以自定义。&lt;/p&gt;
 &lt;p&gt;下面介绍一些常用选项：&lt;/p&gt;
 &lt;table&gt;
@@ -820,10 +820,6 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210322202051002.png&#34; alt=&#34;image-20210322202051002&#34;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可能有的md转义字符的显示会出现问题，具体以这张图为准吧。&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;下面是一些例子：&lt;/p&gt;
 &lt;p&gt;a*g$ 匹配到行尾&lt;/p&gt;
 &lt;p&gt;^a*g 匹配到行首（*表示0-任意次）&lt;/p&gt;
@@ -861,7 +857,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) [0-9]{3}-[0-9]{4})$&lt;/code&gt;
 当然也可以不同，下面截取一个leetcode网友的题解&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cat file.txt &lt;span style=&#34;color:#111&#34;&gt;|&lt;/span&gt; grep -P &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;^(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}&lt;/span&gt;$&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412214052305.png&#34; alt=&#34;image-20210412214052305&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://img.mukewang.com/user/60cae86e00013d5806290466.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;简单修改一下在支持re的idea中搜索&lt;code&gt;(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}$&lt;/code&gt;成功匹配到了正确的电话号码&lt;/p&gt;
 &lt;h1 id=&#34;第8章-unix文件系统的高级操作&#34;&gt;第8章 UNIX文件系统的高级操作&lt;/h1&gt;
 &lt;h2 id=&#34;81-重定向&#34;&gt;8.1 重定向&lt;/h2&gt;
@@ -913,7 +909,7 @@ rmdir: 删除 &#39;ggg&#39; 失败: 没有那个文件或目录
 &lt;p&gt;单向通过，没有格式，以流的形式进行通信&lt;/p&gt;
 &lt;p&gt;例如，我想在查找&lt;code&gt;ls -l&lt;/code&gt;的结果中以正则表达式搜索&lt;code&gt;s.*h&lt;/code&gt;，可以执行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ls -l|grep -e&amp;quot;s.*h&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615214626196.png&#34; alt=&#34;image-20210615214626196&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c1ebe12.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;821--shell如何实现管道&#34;&gt;8.2.1  Shell如何实现管道？&lt;/h3&gt;
 &lt;p&gt;1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出&lt;/p&gt;
 &lt;p&gt;2.fork()创建子进程&lt;/p&gt;
@@ -1009,7 +1005,7 @@ rmdir: 删除 &#39;ggg&#39; 失败: 没有那个文件或目录
 &lt;p&gt;再查看一下目录&lt;code&gt;$ ls -li&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 a.txt
 10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412203635242.png&#34; alt=&#34;image-20210412203635242&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://img01.sogoucdn.com/app/a/100520146/1EEF5A5F2404C8019FAA9F0604E50BAC&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:/home$ cat &amp;gt;&amp;gt;a.txt 
 atxt
 //修改一下a.txt的内容
@@ -1296,10 +1292,7 @@ action=&amp;quot;SHUTDOWN&amp;quot;&amp;gt;70&amp;lt;/disk_temperature&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查找epoll_wait函数在那个文件：
 find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&gt;
 &lt;p&gt;搜索/usr/include目录中，引用EPOLLIN常数的头文件&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;find -name &amp;quot;*.h&amp;quot; -type f|xargs grep &amp;quot;EPOLLIN&amp;quot;
-./linux/eventpoll.h:#define EPOLLIN		0x00000001
-./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,
-./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
+&lt;pre&gt;&lt;code&gt;find -name &amp;quot;*.h&amp;quot; -type f|xargs grep &amp;quot;EPOLLIN&amp;quot;./linux/eventpoll.h:#define EPOLLIN		0x00000001./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在usr/include中查找文件名以.h结尾的所有普通文件。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find /usr/include -name &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;*.h&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;89-文件系统&#34;&gt;8.9 文件系统&lt;/h2&gt;
@@ -1341,7 +1334,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;p&gt;unix由内核和系统工具组成。内核是核心，所有直接与硬件通信的常规程序都集中在内核中。&lt;/p&gt;
 &lt;p&gt;shell是用户和系统交流的工具，自身是一个应用程序。当用户登录到系统时shell被装入内存。&lt;/p&gt;
 &lt;p&gt;用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210412205628871.png&#34; alt=&#34;image-20210412205628871&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ps.ssl.qhmsg.com/t028671bff381e903da.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。&lt;/p&gt;
 &lt;p&gt;shell的主要功能：&lt;/p&gt;
 &lt;ul&gt;
@@ -1382,7 +1375,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;93-其他元字符&#34;&gt;9.3 其他元字符&lt;/h2&gt;
 &lt;h3 id=&#34;931-重音符号&#34;&gt;9.3.1 重音符号&lt;/h3&gt;
 &lt;p&gt;shell执行重音符号`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210615224416394.png&#34; alt=&#34;image-20210615224416394&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img03.sogoucdn.com/app/a/100520146/2F42BA7E520A0FBD61107446BC23EE85&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;932-括号&#34;&gt;9.3.2 括号&lt;/h3&gt;
 &lt;p&gt;将几个命令放在括号里，可以编组。一个命令组可以像单条命令一样被重定向。&lt;/p&gt;
 &lt;h3 id=&#34;933-后台处理&#34;&gt;9.3.3 后台处理&amp;amp;&lt;/h3&gt;
@@ -1837,31 +1830,18 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;pre&gt;&lt;code&gt;git merge 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你可以多次合并到统一分支， 也可以选择在合并之后直接删除被并入的分支。&lt;/p&gt;
 &lt;p&gt;开始前我们先创建一个测试目录：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ mkdir gitdemo
-$ cd gitdemo/
-$ git init
-Initialized empty Git repository...
-$ touch README
-$ git add README
-$ git commit -m &#39;第一次版本提交&#39;
-[master (root-commit) 3b58100] 第一次版本提交
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 README
+&lt;pre&gt;&lt;code&gt;$ mkdir gitdemo$ cd gitdemo/$ git initInitialized empty Git repository...$ touch README$ git add README$ git commit -m &#39;第一次版本提交&#39;[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
 &lt;h3 id=&#34;git-分支管理&#34;&gt;Git 分支管理&lt;/h3&gt;
 &lt;h4 id=&#34;列出分支&#34;&gt;列出分支&lt;/h4&gt;
 &lt;p&gt;列出分支基本命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git branch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;没有参数时，&lt;strong&gt;git branch&lt;/strong&gt; 会列出你在本地的分支。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git branch
-* master
+&lt;pre&gt;&lt;code&gt;$ git branch* master
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此例的意思就是，我们有一个叫做 &lt;strong&gt;master&lt;/strong&gt; 的分支，并且该分支是当前分支。&lt;/p&gt;
 &lt;p&gt;当你执行 &lt;strong&gt;git init&lt;/strong&gt; 的时候，默认情况下 Git 就会为你创建 &lt;strong&gt;master&lt;/strong&gt; 分支。&lt;/p&gt;
 &lt;p&gt;如果我们要手动创建一个分支。执行 &lt;strong&gt;git branch (branchname)&lt;/strong&gt; 即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git branch testing
-$ git branch
-* master
-  testing
+&lt;pre&gt;&lt;code&gt;$ git branch testing$ git branch* master  testing
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在我们可以看到，有了一个新分支 &lt;strong&gt;testing&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;当你以此方式在上次提交更新之后创建了新分支，如果后来又有更新提交， 然后又切换到了 &lt;strong&gt;testing&lt;/strong&gt; 分支，Git 将还原你的工作目录到你创建分支时候的样子。&lt;/p&gt;
 &lt;p&gt;接下来我们将演示如何切换分支，我们用 git checkout (branch) 切换到我们要修改的分支。&lt;/p&gt;
@@ -1893,11 +1873,57 @@ $ git branch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建 change_site 分支：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git checkout -b change_siteSwitched to a new branch &#39;change_site&#39;$ vim runoob.php$ head -3 runoob.php&amp;lt;?phpecho &#39;runoob&#39;;?&amp;gt;$ git commit -am &#39;changed the runoob.php&#39;[change_site 7774248] changed the runoob.php 1 file changed, 3 insertions(+) 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将修改的内容提交到 change_site 分支中。 现在，假如切换回 master 分支我们可以看内容恢复到我们修改前的(空文件，没有代码)，我们再次修改 runoob.php 文件。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git checkout masterSwitched to branch &#39;master&#39;$ cat runoob.php$ vim runoob.php    # 修改内容如下$ cat runoob.php&amp;lt;?phpecho 1;?&amp;gt;$ git diffdiff --git a/runoob.php b/runoob.phpindex e69de29..ac60739 100644--- a/runoob.php+++ b/runoob.php@@ -0,0 +1,3 @@+&amp;lt;?php+echo 1;+?&amp;gt;$ git commit -am &#39;修改代码&#39;[master c68142b] 修改代码 1 file changed, 3 insertions(+)
+&lt;pre&gt;&lt;code&gt;$ git checkout master
+Switched to branch &#39;master&#39;
+$ cat runoob.php
+$ vim runoob.php    # 修改内容如下
+$ cat runoob.php
+&amp;lt;?php
+echo 1;
+?&amp;gt;
+$ git diff
+diff --git a/runoob.php b/runoob.php
+index e69de29..ac60739 100644
+--- a/runoob.php
++++ b/runoob.php
+@@ -0,0 +1,3 @@
++&amp;lt;?php
++echo 1;
++?&amp;gt;
+$ git commit -am &#39;修改代码&#39;
+[master c68142b] 修改代码
+ 1 file changed, 3 insertions(+)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在这些改变已经记录到我的 &amp;ldquo;master&amp;rdquo; 分支了。接下来我们将 &amp;ldquo;change_site&amp;rdquo; 分支合并过来。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git merge change_siteAuto-merging runoob.phpCONFLICT (content): Merge conflict in runoob.phpAutomatic merge failed; fix conflicts and then commit the result.$ cat runoob.php     # 代开文件，看到冲突内容&amp;lt;?php&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEADecho 1;=======echo &#39;runoob&#39;;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; change_site?&amp;gt;
+&lt;pre&gt;&lt;code&gt;$ git merge change_site
+Auto-merging runoob.php
+CONFLICT (content): Merge conflict in runoob.php
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat runoob.php     # 代开文件，看到冲突内容
+&amp;lt;?php
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+echo 1;
+=======
+echo &#39;runoob&#39;;
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; change_site
+?&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们将前一个分支合并到 master 分支，一个合并冲突就出现了，接下来我们需要手动去修改它。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ vim runoob.php $ cat runoob.php&amp;lt;?phpecho 1;echo &#39;runoob&#39;;?&amp;gt;$ git diffdiff --cc runoob.phpindex ac60739,b63d7d7..0000000--- a/runoob.php+++ b/runoob.php@@@ -1,3 -1,3 +1,4 @@@  &amp;lt;?php +echo 1;+ echo &#39;runoob&#39;;  ?&amp;gt;
+&lt;pre&gt;&lt;code&gt;$ vim runoob.php 
+$ cat runoob.php
+&amp;lt;?php
+echo 1;
+echo &#39;runoob&#39;;
+?&amp;gt;
+$ git diff
+diff --cc runoob.php
+index ac60739,b63d7d7..0000000
+--- a/runoob.php
++++ b/runoob.php
+@@@ -1,3 -1,3 +1,4 @@@
+  &amp;lt;?php
+ +echo 1;
++ echo &#39;runoob&#39;;
+  ?&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 Git 中，我们可以用 git add 要告诉 Git 文件冲突已经解决&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git status -sUU runoob.php$ git add runoob.php$ git status -sM  runoob.php$ git commit[master 88afe0e] Merge branch &#39;change_site&#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在我们成功解决了合并中的冲突，并提交了结果。&lt;/p&gt;
@@ -1946,7 +1972,7 @@ $ git branch
 &lt;p&gt;可以使用点命令来阻止shell创建子进程。&lt;/p&gt;
 &lt;h3 id=&#34;1224-读取命令read&#34;&gt;12.2.4 读取命令：read&lt;/h3&gt;
 &lt;p&gt;从标准输入设备读取用户输入，并将值存入用户自定义变量中。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210617110658340.png&#34; alt=&#34;image-20210617110658340&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/BD6A3CA5B35873341AE2765475B9BA93&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1231-注释&#34;&gt;12.3.1 注释&lt;/h3&gt;
 &lt;h3 id=&#34;1232-变量&#34;&gt;12.3.2 变量&lt;/h3&gt;
 &lt;p&gt;字符串类型，具体内容在前面讲过。&lt;/p&gt;
@@ -2123,50 +2149,47 @@ $ git branch
 &lt;h3 id=&#34;1242-算术运算let命令&#34;&gt;12.4.2 算术运算：let命令&lt;/h3&gt;
 &lt;p&gt;let命令与expr命令类似，并可以相互替换。&lt;/p&gt;
 &lt;p&gt;let命令自动使用变量的值：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;
-minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;x+1
-minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$x&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;100minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;x+1minatoxeon@OMEN:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$x101&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;let命令的缩写：双括号&lt;code&gt;(())&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下面就是i++的经典问题&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:~$ i=4
-endwsl@LAPTOP-U1E6STIA:~$ echo $i
-4
-endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i
-4 5
-endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i
-6 6
+&lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:~$ i=4endwsl@LAPTOP-U1E6STIA:~$ echo $i4endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i4 5endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i6 6
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;125-循环结构&#34;&gt;12.5 循环结构&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Shell提供三种循环：for、while、until&lt;/li&gt;
 &lt;li&gt;循环与分支类似，都带有一定的结构，是shell语言的支持&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;1251-for循环for-in-done-结构&#34;&gt;12.5.1 for循环：for-in-done 结构&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;for variable
-
-in list-of-values
-
-do
-
-	 commands
-
-    ...
-
-	 last-command
-
-done
+&lt;pre&gt;&lt;code&gt;for variablein list-of-valuesdo	 commands    ...	 last-commanddone
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;例子：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:~$ cat sum1.sh#! /bin/bashtotal=0for i in &amp;quot;$@&amp;quot;do        total=$(($total + $i))        printf &amp;quot;$i + &amp;quot;doneprintf &amp;quot;\b\b= $total&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;1252-while循环&#34;&gt;12.5.2 while循环&lt;/h3&gt;
 &lt;p&gt;直接上例子：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh#! /bin/bash#这里的$#每经过一轮循环就会减1#位置参数可以用shift命令左移total=0while [ $# -gt 0 ]; do        total=$(($total + $1))        printf &amp;quot;$1 + &amp;quot;        shiftdoneprintf &amp;quot;\b\b= $total&amp;quot;
+&lt;pre&gt;&lt;code&gt;endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh
+#! /bin/bash
+#这里的$#每经过一轮循环就会减1
+#位置参数可以用shift命令左移
+total=0
+while [ $# -gt 0 ]; do
+        total=$(($total + $1))
+        printf &amp;quot;$1 + &amp;quot;
+        shift
+done
+printf &amp;quot;\b\b= $total&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;1253-until循环&#34;&gt;12.5.3 until循环&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;#! /bin/bashtotal=0until [ $# -le 0 ]; do        total=$(($total + $1))        printf &amp;quot;$1 + &amp;quot;        shiftdoneprintf &amp;quot;\b\b= $total&amp;quot;
+&lt;pre&gt;&lt;code&gt;#! /bin/bash
+total=0
+until [ $# -le 0 ]; do
+        total=$(($total + $1))
+        printf &amp;quot;$1 + &amp;quot;
+        shift
+done
+printf &amp;quot;\b\b= $total&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;逻辑连接&#34;&gt;逻辑连接&lt;/h4&gt;
 &lt;p&gt;这里的&amp;amp;&amp;amp;和||和预想的会很不一样，举例如下：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;command1 &amp;amp;&amp;amp; command2&lt;/code&gt;当command1正确执行，才会执行command2&lt;/p&gt;
 &lt;p&gt;相当于：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command1&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt;    &lt;span style=&#34;color:#111&#34;&gt;command2&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command1&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color:#111&#34;&gt;command2&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;command1 || command2&lt;/code&gt;，当command1执行错误，才会执行command2&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command1&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt;    &lt;span style=&#34;color:#111&#34;&gt;command2&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;代码分块&#34;&gt;代码分块&lt;/h4&gt;
