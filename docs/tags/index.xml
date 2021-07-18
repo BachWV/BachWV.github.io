@@ -7,9 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2021</copyright>
+    <lastBuildDate>Sun, 18 Jul 2021 19:39:21 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Easy</title>
+      <link>https://uest.xyz/tags/easy/</link>
+      <pubDate>Sun, 18 Jul 2021 19:39:21 +0800</pubDate>
+      
+      <guid>https://uest.xyz/tags/easy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leetcode</title>
+      <link>https://uest.xyz/tags/leetcode/</link>
+      <pubDate>Sun, 18 Jul 2021 19:39:21 +0800</pubDate>
+      
+      <guid>https://uest.xyz/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Medium</title>
+      <link>https://uest.xyz/tags/medium/</link>
+      <pubDate>Sat, 17 Jul 2021 19:56:17 +0800</pubDate>
+      
+      <guid>https://uest.xyz/tags/medium/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
