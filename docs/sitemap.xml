@@ -2,28 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uest.xyz/posts/4z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/leetcode/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/medium/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/</loc>
+    <lastmod>2021-07-20T15:27:36+08:00</lastmod>
+  </url><url>
     <loc>https://uest.xyz/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</loc>
     <lastmod>2021-07-18T19:39:21+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/tags/easy/</loc>
     <lastmod>2021-07-18T19:39:21+08:00</lastmod>
   </url><url>
-    <loc>https://uest.xyz/tags/leetcode/</loc>
-    <lastmod>2021-07-18T19:39:21+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-07-18T19:39:21+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/tags/</loc>
-    <lastmod>2021-07-18T19:39:21+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/</loc>
-    <lastmod>2021-07-18T19:39:21+08:00</lastmod>
-  </url><url>
     <loc>https://uest.xyz/posts/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</loc>
-    <lastmod>2021-07-17T19:56:17+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/tags/medium/</loc>
     <lastmod>2021-07-17T19:56:17+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
