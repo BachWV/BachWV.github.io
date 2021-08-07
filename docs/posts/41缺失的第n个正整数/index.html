@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机  | 二叉树的前中后序遍历</title>
+	<title>划水摸鱼做梦无限状态自动机  | 41缺失的第n个正整数</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -83,7 +83,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">二叉树的前中后序遍历</h1>
+<h1 class="pt-2">41缺失的第n个正整数</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -98,12 +98,12 @@ onload='renderMathInElement(document.body);'></script>
 		href='/tags/leetcode'>Leetcode</a>&nbsp;&#47;
 	
 	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/easy'>Easy</a>
+		href='/tags/difficult'>Difficult</a>
 	
 	
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2021-07-29T22:56:00&#43;08:00">2021-7-29</time>
+		datetime="2021-08-07T21:49:20&#43;08:00">2021-8-7</time>
 </div>
 
 <hr />
@@ -116,62 +116,71 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><h1 id="二叉树的前中后序遍历">二叉树的前中后序遍历</h1>
-<p>前序：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">preorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">TreeNode</span> <span style="color:#111">root</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">()</span> <span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-            <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">preorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
+		<div class="c-rich-text"><h4 id="41-缺失的第一个正数httpsleetcode-cncomproblemsfirst-missing-positive"><a href="https://leetcode-cn.com/problems/first-missing-positive/">41. 缺失的第一个正数</a></h4>
+<p>给你一个未排序的整数数组 <code>nums</code> ，请你找出其中没有出现的最小的正整数。</p>
+<p>请你实现时间复杂度为 <code>O(n)</code> 并且只使用常数级别额外空间的解决方案。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：nums = [1,2,0]
+输出：3
+</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入：nums = [3,4,-1,1]
+输出：2
+</code></pre><p><strong>示例 3：</strong></p>
+<pre><code>输入：nums = [7,8,9,11,12]
+输出：1
+</code></pre><p>这一题也是我没想到的解法，只知道用哈希，没想到原地哈希，直接操作原数组：</p>
+<blockquote>
+<p>最早知道这个思路是在《剑指 Offer》这本书上看到的，感兴趣的朋友不妨做一下这道问题：剑指 Offer 03. 数组中重复的数字。下面简要叙述：</p>
+<p>由于题目要求我们「只能使用常数级别的空间」，而要找的数一定在 [1, N + 1] 左闭右闭（这里 N 是数组的长度）这个区间里。因此，我们可以就把原始的数组当做哈希表来使用。事实上，哈希表其实本身也是一个数组；
+我们要找的数就在 [1, N + 1] 里，最后 N + 1 这个元素我们不用找。因为在前面的 N 个元素都找不到的情况下，我们才返回 N + 1；
+那么，我们可以采取这样的思路：就把 11 这个数放到下标为 00 的位置， 22 这个数放到下标为 11 的位置，按照这种思路整理一遍数组。然后我们再遍历一次数组，第 11 个遇到的它的值不等于下标的那个数，就是我们要找的缺失的第一个正数。
+这个思想就相当于我们自己编写哈希函数，这个哈希函数的规则特别简单，那就是数值为 i 的数映射到下标为 i - 1 的位置。</p>
+<p>作者：liweiwei1419
+链接：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p><img src="https://pic.leetcode-cn.com/1e4f3f1c9a6fb37c2aa515069508f5f3ef9d72cc55b586790f9bec9705052d17-0041-14.png" alt="dsds"></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">firstMissingPositive</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">nums</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">preorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
-
-
+    <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">nums</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
+    <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]&gt;</span><span style="color:#111">0</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]&lt;=</span><span style="color:#111">n</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]!=</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]-</span><span style="color:#111">1</span><span style="color:#f92672">]!=</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]){</span>
+            <span style="color:#75715e">//替代以后还要不断判断这一个数，因为新的数来了,所以用while
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//nums[nums[i]-1]!=nums[i]这个条件必须要用上，不仅可以简化运算，还要针对这种【1，1】无限循环的情况
+</span><span style="color:#75715e"></span>            <span style="color:#111">swap</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">,</span><span style="color:#111">i</span><span style="color:#f92672">,</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
         <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
 
     <span style="color:#f92672">}</span>
-</code></pre></div><p>中序：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">inorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">TreeNode</span> <span style="color:#111">root</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">()</span> <span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">inorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
-            <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">inorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
-
-
-        <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-
-
+    <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]!=</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">)</span>
+            <span style="color:#00a8c8">return</span> <span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
-</code></pre></div><p>后序：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">postorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">TreeNode</span> <span style="color:#111">root</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">()</span> <span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#75715e">//针对只有【1】的数组
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>相似的一题，剑指offer3：</p>
+<h4 id="剑指-offer-03-数组中重复的数字httpsleetcode-cncomproblemsshu-zu-zhong-zhong-fu-de-shu-zi-lcof"><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 03. 数组中重复的数字</a></h4>
+<p>找出数组中重复的数字。</p>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：
+[2, 3, 1, 0, 2, 5, 3]
+输出：2 或 3 
+</code></pre><p>这一题给了明示，所有数字都在 0～n-1 的范围内，也是同样的方法,原地hash</p>
+<p>可以看作成为一种排序占位，值为i的占到下标为i的位置，如果有人占到位子，说明重复了，最终达到O(n)的时间复杂度</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">findRepeatNumber</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">nums</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">postorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
+    <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">nums</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
+    <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
 
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">addAll</span><span style="color:#f92672">(</span><span style="color:#111">postorderTraversal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
-
-            <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
-
+        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]!=</span><span style="color:#111">i</span><span style="color:#f92672">){</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]==</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]])</span>  <span style="color:#00a8c8">return</span> <span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">];</span>
+            <span style="color:#111">swap</span><span style="color:#f92672">(</span><span style="color:#111">nums</span><span style="color:#f92672">,</span><span style="color:#111">i</span><span style="color:#f92672">,</span><span style="color:#111">nums</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]);</span>
         <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-
     <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">return</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
 </code></pre></div></div>
 	</section>
 
@@ -359,7 +368,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 84 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1098 words in this page.
 	</div>
 </div>
 
@@ -370,21 +379,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/4z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/">
+    <a class="flex-grow-0" href="/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        4.Z字型变换
+        二叉树的前中后序遍历
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/">
-        41缺失的第n个正整数
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
@@ -395,9 +397,11 @@ onload='renderMathInElement(document.body);'></script>
 	<span class="heading pr-6 leading-loose">Related</span>
 	<span >
 		
-			<a href="/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/">415字符串相加</a>&nbsp;&nbsp;&#47;&nbsp;
+			<a href="/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树的前中后序遍历</a>&nbsp;&nbsp;&#47;&nbsp;
 		
 			<a href="/posts/4z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/">4.Z字型变换</a>&nbsp;&nbsp;&#47;&nbsp;
+		
+			<a href="/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/">415字符串相加</a>&nbsp;&nbsp;&#47;&nbsp;
 		
 			<a href="/posts/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">48旋转图像</a>&nbsp;&nbsp;&#47;&nbsp;
 		
