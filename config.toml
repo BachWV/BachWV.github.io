@@ -54,6 +54,12 @@ name = "About"
 url = "/about/"
 weight = 3
 
+[[menu.main]]
+identifier = "links"
+name = "友链"
+url = "/links/"
+weight = 4
+
 [taxonomies]
 category = "categories"
 series = "series"
@@ -63,7 +69,7 @@ bilibili = "https://space.bilibili.com/36175480"
 github = "http://github.io/bachwv"
 gitlab = "http://gitlab.com/"
 instagram = "http://example.com/"
-mail = "lijunlin0012@126.com"
+mail = ""
 twitter = "http://twitter.com/"
 weibo = "http://example.com/"
 youtube = "http://youtube.com/"

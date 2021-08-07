@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机  | 反转链表</title>
+	<title>划水摸鱼做梦无限状态自动机  | Links</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -83,7 +83,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">反转链表</h1>
+<h1 class="pt-2">Links</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -92,7 +92,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2021-04-27T20:27:17&#43;08:00">2021-4-27</time>
+		datetime="2021-08-07T23:41:56&#43;08:00">2021-8-7</time>
 </div>
 
 <hr />
@@ -105,76 +105,22 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><ul>
-<li>
-<p>这种链表题一定要画图</p>
-</li>
-<li>
-<p>头插法</p>
-</li>
-<li>
-<p>遍历原链表+每次插入到新表最前面</p>
-<h4 id="206-反转链表httpsleetcode-cncomproblemsreverse-linked-list"><a href="https://leetcode-cn.com/problems/reverse-linked-list/">206. 反转链表</a></h4>
-<p>难度简单</p>
-<p>给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg" alt="img"></p>
-<pre><code>输入：head = [1,2,3,4,5]
-输出：[5,4,3,2,1]
-</code></pre><p><strong>示例 2：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg" alt="img"></p>
-<pre><code>输入：head = [1,2]
-输出：[2,1]
-</code></pre><p><strong>示例 3：</strong></p>
-<pre><code>输入：head = []
-输出：[]
-</code></pre><p><strong>提示：</strong></p>
+		<div class="c-rich-text"><h1 id="1东哥httpsminatoxeongithubio">1.<a href="https://minatoxeon.github.io/">东哥</a></h1>
+<p>首先是东哥，一个啥手机都有的神，从经典iPhone SE 到机皇 Samsung Galaxy Note 10+ ,再到爵士Huawei Mate 30 Pro ，还有守门员小米10 ，大清亡了的一加7Pro。无论是配备A12X的iPad Pro Cellular 256GB，还是Pixel C。数不清的数码产品东哥这里应有尽有。</p>
+<h1 id="2alexhhhhttpalexcoalpub">2.<a href="http://alex.coal.pub/">Alexhhh</a></h1>
+<p>这个真的是大佬</p>
 <ul>
-<li>链表中节点的数目范围是 <code>[0, 5000]</code></li>
-<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
+<li>某个看起来很牛逼实际上是带专的大学的学生</li>
+<li>全盘Arch Linux的忠实教徒</li>
+<li>会在10行代码里隐藏100个bug的优秀开发者</li>
+<li>以上说的bug是能报错的</li>
+<li>酷安Linux交流群最大绒布球</li>
+<li>minecraft lover（虽然不太适应电脑版）</li>
+<li>不高兴就打音游然后就更不高兴的屑</li>
+<li>类原生爱好者</li>
+<li>gay里gay气但不是gay</li>
 </ul>
-</li>
-</ul>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> <span style="color:#111">Test</span><span style="color:#f92672">;</span>
-<span style="color:#00a8c8">class</span> <span style="color:#75af00">ListNode</span> <span style="color:#f92672">{</span>
-      <span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">;</span>
-      <span style="color:#111">ListNode</span> <span style="color:#111">next</span><span style="color:#f92672">;</span>
-      <span style="color:#111">ListNode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
-      <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span> <span style="color:#f92672">=</span> <span style="color:#111">val</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
-      <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">val</span><span style="color:#f92672">,</span> <span style="color:#111">ListNode</span> <span style="color:#111">next</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span> <span style="color:#f92672">=</span> <span style="color:#111">val</span><span style="color:#f92672">;</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span> <span style="color:#f92672">=</span> <span style="color:#111">next</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
-  <span style="color:#f92672">}</span><span style="color:#111">5t</span>
-
-<span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
-    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">ListNode</span> <span style="color:#75af00">reverseList</span><span style="color:#f92672">(</span><span style="color:#111">ListNode</span> <span style="color:#111">head</span><span style="color:#f92672">){</span>
-        <span style="color:#111">ListNode</span> <span style="color:#111">first</span><span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">();</span>
-        <span style="color:#111">ListNode</span> <span style="color:#111">copy</span><span style="color:#f92672">;</span>
-
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">head</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-            <span style="color:#111">first</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">;</span>
-            <span style="color:#111">copy</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span><span style="color:#00a8c8">else</span> <span style="color:#00a8c8">return</span> <span style="color:#111">head</span><span style="color:#f92672">;</span>
-       <span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">copy</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-           <span style="color:#111">ListNode</span> <span style="color:#111">temp</span><span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">();</span>
-           <span style="color:#111">temp</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">=</span><span style="color:#111">copy</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">;</span>
-           <span style="color:#111">temp</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
-          <span style="color:#111">copy</span><span style="color:#f92672">=</span><span style="color:#111">copy</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-          <span style="color:#111">first</span><span style="color:#f92672">=</span><span style="color:#111">temp</span><span style="color:#f92672">;</span><span style="color:#75715e">//每次first指针前移，让他始终指向第一个元素
-</span><span style="color:#75715e"></span>       <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">first</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">ListNode</span> <span style="color:#111">a</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">5</span><span style="color:#f92672">);</span>
-        <span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">4</span><span style="color:#f92672">);</span>
-        <span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">3</span><span style="color:#f92672">);</span>
-        <span style="color:#111">ListNode</span> <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">reverseList</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">);</span>
-        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
-            <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">b</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div></div>
+</div>
 	</section>
 
 
@@ -191,8 +137,7 @@ onload='renderMathInElement(document.body);'></script>
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/posts/" title="Posts page" >
 			Posts
 		</a>
 	</li>
@@ -216,7 +161,8 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/links/" title="友链 page" >
+		<a href="/links/" title="友链 page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			友链
 		</a>
 	</li>
@@ -367,7 +313,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2008–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 274 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 269 words in this page.
 	</div>
 </div>
 
@@ -378,21 +324,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/">
+    <a class="flex-grow-0" href="/posts/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        云测评
+        41缺失的第n个正整数
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/">
-        搭建与发布blog
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
