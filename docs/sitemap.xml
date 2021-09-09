@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://uest.xyz/categories/</loc>
-    <lastmod>2021-08-31T20:06:45+08:00</lastmod>
+    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-08-31T20:06:45+08:00</lastmod>
+    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
   </url><url>
-    <loc>https://uest.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</loc>
-    <lastmod>2021-08-31T20:06:45+08:00</lastmod>
+    <loc>https://uest.xyz/categories/tech/</loc>
+    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</loc>
+    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/</loc>
+    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</loc>
     <lastmod>2021-08-31T20:06:45+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/categories/%E9%9A%8F%E7%AC%94/</loc>

@@ -7,10 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2021</copyright>
-    <lastBuildDate>Tue, 31 Aug 2021 20:06:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Sep 2021 21:58:12 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从黑群晖走向白</title>
+      <link>https://uest.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
+      <pubDate>Thu, 09 Sep 2021 21:58:12 +0800</pubDate>
+      
+      <guid>https://uest.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
+      <description>&lt;p&gt;弄了快半年的黑群晖，感觉太难受了，处处受限，想来一个花生壳内网穿透都不行，zerotie没效果，放在docker里也不行，索性放弃，直接咸鱼15块洗白。&lt;/p&gt;
+&lt;p&gt;速速开始改sn/mac吧&lt;/p&gt;
+&lt;h2 id=&#34;1-开放ssh端口&#34;&gt;1 开放SSH端口&lt;/h2&gt;
+&lt;p&gt;在群晖上操作：控制面板里面——&amp;gt;终端机和SNMP 下，启动SSH功能。端口为22&lt;/p&gt;
+&lt;h2 id=&#34;2-ssh连接&#34;&gt;2 SSH连接&lt;/h2&gt;
+&lt;p&gt;随便用一个ssh软件连接你的群晖，我一般使用bitvise&lt;/p&gt;
+&lt;p&gt;ip就是你的群晖的局域网ip，我的是192.168.31.95&lt;/p&gt;
+&lt;p&gt;用户名密码就是平时登录的密码(我用admin账户登录的)&lt;/p&gt;
+&lt;h2 id=&#34;3-cli修改snmac&#34;&gt;3 cli修改sn/mac&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;提权 sudo -i ：再次输入当前账号的密码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在/tmp 目录下创建临时目录 名字随便起 比如boot &lt;code&gt;mkdir -p /tmp/boot&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切换到dev目录，挂载引导分区到boot &lt;code&gt;mount -t vfat synoboot1 /tmp/boot/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;挂载成功以后，切换到/tmp/boot目录，&lt;code&gt;ls&lt;/code&gt;以后发现有一个文件夹叫grub&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210909004652628.png&#34; alt=&#34;image-20210909004652628&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们需要修改的就是grub.cfg文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210909004835879.png&#34; alt=&#34;image-20210909004835879&#34;&gt;&lt;/p&gt;
+&lt;p&gt;看到那个sn和mac了吗，这就是我们目的要改的东西，改成洗白以后的号码，:wq完成！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-重启&#34;&gt;4 重启&lt;/h2&gt;
+&lt;p&gt;最后一步：reboot 然后耐心等待即可！&lt;/p&gt;
+&lt;p&gt;使用Sysnology assistant重新搜索，即可看到改成了刚才的sn和mac，一般来说不要重新搜索也能用&lt;/p&gt;
+&lt;p&gt;之后就可以愉快使用群晖官方服务的了，建议用非国区的账号哦&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://shimo.im/docs/KwwyWvkqJTrQvhvg/read&#34;&gt;https://shimo.im/docs/KwwyWvkqJTrQvhvg/read&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>不安全感</title>
