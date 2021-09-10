@@ -18,4 +18,3 @@ UESTC 大三狗，爱好各种手机，果吹，MIUI喷，雷军粉，嘉心糖
 
 github见底下
 
-paj id 冬日映雪

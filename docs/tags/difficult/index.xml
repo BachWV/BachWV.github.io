@@ -18,7 +18,7 @@
       <pubDate>Sat, 07 Aug 2021 21:49:20 +0800</pubDate>
       
       <guid>https://uest.xyz/posts/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/</guid>
-      <description>&lt;h4 id=&#34;41-缺失的第一个正数httpsleetcode-cncomproblemsfirst-missing-positive&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/first-missing-positive/&#34;&gt;41. 缺失的第一个正数&lt;/a&gt;&lt;/h4&gt;
+      <description>&lt;h1 id=&#34;41-缺失的第一个正数httpsleetcode-cncomproblemsfirst-missing-positive&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/first-missing-positive/&#34;&gt;41. 缺失的第一个正数&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;给你一个未排序的整数数组 &lt;code&gt;nums&lt;/code&gt; ，请你找出其中没有出现的最小的正整数。&lt;/p&gt;
 &lt;p&gt;请你实现时间复杂度为 &lt;code&gt;O(n)&lt;/code&gt; 并且只使用常数级别额外空间的解决方案。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
