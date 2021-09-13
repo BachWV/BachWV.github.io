@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uest.xyz/categories/</loc>
+    <lastmod>2021-09-13T20:56:00+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/</loc>
+    <lastmod>2021-09-13T20:56:00+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/</loc>
+    <lastmod>2021-09-13T20:56:00+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</loc>
+    <lastmod>2021-09-13T20:56:00+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-09-13T20:56:00+08:00</lastmod>
+  </url><url>
     <loc>https://uest.xyz/posts/11/</loc>
     <lastmod>2021-09-10T18:06:12+08:00</lastmod>
   </url><url>
@@ -11,20 +26,11 @@
     <loc>https://uest.xyz/tags/medium/</loc>
     <lastmod>2021-09-10T18:06:12+08:00</lastmod>
   </url><url>
-    <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-09-10T18:06:12+08:00</lastmod>
-  </url><url>
     <loc>https://uest.xyz/tags/</loc>
-    <lastmod>2021-09-10T18:06:12+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/</loc>
     <lastmod>2021-09-10T18:06:12+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/about/</loc>
     <lastmod>2021-09-09T22:12:07+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/categories/</loc>
-    <lastmod>2021-09-09T21:58:12+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/categories/tech/</loc>
     <lastmod>2021-09-09T21:58:12+08:00</lastmod>
