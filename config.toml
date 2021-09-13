@@ -2,10 +2,11 @@ DefaultContentLanguage = "en"
 author = "bach"
 baseURL = "https://uest.xyz"
 copyright = "Copyright © 2008–2021"
-disqusShortname = "YOURSHORTNAME"
+
+# disqusShortname = "YOURSHORTNAME"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
-googleAnalytics = "UA-FAKE"
+# googleAnalytics = "UA-FAKE"
 hasCJKLanguage = true
 languageCode = "en"
 theme = "hugo-theme-tokiwa"
@@ -24,7 +25,7 @@ bannerFont = "fonts/exampleFont"
 description = """
 Tokiwa-iro is the theme color of this site.
 """ 
-env = "production" # for Google Analytics and DISQUS.
+# env = "production" for Google Analytics and DISQUS.
 favicon = "img/favicon-32x32.png" 
 fuse = true # for searchbox. "JSON" must added to output contents. See [outputs].
 math = true # for introducing $KaTEX$
