@@ -18,8 +18,7 @@
       <pubDate>Mon, 20 Sep 2021 15:57:28 +0800</pubDate>
       
       <guid>https://uest.xyz/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</guid>
-      <description>&lt;h1 id=&#34;怎么还有人用码图啊&#34;&gt;怎么还有人用码图啊&lt;/h1&gt;
-&lt;p&gt;很久以前发现在浏览器里直接粘贴url就能自动下载码图提交的文件。而且是没有权限的，意味着你能下载到所有码图提交。而且对于请求次数也是没有限制的。&lt;/p&gt;
+      <description>&lt;p&gt;很久以前发现在浏览器里直接粘贴url就能自动下载码图提交的文件。而且是没有权限的，意味着你能下载到所有码图提交。而且对于请求次数也是没有限制的。&lt;/p&gt;
 &lt;p&gt;比如在已经登录码图的浏览器中复制这个url：http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038358&lt;/p&gt;
 &lt;p&gt;浏览器就会自动下载这个文件。&lt;/p&gt;
 &lt;p&gt;这时候就有人好奇了，把assignmentid改成1038357会怎么样？会下载到另一个人的提交，这一个提交是在你之前的最近一个提交。&lt;/p&gt;
@@ -63,8 +62,9 @@
     &lt;span style=&#34;color:#00a8c8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color:#00a8c8&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
          &lt;span style=&#34;color:#111&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;cookie&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-           &lt;span style=&#34;color:#75715e&#34;&gt;//cookie需要你从已登陆matu的浏览器中获取 download(&amp;#34;http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038000&amp;#34;,&amp;#34;D:/download&amp;#34;,cookie);    
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+           &lt;span style=&#34;color:#75715e&#34;&gt;//cookie需要你从已登陆matu的浏览器中获取 
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#111&#34;&gt;download&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038000&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;D:/download&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;cookie&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;    
+        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
             &lt;span style=&#34;color:#111&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;printStackTrace&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
