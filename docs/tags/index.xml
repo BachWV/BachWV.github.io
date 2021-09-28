@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2021</copyright>
-    <lastBuildDate>Tue, 28 Sep 2021 09:49:20 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Sep 2021 15:35:49 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://uest.xyz/tags/c&#43;&#43;/</link>
+      <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
+      
+      <guid>https://uest.xyz/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gdb</title>
+      <link>https://uest.xyz/tags/gdb/</link>
+      <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
+      
+      <guid>https://uest.xyz/tags/gdb/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Leetcode</title>
