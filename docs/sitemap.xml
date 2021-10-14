@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uest.xyz/posts/</loc>
+    <lastmod>2021-10-14T09:05:28+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/</loc>
+    <lastmod>2021-10-14T09:05:28+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</loc>
+    <lastmod>2021-10-14T09:05:28+08:00</lastmod>
+  </url><url>
     <loc>https://uest.xyz/tags/c&#43;&#43;/</loc>
     <lastmod>2021-09-28T15:35:49+08:00</lastmod>
   </url><url>
@@ -11,13 +20,7 @@
     <loc>https://uest.xyz/posts/gdb%E8%B0%83%E8%AF%95/</loc>
     <lastmod>2021-09-28T15:35:49+08:00</lastmod>
   </url><url>
-    <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-09-28T15:35:49+08:00</lastmod>
-  </url><url>
     <loc>https://uest.xyz/tags/</loc>
-    <lastmod>2021-09-28T15:35:49+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/</loc>
     <lastmod>2021-09-28T15:35:49+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</loc>
