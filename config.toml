@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "bach"
 baseURL = "https://uest.xyz"
-copyright = "Copyright © 2008–2021"
+copyright = "Copyright © 2021–2021"
 
 # disqusShortname = "YOURSHORTNAME"
 enableInlineShortcodes = true
@@ -10,6 +10,8 @@ footnoteReturnLinkContents = "^"
 hasCJKLanguage = true
 languageCode = "en"
 theme = "hugo-theme-tokiwa"
+#paginate might no use
+
 title = "划水摸鱼做梦无限状态自动机"
 publishDir = "docs"
 
@@ -31,6 +33,7 @@ fuse = true # for searchbox. "JSON" must added to output contents. See [outputs]
 math = true # for introducing $KaTEX$
 useChineseFonts = true 
 postDateFormat = "2006-1-2"
+paginate = 50
 
 [menu]
 # Shown in the side menu.
@@ -69,8 +72,8 @@ tag = "tags"
 bilibili = "https://space.bilibili.com/36175480"
 github = "http://github.io/bachwv"
 gitlab = "http://gitlab.com/"
-instagram = "http://example.com/"
-mail = "mailto:15718022038@126.com"
+instagram = "http://e.com/"
+mail = "mailto:i@uest.xyz"
 twitter = "http://twitter.com/"
 weibo = "http://example.com/"
 youtube = "http://youtube.com/"
