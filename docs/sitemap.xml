@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uest.xyz/posts/869.%E9%87%8D%E6%96%B0%E6%8E%92%E5%BA%8F%E5%BE%97%E5%88%B02%E7%9A%84%E5%B9%82/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/leetcode/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/medium/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/tags/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/</loc>
+    <lastmod>2021-10-28T00:39:21+08:00</lastmod>
+  </url><url>
     <loc>https://uest.xyz/posts/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</loc>
     <lastmod>2021-10-27T22:49:20+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/tags/difficult/</loc>
-    <lastmod>2021-10-27T22:49:20+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/tags/leetcode/</loc>
-    <lastmod>2021-10-27T22:49:20+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-10-27T22:49:20+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/tags/</loc>
-    <lastmod>2021-10-27T22:49:20+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/</loc>
     <lastmod>2021-10-27T22:49:20+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</loc>
@@ -36,9 +42,6 @@
     <lastmod>2021-09-28T15:35:49+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</loc>
-    <lastmod>2021-09-28T09:49:20+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/tags/medium/</loc>
     <lastmod>2021-09-28T09:49:20+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</loc>
