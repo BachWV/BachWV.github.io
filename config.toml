@@ -18,6 +18,13 @@ publishDir = "docs"
 [markup]
 [markup.highlight]
 style = "monokailight"
+guessSyntax = true
+hl_Lines = ""
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = false
+noClasses = true
+tabWidth = 4
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -86,3 +93,5 @@ zhihu = "http://example.com/"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+

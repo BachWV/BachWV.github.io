@@ -103,43 +103,43 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><pre><code>class moveZeroes {
-    public static void moveZeroes(int[] nums){
-//快慢指针的思想和removeElement这一题有着异曲同工之妙
-        int i=0,j=0;//i是慢指针 指向第一个0，j是快指针 指向第一个非0
-        for(;;i++){
-            if(nums[i]==0)break;//虽然我也觉得这里的循环写得很奇怪，但是思想还是很清晰的：第一个找到0！！如果出界就退出
-            if(i+1==nums.length) return;
-        }
-
-        j=i+1;//j是从i右边开始起步的
-        for (;;j++){
-            if(j&gt;=nums.length) return;
-            if(nums[j]!=0)break;
-
-        }
-       // System.out.println(i+&quot;j&quot;+j+&quot;----------&quot;);
-        for(;j&lt;nums.length;j++){
-            if(nums[j]!=0){
-                if(nums[j]!=0){
-                    nums[i]=nums[j];
-                    nums[j]=0;
-                    i++;
-                }
-            }
-
-        }
-    }
-    public static void main(String[] args) {
-        int []nums={0,0};
-        moveZeroes(nums);
-        for(int i=0;i&lt;nums.length;i++){
-            System.out.println(nums[i]);
-        }
-
-    }
-}
-</code></pre></div>
+		<div class="c-rich-text"><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>class moveZeroes {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    public static void moveZeroes(int[] nums){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>//快慢指针的思想和removeElement这一题有着异曲同工之妙
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        int i=0,j=0;//i是慢指针 指向第一个0，j是快指针 指向第一个非0
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        for(;;i++){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>            if(nums[i]==0)break;//虽然我也觉得这里的循环写得很奇怪，但是思想还是很清晰的：第一个找到0！！如果出界就退出
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>            if(i+1==nums.length) return;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        j=i+1;//j是从i右边开始起步的
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        for (;;j++){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>            if(j&gt;=nums.length) return;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>            if(nums[j]!=0)break;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>       // System.out.println(i+&#34;j&#34;+j+&#34;----------&#34;);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        for(;j&lt;nums.length;j++){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>            if(nums[j]!=0){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                if(nums[j]!=0){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                    nums[i]=nums[j];
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>                    nums[j]=0;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>                    i++;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>                }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>            }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    public static void main(String[] args) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        int []nums={0,0};
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        moveZeroes(nums);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>        for(int i=0;i&lt;nums.length;i++){
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>            System.out.println(nums[i]);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>}
+</code></pre></div></div>
 	</section>
 
 
@@ -296,9 +296,14 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 198 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 232 words in this page.
+		<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 	</div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 			</div>
 		</aside>

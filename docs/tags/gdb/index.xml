@@ -20,8 +20,8 @@
       <guid>https://uest.xyz/posts/gdb%E8%B0%83%E8%AF%95/</guid>
       <description>&lt;p&gt;今天尝试使用gdb调试，相比ide的调试没那么容易好上手&lt;/p&gt;
 &lt;p&gt;对于一个cpp文件&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;g++ test.cpp -o test -g
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;g++ test.cpp -o test -g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;l&lt;/code&gt;可以查看需要 调试的文件&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;

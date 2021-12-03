@@ -127,11 +127,11 @@ onload='renderMathInElement(document.body);'></script>
 <p>（1）修改配置文件。在配置文件config.toml中添加<code>publishDir = docs</code>，其他格式的配置文件类似。</p>
 <p>（2）打开Git Bash，输入<code>hugo</code>，就会发现博客文件中出现了docs文件夹，这是因为hugo将网页的信息都存储在docs里，而不是public中。</p>
 <p>（3）在博客文件夹中，打开Git Bash，依次输入以下代码（注意 git remote add 后跟随自己github的对应地址）：</p>
-<pre><code>git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
-git add .
-git commit -m &quot;first commit&quot;
-git push -u origin master
-</code></pre><p>（4）在GitHub对应的仓库设置中，将Github Pages source改成branch/docs 。</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>git add .
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>git commit -m &#34;first commit&#34;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>git push -u origin master
+</code></pre></div><p>（4）在GitHub对应的仓库设置中，将Github Pages source改成branch/docs 。</p>
 <p><img src="https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409140359.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="img"></p>
 <p>（5）这时候点击网址会发现内容已经成功渲染了，但是跳转连接出现问题，这是因为我们没有在配置文件中的<code>baseURL</code>中更新我们未来发布的网址链接。因此我们将GitHub Pages 对应的网址进行复制然后添加到配置文件的第一个 <code>baseURL</code>中，重新进行第二步和第三步即可。</p>
 </div>
@@ -292,8 +292,13 @@ git push -u origin master
 		Copyright © 2021–2021
 		<br />
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1464 words in this page.
+		<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 	</div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 			</div>
 		</aside>
