@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcodes on 划水摸鱼做梦无限状态自动机</title>
+    <link>https://uest.xyz/leetcodes/</link>
+    <description>Recent content in Leetcodes on 划水摸鱼做梦无限状态自动机</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2021–2021</copyright>
+    
+	<atom:link href="https://uest.xyz/leetcodes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

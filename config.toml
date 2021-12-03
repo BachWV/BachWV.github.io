@@ -64,19 +64,23 @@ name = "友链"
 url = "/links/"
 weight = 4
 
+[[menu.main]]
+identifier = "LeetCode"
+name = "leetcode"
+url = "/leetcode/"
+weight = 4
+
 [taxonomies]
 category = "categories"
+leetcode = "leetcodes"
 series = "series"
 tag = "tags"
 [social]
 bilibili = "https://space.bilibili.com/36175480"
 github = "http://github.io/bachwv"
 gitlab = "http://gitlab.com/"
-instagram = "http://e.com/"
 mail = "mailto:i@uest.xyz"
 twitter = "http://twitter.com/"
-weibo = "http://example.com/"
-youtube = "http://youtube.com/"
 zhihu = "http://example.com/"
 # any icon in layouts/partials/svg can be used by the name without the "-line.svg"
 

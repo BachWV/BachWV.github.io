@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LeetCodes on 划水摸鱼做梦无限状态自动机</title>
+    <link>https://uest.xyz/leetcode/</link>
+    <description>Recent content in LeetCodes on 划水摸鱼做梦无限状态自动机</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2021–2021</copyright>
+    <lastBuildDate>Fri, 03 Dec 2021 16:49:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://uest.xyz/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.两数之和</title>
+      <link>https://uest.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Fri, 03 Dec 2021 16:49:37 +0800</pubDate>
+      
+      <guid>https://uest.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>&lt;blockquote&gt;
+&lt;h4 id=&#34;1-两数之和httpsleetcode-cncomproblemstwo-sum&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/two-sum/&#34;&gt;1. 两数之和&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;难度简单&lt;/p&gt;
+&lt;p&gt;给定一个整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个整数目标值 &lt;code&gt;target&lt;/code&gt;，请你在该数组中找出 &lt;strong&gt;和为目标值&lt;/strong&gt; &lt;em&gt;&lt;code&gt;target&lt;/code&gt;&lt;/em&gt; 的那 &lt;strong&gt;两个&lt;/strong&gt; 整数，并返回它们的数组下标。&lt;/p&gt;
+&lt;p&gt;你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。&lt;/p&gt;
+&lt;p&gt;你可以按任意顺序返回答案。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [2,7,11,15], target = 9
+输出：[0,1]
+解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [3,2,4], target = 6
+输出：[1,2]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;示例 3：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：nums = [3,3], target = 6
+输出：[0,1]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;2 &amp;lt;= nums.length &amp;lt;= 104&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-109 &amp;lt;= nums[i] &amp;lt;= 109&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-109 &amp;lt;= target &amp;lt;= 109&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;只会存在一个有效答案&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**进阶：**你可以想出一个时间复杂度小于 &lt;code&gt;O(n2)&lt;/code&gt; 的算法吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;
+&lt;span style=&#34;color:#00a8c8&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Solution&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+       &lt;span style=&#34;color:#00a8c8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;twoSum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;nums&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;solution&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#111&#34;&gt;HashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;hashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;HashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;();&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;nums&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;hashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;containsKey&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;nums&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])){&lt;/span&gt;
+                &lt;span style=&#34;color:#111&#34;&gt;solution&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;hashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;nums&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]);&lt;/span&gt;
+                &lt;span style=&#34;color:#111&#34;&gt;solution&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+                &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;solution&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#111&#34;&gt;hashMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;nums&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;],&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;solution&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
