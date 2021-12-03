@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机  | 跳转测试</title>
+	<title>划水摸鱼做梦无限状态自动机  | 400.第N位数字</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -70,7 +70,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">跳转测试</h1>
+<h1 class="pt-2">400.第N位数字</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -79,7 +79,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2021-12-03T16:35:57&#43;08:00">2021-12-3</time>
+		datetime="2021-12-04T00:19:37&#43;08:00">2021-12-4</time>
 </div>
 
 <hr />
@@ -92,25 +92,53 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 建议使用绝对路径（根目录为content目录），而非相对路径，否则容易出错</span>
-ref绝对路径：
-<span style="color:#f92672">[</span>19.删除链表的倒数第N个结点<span style="color:#f92672">](</span>https://uest.xyz/posts/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/<span style="color:#f92672">)</span>
-relref相对路径：
-<span style="color:#f92672">[</span>19.删除链表的倒数第N个结点<span style="color:#f92672">](</span>/posts/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/<span style="color:#f92672">)</span>
-
-<span style="color:#75715e"># 只有所引用的文件与当前文件在同一文件夹下时可以使用 相对路径的方式（只写文件名）</span>
-</code></pre></div><p>为了实现左侧有LeetCode的效果，对Hugo来说，配置十分简单，</p>
-<p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203171516266.png" alt="image-20211203171516266"></p>
-<p>在taxonomies中添加leetcode标签，这是为了根据leetcode文件夹生成http://localhost:1313/leetcode/，里面是leetcode文件夹中的文章</p>
-<p>Taxonomies are classifications of logical relationships between content.</p>
-<p>而方框中[[menu.main]，决定了leetcode标签是否显示在左侧侧边栏</p>
-<p><a href="https://gohugo.io/content-management/taxonomies/">https://gohugo.io/content-management/taxonomies/</a></p>
-<p><a href="https://uest.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">1.两数之和</a></p>
-<p><a href="">2</a></p>
-<p><a href="/posts/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/">19.删除链表的倒数第N个结点</a></p>
-<p><a href="/posts/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">48.旋转图像</a></p>
-<p><a href="https://uest.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/">400.第N位数字</a></p>
-</div>
+		<div class="c-rich-text"><blockquote>
+<h4 id="400-第-n-位数字httpsleetcode-cncomproblemsnth-digit"><a href="https://leetcode-cn.com/problems/nth-digit/">400. 第 N 位数字</a></h4>
+<p>难度中等277</p>
+<p>给你一个整数 <code>n</code> ，请你在无限的整数序列 <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]</code> 中找出并返回第 <code>n</code> 位上的数字。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：n = 3
+输出：3
+</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入：n = 11
+输出：0
+解释：第 11 位数字在序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... 里是 0 ，它是 10 的一部分。
+</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 231 - 1</code></li>
+<li>第 <code>n</code> 位上的数字是按计数单位（digit）从前往后数的第 <code>n</code> 个数，参见 <strong>示例 2</strong> 。</li>
+</ul>
+<p>通过次数41,651</p>
+<p>提交次数91,695</p>
+</blockquote>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">findNthDigit</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">&lt;</span><span style="color:#111">10</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">return</span> <span style="color:#111">n</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">2</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">long</span> <span style="color:#111">maxnum</span><span style="color:#f92672">=</span><span style="color:#111">9</span><span style="color:#f92672">;</span>
+       <span style="color:#00a8c8">long</span> <span style="color:#111">temp</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+       <span style="color:#00a8c8">int</span> <span style="color:#111">mod</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#00a8c8">true</span><span style="color:#f92672">){</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">&lt;</span><span style="color:#111">maxnum</span><span style="color:#f92672">+</span><span style="color:#111">9</span><span style="color:#f92672">*(</span><span style="color:#00a8c8">long</span><span style="color:#f92672">)</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">pow</span><span style="color:#f92672">(</span><span style="color:#111">10</span><span style="color:#f92672">,</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">)*</span><span style="color:#111">i</span><span style="color:#f92672">){</span>
+                <span style="color:#00a8c8">long</span> <span style="color:#111">before</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+                <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">j</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">&lt;</span><span style="color:#111">i</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">++)</span><span style="color:#111">before</span><span style="color:#f92672">+=(</span><span style="color:#00a8c8">long</span><span style="color:#f92672">)</span><span style="color:#111">9</span><span style="color:#f92672">*</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">pow</span><span style="color:#f92672">(</span><span style="color:#111">10</span><span style="color:#f92672">,</span><span style="color:#111">j</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
+                <span style="color:#111">temp</span><span style="color:#f92672">=(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#111">maxnum</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">)/</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">before</span><span style="color:#f92672">;</span><span style="color:#75715e">//这里的加1是因为往数轴正方向再数一个值
+</span><span style="color:#75715e"></span>                <span style="color:#111">mod</span><span style="color:#f92672">=(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">)(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#111">maxnum</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">)%</span><span style="color:#111">i</span><span style="color:#f92672">;</span><span style="color:#75715e">//这里的减1是为了让mod=0对准最高位
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">//    346 347 348     349 350 351            
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">//152：1   5   2       1   5  3
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// System.out.println(&#34;temp=&#34;+temp+&#34; mod=&#34;+mod+&#34; i=&#34;+i);
+</span><span style="color:#75715e"></span>                  <span style="color:#75715e">//System.out.println(&#34;maxnum=&#34;+maxnum);
+</span><span style="color:#75715e"></span>                <span style="color:#111">String</span> <span style="color:#111">s</span><span style="color:#f92672">=</span><span style="color:#111">String</span><span style="color:#f92672">.</span><span style="color:#75af00">valueOf</span><span style="color:#f92672">(</span><span style="color:#111">temp</span><span style="color:#f92672">);</span>
+                <span style="color:#00a8c8">return</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">mod</span><span style="color:#f92672">)-</span><span style="color:#111">48</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span><span style="color:#00a8c8">else</span><span style="color:#f92672">{</span>
+            <span style="color:#111">maxnum</span><span style="color:#f92672">=</span><span style="color:#111">maxnum</span><span style="color:#f92672">+</span><span style="color:#111">9</span><span style="color:#f92672">*(</span><span style="color:#00a8c8">long</span><span style="color:#f92672">)</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">pow</span><span style="color:#f92672">(</span><span style="color:#111">10</span><span style="color:#f92672">,</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">)*</span><span style="color:#111">i</span><span style="color:#f92672">;</span>
+            <span style="color:#111">i</span><span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span> 
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></div>
 	</section>
 
 
@@ -127,8 +155,7 @@ relref相对路径：
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/posts/" title="Posts page" >
 			Posts
 		</a>
 	</li>
@@ -152,7 +179,8 @@ relref相对路径：
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/leetcode/" title="leetcode page" >
+		<a href="/leetcode/" title="leetcode page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			leetcode
 		</a>
 	</li>
@@ -267,7 +295,7 @@ relref相对路径：
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 586 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 340 words in this page.
 	</div>
 </div>
 
@@ -278,21 +306,14 @@ relref相对路径：
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/%E7%BE%A4%E6%99%96frp/">
+    <a class="flex-grow-0" href="/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        frp内网穿透
+        1.两数之和
     </a>
     
-    
-    <a class="flex-grow-0" href="/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-        1.两数之和
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

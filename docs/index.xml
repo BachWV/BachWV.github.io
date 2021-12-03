@@ -7,10 +7,65 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
-    <lastBuildDate>Fri, 03 Dec 2021 16:49:37 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Dec 2021 00:19:37 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>400.第N位数字</title>
+      <link>https://uest.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Sat, 04 Dec 2021 00:19:37 +0800</pubDate>
+      
+      <guid>https://uest.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</guid>
+      <description>&lt;blockquote&gt;
+&lt;h4 id=&#34;400-第-n-位数字httpsleetcode-cncomproblemsnth-digit&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/nth-digit/&#34;&gt;400. 第 N 位数字&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;难度中等277&lt;/p&gt;
+&lt;p&gt;给你一个整数 &lt;code&gt;n&lt;/code&gt; ，请你在无限的整数序列 &lt;code&gt;[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]&lt;/code&gt; 中找出并返回第 &lt;code&gt;n&lt;/code&gt; 位上的数字。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：n = 3
+输出：3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：n = 11
+输出：0
+解释：第 11 位数字在序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... 里是 0 ，它是 10 的一部分。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;1 &amp;lt;= n &amp;lt;= 231 - 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;第 &lt;code&gt;n&lt;/code&gt; 位上的数字是按计数单位（digit）从前往后数的第 &lt;code&gt;n&lt;/code&gt; 个数，参见 &lt;strong&gt;示例 2&lt;/strong&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过次数41,651&lt;/p&gt;
+&lt;p&gt;提交次数91,695&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;
+&lt;span style=&#34;color:#00a8c8&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Solution&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#00a8c8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;findNthDigit&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+       &lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;temp&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+       &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;mod&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#00a8c8&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;){&lt;/span&gt;
+            &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;){&lt;/span&gt;
+                &lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;before&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+                &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++)&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;before&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+=(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+                &lt;span style=&#34;color:#111&#34;&gt;temp&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)/&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;before&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//这里的加1是因为往数轴正方向再数一个值
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#111&#34;&gt;mod&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)%&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//这里的减1是为了让mod=0对准最高位
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;//    346 347 348     349 350 351            
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;//152：1   5   2       1   5  3
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;// System.out.println(&amp;#34;temp=&amp;#34;+temp+&amp;#34; mod=&amp;#34;+mod+&amp;#34; i=&amp;#34;+i);
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                  &lt;span style=&#34;color:#75715e&#34;&gt;//System.out.println(&amp;#34;maxnum=&amp;#34;+maxnum);
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#111&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;valueOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;temp&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+                &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;charAt&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;mod&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;48&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;else&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;maxnum&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; 
+        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>1.两数之和</title>
@@ -86,6 +141,7 @@ relref相对路径：
 &lt;p&gt;&lt;a href=&#34;&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://uest.xyz/posts/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/&#34;&gt;19.删除链表的倒数第N个结点&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://uest.xyz/posts/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/&#34;&gt;48.旋转图像&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://uest.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/&#34;&gt;400.第N位数字&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
