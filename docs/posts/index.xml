@@ -7,10 +7,45 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
-    <lastBuildDate>Fri, 10 Dec 2021 23:23:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Dec 2021 23:56:31 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CentOS上部署tomcat项目</title>
+      <link>https://uest.xyz/posts/pdd_on_centos/</link>
+      <pubDate>Sun, 12 Dec 2021 23:56:31 +0800</pubDate>
+      
+      <guid>https://uest.xyz/posts/pdd_on_centos/</guid>
+      <description>&lt;p&gt;CentOS部署pdd&lt;/p&gt;
+&lt;p&gt;1.CentOS安装jdk&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;yum install java-1.8.0-openjdk.x86_64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会自动配置环境变量&lt;/p&gt;
+&lt;p&gt;2.安装tomcat&lt;/p&gt;
+&lt;p&gt;安装目录&lt;code&gt;/usr/local/tomcat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;和win下配置一模一样，i了i了&lt;/p&gt;
+&lt;p&gt;3.安装mysql
+有点复杂
+&lt;a href=&#34;https://www.cnblogs.com/zhulei2/p/13912167.html&#34;&gt;https://www.cnblogs.com/zhulei2/p/13912167.html&lt;/a&gt;
+关于密码要改一下策略&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;SHOW&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;VARIABLES&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;validate_password%&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;global&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;validate_password&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;grant&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;all&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;privileges&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;on&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;to&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;user02&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;grant&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;option&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; 
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;create&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;user02&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;identified&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;by&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;2077&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;远程连接： &lt;code&gt; GRANT ALL PRIVILEGES ON *.*TO &#39;root&#39;@&#39;%&#39;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;4.打war包
+idea中build-&amp;gt;build artifacts
+&lt;a href=&#34;https://blog.csdn.net/money_yao/article/details/91435188&#34;&gt;https://blog.csdn.net/money_yao/article/details/91435188&lt;/a&gt;
+移到webapp试了可以
+注意\conf\Catalina\localhost中加入命名为shopimage.xml完成虚拟文件夹创建&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;Context&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;docBase=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意在tomcat运行过程中，webapps下面的war文件是热部署的，不需要重启tomcat，并且.war文件不能删除，否则项目无法打开。&lt;/p&gt;
+&lt;p&gt;目前已知问题：用户登录以后的订单list的sql语句有问题，目测是CentOS下Mysql8.0的锅
+查询用户表很慢，不知道什么原因&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Ascii</title>

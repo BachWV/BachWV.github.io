@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://uest.xyz/posts/ascii/</loc>
-    <lastmod>2021-12-10T23:23:40+08:00</lastmod>
+    <loc>https://uest.xyz/posts/pdd_on_centos/</loc>
+    <lastmod>2021-12-12T23:56:31+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-12-10T23:23:40+08:00</lastmod>
+    <lastmod>2021-12-12T23:56:31+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/</loc>
+    <lastmod>2021-12-12T23:56:31+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/ascii/</loc>
     <lastmod>2021-12-10T23:23:40+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</loc>
