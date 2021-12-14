@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://uest.xyz/posts/pdd_on_centos/</loc>
-    <lastmod>2021-12-12T23:56:31+08:00</lastmod>
-  </url><url>
     <loc>https://uest.xyz/posts/</loc>
-    <lastmod>2021-12-12T23:56:31+08:00</lastmod>
+    <lastmod>2021-12-14T20:05:28+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/</loc>
+    <lastmod>2021-12-14T20:05:28+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</loc>
+    <lastmod>2021-12-14T20:05:28+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/posts/pdd_on_centos/</loc>
     <lastmod>2021-12-12T23:56:31+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/ascii/</loc>
