@@ -8,13 +8,16 @@ tags: [
 ]
 ---
 
-蔡勒公式
-$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$
-公式中的符号含义如下：
+蔡勒(zeller)公式
 
-w：{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
-c：$${\frac {year}{100}}$$；
-y：$$year \bmod {100}$$
+给出日期，计算星期几
+
+$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$
+
+$${\displaystyle c={\frac {year}{100}}}$$
+$${\displaystyle y= year \bmod {100}}$$
+
+所得的w即为星期几，w=0为星期日，w=1为星期一，以此类推
 
 注意：month的取值范围为3至14，如果月份数是1、2月要看作上一年的13、14月来计算，比如2000年2月29日要看作1999年的14月29日来计算
 
@@ -63,6 +66,7 @@ class Solution {
         }
         int y=year%100,c=year/100; 
         int week=y+y/4+c/4-2*c+26*(month+1)/10+day-1+70;
+        //+70是因为可能出现负数
         return ans[week%7];
     }
 }

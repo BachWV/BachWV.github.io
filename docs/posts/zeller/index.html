@@ -103,12 +103,12 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>蔡勒公式
-$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$
-公式中的符号含义如下：</p>
-<p>w：{&ldquo;Sunday&rdquo;, &ldquo;Monday&rdquo;, &ldquo;Tuesday&rdquo;, &ldquo;Wednesday&rdquo;, &ldquo;Thursday&rdquo;, &ldquo;Friday&rdquo;, &ldquo;Saturday&rdquo;}
-c：$${\frac {year}{100}}$$；
-y：$$year \bmod {100}$$</p>
+		<div class="c-rich-text"><p>蔡勒(zeller)公式</p>
+<p>给出日期，计算星期几</p>
+<p>$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$</p>
+<p>$${\displaystyle c={\frac {year}{100}}}$$
+$${\displaystyle y= year \bmod {100}}$$</p>
+<p>所得的w即为星期几，w=0为星期日，w=1为星期一，以此类推</p>
 <p>注意：month的取值范围为3至14，如果月份数是1、2月要看作上一年的13、14月来计算，比如2000年2月29日要看作1999年的14月29日来计算</p>
 <blockquote>
 <h4 id="1185-一周中的第几天httpsleetcode-cncomproblemsday-of-the-week"><a href="https://leetcode-cn.com/problems/day-of-the-week/">1185. 一周中的第几天</a></h4>
@@ -134,9 +134,10 @@ y：$$year \bmod {100}$$</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#f92672">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#00a8c8">int</span> <span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">%</span><span style="color:#111">100</span><span style="color:#f92672">,</span><span style="color:#111">c</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">/</span><span style="color:#111">100</span><span style="color:#f92672">;</span> 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        <span style="color:#00a8c8">int</span> <span style="color:#111">week</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#f92672">+</span><span style="color:#111">y</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">+</span><span style="color:#111">c</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">-</span><span style="color:#111">2</span><span style="color:#f92672">*</span><span style="color:#111">c</span><span style="color:#f92672">+</span><span style="color:#111">26</span><span style="color:#f92672">*(</span><span style="color:#111">month</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">)/</span><span style="color:#111">10</span><span style="color:#f92672">+</span><span style="color:#111">day</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">+</span><span style="color:#111">70</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">week</span><span style="color:#f92672">%</span><span style="color:#111">7</span><span style="color:#f92672">];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#f92672">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#75715e">//+70是因为可能出现负数
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">week</span><span style="color:#f92672">%</span><span style="color:#111">7</span><span style="color:#f92672">];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#f92672">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#f92672">}</span>
 </code></pre></div></div>
 	</section>
 
@@ -294,7 +295,7 @@ y：$$year \bmod {100}$$</p>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 439 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 434 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
