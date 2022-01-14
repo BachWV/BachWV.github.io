@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | CentOS上部署tomcat项目</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -94,7 +94,7 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>CentOS部署pdd</p>
 <p>1.CentOS安装jdk</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>yum install java-1.8.0-openjdk.x86_64
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>yum install java-1.8.0-openjdk.x86_64
 </code></pre></div><p>会自动配置环境变量</p>
 <p>2.安装tomcat</p>
 <p>安装目录<code>/usr/local/tomcat</code></p>
@@ -103,7 +103,7 @@ onload='renderMathInElement(document.body);'></script>
 有点复杂
 <a href="https://www.cnblogs.com/zhulei2/p/13912167.html">https://www.cnblogs.com/zhulei2/p/13912167.html</a>
 关于密码要改一下策略</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#00a8c8">set</span> <span style="color:#00a8c8">global</span> <span style="color:#111">validate_password</span><span style="color:#111">.</span><span style="color:#00a8c8">length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">all</span> <span style="color:#00a8c8">privileges</span> <span style="color:#00a8c8">on</span> <span style="color:#f92672">*</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">to</span> <span style="color:#d88200">&#39;user02&#39;</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#00a8c8">with</span> <span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">option</span><span style="color:#111">;</span> 
@@ -114,7 +114,7 @@ idea中build-&gt;build artifacts
 <a href="https://blog.csdn.net/money_yao/article/details/91435188">https://blog.csdn.net/money_yao/article/details/91435188</a>
 移到webapp试了可以
 注意\conf\Catalina\localhost中加入命名为shopimage.xml完成虚拟文件夹创建</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
 </code></pre></div><p>注意在tomcat运行过程中，webapps下面的war文件是热部署的，不需要重启tomcat，并且.war文件不能删除，否则项目无法打开。</p>
 <p>目前已知问题：用户登录以后的订单list的sql语句有问题，目测是CentOS下Mysql8.0的锅
 查询用户表很慢，不知道什么原因</p>

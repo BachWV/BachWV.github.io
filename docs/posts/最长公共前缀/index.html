@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | 最长公共前缀</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -96,10 +96,10 @@ onload='renderMathInElement(document.body);'></script>
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：strs = [&#34;flower&#34;,&#34;flow&#34;,&#34;flight&#34;]
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：strs = [&#34;flower&#34;,&#34;flow&#34;,&#34;flight&#34;]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：&#34;fl&#34;
 </code></pre></div><p><strong>示例 2：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：strs = [&#34;dog&#34;,&#34;racecar&#34;,&#34;car&#34;]
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：strs = [&#34;dog&#34;,&#34;racecar&#34;,&#34;car&#34;]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：&#34;&#34;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>解释：输入不存在公共前缀。
 </code></pre></div><p><strong>提示：</strong></p>
@@ -109,7 +109,7 @@ onload='renderMathInElement(document.body);'></script>
 <li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 <p>先上我写的垃圾代码：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">longestCommonPrefix</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">strs</span><span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span><span style="color:#75715e">//trycatch是针对输入空字符串的情况，输出空字符串
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">int</span> <span style="color:#111">len</span> <span style="color:#f92672">=</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
@@ -159,7 +159,7 @@ onload='renderMathInElement(document.body);'></script>
 <img src="https://pic.leetcode-cn.com/db8e2b71d5388b52bed8e5a022be03f1aa3c5a58249182ff9fb1fcbe1921b10f-~J5%7BI%7D%5B%5DG%7BFG3AA1KHBS5W1.png" alt="~J5{I}[]G{FG3AA1KHBS5W1.png"></p>
 <h3 id="代码">代码</h3>
 <p>下面是 C++17 的代码</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>class Solution {
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>class Solution {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>public:
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        if(strs.empty()) return &#34;&#34;;
@@ -172,7 +172,7 @@ onload='renderMathInElement(document.body);'></script>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>};
 </code></pre></div><p>等同的 C++11 代码如下</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>class Solution {
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>class Solution {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>public:
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        if(strs.empty()) return &#34;&#34;;
@@ -183,7 +183,7 @@ onload='renderMathInElement(document.body);'></script>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>};
 </code></pre></div><p>Python 代码</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>class Solution:
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>class Solution:
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    def longestCommonPrefix(self, strs: List[str]) -&gt; str:
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        if not strs: return &#34;&#34;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        str0 = min(strs)
@@ -195,7 +195,7 @@ onload='renderMathInElement(document.body);'></script>
 </code></pre></div><p>这里关键在于minmax_elements的使用</p>
 <p>该函数是返回指定范围内的最大最小值的元素的迭代器组成的一个pair, 如果最值多于一个， first返回的是第一个出现的最小值的迭代器，second返回的是最后一个出现的最大值的迭代器 。</p>
 <p>下面是一个例子：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">void</span> <span style="color:#75af00">minmaxelement</span><span style="color:#111">(){</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">void</span> <span style="color:#75af00">minmaxelement</span><span style="color:#111">(){</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#111">vector</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">&gt;</span> <span style="color:#111">vi</span><span style="color:#111">{</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">};</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;vi=&#34;</span><span style="color:#111">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#00a8c8">for</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#111">:</span><span style="color:#111">vi</span><span style="color:#111">)</span>
@@ -211,7 +211,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#75715e">//it.first=1 it.second=9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#75715e">//*(it.first-1)=4 *(it.second-1)=9 
 </span></code></pre></div><p>注意 string 比较采用的是 ”字典序“，a,bc,aac按照字典序比较就是：a,aac,bc.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">ForwardIt</span><span style="color:#111">,</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Compare</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">ForwardIt</span><span style="color:#111">,</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Compare</span><span style="color:#f92672">&gt;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">pair</span><span style="color:#f92672">&lt;</span><span style="color:#111">ForwardIt</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span><span style="color:#f92672">&gt;</span> 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#111">minmax_element</span><span style="color:#111">(</span><span style="color:#111">ForwardIt</span> <span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span> <span style="color:#111">last</span><span style="color:#111">,</span> <span style="color:#111">Compare</span> <span style="color:#111">comp</span><span style="color:#111">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#111">{</span>

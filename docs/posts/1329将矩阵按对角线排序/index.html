@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | 1329.将矩阵按对角线排序</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -108,10 +108,10 @@ onload='renderMathInElement(document.body);'></script>
 <p>给你一个 <code>m * n</code> 的整数矩阵 <code>mat</code> ，请你将同一条 <strong>矩阵对角线</strong> 上的元素按升序排序后，返回排好序的矩阵。</p>
 <p><strong>示例 1：</strong></p>
 <p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/25/1482_example_1_2.png" alt="img"></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：[[1,1,1,1],[1,2,2,2],[1,2,3,3]]
 </code></pre></div><p><strong>示例 2：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：mat = [[11,25,66,1,69,7],[23,55,17,45,15,52],[75,31,36,44,58,8],[22,27,33,25,68,4],[84,28,14,11,5,50]]
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：mat = [[11,25,66,1,69,7],[23,55,17,45,15,52],[75,31,36,44,58,8],[22,27,33,25,68,4],[84,28,14,11,5,50]]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：[[5,17,4,1,52,7],[11,11,25,45,8,69],[14,23,25,44,58,15],[22,27,31,36,50,66],[84,28,75,33,55,68]]
 </code></pre></div><p><strong>提示：</strong></p>
 <ul>
@@ -123,7 +123,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>普通题，但是耗时太久.</p>
 <p>思路就是按照提示找到同一斜边的元素，arraylist排序，写回去。</p>
 <p>问题在于找到同一斜边的元素，注意边界。我将遍历过程分成两段，分别是下三角和上三角，利用mat[i][j]的条件i&lt;m&amp;&amp;j&lt;n来控制边界。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>  <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#75af00">diagonalSort</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">mat</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>  <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#75af00">diagonalSort</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">mat</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#00a8c8">int</span> <span style="color:#111">m</span><span style="color:#f92672">=</span><span style="color:#111">mat</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>       <span style="color:#75715e">// System.out.println(m);
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">mat</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
@@ -167,7 +167,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>对每一条对角线上的元素进行排序。</p>
 <p>填回去的操作：按照从左到右，从上往下遍历时，每次都是最小的在前，可以另外用一个数组保存，或者也可以将arraylist转成栈，按次序填回去的数一定是从小到大的。</p>
 <p>别人的code:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#75af00">diagonalSort</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">mat</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#75af00">diagonalSort</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">mat</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#75715e">// 行数
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">int</span> <span style="color:#111">m</span> <span style="color:#f92672">=</span> <span style="color:#111">mat</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#75715e">// 列数

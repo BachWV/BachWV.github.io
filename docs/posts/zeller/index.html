@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | Zeller</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -116,16 +116,16 @@ $${\displaystyle y= year \bmod {100}}$$</p>
 <p>输入为三个整数：<code>day</code>、<code>month</code> 和 <code>year</code>，分别表示日、月、年。</p>
 <p>您返回的结果必须是这几个值中的一个 <code>{&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</code>。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 31, month = 8, year = 2019
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 31, month = 8, year = 2019
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：&#34;Saturday&#34;
 </code></pre></div><p><strong>示例 2：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 18, month = 7, year = 1999
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 18, month = 7, year = 1999
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：&#34;Sunday&#34;
 </code></pre></div><p><strong>示例 3：</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 15, month = 8, year = 1993
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入：day = 15, month = 8, year = 1993
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出：&#34;Sunday&#34;
 </code></pre></div></blockquote>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">dayOfTheWeek</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">day</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">month</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">year</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#111">String</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">={</span><span style="color:#d88200">&#34;Sunday&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;Monday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Tuesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Wednesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Thursday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Friday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Saturday&#34;</span><span style="color:#f92672">};</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">month</span><span style="color:#f92672">&lt;=</span><span style="color:#111">2</span><span style="color:#f92672">){</span>

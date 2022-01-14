@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | 415.字符串相加</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -116,7 +116,7 @@ onload='renderMathInElement(document.body);'></script>
 </blockquote>
 <p>根据朴素的加法思想，关键在于模拟竖式计算，用一个字符串存储进位，每一列超过十进位。</p>
 <p>注意要对齐，在短的字符串首部补零。字符串的生成使用拼接的方法。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span> <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">addStrings</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">num1</span><span style="color:#f92672">,</span> <span style="color:#111">String</span> <span style="color:#111">num2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span> <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">addStrings</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">num1</span><span style="color:#f92672">,</span> <span style="color:#111">String</span> <span style="color:#111">num2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>   
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#111">String</span> <span style="color:#111">numjinwei</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#f92672">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#111">String</span> <span style="color:#111">addsum</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;</span>
