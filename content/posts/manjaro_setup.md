@@ -1,6 +1,6 @@
 ---
 title: "Manjaro Setup"
-date: 2022-01-14T22:57:54+08:00
+date: 2022-01-13T22:57:54+08:00
 draft: false
 ---
 

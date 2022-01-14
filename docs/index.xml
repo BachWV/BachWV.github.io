@@ -7,10 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
-    <lastBuildDate>Mon, 03 Jan 2022 00:57:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jan 2022 22:57:54 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Manjaro Setup</title>
+      <link>https://uest.xyz/posts/manjaro_setup/</link>
+      <pubDate>Thu, 13 Jan 2022 22:57:54 +0800</pubDate>
+      
+      <guid>https://uest.xyz/posts/manjaro_setup/</guid>
+      <description>&lt;p&gt;Manjaro 的一些安装经验吧&lt;/p&gt;
+&lt;p&gt;首先进bios，解除security，然后进boot menu，把首选启动项改成uefi
+进入u盘安装
+然后是分区，我先在windows压缩D盘空了60G空间，在manjaro里面把这个空间给它&lt;/p&gt;
+&lt;p&gt;软件方面是飞书，用pacman下载yay，然后yay feishu安装5.2版本的飞书
+debtop实在是没有成功解包，debtop还是从github上clone了原仓库，yay也是clone原仓库下来的&lt;/p&gt;
+&lt;p&gt;第二个是输入法&lt;/p&gt;
+&lt;p&gt;三步走&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;sudo pacman -S fcitx-configtool
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;sudo pacman -S fcitx-gtk2 fcitx-gtk3
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;sudo pacman -S fcitx-qt4 fcitx-qt5
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;sudo pacman -S fcitx-sogoupinyin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样是不行的，因为fcitx-sogoupinyin在pacman上找不到，还得用yay fcitx-spigoupinyin
+最后
+&lt;code&gt;sudo echo -e &amp;quot;export GTK_IM_MODULE=fcitx\n export QT_IM_MODULE=fcitx\n export XMODIFIERS=@im=fcitx&amp;quot; &amp;gt;&amp;gt;~/.xprofile&lt;/code&gt;
+就完事，因为需要&lt;code&gt;~/.xprofile&lt;/code&gt;配置文件，然后重启就好了&lt;/p&gt;
+&lt;p&gt;第三个是tim，这个只能通过wine来达到最好的体验，注意要调分辨率，
+&lt;code&gt;env WINEPREFIX=&amp;quot;$HOME/.deepinwine/Spark-TIM&amp;quot; deepin-wine5 winecfg&lt;/code&gt;
+在弹出的窗口中改dpi，我觉得2k屏改成200dpi左右比较合适&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Zeller</title>
