@@ -36,3 +36,7 @@ sudo pacman -S fcitx-sogoupinyin
 `env WINEPREFIX="$HOME/.deepinwine/Spark-TIM" deepin-wine5 winecfg`
 在弹出的窗口中改dpi，我觉得2k屏改成200dpi左右比较合适
 
+
+Matlab R2016b安装
+参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
+和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体

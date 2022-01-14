@@ -37,6 +37,9 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 &lt;p&gt;第三个是tim，这个只能通过wine来达到最好的体验，注意要调分辨率，
 &lt;code&gt;env WINEPREFIX=&amp;quot;$HOME/.deepinwine/Spark-TIM&amp;quot; deepin-wine5 winecfg&lt;/code&gt;
 在弹出的窗口中改dpi，我觉得2k屏改成200dpi左右比较合适&lt;/p&gt;
+&lt;p&gt;Matlab R2016b安装
+参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
+和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体&lt;/p&gt;
 </description>
     </item>
     
