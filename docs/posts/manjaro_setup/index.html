@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | Manjaro Setup</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.91.2" />
+	<meta name="generator" content="Hugo 0.92.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -114,6 +114,15 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 <p>Matlab R2016b安装
 参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
 和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体</p>
+<p>wps:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>yay wps-office-cn
+</code></pre></div><p>注意，安装以后可能会出现字体发虚的问题</p>
+<h3 id="kde下dpi不对称导致的字体模糊">KDE下dpi不对称导致的字体模糊</h3>
+<p>wps office默认设置dpi为96。但是当kde DPI非96时，会强制修改wps的dpi导致字体模糊</p>
+<p>此时只需要在wps（包括wps,wps文字，wps表格，wps演示，wpsPDF）的desktop文件中第四行的Exec添加QT_SCREEN_SCALE_FACTORS=1 即可。如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wps %U
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
+</code></pre></div><p><a href="https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
 </div>
 	</section>
 
@@ -271,7 +280,7 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 522 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 714 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>

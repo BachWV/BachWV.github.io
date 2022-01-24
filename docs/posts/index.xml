@@ -40,6 +40,15 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 &lt;p&gt;Matlab R2016b安装
 参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
 和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体&lt;/p&gt;
+&lt;p&gt;wps:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;yay wps-office-cn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意，安装以后可能会出现字体发虚的问题&lt;/p&gt;
+&lt;h3 id=&#34;kde下dpi不对称导致的字体模糊&#34;&gt;KDE下dpi不对称导致的字体模糊&lt;/h3&gt;
+&lt;p&gt;wps office默认设置dpi为96。但是当kde DPI非96时，会强制修改wps的dpi导致字体模糊&lt;/p&gt;
+&lt;p&gt;此时只需要在wps（包括wps,wps文字，wps表格，wps演示，wpsPDF）的desktop文件中第四行的Exec添加QT_SCREEN_SCALE_FACTORS=1 即可。如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wps %U
+&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

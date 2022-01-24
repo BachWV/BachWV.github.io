@@ -36,7 +36,29 @@ sudo pacman -S fcitx-sogoupinyin
 `env WINEPREFIX="$HOME/.deepinwine/Spark-TIM" deepin-wine5 winecfg`
 在弹出的窗口中改dpi，我觉得2k屏改成200dpi左右比较合适
 
-
 Matlab R2016b安装
 参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
 和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体
+
+
+
+wps:
+
+```
+yay wps-office-cn
+```
+
+注意，安装以后可能会出现字体发虚的问题
+
+### KDE下dpi不对称导致的字体模糊
+
+wps office默认设置dpi为96。但是当kde DPI非96时，会强制修改wps的dpi导致字体模糊
+
+此时只需要在wps（包括wps,wps文字，wps表格，wps演示，wpsPDF）的desktop文件中第四行的Exec添加QT_SCREEN_SCALE_FACTORS=1 即可。如：
+
+```
+Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wps %U
+Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
+```
+
+https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
