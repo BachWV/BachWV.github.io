@@ -100,11 +100,21 @@ onload='renderMathInElement(document.body);'></script>
 debtop实在是没有成功解包，debtop还是从github上clone了原仓库，yay也是clone原仓库下来的</p>
 <p>第二个是输入法</p>
 <p>三步走</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>sudo pacman -S fcitx-configtool
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>sudo pacman -S fcitx-gtk2 fcitx-gtk3
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>sudo pacman -S fcitx-qt4 fcitx-qt5
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>sudo pacman -S fcitx-sogoupinyin
-</code></pre></div><p>这样是不行的，因为fcitx-sogoupinyin在pacman上找不到，还得用yay fcitx-spigoupinyin
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo pacman -S fcitx-configtool
+sudo pacman -S fcitx-gtk2 fcitx-gtk3
+sudo pacman -S fcitx-qt4 fcitx-qt5
+sudo pacman -S fcitx-sogoupinyin
+</code></pre></td></tr></table>
+</div>
+</div><p>这样是不行的，因为fcitx-sogoupinyin在pacman上找不到，还得用yay fcitx-spigoupinyin
 最后
 <code>sudo echo -e &quot;export GTK_IM_MODULE=fcitx\n export QT_IM_MODULE=fcitx\n export XMODIFIERS=@im=fcitx&quot; &gt;&gt;~/.xprofile</code>
 就完事，因为需要<code>~/.xprofile</code>配置文件，然后重启就好了</p>
@@ -115,14 +125,29 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 参考https://www.cnblogs.com/lvchaoshun/p/9746155.html安装
 和https://blog.csdn.net/weixin_42598278/article/details/113562238更换中文字体</p>
 <p>wps:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>yay wps-office-cn
-</code></pre></div><p>注意，安装以后可能会出现字体发虚的问题</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yay wps-office-cn
+</code></pre></td></tr></table>
+</div>
+</div><p>注意，安装以后可能会出现字体发虚的问题</p>
 <h3 id="kde下dpi不对称导致的字体模糊">KDE下dpi不对称导致的字体模糊</h3>
 <p>wps office默认设置dpi为96。但是当kde DPI非96时，会强制修改wps的dpi导致字体模糊</p>
 <p>此时只需要在wps（包括wps,wps文字，wps表格，wps演示，wpsPDF）的desktop文件中第四行的Exec添加QT_SCREEN_SCALE_FACTORS=1 即可。如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wps %U
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
-</code></pre></div><p><a href="https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wps %U
+Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
 </div>
 	</section>
 
@@ -280,7 +305,7 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 714 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 721 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>

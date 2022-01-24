@@ -105,54 +105,112 @@ onload='renderMathInElement(document.body);'></script>
 <li>重复直到所有输入数据插入完为止。</li>
 </ol>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入: 4-&gt;2-&gt;1-&gt;3
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出: 1-&gt;2-&gt;3-&gt;4
-</code></pre></div><p><strong>示例 2：</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>输入: -1-&gt;5-&gt;3-&gt;4-&gt;0
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>输出: -1-&gt;0-&gt;3-&gt;4-&gt;5
-</code></pre></div></blockquote>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入: 4-&gt;2-&gt;1-&gt;3
+输出: 1-&gt;2-&gt;3-&gt;4
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>示例 2：</strong></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入: -1-&gt;5-&gt;3-&gt;4-&gt;0
+输出: -1-&gt;0-&gt;3-&gt;4-&gt;5
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
 <p>看起来很简单的插入排序花了我一晚上.</p>
 <p>插入排序不需要多讲，题面总结得很精辟，每一步将一个待排序的数据插入到前面已经排好序的有序序列中，直到插完所有元素为止。在其实现过程使用双层循环，外层循环对除了第一个元素之外的所有元素，内层循环对当前元素前面有序表进行待插入位置查找，并进行移动。</p>
 <p>插入排序的平均时间复杂度也是 <strong>O(n^2)</strong>，空间复杂度为常数阶 <strong>O(1)</strong>，具体时间复杂度和数组的有序性也是有关联的。</p>
 <p>插入排序中，当待排序数组是有序时，是最优的情况，只需当前数跟前一个数比较一下就可以了，这时一共需要比较 <strong>N-1</strong> 次，时间复杂度为 <strong>O(N)</strong>。最坏的情况是待排序数组是逆序的，此时需要比较次数最多，最坏的情况是 <strong>O(n^2)</strong>。</p>
 <p>但是 链表就不能简单移动了，而是要做到插入（把节点插入相应的地方），遍历找到要插入的地方以后，还要实现交换操作（和数组最大的不同也是最难的地方）</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">ListNode</span> <span style="color:#75af00">insertionSortList</span><span style="color:#f92672">(</span><span style="color:#111">ListNode</span> <span style="color:#111">head</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#111">ListNode</span> <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#75715e">/*最坑的地方是在画图，总结到一个经验，画图其实不如调试，调试起来看变化，再画图微调最好，傻乎乎画图最后会绕死进去
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#75715e">         * 添加一个表头节点非常有必要，这还是看题解发现的，不然插入时只能分情况讨论越来越复杂
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#75715e">         * pre节点防止断裂，注意要及时更新pre节点
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#75715e">         * todo这种变量名就不知所云，下次记得用cur
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#75715e">         * */</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#111">ListNode</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#111">ListNode</span> <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        <span style="color:#111">ListNode</span> <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">&gt;</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">){</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>            <span style="color:#f92672">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">==</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">){</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#75715e">/*不能用值的比较！！！！，这个是作为循环终止的条件（使用continue直接下一步，防止进行5步交换）：等到todohead.next循环到todo时，让todo后移，注意不仅仅要使得todo后移，todopre也要后移，todohead要归零*/</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>                <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>                <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>                <span style="color:#00a8c8">continue</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>            <span style="color:#f92672">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>            <span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>            <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>            <span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>            <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>            <span style="color:#75715e">//这5步画图吧
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>        <span style="color:#00a8c8">return</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>    <span style="color:#f92672">}</span>
-</code></pre></div></div>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">ListNode</span> <span style="color:#75af00">insertionSortList</span><span style="color:#f92672">(</span><span style="color:#111">ListNode</span> <span style="color:#111">head</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#111">ListNode</span> <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">/*最坑的地方是在画图，总结到一个经验，画图其实不如调试，调试起来看变化，再画图微调最好，傻乎乎画图最后会绕死进去
+</span><span style="color:#75715e">         * 添加一个表头节点非常有必要，这还是看题解发现的，不然插入时只能分情况讨论越来越复杂
+</span><span style="color:#75715e">         * pre节点防止断裂，注意要及时更新pre节点
+</span><span style="color:#75715e">         * todo这种变量名就不知所云，下次记得用cur
+</span><span style="color:#75715e">         * */</span>
+
+        <span style="color:#111">ListNode</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ListNode</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">);</span>
+        <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">head</span><span style="color:#f92672">;</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+        <span style="color:#111">ListNode</span> <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+
+            <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">&gt;</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">){</span>
+                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+
+            <span style="color:#f92672">}</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">todo</span><span style="color:#f92672">==</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">){</span>
+<span style="color:#75715e">/*不能用值的比较！！！！，这个是作为循环终止的条件（使用continue直接下一步，防止进行5步交换）：等到todohead.next循环到todo时，让todo后移，注意不仅仅要使得todo后移，todopre也要后移，todohead要归零*/</span>
+                <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+                <span style="color:#111">todopre</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+                <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+                <span style="color:#00a8c8">continue</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todo</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todohead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">=</span><span style="color:#111">todo</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todo</span><span style="color:#f92672">=</span><span style="color:#111">todopre</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+            <span style="color:#111">todohead</span><span style="color:#f92672">=</span><span style="color:#111">dummyHead</span><span style="color:#f92672">;</span>
+
+            <span style="color:#75715e">//这5步画图吧
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">dummyHead</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></div>
 	</section>
 
 
@@ -309,7 +367,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 966 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 969 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
