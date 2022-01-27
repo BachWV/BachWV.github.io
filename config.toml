@@ -60,6 +60,12 @@ url = "/categories/"
 weight = 2
 
 [[menu.main]]
+identifier = "Life"
+name = "Life"
+url = "/life/"
+weight = 3
+
+[[menu.main]]
 identifier = "about"
 name = "About"
 url = "/about/"
