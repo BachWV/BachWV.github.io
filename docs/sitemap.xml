@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uest.xyz/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</loc>
+    <lastmod>2022-01-28T11:49:37+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/leetcode/</loc>
+    <lastmod>2022-01-28T11:49:37+08:00</lastmod>
+  </url><url>
+    <loc>https://uest.xyz/</loc>
+    <lastmod>2022-01-28T11:49:37+08:00</lastmod>
+  </url><url>
     <loc>https://uest.xyz/life/</loc>
     <lastmod>2022-01-27T21:36:31+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</loc>
-    <lastmod>2022-01-27T21:36:31+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/</loc>
     <lastmod>2022-01-27T21:36:31+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/posts/manjaro_setup/</loc>
@@ -51,9 +57,6 @@
     <lastmod>2021-12-10T23:23:40+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</loc>
-    <lastmod>2021-12-04T00:28:37+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/leetcode/</loc>
     <lastmod>2021-12-04T00:28:37+08:00</lastmod>
   </url><url>
     <loc>https://uest.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</loc>
@@ -187,8 +190,6 @@
   </url><url>
     <loc>https://uest.xyz/posts/sec/</loc>
     <lastmod>2021-04-20T16:00:12+08:00</lastmod>
-  </url><url>
-    <loc>https://uest.xyz/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</loc>
   </url><url>
     <loc>https://uest.xyz/leetcodes/</loc>
   </url><url>
