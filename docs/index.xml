@@ -7,10 +7,411 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
-    <lastBuildDate>Fri, 28 Jan 2022 11:49:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Feb 2022 23:15:57 +0800</lastBuildDate>
     
 	<atom:link href="https://uest.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43; vector使用方法</title>
+      <link>https://uest.xyz/posts/vector/</link>
+      <pubDate>Thu, 03 Feb 2022 23:15:57 +0800</pubDate>
+      
+      <guid>https://uest.xyz/posts/vector/</guid>
+      <description>&lt;p&gt;来自https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html&lt;/p&gt;
+&lt;h1 id=&#34;c-vector使用方法&#34;&gt;C++ vector使用方法&lt;/h1&gt;
+&lt;p&gt;2021-08-23 11:07 更新&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h4 id=&#34;在-c-中vector-是一个十分有用的容器它能够像容器一样存放各种类型的对象简单地说vector是一个能够存放任意类型的动态数组能够增加和压缩数据-c-中数组很坑有没有类似-python-中-list-的数据类型呢类似的就是-vectorvector-是同一种类型的对象的集合每个对象都有一个对应的整数索引值和-string-对象一样标准库将负责管理与存储元素相关的内存我们把-vector-称为容器是因为它可以包含其他对象一个容器中的所有对象都必须是同一种类型的&#34;&gt;在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。&lt;/h4&gt;
+&lt;h2 id=&#34;一什么是vector&#34;&gt;一、什么是vector？&lt;/h2&gt;
+&lt;p&gt;向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。&lt;/p&gt;
+&lt;h2 id=&#34;二容器特性&#34;&gt;二、容器特性&lt;/h2&gt;
+&lt;h3 id=&#34;1顺序序列&#34;&gt;1.顺序序列&lt;/h3&gt;
+&lt;p&gt;顺序容器中的元素按照严格的线性顺序排序。可以通过元素在序列中的位置访问对应的元素。&lt;/p&gt;
+&lt;h3 id=&#34;2动态数组&#34;&gt;2.动态数组&lt;/h3&gt;
+&lt;p&gt;支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算述进行该操作。操供了在序列末尾相对快速地添加/删除元素的操作。&lt;/p&gt;
+&lt;h3 id=&#34;3能够感知内存分配器的allocator-aware&#34;&gt;3.能够感知内存分配器的（Allocator-aware）&lt;/h3&gt;
+&lt;p&gt;容器使用一个内存分配器对象来动态地处理它的存储需求。&lt;/p&gt;
+&lt;h2 id=&#34;三基本函数实现&#34;&gt;三、基本函数实现&lt;/h2&gt;
+&lt;h3 id=&#34;1构造函数&#34;&gt;1.构造函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vector()&lt;/code&gt;:创建一个空vector&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vector(int nSize)&lt;/code&gt;:创建一个vector,元素个数为nSize&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vector(int nSize,const t&amp;amp; t)&lt;/code&gt;:创建一个vector，元素个数为nSize,且值均为t&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vector(const vector&amp;amp;)&lt;/code&gt;:复制构造函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vector(begin,end)&lt;/code&gt;:复制[begin,end)区间内另一个数组的元素到vector中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2增加函数&#34;&gt;2.增加函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void push_back(const T&amp;amp; x)&lt;/code&gt;:向量尾部增加一个元素X&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator insert(iterator it,const T&amp;amp; x)&lt;/code&gt;:向量中迭代器指向元素前增加一个元素x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator insert(iterator it,int n,const T&amp;amp; x)&lt;/code&gt;:向量中迭代器指向元素前增加n个相同的元素x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator insert(iterator it,const_iterator first,const_iterator last)&lt;/code&gt;:向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3删除函数&#34;&gt;3.删除函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;iterator erase(iterator it)&lt;/code&gt;:删除向量中迭代器指向元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator erase(iterator first,iterator last)&lt;/code&gt;:删除向量中[first,last)中元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void pop_back()&lt;/code&gt;:删除向量中最后一个元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void clear()&lt;/code&gt;:清空向量中所有元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4遍历函数&#34;&gt;4.遍历函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;reference at(int pos)&lt;/code&gt;:返回pos位置元素的引用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reference front()&lt;/code&gt;:返回首元素的引用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reference back()&lt;/code&gt;:返回尾元素的引用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator begin()&lt;/code&gt;:返回向量头指针，指向第一个元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;iterator end()&lt;/code&gt;:返回向量尾指针，指向向量最后一个元素的下一个位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reverse_iterator rbegin()&lt;/code&gt;:反向迭代器，指向最后一个元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reverse_iterator rend()&lt;/code&gt;:反向迭代器，指向第一个元素之前的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5判断函数&#34;&gt;5.判断函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bool empty() const&lt;/code&gt;:判断向量是否为空，若为空，则向量中无元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6大小函数&#34;&gt;6.大小函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;int size() const&lt;/code&gt;:返回向量中元素的个数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int capacity() const&lt;/code&gt;:返回当前向量所能容纳的最大元素值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int max_size() const&lt;/code&gt;:返回最大可允许的 vector 元素数量值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7其他函数&#34;&gt;7.其他函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void swap(vector&amp;amp;)&lt;/code&gt;:交换两个同类型向量的数据&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void assign(int n,const T&amp;amp; x)&lt;/code&gt;:设置向量中前n个元素的值为x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void assign(const_iterator first,const_iterator last)&lt;/code&gt;:向量中[first,last)中元素设置成当前向量元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8看着清楚&#34;&gt;8.看着清楚&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.push_back 在数组的最后添加一个数据2.pop_back 去掉数组的最后一个数据3.at 得到编号位置的数据4.begin 得到数组头的指针5.end 得到数组的最后一个单元+1的指针6．front 得到数组头的引用7.back 得到数组的最后一个单元的引用8.max_size 得到vector最大可以是多大9.capacity 当前vector分配的大小10.size 当前使用数据的大小11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值12.reserve 改变当前vecotr所分配空间的大小13.erase 删除指针指向的数据项14.clear 清空当前的vector15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)17.empty 判断vector是否为空18.swap 与另一个vector交换数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;四基本用法&#34;&gt;四、基本用法&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#include &amp;lt; vector&amp;gt; 
+using namespace std;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;五简单介绍&#34;&gt;五、简单介绍&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Vector&amp;lt;类型&amp;gt;标识符&lt;/li&gt;
+&lt;li&gt;Vector&amp;lt;类型&amp;gt;标识符(最大容量)&lt;/li&gt;
+&lt;li&gt;Vector&amp;lt;类型&amp;gt;标识符(最大容量,初始所有值)&lt;/li&gt;
+&lt;li&gt;Int i[5]={1,2,3,4,5}Vector&amp;lt;类型&amp;gt;vi(I,i+2);//得到i索引值为3以后的值&lt;/li&gt;
+&lt;li&gt;Vector&amp;lt; vector&amp;lt; int&amp;gt; &amp;gt;v; 二维向量//这里最外的&amp;lt;&amp;gt;要有空格。否则在比较旧的编译器下无法通过&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;六vector使用实例&#34;&gt;六、vector使用实例&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;使用vector注意事项：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1、如果你要表示的向量长度较长（需要为向量内部保存很多数），容易导致内存泄漏，而且效率会很低；&lt;/p&gt;
+&lt;p&gt;2、Vector 作为函数的参数或者返回值时，需要注意它的写法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;double Distance(vector&amp;lt;int&amp;gt;&amp;amp;a, vector&amp;lt;int&amp;gt;&amp;amp;b)
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中的“&amp;amp;”绝对不能少！！！&lt;/p&gt;
+&lt;h1 id=&#34;vector对象的定义和初始化&#34;&gt;vector对象的定义和初始化&lt;/h1&gt;
+&lt;p&gt;同样的，使用前，导入头文件 #include 可以使用using声明：using std::vector;vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
+声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;vector&lt;T&gt; v1;&lt;/th&gt;
+&lt;th&gt;保存类型为 T 对象。默认构造函数 v1 为空。&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;vector&lt;T&gt; v2(v1);&lt;/td&gt;
+&lt;td&gt;v2 是 v1 的一个副本。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vector&lt;T&gt; v3(n, i);&lt;/td&gt;
+&lt;td&gt;v3 包含 n 个值为 i 的元素。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vector&lt;T&gt; v4(n);&lt;/td&gt;
+&lt;td&gt;v4 含有值初始化的元素的 n 个副本。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;【注意：1、若要创建非空的 vector 对象，必须给出初始化元素的值；2、当把一个 vector 对象复制到另一个 vector 对象时，新复制的 vector 中每一个元素都初始化为原 vectors 中相应元素的副本。但这两个 vector 对象必须保存同一种元素类型；3、可以用元素个数和元素值对 vector 对象进行初始化。构造函数用元素个数来决定 vector 对象保存元素的
+个数，元素值指定每个元素的初始值】&lt;/p&gt;
+&lt;h2 id=&#34;vector对象动态增长&#34;&gt;vector对象动态增长：&lt;/h2&gt;
+&lt;p&gt;vector 对象（以及其他标准库容器对象）的重要属性就在于可以在运行时高效地添加元素。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：因为 vector 增长的效率高，在元素值已知的情况下，最好是动态地添加元素。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;vector&lt;int&gt;test;//建立一个vector，int为数组元素的数据类型，test为动态数组名&lt;/p&gt;
+&lt;p&gt;简单的使用方法如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;vector&amp;lt;int&amp;gt;test;//建立一个vector
+test.push_back(1);
+test.push_back(2);//把1和2压入vector，这样test[0]就是1,test[1]就是2
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;实例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;vector&amp;lt;vector&amp;lt;Point2f&amp;gt; &amp;gt; points; //定义一个二维数组
+points[0].size();  //指第一行的列数
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;1 、基本操作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;(1)头文件&lt;code&gt;#include&amp;lt;vector&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;(2)创建vector对象，&lt;code&gt;vector&amp;lt;int&amp;gt; vec&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;(3)尾部插入数字：&lt;code&gt;vec.push_back(a)&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;(4)使用下标访问元素，&lt;code&gt;cout&amp;lt;&amp;lt;vec[0]&amp;lt;&amp;lt;endl&lt;/code&gt;;记住下标是从0开始的。&lt;/p&gt;
+&lt;p&gt;(5)使用迭代器访问元素.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;vector&amp;lt;int&amp;gt;::iterator it;
+for(it=vec.begin();it!=vec.end();it++)
+    cout&amp;lt;&amp;lt;*it&amp;lt;&amp;lt;endl;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;(6)插入元素：&lt;code&gt;vec.insert(vec.begin()+i,a)&lt;/code&gt;; 在第i+1个元素前面插入a;&lt;/p&gt;
+&lt;p&gt;(7)删除元素：&lt;code&gt;vec.erase(vec.begin()+2)&lt;/code&gt; ; 删除第3个元素&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vec.erase(vec.begin()+i,vec.end()+j)&lt;/code&gt;; 删除区间[ i,j-1] 区间从0开始&lt;/p&gt;
+&lt;p&gt;(8)向量大小: &lt;code&gt;vec.size()&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;(9)清空: &lt;code&gt;vec.clear()&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;特别提示：这里有 begin() 与 end() 函数、front() 与 back() 的差别&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、重要说明&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;vector 的元素不仅仅可以是 int,double,string 还可以是结构体，但是要注意：结构体要定义为全局的，否则会出错。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;35
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;36
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#include&amp;lt;stdio.h&amp;gt;  
+#include&amp;lt;algorithm&amp;gt;  
+#include&amp;lt;vector&amp;gt;  
+#include&amp;lt;iostream&amp;gt;  
+using namespace std;  
+typedef struct rect  
+{  
+    int id;  
+    int length;  
+    int width;  
+　　//对于向量元素是结构体的，可在结构体内部定义比较函数，下面按照id,length,width升序排序。  
+　　bool operator&amp;lt; (const rect &amp;amp;a)  const  
+    {  
+        if(id!=a.id)  
+            return id&amp;lt;a.id;  
+        else  
+        {  
+            if(length!=a.length)  
+                return length&amp;lt;a.length;  
+            else  
+                return width&amp;lt;a.width;  
+        }  
+    }  
+}Rect;  
+int main()  
+{  
+    vector&amp;lt;Rect&amp;gt; vec;  
+    Rect rect;  
+    rect.id=1;  
+    rect.length=2;  
+    rect.width=3;  
+    vec.push_back(rect);  
+    vector&amp;lt;Rect&amp;gt;::iterator it=vec.begin();  
+    cout&amp;lt;&amp;lt;(*it).id&amp;lt;&amp;lt;&amp;#39; &amp;#39;&amp;lt;&amp;lt;(*it).length&amp;lt;&amp;lt;&amp;#39; &amp;#39;&amp;lt;&amp;lt;(*it).width&amp;lt;&amp;lt;endl;      
+return 0;  
+}  
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3、算法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;(1) 使用reverse将元素翻转：需要头文件 #include&lt;algorithm&gt;&lt;/p&gt;
+&lt;p&gt;reverse(vec.begin(),vec.end());将元素翻转，即逆序排列！&lt;/p&gt;
+&lt;p&gt;(在vecto r中，如果一个函数中需要两个迭代器，一般后一个都不包含)&lt;/p&gt;
+&lt;p&gt;(2)使用 sort 排序：需要头文件 #include&lt;algorithm&gt;，&lt;/p&gt;
+&lt;p&gt;sort(vec.begin(),vec.end());(默认是按升序排列,即从小到大).&lt;/p&gt;
+&lt;p&gt;可以通过重写排序比较函数按照降序比较，如下：&lt;/p&gt;
+&lt;p&gt;定义排序比较函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;bool Comp(const int &amp;amp;a,const int &amp;amp;b)
+{
+    return a&amp;gt;b;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;调用时: sort(vec.begin(),vec.end(),Comp)，这样就降序排序。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出Vector的中的元素&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;vector&lt;float&gt; vecClass;&lt;/p&gt;
+&lt;p&gt;int nSize = vecClass.size();&lt;/p&gt;
+&lt;p&gt;//打印 vecClass,方法一：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;for(int i=0;i&amp;lt;nSize;i++)    
+{    
+   cout&amp;lt;&amp;lt;vecClass[i]&amp;lt;&amp;lt;&amp;#34;     &amp;#34;;    
+}    
+   cout&amp;lt;&amp;lt;endl;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;需要注意的是：以方法一进行输出时，数组的下表必须保证是整数。&lt;/p&gt;
+&lt;p&gt;//打印 vecClass,方法二：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;for(int i=0;i&amp;lt;nSize;i++)    
+{    
+   cout&amp;lt;&amp;lt;vecClass.at(i)&amp;lt;&amp;lt;&amp;#34;     &amp;#34;;    
+}    
+   cout&amp;lt;&amp;lt;endl;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;//打印 vecClass,方法三：输出某一指定的数值时不方便&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;for(vector&amp;lt;float&amp;gt;::iterator it = vecClass.begin();it!=vecClass.end();it++)    
+{    
+    cout&amp;lt;&amp;lt;*it&amp;lt;&amp;lt;&amp;#34;   &amp;#34;;    
+}    
+    cout&amp;lt;&amp;lt;endl;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;二维数组的使用：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#include &amp;#34;stdafx.h&amp;#34;  
+#include &amp;lt;cv.h&amp;gt;  
+#include &amp;lt;vector&amp;gt;   
+#include &amp;lt;iostream&amp;gt;   
+using namespace std;  
+int main()  
+{  
+    using namespace std;  
+    int out[3][2] = { 1, 2,   
+             3, 4,  
+            5, 6 };  
+    vector &amp;lt;int*&amp;gt; v1;  
+    v1.push_back(out[0]);  
+    v1.push_back(out[1]);  
+    v1.push_back(out[2]);  
+    cout &amp;lt;&amp;lt; v1[0][0] &amp;lt;&amp;lt; endl;//1  
+    cout &amp;lt;&amp;lt; v1[0][1] &amp;lt;&amp;lt; endl;//2  
+    cout &amp;lt;&amp;lt; v1[1][0] &amp;lt;&amp;lt; endl;//3  
+    cout &amp;lt;&amp;lt; v1[1][1] &amp;lt;&amp;lt; endl;//4  
+    cout &amp;lt;&amp;lt; v1[2][0] &amp;lt;&amp;lt; endl;//5  
+    cout &amp;lt;&amp;lt; v1[2][1] &amp;lt;&amp;lt; endl;//6  
+    return 0;  
+}  
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>1996.游戏中弱角色的数量</title>
@@ -307,10 +708,21 @@ properties[i].length == 2
 &lt;p&gt;情节逻辑都很流畅，除了有些地方拖沓了，有几次循环完全可以不再有，或者可以合并。两人组加一个第三人也未尝不可，给老焦多一点戏份也行，汽车上的男孩也可以去掉。&lt;/p&gt;
 &lt;p&gt;赵今麦的演技比流浪地球成长了不少，也期待以后能带来更加惊艳的作品。&lt;/p&gt;
 &lt;p&gt;综合来说，《开端》是近两年看的最令人印象深刻的剧，明知道结局还是像继续看下去，比《隐秘的角落》、《摩天大楼》、《沉默的真相》更好。&lt;/p&gt;
+&lt;p&gt;赵今麦太好看了噜！！！&lt;/p&gt;
 &lt;h2 id=&#34;寻枪&#34;&gt;《寻枪》&lt;/h2&gt;
 &lt;p&gt;姜文的作品，意识流的手法说实话我不是很懂，也没有惊艳点。寻枪意在寻枪，实际上在寻什么？我的理解是寻亲情？但看情节不是这样，有人说是马山监守自盗，自己偷枪杀人。还有结巴的情节安排，超出我 的理解范围了。&lt;/p&gt;
 &lt;h2 id=&#34;穿格子衬衫的男孩&#34;&gt;《穿格子衬衫的男孩》&lt;/h2&gt;
-&lt;p&gt;在孩子的视角看反战，为什么有爱的父亲却掌管一个集中营。不表现集中营，直到结尾才表现集中营的残酷。结尾属于在意料之外，是惊艳我的一点。&lt;/p&gt;
+&lt;p&gt;在孩子的视角看反战，为什么有爱的父亲却掌管一个集中营。不表现集中营，直到结尾才表现集中营的残酷。&lt;/p&gt;
+&lt;p&gt;结尾属于在意料之外，是惊艳我的一点。&lt;/p&gt;
+&lt;p&gt;低成本好片。故事有点单薄。&lt;/p&gt;
+&lt;h2 id=&#34;寻梦环游记-128&#34;&gt;《寻梦环游记》 1.28&lt;/h2&gt;
+&lt;p&gt;这部是想看了很多年一直没看的电影了，皮克斯的电影都很有感染力，在我看来，这部比《心灵奇旅》还要棒。寻梦环游记的译名也比Coco好。遗忘才是真正的死亡，男孩追寻自己的梦想，也是找回Coco对爸爸的记忆，冥界也有真情在，有欢笑，有音乐，也有为了生活不得不放弃的勇气。&lt;/p&gt;
+&lt;p&gt;最终全家人都得到了救赎，皆大欢喜。&lt;/p&gt;
+&lt;p&gt;适合全家人过年一起看。&lt;/p&gt;
+&lt;h2 id=&#34;控方证人-22&#34;&gt;《控方证人》 2.2&lt;/h2&gt;
+&lt;p&gt;始于剧情，忠于演技。结尾多次翻转。在证据缺乏的条件下，当有证据指向一个无辜的人时，lawyer如何为其辩护，全员演技在线，威尔弗里德爵士的形象十分生动，足够理智也足够机灵，也是一位正义尽职的刑辩律师，观察力敏锐，能准确挖掘控方的漏洞。女主克里斯汀演技爆棚，端庄优雅，也足够聪明。当然最后翻转也相当精彩，将全剧推向最高潮。
+原来法庭上大家都在演戏，骗的只是陪审团。尘埃落定之后才揭开真相。&lt;/p&gt;
+&lt;p&gt;超级喜欢看老片。玛琳•黛德丽好有气质！&lt;/p&gt;
 </description>
     </item>
     
