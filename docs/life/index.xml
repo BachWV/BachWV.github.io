@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lives on 划水摸鱼做梦无限状态自动机</title>
-    <link>https://uest.xyz/life/</link>
+    <link>http://junling.xyz/life/</link>
     <description>Recent content in Lives on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
     <lastBuildDate>Thu, 27 Jan 2022 21:36:31 +0800</lastBuildDate>
     
-	<atom:link href="https://uest.xyz/life/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://junling.xyz/life/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>一些影评</title>
-      <link>https://uest.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</link>
+      <link>http://junling.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</link>
       <pubDate>Thu, 27 Jan 2022 21:36:31 +0800</pubDate>
       
-      <guid>https://uest.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</guid>
+      <guid>http://junling.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</guid>
       <description>&lt;h2 id=&#34;开端&#34;&gt;《开端》&lt;/h2&gt;
 &lt;p&gt;最近最火的剧当属《开端》了，我也很喜欢。情节不错，新颖不俗套。白敬亭和赵今麦的演技在线，特别李诗情对肖鹤云说的那句：“你也进循环了？”，微表情和那种惊喜和激动很戳我，到最后表白都是意料之中了。刘奕君成熟稳重，在倒数第二次循环毅然决然拿起炸弹，真的给人很大的信心，还有耐心听李诗情叙述循环，都符合我心中对老刑警的定位，比扫黑风暴更像一个正面角色了。那次被领盒饭就感觉没有依靠了，单靠江枫我都不知道能不能完成任务，相比之下女警的形象就不那么鲜明了，就像个念台词的。&lt;/p&gt;
 &lt;p&gt;情节逻辑都很流畅，除了有些地方拖沓了，有几次循环完全可以不再有，或者可以合并。两人组加一个第三人也未尝不可，给老焦多一点戏份也行，汽车上的男孩也可以去掉。&lt;/p&gt;
@@ -43,10 +43,10 @@
     
     <item>
       <title>2022newyear</title>
-      <link>https://uest.xyz/life/2022newyear/</link>
+      <link>http://junling.xyz/life/2022newyear/</link>
       <pubDate>Fri, 31 Dec 2021 20:41:25 +0800</pubDate>
       
-      <guid>https://uest.xyz/life/2022newyear/</guid>
+      <guid>http://junling.xyz/life/2022newyear/</guid>
       <description>&lt;p&gt;时间片转了一圈，2022就在几个小时之后。&lt;/p&gt;
 &lt;p&gt;过去一年，在我的视角，过得很快。学了很多，但更多的是遗憾。&lt;/p&gt;
 &lt;p&gt;首先就是学业了，有几次的考试都不够理想，说实话是自己不够努力，没有用力逼自己学。懒惰了，懈怠了；今年看成杰答辩，发现自己大学浪费了太多的时间，没有科研，没有竞赛，也没有努力学习。&lt;/p&gt;
@@ -58,10 +58,10 @@
     
     <item>
       <title>天气晴，心情阴</title>
-      <link>https://uest.xyz/life/%E5%A4%A9%E6%B0%94%E6%99%B4%E5%BF%83%E6%83%85%E6%9A%B4%E9%9B%A8/</link>
+      <link>http://junling.xyz/life/%E5%A4%A9%E6%B0%94%E6%99%B4%E5%BF%83%E6%83%85%E6%9A%B4%E9%9B%A8/</link>
       <pubDate>Sat, 18 Dec 2021 12:36:31 +0800</pubDate>
       
-      <guid>https://uest.xyz/life/%E5%A4%A9%E6%B0%94%E6%99%B4%E5%BF%83%E6%83%85%E6%9A%B4%E9%9B%A8/</guid>
+      <guid>http://junling.xyz/life/%E5%A4%A9%E6%B0%94%E6%99%B4%E5%BF%83%E6%83%85%E6%9A%B4%E9%9B%A8/</guid>
       <description>&lt;p&gt;在2021年的末尾，某人做了一件年度最傻的事。本来都不想发，毕竟这实在是太傻了，巨丑的事怎么能让你们知道。但由于傻到离谱了，以至于不得不记录，然后你们就有了嘲笑我的机会。放在blog上反正没人看。
 今天是12月18日，也是大学生考四六级的日子。呆岭还有4份实验报告要写，昨晚帮别人配Pytorch的环境到3点，由于太冷到4点才睡着。今天9点半起床，飞奔到画室，准备了半个小时调颜料下去写生，冬日暖阳，正是好天气。找好位置，基础实验大楼旁边，摆好画架。
 发现没带画纸，一定是某位同学错拿了我的装备。

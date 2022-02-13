@@ -1,6 +1,6 @@
 DefaultContentLanguage = "en"
 author = "bach"
-baseURL = "https://junling.xyz"
+baseURL = "http://junling.xyz"
 copyright = "Copyright © 2021–2021"
 
 # disqusShortname = "YOURSHORTNAME"

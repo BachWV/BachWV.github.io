@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | git push到别人的分支如何回退</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -33,13 +33,13 @@
 
 
 
-<link rel="stylesheet" href='https://uest.xyz/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<link rel="stylesheet" href='http://junling.xyz/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
 
-<script defer src='https://uest.xyz/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src='http://junling.xyz/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 
 
-<script defer src='https://uest.xyz/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+<script defer src='http://junling.xyz/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
 crossorigin="anonymous"
 onload='renderMathInElement(document.body);'></script>
 
@@ -67,7 +67,7 @@ onload='renderMathInElement(document.body);'></script>
 				
 <div>
 	<h2>
-		<a href="https://uest.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+		<a href="http://junling.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
 	</h2>
 </div>
 <h1 class="pt-2">git push到别人的分支如何回退</h1>
@@ -103,7 +103,7 @@ onload='renderMathInElement(document.body);'></script>
 <p><code>git reset --hard 一长串commit回退</code></p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -114,15 +114,15 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#111">--</span><span style="color:#111">mixed</span> 
-<span style="color:#960050;background-color:#1e0010">不删除工作空间改动代码，撤销</span><span style="color:#111">commit</span><span style="color:#960050;background-color:#1e0010">，并且撤销</span><span style="color:#111">git</span> <span style="color:#00a8c8">add</span> <span style="color:#111">.</span> <span style="color:#960050;background-color:#1e0010">操作</span>
-<span style="color:#960050;background-color:#1e0010">这个为默认参数</span><span style="color:#111">,</span><span style="color:#111">git</span> <span style="color:#111">reset</span> <span style="color:#111">--</span><span style="color:#111">mixed</span> <span style="color:#111">HEAD</span><span style="color:#111">^</span> <span style="color:#960050;background-color:#1e0010">和</span> <span style="color:#111">git</span> <span style="color:#111">reset</span> <span style="color:#111">HEAD</span><span style="color:#111">^</span> <span style="color:#960050;background-color:#1e0010">效果是一样的。</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">--mixed 
+不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
 
-<span style="color:#111">--</span><span style="color:#111">soft</span>  
-<span style="color:#960050;background-color:#1e0010">不删除工作空间改动代码，撤销</span><span style="color:#111">commit</span><span style="color:#960050;background-color:#1e0010">，不撤销</span><span style="color:#111">git</span> <span style="color:#00a8c8">add</span> <span style="color:#111">.</span> 
+--soft  
+不删除工作空间改动代码，撤销commit，不撤销git add . 
 
-<span style="color:#111">--</span><span style="color:#111">hard</span>
-<span style="color:#960050;background-color:#1e0010">删除工作空间改动代码，撤销</span><span style="color:#111">commit</span><span style="color:#960050;background-color:#1e0010">，撤销</span><span style="color:#111">git</span> <span style="color:#00a8c8">add</span> <span style="color:#111">.</span> 
+--hard
+删除工作空间改动代码，撤销commit，撤销git add . 
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="3暗度陈仓">3.暗度陈仓</h2>
@@ -247,7 +247,7 @@ onload='renderMathInElement(document.body);'></script>
 		</div>
 	</a>
 	
-	<a href='mailto:i@uest.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
 		aria-label="follow on mail——Opens in a new window">
 		
 		<div class="fill-current h-8 w-8">
@@ -316,6 +316,13 @@ onload='renderMathInElement(document.body);'></script>
         Android dev tips
     </a>
     
+    
+    <a class="flex-grow-0" href="/posts/domains/">
+        Domains
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

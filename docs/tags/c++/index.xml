@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on 划水摸鱼做梦无限状态自动机</title>
-    <link>https://uest.xyz/tags/c&#43;&#43;/</link>
+    <link>http://junling.xyz/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
     <lastBuildDate>Tue, 28 Sep 2021 15:35:49 +0800</lastBuildDate>
     
-	<atom:link href="https://uest.xyz/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://junling.xyz/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gdb调试</title>
-      <link>https://uest.xyz/posts/gdb%E8%B0%83%E8%AF%95/</link>
+      <link>http://junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://uest.xyz/posts/gdb%E8%B0%83%E8%AF%95/</guid>
+      <guid>http://junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/</guid>
       <description>&lt;p&gt;今天尝试使用gdb调试，相比ide的调试没那么容易好上手&lt;/p&gt;
 &lt;p&gt;对于一个cpp文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;g++ test.cpp -o test -g
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;g++ test.cpp -o test -g
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>随笔 on 划水摸鱼做梦无限状态自动机</title>
-    <link>https://uest.xyz/categories/%E9%9A%8F%E7%AC%94/</link>
+    <link>http://junling.xyz/categories/%E9%9A%8F%E7%AC%94/</link>
     <description>Recent content in 随笔 on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
     <lastBuildDate>Tue, 31 Aug 2021 20:06:45 +0800</lastBuildDate>
     
-	<atom:link href="https://uest.xyz/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://junling.xyz/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>不安全感</title>
-      <link>https://uest.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</link>
+      <link>http://junling.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</link>
       <pubDate>Tue, 31 Aug 2021 20:06:45 +0800</pubDate>
       
-      <guid>https://uest.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</guid>
+      <guid>http://junling.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</guid>
       <description>&lt;h1 id=&#34;不安全感&#34;&gt;不安全感&lt;/h1&gt;
 &lt;p&gt;今天出门，终于不要检查寝室门是否锁上了。很奇怪，我一直有个强迫症，就是出门一定要检查门是否关好，几乎每次出门不自然地来回检查几次，有时候下了楼，不放心，还跑上去检查一遍。有时候出门半天才想起来是不是还没检查我门关没关，而次次检查的结果是，门，它确实关好了。在我的印象中，没有一次检查出门没关。但是不检查，门就处于薛定谔状态，关和没关的叠加态。只有当我回去观察，才是确定的状态。&lt;/p&gt;
 &lt;p&gt;门，是个防君子不防小人的物件。小偷真的盯上你，门根本没用，我家在5楼都曾经有小偷翻窗进入。而当小偷遇上一扇没关的门，它想尝试还得掂量掂量，万一家里有人怎么办，万一有摄像头，万一里面人躲着专门针对小偷。再说小偷根本不知道你家门没关，小偷又不会扫楼。所以在门没关的状态下，只有邻居熟人作案，而且只有比我高的邻居6楼邻居和对门，一共3户，东西丢了也好找，邻居冒着这么大的风险作案也不值得。&lt;/p&gt;

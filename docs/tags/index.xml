@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 划水摸鱼做梦无限状态自动机</title>
-    <link>https://uest.xyz/tags/</link>
+    <link>http://junling.xyz/tags/</link>
     <description>Recent content in Tags on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
     <lastBuildDate>Mon, 03 Jan 2022 00:57:54 +0800</lastBuildDate>
     
-	<atom:link href="https://uest.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://junling.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Easy</title>
-      <link>https://uest.xyz/tags/easy/</link>
+      <link>http://junling.xyz/tags/easy/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/easy/</guid>
+      <guid>http://junling.xyz/tags/easy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leetcode</title>
-      <link>https://uest.xyz/tags/leetcode/</link>
+      <link>http://junling.xyz/tags/leetcode/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/leetcode/</guid>
+      <guid>http://junling.xyz/tags/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Medium</title>
-      <link>https://uest.xyz/tags/medium/</link>
+      <link>http://junling.xyz/tags/medium/</link>
       <pubDate>Thu, 28 Oct 2021 00:39:21 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/medium/</guid>
+      <guid>http://junling.xyz/tags/medium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Difficult</title>
-      <link>https://uest.xyz/tags/difficult/</link>
+      <link>http://junling.xyz/tags/difficult/</link>
       <pubDate>Wed, 27 Oct 2021 22:49:20 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/difficult/</guid>
+      <guid>http://junling.xyz/tags/difficult/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>https://uest.xyz/tags/c&#43;&#43;/</link>
+      <link>http://junling.xyz/tags/c&#43;&#43;/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/c&#43;&#43;/</guid>
+      <guid>http://junling.xyz/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gdb</title>
-      <link>https://uest.xyz/tags/gdb/</link>
+      <link>http://junling.xyz/tags/gdb/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://uest.xyz/tags/gdb/</guid>
+      <guid>http://junling.xyz/tags/gdb/</guid>
       <description></description>
     </item>
     
