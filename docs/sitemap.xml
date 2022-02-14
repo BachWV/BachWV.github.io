@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://junling.xyz/posts/domains/</loc>
-    <lastmod>2022-02-13T23:55:00+08:00</lastmod>
+    <loc>http://junling.xyz/posts/lixiang/</loc>
+    <lastmod>2022-02-14T22:31:29+08:00</lastmod>
   </url><url>
     <loc>http://junling.xyz/posts/</loc>
-    <lastmod>2022-02-13T23:55:00+08:00</lastmod>
+    <lastmod>2022-02-14T22:31:29+08:00</lastmod>
   </url><url>
     <loc>http://junling.xyz/</loc>
+    <lastmod>2022-02-14T22:31:29+08:00</lastmod>
+  </url><url>
+    <loc>http://junling.xyz/posts/domains/</loc>
     <lastmod>2022-02-13T23:55:00+08:00</lastmod>
   </url><url>
     <loc>http://junling.xyz/posts/gitpusherror/</loc>
