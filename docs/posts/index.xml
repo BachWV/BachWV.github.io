@@ -7,10 +7,101 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021–2021</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 22:31:29 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Feb 2022 15:50:21 +0800</lastBuildDate>
     
 	<atom:link href="http://junling.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zerotie</title>
+      <link>http://junling.xyz/posts/zerotie/</link>
+      <pubDate>Wed, 23 Feb 2022 15:50:21 +0800</pubDate>
+      
+      <guid>http://junling.xyz/posts/zerotie/</guid>
+      <description>&lt;h1 id=&#34;使用zerotie建立局域网&#34;&gt;使用zerotie建立局域网&lt;/h1&gt;
+&lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;http://junling.xyz/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;于是又想尝试zerotie&lt;/p&gt;
+&lt;p&gt;群晖上的操作比较简单，官网上说的很详细&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.zerotier.com/devices/synology/&#34;&gt;https://docs.zerotier.com/devices/synology/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1首先添加虚拟网卡&#34;&gt;1.首先添加虚拟网卡&lt;/h2&gt;
+&lt;p&gt;Write script to &lt;code&gt;/usr/local/etc/rc.d/tun.sh&lt;/code&gt; that will setup &lt;code&gt;/dev/net/tun&lt;/code&gt; on startup&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo -e &#39;#!/bin/sh -e \ninsmod /lib/modules/tun.ko&#39; &amp;gt; /usr/local/etc/rc.d/tun.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Set executable permissions on script&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chmod a+x /usr/local/etc/rc.d/tun.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Run script once to create a TUN&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/usr/local/etc/rc.d/tun.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Check for the TUN&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;ls /dev/net/tun
+
+/dev/net/tun
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;If you experience trouble getting the TUN to work check out&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2去群晖官方套件中心添加docker&#34;&gt;2.去群晖官方套件中心添加docker&lt;/h2&gt;
+&lt;h2 id=&#34;3启动容器&#34;&gt;3.启动容器&lt;/h2&gt;
+&lt;p&gt;Make directory to store ZeroTier&amp;rsquo;s identity and config&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;mkdir /var/lib/zerotier-one
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Make Docker container called zt (Repo: zerotier/zerotier-synology)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;docker run -d           \
+  --name zt             \
+  --restart=always      \
+  --device=/dev/net/tun \
+  --net=host            \
+  --cap-add=NET_ADMIN   \
+  --cap-add=SYS_ADMIN   \
+  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;4添加网络&#34;&gt;4.添加网络&lt;/h2&gt;
+&lt;p&gt;Previous versions of our package contained a GUI, however this is no longer the case and it is for the better. The CLI can be used as follows:&lt;/p&gt;
+&lt;p&gt;View node status&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker exec -it zt zerotier-cli status&lt;/code&gt;
+Join your network&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker exec -it zt zerotier-cli join 你的网络id&lt;/code&gt;
+Authorize the NAS on your network. Then view the network status:&lt;/p&gt;
+&lt;p&gt;docker exec -it zt zerotier-cli listnetworks
+Show running container (optional)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt;
+Enter the container (optional)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker exec -it zt bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;j接下来就是让win本加入这个网络，官网下载安装包，点join network就行了&lt;/p&gt;
+&lt;p&gt;在官网就能看到两个设备的ip了，&lt;/p&gt;
+&lt;p&gt;速度也不是很快，300KBps吧&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>李想《节奏把控对于创业的重要性》</title>

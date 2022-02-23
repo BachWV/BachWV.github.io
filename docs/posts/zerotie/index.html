@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机  | gdb</title>
+	<title>划水摸鱼做梦无限状态自动机  | Zerotie</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.82.0" />
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/tags/gdb/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
-	<link rel="feed" href="/tags/gdb/index.xml" type="application/rss+xml" title="划水摸鱼做梦无限状态自动机">
 	
 	
 	
@@ -67,16 +64,135 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="http://junling.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="http://junling.xyz" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+	</h2>
+</div>
+<h1 class="pt-2">Zerotie</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-02-23T15:50:21&#43;08:00">2022-2-23</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h1 id="使用zerotie建立局域网">使用zerotie建立局域网</h1>
+<p>最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。<a href="/posts/%E7%BE%A4%E6%99%96frp/">详情点击这里</a></p>
+<p>于是又想尝试zerotie</p>
+<p>群晖上的操作比较简单，官网上说的很详细</p>
+<p><a href="https://docs.zerotier.com/devices/synology/">https://docs.zerotier.com/devices/synology/</a></p>
+<h2 id="1首先添加虚拟网卡">1.首先添加虚拟网卡</h2>
+<p>Write script to <code>/usr/local/etc/rc.d/tun.sh</code> that will setup <code>/dev/net/tun</code> on startup</p>
+<p><code>echo -e '#!/bin/sh -e \ninsmod /lib/modules/tun.ko' &gt; /usr/local/etc/rc.d/tun.sh</code></p>
+<p>Set executable permissions on script</p>
+<p><code>chmod a+x /usr/local/etc/rc.d/tun.sh</code></p>
+<p>Run script once to create a TUN</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/usr/local/etc/rc.d/tun.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>Check for the TUN</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ls /dev/net/tun
+
+/dev/net/tun
+</code></pre></td></tr></table>
+</div>
+</div><p><em>If you experience trouble getting the TUN to work check out</em></p>
+<h2 id="2去群晖官方套件中心添加docker">2.去群晖官方套件中心添加docker</h2>
+<h2 id="3启动容器">3.启动容器</h2>
+<p>Make directory to store ZeroTier&rsquo;s identity and config</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir /var/lib/zerotier-one
+</code></pre></td></tr></table>
+</div>
+</div><p>Make Docker container called zt (Repo: zerotier/zerotier-synology)</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -d           \
+  --name zt             \
+  --restart=always      \
+  --device=/dev/net/tun \
+  --net=host            \
+  --cap-add=NET_ADMIN   \
+  --cap-add=SYS_ADMIN   \
+  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4添加网络">4.添加网络</h2>
+<p>Previous versions of our package contained a GUI, however this is no longer the case and it is for the better. The CLI can be used as follows:</p>
+<p>View node status</p>
+<p><code>docker exec -it zt zerotier-cli status</code>
+Join your network</p>
+<p><code>docker exec -it zt zerotier-cli join 你的网络id</code>
+Authorize the NAS on your network. Then view the network status:</p>
+<p>docker exec -it zt zerotier-cli listnetworks
+Show running container (optional)</p>
+<p><code>docker ps</code>
+Enter the container (optional)</p>
+<p><code>docker exec -it zt bash</code></p>
+<p>j接下来就是让win本加入这个网络，官网下载安装包，点join network就行了</p>
+<p>在官网就能看到两个设备的ip了，</p>
+<p>速度也不是很快，300KBps吧</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" >
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -88,8 +204,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/tags/" title="Tags page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/tags/" title="Tags page" >
 			Tags
 		</a>
 	</li>
@@ -119,10 +234,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/tags/gdb/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -135,204 +246,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-<h1 class="pb-4">
-	gdb
-</h1>
-<div>
-	<section>
-		
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="http://junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/">
-			Gdb调试
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-	
-	
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/gdb'>gdb</a>&nbsp;&#47;
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/c&#43;&#43;'>C&#43;&#43;</a>
-	
-	
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-09-28T15:35:49&#43;08:00">2021-9-28</time>
-	</div>
-</div>
-
-		</div>
-		
-	</section>
-</div>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start md:flex-col  max-h-16">
@@ -421,25 +334,45 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021–2021
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			71 pages, 70568 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 401 words in this page.
+		<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 	</div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/lixiang/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        李想《节奏把控对于创业的重要性》
+    </a>
+    
+    
+</div>
+<div >
 
 
 
-
-
-
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
 
 		</footer>
 		
