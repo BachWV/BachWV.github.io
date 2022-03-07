@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on 划水摸鱼做梦无限状态自动机</title>
-    <link>http://junling.xyz/categories/%E7%AE%97%E6%B3%95/</link>
+    <link>http://blog.junling.xyz/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2021–2021</copyright>
+    <copyright>Copyright © 2021�?2022</copyright>
     <lastBuildDate>Mon, 13 Sep 2021 20:56:00 +0800</lastBuildDate>
     
-	<atom:link href="http://junling.xyz/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.junling.xyz/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>多少个1</title>
-      <link>http://junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
+      <link>http://blog.junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
       <pubDate>Mon, 13 Sep 2021 20:56:00 +0800</pubDate>
       
-      <guid>http://junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
+      <guid>http://blog.junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
       <description>&lt;h1 id=&#34;一个二进制数中有多少个1&#34;&gt;一个二进制数中有多少个1&lt;/h1&gt;
 &lt;p&gt;我只能想到用移位消去最小的1的方法&lt;/p&gt;
 &lt;h2 id=&#34;时间复杂度为i中1的个数的做法&#34;&gt;时间复杂度为i中1的个数的做法&lt;/h2&gt;

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 划水摸鱼做梦无限状态自动机</title>
-    <link>http://junling.xyz/categories/</link>
+    <link>http://blog.junling.xyz/categories/</link>
     <description>Recent content in Categories on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2021–2021</copyright>
+    <copyright>Copyright © 2021�?2022</copyright>
     <lastBuildDate>Wed, 10 Nov 2021 16:58:12 +0800</lastBuildDate>
     
-	<atom:link href="http://junling.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.junling.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>tech</title>
-      <link>http://junling.xyz/categories/tech/</link>
+      <link>http://blog.junling.xyz/categories/tech/</link>
       <pubDate>Wed, 10 Nov 2021 16:58:12 +0800</pubDate>
       
-      <guid>http://junling.xyz/categories/tech/</guid>
+      <guid>http://blog.junling.xyz/categories/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法</title>
-      <link>http://junling.xyz/categories/%E7%AE%97%E6%B3%95/</link>
+      <link>http://blog.junling.xyz/categories/%E7%AE%97%E6%B3%95/</link>
       <pubDate>Mon, 13 Sep 2021 20:56:00 +0800</pubDate>
       
-      <guid>http://junling.xyz/categories/%E7%AE%97%E6%B3%95/</guid>
+      <guid>http://blog.junling.xyz/categories/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>随笔</title>
-      <link>http://junling.xyz/categories/%E9%9A%8F%E7%AC%94/</link>
+      <link>http://blog.junling.xyz/categories/%E9%9A%8F%E7%AC%94/</link>
       <pubDate>Tue, 31 Aug 2021 20:06:45 +0800</pubDate>
       
-      <guid>http://junling.xyz/categories/%E9%9A%8F%E7%AC%94/</guid>
+      <guid>http://blog.junling.xyz/categories/%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
     

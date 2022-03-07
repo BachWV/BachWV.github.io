@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Easy on 划水摸鱼做梦无限状态自动机</title>
-    <link>http://junling.xyz/tags/easy/</link>
+    <link>http://blog.junling.xyz/tags/easy/</link>
     <description>Recent content in Easy on 划水摸鱼做梦无限状态自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2021–2021</copyright>
+    <copyright>Copyright © 2021�?2022</copyright>
     <lastBuildDate>Mon, 03 Jan 2022 00:57:54 +0800</lastBuildDate>
     
-	<atom:link href="http://junling.xyz/tags/easy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.junling.xyz/tags/easy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Zeller</title>
-      <link>http://junling.xyz/posts/zeller/</link>
+      <link>http://blog.junling.xyz/posts/zeller/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>http://junling.xyz/posts/zeller/</guid>
+      <guid>http://blog.junling.xyz/posts/zeller/</guid>
       <description>&lt;p&gt;蔡勒(zeller)公式&lt;/p&gt;
 &lt;p&gt;给出日期，计算星期几&lt;/p&gt;
 &lt;p&gt;$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$&lt;/p&gt;
@@ -101,10 +101,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>二叉树的前中后序遍历</title>
-      <link>http://junling.xyz/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <link>http://blog.junling.xyz/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
       <pubDate>Thu, 29 Jul 2021 22:56:00 +0800</pubDate>
       
-      <guid>http://junling.xyz/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <guid>http://blog.junling.xyz/posts/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
       <description>&lt;h1 id=&#34;二叉树的前中后序遍历&#34;&gt;二叉树的前中后序遍历&lt;/h1&gt;
 &lt;p&gt;前序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
@@ -236,10 +236,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>415.字符串相加</title>
-      <link>http://junling.xyz/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</link>
+      <link>http://blog.junling.xyz/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</link>
       <pubDate>Sun, 18 Jul 2021 19:39:21 +0800</pubDate>
       
-      <guid>http://junling.xyz/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
+      <guid>http://blog.junling.xyz/posts/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
       <description>&lt;h1 id=&#34;415-字符串相加httpsleetcode-cncomproblemsadd-strings&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/add-strings/&#34;&gt;415. 字符串相加&lt;/a&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;给定两个字符串形式的非负整数 &lt;code&gt;num1&lt;/code&gt; 和&lt;code&gt;num2&lt;/code&gt; ，计算它们的和。&lt;/p&gt;
