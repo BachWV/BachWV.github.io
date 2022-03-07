@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "bach"
-baseURL = "http://blog.junling.xyz"
-copyright = "Copyright © 2021�?2022"
+baseURL = "http://blog.junling.xyz/"
+copyright = "Copyright © 2021�??2022"
 
 # disqusShortname = "YOURSHORTNAME"
 enableInlineShortcodes = true
