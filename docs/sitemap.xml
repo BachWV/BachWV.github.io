@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://junling.xyz/posts/</loc>
-    <lastmod>2022-02-23T15:50:21+08:00</lastmod>
+    <loc>http://junling.xyz/posts/2021%E7%99%BE%E5%A4%A7bilibili/</loc>
+    <lastmod>2022-03-08T01:03:42+08:00</lastmod>
   </url><url>
-    <loc>http://junling.xyz/posts/zerotie/</loc>
-    <lastmod>2022-02-23T15:50:21+08:00</lastmod>
+    <loc>http://junling.xyz/posts/</loc>
+    <lastmod>2022-03-08T01:03:42+08:00</lastmod>
   </url><url>
     <loc>http://junling.xyz/</loc>
+    <lastmod>2022-03-08T01:03:42+08:00</lastmod>
+  </url><url>
+    <loc>http://junling.xyz/posts/zerotie/</loc>
     <lastmod>2022-02-23T15:50:21+08:00</lastmod>
   </url><url>
     <loc>http://junling.xyz/posts/lixiang/</loc>
