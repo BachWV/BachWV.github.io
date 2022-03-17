@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | CentOS上部署tomcat项目</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.92.1" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -96,10 +96,10 @@ onload='renderMathInElement(document.body);'></script>
 <p>1.CentOS安装jdk</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum install java-1.8.0-openjdk.x86_64
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum install java-1.8.0-openjdk.x86_64
 </code></pre></td></tr></table>
 </div>
 </div><p>会自动配置环境变量</p>
@@ -112,14 +112,14 @@ onload='renderMathInElement(document.body);'></script>
 关于密码要改一下策略</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
 
 <span style="color:#00a8c8">set</span> <span style="color:#00a8c8">global</span> <span style="color:#111">validate_password</span><span style="color:#111">.</span><span style="color:#00a8c8">length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">;</span>
 <span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">all</span> <span style="color:#00a8c8">privileges</span> <span style="color:#00a8c8">on</span> <span style="color:#f92672">*</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">to</span> <span style="color:#d88200">&#39;user02&#39;</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#00a8c8">with</span> <span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">option</span><span style="color:#111">;</span> 
@@ -134,10 +134,10 @@ idea中build-&gt;build artifacts
 注意\conf\Catalina\localhost中加入命名为shopimage.xml完成虚拟文件夹创建</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>注意在tomcat运行过程中，webapps下面的war文件是热部署的，不需要重启tomcat，并且.war文件不能删除，否则项目无法打开。</p>
@@ -304,8 +304,9 @@ idea中build-&gt;build artifacts
 	
 </div>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
-		Copyright © 2021��??2022
+		Copyright © 2021-2022
 		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 384 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -314,6 +315,7 @@ idea中build-&gt;build artifacts
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 			</div>
 		</aside>
