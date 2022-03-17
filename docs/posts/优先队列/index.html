@@ -217,7 +217,7 @@ onload='renderMathInElement(document.body);'></script>
 <span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>x是被添加的元素，es是这个queue， 如果cmp.compare(x, (T) e) &lt;0,这⾥假设我们传⼊⼀个很⼩的数（按理说要添加到最⼩堆堆顶），每次x ⼩于e,<strong>⽐较器返回⼩于0</strong>，这⾥两⾏代码(es[k] = e;k = parent;)相当于元素向堆顶⾛，直到到达堆顶 break退出while。我们成功把这个元素放到堆顶。如果我们让<strong>⽐较器返回⼤于0</strong>呢，那么，那么不会向 堆顶⾛，这就是最⼤堆了，怎么让⽐较器返回⼤于0呢？(o1,o2)-&gt;o2-o1就⾏了，插⼊的x很⼩， cmp.compare(x,e)每次都返回正数(e-x&gt;0),⾃然这个x不会向堆顶移动</p>
+</div><p>x是被添加的元素，es是这个queue， 如果cmp.compare(x, (T) e) &lt;0,这⾥假设我们传⼊⼀个很⼩的数（按理说要添加到最⼩堆堆顶），每次x ⼩于e,<strong>⽐较器返回⼩于0</strong>，这⾥两⾏代码(es[k] = e;k = parent;)相当于元素向堆顶⾛，直到到达堆顶 break退出while。我们成功把这个元素放到堆顶。如果我们让<strong>⽐较器返回⼤于0</strong>呢，那么，那么不会向 堆顶⾛，这就是最⼤堆了，怎么让⽐较器返回⼤于0呢？(o1,o2)-&gt;o2-o1就⾏了，插⼊的x很⼩， cmp.compare(x,e)每次都返回正数(e-x&gt;0),⾃然这个x不会向堆顶移动。</p>
 <p>优先队列里也可以放其他的对象，比如int[]</p>
 <p>指定按照int[]的第一个从小到大排序</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -567,7 +567,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1425 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1426 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
