@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>11.链式前向星</title>
+      <title>链式前向星</title>
       <link>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</link>
       <pubDate>Thu, 07 Apr 2022 14:06:12 +0800</pubDate>
       
@@ -82,12 +82,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// cnt=6 next[6]=3  head[1]=6 to[6]=4
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以看到，cnt不断增加，一直在前进，因为cnt记录了下标，而to和next每次都更新cnt下标对应的值，head的某个索引值被改写成了cnt。是不是head 的某个索引(也就是起始点)的值恰好是next的索引呢？next的索引到了上一个同样的起始点是那个位置。
-不懂？我们看最后一行，1-&amp;gt;4结点
-&lt;code&gt;add(1,4);// cnt=6 next[6]=3  head[1]=6 to[6]=4&lt;/code&gt;
-head[1]=6告诉我们next[6]能找到1-&amp;gt;x这个结点，x是多少？next[6]=3，我们最想知道的x答案就隐藏在3这个数里，我们看这一行：
-&lt;code&gt;add(1,3);// cnt=3 next[3]=0  head[1]=3 to[3]=3&lt;/code&gt;，是不是表示1-&amp;gt;3啊，通过next[6]=3我们要跳转到第3行（从0数的第三行），因为第三行to[3]记录着x的答案。
-想知道以1出发还有没有指向其他结点？看next[3]是几嘛，因为next[3]会告诉我们索引值的。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;可以看到，cnt不断增加，一直在前进，因为cnt记录了下标，而to和next每次都更新cnt下标对应的值，head的某个索引值被改写成了cnt。是不是head 的某个索引(也就是起始点)的值恰好是next的索引呢？next的索引到了上一个同样的起始点是那个位置。&lt;/p&gt;
+&lt;p&gt;不懂？我们看最后一行，1-&amp;gt;4结点&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;add(1,4);// cnt=6 next[6]=3  head[1]=6 to[6]=4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;head[1]=6告诉我们next[6]能找到1-&amp;gt;x这个结点，x是多少？next[6]=3，我们最想知道的x答案就隐藏在3这个数里，我们看这一行：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;add(1,3);// cnt=3 next[3]=0  head[1]=3 to[3]=3&lt;/code&gt;，是不是表示1-&amp;gt;3啊，通过next[6]=3我们要跳转到第3行（从0数的第三行），因为第三行to[3]记录着x的答案。&lt;/p&gt;
+&lt;p&gt;想知道以1出发还有没有指向其他结点？看next[3]是几嘛，因为next[3]会告诉我们索引值的。&lt;/p&gt;
 </description>
     </item>
     

@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</loc>
-    <lastmod>2022-04-07T14:06:12+08:00</lastmod>
-  </url><url>
     <loc>http://blog.junling.xyz/posts/</loc>
     <lastmod>2022-04-07T14:06:12+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/</loc>
+    <lastmod>2022-04-07T14:06:12+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</loc>
     <lastmod>2022-04-07T14:06:12+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/2021%E7%99%BE%E5%A4%A7bilibili/</loc>
