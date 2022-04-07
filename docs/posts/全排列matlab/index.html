@@ -7,7 +7,7 @@
 	
 	<title>划水摸鱼做梦无限状态自动机  | 全排列</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.92.1" />
+	<meta name="generator" content="Hugo 0.93.2" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -103,119 +103,119 @@ onload='renderMathInElement(document.body);'></script>
 <p>第二子树取3 没排序的是2 3 接下来调用自身对2 3进行排序，</p>
 <p>那么会有一个问题，取了2以后，我怎么知道没取的是2？可以将2移到已取的序列中，即移到本次递归的已排序序列的最后一个。我们用first来区隔已取和未取。</p>
 <p>递归退出的条件是所有的数都在已排序的序列中。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab">
-<span style="color:#111">output</span><span style="color:#111">=[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">];</span>
-<span style="color:#111">dfs</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">)</span>
-
-<span style="color:#00a8c8">function</span> <span style="color:#75af00">dfs</span><span style="color:#111">(</span>first,n,output<span style="color:#111">)</span>
-<span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">4</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
-   <span style="color:#75715e">%%分析容易得知，第二个乘数不可能为1，并且第一个乘数的千位不可能大于等于5</span>
-   <span style="color:#75715e">%%需要做一些预处理工作才能达到剪枝的目的。预处理工作虽然也消耗时间，但能够剪枝节约的时间更多；</span>
-    <span style="color:#00a8c8">return</span> 
-<span style="color:#00a8c8">end</span>
-<span style="color:#75715e">%%从这里开始都是剪枝</span>
-<span style="color:#111">firstnum</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">);</span>
-<span style="color:#111">z</span><span style="color:#111">=</span><span style="color:#111">firstnum</span><span style="color:#f92672">*</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">);</span>
-<span style="color:#00a8c8">if</span> <span style="color:#111">z</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">9876</span>
-     <span style="color:#00a8c8">return</span><span style="color:#111">;</span>
-<span style="color:#00a8c8">else</span>
- <span style="color:#111">a6</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">(</span><span style="color:#111">z</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">);</span>
- <span style="color:#111">a7</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">((</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#111">)</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100</span><span style="color:#111">);</span>
- <span style="color:#111">a8</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">((</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">-</span><span style="color:#111">a7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#111">)</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span><span style="color:#111">);</span>
- <span style="color:#111">a9</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">(</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">-</span><span style="color:#111">a7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">-</span><span style="color:#111">a8</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#111">);</span>
-    <span style="color:#00a8c8">if</span> <span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a7</span><span style="color:#f92672">||</span><span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a8</span><span style="color:#f92672">||</span><span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a9</span><span style="color:#f92672">||</span><span style="color:#111">a7</span><span style="color:#f92672">==</span><span style="color:#111">a8</span><span style="color:#f92672">||</span><span style="color:#111">a7</span><span style="color:#f92672">==</span><span style="color:#111">a9</span><span style="color:#f92672">||</span><span style="color:#111">a8</span><span style="color:#f92672">==</span><span style="color:#111">a9</span>
-        <span style="color:#00a8c8">return</span>     
-    <span style="color:#00a8c8">end</span>
- 
- <span style="color:#00a8c8">end</span>
-<span style="color:#75715e">%%以上是剪枝</span>
-<span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">==</span><span style="color:#111">n</span><span style="color:#111">)</span>
-    <span style="color:#111">isAns</span><span style="color:#111">(</span><span style="color:#111">output</span><span style="color:#111">)</span>
-    <span style="color:#00a8c8">return</span>
-<span style="color:#00a8c8">end</span>
-<span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">=</span><span style="color:#111">first</span><span style="color:#111">:</span><span style="color:#111">n</span>
-    <span style="color:#111">temp</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">);</span>
-    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">)=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">);</span>
-    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">)=</span><span style="color:#111">temp</span><span style="color:#111">;</span>  
-    <span style="color:#75715e">%用来交换output数组中索引first和i元素，移到本次递归的已排序序列的最后一个</span>
-    <span style="color:#111">dfs</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">);</span>
-    
-    <span style="color:#111">temp</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">);</span>
-    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">)=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">);</span>
-    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">)=</span><span style="color:#111">temp</span><span style="color:#111">;</span>  
-    <span style="color:#75715e">%用来交换output数组中索引first和i元素，这一步为回溯的关键！</span>
-<span style="color:#00a8c8">end</span>
-
-<span style="color:#00a8c8">end</span>
-<span style="color:#00a8c8">function</span> <span style="color:#75af00">isAns</span><span style="color:#111">(</span>output<span style="color:#111">)</span>
-<span style="color:#75715e">%用来判断是否找到结果</span>
-<span style="color:#75715e">%即output的前4位乘第五位是否等于后4位</span>
-<span style="color:#111">first</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">);</span>
-<span style="color:#111">last</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">);</span>
-
-<span style="color:#00a8c8">if</span> <span style="color:#111">first</span><span style="color:#f92672">*</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#111">last</span>
-    <span style="color:#111">fprintf</span><span style="color:#111">(</span><span style="color:#d88200">&#39;%d * %d = %d\n&#39;</span><span style="color:#111">,</span><span style="color:#111">first</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">),</span><span style="color:#111">last</span><span style="color:#111">)</span>
-<span style="color:#00a8c8">end</span>
-<span style="color:#00a8c8">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">output</span><span style="color:#111">=[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">dfs</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">dfs</span><span style="color:#111">(</span>first,n,output<span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">4</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#f92672">||</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e">%%分析容易得知，第二个乘数不可能为1，并且第一个乘数的千位不可能大于等于5</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e">%%需要做一些预处理工作才能达到剪枝的目的。预处理工作虽然也消耗时间，但能够剪枝节约的时间更多；</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> 
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%%从这里开始都是剪枝</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">firstnum</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">z</span><span style="color:#111">=</span><span style="color:#111">firstnum</span><span style="color:#f92672">*</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">z</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">9876</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#00a8c8">return</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">else</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">a6</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">(</span><span style="color:#111">z</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">a7</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">((</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#111">)</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">a8</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">((</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">-</span><span style="color:#111">a7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#111">)</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">a9</span><span style="color:#111">=</span><span style="color:#111">fix</span><span style="color:#111">(</span><span style="color:#111">z</span><span style="color:#f92672">-</span><span style="color:#111">a6</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">-</span><span style="color:#111">a7</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">-</span><span style="color:#111">a8</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a7</span><span style="color:#f92672">||</span><span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a8</span><span style="color:#f92672">||</span><span style="color:#111">a6</span><span style="color:#f92672">==</span><span style="color:#111">a9</span><span style="color:#f92672">||</span><span style="color:#111">a7</span><span style="color:#f92672">==</span><span style="color:#111">a8</span><span style="color:#f92672">||</span><span style="color:#111">a7</span><span style="color:#f92672">==</span><span style="color:#111">a9</span><span style="color:#f92672">||</span><span style="color:#111">a8</span><span style="color:#f92672">==</span><span style="color:#111">a9</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%%以上是剪枝</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">==</span><span style="color:#111">n</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">isAns</span><span style="color:#111">(</span><span style="color:#111">output</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">=</span><span style="color:#111">first</span><span style="color:#111">:</span><span style="color:#111">n</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">temp</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">)=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">)=</span><span style="color:#111">temp</span><span style="color:#111">;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%用来交换output数组中索引first和i元素，移到本次递归的已排序序列的最后一个</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">dfs</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">temp</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">)=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#111">first</span><span style="color:#111">)=</span><span style="color:#111">temp</span><span style="color:#111">;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">%用来交换output数组中索引first和i元素，这一步为回溯的关键！</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">isAns</span><span style="color:#111">(</span>output<span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%用来判断是否找到结果</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">%即output的前4位乘第五位是否等于后4位</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">first</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">last</span><span style="color:#111">=</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">first</span><span style="color:#f92672">*</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#111">last</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fprintf</span><span style="color:#111">(</span><span style="color:#d88200">&#39;%d * %d = %d\n&#39;</span><span style="color:#111">,</span><span style="color:#111">first</span><span style="color:#111">,</span><span style="color:#111">output</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">),</span><span style="color:#111">last</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>一些优化，回溯，用于对空间进行优化</p>
 <p>搜索问题的状态空间一般很大，如果每一个状态都去创建新的变量，时间复杂度是 O(N)O(N)。在候选数比较多的时候，在非叶子结点上创建新的状态变量的性能消耗就很严重。</p>
@@ -409,7 +409,7 @@ onload='renderMathInElement(document.body);'></script>
     </a>
     
     
-    <a class="flex-grow-0" href="/posts/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
+    <a class="flex-grow-0" href="/leetcode/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
         301. 删除无效的括号
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
