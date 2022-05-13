@@ -37,7 +37,6 @@ https://support.huaweicloud.com/dns_faq/dns_faq_016.html
 等了两个小时才生效。
 
 然后dnspods就可以同时设置mx和cname记录了
-还是dnspods牛逼哇
 
 接下来为uest.xyz设置隐性显性url能访问了捏，但是我还没没备案，所以还不行，只能等下个月域名失效了
 

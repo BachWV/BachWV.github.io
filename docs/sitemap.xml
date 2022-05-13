@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://blog.junling.xyz/posts/</loc>
+    <lastmod>2022-05-13T19:55:45+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/synology/</loc>
+    <lastmod>2022-05-13T19:55:45+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/</loc>
+    <lastmod>2022-05-13T19:55:45+08:00</lastmod>
+  </url><url>
     <loc>http://blog.junling.xyz/posts/2021%E7%99%BE%E5%A4%A7bilibili/</loc>
     <lastmod>2022-03-08T01:03:42+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/</loc>
-    <lastmod>2022-03-08T01:03:42+08:00</lastmod>
-  </url><url>
-    <loc>http://blog.junling.xyz/</loc>
-    <lastmod>2022-03-08T01:03:42+08:00</lastmod>
-  </url><url>
-    <loc>http://blog.junling.xyz/posts/zerotie/</loc>
+    <loc>http://blog.junling.xyz/posts/zerotier/</loc>
     <lastmod>2022-02-23T15:50:21+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/lixiang/</loc>

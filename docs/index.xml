@@ -7,10 +7,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021��??2022</copyright>
-    <lastBuildDate>Tue, 08 Mar 2022 01:03:42 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 May 2022 19:55:45 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.junling.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Synology</title>
+      <link>http://blog.junling.xyz/posts/synology/</link>
+      <pubDate>Fri, 13 May 2022 19:55:45 +0800</pubDate>
+      
+      <guid>http://blog.junling.xyz/posts/synology/</guid>
+      <description>&lt;p&gt;今天送走了一台j1900主机，上面部署过黑群晖，也花了很久才调教成一个顺手的群晖。
+我给群晖的定义是一个更智能的云盘，首要的任务是文件的保存同步和共享。&lt;/p&gt;
+&lt;p&gt;而首先需要解决的问题是&lt;/p&gt;
+&lt;h2 id=&#34;外网访问&#34;&gt;外网访问&lt;/h2&gt;
+&lt;p&gt;在没有公网IP的情况下，我总结了3种方法。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/&#34;&gt;洗白&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/zerotier/&#34;&gt;zerotier&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;云盘&#34;&gt;云盘&lt;/h2&gt;
+&lt;p&gt;群晖提供了各种方式访问群晖的文件。&lt;/p&gt;
+&lt;p&gt;SMB 局域网共享&lt;/p&gt;
+&lt;p&gt;WEBDAV 挂载成网盘&lt;/p&gt;
+&lt;p&gt;FTP/SFTP 最广泛的文件传输协议&lt;/p&gt;
+&lt;p&gt;最近发现的一个很好用的支持多种存储的目录文件列表程序Alist，可以直接使用docker构建&lt;/p&gt;
+&lt;h2 id=&#34;其他服务&#34;&gt;其他服务&lt;/h2&gt;
+&lt;h3 id=&#34;笔记-notestation&#34;&gt;笔记 NoteStation&lt;/h3&gt;
+&lt;p&gt;笔记可以直接从印象笔记转移，是相当不错的功能。也有桌面和手机端的APP，手机端除了有些bug，功能挺全的。&lt;/p&gt;
+&lt;h3 id=&#34;下载&#34;&gt;下载&lt;/h3&gt;
+&lt;p&gt;bt，电驴应有尽有。&lt;/p&gt;
+&lt;h3 id=&#34;百度网盘&#34;&gt;百度网盘&lt;/h3&gt;
+&lt;p&gt;可以同步百度网盘，Google网盘啥的，很强大。&lt;/p&gt;
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+&lt;p&gt;方便管理各种docker应用，反正就是无限可能。&lt;/p&gt;
+&lt;h3 id=&#34;chat&#34;&gt;Chat&lt;/h3&gt;
+&lt;p&gt;私密聊天，吊打微信，多用户，多频道。不过好像没有手机端app&lt;/p&gt;
+&lt;h3 id=&#34;drive&#34;&gt;Drive&lt;/h3&gt;
+&lt;p&gt;同步云盘，手机公测 的新APP可以同步微信聊天记录和文件夹。&lt;/p&gt;
+&lt;h3 id=&#34;photo&#34;&gt;Photo&lt;/h3&gt;
+&lt;p&gt;手机APP挺稳定的，无论备份多少东西都不会被杀后台，&lt;/p&gt;
+&lt;h3 id=&#34;movie&#34;&gt;Movie&lt;/h3&gt;
+&lt;p&gt;iPad客户端体验捉急，用了一次就不用了。&lt;/p&gt;
+&lt;p&gt;其他的话由于群晖也是在bsd基础上开发的，也可以正常用很多linux-x86的应用，比如gcc,java,node,python,群晖套件也就相当于包管理工具了。&lt;/p&gt;
+&lt;p&gt;群晖官方的应用服务的质量良莠不齐，不过可能是我还在dsm6，没有体验过dsm7，有些就一直是老版本。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Best Bilibili Video of 2021</title>
@@ -190,12 +234,12 @@
     </item>
     
     <item>
-      <title>Zerotie</title>
-      <link>http://blog.junling.xyz/posts/zerotie/</link>
+      <title>Zerotier</title>
+      <link>http://blog.junling.xyz/posts/zerotier/</link>
       <pubDate>Wed, 23 Feb 2022 15:50:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/zerotie/</guid>
-      <description>&lt;h1 id=&#34;使用zerotie建立局域网&#34;&gt;使用zerotie建立局域网&lt;/h1&gt;
+      <guid>http://blog.junling.xyz/posts/zerotier/</guid>
+      <description>&lt;h1 id=&#34;使用zerotier建立局域网&#34;&gt;使用zerotier建立局域网&lt;/h1&gt;
 &lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;于是又想尝试zerotie&lt;/p&gt;
 &lt;p&gt;群晖上的操作比较简单，官网上说的很详细&lt;/p&gt;
@@ -378,8 +422,7 @@ Enter the container (optional)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://support.huaweicloud.com/dns_faq/dns_faq_016.html&#34;&gt;https://support.huaweicloud.com/dns_faq/dns_faq_016.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;华为云修改dns在域名信息里面，改ns记录没效的，太隐蔽了。&lt;/p&gt;
 &lt;p&gt;等了两个小时才生效。&lt;/p&gt;
-&lt;p&gt;然后dnspods就可以同时设置mx和cname记录了
-还是dnspods牛逼哇&lt;/p&gt;
+&lt;p&gt;然后dnspods就可以同时设置mx和cname记录了&lt;/p&gt;
 &lt;p&gt;接下来为uest.xyz设置隐性显性url能访问了捏，但是我还没没备案，所以还不行，只能等下个月域名失效了&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.community/t/redirect-multiple-domains-to-one-github-pages-site/10903/4&#34;&gt;https://github.community/t/redirect-multiple-domains-to-one-github-pages-site/10903/4&lt;/a&gt;&lt;/p&gt;
 </description>
