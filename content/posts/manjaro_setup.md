@@ -62,3 +62,10 @@ Exec= env QT_SCREEN_SCALE_FACTORS=1 /usr/bin/wpp %F
 ```
 
 https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+
+
+
+最近22/5/15看到一篇挺不错的安装配置教程，分享一下。话说我自己已经回到Windows了
+
+https://www.freesion.com/article/71911164761/
+

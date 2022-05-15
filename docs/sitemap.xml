@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://blog.junling.xyz/posts/</loc>
-    <lastmod>2022-05-13T19:55:45+08:00</lastmod>
+    <loc>http://blog.junling.xyz/posts/blog_comments/</loc>
+    <lastmod>2022-05-15T16:58:12+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/synology/</loc>
-    <lastmod>2022-05-13T19:55:45+08:00</lastmod>
+    <loc>http://blog.junling.xyz/posts/</loc>
+    <lastmod>2022-05-15T16:58:12+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/</loc>
+    <lastmod>2022-05-15T16:58:12+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/synology/</loc>
     <lastmod>2022-05-13T19:55:45+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</loc>

@@ -663,6 +663,13 @@ int main()
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
 <hr class="double-line" />
+ 
+ <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+ <link
+   rel="stylesheet"
+   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+ />
+ 
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
     <a class="flex-grow-0" href="/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/">
@@ -691,6 +698,14 @@ int main()
 <div class="pb-2">
     
 </div>
+
+<div id="waline"></div>
+<script>
+  Waline.init({
+    el: '#waline',
+    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+  });
+</script>
 <hr />
 
 		</footer>

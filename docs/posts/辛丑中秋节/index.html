@@ -277,6 +277,13 @@ onload='renderMathInElement(document.body);'></script>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
 <hr class="double-line" />
+ 
+ <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+ <link
+   rel="stylesheet"
+   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+ />
+ 
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
     <a class="flex-grow-0" href="/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/">
@@ -305,6 +312,14 @@ onload='renderMathInElement(document.body);'></script>
 <div class="pb-2">
     
 </div>
+
+<div id="waline"></div>
+<script>
+  Waline.init({
+    el: '#waline',
+    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+  });
+</script>
 <hr />
 
 		</footer>
