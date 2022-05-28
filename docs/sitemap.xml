@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://blog.junling.xyz/posts/compiler/</loc>
+    <lastmod>2022-05-28T18:38:04+08:00</lastmod>
+  </url><url>
     <loc>http://blog.junling.xyz/posts/</loc>
-    <lastmod>2022-05-28T18:27:57+08:00</lastmod>
+    <lastmod>2022-05-28T18:38:04+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/</loc>
-    <lastmod>2022-05-28T18:27:57+08:00</lastmod>
+    <lastmod>2022-05-28T18:38:04+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/isa/</loc>
     <lastmod>2022-05-28T18:27:57+08:00</lastmod>
