@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://blog.junling.xyz/posts/</loc>
+    <lastmod>2022-05-28T18:27:57+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/</loc>
+    <lastmod>2022-05-28T18:27:57+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/isa/</loc>
+    <lastmod>2022-05-28T18:27:57+08:00</lastmod>
+  </url><url>
     <loc>http://blog.junling.xyz/life/blog_comment_test/</loc>
     <lastmod>2022-05-15T17:28:26+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/life/</loc>
     <lastmod>2022-05-15T17:28:26+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/</loc>
-    <lastmod>2022-05-15T17:28:26+08:00</lastmod>
-  </url><url>
     <loc>http://blog.junling.xyz/posts/blog_comments/</loc>
-    <lastmod>2022-05-15T16:58:12+08:00</lastmod>
-  </url><url>
-    <loc>http://blog.junling.xyz/posts/</loc>
     <lastmod>2022-05-15T16:58:12+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/synology/</loc>
