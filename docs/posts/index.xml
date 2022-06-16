@@ -4361,7 +4361,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码&lt;/p&gt;
 &lt;h2 id=&#34;系统结构&#34;&gt;系统结构：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c1d34fd.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
 &lt;p&gt;内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：系统工具和UNIX命令不是内核组件。&lt;/p&gt;
@@ -4372,21 +4372,21 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;虚拟计算机：UNIX操作系统向系统中的&lt;strong&gt;每个用户指定一个执行环境&lt;/strong&gt;，这个环境成为虚拟计算机，包括一个&lt;strong&gt;用户终端&lt;/strong&gt;和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;进程&lt;/strong&gt;：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。&lt;/p&gt;
 &lt;h1 id=&#34;第3章-unix入门&#34;&gt;第3章 UNIX入门&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c142359.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612145535579.png&#34; alt=&#34;image-20210612145535579&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;31登录与退出&#34;&gt;3.1登录与退出&lt;/h2&gt;
 &lt;p&gt;1.登录&lt;/p&gt;
 &lt;p&gt;输入用户名，密码&lt;/p&gt;
 &lt;p&gt;2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img02.sogoucdn.com/app/a/100520146/60DD084CA4B29C887B814737F0774D53&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3.退出系统：[ctrl+d] 或是exit，即可退出&lt;/p&gt;
 &lt;h2 id=&#34;32-简单的unix命令&#34;&gt;3.2 简单的UNIX命令&lt;/h2&gt;
 &lt;p&gt;命令行格式：&lt;code&gt;[命令] [选项] [参数]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;字段间要用一个或多个空格隔开。选项的前面一般会有连字符&lt;code&gt;-&lt;/code&gt;，一个命令同时也可以有多个，例如下列著名的命令：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-2021061215201111.jpg&#34; alt=&#34;image-2021061215201111&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm&lt;/code&gt;表示删除，&lt;code&gt;-rf&lt;/code&gt;表示两个选项：r和f，&lt;code&gt;/*&lt;/code&gt;表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件&lt;/p&gt;
 &lt;p&gt;下面介绍一些简单的命令：&lt;/p&gt;
 &lt;p&gt;1.date：显示日期和时间&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c15ad92.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义&lt;/p&gt;
@@ -4396,18 +4396,17 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;who还有一些的选项：-q -H -b。&lt;/p&gt;
 &lt;p&gt;3.显示日历：cal&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c117275.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;33-获取帮助信息&#34;&gt;3.3 获取帮助信息&lt;/h2&gt;
 &lt;p&gt;learn和help，使用时需要安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae6036d5bb.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104948628.png&#34; alt=&#34;image-20220616104948628&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如我不知道exit的用法&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c11b61a.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105333358.png&#34; alt=&#34;image-20220616105333358&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;333-man手册&#34;&gt;3.3.3 man手册：&lt;/h3&gt;
 &lt;p&gt;学习新命令时使用，可以得到该man(manual)命令的详细说明，当然&lt;/p&gt;
 &lt;p&gt;在简洁的wsl中也是没有man的，需要先&lt;code&gt;sudo apt install man-db manpages manpages-dev&lt;/code&gt;,之后才能愉快地使用man&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c27c916.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;34-更正键盘输入错误&#34;&gt;3.4 更正键盘输入错误&lt;/h2&gt;
-&lt;p&gt;中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了&lt;code&gt;rm -rf /&lt;/code&gt;，这是就要猛敲[ctrl-c]&lt;/p&gt;
+&lt;p&gt;中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了&lt;code&gt;rm -rf /*&lt;/code&gt;，这是就要猛敲[ctrl-c]&lt;/p&gt;
 &lt;h2 id=&#34;35-使用shell&#34;&gt;3.5 使用shell&lt;/h2&gt;
 &lt;p&gt;命令的处理是位于用户和操作系统的其他部分之间的shell完成的，每输入一个命令以后，命令被传到shell，先进行分析，然后执行。&lt;/p&gt;
 &lt;p&gt;bulitin命令：包含的是一些比较简单的linux系统命令，这些命令由shell程序识别并在shell程序内部完成运行，通常在linux系统加载运行时shell就被加载并驻留在系统内存中。内部命令是写在bashy源码里面的，其执行速度比外部命令快，因为解析内部命令shell不需要创建子进程。比如：exit，history，cd，echo等。&lt;/p&gt;
@@ -4918,9 +4917,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;https://img03.sogoucdn.com/app/a/100520146/70F6DA4F485A5007D3CBCE626EC8146D&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果想无提示删除所有文件，可以作死尝试&lt;code&gt;sudo rm -rf /*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;第6章-vi编辑器的高级用法&#34;&gt;第6章 vi编辑器的高级用法&lt;/h1&gt;
 &lt;h2 id=&#34;61-更多vi知识&#34;&gt;6.1 更多vi知识&lt;/h2&gt;
 &lt;h3 id=&#34;611-启动vi编辑器&#34;&gt;6.1.1 启动vi编辑器&lt;/h3&gt;
@@ -5008,7 +5005,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;66-定制vi&#34;&gt;6.6 定制vi&lt;/h2&gt;
 &lt;p&gt;用户可以调整vi编辑器的设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/00B9329850723F7E7E31D31C7B32613F&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到有众多选项可以自定义。&lt;/p&gt;
 &lt;p&gt;下面介绍一些常用选项：&lt;/p&gt;
 &lt;table&gt;
@@ -5367,8 +5364,7 @@ rmdir: 删除 &amp;#39;ggg&amp;#39; 失败: 没有那个文件或目录
 10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://img01.sogoucdn.com/app/a/100520146/1EEF5A5F2404C8019FAA9F0604E50BAC&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
@@ -5427,18 +5423,14 @@ atxt //发现竟然也是atxt
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;(base) minatoxeon@OMEN:~$ wc -l mydir.list
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;$ wc -l mydir.list
 19 mydir.list
-(base) minatoxeon@OMEN:~$ wc -w mydir.list
+$ wc -w mydir.list
 23 mydir.list
-(base) minatoxeon@OMEN:~$ wc -c mydir.list
+$ wc -c mydir.list
 215 mydir.list
-(base) minatoxeon@OMEN:~$ 
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;head显示文件头部，缺省显示头部10行。&lt;/p&gt;
@@ -5764,7 +5756,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;p&gt;unix由内核和系统工具组成。内核是核心，所有直接与硬件通信的常规程序都集中在内核中。&lt;/p&gt;
 &lt;p&gt;shell是用户和系统交流的工具，自身是一个应用程序。当用户登录到系统时shell被装入内存。&lt;/p&gt;
 &lt;p&gt;用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ps.ssl.qhmsg.com/t028671bff381e903da.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210412205628871.png&#34; alt=&#34;image-20210412205628871&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。&lt;/p&gt;
 &lt;p&gt;shell的主要功能：&lt;/p&gt;
 &lt;ul&gt;
@@ -5820,13 +5812,13 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#111&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#111&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;93-其他元字符&#34;&gt;9.3 其他元字符&lt;/h2&gt;
 &lt;h3 id=&#34;931-重音符号&#34;&gt;9.3.1 重音符号&lt;/h3&gt;
 &lt;p&gt;shell执行重音符号`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img03.sogoucdn.com/app/a/100520146/2F42BA7E520A0FBD61107446BC23EE85&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105949017.png&#34; alt=&#34;image-20220616105949017&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;932-括号&#34;&gt;9.3.2 括号&lt;/h3&gt;
 &lt;p&gt;将几个命令放在括号里，可以编组。一个命令组可以像单条命令一样被重定向。&lt;/p&gt;
 &lt;h3 id=&#34;933-后台处理&#34;&gt;9.3.3 后台处理&amp;amp;&lt;/h3&gt;
@@ -6679,7 +6671,6 @@ index ac60739,b63d7d7..0000000
 &lt;p&gt;可以使用点命令来阻止shell创建子进程。&lt;/p&gt;
 &lt;h3 id=&#34;1224-读取命令read&#34;&gt;12.2.4 读取命令：read&lt;/h3&gt;
 &lt;p&gt;从标准输入设备读取用户输入，并将值存入用户自定义变量中。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img04.sogoucdn.com/app/a/100520146/BD6A3CA5B35873341AE2765475B9BA93&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1231-注释&#34;&gt;12.3.1 注释&lt;/h3&gt;
 &lt;h3 id=&#34;1232-变量&#34;&gt;12.3.2 变量&lt;/h3&gt;
 &lt;p&gt;字符串类型，具体内容在前面讲过。&lt;/p&gt;
@@ -6728,18 +6719,38 @@ index ac60739,b63d7d7..0000000
 &lt;p&gt;&lt;code&gt;set hello &amp;quot;I love bash&amp;quot; world&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$0&lt;/span&gt;-bashendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$#&lt;/span&gt;0endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;set&lt;/span&gt; hello &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;i love&amp;#34;&lt;/span&gt; worldendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$#&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;   //3个参数hello 和&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;i love&amp;#34;&lt;/span&gt;和worldendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$1&lt;/span&gt;helloendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$2&lt;/span&gt;i love bashendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$3&lt;/span&gt;worldendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt; //&lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt;和&lt;span style=&#34;color:#111&#34;&gt;$@&lt;/span&gt;相似hello i love world
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$0&lt;/span&gt;
+-bash
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$#&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;set&lt;/span&gt; hello &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;i love&amp;#34;&lt;/span&gt; world
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$#&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;   //3个参数hello 和&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;i love&amp;#34;&lt;/span&gt;和world
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$1&lt;/span&gt;hello
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$2&lt;/span&gt;i love bash
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$3&lt;/span&gt;world
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt; //&lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt;和&lt;span style=&#34;color:#111&#34;&gt;$@&lt;/span&gt;相似hello i love world
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt;hello i love worldendwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$@&lt;/span&gt;hello i love world
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$*&lt;/span&gt;hello i love world
+endwsl@LAPTOP-U1E6STIA:~$ &lt;span style=&#34;color:#111&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;$@&lt;/span&gt;hello i love world
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;1234-条件与测试&#34;&gt;12.3.4 条件与测试&lt;/h3&gt;
@@ -6749,7 +6760,7 @@ index ac60739,b63d7d7..0000000
 &lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;if条件; then command1elif command2then command3else command4fi
+&lt;pre style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;if条件; then command1elif command2 then command3 else command4fi
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;真或假：test命令&lt;/p&gt;
@@ -7234,12 +7245,8 @@ D:\            289083388 253954812  35128576  88% /mnt/d
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;tar&lt;/p&gt;
-&lt;p&gt;•tar zcfv压缩成.tar.gz文件&lt;/p&gt;
-&lt;p&gt;•tar zxfv解压.tar.gz文件&lt;/p&gt;
-&lt;p&gt;•tar Jcfv压缩成.tar.xz文件&lt;/p&gt;
-&lt;p&gt;•tar Jxfv解压.tar.xz文件&lt;/p&gt;
-&lt;p&gt;•tar jcfv压缩成.tar.bz2文件&lt;/p&gt;
-&lt;p&gt;•tar jxfv解压.tar.bz2文件&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tldr tar&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616111745205.png&#34; alt=&#34;image-20220616111745205&#34;&gt;&lt;/p&gt;
 &lt;p&gt;chown修改文件目录的owner,修改inode&lt;/p&gt;
 &lt;p&gt;chgrp修改文件目录的group&lt;/p&gt;
 </description>

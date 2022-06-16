@@ -39,7 +39,7 @@ Linux       开放源代码
 
 ## 系统结构：
 
-![](https://www.hualigs.cn/image/60cae3c1d34fd.jpg)
+![image-20210612144726435](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612144726435.png)
 
 
 
@@ -61,7 +61,7 @@ Linux       开放源代码
 
 # 第3章 UNIX入门
 
-![](https://www.hualigs.cn/image/60cae3c142359.jpg)
+![image-20210612145535579](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612145535579.png)
 
 ## 3.1登录与退出
 
@@ -71,7 +71,7 @@ Linux       开放源代码
 
 2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述
 
-![](https://img02.sogoucdn.com/app/a/100520146/60DD084CA4B29C887B814737F0774D53)
+![image-20210612151234131](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612151234131.png)
 
 3.退出系统：[ctrl+d] 或是exit，即可退出
 
@@ -83,7 +83,7 @@ Linux       开放源代码
 
 
 
-![](https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25)
+![image-2021061215201111](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-2021061215201111.jpg)
 
 ```rm```表示删除，```-rf```表示两个选项：r和f，```/*```表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件
 
@@ -93,7 +93,7 @@ Linux       开放源代码
 
 1.date：显示日期和时间
 
-![](https://www.hualigs.cn/image/60cae3c15ad92.jpg)
+![image-20210612152830573](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612152830573.png)
 
 2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下
 
@@ -111,7 +111,7 @@ who还有一些的选项：-q -H -b。
 
 3.显示日历：cal
 
-![](https://www.hualigs.cn/image/60cae3c117275.jpg)
+![image-20220616104917751](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104917751.png)
 
 ## 3.3 获取帮助信息
 
@@ -119,13 +119,13 @@ who还有一些的选项：-q -H -b。
 
 learn和help，使用时需要安装
 
-![](https://www.hualigs.cn/image/60cae6036d5bb.jpg)
+![image-20220616104948628](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104948628.png)
 
 
 
 比如我不知道exit的用法
 
-![](https://www.hualigs.cn/image/60cae3c11b61a.jpg)
+![image-20220616105333358](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105333358.png)
 
 ### 3.3.3 man手册：
 
@@ -133,13 +133,11 @@ learn和help，使用时需要安装
 
 在简洁的wsl中也是没有man的，需要先```sudo apt install man-db manpages manpages-dev```,之后才能愉快地使用man
 
-![](https://www.hualigs.cn/image/60cae3c27c916.jpg)
-
 
 
 ## 3.4 更正键盘输入错误
 
-中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了``rm -rf /``，这是就要猛敲[ctrl-c]
+中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了``rm -rf /*``，这是就要猛敲[ctrl-c]
 
 
 
@@ -163,7 +161,7 @@ bulitin命令：包含的是一些比较简单的linux系统命令，这些命�
 >
 >pwd命令用于显示当前工作目录，是Linux系统下最常用的命令之一。在不太能确定当前位置时，可以使用pwd命令来判断目录在文件系统内的确切位置。而涉及pwd指令，就不得不提及三个环境变量：PATH、OLDPWD、PWD。
 >
->PATH：执行文件路径的变量；"echo $PATH"（PATH前面加$表示后面接的是变量）
+>PATH：执行文件路径的变量；"echo \$PATH"（PATH前面加$表示后面接的是变量）
 >
 >OLDPWD：表示前一次的工作目录；
 >
@@ -465,11 +463,11 @@ Linux中的打印请求 `lpr`命令
 | -r   | 删除指定的目录及目录下的所有文件和子目录 |
 | -rf  | 无提示地强制递归删除文件                 |
 
-![](https://img03.sogoucdn.com/app/a/100520146/70F6DA4F485A5007D3CBCE626EC8146D)
+
 
 如果想无提示删除所有文件，可以作死尝试`sudo rm -rf /*`
 
-![](https://img04.sogoucdn.com/app/a/100520146/716ED281B2573EEFC575AFA692B32E25)
+
 
 # 第6章 vi编辑器的高级用法
 
@@ -559,7 +557,7 @@ vi提供了删除，复制，剪贴操作。就是命令有点复杂。
 
 用户可以调整vi编辑器的设置
 
-![](https://img04.sogoucdn.com/app/a/100520146/00B9329850723F7E7E31D31C7B32613F)
+![image-20210615203331825](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210615203331825.png)
 
 可以看到有众多选项可以自定义。
 
@@ -828,7 +826,7 @@ mv移动文件
 10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
 ```
 
-![](https://img01.sogoucdn.com/app/a/100520146/1EEF5A5F2404C8019FAA9F0604E50BAC)
+
 
 ```
 endwsl@LAPTOP-U1E6STIA:/home$ cat >>a.txt 
@@ -860,14 +858,12 @@ ln –s符号链接，分配一个新的inode，内部记录指向原有文件�
 |            | --help     | 帮助         |
 
 ```
-(base) minatoxeon@OMEN:~$ wc -l mydir.list
+$ wc -l mydir.list
 19 mydir.list
-(base) minatoxeon@OMEN:~$ wc -w mydir.list
+$ wc -w mydir.list
 23 mydir.list
-(base) minatoxeon@OMEN:~$ wc -c mydir.list
+$ wc -c mydir.list
 215 mydir.list
-(base) minatoxeon@OMEN:~$ 
-
 ```
 
 head显示文件头部，缺省显示头部10行。
@@ -1046,7 +1042,7 @@ shell是用户和系统交流的工具，自身是一个应用程序。当用户
 
 用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程
 
-![](https://ps.ssl.qhmsg.com/t028671bff381e903da.jpg)
+![image-20210412205628871](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210412205628871.png)
 
 
 
@@ -1107,7 +1103,7 @@ unset可以清除不想要的变量，也可以用赋值语句来修改用户变
 - PATH 变量：shell在定位命令时所要查找的目录名。UNIX一般把可执行文件存在一个叫做bin的目录中。以下是我的键入shell后的结果：
 
 ```shell
-PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
 ```
 
 ## 9.3 其他元字符
@@ -1116,7 +1112,7 @@ PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 
 shell执行重音符号\`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。
 
-![](https://img03.sogoucdn.com/app/a/100520146/2F42BA7E520A0FBD61107446BC23EE85)
+![image-20220616105949017](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105949017.png)
 
 ### 9.3.2 括号
 
@@ -1330,7 +1326,7 @@ Makefile：变量定义+依赖描述
 
 - %.o: %.c
 
-- $(COMPILE.c) $(OUTPUT_OPTION) $<
+- \$(COMPILE.c) \$(OUTPUT_OPTION) \$<
 
 推导规则
 
@@ -1714,7 +1710,7 @@ echo换行：`echo "\nhello\n"`
 
 从标准输入设备读取用户输入，并将值存入用户自定义变量中。
 
-![](https://img04.sogoucdn.com/app/a/100520146/BD6A3CA5B35873341AE2765475B9BA93)
+
 
 ### 12.3.1 注释 #
 
@@ -1752,11 +1748,21 @@ shell脚本可以从命令行最多读取10个命令行参数存入特殊变量�
 ```set hello "I love bash" world```
 
 ```shell
-endwsl@LAPTOP-U1E6STIA:~$ echo $0-bashendwsl@LAPTOP-U1E6STIA:~$ echo $#0endwsl@LAPTOP-U1E6STIA:~$ set hello "i love" worldendwsl@LAPTOP-U1E6STIA:~$ echo $#3   //3个参数hello 和"i love"和worldendwsl@LAPTOP-U1E6STIA:~$ echo $1helloendwsl@LAPTOP-U1E6STIA:~$ echo $2i love bashendwsl@LAPTOP-U1E6STIA:~$ echo $3worldendwsl@LAPTOP-U1E6STIA:~$ echo $* //$*和$@相似hello i love world
+endwsl@LAPTOP-U1E6STIA:~$ echo $0
+-bash
+endwsl@LAPTOP-U1E6STIA:~$ echo $#
+3
+endwsl@LAPTOP-U1E6STIA:~$ set hello "i love" world
+endwsl@LAPTOP-U1E6STIA:~$ echo $#3   //3个参数hello 和"i love"和world
+endwsl@LAPTOP-U1E6STIA:~$ echo $1hello
+endwsl@LAPTOP-U1E6STIA:~$ echo $2i love bash
+endwsl@LAPTOP-U1E6STIA:~$ echo $3world
+endwsl@LAPTOP-U1E6STIA:~$ echo $* //$*和$@相似hello i love world
 ```
 
 ```shell
-endwsl@LAPTOP-U1E6STIA:~$ echo $*hello i love worldendwsl@LAPTOP-U1E6STIA:~$ echo $@hello i love world
+endwsl@LAPTOP-U1E6STIA:~$ echo $*hello i love world
+endwsl@LAPTOP-U1E6STIA:~$ echo $@hello i love world
 ```
 
 
@@ -1768,7 +1774,7 @@ endwsl@LAPTOP-U1E6STIA:~$ echo $*hello i love worldendwsl@LAPTOP-U1E6STIA:~$ ech
 if-then-elif结构：
 
 ```
-if条件; then command1elif command2then command3else command4fi
+if条件; then command1elif command2 then command3 else command4fi
 ```
 
 真或假：test命令
@@ -2103,19 +2109,11 @@ C:\            209715196 192647796  17067400  92% /mnt/c
 D:\            289083388 253954812  35128576  88% /mnt/d
 ```
 
-tar
+tar 
 
-•tar zcfv压缩成.tar.gz文件
+`tldr tar`
 
-•tar zxfv解压.tar.gz文件
-
-•tar Jcfv压缩成.tar.xz文件
-
-•tar Jxfv解压.tar.xz文件
-
-•tar jcfv压缩成.tar.bz2文件
-
-•tar jxfv解压.tar.bz2文件
+![image-20220616111745205](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616111745205.png)
 
 chown修改文件目录的owner,修改inode
 
