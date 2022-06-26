@@ -3,7 +3,7 @@ author = "bach"
 baseURL = "http://blog.junling.xyz/"
 copyright = "Copyright © 2021-2022"
 
-# disqusShortname = "YOURSHORTNAME"
+# disqusShortname = "BachWV"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 # googleAnalytics = "UA-FAKE"
@@ -12,7 +12,7 @@ languageCode = "en"
 theme = "hugo-theme-tokiwa"
 #paginate might no use
 
-title = "划水摸鱼做梦无限状态自动机"
+title = "AC自动机"
 publishDir = "docs"
 
 [markup]
@@ -91,10 +91,10 @@ tag = "tags"
 [social]
 bilibili = "https://space.bilibili.com/36175480"
 github = "http://github.com/bachwv"
-gitlab = "http://gitlab.com/"
+# gitlab = "http://gitlab.com/"
 mail = "mailto:li@junling.xyz"
 twitter = "http://twitter.com/"
-zhihu = "http://example.com/"
+# zhihu = "http://example.com/"
 # any icon in layouts/partials/svg can be used by the name without the "-line.svg"
 
 [outputs]

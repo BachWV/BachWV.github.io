@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>划水摸鱼做梦无限状态自动机  | 103. 二叉树的锯齿形层序遍历</title>
+	<title>AC自动机  | 103. 二叉树的锯齿形层序遍历</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -67,7 +67,7 @@ onload='renderMathInElement(document.body);'></script>
 				
 <div>
 	<h2>
-		<a href="http://blog.junling.xyz/" title="划水摸鱼做梦无限状态自动机" class="heading font-cursive icon">划水摸鱼做梦无限状态自动机</a>
+		<a href="http://blog.junling.xyz/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
 	</h2>
 </div>
 <h1 class="pt-2">103. 二叉树的锯齿形层序遍历</h1>
@@ -111,38 +111,38 @@ onload='renderMathInElement(document.body);'></script>
 <p>给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
 <p>例如：
 给定二叉树 <code>[3,9,20,null,null,15,7]</code>,</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">   3
-  / \
- 9  20
-   /  \
-  15   7
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   3
+</span></span><span style="display:flex;"><span>  / \
+</span></span><span style="display:flex;"><span> 9  20
+</span></span><span style="display:flex;"><span>   /  \
+</span></span><span style="display:flex;"><span>  15   7
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>返回锯齿形层序遍历如下：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[
- [3],
- [20,9],
- [15,7]
-]
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span> [3],
+</span></span><span style="display:flex;"><span> [20,9],
+</span></span><span style="display:flex;"><span> [15,7]
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过次数173,983</p>
 <p>提交次数304,411</p>
@@ -150,137 +150,137 @@ onload='renderMathInElement(document.body);'></script>
 <p>这一题的坑还是非常多的，没有那么容易。最初想法是改一改层序遍历的代码就行了，想用一个队列完成，根据flag决定出队列的顺序。发现不行，因为队列是一遍增加一遍移出的。入上图当队列是[9 20]，从尾部移出得到20，9.看起来没错，但是在移出9时，又像队列的尾部增加了15和7，队列变成了[9 15 7]再移出尾部就错了。</p>
 <p>这是想通过双队列的方式，增加到新的队列中，在移出9时，[15 7]在下一个队列。看起来比较完美，一试又不对。试想移出9时插入[15 7] 再移出20时，插入了20的子节点（这里假设它有2个子节点 1 2），会发现倒序的里面，是左节点，右节点的顺序，很奇怪。此时又想过根据flag实现从右到左，但是这似乎让顺序直接变成倒叙的队列，下一行就不必改变出队列的顺序，一直倒序出就可以了。</p>
 <p>但是这种太麻烦，我最后还是用了顺序的bfs，但是根据flag的值，让输出的值取反，实现不对bfs的过程做出任何改变，较为简易。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#75af00">zigzagLevelOrder</span><span style="color:#f92672">(</span><span style="color:#111">TreeNode</span> <span style="color:#111">root</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;</span><span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
-        
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">==</span><span style="color:#00a8c8">null</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-        <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queue</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queueNext</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
-         <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queueCopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
-       
-        <span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">);</span>
-        <span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">);</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">flag</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">cur</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">next</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-      
-        
-        <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;!</span><span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
-            <span style="color:#111">TreeNode</span> <span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">;</span>
-            <span style="color:#111">TreeNode</span> <span style="color:#111">tcopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">;</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">flag</span><span style="color:#f92672">==</span><span style="color:#111">1</span><span style="color:#f92672">){</span><span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">removeFirst</span><span style="color:#f92672">();}</span>
-            <span style="color:#00a8c8">else</span> <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">flag</span><span style="color:#f92672">==-</span><span style="color:#111">1</span><span style="color:#f92672">){</span><span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">removeLast</span><span style="color:#f92672">();}</span>
-            <span style="color:#111">tcopy</span><span style="color:#f92672">=</span><span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-            <span style="color:#111">zigzag</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">t</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
-            
-
-
-            <span style="color:#111">cur</span><span style="color:#f92672">--;</span>
-            
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">);</span>
-                <span style="color:#111">next</span><span style="color:#f92672">++;</span>
-            <span style="color:#f92672">}</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
-                <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">);</span>
-                <span style="color:#111">next</span><span style="color:#f92672">++;</span>
-            <span style="color:#f92672">}</span>
-            
-                
-            
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cur</span><span style="color:#f92672">==</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
-                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">zigzag</span><span style="color:#f92672">);</span>
-              <span style="color:#75715e">//  System.out.println(queueNext);
-</span><span style="color:#75715e"></span>               <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
-               <span style="color:#111">flag</span><span style="color:#f92672">=-</span><span style="color:#111">flag</span><span style="color:#f92672">;</span>
-               <span style="color:#111">queue</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">(</span><span style="color:#111">queueNext</span><span style="color:#f92672">);</span>
-               <span style="color:#111">queueCopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">(</span><span style="color:#111">queueNext</span><span style="color:#f92672">);</span>
-              <span style="color:#75715e">// 注意不能传地址：queue=queueNext 这样会使queue 和queueNext指向的是同一个地址
-</span><span style="color:#75715e"></span>               <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">clear</span><span style="color:#f92672">();</span>
-
-
-                <span style="color:#111">cur</span><span style="color:#f92672">=</span><span style="color:#111">next</span><span style="color:#f92672">;</span>
-                <span style="color:#111">next</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-      
-        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-
-
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#75af00">zigzagLevelOrder</span><span style="color:#f92672">(</span><span style="color:#111">TreeNode</span> <span style="color:#111">root</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;</span><span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">==</span><span style="color:#00a8c8">null</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queue</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queueNext</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;</span><span style="color:#111">TreeNode</span><span style="color:#f92672">&gt;</span> <span style="color:#111">queueCopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>       
+</span></span><span style="display:flex;"><span>        <span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">flag</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">cur</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">next</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;!</span><span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">TreeNode</span> <span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">TreeNode</span> <span style="color:#111">tcopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">flag</span><span style="color:#f92672">==</span><span style="color:#111">1</span><span style="color:#f92672">){</span><span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">removeFirst</span><span style="color:#f92672">();}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">else</span> <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">flag</span><span style="color:#f92672">==-</span><span style="color:#111">1</span><span style="color:#f92672">){</span><span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">removeLast</span><span style="color:#f92672">();}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">tcopy</span><span style="color:#f92672">=</span><span style="color:#111">queueCopy</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">zigzag</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">t</span><span style="color:#f92672">.</span><span style="color:#75af00">val</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">cur</span><span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">left</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">next</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">!=</span><span style="color:#00a8c8">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">tcopy</span><span style="color:#f92672">.</span><span style="color:#75af00">right</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">next</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cur</span><span style="color:#f92672">==</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">ans</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">zigzag</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#75715e">//  System.out.println(queueNext);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>               <span style="color:#111">zigzag</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#111">flag</span><span style="color:#f92672">=-</span><span style="color:#111">flag</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#111">queue</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">(</span><span style="color:#111">queueNext</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#111">queueCopy</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">LinkedList</span><span style="color:#f92672">(</span><span style="color:#111">queueNext</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#75715e">// 注意不能传地址：queue=queueNext 这样会使queue 和queueNext指向的是同一个地址
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>               <span style="color:#111">queueNext</span><span style="color:#f92672">.</span><span style="color:#75af00">clear</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">cur</span><span style="color:#f92672">=</span><span style="color:#111">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">next</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 	</section>
@@ -356,7 +356,7 @@ onload='renderMathInElement(document.body);'></script>
 </ul>
 	
 
-<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start md:flex-col  max-h-16">
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
 	
 	<a href='https://space.bilibili.com/36175480' target="_blank" class="bilibili icon pl-1 text-eucalyptus-400 hover:text-java-400" title="bilibili link" rel="noopener"
 		aria-label="follow on bilibili——Opens in a new window">
@@ -386,20 +386,6 @@ onload='renderMathInElement(document.body);'></script>
 		</div>
 	</a>
 	
-	<a href='http://gitlab.com/' target="_blank" class="gitlab icon pl-1 text-eucalyptus-400 hover:text-java-400" title="gitlab link" rel="noopener"
-		aria-label="follow on gitlab——Opens in a new window">
-		
-		<div class="fill-current h-8 w-8">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g>
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path fill-rule="nonzero" d="M5.68 7.314l-1.82 5.914L12 19.442l8.14-6.214-1.82-5.914L16.643 11H7.356L5.681 7.314zM15.357 9l2.888-6.354a.4.4 0 0 1 .747.048l3.367 10.945a.5.5 0 0 1-.174.544L12 21.958 1.816 14.183a.5.5 0 0 1-.174-.544L5.009 2.694a.4.4 0 0 1 .747-.048L8.644 9h6.712z"/>
-    </g>
-</svg>
-
-		</div>
-	</a>
-	
 	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
 		aria-label="follow on mail——Opens in a new window">
 		
@@ -421,20 +407,6 @@ onload='renderMathInElement(document.body);'></script>
     <g>
         <path fill="none" d="M0 0h24v24H0z"/>
         <path fill-rule="nonzero" d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"/>
-    </g>
-</svg>
-
-		</div>
-	</a>
-	
-	<a href='http://example.com/' target="_blank" class="zhihu icon pl-1 text-eucalyptus-400 hover:text-java-400" title="zhihu link" rel="noopener"
-		aria-label="follow on zhihu——Opens in a new window">
-		
-		<div class="fill-current h-8 w-8">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g>
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M12.344 17.963l-1.688 1.074-2.131-3.35c-.44 1.402-1.172 2.665-2.139 3.825-.402.483-.82.918-1.301 1.375-.155.147-.775.717-.878.82l-1.414-1.414c.139-.139.787-.735.915-.856.43-.408.795-.79 1.142-1.206 1.266-1.518 2.03-3.21 2.137-5.231H3v-2h4V7h-.868c-.689 1.266-1.558 2.222-2.618 2.857L2.486 8.143c1.395-.838 2.425-2.604 3.038-5.36l1.952.434c-.14.633-.303 1.227-.489 1.783H11.5v2H9v4h2.5v2H9.185l3.159 4.963zm3.838-.07L17.298 17H19V7h-4v10h.736l.446.893zM13 5h8v14h-3l-2.5 2-1-2H13V5z"/>
     </g>
 </svg>
 
