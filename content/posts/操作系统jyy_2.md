@@ -1,7 +1,7 @@
 ---
 title: "操作系统jyy"
 date: 2022-06-20T22:32:41+08:00
-draft: true
+draft: false
 ---
 
 jyy yyds
