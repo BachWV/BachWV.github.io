@@ -1,7 +1,7 @@
 ---
-title: "Os Jyy 4"
+title: "Os-Jyy-4"
 date: 2022-07-05T22:52:40+08:00
-draft: true
+draft: false
 ---
 
 理解并发程序的执行 Peterson算法、模型检验和软件自动化工具
