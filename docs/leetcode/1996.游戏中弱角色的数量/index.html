@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 1996.游戏中弱角色的数量</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -116,138 +116,138 @@ properties[i].length == 2
 链接：https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 </blockquote>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">numberOfWeakCharacters</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">properties</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">sort</span><span style="color:#f92672">(</span><span style="color:#111">properties</span><span style="color:#f92672">,(</span><span style="color:#111">o1</span><span style="color:#f92672">,</span><span style="color:#111">o2</span><span style="color:#f92672">)-&gt;{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#f92672">(</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]!=</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">])?(</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]-</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]):(</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]-</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>       
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">maxdef</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">cnt</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// System.out.println(pok[0]+&#34; &#34;+pok[1]);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]&gt;=</span><span style="color:#111">maxdef</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">maxdef</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span><span style="color:#00a8c8">else</span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">cnt</span><span style="color:#f92672">++;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">cnt</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">numberOfWeakCharacters</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">properties</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">sort</span><span style="color:#f92672">(</span><span style="color:#111">properties</span><span style="color:#f92672">,(</span><span style="color:#111">o1</span><span style="color:#f92672">,</span><span style="color:#111">o2</span><span style="color:#f92672">)-&gt;{</span>
+
+            <span style="color:#00a8c8">return</span> <span style="color:#f92672">(</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]!=</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">])?(</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]-</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]):(</span><span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]-</span><span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]);</span>
+        <span style="color:#f92672">});</span>
+       
+        <span style="color:#00a8c8">int</span> <span style="color:#111">maxdef</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">cnt</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
+            <span style="color:#75715e">// System.out.println(pok[0]+&#34; &#34;+pok[1]);
+</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]&gt;=</span><span style="color:#111">maxdef</span><span style="color:#f92672">){</span>
+                <span style="color:#111">maxdef</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
+            <span style="color:#f92672">}</span><span style="color:#00a8c8">else</span><span style="color:#f92672">{</span>
+                <span style="color:#111">cnt</span><span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">cnt</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>想了很久，发现官方题解的排序思路是最容易理解的，</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>10 4
-</span></span><span style="display:flex;"><span>10 7
-</span></span><span style="display:flex;"><span>7 5
-</span></span><span style="display:flex;"><span>7 9
-</span></span><span style="display:flex;"><span>7 10
-</span></span><span style="display:flex;"><span>6 9
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">10 4
+10 7
+7 5
+7 9
+7 10
+6 9
+</code></pre></td></tr></table>
 </div>
 </div><p>排序以后就很清晰，从上到下遍历，记录最大的防御值，随后每次访问的角色中，攻击值是小于前面的，只需要判断防御值是否小于前面记录的最大防御值，由于相同攻击值时，防御值是递增的，所以不会出现更新完maxdef以后遇到同攻击值但防御值小于maxdef的问题。</p>
 <p>然后由看到https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game/solution/1996you-xi-zhong-de-ruo-jiao-se-zui-da-z-so68/这个题解，用O(n+C)的时间完成了等价排序的操作，我觉得很妙。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">int</span> <span style="color:#111">tables</span><span style="color:#f92672">[]=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[</span><span style="color:#111">100002</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">numberOfWeakCharacters</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">properties</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>       
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">maxack</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">cnt</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">a</span><span style="color:#f92672">,</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// System.out.println(pok[0]+&#34; &#34;+pok[1]);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">a</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">maxack</span><span style="color:#f92672">=</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">max</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">,</span><span style="color:#111">maxack</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">&gt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">a</span><span style="color:#f92672">])</span> <span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">a</span><span style="color:#f92672">]=</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">maxack</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&gt;</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">--){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]&gt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">])</span> <span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">]=</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]+</span><span style="color:#111">1</span><span style="color:#f92672">])</span> <span style="color:#111">cnt</span><span style="color:#f92672">++;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">cnt</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#00a8c8">int</span> <span style="color:#111">tables</span><span style="color:#f92672">[]=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[</span><span style="color:#111">100002</span><span style="color:#f92672">];</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">numberOfWeakCharacters</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[][]</span> <span style="color:#111">properties</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      
+       
+        <span style="color:#00a8c8">int</span> <span style="color:#111">maxack</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">cnt</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">a</span><span style="color:#f92672">,</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
+            <span style="color:#75715e">// System.out.println(pok[0]+&#34; &#34;+pok[1]);
+</span><span style="color:#75715e"></span>            <span style="color:#111">a</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
+            <span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
+            <span style="color:#111">maxack</span><span style="color:#f92672">=</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">max</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">,</span><span style="color:#111">maxack</span><span style="color:#f92672">);</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">b</span><span style="color:#f92672">&gt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">a</span><span style="color:#f92672">])</span> <span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">a</span><span style="color:#f92672">]=</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">maxack</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&gt;</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">--){</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]&gt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">])</span> <span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">]=</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">];</span>
+
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">pok</span><span style="color:#f92672">:</span><span style="color:#111">properties</span><span style="color:#f92672">){</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;</span><span style="color:#111">tables</span><span style="color:#f92672">[</span><span style="color:#111">pok</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]+</span><span style="color:#111">1</span><span style="color:#f92672">])</span> <span style="color:#111">cnt</span><span style="color:#f92672">++;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">cnt</span><span style="color:#f92672">;</span>
+
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>总体思路是维护一张记录每个不同攻击值对应的最大防御值的表table</p>
 <p>比如</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   [[7,9],[10,7],[6,9],[10,4],[7,5],[7,10]]      
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">   [[7,9],[10,7],[6,9],[10,4],[7,5],[7,10]]      
+</code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -352,13 +352,13 @@ properties[i].length == 2
 </tbody>
 </table>
 <p>然后对每一个角色按照这张表做判断</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   [[7,9],[10,7],[6,9],[10,4],[7,5],[7,10]]  
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">   [[7,9],[10,7],[6,9],[10,4],[7,5],[7,10]]  
+</code></pre></td></tr></table>
 </div>
 </div><p>比如[7,9]判断攻击值为7+1对应的防御值（7）和他的防御值（9），该角色不满足</p>
 <p>[10,7]判断攻击值为10+1对应的防御值（0）和他的防御值（7），该角色不满足</p>

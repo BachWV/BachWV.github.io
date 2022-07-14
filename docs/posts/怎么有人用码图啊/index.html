@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 怎么有人用码图啊</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -101,99 +101,101 @@ onload='renderMathInElement(document.body);'></script>
 <p>那么，假如我没有登录matu怎么办，或者我没有浏览器怎么办，又或是我能不能把码图的所有提交下载下来呢？</p>
 <p>那应该怎么做呢，码图会拦截没有登录的请求，这时就要用cookies骗过matu了，借助代理软件，可以看到</p>
 <p>get请求会带header，其中有cookie字段</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cookie:	JSESSIONID=ADCFAD008D39D46910DB82255253AD2E; III_EXPT_FILE=aa48738; III_SESSION_ID=d55956838bd4bf7c44eae6dbedc5d20a; SESSION_LANGUAGE=eng; zg_did=%7B%22did%22%3A%20%221784dfce5e2433-04d99af797b1f2-5771133-fa000-1784dfce5e3d03%22%7D; zg_=%7B%22sid%22%3A%201625496021694%2C%22updated%22%3A%201625496021698%2C%22info%22%3A%201625496021697%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22eportal.uestc.edu.cn%22%2C%22cuid%22%3A%20%222019081305013%22%2C%22zs%22%3A%200%2C%22sc%22%3A%200%2C%22firstScreen%22%3A%201625496021694%7D; iPlanetDirectoryPro=tH0Ds91VHf5CpQJkwG4p3v
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Cookie:	JSESSIONID=ADCFAD008D39D46910DB82255253AD2E; III_EXPT_FILE=aa48738; III_SESSION_ID=d55956838bd4bf7c44eae6dbedc5d20a; SESSION_LANGUAGE=eng; zg_did=%7B%22did%22%3A%20%221784dfce5e2433-04d99af797b1f2-5771133-fa000-1784dfce5e3d03%22%7D; zg_=%7B%22sid%22%3A%201625496021694%2C%22updated%22%3A%201625496021698%2C%22info%22%3A%201625496021697%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22eportal.uestc.edu.cn%22%2C%22cuid%22%3A%20%222019081305013%22%2C%22zs%22%3A%200%2C%22sc%22%3A%200%2C%22firstScreen%22%3A%201625496021694%7D; iPlanetDirectoryPro=tH0Ds91VHf5CpQJkwG4p3v
+</code></pre></td></tr></table>
 </div>
 </div><p>只要在请求头加上这个字段，就可以骗过拦截器了。</p>
 <p>写了一个java程序</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#111">matudownload</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.sun.net.httpserver.Headers</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.Connection</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.Jsoup</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.nodes.Document</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.nodes.Element</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">java.io.*</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">downLoad</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">download</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">url</span><span style="color:#f92672">,</span><span style="color:#111">String</span> <span style="color:#111">filepath</span><span style="color:#f92672">,</span><span style="color:#111">String</span> <span style="color:#111">cookie</span><span style="color:#f92672">)</span><span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">Connection</span> <span style="color:#111">con</span><span style="color:#f92672">=</span><span style="color:#111">Jsoup</span><span style="color:#f92672">.</span><span style="color:#75af00">connect</span><span style="color:#f92672">(</span><span style="color:#111">url</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">con</span><span style="color:#f92672">.</span><span style="color:#75af00">header</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Cookie&#34;</span><span style="color:#f92672">,</span><span style="color:#111">cookie</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">Connection</span><span style="color:#f92672">.</span><span style="color:#75af00">Response</span> <span style="color:#111">res</span><span style="color:#f92672">=</span><span style="color:#111">con</span><span style="color:#f92672">.</span><span style="color:#75af00">method</span><span style="color:#f92672">(</span><span style="color:#111">Connection</span><span style="color:#f92672">.</span><span style="color:#75af00">Method</span><span style="color:#f92672">.</span><span style="color:#75af00">GET</span><span style="color:#f92672">).</span><span style="color:#75af00">execute</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>         
-</span></span><span style="display:flex;"><span>            <span style="color:#111">String</span> <span style="color:#111">head</span><span style="color:#f92672">=</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#75af00">header</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;content-disposition&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">String</span> <span style="color:#111">str</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">head1</span><span style="color:#f92672">.</span><span style="color:#75af00">getBytes</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;ISO-8859-1&#34;</span><span style="color:#f92672">),</span><span style="color:#d88200">&#34;GBK&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//注意http请求的header要求其中文必须为iso8859-1编码，此时需要转化成gbk编码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">str</span><span style="color:#f92672">=</span><span style="color:#111">str</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">().</span><span style="color:#75af00">substring</span><span style="color:#f92672">(</span><span style="color:#111">21</span><span style="color:#f92672">,</span><span style="color:#111">str</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">()-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">BufferedWriter</span> <span style="color:#111">bw</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">BufferedWriter</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">OutputStreamWriter</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">FileOutputStream</span><span style="color:#f92672">(</span><span style="color:#111">filepath</span><span style="color:#f92672">)));</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">write</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#75af00">body</span><span style="color:#f92672">().</span><span style="color:#75af00">toString</span><span style="color:#f92672">()));</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">flush</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>   
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>   
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#111">String</span> <span style="color:#111">cookie</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#75715e">//cookie需要你从已登陆matu的浏览器中获取 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">download</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038000&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;D:/download&#34;</span><span style="color:#f92672">,</span><span style="color:#111">cookie</span><span style="color:#f92672">);</span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">e</span><span style="color:#f92672">.</span><span style="color:#75af00">printStackTrace</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> <span style="color:#111">matudownload</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> <span style="color:#111">com.sun.net.httpserver.Headers</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.Connection</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.Jsoup</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.nodes.Document</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> <span style="color:#111">org.jsoup.nodes.Element</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> <span style="color:#111">java.io.*</span><span style="color:#f92672">;</span>
+
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">downLoad</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">download</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">url</span><span style="color:#f92672">,</span><span style="color:#111">String</span> <span style="color:#111">filepath</span><span style="color:#f92672">,</span><span style="color:#111">String</span> <span style="color:#111">cookie</span><span style="color:#f92672">)</span><span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+
+            <span style="color:#111">Connection</span> <span style="color:#111">con</span><span style="color:#f92672">=</span><span style="color:#111">Jsoup</span><span style="color:#f92672">.</span><span style="color:#75af00">connect</span><span style="color:#f92672">(</span><span style="color:#111">url</span><span style="color:#f92672">);</span>
+            <span style="color:#111">con</span><span style="color:#f92672">.</span><span style="color:#75af00">header</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Cookie&#34;</span><span style="color:#f92672">,</span><span style="color:#111">cookie</span><span style="color:#f92672">);</span>
+            <span style="color:#111">Connection</span><span style="color:#f92672">.</span><span style="color:#75af00">Response</span> <span style="color:#111">res</span><span style="color:#f92672">=</span><span style="color:#111">con</span><span style="color:#f92672">.</span><span style="color:#75af00">method</span><span style="color:#f92672">(</span><span style="color:#111">Connection</span><span style="color:#f92672">.</span><span style="color:#75af00">Method</span><span style="color:#f92672">.</span><span style="color:#75af00">GET</span><span style="color:#f92672">).</span><span style="color:#75af00">execute</span><span style="color:#f92672">();</span>
+         
+            <span style="color:#111">String</span> <span style="color:#111">head</span><span style="color:#f92672">=</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#75af00">header</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;content-disposition&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#111">String</span> <span style="color:#111">str</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">head1</span><span style="color:#f92672">.</span><span style="color:#75af00">getBytes</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;ISO-8859-1&#34;</span><span style="color:#f92672">),</span><span style="color:#d88200">&#34;GBK&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#75715e">//注意http请求的header要求其中文必须为iso8859-1编码，此时需要转化成gbk编码
+</span><span style="color:#75715e"></span>            <span style="color:#111">str</span><span style="color:#f92672">=</span><span style="color:#111">str</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">().</span><span style="color:#75af00">substring</span><span style="color:#f92672">(</span><span style="color:#111">21</span><span style="color:#f92672">,</span><span style="color:#111">str</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">()-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
+
+            <span style="color:#111">BufferedWriter</span> <span style="color:#111">bw</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">BufferedWriter</span>
+                    <span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">OutputStreamWriter</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">FileOutputStream</span><span style="color:#f92672">(</span><span style="color:#111">filepath</span><span style="color:#f92672">)));</span>
+             <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">write</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#75af00">body</span><span style="color:#f92672">().</span><span style="color:#75af00">toString</span><span style="color:#f92672">()));</span>
+            <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">flush</span><span style="color:#f92672">();</span>
+            <span style="color:#111">bw</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>   
+    <span style="color:#f92672">}</span>
+   
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
+         <span style="color:#111">String</span> <span style="color:#111">cookie</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;</span>
+           <span style="color:#75715e">//cookie需要你从已登陆matu的浏览器中获取 
+</span><span style="color:#75715e"></span>            <span style="color:#111">download</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038000&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;D:/download&#34;</span><span style="color:#f92672">,</span><span style="color:#111">cookie</span><span style="color:#f92672">);</span>    
+        <span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">e</span><span style="color:#f92672">.</span><span style="color:#75af00">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>我在github仓库上传了1038000-1038530的530个提交，大家可以参考别人的matu提交代码互相学习。</p>
 <p><a href="https://github.com/BachWV/matu/tree/main/allMatuCommit">https://github.com/BachWV/matu/tree/main/allMatuCommit</a></p>
@@ -334,7 +336,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 870 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 871 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>

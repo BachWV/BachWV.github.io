@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 最长公共前缀</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -96,28 +96,28 @@ onload='renderMathInElement(document.body);'></script>
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：strs = [&#34;flower&#34;,&#34;flow&#34;,&#34;flight&#34;]
-</span></span><span style="display:flex;"><span>输出：&#34;fl&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：strs = [&#34;flower&#34;,&#34;flow&#34;,&#34;flight&#34;]
+输出：&#34;fl&#34;
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：strs = [&#34;dog&#34;,&#34;racecar&#34;,&#34;car&#34;]
-</span></span><span style="display:flex;"><span>输出：&#34;&#34;
-</span></span><span style="display:flex;"><span>解释：输入不存在公共前缀。
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：strs = [&#34;dog&#34;,&#34;racecar&#34;,&#34;car&#34;]
+输出：&#34;&#34;
+解释：输入不存在公共前缀。
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>提示：</strong></p>
 <ul>
@@ -126,89 +126,91 @@ onload='renderMathInElement(document.body);'></script>
 <li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 <p>先上我写的垃圾代码：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">longestCommonPrefix</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">strs</span><span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span><span style="color:#75715e">//trycatch是针对输入空字符串的情况，输出空字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">int</span> <span style="color:#111">len</span> <span style="color:#f92672">=</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span> <span style="color:#f92672">:</span> <span style="color:#111">strs</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//这是一个foreach循环，算出最小的长度，这样在接下来就只要循环最小的长度了
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">len</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#111">len</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">int</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#75715e">//用作计数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">0</span><span style="color:#f92672">;</span> <span style="color:#111">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">len</span><span style="color:#f92672">;</span> <span style="color:#111">i</span><span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">char</span> <span style="color:#111">c0</span> <span style="color:#f92672">=</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">);</span> <span style="color:#75715e">//这里将第一个字符串作为标准，将后面的字符串与第一个分别比较
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span> <span style="color:#f92672">:</span> <span style="color:#111">strs</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//这也是一个foreach循环
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">c0</span> <span style="color:#f92672">!=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span><span style="color:#75715e">//一旦遇到不相等，就为count赋值，停止所有循环
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                        <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">==</span><span style="color:#111">len</span><span style="color:#f92672">){</span><span style="color:#111">count</span><span style="color:#f92672">=</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;}</span><span style="color:#75715e">//针对情况：“ab”，“a”，循环结束仍然没有为count赋值，那就手动赋值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span> <span style="color:#111">count</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//一旦count被赋值了（即不等于-1），立即break
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span><span style="color:#75715e">//完成循环，开始输出结果
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">return</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">substring</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">,</span> <span style="color:#111">count</span><span style="color:#f92672">);</span><span style="color:#75715e">//如果count==-1或者0，不用担心，exception会帮我们处理掉哦
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span><span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">x</span><span style="color:#f92672">){</span><span style="color:#00a8c8">return</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">strs</span><span style="color:#f92672">[]</span> <span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">[</span><span style="color:#111">3</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]=</span><span style="color:#d88200">&#34;floger&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]=</span> <span style="color:#d88200">&#34;flog&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">2</span><span style="color:#f92672">]=</span><span style="color:#d88200">&#34;floght&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">strs</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">longestCommonPrefix</span><span style="color:#f92672">(</span><span style="color:#111">strs</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Test</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">longestCommonPrefix</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">strs</span><span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span><span style="color:#75715e">//trycatch是针对输入空字符串的情况，输出空字符串
+</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">int</span> <span style="color:#111">len</span> <span style="color:#f92672">=</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
+            <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span> <span style="color:#f92672">:</span> <span style="color:#111">strs</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//这是一个foreach循环，算出最小的长度，这样在接下来就只要循环最小的长度了
+</span><span style="color:#75715e"></span>                <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">len</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#111">len</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#00a8c8">int</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#75715e">//用作计数
+</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">0</span><span style="color:#f92672">;</span> <span style="color:#111">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">len</span><span style="color:#f92672">;</span> <span style="color:#111">i</span><span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+                <span style="color:#00a8c8">char</span> <span style="color:#111">c0</span> <span style="color:#f92672">=</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">);</span> <span style="color:#75715e">//这里将第一个字符串作为标准，将后面的字符串与第一个分别比较
+</span><span style="color:#75715e"></span>                <span style="color:#00a8c8">for</span> <span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span> <span style="color:#f92672">:</span> <span style="color:#111">strs</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//这也是一个foreach循环
+</span><span style="color:#75715e"></span>                    <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">c0</span> <span style="color:#f92672">!=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span><span style="color:#75715e">//一旦遇到不相等，就为count赋值，停止所有循环
+</span><span style="color:#75715e"></span>                        <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#f92672">;</span>
+                        <span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
+                    <span style="color:#f92672">}</span>
+                    <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">==</span><span style="color:#111">len</span><span style="color:#f92672">){</span><span style="color:#111">count</span><span style="color:#f92672">=</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;}</span><span style="color:#75715e">//针对情况：“ab”，“a”，循环结束仍然没有为count赋值，那就手动赋值
+</span><span style="color:#75715e"></span>                <span style="color:#f92672">}</span>
+
+                <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span> <span style="color:#111">count</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//一旦count被赋值了（即不等于-1），立即break
+</span><span style="color:#75715e"></span>                    <span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span><span style="color:#75715e">//完成循环，开始输出结果
+</span><span style="color:#75715e"></span>
+                <span style="color:#00a8c8">return</span> <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">].</span><span style="color:#75af00">substring</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">,</span> <span style="color:#111">count</span><span style="color:#f92672">);</span><span style="color:#75715e">//如果count==-1或者0，不用担心，exception会帮我们处理掉哦
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span><span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">x</span><span style="color:#f92672">){</span><span style="color:#00a8c8">return</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">String</span> <span style="color:#111">strs</span><span style="color:#f92672">[]</span> <span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">[</span><span style="color:#111">3</span><span style="color:#f92672">];</span>
+        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]=</span><span style="color:#d88200">&#34;floger&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]=</span> <span style="color:#d88200">&#34;flog&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#111">strs</span><span style="color:#f92672">[</span><span style="color:#111">2</span><span style="color:#f92672">]=</span><span style="color:#d88200">&#34;floght&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">strs</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">);</span>
+        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">longestCommonPrefix</span><span style="color:#f92672">(</span><span style="color:#111">strs</span><span style="color:#f92672">));</span>
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>暴力求解，逐个循环，相信你一定没心情看我的烂代码。时隔不少天我再编辑时，发现我也看不懂了。</p>
 <p>下面给大家分享一个大神解法</p>
@@ -220,197 +222,199 @@ onload='renderMathInElement(document.body);'></script>
 <img src="https://pic.leetcode-cn.com/db8e2b71d5388b52bed8e5a022be03f1aa3c5a58249182ff9fb1fcbe1921b10f-~J5%7BI%7D%5B%5DG%7BFG3AA1KHBS5W1.png" alt="~J5{I}[]G{FG3AA1KHBS5W1.png"></p>
 <h3 id="代码">代码</h3>
 <p>下面是 C++17 的代码</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Solution {
-</span></span><span style="display:flex;"><span>public:
-</span></span><span style="display:flex;"><span>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-</span></span><span style="display:flex;"><span>        if(strs.empty()) return &#34;&#34;;
-</span></span><span style="display:flex;"><span>        // c++17 结构化绑定
-</span></span><span style="display:flex;"><span>        // str0, str1 分别是一个 pair&lt;string, string&gt; 的 first 和 second
-</span></span><span style="display:flex;"><span>        const auto [str0, str1] = minmax_element(strs.begin(), strs.end());
-</span></span><span style="display:flex;"><span>        for(int i = 0; i &lt; str0-&gt;size(); ++i)
-</span></span><span style="display:flex;"><span>            if(str0-&gt;at(i) != str1-&gt;at(i)) return str0-&gt;substr(0, i);
-</span></span><span style="display:flex;"><span>        return *str0;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        if(strs.empty()) return &#34;&#34;;
+        // c++17 结构化绑定
+        // str0, str1 分别是一个 pair&lt;string, string&gt; 的 first 和 second
+        const auto [str0, str1] = minmax_element(strs.begin(), strs.end());
+        for(int i = 0; i &lt; str0-&gt;size(); ++i)
+            if(str0-&gt;at(i) != str1-&gt;at(i)) return str0-&gt;substr(0, i);
+        return *str0;
+    }
+};
+</code></pre></td></tr></table>
 </div>
 </div><p>等同的 C++11 代码如下</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Solution {
-</span></span><span style="display:flex;"><span>public:
-</span></span><span style="display:flex;"><span>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-</span></span><span style="display:flex;"><span>        if(strs.empty()) return &#34;&#34;;
-</span></span><span style="display:flex;"><span>        const auto p = minmax_element(strs.begin(), strs.end());
-</span></span><span style="display:flex;"><span>        for(int i = 0; i &lt; p.first-&gt;size(); ++i)
-</span></span><span style="display:flex;"><span>            if(p.first-&gt;at(i) != p.second-&gt;at(i)) return p.first-&gt;substr(0, i);
-</span></span><span style="display:flex;"><span>        return *p.first;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        if(strs.empty()) return &#34;&#34;;
+        const auto p = minmax_element(strs.begin(), strs.end());
+        for(int i = 0; i &lt; p.first-&gt;size(); ++i)
+            if(p.first-&gt;at(i) != p.second-&gt;at(i)) return p.first-&gt;substr(0, i);
+        return *p.first;
+    }
+};
+</code></pre></td></tr></table>
 </div>
 </div><p>Python 代码</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Solution:
-</span></span><span style="display:flex;"><span>    def longestCommonPrefix(self, strs: List[str]) -&gt; str:
-</span></span><span style="display:flex;"><span>        if not strs: return &#34;&#34;
-</span></span><span style="display:flex;"><span>        str0 = min(strs)
-</span></span><span style="display:flex;"><span>        str1 = max(strs)
-</span></span><span style="display:flex;"><span>        for i in range(len(str0)):
-</span></span><span style="display:flex;"><span>            if str0[i] != str1[i]:
-</span></span><span style="display:flex;"><span>                return str0[:i]
-</span></span><span style="display:flex;"><span>        return str0
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -&gt; str:
+        if not strs: return &#34;&#34;
+        str0 = min(strs)
+        str1 = max(strs)
+        for i in range(len(str0)):
+            if str0[i] != str1[i]:
+                return str0[:i]
+        return str0
+</code></pre></td></tr></table>
 </div>
 </div><p>这里关键在于minmax_elements的使用</p>
 <p>该函数是返回指定范围内的最大最小值的元素的迭代器组成的一个pair, 如果最值多于一个， first返回的是第一个出现的最小值的迭代器，second返回的是最后一个出现的最大值的迭代器 。</p>
 <p>下面是一个例子：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">minmaxelement</span><span style="color:#111">(){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">vector</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">&gt;</span> <span style="color:#111">vi</span><span style="color:#111">{</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">};</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;vi=&#34;</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">for</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#111">:</span><span style="color:#111">vi</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; &#34;</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">it</span><span style="color:#f92672">=</span><span style="color:#111">minmax_element</span><span style="color:#111">(</span><span style="color:#111">vi</span><span style="color:#111">.</span><span style="color:#111">begin</span><span style="color:#111">(),</span><span style="color:#111">vi</span><span style="color:#111">.</span><span style="color:#111">end</span><span style="color:#111">());</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; auto it=minmax_element(vi.begin(),vi.end())&#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;*it.first=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">first</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; ,*it.second=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">second</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;*(it.first-1)=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">(</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">first</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; ,*(it.second-1)=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">(</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">second</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// auto it=minmax_element(vi.begin(),vi.end())
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//it.first=1 it.second=9
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//*(it.first-1)=4 *(it.second-1)=9 
-</span></span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#00a8c8">void</span> <span style="color:#75af00">minmaxelement</span><span style="color:#111">(){</span>
+    <span style="color:#111">vector</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">&gt;</span> <span style="color:#111">vi</span><span style="color:#111">{</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">};</span>
+    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;vi=&#34;</span><span style="color:#111">;</span>
+    <span style="color:#00a8c8">for</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#111">:</span><span style="color:#111">vi</span><span style="color:#111">)</span>
+        <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; &#34;</span><span style="color:#111">;</span>
+    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+    <span style="color:#00a8c8">auto</span> <span style="color:#111">it</span><span style="color:#f92672">=</span><span style="color:#111">minmax_element</span><span style="color:#111">(</span><span style="color:#111">vi</span><span style="color:#111">.</span><span style="color:#111">begin</span><span style="color:#111">(),</span><span style="color:#111">vi</span><span style="color:#111">.</span><span style="color:#111">end</span><span style="color:#111">());</span>
+   <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; auto it=minmax_element(vi.begin(),vi.end())&#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+   <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;*it.first=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">first</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; ,*it.second=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">second</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+    <span style="color:#111">cout</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34;*(it.first-1)=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">(</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">first</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#d88200">&#34; ,*(it.second-1)=&#34;</span><span style="color:#f92672">&lt;&lt;*</span><span style="color:#111">(</span><span style="color:#111">it</span><span style="color:#111">.</span><span style="color:#111">second</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+<span style="color:#111">}</span>
+
+<span style="color:#75715e">// auto it=minmax_element(vi.begin(),vi.end())
+</span><span style="color:#75715e">//it.first=1 it.second=9
+</span><span style="color:#75715e">//*(it.first-1)=4 *(it.second-1)=9 
+</span></code></pre></td></tr></table>
 </div>
 </div><p>注意 string 比较采用的是 ”字典序“，a,bc,aac按照字典序比较就是：a,aac,bc.</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">ForwardIt</span><span style="color:#111">,</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Compare</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">pair</span><span style="color:#f92672">&lt;</span><span style="color:#111">ForwardIt</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span><span style="color:#f92672">&gt;</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#111">minmax_element</span><span style="color:#111">(</span><span style="color:#111">ForwardIt</span> <span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span> <span style="color:#111">last</span><span style="color:#111">,</span> <span style="color:#111">Compare</span> <span style="color:#111">comp</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span> <span style="color:#f92672">||</span> <span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">{</span><span style="color:#111">min</span><span style="color:#111">,</span> <span style="color:#111">max</span><span style="color:#111">};</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">!=</span> <span style="color:#111">last</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span> <span style="color:#75af00">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">break</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">))</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">{</span><span style="color:#111">min</span><span style="color:#111">,</span> <span style="color:#111">max</span><span style="color:#111">};</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">class</span> <span style="color:#75af00">ForwardIt</span><span style="color:#111">,</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Compare</span><span style="color:#f92672">&gt;</span>
+<span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">pair</span><span style="color:#f92672">&lt;</span><span style="color:#111">ForwardIt</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span><span style="color:#f92672">&gt;</span> 
+    <span style="color:#111">minmax_element</span><span style="color:#111">(</span><span style="color:#111">ForwardIt</span> <span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#111">ForwardIt</span> <span style="color:#111">last</span><span style="color:#111">,</span> <span style="color:#111">Compare</span> <span style="color:#111">comp</span><span style="color:#111">)</span>
+<span style="color:#111">{</span>
+    <span style="color:#00a8c8">auto</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span> <span style="color:#f92672">||</span> <span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">{</span><span style="color:#111">min</span><span style="color:#111">,</span> <span style="color:#111">max</span><span style="color:#111">};</span>
+ 
+<span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+    <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+<span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+    <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+<span style="color:#111">}</span>
+ 
+<span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">!=</span> <span style="color:#111">last</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">auto</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">++</span><span style="color:#111">first</span> <span style="color:#f92672">==</span> <span style="color:#111">last</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
+        <span style="color:#00a8c8">else</span> <span style="color:#75af00">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
+        <span style="color:#00a8c8">break</span><span style="color:#111">;</span>
+    <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
+        <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">min</span><span style="color:#111">))</span> <span style="color:#111">min</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span><span style="color:#111">;</span>
+            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">(</span><span style="color:#111">comp</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">first</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">max</span><span style="color:#111">)))</span> <span style="color:#111">max</span> <span style="color:#f92672">=</span> <span style="color:#111">first</span><span style="color:#111">;</span>
+        <span style="color:#111">}</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+<span style="color:#00a8c8">return</span> <span style="color:#111">{</span><span style="color:#111">min</span><span style="color:#111">,</span> <span style="color:#111">max</span><span style="color:#111">};</span>
+<span style="color:#111">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p><a href="https://en.cppreference.com/w/cpp/algorithm/minmax_element">https://en.cppreference.com/w/cpp/algorithm/minmax_element</a></p>
 <p>这是最初c语言第一节课的知识，strcmp的比较方法</p>
@@ -554,7 +558,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1415 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1417 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
