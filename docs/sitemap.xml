@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://blog.junling.xyz/</loc>
-    <lastmod>2022-07-14T17:15:13+08:00</lastmod>
+    <lastmod>2022-07-16T21:11:48+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/crontab/</loc>
-    <lastmod>2022-07-14T17:15:13+08:00</lastmod>
+    <loc>http://blog.junling.xyz/posts/github-actions/</loc>
+    <lastmod>2022-07-16T21:11:48+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/</loc>
+    <lastmod>2022-07-16T21:11:48+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/os-jyy-7/</loc>
+    <lastmod>2022-07-16T18:01:22+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/crontab/</loc>
     <lastmod>2022-07-14T17:15:13+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/os-jyy-5/</loc>
@@ -50,7 +56,7 @@
     <loc>http://blog.junling.xyz/posts/zerotier/</loc>
     <lastmod>2022-02-23T15:50:21+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/lixiang/</loc>
+    <loc>http://blog.junling.xyz/life/lixiang/</loc>
     <lastmod>2022-02-14T22:31:29+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/domains/</loc>
@@ -155,7 +161,7 @@
     <loc>http://blog.junling.xyz/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2021-09-28T09:49:20+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</loc>
+    <loc>http://blog.junling.xyz/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</loc>
     <lastmod>2021-09-21T23:35:19+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</loc>
@@ -218,7 +224,7 @@
     <loc>http://blog.junling.xyz/leetcode/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2021-05-04T22:08:41+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/283.%E7%A7%BB%E5%8A%A80/</loc>
+    <loc>http://blog.junling.xyz/leetcode/283.%E7%A7%BB%E5%8A%A80/</loc>
     <lastmod>2021-04-30T17:01:19+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</loc>

@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | Compiler</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -357,10 +357,10 @@ ALGOL 称为结构</p>
 <p>含有$$A-&gt;A \alpha$$ 形式产生式的文法是直接左递归的
 <img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172234.png" alt="Pasted image 20220327172234" style="zoom:50%;" /></p>
 <p>消除直接左递归$A -&gt; A \alpha| \beta$</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172510.png" alt="Pasted image 20220327172510" style="zoom:50%;" /></p>
+<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172510.png" alt="Pasted image 20220327172510" style="zoom:50%;" />
 <p>按照这种方法，我们可以对如下例子消除直接左递归</p>
 <p>E-&gt;E+T|T 我们将+T看成$\alpha$ ,T看成$\beta$
-因此有 E-&gt;TE' E'-&gt;+TE'|$\epsilon$
+因此有 E-&gt;TE&rsquo; E&rsquo;-&gt;+TE&rsquo;|$\epsilon$
 <img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327173209.png" alt="Pasted image 20220327173209" style="zoom: 50%;" />
 消除左递归是要付出代价的&ndash;引进了一些非终结符和空产生式</p>
 <p>消除间接左递归
@@ -374,10 +374,10 @@ F-&gt;(E)|i</p>
 <p>其消除左递归以后是这样的：</p>
 <p>我们先改写T-&gt;F|T*F
 T-&gt;FT'
-T'=*FT'|$\epsilon$
+T&rsquo;=*FT&rsquo;|$\epsilon$
 再改写E-&gt;E+T|T
 E-&gt;TE'
-E'=+TE'|$\epsilon$</p>
+E&rsquo;=+TE&rsquo;|$\epsilon$</p>
 <p>这个例子应该很经典
 扩充BNF范式的表达会更加清晰</p>
 <p>E-&gt;T{+T}
@@ -394,16 +394,16 @@ F-&gt;I|(E)</p>
 <p>如果文法中包含空产生式，会出现什么问题呢
 这个例子没有说清楚，所以也不知道引入follow集解决了什么问题</p>
 <p>SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327195832.png" alt="Pasted image 20220327195832" style="zoom:33%;" />
-q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法</p>
+<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327195832.png" alt="Pasted image 20220327195832" style="zoom:33%;" />
+q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法
 <p>串首终结符集，</p>
 <blockquote>
 <p>串首终结符:串首第一个符号，并且是终结符</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
-FIRST(\alpha)</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327213226.png" alt="Pasted image 20220327213226" style="zoom:33%;" /></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327215321.png" alt="Pasted image 20220327215321" style="zoom:33%;" /></p>
+<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
+FIRST(\alpha)
+<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327213226.png" alt="Pasted image 20220327213226" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327215321.png" alt="Pasted image 20220327215321" style="zoom:33%;" />
 <p>FIRST集是针对表达式左边的，
 Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着$</p>
 <p>根据FIRST FOLLOW集就可以得到select集</p>
@@ -634,7 +634,7 @@ op R_i,z
     
     
     <a class="flex-grow-0" href="/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9Fjyy_2/">
-        操作系统jyy
+        操作系统-jyy-2
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
