@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | Zeller</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -116,70 +116,70 @@ $${\displaystyle y= year \bmod {100}}$$</p>
 <p>输入为三个整数：<code>day</code>、<code>month</code> 和 <code>year</code>，分别表示日、月、年。</p>
 <p>您返回的结果必须是这几个值中的一个 <code>{&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</code>。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：day = 31, month = 8, year = 2019
-</span></span><span style="display:flex;"><span>输出：&#34;Saturday&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：day = 31, month = 8, year = 2019
+输出：&#34;Saturday&#34;
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：day = 18, month = 7, year = 1999
-</span></span><span style="display:flex;"><span>输出：&#34;Sunday&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：day = 18, month = 7, year = 1999
+输出：&#34;Sunday&#34;
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 3：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：day = 15, month = 8, year = 1993
-</span></span><span style="display:flex;"><span>输出：&#34;Sunday&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：day = 15, month = 8, year = 1993
+输出：&#34;Sunday&#34;
+</code></pre></td></tr></table>
 </div>
 </div></blockquote>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">dayOfTheWeek</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">day</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">month</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">year</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">={</span><span style="color:#d88200">&#34;Sunday&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;Monday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Tuesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Wednesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Thursday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Friday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Saturday&#34;</span><span style="color:#f92672">};</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">month</span><span style="color:#f92672">&lt;=</span><span style="color:#111">2</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">month</span><span style="color:#f92672">+=</span><span style="color:#111">12</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">year</span><span style="color:#f92672">--;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">%</span><span style="color:#111">100</span><span style="color:#f92672">,</span><span style="color:#111">c</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">/</span><span style="color:#111">100</span><span style="color:#f92672">;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">week</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#f92672">+</span><span style="color:#111">y</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">+</span><span style="color:#111">c</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">-</span><span style="color:#111">2</span><span style="color:#f92672">*</span><span style="color:#111">c</span><span style="color:#f92672">+</span><span style="color:#111">26</span><span style="color:#f92672">*(</span><span style="color:#111">month</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">)/</span><span style="color:#111">10</span><span style="color:#f92672">+</span><span style="color:#111">day</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">+</span><span style="color:#111">70</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//+70是因为可能出现负数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">week</span><span style="color:#f92672">%</span><span style="color:#111">7</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">dayOfTheWeek</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">day</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">month</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">year</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">String</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">={</span><span style="color:#d88200">&#34;Sunday&#34;</span><span style="color:#f92672">,</span><span style="color:#d88200">&#34;Monday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Tuesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Wednesday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Thursday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Friday&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Saturday&#34;</span><span style="color:#f92672">};</span>
+        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">month</span><span style="color:#f92672">&lt;=</span><span style="color:#111">2</span><span style="color:#f92672">){</span>
+            <span style="color:#111">month</span><span style="color:#f92672">+=</span><span style="color:#111">12</span><span style="color:#f92672">;</span>
+            <span style="color:#111">year</span><span style="color:#f92672">--;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">%</span><span style="color:#111">100</span><span style="color:#f92672">,</span><span style="color:#111">c</span><span style="color:#f92672">=</span><span style="color:#111">year</span><span style="color:#f92672">/</span><span style="color:#111">100</span><span style="color:#f92672">;</span> 
+        <span style="color:#00a8c8">int</span> <span style="color:#111">week</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#f92672">+</span><span style="color:#111">y</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">+</span><span style="color:#111">c</span><span style="color:#f92672">/</span><span style="color:#111">4</span><span style="color:#f92672">-</span><span style="color:#111">2</span><span style="color:#f92672">*</span><span style="color:#111">c</span><span style="color:#f92672">+</span><span style="color:#111">26</span><span style="color:#f92672">*(</span><span style="color:#111">month</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">)/</span><span style="color:#111">10</span><span style="color:#f92672">+</span><span style="color:#111">day</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">+</span><span style="color:#111">70</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//+70是因为可能出现负数
+</span><span style="color:#75715e"></span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">week</span><span style="color:#f92672">%</span><span style="color:#111">7</span><span style="color:#f92672">];</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></div>
 	</section>
@@ -405,7 +405,7 @@ $${\displaystyle y= year \bmod {100}}$$</p>
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />

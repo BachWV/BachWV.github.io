@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 搭建与发布blog</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -127,19 +127,19 @@ onload='renderMathInElement(document.body);'></script>
 <p>（1）修改配置文件。在配置文件config.toml中添加<code>publishDir = docs</code>，其他格式的配置文件类似。</p>
 <p>（2）打开Git Bash，输入<code>hugo</code>，就会发现博客文件中出现了docs文件夹，这是因为hugo将网页的信息都存储在docs里，而不是public中。</p>
 <p>（3）在博客文件夹中，打开Git Bash，依次输入以下代码（注意 git remote add 后跟随自己github的对应地址）：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m &#34;first commit&#34;
-</span></span><span style="display:flex;"><span>git push -u origin master
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git remote add origin  https://github.com/xxxxx/xxxx.github.io.git
+git add .
+git commit -m &#34;first commit&#34;
+git push -u origin master
+</code></pre></td></tr></table>
 </div>
 </div><p>（4）在GitHub对应的仓库设置中，将Github Pages source改成branch/docs 。</p>
 <p><img src="https://image-1301586523.cos.ap-shanghai.myqcloud.com/20200409140359.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="img"></p>
@@ -335,7 +335,7 @@ onload='renderMathInElement(document.body);'></script>
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />

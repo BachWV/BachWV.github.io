@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 操作系统-jyy-2</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -115,97 +115,97 @@ onload='renderMathInElement(document.body);'></script>
 <p>terminal可以在explorer地址栏直接输入wt打开，记得配置要选父进程</p>
 <p>扩展阅读：</p>
 <p>介绍一个define的用法</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define REGS_FOREACH(_)  _(X) _(Y)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define RUN_LOGIC        X1 = !X &amp;&amp; Y; \
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                         Y1 = !X &amp;&amp; !Y;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define DEFINE(X)        static int X, X##1;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define UPDATE(X)        X = X##1;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PRINT(X)         printf(#X &#34; = %d; &#34;, X);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">DEFINE</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span> <span style="color:#75715e">// clock
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">RUN_LOGIC</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">PRINT</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">UPDATE</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">putchar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;\n&#39;</span><span style="color:#111">);</span> <span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define REGS_FOREACH(_)  _(X) _(Y)
+</span><span style="color:#75715e">#define RUN_LOGIC        X1 = !X &amp;&amp; Y; \
+</span><span style="color:#75715e">                         Y1 = !X &amp;&amp; !Y;
+</span><span style="color:#75715e">#define DEFINE(X)        static int X, X##1;
+</span><span style="color:#75715e">#define UPDATE(X)        X = X##1;
+</span><span style="color:#75715e">#define PRINT(X)         printf(#X &#34; = %d; &#34;, X);
+</span><span style="color:#75715e"></span>
+<span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">DEFINE</span><span style="color:#111">);</span>
+  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span> <span style="color:#75715e">// clock
+</span><span style="color:#75715e"></span>    <span style="color:#111">RUN_LOGIC</span><span style="color:#111">;</span>
+    <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">PRINT</span><span style="color:#111">);</span>
+    <span style="color:#111">REGS_FOREACH</span><span style="color:#111">(</span><span style="color:#111">UPDATE</span><span style="color:#111">);</span>
+    <span style="color:#111">putchar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;\n&#39;</span><span style="color:#111">);</span> <span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>使用<code>gcc -E</code>展开</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#111">X</span><span style="color:#111">,</span> <span style="color:#111">X1</span><span style="color:#111">;</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#111">Y</span><span style="color:#111">,</span> <span style="color:#111">Y1</span><span style="color:#111">;;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">X1</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#111">X</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">Y</span><span style="color:#111">;</span> <span style="color:#111">Y1</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#111">X</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#111">Y</span><span style="color:#111">;;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;X&#34;</span> <span style="color:#d88200">&#34; = %d; &#34;</span><span style="color:#111">,</span> <span style="color:#111">X</span><span style="color:#111">);</span> <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Y&#34;</span> <span style="color:#d88200">&#34; = %d; &#34;</span><span style="color:#111">,</span> <span style="color:#111">Y</span><span style="color:#111">);;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">X</span> <span style="color:#f92672">=</span> <span style="color:#111">X1</span><span style="color:#111">;</span> <span style="color:#111">Y</span> <span style="color:#f92672">=</span> <span style="color:#111">Y1</span><span style="color:#111">;;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">putchar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;\n&#39;</span><span style="color:#111">);</span> <span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#111">X</span><span style="color:#111">,</span> <span style="color:#111">X1</span><span style="color:#111">;</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#111">Y</span><span style="color:#111">,</span> <span style="color:#111">Y1</span><span style="color:#111">;;</span>
+  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#111">X1</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#111">X</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">Y</span><span style="color:#111">;</span> <span style="color:#111">Y1</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#111">X</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#111">Y</span><span style="color:#111">;;</span>
+    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;X&#34;</span> <span style="color:#d88200">&#34; = %d; &#34;</span><span style="color:#111">,</span> <span style="color:#111">X</span><span style="color:#111">);</span> <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Y&#34;</span> <span style="color:#d88200">&#34; = %d; &#34;</span><span style="color:#111">,</span> <span style="color:#111">Y</span><span style="color:#111">);;</span>
+    <span style="color:#111">X</span> <span style="color:#f92672">=</span> <span style="color:#111">X1</span><span style="color:#111">;</span> <span style="color:#111">Y</span> <span style="color:#f92672">=</span> <span style="color:#111">Y1</span><span style="color:#111">;;</span>
+    <span style="color:#111">putchar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;\n&#39;</span><span style="color:#111">);</span> <span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><code>##</code>是连接操作符</p>
 <p>什么意思呢</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define Conn(x,y) x##y
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define ToChar(x) #@x
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define ToString(x) #x
-</span></span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define Conn(x,y) x##y
+</span><span style="color:#75715e">#define ToChar(x) #@x
+</span><span style="color:#75715e">#define ToString(x) #x
+</span></code></pre></td></tr></table>
 </div>
 </div><p>表示x连接y</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span> <span style="color:#f92672">=</span> <span style="color:#111">Conn</span><span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span><span style="color:#ae81ff">456</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">==&gt;</span> <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#ae81ff">123456</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">char</span><span style="color:#f92672">*</span> <span style="color:#111">str</span> <span style="color:#f92672">=</span> <span style="color:#111">Conn</span><span style="color:#111">(</span><span style="color:#d88200">&#34;asdf&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;adf&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">==&gt;</span> <span style="color:#00a8c8">char</span><span style="color:#f92672">*</span> <span style="color:#111">str</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;asdfadf&#34;</span><span style="color:#111">;</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#00a8c8">int</span> <span style="color:#111">n</span> <span style="color:#f92672">=</span> <span style="color:#111">Conn</span><span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span><span style="color:#ae81ff">456</span><span style="color:#111">);</span>
+     <span style="color:#f92672">==&gt;</span> <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#ae81ff">123456</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">char</span><span style="color:#f92672">*</span> <span style="color:#111">str</span> <span style="color:#f92672">=</span> <span style="color:#111">Conn</span><span style="color:#111">(</span><span style="color:#d88200">&#34;asdf&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;adf&#34;</span><span style="color:#111">);</span>
+     <span style="color:#f92672">==&gt;</span> <span style="color:#00a8c8">char</span><span style="color:#f92672">*</span> <span style="color:#111">str</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;asdfadf&#34;</span><span style="color:#111">;</span>
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="2什么是二进制程序">2.什么是二进制程序</h2>
 <p>用gdb调试汇编代码</p>
@@ -217,479 +217,495 @@ onload='renderMathInElement(document.body);'></script>
 所以必须要有操作系统，就比如用INT 21H 中断退出程序。</p>
 <p><code>gcc -c</code>只编译不链接</p>
 <p>最小的c代码是可以运行的</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
+
+<span style="color:#111">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>链接警告,定义成_start避免警告</p>
 <p>哈哈居然可以不以main函数为开头，见到c语言代码必须有main函数是不是可以判错了</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># vim os_litter.c</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ls</span>
-</span></span><span style="display:flex;"><span>a.out  os.c  os_litter.c  os_litter.o
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
-</span></span><span style="display:flex;"><span>ld: warning: cannot find entry symbol _start<span style="color:#111">;</span> defaulting to 00000000004000b0
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># vim os_litter.c</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ls</span>
+a.out  os.c  os_litter.c  os_litter.o
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
+ld: warning: cannot find entry symbol _start<span style="color:#111">;</span> defaulting to 00000000004000b0
+
+</code></pre></td></tr></table>
 </div>
 </div><p>改成这个</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">_start</span><span style="color:#111">(){</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#00a8c8">void</span> <span style="color:#75af00">_start</span><span style="color:#111">(){</span>
+
+<span style="color:#111">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>可以链接，运行失败</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
-</span></span><span style="display:flex;"><span>Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
+Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>加一个while(1)就可以运行了</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
-</span></span><span style="display:flex;"><span>^C
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ll</span>
-</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">16</span>
-</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1104</span> Jun <span style="color:#ae81ff">23</span> 21:12 a.out
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">483</span> Jun <span style="color:#ae81ff">23</span> 20:01 os.c
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">32</span> Jun <span style="color:#ae81ff">23</span> 21:12 os_litter.c
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1232</span> Jun <span style="color:#ae81ff">23</span> 21:12 os_litter.o
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># size a.out</span>
-</span></span><span style="display:flex;"><span>   text    data     bss     dec     hex filename
-</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">58</span>       <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">58</span>      3a a.out
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc -c os_litter.c</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ld os_litter.o</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
+^C
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ll</span>
+total <span style="color:#ae81ff">16</span>
+-rwxr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1104</span> Jun <span style="color:#ae81ff">23</span> 21:12 a.out
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">483</span> Jun <span style="color:#ae81ff">23</span> 20:01 os.c
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">32</span> Jun <span style="color:#ae81ff">23</span> 21:12 os_litter.c
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1232</span> Jun <span style="color:#ae81ff">23</span> 21:12 os_litter.o
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># size a.out</span>
+   text    data     bss     dec     hex filename
+     <span style="color:#ae81ff">58</span>       <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">58</span>      3a a.out
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这是一个超级小的a.out</p>
 <p>观察此状态机的运行的工具：gdb</p>
 <p>starti可以帮助我们从第一条指令开始执行程序</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>native process <span style="color:#ae81ff">1247611</span> In: _start            L??   PC: 0x4000b0    ┌───────────────────────────────────────────────────────────┐
-</span></span><span style="display:flex;"><span>  &gt;│0x4000b0 &lt;_start&gt;       push   %rbp                        │ 
-</span></span><span style="display:flex;"><span>  │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │   
-</span></span><span style="display:flex;"><span>  │0x4000b4 &lt;_start+4&gt;     jmp    0x4000b4 &lt;_start+4&gt;         │   
-</span></span><span style="display:flex;"><span>  │0x4000b6                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000b8                adc    <span style="color:#111">$0</span>x0,%al                    │   
-</span></span><span style="display:flex;"><span>  │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │   
-</span></span><span style="display:flex;"><span>  │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000c5                js     0x4000d7                    │   
-</span></span><span style="display:flex;"><span>  │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │   
-</span></span><span style="display:flex;"><span>  │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │   
-</span></span><span style="display:flex;"><span>  │0x4000cb                or     %dl,0x18000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │   
-</span></span><span style="display:flex;"><span>  │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
-</span></span><span style="display:flex;"><span>  │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   
-</span></span><span style="display:flex;"><span>  │0x4000d6                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   └───────────────────────────────────────────────────────────┘
-</span></span><span style="display:flex;"><span>native process <span style="color:#ae81ff">1247611</span> In: _start            L??   PC: 0x4000b0
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+native process <span style="color:#ae81ff">1247611</span> In: _start            L??   PC: 0x4000b0    ┌───────────────────────────────────────────────────────────┐
+  &gt;│0x4000b0 &lt;_start&gt;       push   %rbp                        │ 
+  │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │   
+  │0x4000b4 &lt;_start+4&gt;     jmp    0x4000b4 &lt;_start+4&gt;         │   
+  │0x4000b6                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
+  │0x4000b8                adc    <span style="color:#111">$0</span>x0,%al                    │   
+  │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
+  │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
+  │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
+  │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │   
+  │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │   
+  │0x4000c5                js     0x4000d7                    │   
+  │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │   
+  │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │   
+  │0x4000cb                or     %dl,0x18000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │   
+  │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │   
+  │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   
+  │0x4000d6                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   └───────────────────────────────────────────────────────────┘
+native process <span style="color:#ae81ff">1247611</span> In: _start            L??   PC: 0x4000b0
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
+
+</code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   ┌───────────────────────────────────────────────────────────┐
-</span></span><span style="display:flex;"><span>  &gt;│0x4000b0 &lt;_start&gt;       push   %rbp                        │
-</span></span><span style="display:flex;"><span>   │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │
-</span></span><span style="display:flex;"><span>   │0x4000b4 &lt;_start+4&gt;     nop                                │
-</span></span><span style="display:flex;"><span>   │0x4000b5 &lt;_start+5&gt;     pop    %rbp                        │
-</span></span><span style="display:flex;"><span>   │0x4000b6 &lt;_start+6&gt;     retq                               │
-</span></span><span style="display:flex;"><span>   │0x4000b7                add    %dl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │
-</span></span><span style="display:flex;"><span>   │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │
-</span></span><span style="display:flex;"><span>   │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000c5                js     0x4000d7                    │
-</span></span><span style="display:flex;"><span>   │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │
-</span></span><span style="display:flex;"><span>   │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │
-</span></span><span style="display:flex;"><span>   │0x4000cb                or     %dl,0x1c000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │
-</span></span><span style="display:flex;"><span>   │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   └───────────────────────────────────────────────────────────┘
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   ┌───────────────────────────────────────────────────────────┐
-</span></span><span style="display:flex;"><span>   │0x4000b0 &lt;_start&gt;       push   %rbp                        │
-</span></span><span style="display:flex;"><span>   │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │
-</span></span><span style="display:flex;"><span>   │0x4000b4 &lt;_start+4&gt;     nop                                │
-</span></span><span style="display:flex;"><span>   │0x4000b5 &lt;_start+5&gt;     pop    %rbp                        │
-</span></span><span style="display:flex;"><span>  &gt;│0x4000b6 &lt;_start+6&gt;     retq                               │
-</span></span><span style="display:flex;"><span>   │0x4000b7                add    %dl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │
-</span></span><span style="display:flex;"><span>   │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │
-</span></span><span style="display:flex;"><span>   │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000c5                js     0x4000d7                    │
-</span></span><span style="display:flex;"><span>   │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │
-</span></span><span style="display:flex;"><span>   │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │
-</span></span><span style="display:flex;"><span>   │0x4000cb                or     %dl,0x1c000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │
-</span></span><span style="display:flex;"><span>   │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
-</span></span><span style="display:flex;"><span>   │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   └───────────────────────────────────────────────────────────┘
-</span></span><span style="display:flex;"><span>native process <span style="color:#ae81ff">1247751</span> In:                        L??   PC: 0x1
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
-</span></span><span style="display:flex;"><span>0x00000000004000b4 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
-</span></span><span style="display:flex;"><span>0x00000000004000b5 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
-</span></span><span style="display:flex;"><span>0x00000000004000b6 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
-</span></span><span style="display:flex;"><span>0x0000000000000001 in ?? <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>Cannot access memory at address 0x1
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   ┌───────────────────────────────────────────────────────────┐
+  &gt;│0x4000b0 &lt;_start&gt;       push   %rbp                        │
+   │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │
+   │0x4000b4 &lt;_start+4&gt;     nop                                │
+   │0x4000b5 &lt;_start+5&gt;     pop    %rbp                        │
+   │0x4000b6 &lt;_start+6&gt;     retq                               │
+   │0x4000b7                add    %dl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │
+   │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │
+   │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │
+   │0x4000c5                js     0x4000d7                    │
+   │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │
+   │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │
+   │0x4000cb                or     %dl,0x1c000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │
+   │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   └───────────────────────────────────────────────────────────┘
+
+   ┌───────────────────────────────────────────────────────────┐
+   │0x4000b0 &lt;_start&gt;       push   %rbp                        │
+   │0x4000b1 &lt;_start+1&gt;     mov    %rsp,%rbp                   │
+   │0x4000b4 &lt;_start+4&gt;     nop                                │
+   │0x4000b5 &lt;_start+5&gt;     pop    %rbp                        │
+  &gt;│0x4000b6 &lt;_start+6&gt;     retq                               │
+   │0x4000b7                add    %dl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │
+   │0x4000ba                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000bc                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000be                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000c0                add    %edi,0x52<span style="color:#f92672">(</span>%rdx<span style="color:#f92672">)</span>             │
+   │0x4000c3                add    %al,<span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>                  │
+   │0x4000c5                js     0x4000d7                    │
+   │0x4000c7                add    %ebx,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                 │
+   │0x4000c9                or     <span style="color:#111">$0</span>x7,%al                    │
+   │0x4000cb                or     %dl,0x1c000001<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>        │
+   │0x4000d1                add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>                  │
+   │0x4000d3                add    %bl,<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>           │   └───────────────────────────────────────────────────────────┘
+native process <span style="color:#ae81ff">1247751</span> In:                        L??   PC: 0x1
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+0x00000000004000b4 in _start <span style="color:#f92672">()</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+0x00000000004000b5 in _start <span style="color:#f92672">()</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+0x00000000004000b6 in _start <span style="color:#f92672">()</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+0x0000000000000001 in ?? <span style="color:#f92672">()</span>
+Cannot access memory at address 0x1
+</code></pre></td></tr></table>
 </div>
 </div><p>没有<code>while</code>的<code>void _start(){}</code>
 错位的地方在retq
 原因 返回的地址是非法的0x1?</p>
 <p>解决方法：增加系统调用42</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include&lt;sys/syscall.h&gt;
-</span></span><span style="display:flex;"><span>int main(){
-</span></span><span style="display:flex;"><span>    syscall(SYS_exit,42);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#include&lt;sys/syscall.h&gt;
+int main(){
+    syscall(SYS_exit,42);
+}
+</code></pre></td></tr></table>
 </div>
 </div><p>这就没有问题了，正常返回了</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc ex_sys.c
-</span></span><span style="display:flex;"><span>ex_sys.c: In function ‘main’:
-</span></span><span style="display:flex;"><span>ex_sys.c:3:5: warning: implicit declaration of function ‘syscall’ [-Wimplicit-function-declaration]
-</span></span><span style="display:flex;"><span>     syscall(SYS_exit,42);
-</span></span><span style="display:flex;"><span>     ^~~~~~~
-</span></span><span style="display:flex;"><span>[root@iZwz92v9xcjopgz0rhkwh1Z c]# ls
-</span></span><span style="display:flex;"><span>a.out  ex_sys.c  os.c
-</span></span><span style="display:flex;"><span>[root@iZwz92v9xcjopgz0rhkwh1Z c]# ./a.out
-</span></span><span style="display:flex;"><span>[root@iZwz92v9xcjopgz0rhkwh1Z c]#
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc ex_sys.c
+ex_sys.c: In function ‘main’:
+ex_sys.c:3:5: warning: implicit declaration of function ‘syscall’ [-Wimplicit-function-declaration]
+     syscall(SYS_exit,42);
+     ^~~~~~~
+[root@iZwz92v9xcjopgz0rhkwh1Z c]# ls
+a.out  ex_sys.c  os.c
+[root@iZwz92v9xcjopgz0rhkwh1Z c]# ./a.out
+[root@iZwz92v9xcjopgz0rhkwh1Z c]#
+
+</code></pre></td></tr></table>
 </div>
 </div><p>syscall的实现在libc里，不方便直接链接</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   ┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-</span></span><span style="display:flex;"><span>  &gt;│0x40059a &lt;main+4&gt;               mov    <span style="color:#111">$0</span>x2a,%esi                                              │
-</span></span><span style="display:flex;"><span>   │0x40059f &lt;main+9&gt;               mov    <span style="color:#111">$0</span>x3c,%edi                                              │
-</span></span><span style="display:flex;"><span>   │0x4005a4 &lt;main+14&gt;              mov    <span style="color:#111">$0</span>x0,%eax                                               │
-</span></span><span style="display:flex;"><span>   │0x4005a9 &lt;main+19&gt;              callq  0x4004a0 &lt;syscall@plt&gt;                                  │
-</span></span><span style="display:flex;"><span>   │0x4005ae &lt;main+24&gt;              mov    <span style="color:#111">$0</span>x0,%eax                                               │
-</span></span><span style="display:flex;"><span>   │0x4005b3 &lt;main+29&gt;              pop    %rbp                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005b4 &lt;main+30&gt;              retq                                                           │
-</span></span><span style="display:flex;"><span>   │0x4005b5                        nopw   %cs:0x0<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>                                    │
-</span></span><span style="display:flex;"><span>   │0x4005bf                        nop                                                            │
-</span></span><span style="display:flex;"><span>   │0x4005c0 &lt;__libc_csu_init&gt;      endbr64                                                        │
-</span></span><span style="display:flex;"><span>   │0x4005c4 &lt;__libc_csu_init+4&gt;    push   %r15                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005c6 &lt;__libc_csu_init+6&gt;    mov    %rdx,%r15                                               │
-</span></span><span style="display:flex;"><span>   │0x4005c9 &lt;__libc_csu_init+9&gt;    push   %r14                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005cb &lt;__libc_csu_init+11&gt;   mov    %rsi,%r14                                               │
-</span></span><span style="display:flex;"><span>   │0x4005ce &lt;__libc_csu_init+14&gt;   push   %r13                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005d0 &lt;__libc_csu_init+16&gt;   mov    %edi,%r13d                                              │
-</span></span><span style="display:flex;"><span>   │0x4005d3 &lt;__libc_csu_init+19&gt;   push   %r12                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005d5 &lt;__libc_csu_init+21&gt;   lea    0x200824<span style="color:#f92672">(</span>%rip<span style="color:#f92672">)</span>,%r12        <span style="color:#75715e"># 0x600e00                   │</span>
-</span></span><span style="display:flex;"><span>   │0x4005dc &lt;__libc_csu_init+28&gt;   push   %rbp                                                    │
-</span></span><span style="display:flex;"><span>   │0x4005dd &lt;__libc_csu_init+29&gt;   lea    0x200824<span style="color:#f92672">(</span>%rip<span style="color:#f92672">)</span>,%rbp        <span style="color:#75715e"># 0x600e08                   │</span>
-</span></span><span style="display:flex;"><span>   │0x4005e4 &lt;__libc_csu_init+36&gt;   push   %rbx                                                    │
-</span></span><span style="display:flex;"><span>   └───────────────────────────────────────────────────────────────────────────────────────────────┘
-</span></span><span style="display:flex;"><span>native process <span style="color:#ae81ff">1247963</span> In: main                                                  L??   PC: 0x40059a
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   ┌───────────────────────────────────────────────────────────────────────────────────────────────┐
+  &gt;│0x40059a &lt;main+4&gt;               mov    <span style="color:#111">$0</span>x2a,%esi                                              │
+   │0x40059f &lt;main+9&gt;               mov    <span style="color:#111">$0</span>x3c,%edi                                              │
+   │0x4005a4 &lt;main+14&gt;              mov    <span style="color:#111">$0</span>x0,%eax                                               │
+   │0x4005a9 &lt;main+19&gt;              callq  0x4004a0 &lt;syscall@plt&gt;                                  │
+   │0x4005ae &lt;main+24&gt;              mov    <span style="color:#111">$0</span>x0,%eax                                               │
+   │0x4005b3 &lt;main+29&gt;              pop    %rbp                                                    │
+   │0x4005b4 &lt;main+30&gt;              retq                                                           │
+   │0x4005b5                        nopw   %cs:0x0<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>                                    │
+   │0x4005bf                        nop                                                            │
+   │0x4005c0 &lt;__libc_csu_init&gt;      endbr64                                                        │
+   │0x4005c4 &lt;__libc_csu_init+4&gt;    push   %r15                                                    │
+   │0x4005c6 &lt;__libc_csu_init+6&gt;    mov    %rdx,%r15                                               │
+   │0x4005c9 &lt;__libc_csu_init+9&gt;    push   %r14                                                    │
+   │0x4005cb &lt;__libc_csu_init+11&gt;   mov    %rsi,%r14                                               │
+   │0x4005ce &lt;__libc_csu_init+14&gt;   push   %r13                                                    │
+   │0x4005d0 &lt;__libc_csu_init+16&gt;   mov    %edi,%r13d                                              │
+   │0x4005d3 &lt;__libc_csu_init+19&gt;   push   %r12                                                    │
+   │0x4005d5 &lt;__libc_csu_init+21&gt;   lea    0x200824<span style="color:#f92672">(</span>%rip<span style="color:#f92672">)</span>,%r12        <span style="color:#75715e"># 0x600e00                   │</span>
+   │0x4005dc &lt;__libc_csu_init+28&gt;   push   %rbp                                                    │
+   │0x4005dd &lt;__libc_csu_init+29&gt;   lea    0x200824<span style="color:#f92672">(</span>%rip<span style="color:#f92672">)</span>,%rbp        <span style="color:#75715e"># 0x600e08                   │</span>
+   │0x4005e4 &lt;__libc_csu_init+36&gt;   push   %rbx                                                    │
+   └───────────────────────────────────────────────────────────────────────────────────────────────┘
+native process <span style="color:#ae81ff">1247963</span> In: main                                                  L??   PC: 0x40059a
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这里能看到callq</p>
 <p>jyy为我们准备了最小的汇编代码，我哭死</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#75715e">#include &lt;sys/syscall.h&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75af00">.globl</span> <span style="color:#00a8c8">_start</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">_start:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75af00">movq</span> <span style="color:#00a8c8">$SYS_write</span><span style="color:#111">,</span> <span style="color:#111">%rax</span>   <span style="color:#75715e"># write(
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$1</span><span style="color:#111">,</span>         <span style="color:#111">%rdi</span>   <span style="color:#75715e">#   fd=1,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$st</span><span style="color:#111">,</span>        <span style="color:#111">%rsi</span>   <span style="color:#75715e">#   buf=st,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$</span><span style="color:#111">(</span><span style="color:#00a8c8">ed</span> <span style="color:#111">-</span> <span style="color:#00a8c8">st</span><span style="color:#111">),</span> <span style="color:#111">%rdx</span>   <span style="color:#75715e">#   count=ed-st
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">syscall</span>                 <span style="color:#75715e"># );
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75af00">movq</span> <span style="color:#00a8c8">$SYS_exit</span><span style="color:#111">,</span>  <span style="color:#111">%rax</span>   <span style="color:#75715e"># exit(
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$1</span><span style="color:#111">,</span>         <span style="color:#111">%rdi</span>   <span style="color:#75715e">#   status=1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">syscall</span>                 <span style="color:#75715e"># );
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#111">st:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75af00">.ascii</span> <span style="color:#d88200">&#34;\033[01;31mHello, OS World\033[0m\n&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">ed:</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-asm" data-lang="asm"><span style="color:#75715e">#include &lt;sys/syscall.h&gt;
+</span><span style="color:#75715e"></span>
+<span style="color:#75af00">.globl</span> <span style="color:#00a8c8">_start</span>
+<span style="color:#111">_start:</span>
+  <span style="color:#75af00">movq</span> <span style="color:#00a8c8">$SYS_write</span><span style="color:#111">,</span> <span style="color:#111">%rax</span>   <span style="color:#75715e"># write(
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$1</span><span style="color:#111">,</span>         <span style="color:#111">%rdi</span>   <span style="color:#75715e">#   fd=1,
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$st</span><span style="color:#111">,</span>        <span style="color:#111">%rsi</span>   <span style="color:#75715e">#   buf=st,
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$</span><span style="color:#111">(</span><span style="color:#00a8c8">ed</span> <span style="color:#111">-</span> <span style="color:#00a8c8">st</span><span style="color:#111">),</span> <span style="color:#111">%rdx</span>   <span style="color:#75715e">#   count=ed-st
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">syscall</span>                 <span style="color:#75715e"># );
+</span><span style="color:#75715e"></span>
+  <span style="color:#75af00">movq</span> <span style="color:#00a8c8">$SYS_exit</span><span style="color:#111">,</span>  <span style="color:#111">%rax</span>   <span style="color:#75715e"># exit(
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">movq</span> <span style="color:#00a8c8">$1</span><span style="color:#111">,</span>         <span style="color:#111">%rdi</span>   <span style="color:#75715e">#   status=1
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">syscall</span>                 <span style="color:#75715e"># );
+</span><span style="color:#75715e"></span>
+<span style="color:#111">st:</span>
+  <span style="color:#75af00">.ascii</span> <span style="color:#d88200">&#34;\033[01;31mHello, OS World\033[0m\n&#34;</span>
+<span style="color:#111">ed:</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>接下来见证奇迹</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc minimal.S -c &amp;&amp;ld minimal.o</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
-</span></span><span style="display:flex;"><span>Hello, OS World
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc minimal.S -c &amp;&amp;ld minimal.o</span>
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># ./a.out</span>
+Hello, OS World
+</code></pre></td></tr></table>
 </div>
 </div><p>甚至也可以用gdb看执行过程</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   │0x40008d &lt;_start+21&gt;    mov    <span style="color:#111">$0</span>x1c,%rdx                                                      │
-</span></span><span style="display:flex;"><span>  &gt;│0x400094 &lt;_start+28&gt;    syscall                                                                │
-</span></span><span style="display:flex;"><span>   │0x400094 &lt;_start+28&gt;    syscall 0x3c,%rax                                                      │
-</span></span><span style="display:flex;"><span>   │0x400096 &lt;_start+30&gt;    mov    <span style="color:#111">$0</span>x3c,%rax                                                      │
-</span></span><span style="display:flex;"><span>  &gt;│0x40009d &lt;_start+37&gt;    mov    <span style="color:#111">$0</span>x1,%rdi                                                       │
-</span></span><span style="display:flex;"><span>   │0x4000a6 &lt;st&gt;           sbb    0x30<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>,%ebx                                                 │
-</span></span><span style="display:flex;"><span>   │0x4000a9 &lt;st+3&gt;         xor    %edi,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                                                     │
-</span></span><span style="display:flex;"><span>   │0x4000ab &lt;st+5&gt;         xor    <span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>,%esi                                                     │
-</span></span><span style="display:flex;"><span>   │0x4000ad &lt;st+7&gt;         insl   <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                │
-</span></span><span style="display:flex;"><span>   │0x4000ae &lt;st+8&gt;         rex.W                                                                  │
-</span></span><span style="display:flex;"><span>   │0x4000af &lt;st+9&gt;         gs insb <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                               │
-</span></span><span style="display:flex;"><span>   │0x4000b1 &lt;st+11&gt;        insb   <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                │
-</span></span><span style="display:flex;"><span>   │0x4000b2 &lt;st+12&gt;        outsl  %ds:<span style="color:#f92672">(</span>%rsi<span style="color:#f92672">)</span>,<span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>                                                │
-</span></span><span style="display:flex;"><span>   │0x4000b3 &lt;st+13&gt;        sub    <span style="color:#111">$0</span>x20,%al                                                       │
-</span></span><span style="display:flex;"><span>   │0x4000b5 &lt;st+15&gt;        rex.WRXB push %r11                                                     │
-</span></span><span style="display:flex;"><span>   │0x4000b7 &lt;st+17&gt;        and    %dl,0x6f<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                  │
-</span></span><span style="display:flex;"><span>   │0x4000ba &lt;st+20&gt;        jb     0x400128                                                        │
-</span></span><span style="display:flex;"><span>   │0x4000bc &lt;st+22&gt;        sbb    %fs:0x30<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>,%ebx                                             │
-</span></span><span style="display:flex;"><span>   └───────────────────────────────────────────────────────────────────────────────────────────────┘
-</span></span><span style="display:flex;"><span>native process <span style="color:#ae81ff">1248099</span> In: _start                                                L??   PC: 0x400094
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> starti                                                                                      d
-</span></span><span style="display:flex;"><span>Program stopped.
-</span></span><span style="display:flex;"><span>0x0000000000400078 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
-</span></span><span style="display:flex;"><span>0x000000000040007f in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>0x0000000000400086 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>0x000000000040008d in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>0x0000000000400094 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>Hello, OS World
-</span></span><span style="display:flex;"><span>0x0000000000400096 in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>0x000000000040009d in _start <span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   │0x40008d &lt;_start+21&gt;    mov    <span style="color:#111">$0</span>x1c,%rdx                                                      │
+  &gt;│0x400094 &lt;_start+28&gt;    syscall                                                                │
+   │0x400094 &lt;_start+28&gt;    syscall 0x3c,%rax                                                      │
+   │0x400096 &lt;_start+30&gt;    mov    <span style="color:#111">$0</span>x3c,%rax                                                      │
+  &gt;│0x40009d &lt;_start+37&gt;    mov    <span style="color:#111">$0</span>x1,%rdi                                                       │
+   │0x4000a6 &lt;st&gt;           sbb    0x30<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>,%ebx                                                 │
+   │0x4000a9 &lt;st+3&gt;         xor    %edi,<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>                                                     │
+   │0x4000ab &lt;st+5&gt;         xor    <span style="color:#f92672">(</span>%rcx<span style="color:#f92672">)</span>,%esi                                                     │
+   │0x4000ad &lt;st+7&gt;         insl   <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                │
+   │0x4000ae &lt;st+8&gt;         rex.W                                                                  │
+   │0x4000af &lt;st+9&gt;         gs insb <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                               │
+   │0x4000b1 &lt;st+11&gt;        insb   <span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>,%es:<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                │
+   │0x4000b2 &lt;st+12&gt;        outsl  %ds:<span style="color:#f92672">(</span>%rsi<span style="color:#f92672">)</span>,<span style="color:#f92672">(</span>%dx<span style="color:#f92672">)</span>                                                │
+   │0x4000b3 &lt;st+13&gt;        sub    <span style="color:#111">$0</span>x20,%al                                                       │
+   │0x4000b5 &lt;st+15&gt;        rex.WRXB push %r11                                                     │
+   │0x4000b7 &lt;st+17&gt;        and    %dl,0x6f<span style="color:#f92672">(</span>%rdi<span style="color:#f92672">)</span>                                                  │
+   │0x4000ba &lt;st+20&gt;        jb     0x400128                                                        │
+   │0x4000bc &lt;st+22&gt;        sbb    %fs:0x30<span style="color:#f92672">(</span>%rbx<span style="color:#f92672">)</span>,%ebx                                             │
+   └───────────────────────────────────────────────────────────────────────────────────────────────┘
+native process <span style="color:#ae81ff">1248099</span> In: _start                                                L??   PC: 0x400094
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> starti                                                                                      d
+Program stopped.
+0x0000000000400078 in _start <span style="color:#f92672">()</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+0x000000000040007f in _start <span style="color:#f92672">()</span>
+0x0000000000400086 in _start <span style="color:#f92672">()</span>
+0x000000000040008d in _start <span style="color:#f92672">()</span>
+0x0000000000400094 in _start <span style="color:#f92672">()</span>
+Hello, OS World
+0x0000000000400096 in _start <span style="color:#f92672">()</span>
+0x000000000040009d in _start <span style="color:#f92672">()</span>
+<span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
+
+
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="3什么是正确的编译">3.什么是正确的编译</h2>
 <p>除去不可优化的部分都给它优化了
@@ -716,65 +732,65 @@ inline assembly也可以参与优化</p>
 <ul>
 <li>只能用操作系统允许的方式访问操作系统的对象</li>
 </ul>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">try_open</span><span style="color:#111">(</span><span style="color:#00a8c8">const</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">*</span><span style="color:#111">fname</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">fd</span> <span style="color:#f92672">=</span> <span style="color:#111">open</span><span style="color:#111">(</span><span style="color:#111">fname</span><span style="color:#111">,</span> <span style="color:#111">O_RDWR</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;open(</span><span style="color:#8045ff">\&#34;</span><span style="color:#d88200">%s</span><span style="color:#8045ff">\&#34;</span><span style="color:#d88200">) returns %d</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">fname</span><span style="color:#111">,</span> <span style="color:#111">fd</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">fd</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">perror</span><span style="color:#111">(</span><span style="color:#d88200">&#34;  FAIL&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;  SUCCESS!</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">close</span><span style="color:#111">(</span><span style="color:#111">fd</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">try_open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">try_open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/dev/sda&#34;</span><span style="color:#111">);</span> <span style="color:#75715e">// hard drive
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#00a8c8">void</span> <span style="color:#75af00">try_open</span><span style="color:#111">(</span><span style="color:#00a8c8">const</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">*</span><span style="color:#111">fname</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">int</span> <span style="color:#111">fd</span> <span style="color:#f92672">=</span> <span style="color:#111">open</span><span style="color:#111">(</span><span style="color:#111">fname</span><span style="color:#111">,</span> <span style="color:#111">O_RDWR</span><span style="color:#111">);</span>
+  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;open(</span><span style="color:#8045ff">\&#34;</span><span style="color:#d88200">%s</span><span style="color:#8045ff">\&#34;</span><span style="color:#d88200">) returns %d</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">fname</span><span style="color:#111">,</span> <span style="color:#111">fd</span><span style="color:#111">);</span>
+  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">fd</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#111">perror</span><span style="color:#111">(</span><span style="color:#d88200">&#34;  FAIL&#34;</span><span style="color:#111">);</span>
+  <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;  SUCCESS!</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
+    <span style="color:#111">close</span><span style="color:#111">(</span><span style="color:#111">fd</span><span style="color:#111">);</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#111">try_open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#111">);</span>
+  <span style="color:#111">try_open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/dev/sda&#34;</span><span style="color:#111">);</span> <span style="color:#75715e">// hard drive
+</span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc tryopen.c &amp;&amp;./a.out</span>
-</span></span><span style="display:flex;"><span>open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#f92672">)</span> returns -1
-</span></span><span style="display:flex;"><span>  FAIL: No such file or directory
-</span></span><span style="display:flex;"><span>open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/dev/&#34;</span><span style="color:#f92672">)</span> returns -1
-</span></span><span style="display:flex;"><span>  FAIL: Is a directory
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># gcc tryopen.c &amp;&amp;./a.out</span>
+open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#f92672">)</span> returns -1
+  FAIL: No such file or directory
+open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/dev/&#34;</span><span style="color:#f92672">)</span> returns -1
+  FAIL: Is a directory
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="常见的应用程序">常见的应用程序</h3>
 <h4 id="core-utilities">Core Utilities</h4>
@@ -788,151 +804,151 @@ inline assembly也可以参与优化</p>
 <li>RTFM: libc startup on Hurd</li>
 <li>main() 的开始/结束并不是整个程序的开始/结束</li>
 </ul>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">root</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">iZwz92v9xcjopgz0rhkwh1Z</span> <span style="color:#111">c</span><span style="color:#111">]</span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#111">cat</span> <span style="color:#111">hello</span><span style="color:#f92672">-</span><span style="color:#111">goodbye</span><span style="color:#111">.</span><span style="color:#111">c</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#111">__attribute__</span><span style="color:#111">((</span><span style="color:#111">constructor</span><span style="color:#111">))</span> <span style="color:#00a8c8">void</span> <span style="color:#111">hello</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Hello, World</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// See also: atexit(3)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">__attribute__</span><span style="color:#111">((</span><span style="color:#111">destructor</span><span style="color:#111">))</span> <span style="color:#00a8c8">void</span> <span style="color:#111">goodbye</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Goodbye, Cruel OS World!</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#111">[</span><span style="color:#111">root</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">iZwz92v9xcjopgz0rhkwh1Z</span> <span style="color:#111">c</span><span style="color:#111">]</span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#111">cat</span> <span style="color:#111">hello</span><span style="color:#f92672">-</span><span style="color:#111">goodbye</span><span style="color:#111">.</span><span style="color:#111">c</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#111">__attribute__</span><span style="color:#111">((</span><span style="color:#111">constructor</span><span style="color:#111">))</span> <span style="color:#00a8c8">void</span> <span style="color:#111">hello</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Hello, World</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
+
+<span style="color:#75715e">// See also: atexit(3)
+</span><span style="color:#75715e"></span><span style="color:#111">__attribute__</span><span style="color:#111">((</span><span style="color:#111">destructor</span><span style="color:#111">))</span> <span style="color:#00a8c8">void</span> <span style="color:#111">goodbye</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Goodbye, Cruel OS World!</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">int</span> <span style="color:#111">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+<span style="color:#111">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>在main()执行前/后执行指令</p>
 <p>为什么是ld-linux-x86-64.so而不是其他的.so</p>
 <p>elf里写的是ld-linux-x86-64.so</p>
 <p>strace能看到所有的系统调用</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># strace ./a.out</span>
-</span></span><span style="display:flex;"><span>execve<span style="color:#f92672">(</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#f92672">[</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#f92672">]</span>, 0x7ffcbb202a30 /* <span style="color:#ae81ff">37</span> vars */<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12ae000
-</span></span><span style="display:flex;"><span>arch_prctl<span style="color:#f92672">(</span>0x3001 /* ARCH_??? */, 0x7ffcb59f2750<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 EINVAL <span style="color:#f92672">(</span>Invalid argument<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>NULL, 8192, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035dbc000
-</span></span><span style="display:flex;"><span>access<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/etc/ld.so.preload&#34;</span>, R_OK<span style="color:#f92672">)</span>      <span style="color:#f92672">=</span> -1 ENOENT <span style="color:#f92672">(</span>No such file or directory<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/etc/ld.so.cache&#34;</span>, O_RDONLY<span style="color:#111">|</span>O_CLOEXEC<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFREG<span style="color:#111">|</span>0644, <span style="color:#111">st_size</span><span style="color:#f92672">=</span>24711, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>NULL, 24711, PROT_READ, MAP_PRIVATE, 3, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035db5000
-</span></span><span style="display:flex;"><span>close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/lib64/libc.so.6&#34;</span>, O_RDONLY<span style="color:#111">|</span>O_CLOEXEC<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>read<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\2405\2\0\0\0\0\0&#34;</span>..., 832<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">832</span>
-</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFREG<span style="color:#111">|</span>0755, <span style="color:#111">st_size</span><span style="color:#f92672">=</span>3167872, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>lseek<span style="color:#f92672">(</span>3, 808, SEEK_SET<span style="color:#f92672">)</span>                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">808</span>
-</span></span><span style="display:flex;"><span>read<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0&#34;</span>, 32<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>NULL, 3950400, PROT_READ<span style="color:#111">|</span>PROT_EXEC, MAP_PRIVATE<span style="color:#111">|</span>MAP_DENYWRITE, 3, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f00357cd000
-</span></span><span style="display:flex;"><span>mprotect<span style="color:#f92672">(</span>0x7f0035989000, 2093056, PROT_NONE<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>0x7f0035b88000, 24576, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_FIXED<span style="color:#111">|</span>MAP_DENYWRITE, 3, 0x1bb000<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035b88000
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>0x7f0035b8e000, 14144, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_FIXED<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035b8e000
-</span></span><span style="display:flex;"><span>close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mmap<span style="color:#f92672">(</span>NULL, 8192, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035db3000
-</span></span><span style="display:flex;"><span>arch_prctl<span style="color:#f92672">(</span>ARCH_SET_FS, 0x7f0035dbd600<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mprotect<span style="color:#f92672">(</span>0x7f0035b88000, 16384, PROT_READ<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mprotect<span style="color:#f92672">(</span>0x600000, 4096, PROT_READ<span style="color:#f92672">)</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>mprotect<span style="color:#f92672">(</span>0x7f0035dbe000, 4096, PROT_READ<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>munmap<span style="color:#f92672">(</span>0x7f0035db5000, 24711<span style="color:#f92672">)</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/something/not/exist&#34;</span>, O_RDWR<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 ENOENT <span style="color:#f92672">(</span>No such file or directory<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>1, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12ae000
-</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>0x12cf000<span style="color:#f92672">)</span>                          <span style="color:#f92672">=</span> 0x12cf000
-</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12cf000
-</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#d88200">&#34;open(\&#34;/something/not/exist\&#34;) ret&#34;</span>..., 40open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#f92672">)</span> returns -1
-</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
-</span></span><span style="display:flex;"><span>dup<span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>                                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>fcntl<span style="color:#f92672">(</span>3, F_GETFL<span style="color:#f92672">)</span>                       <span style="color:#f92672">=</span> 0x2 <span style="color:#f92672">(</span>flags O_RDWR<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;  FAIL: No such file or director&#34;</span>..., <span style="color:#ae81ff">34</span>  FAIL: No such file or directory
-</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">34</span>
-</span></span><span style="display:flex;"><span>close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/dev/&#34;</span>, O_RDWR<span style="color:#f92672">)</span>       <span style="color:#f92672">=</span> -1 EISDIR <span style="color:#f92672">(</span>Is a directory<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#d88200">&#34;open(\&#34;/dev/\&#34;) returns -1\n&#34;</span>, 25open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/dev/&#34;</span><span style="color:#f92672">)</span> returns -1
-</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
-</span></span><span style="display:flex;"><span>dup<span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>                                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>fcntl<span style="color:#f92672">(</span>3, F_GETFL<span style="color:#f92672">)</span>                       <span style="color:#f92672">=</span> 0x2 <span style="color:#f92672">(</span>flags O_RDWR<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;  FAIL: Is a directory\n&#34;</span>, <span style="color:#ae81ff">23</span>  FAIL: Is a directory
-</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
-</span></span><span style="display:flex;"><span>close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>exit_group<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>                           <span style="color:#f92672">=</span> ?
-</span></span><span style="display:flex;"><span>+++ exited with <span style="color:#ae81ff">0</span> +++
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e"># strace ./a.out</span>
+execve<span style="color:#f92672">(</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#f92672">[</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#f92672">]</span>, 0x7ffcbb202a30 /* <span style="color:#ae81ff">37</span> vars */<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12ae000
+arch_prctl<span style="color:#f92672">(</span>0x3001 /* ARCH_??? */, 0x7ffcb59f2750<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 EINVAL <span style="color:#f92672">(</span>Invalid argument<span style="color:#f92672">)</span>
+mmap<span style="color:#f92672">(</span>NULL, 8192, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035dbc000
+access<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/etc/ld.so.preload&#34;</span>, R_OK<span style="color:#f92672">)</span>      <span style="color:#f92672">=</span> -1 ENOENT <span style="color:#f92672">(</span>No such file or directory<span style="color:#f92672">)</span>
+openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/etc/ld.so.cache&#34;</span>, O_RDONLY<span style="color:#111">|</span>O_CLOEXEC<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFREG<span style="color:#111">|</span>0644, <span style="color:#111">st_size</span><span style="color:#f92672">=</span>24711, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mmap<span style="color:#f92672">(</span>NULL, 24711, PROT_READ, MAP_PRIVATE, 3, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035db5000
+close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/lib64/libc.so.6&#34;</span>, O_RDONLY<span style="color:#111">|</span>O_CLOEXEC<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+read<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\2405\2\0\0\0\0\0&#34;</span>..., 832<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">832</span>
+fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFREG<span style="color:#111">|</span>0755, <span style="color:#111">st_size</span><span style="color:#f92672">=</span>3167872, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+lseek<span style="color:#f92672">(</span>3, 808, SEEK_SET<span style="color:#f92672">)</span>                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">808</span>
+read<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0&#34;</span>, 32<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>
+mmap<span style="color:#f92672">(</span>NULL, 3950400, PROT_READ<span style="color:#111">|</span>PROT_EXEC, MAP_PRIVATE<span style="color:#111">|</span>MAP_DENYWRITE, 3, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f00357cd000
+mprotect<span style="color:#f92672">(</span>0x7f0035989000, 2093056, PROT_NONE<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mmap<span style="color:#f92672">(</span>0x7f0035b88000, 24576, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_FIXED<span style="color:#111">|</span>MAP_DENYWRITE, 3, 0x1bb000<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035b88000
+mmap<span style="color:#f92672">(</span>0x7f0035b8e000, 14144, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_FIXED<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035b8e000
+close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mmap<span style="color:#f92672">(</span>NULL, 8192, PROT_READ<span style="color:#111">|</span>PROT_WRITE, MAP_PRIVATE<span style="color:#111">|</span>MAP_ANONYMOUS, -1, 0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 0x7f0035db3000
+arch_prctl<span style="color:#f92672">(</span>ARCH_SET_FS, 0x7f0035dbd600<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mprotect<span style="color:#f92672">(</span>0x7f0035b88000, 16384, PROT_READ<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mprotect<span style="color:#f92672">(</span>0x600000, 4096, PROT_READ<span style="color:#f92672">)</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+mprotect<span style="color:#f92672">(</span>0x7f0035dbe000, 4096, PROT_READ<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+munmap<span style="color:#f92672">(</span>0x7f0035db5000, 24711<span style="color:#f92672">)</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/something/not/exist&#34;</span>, O_RDWR<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 ENOENT <span style="color:#f92672">(</span>No such file or directory<span style="color:#f92672">)</span>
+fstat<span style="color:#f92672">(</span>1, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12ae000
+brk<span style="color:#f92672">(</span>0x12cf000<span style="color:#f92672">)</span>                          <span style="color:#f92672">=</span> 0x12cf000
+brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x12cf000
+write<span style="color:#f92672">(</span>1, <span style="color:#d88200">&#34;open(\&#34;/something/not/exist\&#34;) ret&#34;</span>..., 40open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/something/not/exist&#34;</span><span style="color:#f92672">)</span> returns -1
+<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+dup<span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>                                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+fcntl<span style="color:#f92672">(</span>3, F_GETFL<span style="color:#f92672">)</span>                       <span style="color:#f92672">=</span> 0x2 <span style="color:#f92672">(</span>flags O_RDWR<span style="color:#f92672">)</span>
+fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+write<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;  FAIL: No such file or director&#34;</span>..., <span style="color:#ae81ff">34</span>  FAIL: No such file or directory
+<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">34</span>
+close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#d88200">&#34;/dev/&#34;</span>, O_RDWR<span style="color:#f92672">)</span>       <span style="color:#f92672">=</span> -1 EISDIR <span style="color:#f92672">(</span>Is a directory<span style="color:#f92672">)</span>
+write<span style="color:#f92672">(</span>1, <span style="color:#d88200">&#34;open(\&#34;/dev/\&#34;) returns -1\n&#34;</span>, 25open<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/dev/&#34;</span><span style="color:#f92672">)</span> returns -1
+<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
+dup<span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>                                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+fcntl<span style="color:#f92672">(</span>3, F_GETFL<span style="color:#f92672">)</span>                       <span style="color:#f92672">=</span> 0x2 <span style="color:#f92672">(</span>flags O_RDWR<span style="color:#f92672">)</span>
+fstat<span style="color:#f92672">(</span>3, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+write<span style="color:#f92672">(</span>3, <span style="color:#d88200">&#34;  FAIL: Is a directory\n&#34;</span>, <span style="color:#ae81ff">23</span>  FAIL: Is a directory
+<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+close<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>                                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+exit_group<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>                           <span style="color:#f92672">=</span> ?
++++ exited with <span style="color:#ae81ff">0</span> +++
+<span style="color:#f92672">[</span>root@iZwz92v9xcjopgz0rhkwh1Z c<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>本质上所有的程序和 Hello World 类似</p>
 <p>程序 = 状态机 = 计算 → syscall → 计算 →</p>
@@ -1110,7 +1126,7 @@ inline assembly也可以参与优化</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 4535 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 4541 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
@@ -1165,7 +1181,7 @@ inline assembly也可以参与优化</p>
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />

@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | frp内网穿透</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -111,110 +111,110 @@ onload='renderMathInElement(document.body);'></script>
 如果你没有，也可以使用免费的一些frp服务器https://frp.wlphp.com/，这样你就可以跳过服务器配置的过程了。直接 <a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">跳转到群晖上操作</a></p>
 <h3 id="下载">下载</h3>
 <p>在https://github.com/fatedier/frp/releases中找到需要下载的文件,比如我想下载0.37.0的linux的x86平台的frp，就可以这么写：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># wget -O frp https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_amd64.tar.gz</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># wget -O frp https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_amd64.tar.gz</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>解压：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># tar -xvzf frp</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># tar -xvzf frp</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>可以看到这些文件：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># ls</span>
-</span></span><span style="display:flex;"><span>frpc           frpc.ini  frps           frps.ini    systemd
-</span></span><span style="display:flex;"><span>frpc_full.ini  frpc.log  frps_full.ini  LICENSE
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># ls</span>
+frpc           frpc.ini  frps           frps.ini    systemd
+frpc_full.ini  frpc.log  frps_full.ini  LICENSE
+</code></pre></td></tr></table>
 </div>
 </div><p>接下来就是配置服务器端文件frps.ini</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[common]
-</span></span><span style="display:flex;"><span>bind_port = 7000
-</span></span><span style="display:flex;"><span>#通讯端口，用于和客户端内网穿透传输数据的端口，可自定义
-</span></span><span style="display:flex;"><span>bind_udp_port = 7001
-</span></span><span style="display:flex;"><span>#UDP通讯端口，用于点对点内网穿透
-</span></span><span style="display:flex;"><span>kcp_bind_port = 7000
-</span></span><span style="display:flex;"><span>#用于KCP协议UDP通讯端口，在弱网环境下传输效率提升明显，但是会有一些额外的流量消耗。设置后frpc客户端须设置protocol = kcp
-</span></span><span style="display:flex;"><span>vhost_http_port = 80
-</span></span><span style="display:flex;"><span>#http监听端口，注意可能和服务器上其他服务用的80冲突，比如centos有些默认有Apache，可自定义
-</span></span><span style="display:flex;"><span>vhost_https_port = 443
-</span></span><span style="display:flex;"><span>#https监听端口，可自定义
-</span></span><span style="display:flex;"><span>dashboard_port = 7500
-</span></span><span style="display:flex;"><span>#通过浏览器查看 frp 的状态以及代理统计信息展示端口，可自定义
-</span></span><span style="display:flex;"><span>dashboard_user = admin
-</span></span><span style="display:flex;"><span>#信息展示面板用户名
-</span></span><span style="display:flex;"><span>dashboard_pwd = admin
-</span></span><span style="display:flex;"><span>#信息展示面板密码
-</span></span><span style="display:flex;"><span>log_max_days = 7
-</span></span><span style="display:flex;"><span>#最多保存多少天日志
-</span></span><span style="display:flex;"><span>token = xxxxxx
-</span></span><span style="display:flex;"><span>#这就是与客户端连接的token啦
-</span></span><span style="display:flex;"><span>privilege_allow_ports = 1-65535
-</span></span><span style="display:flex;"><span>#端口白名单，为了防止端口被滥用，可以手动指定允许哪些端口被使用
-</span></span><span style="display:flex;"><span>max_pool_count = 100
-</span></span><span style="display:flex;"><span>#每个内网穿透服务限制最大连接池上限，避免大量资源占用，可自定义
-</span></span><span style="display:flex;"><span>authentication_timeout = 0
-</span></span><span style="display:flex;"><span>#frpc 所在机器和 frps 所在机器的时间相差不能超过 15 分钟，因为时间戳会被用于加密验证中，防止报文被劫持后被其他人利用,单位为秒，默认值为 900，即 15 分钟。如果修改为 0，则 frps 将不对身份验证报文的时间戳进行超时校验。国外服务器由于时区的不同，时间会相差非常大，这里需要注意同步时间或者设置此值为0
-</span></span><span style="display:flex;"><span>log_file = frps.log
-</span></span><span style="display:flex;"><span>log_level = info
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[common]
+bind_port = 7000
+#通讯端口，用于和客户端内网穿透传输数据的端口，可自定义
+bind_udp_port = 7001
+#UDP通讯端口，用于点对点内网穿透
+kcp_bind_port = 7000
+#用于KCP协议UDP通讯端口，在弱网环境下传输效率提升明显，但是会有一些额外的流量消耗。设置后frpc客户端须设置protocol = kcp
+vhost_http_port = 80
+#http监听端口，注意可能和服务器上其他服务用的80冲突，比如centos有些默认有Apache，可自定义
+vhost_https_port = 443
+#https监听端口，可自定义
+dashboard_port = 7500
+#通过浏览器查看 frp 的状态以及代理统计信息展示端口，可自定义
+dashboard_user = admin
+#信息展示面板用户名
+dashboard_pwd = admin
+#信息展示面板密码
+log_max_days = 7
+#最多保存多少天日志
+token = xxxxxx
+#这就是与客户端连接的token啦
+privilege_allow_ports = 1-65535
+#端口白名单，为了防止端口被滥用，可以手动指定允许哪些端口被使用
+max_pool_count = 100
+#每个内网穿透服务限制最大连接池上限，避免大量资源占用，可自定义
+authentication_timeout = 0
+#frpc 所在机器和 frps 所在机器的时间相差不能超过 15 分钟，因为时间戳会被用于加密验证中，防止报文被劫持后被其他人利用,单位为秒，默认值为 900，即 15 分钟。如果修改为 0，则 frps 将不对身份验证报文的时间戳进行超时校验。国外服务器由于时区的不同，时间会相差非常大，这里需要注意同步时间或者设置此值为0
+log_file = frps.log
+log_level = info
+</code></pre></td></tr></table>
 </div>
 </div><p>实际上没有必要配置这么多，bind_port = 7000和token就够了。
 下一步运行就可以了，这里用后台运行的指令</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># nohup ./frps -c frps.ini &amp;</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># nohup ./frps -c frps.ini &amp;</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>可以在服务器ip:7500端口看到frps的运行状态，至此，服务器端的配置就完成了。</p>
 <h2 id="客户端">客户端</h2>
@@ -225,84 +225,86 @@ onload='renderMathInElement(document.body);'></script>
 <img src="https://i.loli.net/2021/11/10/4NkOdg1Q5DtIYXl.png" alt="image-20211109174413962.png"></p>
 <p>找到一个顺手的 目录，比如home，利用同样的命令 <a href="#%E4%B8%8B%E8%BD%BD">下载</a></p>
 <p>这时，我们关注的是frpc.ini这个配置文件</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>common<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">server_addr</span> <span style="color:#f92672">=</span> xxx.xxx.xxx.xxx 
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#frps服务端地址</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">server_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#frps服务端通讯端口，客户端连接到服务端内网穿透传输数据的端口</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">token</span> <span style="color:#f92672">=</span> xxxxxxx
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#特权模式密钥，客户端连接到FRPS服务端的验证密钥</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">log_file</span> <span style="color:#f92672">=</span> frpc.log
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#日志存放路径</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">log_level</span> <span style="color:#f92672">=</span> info
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#日志记录类别,可选：trace, debug, info, warn, error</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">log_max_days</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#日志保存天数</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">login_fail_exit</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#设置为false，frpc连接frps失败后重连，默认为true不重连</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">protocol</span> <span style="color:#f92672">=</span> kcp
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#KCP协议在弱网环境下传输效率提升明显，但是对frps会有一些额外的流量消耗。服务端须先设置kcp_bind_port = 7000，www.yourdomain.com服务端已设置支持</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>nas<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#穿透服务名称,可以随便起,不能和其他已建立的相同</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">type</span> <span style="color:#f92672">=</span> tcp
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#穿透协议类型，可选：tcp，udp，http，https，stcp，xtcp，这个设置之前必须自行搞清楚应该是什么</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">local_ip</span> <span style="color:#f92672">=</span> 127.0.0.1
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#本地监听IP，可以是本机IP，也可以是本地的局域网内某IP，例如你的局域网是互通的，你可以在路由器上安装frpc，然后local_ip填的内网其他机器ip，这样也可以把内网其他机器穿透出去</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">local_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5000</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#本地监听端口，通常有ssh端口22，远程桌面3389等等,就是把本机的多少端口转发出去</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">use_compression</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 cpu 资源</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">use_encryption</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#将 frpc 与 frps 之间的通信内容加密传输</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">remote_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5009</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#即远程对应你客户端的端口，不能和别的重合</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>common<span style="color:#f92672">]</span>
+<span style="color:#111">server_addr</span> <span style="color:#f92672">=</span> xxx.xxx.xxx.xxx 
+<span style="color:#75715e">#frps服务端地址</span>
+<span style="color:#111">server_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7000</span>
+<span style="color:#75715e">#frps服务端通讯端口，客户端连接到服务端内网穿透传输数据的端口</span>
+<span style="color:#111">token</span> <span style="color:#f92672">=</span> xxxxxxx
+<span style="color:#75715e">#特权模式密钥，客户端连接到FRPS服务端的验证密钥</span>
+<span style="color:#111">log_file</span> <span style="color:#f92672">=</span> frpc.log
+<span style="color:#75715e">#日志存放路径</span>
+<span style="color:#111">log_level</span> <span style="color:#f92672">=</span> info
+<span style="color:#75715e">#日志记录类别,可选：trace, debug, info, warn, error</span>
+<span style="color:#111">log_max_days</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+<span style="color:#75715e">#日志保存天数</span>
+<span style="color:#111">login_fail_exit</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span>
+<span style="color:#75715e">#设置为false，frpc连接frps失败后重连，默认为true不重连</span>
+<span style="color:#111">protocol</span> <span style="color:#f92672">=</span> kcp
+<span style="color:#75715e">#KCP协议在弱网环境下传输效率提升明显，但是对frps会有一些额外的流量消耗。服务端须先设置kcp_bind_port = 7000，www.yourdomain.com服务端已设置支持</span>
+
+<span style="color:#f92672">[</span>nas<span style="color:#f92672">]</span>
+<span style="color:#75715e">#穿透服务名称,可以随便起,不能和其他已建立的相同</span>
+<span style="color:#111">type</span> <span style="color:#f92672">=</span> tcp
+<span style="color:#75715e">#穿透协议类型，可选：tcp，udp，http，https，stcp，xtcp，这个设置之前必须自行搞清楚应该是什么</span>
+<span style="color:#111">local_ip</span> <span style="color:#f92672">=</span> 127.0.0.1
+<span style="color:#75715e">#本地监听IP，可以是本机IP，也可以是本地的局域网内某IP，例如你的局域网是互通的，你可以在路由器上安装frpc，然后local_ip填的内网其他机器ip，这样也可以把内网其他机器穿透出去</span>
+<span style="color:#111">local_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5000</span>
+<span style="color:#75715e">#本地监听端口，通常有ssh端口22，远程桌面3389等等,就是把本机的多少端口转发出去</span>
+<span style="color:#111">use_compression</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span>
+<span style="color:#75715e">#对传输内容进行压缩，可以有效减小 frpc 与 frps 之间的网络流量，加快流量转发速度，但是会额外消耗一些 cpu 资源</span>
+<span style="color:#111">use_encryption</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span>
+<span style="color:#75715e">#将 frpc 与 frps 之间的通信内容加密传输</span>
+<span style="color:#111">remote_port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5009</span>
+<span style="color:#75715e">#即远程对应你客户端的端口，不能和别的重合</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>下一步在frp目录下新建一个启动脚本<code>start.sh</code>，让群晖每次开机时运行这一个脚本</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>nohup /home/frp/frpc -c /home/frp/frpc.ini &gt;/dev/null 2&gt;&amp;1 &amp;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nohup /home/frp/frpc -c /home/frp/frpc.ini &gt;/dev/null 2&gt;&amp;1 &amp;
+</code></pre></td></tr></table>
 </div>
 </div><p>解释一下为什么要这么写：</p>
 <blockquote>
@@ -460,7 +462,7 @@ bash /home/frp/start.sh
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2672 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2673 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>
@@ -515,7 +517,7 @@ bash /home/frp/start.sh
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />

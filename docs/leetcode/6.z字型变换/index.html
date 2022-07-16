@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 6.Z字型变换</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -108,70 +108,70 @@ onload='renderMathInElement(document.body);'></script>
 <h4 id="6-z-字形变换httpsleetcode-cncomproblemszigzag-conversion"><a href="https://leetcode-cn.com/problems/zigzag-conversion/">6. Z 字形变换</a></h4>
 <p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
 <p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>P   A   H   N
-</span></span><span style="display:flex;"><span>A P L S I I G
-</span></span><span style="display:flex;"><span>Y   I   R
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">P   A   H   N
+A P L S I I G
+Y   I   R
+</code></pre></td></tr></table>
 </div>
 </div><p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;PAHNAPLSIIGYIR&quot;</code>。</p>
 <p>请你实现这个将字符串进行指定行数变换的函数：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>string convert(string s, int numRows);
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">string convert(string s, int numRows);
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：s = &#34;PAYPALISHIRING&#34;, numRows = 3
-</span></span><span style="display:flex;"><span>输出：&#34;PAHNAPLSIIGYIR&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：s = &#34;PAYPALISHIRING&#34;, numRows = 3
+输出：&#34;PAHNAPLSIIGYIR&#34;
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：s = &#34;PAYPALISHIRING&#34;, numRows = 4
-</span></span><span style="display:flex;"><span>输出：&#34;PINALSIGYAHRPI&#34;
-</span></span><span style="display:flex;"><span>解释：
-</span></span><span style="display:flex;"><span>P     I    N
-</span></span><span style="display:flex;"><span>A   L S  I G
-</span></span><span style="display:flex;"><span>Y A   H R
-</span></span><span style="display:flex;"><span>P     I
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：s = &#34;PAYPALISHIRING&#34;, numRows = 4
+输出：&#34;PINALSIGYAHRPI&#34;
+解释：
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 3：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：s = &#34;A&#34;, numRows = 1
-</span></span><span style="display:flex;"><span>输出：&#34;A&#34;
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：s = &#34;A&#34;, numRows = 1
+输出：&#34;A&#34;
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>提示：</strong></p>
 <ul>
@@ -183,91 +183,91 @@ onload='renderMathInElement(document.body);'></script>
 <h2 id="解法1">解法1：</h2>
 <p>写出每一个字母的坐标，然后找出规律</p>
 <p>比如(P点是原点，向下是x轴，向右是y轴)</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>s = &#34;PAYPALISHIRING&#34;, numRows = 3
-</span></span><span style="display:flex;"><span>//P0,0 A1,0 Y2,0 P1,1 
-</span></span><span style="display:flex;"><span>//A0,2 L1,2 I2,2 S1,3
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>//        P   A   H   N
-</span></span><span style="display:flex;"><span>//        A P L S I I G
-</span></span><span style="display:flex;"><span>//        Y   I   R
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">s = &#34;PAYPALISHIRING&#34;, numRows = 3
+//P0,0 A1,0 Y2,0 P1,1 
+//A0,2 L1,2 I2,2 S1,3
+      
+//        P   A   H   N
+//        A P L S I I G
+//        Y   I   R
+</code></pre></td></tr></table>
 </div>
 </div><p>注意到，每4次出现循环，将字母填入坐标系中。</p>
 <p>最后按顺序遍历坐标系，即可获得变换后的顺序。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">convert</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">numRows</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">numRows</span><span style="color:#f92672">==</span><span style="color:#111">1</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">s</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">n_temp</span><span style="color:#f92672">=</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">char</span> <span style="color:#111">bb</span><span style="color:#f92672">[][]=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">char</span><span style="color:#f92672">[</span><span style="color:#111">numRows</span><span style="color:#f92672">][</span><span style="color:#111">n_temp</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">cir</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">x</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">flag</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i0</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i0</span><span style="color:#f92672">&lt;</span><span style="color:#111">n_temp</span><span style="color:#f92672">;</span><span style="color:#111">i0</span><span style="color:#f92672">++){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">cir</span><span style="color:#f92672">=</span><span style="color:#111">i0</span><span style="color:#f92672">%(</span><span style="color:#111">2</span><span style="color:#f92672">*</span><span style="color:#111">numRows</span><span style="color:#f92672">-</span><span style="color:#111">2</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cir</span><span style="color:#f92672">&gt;=</span><span style="color:#111">numRows</span><span style="color:#f92672">|</span><span style="color:#111">cir</span><span style="color:#f92672">==</span><span style="color:#111">0</span><span style="color:#f92672">&amp;</span><span style="color:#111">i0</span><span style="color:#f92672">&gt;</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">y</span><span style="color:#f92672">++;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cir</span><span style="color:#f92672">&gt;=</span><span style="color:#111">numRows</span><span style="color:#f92672">)</span> <span style="color:#111">x</span><span style="color:#f92672">--;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">else</span> <span style="color:#111">x</span><span style="color:#f92672">=</span><span style="color:#111">cir</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">x</span><span style="color:#f92672">][</span><span style="color:#111">y</span><span style="color:#f92672">]=</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i0</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">bb</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">j</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">&lt;</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">++){</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//char的默认值是0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">][</span><span style="color:#111">j</span><span style="color:#f92672">]!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span>  <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">ans</span><span style="color:#f92672">+</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">][</span><span style="color:#111">j</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">convert</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">s</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">numRows</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">numRows</span><span style="color:#f92672">==</span><span style="color:#111">1</span><span style="color:#f92672">){</span>
+            <span style="color:#00a8c8">return</span> <span style="color:#111">s</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">n_temp</span><span style="color:#f92672">=</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">();</span>
+        <span style="color:#00a8c8">char</span> <span style="color:#111">bb</span><span style="color:#f92672">[][]=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">char</span><span style="color:#f92672">[</span><span style="color:#111">numRows</span><span style="color:#f92672">][</span><span style="color:#111">n_temp</span><span style="color:#f92672">];</span>
+        <span style="color:#111">String</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">cir</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">x</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">,</span><span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">int</span> <span style="color:#111">flag</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i0</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i0</span><span style="color:#f92672">&lt;</span><span style="color:#111">n_temp</span><span style="color:#f92672">;</span><span style="color:#111">i0</span><span style="color:#f92672">++){</span>
+            <span style="color:#111">cir</span><span style="color:#f92672">=</span><span style="color:#111">i0</span><span style="color:#f92672">%(</span><span style="color:#111">2</span><span style="color:#f92672">*</span><span style="color:#111">numRows</span><span style="color:#f92672">-</span><span style="color:#111">2</span><span style="color:#f92672">);</span>
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cir</span><span style="color:#f92672">&gt;=</span><span style="color:#111">numRows</span><span style="color:#f92672">|</span><span style="color:#111">cir</span><span style="color:#f92672">==</span><span style="color:#111">0</span><span style="color:#f92672">&amp;</span><span style="color:#111">i0</span><span style="color:#f92672">&gt;</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
+                <span style="color:#111">y</span><span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">cir</span><span style="color:#f92672">&gt;=</span><span style="color:#111">numRows</span><span style="color:#f92672">)</span> <span style="color:#111">x</span><span style="color:#f92672">--;</span>
+            <span style="color:#00a8c8">else</span> <span style="color:#111">x</span><span style="color:#f92672">=</span><span style="color:#111">cir</span><span style="color:#f92672">;</span>
+            <span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">x</span><span style="color:#f92672">][</span><span style="color:#111">y</span><span style="color:#f92672">]=</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">charAt</span><span style="color:#f92672">(</span><span style="color:#111">i0</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">bb</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+
+            <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">j</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">&lt;</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">].</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span><span style="color:#111">j</span><span style="color:#f92672">++){</span>
+<span style="color:#75715e">//char的默认值是0
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">][</span><span style="color:#111">j</span><span style="color:#f92672">]!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span>  <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">ans</span><span style="color:#f92672">+</span><span style="color:#111">bb</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">][</span><span style="color:#111">j</span><span style="color:#f92672">];</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这样时间和空间效率都不高。给出每一个字母的索引就能得到位置。反过来通过位置找到字母行不行呢？</p>
 <h2 id="解法2">解法2：</h2>
@@ -275,25 +275,25 @@ onload='renderMathInElement(document.body);'></script>
 <p>第二行同样的方法，A(1),P(3),L(5),S(7),I(9)</p>
 <p>第三行：Y(2),I(6),R(10)</p>
 <p>对于<strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：s = &#34;PAYPALISHIRING&#34;, numRows = 4
-</span></span><span style="display:flex;"><span>输出：&#34;PINALSIGYAHRPI&#34;
-</span></span><span style="display:flex;"><span>解释：
-</span></span><span style="display:flex;"><span>P     I    N
-</span></span><span style="display:flex;"><span>A   L S  I G
-</span></span><span style="display:flex;"><span>Y A   H R
-</span></span><span style="display:flex;"><span>P     I
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：s = &#34;PAYPALISHIRING&#34;, numRows = 4
+输出：&#34;PINALSIGYAHRPI&#34;
+解释：
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+</code></pre></td></tr></table>
 </div>
 </div><p>第一行：0，6，12</p>
 <p>第二行：1，5，7，11，13（其实是0，6，12的前一个和后一个）</p>
@@ -509,7 +509,7 @@ onload='renderMathInElement(document.body);'></script>
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />

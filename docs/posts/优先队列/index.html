@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | Java 优先队列</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.82.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -97,174 +97,174 @@ onload='renderMathInElement(document.body);'></script>
 <p>可以给它一个Comparator指定排列顺序</p>
 <p>默认是最小堆</p>
 <p>常用的有peek();poll();</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75af00">@Override</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#111">Integer</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#111">Integer</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">4</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">33</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">14</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">100</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">());</span><span style="color:#75715e">//[4, 33, 14, 100]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">());</span><span style="color:#75715e">//4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;?</span> <span style="color:#00a8c8">super</span> <span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">cp</span> <span style="color:#f92672">=</span> <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">comparator</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">Object</span><span style="color:#f92672">[]</span> <span style="color:#111">list</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">toArray</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">list</span><span style="color:#f92672">));</span><span style="color:#75715e">//[4, 33, 14, 100]
-</span></span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#75af00">@Override</span>
+                <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#111">Integer</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#111">Integer</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">4</span><span style="color:#f92672">);</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">33</span><span style="color:#f92672">);</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">14</span><span style="color:#f92672">);</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">100</span><span style="color:#f92672">);</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">());</span><span style="color:#75715e">//[4, 33, 14, 100]
+</span><span style="color:#75715e"></span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">());</span><span style="color:#75715e">//4
+</span><span style="color:#75715e"></span>            <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;?</span> <span style="color:#00a8c8">super</span> <span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">cp</span> <span style="color:#f92672">=</span> <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">comparator</span><span style="color:#f92672">();</span>
+
+            <span style="color:#111">Object</span><span style="color:#f92672">[]</span> <span style="color:#111">list</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">toArray</span><span style="color:#f92672">();</span>
+
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">list</span><span style="color:#f92672">));</span><span style="color:#75715e">//[4, 33, 14, 100]
+</span></code></pre></td></tr></table>
 </div>
 </div><p>这是最简单的情况</p>
 <p>当然最让我们头疼的是这个⽐较器，拿这个例⼦来说为什么传⼊o1-o2它就是最⼩堆了？ 在添加元素时，会使⽤offer(E e)函数加⼊e到堆⾥</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">offer</span><span style="color:#f92672">(</span><span style="color:#111">E</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">e</span> <span style="color:#f92672">==</span> <span style="color:#00a8c8">null</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#00a8c8">throw</span> <span style="color:#00a8c8">new</span> <span style="color:#111">NullPointerException</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">modCount</span><span style="color:#f92672">++;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">size</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">grow</span><span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#111">1</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">siftUp</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">,</span> <span style="color:#111">e</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">size</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">return</span> <span style="color:#00a8c8">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">offer</span><span style="color:#f92672">(</span><span style="color:#111">E</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">e</span> <span style="color:#f92672">==</span> <span style="color:#00a8c8">null</span><span style="color:#f92672">)</span>
+		<span style="color:#00a8c8">throw</span> <span style="color:#00a8c8">new</span> <span style="color:#111">NullPointerException</span><span style="color:#f92672">();</span>
+	<span style="color:#111">modCount</span><span style="color:#f92672">++;</span>
+	<span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">size</span><span style="color:#f92672">;</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">queue</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">)</span>
+	<span style="color:#111">grow</span><span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#111">1</span><span style="color:#f92672">);</span>
+	<span style="color:#111">siftUp</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">,</span> <span style="color:#111">e</span><span style="color:#f92672">);</span>
+	<span style="color:#111">size</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#00a8c8">true</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>可以看到有⼀个siftUp(),它⼜是什么呢？</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">siftUp</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">E</span> <span style="color:#111">x</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">comparator</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">null</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#111">siftUpUsingComparator</span><span style="color:#f92672">(</span><span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">queue</span><span style="color:#f92672">,</span> <span style="color:#111">comparator</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">else</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#111">siftUpComparable</span><span style="color:#f92672">(</span><span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">queue</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">siftUp</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">E</span> <span style="color:#111">x</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">comparator</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">null</span><span style="color:#f92672">)</span>
+		<span style="color:#111">siftUpUsingComparator</span><span style="color:#f92672">(</span><span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">queue</span><span style="color:#f92672">,</span> <span style="color:#111">comparator</span><span style="color:#f92672">);</span>
+	<span style="color:#00a8c8">else</span>
+		<span style="color:#111">siftUpComparable</span><span style="color:#f92672">(</span><span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">queue</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>哦，原来是是⽤Comparator的siftUp()</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#f92672">&lt;</span><span style="color:#111">T</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">siftUpUsingComparator</span><span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">int</span> <span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">T</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">Object</span><span style="color:#f92672">[]</span> <span style="color:#111">es</span><span style="color:#f92672">,</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;?</span> <span style="color:#00a8c8">super</span> <span style="color:#111">T</span><span style="color:#f92672">&gt;</span> <span style="color:#111">cmp</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">k</span> <span style="color:#f92672">&gt;</span> <span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#00a8c8">int</span> <span style="color:#111">parent</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">k</span> <span style="color:#f92672">-</span> <span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#111">Object</span> <span style="color:#111">e</span> <span style="color:#f92672">=</span> <span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">parent</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">cmp</span><span style="color:#f92672">.</span><span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#111">T</span><span style="color:#f92672">)</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">0</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">k</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#111">e</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#111">k</span> <span style="color:#f92672">=</span> <span style="color:#111">parent</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">k</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#111">x</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#f92672">&lt;</span><span style="color:#111">T</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">siftUpUsingComparator</span><span style="color:#f92672">(</span>
+	<span style="color:#00a8c8">int</span> <span style="color:#111">k</span><span style="color:#f92672">,</span> <span style="color:#111">T</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">Object</span><span style="color:#f92672">[]</span> <span style="color:#111">es</span><span style="color:#f92672">,</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;?</span> <span style="color:#00a8c8">super</span> <span style="color:#111">T</span><span style="color:#f92672">&gt;</span> <span style="color:#111">cmp</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#00a8c8">while</span> <span style="color:#f92672">(</span><span style="color:#111">k</span> <span style="color:#f92672">&gt;</span> <span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#00a8c8">int</span> <span style="color:#111">parent</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">k</span> <span style="color:#f92672">-</span> <span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
+		<span style="color:#111">Object</span> <span style="color:#111">e</span> <span style="color:#f92672">=</span> <span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">parent</span><span style="color:#f92672">];</span>
+		<span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">cmp</span><span style="color:#f92672">.</span><span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#111">T</span><span style="color:#f92672">)</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">0</span><span style="color:#f92672">)</span>
+			<span style="color:#00a8c8">break</span><span style="color:#f92672">;</span>
+		<span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">k</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#111">e</span><span style="color:#f92672">;</span>
+		<span style="color:#111">k</span> <span style="color:#f92672">=</span> <span style="color:#111">parent</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#111">es</span><span style="color:#f92672">[</span><span style="color:#111">k</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#111">x</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>x是被添加的元素，es是这个queue， 如果cmp.compare(x, (T) e) &lt;0,这⾥假设我们传⼊⼀个很⼩的数（按理说要添加到最⼩堆堆顶），每次x ⼩于e,<strong>⽐较器返回⼩于0</strong>，这⾥两⾏代码(es[k] = e;k = parent;)相当于元素向堆顶⾛，直到到达堆顶 break退出while。我们成功把这个元素放到堆顶。如果我们让<strong>⽐较器返回⼤于0</strong>呢，那么，那么不会向 堆顶⾛，这就是最⼤堆了，怎么让⽐较器返回⼤于0呢？(o1,o2)-&gt;o2-o1就⾏了，插⼊的x很⼩， cmp.compare(x,e)每次都返回正数(e-x&gt;0),⾃然这个x不会向堆顶移动。</p>
 <p>优先队列里也可以放其他的对象，比如int[]</p>
 <p>指定按照int[]的第一个从小到大排序</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]&gt;()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#75af00">@Override</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//也可以用lambda表达式：(o1,o2) o1[0]-o2[0];
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">4</span><span style="color:#f92672">,</span><span style="color:#111">19</span><span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">33</span><span style="color:#f92672">,</span><span style="color:#111">20</span><span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">14</span><span style="color:#f92672">,</span><span style="color:#111">22</span><span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">100</span><span style="color:#f92672">,</span><span style="color:#111">23</span><span style="color:#f92672">});</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[4, 19]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[14, 22]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[33, 20]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[100, 23]
-</span></span></span></code></pre></td></tr></table>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#75af00">@Override</span>
+                <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+<span style="color:#75715e">//也可以用lambda表达式：(o1,o2) o1[0]-o2[0];
+</span><span style="color:#75715e"></span>            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">4</span><span style="color:#f92672">,</span><span style="color:#111">19</span><span style="color:#f92672">});</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">33</span><span style="color:#f92672">,</span><span style="color:#111">20</span><span style="color:#f92672">});</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">14</span><span style="color:#f92672">,</span><span style="color:#111">22</span><span style="color:#f92672">});</span>
+            <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">100</span><span style="color:#f92672">,</span><span style="color:#111">23</span><span style="color:#f92672">});</span>
+
+            <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[4, 19]
+</span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[14, 22]
+</span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[33, 20]
+</span><span style="color:#75715e"></span>            <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">Arrays</span><span style="color:#f92672">.</span><span style="color:#75af00">toString</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">));</span><span style="color:#75715e">//[100, 23]
+</span></code></pre></td></tr></table>
 </div>
 </div><p>ref:</p>
 <blockquote>
@@ -594,7 +594,7 @@ onload='renderMathInElement(document.body);'></script>
 <script>
   Waline.init({
     el: '#waline',
-    serverURL: 'https://waline-66tg5wuyr-bachwv.vercel.app',
+    serverURL: 'https:/waline-li.vercel.app',
   });
 </script>
 <hr />
