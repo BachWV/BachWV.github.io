@@ -1,10 +1,8 @@
 ---
-title: "操作系统jyy"
+title: "操作系统-jyy-2"
 date: 2022-06-20T22:32:41+08:00
 draft: false
 ---
-
-jyy yyds
 
 # 第二讲
 
