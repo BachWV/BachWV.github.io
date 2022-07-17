@@ -1,11 +1,4 @@
 <hr class="double-line" />
- <!-- WALINE ÆÀÂÛ add by ljl -->
- <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
- <link
-   rel="stylesheet"
-   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
- />
- <!-- ... -->
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     {{with .Site.RegularPages.Prev . }}
     <a class="flex-grow-0" href="{{.RelPermalink}}">
@@ -45,12 +38,22 @@
 <div class="pb-2">
     {{ template "_internal/disqus.html" . }}
 </div>
-<!--waline ÆÀÂÛ-->
-<div id="waline"></div>
-<script>
-  Waline.init({
-    el: '#waline',
-    serverURL: 'https://waline-li.vercel.app',
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@1.6.0/dist/Waline.min.js', function(){
+         new Waline({
+          el: '#wcomments',  
+          serverURL: 'https://waline-li.vercel.app', 
+        });
+      });      
+    
   });
 </script>
 <hr />

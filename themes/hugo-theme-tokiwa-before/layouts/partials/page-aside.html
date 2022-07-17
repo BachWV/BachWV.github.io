@@ -1,0 +1,15 @@
+<div class="md:max-w-xs  flex flex-col md:items-end">
+	{{ partial "site-navigation.html" . }}
+	{{ partial "social-follow.html" . }}
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		{{.Site.Copyright|safeHTML}}
+		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. {{.WordCount }} words in this page.
+		<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+	</div>
+</div>
+<!-- 不蒜子 21/12/4 ljl引入站长统计-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
