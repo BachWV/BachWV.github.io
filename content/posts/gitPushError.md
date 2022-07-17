@@ -1,7 +1,8 @@
 ---
-title: "git push到别人的分支如何回退"
-date: 2022-02-11T19:37:54+08:00
+title: "git 指南"
+date: 2022-07-11T19:37:54+08:00
 draft: false
+lastmod:
 ---
 
 # git push到别人的分支如何回退
@@ -38,6 +39,8 @@ draft: false
 
 --hard
 删除工作空间改动代码，撤销commit，撤销git add . 
+--hard HEAD commitid可以回到哪次提交
+--hard HEAD^ 表示最近一次提交
 ```
 
 ## 3.暗度陈仓

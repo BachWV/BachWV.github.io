@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | Merry Christmas</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -101,44 +101,44 @@ onload='renderMathInElement(document.body);'></script>
 <p>你打算每天 <strong>最多</strong> 吃一个苹果来保证营养均衡。注意，你可以在这 <code>n</code> 天之后继续吃苹果。</p>
 <p>给你两个长度为 <code>n</code> 的整数数组 <code>days</code> 和 <code>apples</code> ，返回你可以吃掉的苹果的最大数目*。*</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：apples = [1,2,3,5,2], days = [3,2,1,4,2]
-输出：7
-解释：你可以吃掉 7 个苹果：
-- 第一天，你吃掉第一天长出来的苹果。
-- 第二天，你吃掉一个第二天长出来的苹果。
-- 第三天，你吃掉一个第二天长出来的苹果。过了这一天，第三天长出来的苹果就已经腐烂了。
-- 第四天到第七天，你吃的都是第四天长出来的苹果。
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：apples = [1,2,3,5,2], days = [3,2,1,4,2]
+</span></span><span style="display:flex;"><span>输出：7
+</span></span><span style="display:flex;"><span>解释：你可以吃掉 7 个苹果：
+</span></span><span style="display:flex;"><span>- 第一天，你吃掉第一天长出来的苹果。
+</span></span><span style="display:flex;"><span>- 第二天，你吃掉一个第二天长出来的苹果。
+</span></span><span style="display:flex;"><span>- 第三天，你吃掉一个第二天长出来的苹果。过了这一天，第三天长出来的苹果就已经腐烂了。
+</span></span><span style="display:flex;"><span>- 第四天到第七天，你吃的都是第四天长出来的苹果。
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]
-输出：5
-解释：你可以吃掉 5 个苹果：
-- 第一天到第三天，你吃的都是第一天长出来的苹果。
-- 第四天和第五天不吃苹果。
-- 第六天和第七天，你吃的都是第六天长出来的苹果。
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]
+</span></span><span style="display:flex;"><span>输出：5
+</span></span><span style="display:flex;"><span>解释：你可以吃掉 5 个苹果：
+</span></span><span style="display:flex;"><span>- 第一天到第三天，你吃的都是第一天长出来的苹果。
+</span></span><span style="display:flex;"><span>- 第四天和第五天不吃苹果。
+</span></span><span style="display:flex;"><span>- 第六天和第七天，你吃的都是第六天长出来的苹果。
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>提示：</strong></p>
 <ul>
@@ -155,105 +155,103 @@ onload='renderMathInElement(document.body);'></script>
 <p>这时想到键值对，对于每天生成的苹果，记录一个腐烂截止日期，再记录苹果数。再将这个键值对排序，每次取最近腐烂但是还没腐烂的苹果吃。</p>
 <p>这就需要小根堆了，Java中是<a href="http://blog.junling.xyz/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</a>。</p>
 <p>具体实现上，分为两个阶段，在小于n（n是apples数组的长度）的日子里，每天产生苹果，将其入队，并且看看有没有腐烂的苹果，将其出队，再看看有没有能吃到的苹果，把它吃掉；大于n的日子，由于不产生苹果，就只有清理腐烂的苹果和吃苹果这两件事要做了。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">eatenApples</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">apples</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">days</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]&gt;()</span> <span style="color:#f92672">{</span>
-            <span style="color:#75af00">@Override</span>
-            <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">});</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">len</span><span style="color:#f92672">=</span><span style="color:#111">apples</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">eat</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">nn</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">len</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
-            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">apples</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">days</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]-</span><span style="color:#111">1</span><span style="color:#f92672">,</span><span style="color:#111">apples</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]});</span>
-               <span style="color:#75715e">// System.out.println(&#34;add&#34;+q.peek()[0]+&#34; &#34;+q.peek()[1]);
-</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
-            
-            <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]&lt;</span><span style="color:#111">i</span><span style="color:#f92672">||</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;=</span><span style="color:#111">0</span><span style="color:#f92672">)){</span>
-                <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;poll &#34;</span><span style="color:#f92672">+</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]+</span><span style="color:#d88200">&#34; &#34;</span><span style="color:#f92672">+</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]);</span>
-                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span><span style="color:#75715e">//清理过期苹果and小于0的苹果数
-</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
-            <span style="color:#75715e">//eat
-</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
-                <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-
-                <span style="color:#111">nn</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]--;</span>
-                <span style="color:#111">eat</span><span style="color:#f92672">++;</span>
-                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">);</span>
-                <span style="color:#75715e">//System.out.println(&#34;i=&#34;+i+&#34; eat=&#34;+eat+&#34; nn[0]=&#34;+nn[0]+&#34; nn[1]=&#34;+nn[1]+&#34; &#34;+q);
-</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">len</span><span style="color:#f92672">;!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">();</span><span style="color:#111">i</span><span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]&lt;</span><span style="color:#111">i</span><span style="color:#f92672">||</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;=</span><span style="color:#111">0</span><span style="color:#f92672">)){</span>
-               <span style="color:#75715e">// System.out.println(&#34;poll &#34;+q.peek()[0]+&#34; &#34;+q.peek()[1]);
-</span><span style="color:#75715e"></span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span><span style="color:#75715e">//清理过期苹果and小于0的苹果数
-</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
-            <span style="color:#75715e">//eat
-</span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
-                <span style="color:#111">nn</span> <span style="color:#f92672">=</span> <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
-                <span style="color:#111">nn</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]--;</span>
-                <span style="color:#111">eat</span><span style="color:#f92672">++;</span>
-                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">eat</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">eatenApples</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">apples</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">days</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]&gt;</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">PriorityQueue</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Comparator</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">int</span> <span style="color:#f92672">[]&gt;()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">compare</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o1</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">o2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">return</span> <span style="color:#111">o1</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#111">o2</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">len</span><span style="color:#f92672">=</span><span style="color:#111">apples</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">eat</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">nn</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">len</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">apples</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]{</span><span style="color:#111">i</span><span style="color:#f92672">+</span><span style="color:#111">days</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]-</span><span style="color:#111">1</span><span style="color:#f92672">,</span><span style="color:#111">apples</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]});</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#75715e">// System.out.println(&#34;add&#34;+q.peek()[0]+&#34; &#34;+q.peek()[1]);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]&lt;</span><span style="color:#111">i</span><span style="color:#f92672">||</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;=</span><span style="color:#111">0</span><span style="color:#f92672">)){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;poll &#34;</span><span style="color:#f92672">+</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]+</span><span style="color:#d88200">&#34; &#34;</span><span style="color:#f92672">+</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span><span style="color:#75715e">//清理过期苹果and小于0的苹果数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//eat
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">nn</span><span style="color:#f92672">=</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">nn</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]--;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">eat</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//System.out.println(&#34;i=&#34;+i+&#34; eat=&#34;+eat+&#34; nn[0]=&#34;+nn[0]+&#34; nn[1]=&#34;+nn[1]+&#34; &#34;+q);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">len</span><span style="color:#f92672">;!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">();</span><span style="color:#111">i</span><span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;(</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">0</span><span style="color:#f92672">]&lt;</span><span style="color:#111">i</span><span style="color:#f92672">||</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">peek</span><span style="color:#f92672">()[</span><span style="color:#111">1</span><span style="color:#f92672">]&lt;=</span><span style="color:#111">0</span><span style="color:#f92672">)){</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#75715e">// System.out.println(&#34;poll &#34;+q.peek()[0]+&#34; &#34;+q.peek()[1]);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span><span style="color:#75715e">//清理过期苹果and小于0的苹果数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//eat
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">if</span><span style="color:#f92672">(!</span><span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">nn</span> <span style="color:#f92672">=</span> <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">poll</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">nn</span><span style="color:#f92672">[</span><span style="color:#111">1</span><span style="color:#f92672">]--;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">eat</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">q</span><span style="color:#f92672">.</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">nn</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">eat</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>| 遥远遥远的以后 会不会有人知道我</p>
 <p>| 在这个寂寞的星球 曾这样的活过</p>
@@ -398,7 +396,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1132 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1131 words in this page.
 		<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 		  </span>

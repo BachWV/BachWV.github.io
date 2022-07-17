@@ -101,3 +101,5 @@ twitter = "http://twitter.com/"
 home = ["HTML", "RSS", "JSON"]
 
 
+[frontmatter]
+  lastmod = [':git', 'lastmod', ':fileModTime', ':default']

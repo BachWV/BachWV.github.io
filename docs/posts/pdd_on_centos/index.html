@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | CentOS上部署tomcat项目</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -94,13 +94,13 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>CentOS部署pdd</p>
 <p>1.CentOS安装jdk</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum install java-1.8.0-openjdk.x86_64
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>yum install java-1.8.0-openjdk.x86_64
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>会自动配置环境变量</p>
 <p>2.安装tomcat</p>
@@ -110,21 +110,21 @@ onload='renderMathInElement(document.body);'></script>
 有点复杂
 <a href="https://www.cnblogs.com/zhulei2/p/13912167.html">https://www.cnblogs.com/zhulei2/p/13912167.html</a>
 关于密码要改一下策略</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
-
-<span style="color:#00a8c8">set</span> <span style="color:#00a8c8">global</span> <span style="color:#111">validate_password</span><span style="color:#111">.</span><span style="color:#00a8c8">length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">;</span>
-<span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">all</span> <span style="color:#00a8c8">privileges</span> <span style="color:#00a8c8">on</span> <span style="color:#f92672">*</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">to</span> <span style="color:#d88200">&#39;user02&#39;</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#00a8c8">with</span> <span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">option</span><span style="color:#111">;</span> 
-<span style="color:#00a8c8">create</span> <span style="color:#00a8c8">user</span> <span style="color:#111">user02</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#111">identified</span> <span style="color:#00a8c8">by</span> <span style="color:#d88200">&#39;2077&#39;</span><span style="color:#111">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SHOW</span> <span style="color:#111">VARIABLES</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;validate_password%&#39;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">set</span> <span style="color:#00a8c8">global</span> <span style="color:#111">validate_password</span><span style="color:#111">.</span><span style="color:#00a8c8">length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">all</span> <span style="color:#00a8c8">privileges</span> <span style="color:#00a8c8">on</span> <span style="color:#f92672">*</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">to</span> <span style="color:#d88200">&#39;user02&#39;</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#00a8c8">with</span> <span style="color:#00a8c8">grant</span> <span style="color:#00a8c8">option</span><span style="color:#111">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">create</span> <span style="color:#00a8c8">user</span> <span style="color:#111">user02</span><span style="color:#f92672">@</span><span style="color:#d88200">&#39;%&#39;</span> <span style="color:#111">identified</span> <span style="color:#00a8c8">by</span> <span style="color:#d88200">&#39;2077&#39;</span><span style="color:#111">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>远程连接： <code> GRANT ALL PRIVILEGES ON *.*TO 'root'@'%';</code></p>
 <p>4.打war包
@@ -132,13 +132,13 @@ idea中build-&gt;build artifacts
 <a href="https://blog.csdn.net/money_yao/article/details/91435188">https://blog.csdn.net/money_yao/article/details/91435188</a>
 移到webapp试了可以
 注意\conf\Catalina\localhost中加入命名为shopimage.xml完成虚拟文件夹创建</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;Context</span> <span style="color:#75af00">docBase=</span><span style="color:#d88200">&#34;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\shopimage&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意在tomcat运行过程中，webapps下面的war文件是热部署的，不需要重启tomcat，并且.war文件不能删除，否则项目无法打开。</p>
 <p>目前已知问题：用户登录以后的订单list的sql语句有问题，目测是CentOS下Mysql8.0的锅

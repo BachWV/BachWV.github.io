@@ -7,7 +7,7 @@
 	
 	<title>AC自动机  | 多少个1</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -103,58 +103,58 @@ onload='renderMathInElement(document.body);'></script>
 		<div class="c-rich-text"><h1 id="一个二进制数中有多少个1">一个二进制数中有多少个1</h1>
 <p>我只能想到用移位消去最小的1的方法</p>
 <h2 id="时间复杂度为i中1的个数的做法">时间复杂度为i中1的个数的做法</h2>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">hammingWeight</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-<span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
-            
-            <span style="color:#111">ans</span><span style="color:#f92672">++;</span>
-            <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">n</span><span style="color:#f92672">&amp;(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
-            
-        <span style="color:#f92672">}</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">hammingWeight</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">n</span><span style="color:#f92672">&amp;(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>java 本身也提供了这个方法，所以就来看看底层的源码。
 这个方法非常有意思，我已经被迷住了，源码的分析部分来自于</p>
 <p><a href="https://blog.csdn.net/weixin_42092787/article/details/106607426">https://blog.csdn.net/weixin_42092787/article/details/106607426</a></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">bitCount</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-     <span style="color:#75715e">// HD, Figure 5-2
-</span><span style="color:#75715e"></span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">-</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x55555555</span><span style="color:#f92672">);</span>
-     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x33333333</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x33333333</span><span style="color:#f92672">);</span>
-     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">4</span><span style="color:#f92672">))</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x0f0f0f0f</span><span style="color:#f92672">;</span>
-     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">8</span><span style="color:#f92672">);</span>
-     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">16</span><span style="color:#f92672">);</span>
-     <span style="color:#00a8c8">return</span> <span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x3f</span><span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">bitCount</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// HD, Figure 5-2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">-</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x55555555</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x33333333</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x33333333</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">4</span><span style="color:#f92672">))</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x0f0f0f0f</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">8</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#111">16</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#00a8c8">return</span> <span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">0x3f</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>简单来说，源码非常非常巧妙的利用了 位运算的性质，大概我这辈子也想不到吧。</p>
 <p>我们从最后的落脚点出发，或许更能理解这种思路：</p>
@@ -220,15 +220,15 @@ i 在右移之后和 0x55555555 进行 与 操作，就会得到原来 i 的第 
 <p>上面的 “2” 和“3”
 和 0x0f0f0f0f 进行 与 操作，就会得到源数字 i 每 8 位上面 1 的个数，存储在了第 1 2 3 4 、 9 10 11 12、17 18 19 20 、25 26 27 28位上。而第 5 6 7 8 、13 14 15 16、20 21 23 24、29 30 31 32 位一定是 0.</p>
 <p>第四行和第五行代码</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">i = i + (i &gt;&gt;&gt; 8);
-i = i + (i &gt;&gt;&gt; 16);
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>i = i + (i &gt;&gt;&gt; 8);
+</span></span><span style="display:flex;"><span>i = i + (i &gt;&gt;&gt; 16);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1~16位上。（此时没有做第17~32位的清零）</p>
 <p>当然，如果按照前几步的思路，你当然可以把这两行代码替换成：</p>
@@ -285,28 +285,28 @@ i=0010010100101011</p>
 <p>给你编码后的数组 <code>encoded</code> 和原数组 <code>arr</code> 的第一个元素 <code>first</code>（<code>arr[0]</code>）。</p>
 <p>请解码返回原数组 <code>arr</code> 。可以证明答案存在并且是唯一的。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：encoded = [1,2,3], first = 1
-输出：[1,0,2,1]
-解释：若 arr = [1,0,2,1] ，那么 first = 1 且 encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [1,2,3], first = 1
+</span></span><span style="display:flex;"><span>输出：[1,0,2,1]
+</span></span><span style="display:flex;"><span>解释：若 arr = [1,0,2,1] ，那么 first = 1 且 encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入：encoded = [6,2,7,3], first = 4
-输出：[4,2,0,7,4]
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [6,2,7,3], first = 4
+</span></span><span style="display:flex;"><span>输出：[4,2,0,7,4]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>提示：</strong></p>
 <ul>
@@ -316,37 +316,37 @@ i=0010010100101011</p>
 <li><code>0 &lt;= first &lt;= 105</code></li>
 </ul>
 </blockquote>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#75af00">decode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">encoded</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">first</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">encoded</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-        <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
-            <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]=</span><span style="color:#111">encoded</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">]^</span><span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-
-        <span style="color:#f92672">}</span>
-
-<span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#75af00">decode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">encoded</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">first</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">encoded</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]=</span><span style="color:#111">encoded</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">]^</span><span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>还有一题：</p>
 <blockquote>
@@ -354,61 +354,61 @@ i=0010010100101011</p>
 <p>难度中等425</p>
 <p><strong>不使用</strong>运算符 <code>+</code> 和 <code>-</code> ，计算两整数 <code>a</code> 、<code>b</code> 之和。</p>
 <p><strong>示例 1:</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入: a = 1, b = 2
-输出: 3
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入: a = 1, b = 2
+</span></span><span style="display:flex;"><span>输出: 3
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>示例 2:</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">输入: a = -2, b = 3
-输出: 1
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入: a = -2, b = 3
+</span></span><span style="display:flex;"><span>输出: 1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过次数54,177</p>
 <p>提交次数93,386</p>
 </blockquote>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">getSum</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">a</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">b</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34; b=&#34;</span><span style="color:#f92672">+</span><span style="color:#111">b</span><span style="color:#f92672">);</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">a</span><span style="color:#f92672">^</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">int</span> <span style="color:#111">and</span><span style="color:#f92672">=(</span><span style="color:#111">a</span><span style="color:#f92672">&amp;</span><span style="color:#111">b</span><span style="color:#f92672">)&lt;&lt;</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
-         <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
-        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">getSum</span><span style="color:#f92672">(</span><span style="color:#111">xor</span><span style="color:#f92672">,</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
-       
-        <span style="color:#00a8c8">return</span> <span style="color:#111">xor</span><span style="color:#f92672">;</span>
-
-
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">getSum</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">a</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">b</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34; b=&#34;</span><span style="color:#f92672">+</span><span style="color:#111">b</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">a</span><span style="color:#f92672">^</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">and</span><span style="color:#f92672">=(</span><span style="color:#111">a</span><span style="color:#f92672">&amp;</span><span style="color:#111">b</span><span style="color:#f92672">)&lt;&lt;</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">getSum</span><span style="color:#f92672">(</span><span style="color:#111">xor</span><span style="color:#f92672">,</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>       
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">xor</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 	</section>
