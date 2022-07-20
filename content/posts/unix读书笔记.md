@@ -2,6 +2,7 @@
 title: "Unix读书笔记"
 date: 2021-06-17T13:50:16+08:00
 draft: false
+toc: true
 ---
 
 # UNIX 读书笔记

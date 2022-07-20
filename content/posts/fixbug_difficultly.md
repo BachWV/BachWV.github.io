@@ -27,6 +27,8 @@ toc: true
 
 ![image](https://user-images.githubusercontent.com/21078868/179396866-0c54dc79-56d3-462c-a9a7-ce55d9d27532.png)
 
+`Uncaught (in promise) TypeError: Cannot read properties of null (reading ‘insertBefore‘)`
+
 这时我找到waline的讨论区，有人遇到和我一样的问题
 
 https://github.com/walinejs/waline/discussions/735
@@ -80,6 +82,51 @@ https://github.com/walinejs/waline/discussions/735
 
 原来是我的环境变量错了，他的配置是params.toml我的是config.toml问题不大，参考官方文档改写config.toml，和script.html怎么我的评论都没了，初步判定是找不到#waline这个div，因为这个div在别的html文件里，
 
+开发者工具告诉我 $(function{})不能这么写，
+`ReferenceError: $ is not defined     at`
+一看发现还要引入jq
+
+JQuery 的代码我们通常会包裹在一个`$(function(){})`函数中，jq 的`$(function(){})`也就是`$(document).ready(function(){})`的简写，与之对应的原生 js 的window.onload事件
+
+
+
+new Waline()和Waline.init()的区别
+
+
+
+别的参考：
+
+同样是为hugo主题引入waline
+
+```js
+    {{- $waline := $comment.waline | default dict -}}
+        {{- if $waline.enable -}}
+            <div id="waline"></div>
+			<script src='{{ $waline.js }}'></script>
+
+			<script>
+		    	new Waline({
+		    	  el: '#waline',
+				  meta: {{ $waline.meta }},
+		    	  requiredMeta: {{ $waline.requiredMeta }},
+		    	  login: {{ $waline.login }},
+				  placeholder: {{ $waline.placeholder }},
+		    	  serverURL: {{ $waline.serverURL }},
+		    	  avatarCDN: {{ $waline.avatarCDN }},
+		    	  pageSize: {{ $waline.pageSize }},
+		    	  avatar: {{ $waline.avatar }},
+		    	  lang: {{ $waline.lang }},
+				  visitor: {{ $waline.visitor }},
+				  highlight: {{ $waline.highlight }},
+				  uploadImage: {{ $waline.uploadImage }}				  
+		    	});
+		    </script>
+        {{- end -}}
+```
+
+
+
+https://lewky.cn/posts/hugo-3.1.html/#%E4%BD%BF%E7%94%A8waline%E6%9B%BF%E4%BB%A3valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F
 
 
 ### 尝试四

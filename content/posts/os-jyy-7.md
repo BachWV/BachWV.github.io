@@ -2,6 +2,7 @@
 title: "操作系统-jyy-7"
 date: 2022-07-16T18:01:22+08:00
 draft: false
+toc: true
 ---
 
 # 第七讲 真实世界的并发编程 
@@ -44,9 +45,7 @@ mpi
 #### 线程之间如何通信
 不仅是节点、线程之间，还发生在共享内存访问
 
-
-
-例子 Mandelbrot Set
+#### 例子 Mandelbrot Set
 
 注意，这个例子会用shell执行viu，这是一个将图片用unicode打印到终端的工具（想到了命令行浏览器browsh），请先`pamac install viu`
 
@@ -66,9 +65,169 @@ mpi
 
 
 
+ppm这种rgb数字构成的图片格式
 
 
-扩展阅读
+
+## 数据中心的并行编程
+
+与超算的区别点在于数据和存储
+
+支撑互联网应用，导致现代人获取知识的门槛降低，效率升高；如何抗住高并发
+
+### 主要挑战
+
+多副本情况下的高可靠、低延迟数据访问
+
+多副本的数据一致性 Consistency
+
+对用户高可用，立即生效 Available
+
+容忍机器离线 Partition tolerance
+
+
+
+虽然本课程的主要内容是如何管理一台计算机，但这里和数据中心不矛盾
+
+一个尽可能相应多地服务的并行请求
+
+
+
+切换线程是有代价的
+
+一个有趣的小实验
+
+co_yield 函数调用
+
+### Go
+
+协程coroutines
+
+- 多个执行流
+- 切换代价小，协程里的切换不受操作系统调度
+
+
+
+线程的一般执行模型 read() syscall() write()，可以多处理器并行；但是需要占有较多的资源
+
+
+
+协程 遇到read()会阻塞线程，其他协程就无法执行
+
+
+
+#### Go和Goroutine
+
+多处理器并行和协程全都要
+
+每个cpu上绑定一个线程 go work，每个线程有多个协程。
+
+任何一个协程IO时，用不block的系统调用read_nonblock，读取时会跳到另一个协程执行。这么巧妙的设计甚至不需要切换cpu，所以可以创建百万级的goroutine。
+
+
+
+fib.go 轮番打印字符 ，实现了一个进度条
+
+为什么进度条在算出fib后终止了？
+
+因为运行的协程spinner在主协程main终止后就终止了
+
+```go
+package main
+
+import (
+  "fmt"
+  "time"
+)
+
+func main() {
+  go spinner(100 * time.Millisecond) //创建go ruutine 概念是线程实现是协程
+  const n = 45
+  fibN := fib(n) // slow
+  fmt.Printf("\rFibonacci(%d) = %d\n", n, fibN)
+}
+
+func spinner(delay time.Duration) {//轮番打印字符 ，实现了一个进度条
+  for {
+    for _, r := range `-\|/` {
+      fmt.Printf("\r%c", r)//回到行首
+      time.Sleep(delay)
+    }
+  }
+}
+
+func fib(x int) int {
+  if x < 2 { return x }
+  return fib(x - 1) + fib(x - 2)
+}
+```
+
+操作系统上讲的并发算法，不意味着在真正写代码时用这些并发算法，因为接近底层的锁太难写了，我们写不对。
+
+共享内存在奇怪调度发生各种bugs，我们把握不住。
+
+如果生产者-消费者能解决大部分问题，那操作系统提供一个API给我们调用更好。
+
+
+
+#### channel go协程之间通信的机制
+
+`stream <- i`把i丢进channel
+
+`x:=<- stream` 从channel拉出
+
+通过别人为我们提供的模型，我们能轻易写出生产者-消费者模型的代码
+
+```go
+package main
+
+import "fmt"
+
+var stream = make(chan int, 10)
+const n = 4
+
+func produce() {
+  for i := 0; ; i++ {
+    fmt.Println("produce", i)
+    stream <- i
+  }
+}
+
+func consume() {
+  for {
+    x := <- stream
+    fmt.Println("consume", x)
+  }
+}
+
+func main() {
+  for i := 0; i < n; i++ {
+    go produce()
+  }
+  consume()
+}
+```
+
+
+
+# 我们身边的并发编程
+
+
+
+Web交互式的年代 web2.0
+
+- 浏览器中的并发编程 asynchronous js+xml (ajax)
+
+- HTML(DOM Tree)+CSS
+
+  - 通过js改变html
+  - 通过js建立连接本地和服务器
+
+  
+
+
+
+## 扩展阅读
 
 标准I/O函数库提供了popen函数，它启动另外一个进程去执行一个shell命令行。
 
@@ -77,63 +236,20 @@ mpi
 popen函数还**创建一个管道用于父子进程间通信。**父进程要么从管道读信息，要么向管道写信息，至于是读还是写取决于父进程调用popen时传递的参数。下在给出popen、pclose的定义：
 
 ```cpp
-01	#include <stdio.h>
-
-
-
-02	/*
-
-
-
-03	函数功能：popen（）会调用fork（）产生子进程，然后从子进程中调用/bin/sh -c来执行参数command的指令。
-
-
-
-04	        参数type可使用“r”代表读取，“w”代表写入。
-
-
-
-05	        依照此type值，popen（）会建立管道连到子进程的标准输出设备或标准输入设备，然后返回一个文件指针。
-
-
-
-06	        随后进程便可利用此文件指针来读取子进程的输出设备或是写入到子进程的标准输入设备中
-
-
-
-07	返回值：若成功则返回文件指针，否则返回NULL，错误原因存于errno中
-
-
-
-08	*/
-
-
-
-09	FILE * popen( const char * command,const char * type);
-
-
-
-10	 
-
-
-
-11	/*
-
-
-
-12	函数功能：pclose（）用来关闭由popen所建立的管道及文件指针。参数stream为先前由popen（）所返回的文件指针
-
-
-
-13	返回值：若成功返回shell的终止状态(也即子进程的终止状态)，若出错返回-1，错误原因存于errno中
-
-
-
-14	*/
-
-
-
-15	int pclose(FILE * stream);
+#include <stdio.h>
+/*
+函数功能：popen（）会调用fork（）产生子进程，然后从子进程中调用/bin/sh -c来执行参数command的指令。
+参数type可使用“r”代表读取，“w”代表写入。
+依照此type值，popen（）会建立管道连到子进程的标准输出设备或标准输入设备，然后返回一个文件指针。 
+随后进程便可利用此文件指针来读取子进程的输出设备或是写入到子进程的标准输入设备中
+返回值：若成功则返回文件指针，否则返回NULL，错误原因存于errno中
+*/
+FILE * popen( const char * command,const char * type);
+	/*
+函数功能：pclose（）用来关闭由popen所建立的管道及文件指针。参数stream为先前由popen（）所返回的文件指针
+返回值：若成功返回shell的终止状态(也即子进程的终止状态)，若出错返回-1，错误原因存于errno中
+*/
+int pclose(FILE * stream);
 ```
 
 下面通过例子看下popen的使用：
@@ -147,174 +263,45 @@ popen函数还**创建一个管道用于父子进程间通信。**父进程要�
 我们可以在程序中这样写：
 
 ```cpp
-01	/*取得当前目录下的文件个数*/
-02	#include <stdio.h>
-03	#include <stdlib.h>
-04	#include <errno.h>
-05	#include <sys/wait.h>
-06	 
-07	#define MAXLINE 1024
-08	 
-
-
-
-09	int main()
-
-
-
-10	{
-
-
-
-11	    char result_buf[MAXLINE], command[MAXLINE];
-
-
-
-12	    int rc = 0; // 用于接收命令返回值
-
-
-
-13	    FILE *fp;
-
-
-
-14	 
-
-
-
-15	    /*将要执行的命令写入buf*/
-
-
-
-16	    snprintf(command, sizeof(command), "ls ./ | wc -l");
-
-
-
-17	 
-
-
-
-18	    /*执行预先设定的命令，并读出该命令的标准输出*/
-
-
-
-19	    fp = popen(command, "r");
-
-
-
-20	    if(NULL == fp)
-
-
-
-21	    {
-
-
-
-22	        perror("popen执行失败！");
-
-
-
-23	        exit(1);
-
-
-
-24	    }
-
-
-
-25	    while(fgets(result_buf, sizeof(result_buf), fp) != NULL)
-
-
-
-26	    {
-
-
-
-27	        /*为了下面输出好看些，把命令返回的换行符去掉*/
-
-
-
-28	        if('\n' == result_buf[strlen(result_buf)-1])
-
-
-
-29	        {
-
-
-
-30	            result_buf[strlen(result_buf)-1] = '\0';
-
-
-
-31	        }
-
-
-
-32	        printf("命令【%s】 输出【%s】\r\n", command, result_buf);
-
-
-
-33	    }
-
-
-
-34	 
-
-
-
-35	    /*等待命令执行完毕并关闭管道及文件指针*/
-
-
-
-36	    rc = pclose(fp);
-
-
-
-37	    if(-1 == rc)
-
-
-
-38	    {
-
-
-
-39	        perror("关闭文件指针失败");
-
-
-
-40	        exit(1);
-
-
-
-41	    }
-
-
-
-42	    else
-
-
-
-43	    {
-
-
-
-44	        printf("命令【%s】子进程结束状态【%d】命令返回值【%d】\r\n", command, rc, WEXITSTATUS(rc));
-
-
-
-45	    }
-
-
-
-46	 
-
-
-
-47	    return 0;
-
-
-
-48
+/*取得当前目录下的文件个数*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+ 
+#define MAXLINE 1024
+	
+int main()
+{
+   char result_buf[MAXLINE], command[MAXLINE];
+    int rc = 0; // 用于接收命令返回值
+    FILE *fp;	 
+    /*将要执行的命令写入buf*/
+    snprintf(command, sizeof(command), "ls ./ | wc -l");
+    /*执行预先设定的命令，并读出该命令的标准输出*/
+    fp = popen(command, "r");
+    if(NULL == fp)  {
+        perror("popen执行失败！");
+        exit(1);
+    }
+
+    while(fgets(result_buf, sizeof(result_buf), fp) != NULL) {
+     /*为了下面输出好看些，把命令返回的换行符去掉*/
+        if('\n' == result_buf[strlen(result_buf)-1]) {
+            result_buf[strlen(result_buf)-1] = '\0';
+	        }
+        printf("命令【%s】 输出【%s】\r\n", command, result_buf);
+    }
+    /*等待命令执行完毕并关闭管道及文件指针*/
+    rc = pclose(fp);
+    if(-1 == rc)   {
+        perror("关闭文件指针失败");
+        exit(1);
+    } else {
+        printf("命令【%s】子进程结束状态【%d】命令返回值【%d】\r\n", command, rc, WEXITSTATUS(rc));
+    }
+    return 0;
+}
 ```
 
 编译并执行：

@@ -3,16 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://blog.junling.xyz/</loc>
-    <lastmod>2022-07-17T23:08:35+08:00</lastmod>
+    <lastmod>2022-07-20T11:28:27+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/</loc>
+    <lastmod>2022-07-20T11:28:27+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/tmux/</loc>
+    <lastmod>2022-07-20T11:28:27+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/os-jyy-8/</loc>
+    <lastmod>2022-07-20T10:49:59+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.junling.xyz/posts/fixbug_difficultly/</loc>
+    <lastmod>2022-07-18T01:00:03+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/github-actions/</loc>
     <lastmod>2022-07-17T02:00:03+08:00</lastmod>
   </url><url>
-    <loc>http://blog.junling.xyz/posts/</loc>
-    <lastmod>2022-07-17T23:08:35+08:00</lastmod>
-  </url><url>
     <loc>http://blog.junling.xyz/posts/os-jyy-7/</loc>
-    <lastmod>2022-07-17T02:00:03+08:00</lastmod>
+    <lastmod>2022-07-20T09:56:26+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/crontab/</loc>
     <lastmod>2022-07-14T21:18:54+08:00</lastmod>
@@ -216,7 +225,7 @@
     <lastmod>2022-05-28T18:36:41+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-06-16T11:18:23+08:00</lastmod>
+    <lastmod>2022-07-20T09:56:48+08:00</lastmod>
   </url><url>
     <loc>http://blog.junling.xyz/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/</loc>
     <lastmod>2022-05-28T18:36:41+08:00</lastmod>

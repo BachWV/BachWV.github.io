@@ -7,10 +7,740 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Sat, 16 Jul 2022 21:11:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jul 2022 11:00:02 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.junling.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tmux</title>
+      <link>http://blog.junling.xyz/posts/tmux/</link>
+      <pubDate>Wed, 20 Jul 2022 11:00:02 +0800</pubDate>
+      
+      <guid>http://blog.junling.xyz/posts/tmux/</guid>
+      <description>&lt;p&gt;简单记住一下 tmux的基本使用，因为自己记性不行&lt;/p&gt;
+&lt;p&gt;新建会话 &lt;code&gt;tmux new -s &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;退出会话 &lt;code&gt;ctrl+b d&lt;/code&gt;或&lt;code&gt;tmux detach&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;进入某会话&lt;code&gt;tmux a -t &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看所有会话 &lt;code&gt;tmux ls&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;杀死&lt;code&gt;tmux kill-session -t &amp;quot;name&amp;quot;|id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;切换会话 &lt;code&gt;tmux switch -t &amp;quot;name&amp;quot;|id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;上下分窗口 &lt;code&gt;ctrl+b d&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>操作系统-jyy-8</title>
+      <link>http://blog.junling.xyz/posts/os-jyy-8/</link>
+      <pubDate>Wed, 20 Jul 2022 09:55:58 +0800</pubDate>
+      
+      <guid>http://blog.junling.xyz/posts/os-jyy-8/</guid>
+      <description>&lt;h1 id=&#34;第8讲-并发-bug-和应对&#34;&gt;第8讲 并发 bug 和应对&lt;/h1&gt;
+&lt;p&gt;本节课回答的问题：如何应对bug&lt;/p&gt;
+&lt;p&gt;看起来今天的主要内容是很工程的，讲了许多例子，都不是很懂，写完lab1再回来看吧&lt;/p&gt;
+&lt;p&gt;永远假设自己不是圣人，不能一次写出对的代码&lt;/p&gt;
+&lt;p&gt;防御性编程 加断言&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;p&gt;平衡树的左旋&lt;/p&gt;
+&lt;p&gt;加assert()判断结点旋转的结果对不对&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/tree-rotate.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;检查是否在堆区&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;assert(IN_RAGE(heap))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;assert(0&amp;lt;=pid&amp;amp;&amp;amp;pid&amp;lt;=1000)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;并发bug死锁&lt;/p&gt;
+&lt;h2 id=&#34;aa-deadlock&#34;&gt;AA-Deadlock&lt;/h2&gt;
+&lt;p&gt;假设你的 spinlock 不小心发生了中断&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在不该打开中断的时候开了中断&lt;/li&gt;
+&lt;li&gt;在不该切换的时候执行了 &lt;code&gt;yield()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;os_run&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;spin_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;list_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;spin_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;xxx&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;spin_unlock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;xxx&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// ---------+
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;                          &lt;span style=&#34;color:#75715e&#34;&gt;//    |
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;                           &lt;span style=&#34;color:#75715e&#34;&gt;//    |
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;on_interrupt&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;//    |
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#111&#34;&gt;spin_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;list_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;// &amp;lt;--+
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#111&#34;&gt;spin_unlock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;list_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;abba-deadlock&#34;&gt;ABBA-Deadlock&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void swap(int i, int j) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  spin_lock(&amp;amp;lock[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  spin_lock(&amp;amp;lock[j]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  arr[i] = NULL;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  arr[j] = arr[i];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  spin_unlock(&amp;amp;lock[j]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  spin_unlock(&amp;amp;lock[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;上锁的顺序很重要……&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;swap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;本身看起来没有问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;swap(1, 2)&lt;/code&gt;; &lt;code&gt;swap(2, 3)&lt;/code&gt;, &lt;code&gt;swap(3, 1)&lt;/code&gt; → 死锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;endwsl@LAPTOP-U1E6STIA:~/jyy/8$ gcc -lpthread philosopher.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;endwsl@LAPTOP-U1E6STIA:~/jyy/8$ ./a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T1 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T2 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T3 Got &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;避免死锁&#34;&gt;避免死锁&lt;/h2&gt;
+&lt;p&gt;死锁产生的四个必要条件 (&lt;a href=&#34;https://en.wikipedia.org/wiki/Edward_G._Coffman,_Jr.&#34;&gt;Edward G. Coffman&lt;/a&gt;, 1971):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;互斥：一个资源每次只能被一个进程使用&lt;/li&gt;
+&lt;li&gt;请求与保持：一个进程请求资阻塞时，不释放已获得的资源&lt;/li&gt;
+&lt;li&gt;不剥夺：进程已获得的资源不能强行剥夺&lt;/li&gt;
+&lt;li&gt;循环等待：若干进程之间形成头尾相接的循环等待资源关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“理解了死锁的原因，尤其是产生死锁的四个必要条件，就可以最大可能地避免、预防和解除死锁。所以，在系统设计、进程调度等方面注意如何不让这四个必要条件成立，如何确定资源的合理分配算法，避免进程永久占据系统资源。此外，也要防止进程在处于等待状态的情况下占用资源。因此，对资源的分配要给予合理的规划。” ——Bullshit.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照规定的顺序获得锁&lt;/p&gt;
+&lt;h2 id=&#34;数据竞争&#34;&gt;数据竞争&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不同的线程同时访问同一段内存，且至少有一个是写。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;两个内存访问在 “赛跑”，“跑赢” 的操作先执行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;dl&gt;
+&lt;dt&gt;peterson-barrier.c&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;内存访问都在赛跑&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.felixcloutier.com/x86/mfence&#34;&gt;MFENCE&lt;/a&gt;：&lt;del&gt;如何留下最少的 fence，依然保证算法正确？&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;数据竞争-contd&#34;&gt;数据竞争 (cont&amp;rsquo;d)&lt;/h2&gt;
+&lt;p&gt;Peterson 算法告诉大家：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你们写不对无锁的并发程序&lt;/li&gt;
+&lt;li&gt;所以事情反而简单了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;用互斥锁保护好共享数据&#34;&gt;用互斥锁保护好共享数据&lt;/h1&gt;
+&lt;h1 id=&#34;消灭一切数据竞争&#34;&gt;消灭一切数据竞争&lt;/h1&gt;
+&lt;h2 id=&#34;数据竞争例子&#34;&gt;数据竞争：例子&lt;/h2&gt;
+&lt;p&gt;以下代码概括了你们遇到数据竞争的大部分情况&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不要笑，你们的 bug 几乎都是这两种情况的变种&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// Case #1: 上错了锁
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void thread1() { spin_lock(&amp;amp;lk1); sum++; spin_unlock(&amp;amp;lk1); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void thread2() { spin_lock(&amp;amp;lk2); sum++; spin_unlock(&amp;amp;lk2); }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// Case #2: 忘记上锁
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void thread1() { spin_lock(&amp;amp;lk1); sum++; spin_unlock(&amp;amp;lk1); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void thread2() { sum++; }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;h1 id=&#34;更多类型的并发-bug&#34;&gt;更多类型的并发 Bug&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;程序员花式犯错&#34;&gt;程序员：花式犯错&lt;/h2&gt;
+&lt;p&gt;回顾我们实现并发控制的工具&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;互斥锁 (lock/unlock) - 原子性&lt;/li&gt;
+&lt;li&gt;条件变量 (wait/signal) - 同步&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;忘记上锁——原子性违反 (Atomicity Violation, AV)&lt;/p&gt;
+&lt;p&gt;忘记同步——顺序违反 (Order Violation, OV)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Empirical study: 在 105 个并发 bug 中 (non-deadlock/deadlock)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MySQL (14/9), Apache (13/4), Mozilla (41/16), OpenOffice (6/2)&lt;/li&gt;
+&lt;li&gt;97% 的非死锁并发 bug 都是 AV 或 OV。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;原子性违反-av&#34;&gt;原子性违反 (AV)&lt;/h2&gt;
+&lt;p&gt;“ABA”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我以为一段代码没啥事呢，但被人强势插入了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/av-bug.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;原子性违反-contd&#34;&gt;原子性违反 (cont&amp;rsquo;d)&lt;/h2&gt;
+&lt;p&gt;有时候上锁也不解决问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“TOCTTOU” - time of check to time of use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/tocttou.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.usenix.org/legacy/events/fast05/tech/full_papers/wei/wei.pdf&#34;&gt;TOCTTOU vulnerabilities in UNIX-style file systems: An anatomical study&lt;/a&gt; (FAST&#39;05)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;顺序违反-ov&#34;&gt;顺序违反 (OV)&lt;/h2&gt;
+&lt;p&gt;“BA”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;怎么就没按我预想的顺序来呢？
+&lt;ul&gt;
+&lt;li&gt;例子：concurrent use after free&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/ov-bug.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;h1 id=&#34;应对并发-bug-的方法&#34;&gt;应对并发 Bug 的方法&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;完全一样的基本思路否定你自己&#34;&gt;完全一样的基本思路：否定你自己&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;还是得始终假设自己的代码是错的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;然后呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;做好测试&lt;/li&gt;
+&lt;li&gt;检查哪里错了&lt;/li&gt;
+&lt;li&gt;再检查哪里错了&lt;/li&gt;
+&lt;li&gt;再再检查哪里错了
+&lt;ul&gt;
+&lt;li&gt;(把任何你认为 “不对” 的情况都检查一遍)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;例如：用 lock ordering 彻底避免死锁？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你想多了：并发那么复杂，程序员哪能充分测试啊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lockdep-运行时的死锁检查&#34;&gt;Lockdep: 运行时的死锁检查&lt;/h2&gt;
+&lt;p&gt;Lockdep 规约 (Specification)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为每一个锁确定唯一的 “allocation site”
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/lock-site.c&#34;&gt;lock-site.c&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;assert: 同一个 allocation site 的锁存在全局唯一的上锁顺序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;检查方法：printf&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;记录所有观察到的上锁顺序，例如[x,y,z]⇒x→y,x→z,y→z&lt;/li&gt;
+&lt;li&gt;检查是否存在 x⇝y∧y⇝x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://jyywiki.cn/OS/OS_Lockdep&#34;&gt;Lockdep 的实现&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Since Linux Kernel 2.6.17, also in &lt;a href=&#34;https://gitee.com/openharmony&#34;&gt;OpenHarmony&lt;/a&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;threadsanitizer-运行时的数据竞争检查&#34;&gt;ThreadSanitizer: 运行时的数据竞争检查&lt;/h2&gt;
+&lt;p&gt;为所有事件建立 happens-before 关系图&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Program-order + release-acquire&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于发生在不同线程且至少有一个是写的&lt;/p&gt;
+&lt;p&gt;x,y&lt;/p&gt;
+&lt;p&gt;检查&lt;/p&gt;
+&lt;p&gt;x≺y∨y≺x&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.acm.org/doi/10.1145/359545.359563&#34;&gt;Time, clocks, and the ordering of events in a distributed system&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;更多的检查动态程序分析&#34;&gt;更多的检查：动态程序分析&lt;/h2&gt;
+&lt;p&gt;在事件发生时记录&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lockdep: lock/unlock&lt;/li&gt;
+&lt;li&gt;ThreadSanitizer: 内存访问 + lock/unlock&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;解析记录检查问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lockdep: x⇝y∧y⇝x&lt;/li&gt;
+&lt;li&gt;ThreadSanitizer: x⊀y∧y⊀x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;付出的代价和权衡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序执行变慢&lt;/li&gt;
+&lt;li&gt;但更容易找到 bug (因此在测试环境中常用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;动态分析工具sanitizers&#34;&gt;动态分析工具：Sanitizers&lt;/h2&gt;
+&lt;p&gt;没用过 lint/sanitizers？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;AddressSanitizer&lt;/p&gt;
+&lt;p&gt;(asan);&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;(paper)&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;非法内存访问&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;ul&gt;
+&lt;li&gt;Buffer (heap/stack/global) overflow, use-after-free, use-after-return, double-free, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/uaf.c&#34;&gt;uaf.c&lt;/a&gt;; &lt;a href=&#34;https://www.kernel.org/doc/html/latest/dev-tools/kasan.html&#34;&gt;kasan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ThreadSanitizer&lt;/p&gt;
+&lt;p&gt;(tsan): 数据竞争&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/fish.c&#34;&gt;fish.c&lt;/a&gt;, &lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/sum.c&#34;&gt;sum.c&lt;/a&gt;, &lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/peterson-barrier.c&#34;&gt;peterson-barrier.c&lt;/a&gt;; &lt;a href=&#34;https://github.com/google/ktsan&#34;&gt;ktsan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://clang.llvm.org/docs/MemorySanitizer.html&#34;&gt;MemorySanitizer&lt;/a&gt; (msan): 未初始化的读取&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UBSanitizer&lt;/p&gt;
+&lt;p&gt;(ubsan): undefined behavior&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Misaligned pointer, signed integer overflow, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Kernel 会带着 &lt;code&gt;-fwrapv&lt;/code&gt; 编译&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;h1 id=&#34;这不就是防御性编程吗&#34;&gt;这不就是防御性编程吗？&lt;/h1&gt;
+&lt;p&gt;只不过不需要我亲自动手把代码改得乱七八糟了……&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;我们也可以buffer-overrun-检查&#34;&gt;我们也可以！Buffer Overrun 检查&lt;/h2&gt;
+&lt;p&gt;Canary (金丝雀) 对一氧化碳非常敏感&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用生命预警矿井下的瓦斯泄露 (since 1911)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/canary_with_miner.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;计算机系统中的 canary&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“牺牲” 一些内存单元，来预警 memory error 的发生
+&lt;ul&gt;
+&lt;li&gt;(程序运行时没有动物受到实质的伤害)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;canary-的例子保护栈空间-m2l2&#34;&gt;Canary 的例子：保护栈空间 (M2/L2)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#define MAGIC 0x55555555
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#define BOTTOM (STK_SZ / sizeof(u32) - 1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;struct stack { char data[STK_SZ]; };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void canary_init(struct stack *s) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  u32 *ptr = (u32 *)s;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  for (int i = 0; i &amp;lt; CANARY_SZ; i++)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ptr[BOTTOM - i] = ptr[i] = MAGIC;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;void canary_check(struct stack *s) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  u32 *ptr = (u32 *)s;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  for (int i = 0; i &amp;lt; CANARY_SZ; i++) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    panic_on(ptr[BOTTOM - i] != MAGIC, &amp;#34;underflow&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    panic_on(ptr[i] != MAGIC, &amp;#34;overflow&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;烫烫烫屯屯屯和葺葺葺&#34;&gt;烫烫烫、屯屯屯和葺葺葺&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/GET.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;msvc 中 debug mode 的 guard/fence/canary&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未初始化栈: &lt;code&gt;0xcccccccc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;未初始化堆: &lt;code&gt;0xcdcdcdcd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;对象头尾: &lt;code&gt;0xfdfdfdfd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;已回收内存: &lt;code&gt;0xdddddddd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(b&amp;#39;\xcc&amp;#39; * 80).decode(&amp;#39;gb2312&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;手持两把锟斤拷，口中疾呼烫烫烫&lt;/p&gt;
+&lt;p&gt;脚踏千朵屯屯屯，笑看万物锘锘锘&lt;/p&gt;
+&lt;p&gt;(它们一直在无形中保护你)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;防御性编程低配版-lockdep&#34;&gt;防御性编程：低配版 Lockdep&lt;/h2&gt;
+&lt;p&gt;不必大费周章记录什么上锁顺序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;统计当前的 spin count
+&lt;ul&gt;
+&lt;li&gt;如果超过某个明显不正常的数值 (1,000,000,000) 就报告&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;int spin_cnt = 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;while (xchg(&amp;amp;locked, 1)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  if (spin_cnt++ &amp;gt; SPIN_LIMIT) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    printf(&amp;#34;Too many spin @ %s:%d\n&amp;#34;, __FILE__, __LINE__);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;配合调试器和线程 backtrace 一秒诊断死锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;防御性编程低配版-sanitizer-l1&#34;&gt;防御性编程：低配版 Sanitizer (L1)&lt;/h2&gt;
+&lt;p&gt;内存分配要求：已分配内存 S=[ℓ0,r0)∪[ℓ1,r1)∪…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;kalloc(&lt;/p&gt;
+&lt;p&gt;s&lt;/p&gt;
+&lt;p&gt;) 返回的&lt;/p&gt;
+&lt;p&gt;[ℓ,r)&lt;/p&gt;
+&lt;p&gt;必须满足&lt;/p&gt;
+&lt;p&gt;[ℓ,r)∩S=∅&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;thread-local allocation + 并发的 free 还蛮容易弄错的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// allocation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;for (int i = 0; (i + 1) * sizeof(u32) &amp;lt;= size; i++) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  panic_on(((u32 *)ptr)[i] == MAGIC, &amp;#34;double-allocation&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  arr[i] = MAGIC;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// free
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;for (int i = 0; (i + 1) * sizeof(u32) &amp;lt;= alloc_size(ptr); i++) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  panic_on(((u32 *)ptr)[i] == 0, &amp;#34;double-free&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  arr[i] = 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结-1&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;本次课回答的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Q&lt;/strong&gt;: 如何拯救人类不擅长的并发编程？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Take-away message&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常见的并发 bug
+&lt;ul&gt;
+&lt;li&gt;死锁、数据竞争、原子性/顺序违反&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不要盲目相信自己：检查、检查、检查
+&lt;ul&gt;
+&lt;li&gt;防御性编程：检查&lt;/li&gt;
+&lt;li&gt;动态分析：打印 + 检查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+&lt;h1 id=&#34;end&#34;&gt;End.&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>一个艰难的找bug过程</title>
+      <link>http://blog.junling.xyz/posts/fixbug_difficultly/</link>
+      <pubDate>Mon, 18 Jul 2022 00:17:23 +0800</pubDate>
+      
+      <guid>http://blog.junling.xyz/posts/fixbug_difficultly/</guid>
+      <description>&lt;h3 id=&#34;尝试一&#34;&gt;尝试一&lt;/h3&gt;
+&lt;p&gt;重启&lt;/p&gt;
+&lt;h3 id=&#34;尝试二&#34;&gt;尝试二&lt;/h3&gt;
+&lt;p&gt;回退，既然我没有问题，那就是引入的脚本的问题&lt;/p&gt;
+&lt;p&gt;我想到了之前只引入评论的的http://blog.junling.xyz/test.html&lt;/p&gt;
+&lt;p&gt;这个怎么丝毫没有问题啊&lt;/p&gt;
+&lt;p&gt;想到用浏览器的开发者工具&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/21078868/179396866-0c54dc79-56d3-462c-a9a7-ce55d9d27532.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Uncaught (in promise) TypeError: Cannot read properties of null (reading ‘insertBefore‘)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这时我找到waline的讨论区，有人遇到和我一样的问题&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/walinejs/waline/discussions/735&#34;&gt;https://github.com/walinejs/waline/discussions/735&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;看看它是这么解决的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/bachwv/picgo/master/image-20220717233112043.png&#34; alt=&#34;image-20220717233112043&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好家伙，直接解决出现问题的人，换了个评论系统不就完了&lt;/p&gt;
+&lt;h3 id=&#34;尝试三&#34;&gt;尝试三&lt;/h3&gt;
+&lt;p&gt;看看别人是怎么在客户端引入waline的，先是找到了一个hugo的主题next:https://github.com/elkan1788/hugo-theme-next，抄一遍他的代码，怎么不管用？&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Site&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Params&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Comment&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Enable&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Site&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Params&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Comment&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Module&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;Waline&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!--&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Waline&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;locale&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;placeholder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{ i18n &amp;#34;CommentPh&amp;#34; | safeHTML }}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75af00&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;detectIE&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75af00&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;getScript&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;location&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;protocol&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;//unpkg.com/@waline/client@1.6.0/dist/Waline.min.js&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;el&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;#wcomments&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;visitor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;emoji&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;[],&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;wordLimit&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;200&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;uploadImage&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;locale&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;requiredMeta&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;nick&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;mail&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;],&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;serverURL&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{ .Site.Params.Comment.WalineSerURL }}&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75af00&#34;&gt;lang&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{ .Page.Lang }}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#111&#34;&gt;});&lt;/span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75af00&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;#wcomments&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{ i18n &amp;#34;UnComment&amp;#34; }}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!--&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Waline&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我们只要简单修改一下&lt;/p&gt;
+&lt;p&gt;原来是我的环境变量错了，他的配置是params.toml我的是config.toml问题不大，参考官方文档改写config.toml，和script.html怎么我的评论都没了，初步判定是找不到#waline这个div，因为这个div在别的html文件里，&lt;/p&gt;
+&lt;p&gt;开发者工具告诉我 $(function{})不能这么写，
+&lt;code&gt;ReferenceError: $ is not defined     at&lt;/code&gt;
+一看发现还要引入jq&lt;/p&gt;
+&lt;p&gt;JQuery 的代码我们通常会包裹在一个&lt;code&gt;$(function(){})&lt;/code&gt;函数中，jq 的&lt;code&gt;$(function(){})&lt;/code&gt;也就是&lt;code&gt;$(document).ready(function(){})&lt;/code&gt;的简写，与之对应的原生 js 的window.onload事件&lt;/p&gt;
+&lt;p&gt;new Waline()和Waline.init()的区别&lt;/p&gt;
+&lt;p&gt;别的参考：&lt;/p&gt;
+&lt;p&gt;同样是为hugo主题引入waline&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$comment&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;waline&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;dict&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;enable&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;waline&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/div&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{ $waline.js }}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;el&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;#waline&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				  &lt;span style=&#34;color:#75af00&#34;&gt;meta&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;requiredMeta&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;requiredMeta&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;login&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;login&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				  &lt;span style=&#34;color:#75af00&#34;&gt;placeholder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;placeholder&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;serverURL&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;serverURL&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;avatarCDN&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;avatarCDN&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;pageSize&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;pageSize&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;avatar&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;avatar&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	  &lt;span style=&#34;color:#75af00&#34;&gt;lang&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;lang&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				  &lt;span style=&#34;color:#75af00&#34;&gt;visitor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;visitor&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				  &lt;span style=&#34;color:#75af00&#34;&gt;highlight&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;highlight&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				  &lt;span style=&#34;color:#75af00&#34;&gt;uploadImage&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;$waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;uploadImage&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;				  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    	&lt;span style=&#34;color:#111&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://lewky.cn/posts/hugo-3.1.html/#%E4%BD%BF%E7%94%A8waline%E6%9B%BF%E4%BB%A3valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F&#34;&gt;https://lewky.cn/posts/hugo-3.1.html/#%E4%BD%BF%E7%94%A8waline%E6%9B%BF%E4%BB%A3valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;尝试四&#34;&gt;尝试四&lt;/h3&gt;
+&lt;p&gt;索性咱们再搭一个博客&lt;/p&gt;
+&lt;h3 id=&#34;反思&#34;&gt;反思：&lt;/h3&gt;
+&lt;p&gt;仍然迷惑不解的地方：为什么昨天突然挂了&lt;/p&gt;
+&lt;p&gt;对js不够了解&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Github Actions</title>
@@ -274,7 +1004,7 @@
 &lt;p&gt;mpi&lt;/p&gt;
 &lt;h4 id=&#34;线程之间如何通信&#34;&gt;线程之间如何通信&lt;/h4&gt;
 &lt;p&gt;不仅是节点、线程之间，还发生在共享内存访问&lt;/p&gt;
-&lt;p&gt;例子 Mandelbrot Set&lt;/p&gt;
+&lt;h4 id=&#34;例子-mandelbrot-set&#34;&gt;例子 Mandelbrot Set&lt;/h4&gt;
 &lt;p&gt;注意，这个例子会用shell执行viu，这是一个将图片用unicode打印到终端的工具（想到了命令行浏览器browsh），请先&lt;code&gt;pamac install viu&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;gcc mandelbrot.c -lpthread -lm -O2 &amp;amp;&amp;amp; ./a.out 1&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;argv=1 2 4 8&lt;/code&gt;线程数&lt;/p&gt;
@@ -283,10 +1013,225 @@
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220716190952071.png&#34; alt=&#34;image-20220716190952071&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;convert mandelbrot.ppm a.jpg&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/a.jpg&#34; alt=&#34;a&#34;&gt;&lt;/p&gt;
-&lt;p&gt;扩展阅读&lt;/p&gt;
+&lt;p&gt;ppm这种rgb数字构成的图片格式&lt;/p&gt;
+&lt;h2 id=&#34;数据中心的并行编程&#34;&gt;数据中心的并行编程&lt;/h2&gt;
+&lt;p&gt;与超算的区别点在于数据和存储&lt;/p&gt;
+&lt;p&gt;支撑互联网应用，导致现代人获取知识的门槛降低，效率升高；如何抗住高并发&lt;/p&gt;
+&lt;h3 id=&#34;主要挑战-1&#34;&gt;主要挑战&lt;/h3&gt;
+&lt;p&gt;多副本情况下的高可靠、低延迟数据访问&lt;/p&gt;
+&lt;p&gt;多副本的数据一致性 Consistency&lt;/p&gt;
+&lt;p&gt;对用户高可用，立即生效 Available&lt;/p&gt;
+&lt;p&gt;容忍机器离线 Partition tolerance&lt;/p&gt;
+&lt;p&gt;虽然本课程的主要内容是如何管理一台计算机，但这里和数据中心不矛盾&lt;/p&gt;
+&lt;p&gt;一个尽可能相应多地服务的并行请求&lt;/p&gt;
+&lt;p&gt;切换线程是有代价的&lt;/p&gt;
+&lt;p&gt;一个有趣的小实验&lt;/p&gt;
+&lt;p&gt;co_yield 函数调用&lt;/p&gt;
+&lt;h3 id=&#34;go&#34;&gt;Go&lt;/h3&gt;
+&lt;p&gt;协程coroutines&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多个执行流&lt;/li&gt;
+&lt;li&gt;切换代价小，协程里的切换不受操作系统调度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;线程的一般执行模型 read() syscall() write()，可以多处理器并行；但是需要占有较多的资源&lt;/p&gt;
+&lt;p&gt;协程 遇到read()会阻塞线程，其他协程就无法执行&lt;/p&gt;
+&lt;h4 id=&#34;go和goroutine&#34;&gt;Go和Goroutine&lt;/h4&gt;
+&lt;p&gt;多处理器并行和协程全都要&lt;/p&gt;
+&lt;p&gt;每个cpu上绑定一个线程 go work，每个线程有多个协程。&lt;/p&gt;
+&lt;p&gt;任何一个协程IO时，用不block的系统调用read_nonblock，读取时会跳到另一个协程执行。这么巧妙的设计甚至不需要切换cpu，所以可以创建百万级的goroutine。&lt;/p&gt;
+&lt;p&gt;fib.go 轮番打印字符 ，实现了一个进度条&lt;/p&gt;
+&lt;p&gt;为什么进度条在算出fib后终止了？&lt;/p&gt;
+&lt;p&gt;因为运行的协程spinner在主协程main终止后就终止了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spinner&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;time&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Millisecond&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;//创建go ruutine 概念是线程实现是协程
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;45&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75af00&#34;&gt;fibN&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;fib&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// slow
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75af00&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;\rFibonacci(%d) = %d\n&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;fibN&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spinner&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;delay&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;time&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Duration&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//轮番打印字符 ，实现了一个进度条
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;_&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;`-\|/`&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75af00&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;\r%c&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//回到行首
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#75af00&#34;&gt;time&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Sleep&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;delay&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;fib&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;fib&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;fib&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;操作系统上讲的并发算法，不意味着在真正写代码时用这些并发算法，因为接近底层的锁太难写了，我们写不对。&lt;/p&gt;
+&lt;p&gt;共享内存在奇怪调度发生各种bugs，我们把握不住。&lt;/p&gt;
+&lt;p&gt;如果生产者-消费者能解决大部分问题，那操作系统提供一个API给我们调用更好。&lt;/p&gt;
+&lt;h4 id=&#34;channel-go协程之间通信的机制&#34;&gt;channel go协程之间通信的机制&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;stream &amp;lt;- i&lt;/code&gt;把i丢进channel&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;x:=&amp;lt;- stream&lt;/code&gt; 从channel拉出&lt;/p&gt;
+&lt;p&gt;通过别人为我们提供的模型，我们能轻易写出生产者-消费者模型的代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;stream&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;make&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;produce&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Println&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;produce&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;stream&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;stream&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;Println&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;consume&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;produce&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75af00&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;我们身边的并发编程&#34;&gt;我们身边的并发编程&lt;/h1&gt;
+&lt;p&gt;Web交互式的年代 web2.0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;浏览器中的并发编程 asynchronous js+xml (ajax)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTML(DOM Tree)+CSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过js改变html&lt;/li&gt;
+&lt;li&gt;通过js建立连接本地和服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;扩展阅读&#34;&gt;扩展阅读&lt;/h2&gt;
 &lt;p&gt;标准I/O函数库提供了popen函数，它启动另外一个进程去执行一个shell命令行。&lt;/p&gt;
 &lt;p&gt;这里我们称&lt;strong&gt;调用popen的进程为父进程，由popen启动的进程称为子进程。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;popen函数还**创建一个管道用于父子进程间通信。**父进程要么从管道读信息，要么向管道写信息，至于是读还是写取决于父进程调用popen时传递的参数。下在给出popen、pclose的定义：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;函数功能：popen（）会调用fork（）产生子进程，然后从子进程中调用/bin/sh -c来执行参数command的指令。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;参数type可使用“r”代表读取，“w”代表写入。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;依照此type值，popen（）会建立管道连到子进程的标准输出设备或标准输入设备，然后返回一个文件指针。 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;随后进程便可利用此文件指针来读取子进程的输出设备或是写入到子进程的标准输入设备中
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;返回值：若成功则返回文件指针，否则返回NULL，错误原因存于errno中
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;popen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;函数功能：pclose（）用来关闭由popen所建立的管道及文件指针。参数stream为先前由popen（）所返回的文件指针
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;返回值：若成功返回shell的终止状态(也即子进程的终止状态)，若出错返回-1，错误原因存于errno中
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;pclose&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;stream&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;下面通过例子看下popen的使用：&lt;/p&gt;
+&lt;p&gt;假如我们想取得当前目录下的文件个数，在shell下我们可以使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1	ls &lt;span style=&#34;color:#111&#34;&gt;|&lt;/span&gt; wc -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我们可以在程序中这样写：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -328,436 +1273,47 @@
 &lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;37
 &lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38
 &lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;39
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;40
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;41
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;42
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;43
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;44
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;45
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;46
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;47
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;48
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;49
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;50
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;51
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;52
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;53
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;54
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;55
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;56
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;57
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;01&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stdio&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;02&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/*
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;03	函数功能：popen（）会调用fork（）产生子进程，然后从子进程中调用/bin/sh -c来执行参数command的指令。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;04	        参数type可使用“r”代表读取，“w”代表写入。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;05	        依照此type值，popen（）会建立管道连到子进程的标准输出设备或标准输入设备，然后返回一个文件指针。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;06	        随后进程便可利用此文件指针来读取子进程的输出设备或是写入到子进程的标准输入设备中
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;07	返回值：若成功则返回文件指针，否则返回NULL，错误原因存于errno中
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;08	*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;09&lt;/span&gt;	&lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;popen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/*
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;12	函数功能：pclose（）用来关闭由popen所建立的管道及文件指针。参数stream为先前由popen（）所返回的文件指针
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;13	返回值：若成功返回shell的终止状态(也即子进程的终止状态)，若出错返回-1，错误原因存于errno中
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;14	*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;	&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;pclose&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;stream&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;下面通过例子看下popen的使用：&lt;/p&gt;
-&lt;p&gt;假如我们想取得当前目录下的文件个数，在shell下我们可以使用：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1	ls &lt;span style=&#34;color:#111&#34;&gt;|&lt;/span&gt; wc -l
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我们可以在程序中这样写：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 20
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 21
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 22
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 23
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 24
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 25
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 26
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 27
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 28
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 29
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 30
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 31
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 32
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 33
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 34
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 35
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 36
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 37
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 38
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 39
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 40
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 41
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 42
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 43
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 44
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 45
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 46
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 47
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 48
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 49
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 50
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 51
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 52
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 53
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 54
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 55
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 56
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 57
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 58
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 59
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 60
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 61
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 62
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 63
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 64
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 65
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 66
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 67
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 68
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 69
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 70
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 71
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 72
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 73
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 74
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 75
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 76
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 77
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 78
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 79
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 80
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 81
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 82
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 83
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 84
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 85
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 86
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 87
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 88
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 89
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 90
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 91
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 92
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 93
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 94
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 95
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 96
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 97
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 98
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 99
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;100
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;101
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;102
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;103
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;104
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;105
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;106
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;107
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;108
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;109
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;110
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;111
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;112
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;113
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;114
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;115
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;116
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;117
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;118
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;119
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;120
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;121
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;122
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;123
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;124
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;125
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;126
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;127
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;128
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;129
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;130
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;131
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;132
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;133
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;134
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;135
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;136
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;137
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;138
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;139
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;140
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;141
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;142
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;143
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;144
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;145
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;146
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;147
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;148
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;149
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;150
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;151
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;152
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;153
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;154
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;155
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;156
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;157
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;158
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;159
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;160
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;161
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;162
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;163
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;164
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;165
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;166
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;167
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;168
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;01&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/*取得当前目录下的文件个数*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;02&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stdio&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;03&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stdlib&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;04&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;errno&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;05&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;sys&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;wait&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;06&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;07&lt;/span&gt;	&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;define&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;MAXLINE&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;08&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;09&lt;/span&gt;	&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;	&lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;	    &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;MAXLINE&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;MAXLINE&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;	    &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 用于接收命令返回值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;	    &lt;span style=&#34;color:#75715e&#34;&gt;/*将要执行的命令写入buf*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;snprintf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;sizeof&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;ls ./ | wc -l&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;	    &lt;span style=&#34;color:#75715e&#34;&gt;/*执行预先设定的命令，并读出该命令的标准输出*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;popen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;	    &lt;span style=&#34;color:#75af00&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;NULL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;21&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;perror&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;popen执行失败！&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;23&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;exit&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;	    &lt;span style=&#34;color:#75af00&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fgets&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;sizeof&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;NULL&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;26&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt;	        &lt;span style=&#34;color:#75715e&#34;&gt;/*为了下面输出好看些，把命令返回的换行符去掉*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;	        &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;])&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;	            &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;命令【%s】 输出【%s】&lt;/span&gt;&lt;span style=&#34;color:#8045ff&#34;&gt;\r\n&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;33&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;	    &lt;span style=&#34;color:#75715e&#34;&gt;/*等待命令执行完毕并关闭管道及文件指针*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;36&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;pclose&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;37&lt;/span&gt;	    &lt;span style=&#34;color:#75af00&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;38&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;perror&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;关闭文件指针失败&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;exit&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;42&lt;/span&gt;	    &lt;span style=&#34;color:#00a8c8&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;43&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;44&lt;/span&gt;	        &lt;span style=&#34;color:#75af00&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;命令【%s】子进程结束状态【%d】命令返回值【%d】&lt;/span&gt;&lt;span style=&#34;color:#8045ff&#34;&gt;\r\n&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;WEXITSTATUS&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;));&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;45&lt;/span&gt;	    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;46&lt;/span&gt;	 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;47&lt;/span&gt;	    &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;48&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*取得当前目录下的文件个数*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;errno.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;sys/wait.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define MAXLINE 1024
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#00a8c8&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;MAXLINE&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;MAXLINE&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 用于接收命令返回值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#111&#34;&gt;FILE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;	 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;/*将要执行的命令写入buf*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;snprintf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;sizeof&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;ls ./ | wc -l&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;/*执行预先设定的命令，并读出该命令的标准输出*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;popen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;NULL&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;perror&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;popen执行失败！&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;exit&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fgets&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;sizeof&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;NULL&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#75715e&#34;&gt;/*为了下面输出好看些，把命令返回的换行符去掉*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;])&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;\0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	        &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;命令【%s】 输出【%s】&lt;/span&gt;&lt;span style=&#34;color:#8045ff&#34;&gt;\r\n&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;result_buf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;/*等待命令执行完毕并关闭管道及文件指针*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;pclose&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;fp&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;   &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;perror&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;关闭文件指针失败&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;exit&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;命令【%s】子进程结束状态【%d】命令返回值【%d】&lt;/span&gt;&lt;span style=&#34;color:#8045ff&#34;&gt;\r\n&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;WEXITSTATUS&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;rc&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;编译并执行：&lt;/p&gt;
