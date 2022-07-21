@@ -44,6 +44,11 @@ ls /dev/net/tun
 ```
 
 *If you experience trouble getting the TUN to work check out*
+
+扩展阅读：tun是什么？https://segmentfault.com/a/1190000009249039
+
+
+
 ## 2.去群晖官方套件中心添加docker
 ## 3.启动容器
 Make directory to store ZeroTier's identity and config

@@ -308,7 +308,7 @@ CPUtime=Instruction count * CPI * Clock cycle time
 
 小端模式
 
-![image-20220528124032265](https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528124032265.png)
+![image-20220528124032265](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124032265.png)
 
 对齐
 
@@ -324,7 +324,7 @@ CPUtime=Instruction count * CPI * Clock cycle time
 
 操作数编码
 
-![image-20220528124548498](https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528124548498.png)
+![image-20220528124548498](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124548498.png)
 
 ## 2.5 指令系统的操作
 

@@ -57,11 +57,11 @@ mpi
 
 截图
 
-![image-20220716190952071](https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220716190952071.png)
+![image-20220716190952071](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220716190952071.png)
 
 `convert mandelbrot.ppm a.jpg`
 
-![a](https://raw.githubusercontent.com/BachWV/PicGo/master/a.jpg)
+![a](http://charon-pic.oss-cn-hangzhou.aliyuncs.com/a.jpg)
 
 
 

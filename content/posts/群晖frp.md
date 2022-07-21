@@ -88,14 +88,14 @@ log_level = info
 ## 客户端
 
 首先，得用ssh登录群晖。如果你没有用过ssh登录过，可以进入群晖控制面板，找到终端机和SNMP，点击启动SSH功能，设定你的端口（默认22）
-![image-20211109174257597.png](https://i.loli.net/2021/11/10/DMHVvjpmkCgzoaT.png)
+![image-20211109174257597.png](https://raw.githubusercontents.com/bachwv/picgo/master/DMHVvjpmkCgzoaT.png)
 
 
 
 点击应用。
 
 接下来使用你顺手的ssh登录就可以了。利用admin账号和密码登录（注意admin账号登录进去以后还要用`sudo -i`，不然没有权限）
-![image-20211109174413962.png](https://i.loli.net/2021/11/10/4NkOdg1Q5DtIYXl.png)
+![image-20211109174413962.png](https://raw.githubusercontents.com/bachwv/picgo/master/4NkOdg1Q5DtIYXl.png)
 
 
 找到一个顺手的 目录，比如home，利用同样的命令 [下载](#下载)
@@ -155,16 +155,16 @@ nohup /home/frp/frpc -c /home/frp/frpc.ini >/dev/null 2>&1 &
 linux在执行shell命令之前，就会确定好所有的输入输出位置，并且从左到右依次执行重定向的命令，所以>/dev/null 2>&1的作用就是让标准输出重定向到/dev/null中（丢弃标准输出），然后错误输出由于重用了标准输出的描述符，所以错误输出也被定向到了/dev/null中，错误输出同样也被丢弃了。执行了这条命令之后，该条shell命令将不会输出任何信息到控制台，也不会有任何信息输出到文件中。
 
 接下来，回到群晖的控制台，在控制面板的计划任务中
-![ds](https://qiniucdn.xinac.net/blog/image_1594785444263.png)
+![ds](https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png)
 新建任务,事件为开机
-![](https://qiniucdn.xinac.net/blog/image_1594785587631.png)
+![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image_1594785587631.png)
 在任务设置中填写：
 bash /home/frp/start.sh
 重启群晖
 就可以在服务器的7500看到刚刚登录进来的群晖。
 
 输入服务器ip:端口（在frpc.ini中设置的remote端口），即可看到你的设备啦。
-![屏幕截图 2021-11-10 173901.jpg](https://i.loli.net/2021/11/10/Dp6My8oGJW7In9B.jpg)
+![屏幕截图 2021-11-10 173901.jpg](https://raw.githubusercontents.com/bachwv/picgo/master/synology-zhangwei.jpg)
 如果你不嫌烦+不怕死，你也可以把群晖的22端口映射出去。
 
 当然，如果你有远程桌面，tomcat，nginx的需求都可以用这种方法，对我来说frp取代teamviewer和花生壳是完全可以的。

@@ -84,6 +84,8 @@ int main() {
 }
 ```
 
+`#define t(func) func(x) func(y)`，遇到t(abs)展开以后变成 abs(x) abs(y)
+
 `##`是连接操作符
 
 什么意思呢

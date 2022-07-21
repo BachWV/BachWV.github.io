@@ -18,11 +18,11 @@ g++ test.cpp -o test -g
 
 
 
-![image-20210928151948226.png](https://i.loli.net/2021/09/28/HOKRY8kWrajiShQ.png)
+![image-20210928151948226.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png)
 
 `l`可以查看需要 调试的文件
 
-![image-20210928152039520.png](https://i.loli.net/2021/09/28/lMpTUvSawgQHy2R.png)
+![image-20210928152039520.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png)
 
 `b 4`表示在第4行设置断点
 
@@ -32,7 +32,7 @@ g++ test.cpp -o test -g
 
 `n`表示运行下一行
 
-![image-20210928152442778.png](https://i.loli.net/2021/09/28/cW4Ym5NItdKlDak.png)
+![image-20210928152442778.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png)
 
 基本的就到这里，剩下的就慢慢探索吧
 

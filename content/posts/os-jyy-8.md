@@ -437,7 +437,7 @@ msvc 中 debug mode 的 guard/fence/canary
 - 对象头尾: `0xfdfdfdfd`
 - 已回收内存: `0xdddddddd`
 
-```
+```python
 (b'\xcc' * 80).decode('gb2312')
 ```
 
