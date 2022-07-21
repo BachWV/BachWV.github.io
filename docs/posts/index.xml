@@ -7,10 +7,58 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Wed, 20 Jul 2022 11:00:02 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jul 2022 19:28:17 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.junling.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>图床</title>
+      <link>http://blog.junling.xyz/posts/%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Thu, 21 Jul 2022 19:28:17 +0800</pubDate>
+      
+      <guid>http://blog.junling.xyz/posts/%E5%9B%BE%E5%BA%8A/</guid>
+      <description>&lt;p&gt;在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。&lt;/p&gt;
+&lt;p&gt;首先开通oss&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193540567.png&#34; alt=&#34;image-20220721193540567&#34;&gt;创建桶bucket&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193617083.png&#34; alt=&#34;image-20220721193617083&#34;&gt;&lt;/p&gt;
+&lt;p&gt;创建用户并为他添加权限&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193743942.png&#34; alt=&#34;image-20220721193743942&#34;&gt;&lt;/p&gt;
+&lt;p&gt;参考picgo文档&lt;/p&gt;
+&lt;h3 id=&#34;阿里云oss&#34;&gt;阿里云OSS&lt;/h3&gt;
+&lt;p&gt;配置项及说明：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;accessKeyId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;accessKeySecret&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;bucket&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 存储空间名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;area&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 存储区域代号
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 自定义存储路径
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;customUrl&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 自定义域名，注意要加http://或者https://
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;首先先在阿里云OSS的&lt;a href=&#34;https://usercenter.console.aliyun.com/#/manage/ak&#34;&gt;控制台&lt;/a&gt;里找到你的&lt;code&gt;accessKeyId&lt;/code&gt;和&lt;code&gt;accessKeySecret&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;确认你的&lt;a href=&#34;https://www.alibabacloud.com/help/zh/doc-detail/31837.htm?spm=a2c63.p38356.a3.3.179112f0PBtYui&#34;&gt;存储区域&lt;/a&gt;的代码：&lt;/p&gt;
+&lt;p&gt;如上图，存储区域就是&lt;code&gt;oss-cn-beijing&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;存储路径比如&lt;code&gt;img/&lt;/code&gt;的话，上传的图片会默认放在OSS的&lt;code&gt;img&lt;/code&gt;文件夹下。注意存储路径一定要以&lt;code&gt;/&lt;/code&gt;结尾！存储路径是可选的，如果不需要请留空。&lt;/p&gt;
+&lt;p&gt;最后防止盗刷，最后一定还要添加流量报警，防止一晚上以后房子都是阿里云的了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193957579.png&#34; alt=&#34;image-20220721193957579&#34;&gt;&lt;/p&gt;
+&lt;p&gt;暂时的打算是新的图传阿里云，老图还在github仓库&lt;/p&gt;
+&lt;p&gt;希望一次配置，以后永远不用再烦图床了。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Tmux</title>
@@ -26,7 +74,55 @@
 &lt;p&gt;杀死&lt;code&gt;tmux kill-session -t &amp;quot;name&amp;quot;|id&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;切换会话 &lt;code&gt;tmux switch -t &amp;quot;name&amp;quot;|id&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;上下分窗口 &lt;code&gt;ctrl+b d&lt;/code&gt;&lt;/p&gt;
-</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b d：分离当前会话。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b s：列出所有会话。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b $：重命名当前会话。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b  再按上下左右键切换窗口
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b  %:左右分窗口  &amp;#34;：上下分窗口
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b  d:退出当前窗口
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b  [:进行上下翻页，q取消翻页
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b {：当前窗格与上一个窗格交换位置。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b }：当前窗格与下一个窗格交换位置。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b x：关闭当前窗格。 # exit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b !：将当前窗格拆分为一个独立窗口。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b Ctrl+&amp;lt;arrow key&amp;gt;：按箭头方向调整窗格大小。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+b q：显示窗格编号。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;————————————————
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;版权声明：本文为CSDN博主「仰望星空的小随」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;原文链接：https://blog.csdn.net/sui_152/article/details/121650341
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -475,7 +571,7 @@
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(b&amp;#39;\xcc&amp;#39; * 80).decode(&amp;#39;gb2312&amp;#39;)
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#8045ff&#34;&gt;\xcc&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;decode&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;gb2312&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
@@ -864,10 +960,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这时需要我们把私钥写入HEXO_DEPLOY_PRIVATE_KEY这个环境变量。&lt;/p&gt;
 &lt;p&gt;在仓库设置settings的secrets里新建actions变量，注意，这里的名称要填&lt;code&gt;HEXO_DEPLOY_PRIVATE_KEY&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220716230625530.png&#34; alt=&#34;image-20220716230625530&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo@master/image-20220716230625530.png&#34; alt=&#34;image-20220716230625530&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这样提交到仓库就不需要密码了，Windows、linux的私钥一般在~/.ssh/id_rsa里。&lt;/p&gt;
 &lt;p&gt;到此就配置结束了，每次 push 都会触发actions，我们可以在actions里查看运行情况&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220716230657527.png&#34; alt=&#34;image-20220716230657527&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo@master/image-20220716230657527.png&#34; alt=&#34;image-20220716230657527&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;问题&#34;&gt;问题&lt;/h1&gt;
 &lt;h3 id=&#34;问题1&#34;&gt;问题1&lt;/h3&gt;
 &lt;p&gt;action执行失败卡在deploy&lt;/p&gt;
@@ -1010,9 +1106,9 @@
 &lt;p&gt;&lt;code&gt;argv=1 2 4 8&lt;/code&gt;线程数&lt;/p&gt;
 &lt;p&gt;还是有点炫的&lt;/p&gt;
 &lt;p&gt;截图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220716190952071.png&#34; alt=&#34;image-20220716190952071&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220716190952071.png&#34; alt=&#34;image-20220716190952071&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;convert mandelbrot.ppm a.jpg&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/a.jpg&#34; alt=&#34;a&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://charon-pic.oss-cn-hangzhou.aliyuncs.com/a.jpg&#34; alt=&#34;a&#34;&gt;&lt;/p&gt;
 &lt;p&gt;ppm这种rgb数字构成的图片格式&lt;/p&gt;
 &lt;h2 id=&#34;数据中心的并行编程&#34;&gt;数据中心的并行编程&lt;/h2&gt;
 &lt;p&gt;与超算的区别点在于数据和存储&lt;/p&gt;
@@ -1967,7 +2063,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;##&lt;/code&gt;是连接操作符&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;#define t(func) func(x) func(y)&lt;/code&gt;，遇到t(abs)展开以后变成 abs(x) abs(y)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;##&lt;/code&gt;是连接操作符&lt;/p&gt;
 &lt;p&gt;什么意思呢&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -3328,7 +3425,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 &lt;p&gt;我们讨论的所有指令系统都是字节寻址的，都提供了字节，半字，字（32位）寻址&lt;/p&gt;
 &lt;p&gt;大端&lt;/p&gt;
 &lt;p&gt;小端模式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528124032265.png&#34; alt=&#34;image-20220528124032265&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124032265.png&#34; alt=&#34;image-20220528124032265&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对齐&lt;/p&gt;
 &lt;p&gt;寻址方式：立即数通常也被认为是一种存储器寻址方式、寄存器不属于存储器寻址，相对寻址&lt;/p&gt;
 &lt;p&gt;位移量位13-16位，立即数为16位&lt;/p&gt;
@@ -3336,7 +3433,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 &lt;h2 id=&#34;24-操作数的类型&#34;&gt;2.4 操作数的类型&lt;/h2&gt;
 &lt;p&gt;操作数的类型如何指定：&lt;/p&gt;
 &lt;p&gt;操作数编码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528124548498.png&#34; alt=&#34;image-20220528124548498&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124548498.png&#34; alt=&#34;image-20220528124548498&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;25-指令系统的操作&#34;&gt;2.5 指令系统的操作&lt;/h2&gt;
 &lt;p&gt;指令系统有一条共同的规律：使用最多的是一些简单指令。&lt;/p&gt;
 &lt;p&gt;所有计算机都提供 算数和逻辑运算、load/store、控制 指令&lt;/p&gt;
@@ -4057,6 +4154,7 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;em&gt;If you experience trouble getting the TUN to work check out&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;扩展阅读：tun是什么？https://segmentfault.com/a/1190000009249039&lt;/p&gt;
 &lt;h2 id=&#34;2去群晖官方套件中心添加docker&#34;&gt;2.去群晖官方套件中心添加docker&lt;/h2&gt;
 &lt;h2 id=&#34;3启动容器&#34;&gt;3.启动容器&lt;/h2&gt;
 &lt;p&gt;Make directory to store ZeroTier&amp;rsquo;s identity and config&lt;/p&gt;
@@ -5996,10 +6094,10 @@ idea中build-&amp;gt;build artifacts
 &lt;/div&gt;&lt;p&gt;可以在服务器ip:7500端口看到frps的运行状态，至此，服务器端的配置就完成了。&lt;/p&gt;
 &lt;h2 id=&#34;客户端&#34;&gt;客户端&lt;/h2&gt;
 &lt;p&gt;首先，得用ssh登录群晖。如果你没有用过ssh登录过，可以进入群晖控制面板，找到终端机和SNMP，点击启动SSH功能，设定你的端口（默认22）
-&lt;img src=&#34;https://i.loli.net/2021/11/10/DMHVvjpmkCgzoaT.png&#34; alt=&#34;image-20211109174257597.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/DMHVvjpmkCgzoaT.png&#34; alt=&#34;image-20211109174257597.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击应用。&lt;/p&gt;
 &lt;p&gt;接下来使用你顺手的ssh登录就可以了。利用admin账号和密码登录（注意admin账号登录进去以后还要用&lt;code&gt;sudo -i&lt;/code&gt;，不然没有权限）
-&lt;img src=&#34;https://i.loli.net/2021/11/10/4NkOdg1Q5DtIYXl.png&#34; alt=&#34;image-20211109174413962.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/4NkOdg1Q5DtIYXl.png&#34; alt=&#34;image-20211109174413962.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;找到一个顺手的 目录，比如home，利用同样的命令 &lt;a href=&#34;#%E4%B8%8B%E8%BD%BD&#34;&gt;下载&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这时，我们关注的是frpc.ini这个配置文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -6090,15 +6188,15 @@ idea中build-&amp;gt;build artifacts
 这条命令用到了重定向绑定，采用&amp;amp;可以将两个输出绑定在一起。这条命令的作用是错误输出将和标准输出同用一个文件描述符，说人话就是错误输出将会和标准输出输出到同一个地方。&lt;/p&gt;
 &lt;p&gt;linux在执行shell命令之前，就会确定好所有的输入输出位置，并且从左到右依次执行重定向的命令，所以&amp;gt;/dev/null 2&amp;gt;&amp;amp;1的作用就是让标准输出重定向到/dev/null中（丢弃标准输出），然后错误输出由于重用了标准输出的描述符，所以错误输出也被定向到了/dev/null中，错误输出同样也被丢弃了。执行了这条命令之后，该条shell命令将不会输出任何信息到控制台，也不会有任何信息输出到文件中。&lt;/p&gt;
 &lt;p&gt;接下来，回到群晖的控制台，在控制面板的计划任务中
-&lt;img src=&#34;https://qiniucdn.xinac.net/blog/image_1594785444263.png&#34; alt=&#34;ds&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png&#34; alt=&#34;ds&#34;&gt;
 新建任务,事件为开机
-&lt;img src=&#34;https://qiniucdn.xinac.net/blog/image_1594785587631.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image_1594785587631.png&#34; alt=&#34;&#34;&gt;
 在任务设置中填写：
 bash /home/frp/start.sh
 重启群晖
 就可以在服务器的7500看到刚刚登录进来的群晖。&lt;/p&gt;
 &lt;p&gt;输入服务器ip:端口（在frpc.ini中设置的remote端口），即可看到你的设备啦。
-&lt;img src=&#34;https://i.loli.net/2021/11/10/Dp6My8oGJW7In9B.jpg&#34; alt=&#34;屏幕截图 2021-11-10 173901.jpg&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-zhangwei.jpg&#34; alt=&#34;屏幕截图 2021-11-10 173901.jpg&#34;&gt;
 如果你不嫌烦+不怕死，你也可以把群晖的22端口映射出去。&lt;/p&gt;
 &lt;p&gt;当然，如果你有远程桌面，tomcat，nginx的需求都可以用这种方法，对我来说frp取代teamviewer和花生壳是完全可以的。&lt;/p&gt;
 </description>
@@ -6299,14 +6397,14 @@ bash /home/frp/start.sh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;l&lt;/code&gt;可以查看需要 调试的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;b 4&lt;/code&gt;表示在第4行设置断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;r&lt;/code&gt;程序就会运行到断点处&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;display i&lt;/code&gt;表示显示变量i的值&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;n&lt;/code&gt;表示运行下一行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;基本的就到这里，剩下的就慢慢探索吧&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;list/l 命令 可以使用list/l命令查看程序，方便我们添加断点时查看信息。&lt;/li&gt;
@@ -6924,9 +7022,9 @@ i=0010010100101011&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;挂载成功以后，切换到/tmp/boot目录，&lt;code&gt;ls&lt;/code&gt;以后发现有一个文件夹叫grub&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/09/deGuNcITglChpHO.png&#34; alt=&#34;image-20210909004652628.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220721181715935.png&#34; alt=&#34;image-20220721181715935&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们需要修改的就是grub.cfg文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/09/rehYkbdfVuDg398.png&#34; alt=&#34;image-20210909004835879.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-sn.png&#34; alt=&#34;image-20210909004835879.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;看到那个sn和mac了吗，这就是我们目的要改的东西，改成洗白以后的号码，:wq完成！&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -6936,23 +7034,6 @@ i=0010010100101011&lt;/p&gt;
 &lt;p&gt;之后就可以愉快使用群晖官方服务的了，建议用非国区的账号哦&lt;/p&gt;
 &lt;p&gt;参考资料：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://shimo.im/docs/KwwyWvkqJTrQvhvg/read&#34;&gt;https://shimo.im/docs/KwwyWvkqJTrQvhvg/read&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>不安全感</title>
-      <link>http://blog.junling.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</link>
-      <pubDate>Tue, 31 Aug 2021 20:06:45 +0800</pubDate>
-      
-      <guid>http://blog.junling.xyz/posts/%E4%B8%8D%E5%AE%89%E5%85%A8%E6%84%9F/</guid>
-      <description>&lt;h1 id=&#34;不安全感&#34;&gt;不安全感&lt;/h1&gt;
-&lt;p&gt;今天出门，终于不要检查寝室门是否锁上了。很奇怪，我一直有个强迫症，就是出门一定要检查门是否关好，几乎每次出门不自然地来回检查几次，有时候下了楼，不放心，还跑上去检查一遍。有时候出门半天才想起来是不是还没检查我门关没关，而次次检查的结果是，门，它确实关好了。在我的印象中，没有一次检查出门没关。但是不检查，门就处于薛定谔状态，关和没关的叠加态。只有当我回去观察，才是确定的状态。&lt;/p&gt;
-&lt;p&gt;门，是个防君子不防小人的物件。小偷真的盯上你，门根本没用，我家在5楼都曾经有小偷翻窗进入。而当小偷遇上一扇没关的门，它想尝试还得掂量掂量，万一家里有人怎么办，万一有摄像头，万一里面人躲着专门针对小偷。再说小偷根本不知道你家门没关，小偷又不会扫楼。所以在门没关的状态下，只有邻居熟人作案，而且只有比我高的邻居6楼邻居和对门，一共3户，东西丢了也好找，邻居冒着这么大的风险作案也不值得。&lt;/p&gt;
-&lt;p&gt;所以，当没关门的概率乘上3户邻居敢进入我加偷东西的概率，是一个很小很小很小的数，这还没算上找回没损失的概率。&lt;/p&gt;
-&lt;p&gt;但我还是担心没关上门，就好像一个诅咒，一直把我圈在里面。&lt;/p&gt;
-&lt;p&gt;我会想到小学5、6年级的时候，那时候我出门一定会检查我书包会不会有书没带。快到学校了，把书包放地上打开看看书在不在，和课程表对一下，有没有没带的。&lt;/p&gt;
-&lt;p&gt;没带又怎么样呢，回家拿就是喽，5年级的时候，从小学回个家也就5分钟，课间时间足够了，就算课上没书，还可以找隔壁班同学借啊，最坏的结果就是和同桌一起看呗，没有老师闲的会因为没书喊我家长让我罚站吧。最坏最坏的结果，不就是罚站嘛，谁还没站过捏。&lt;/p&gt;
-&lt;p&gt;这一切现象，我给自己定义为缺少安全感。有的时候做事我会思考一切可能的结果，包括最坏的，即使是一件很简单的事情，最近我一直担心我晚上会嗝屁，担心熬夜心梗猝死，担心狂犬病。怎么说呢，总结的话就是不安全感，害怕事情变得糟糕，恐惧悲惨的结果。感觉现在的不安全感稍微少点了，但是又有点害怕自己得各种奇怪的病，看来是走不出这个诅咒了。&lt;/p&gt;
 </description>
     </item>
     
@@ -6985,7 +7066,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码&lt;/p&gt;
 &lt;h2 id=&#34;系统结构&#34;&gt;系统结构：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
 &lt;p&gt;内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：系统工具和UNIX命令不是内核组件。&lt;/p&gt;
@@ -6996,21 +7077,20 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;虚拟计算机：UNIX操作系统向系统中的&lt;strong&gt;每个用户指定一个执行环境&lt;/strong&gt;，这个环境成为虚拟计算机，包括一个&lt;strong&gt;用户终端&lt;/strong&gt;和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;进程&lt;/strong&gt;：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。&lt;/p&gt;
 &lt;h1 id=&#34;第3章-unix入门&#34;&gt;第3章 UNIX入门&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612145535579.png&#34; alt=&#34;image-20210612145535579&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;31登录与退出&#34;&gt;3.1登录与退出&lt;/h2&gt;
 &lt;p&gt;1.登录&lt;/p&gt;
 &lt;p&gt;输入用户名，密码&lt;/p&gt;
 &lt;p&gt;2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3.退出系统：[ctrl+d] 或是exit，即可退出&lt;/p&gt;
 &lt;h2 id=&#34;32-简单的unix命令&#34;&gt;3.2 简单的UNIX命令&lt;/h2&gt;
 &lt;p&gt;命令行格式：&lt;code&gt;[命令] [选项] [参数]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;字段间要用一个或多个空格隔开。选项的前面一般会有连字符&lt;code&gt;-&lt;/code&gt;，一个命令同时也可以有多个，例如下列著名的命令：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-2021061215201111.jpg&#34; alt=&#34;image-2021061215201111&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-2021061215201111.jpg&#34; alt=&#34;image-2021061215201111&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm&lt;/code&gt;表示删除，&lt;code&gt;-rf&lt;/code&gt;表示两个选项：r和f，&lt;code&gt;/*&lt;/code&gt;表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件&lt;/p&gt;
 &lt;p&gt;下面介绍一些简单的命令：&lt;/p&gt;
 &lt;p&gt;1.date：显示日期和时间&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义&lt;/p&gt;
@@ -7020,12 +7100,12 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;who还有一些的选项：-q -H -b。&lt;/p&gt;
 &lt;p&gt;3.显示日历：cal&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;33-获取帮助信息&#34;&gt;3.3 获取帮助信息&lt;/h2&gt;
 &lt;p&gt;learn和help，使用时需要安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104948628.png&#34; alt=&#34;image-20220616104948628&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104948628.png&#34; alt=&#34;image-20220616104948628&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如我不知道exit的用法&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105333358.png&#34; alt=&#34;image-20220616105333358&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616105333358.png&#34; alt=&#34;image-20220616105333358&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;333-man手册&#34;&gt;3.3.3 man手册：&lt;/h3&gt;
 &lt;p&gt;学习新命令时使用，可以得到该man(manual)命令的详细说明，当然&lt;/p&gt;
 &lt;p&gt;在简洁的wsl中也是没有man的，需要先&lt;code&gt;sudo apt install man-db manpages manpages-dev&lt;/code&gt;,之后才能愉快地使用man&lt;/p&gt;
@@ -7061,7 +7141,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;vi 文件名&lt;/code&gt;启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入&lt;code&gt;:wq&lt;/code&gt;，即可保存或退出。&lt;/p&gt;
 &lt;p&gt;以上就是最最基础的用法。下面介绍高级用法：&lt;/p&gt;
 &lt;h2 id=&#34;41模式&#34;&gt;4.1模式：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c22adf0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612165940750.png&#34; alt=&#34;image-20210612165940750&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从命令模式进入文本输入模式：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -7430,7 +7510,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c2d6e0c.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615181145639.png&#34; alt=&#34;image-20210615181145639&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;drwxr-xr-x&lt;/code&gt; 为属性字段&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;文件属性字段总共有10个字母组成；第一个字符代表&lt;strong&gt;文件的类型&lt;/strong&gt;。&lt;/p&gt;
@@ -7629,7 +7709,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;66-定制vi&#34;&gt;6.6 定制vi&lt;/h2&gt;
 &lt;p&gt;用户可以调整vi编辑器的设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到有众多选项可以自定义。&lt;/p&gt;
 &lt;p&gt;下面介绍一些常用选项：&lt;/p&gt;
 &lt;table&gt;
@@ -7882,7 +7962,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;单向通过，没有格式，以流的形式进行通信&lt;/p&gt;
 &lt;p&gt;例如，我想在查找&lt;code&gt;ls -l&lt;/code&gt;的结果中以正则表达式搜索&lt;code&gt;s.*h&lt;/code&gt;，可以执行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ls -l|grep -e&amp;quot;s.*h&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.hualigs.cn/image/60cae3c1ebe12.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615214626196.png&#34; alt=&#34;image-20210615214626196&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;821--shell如何实现管道&#34;&gt;8.2.1  Shell如何实现管道？&lt;/h3&gt;
 &lt;p&gt;1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出&lt;/p&gt;
 &lt;p&gt;2.fork()创建子进程&lt;/p&gt;
@@ -9868,7 +9948,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;tar&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;tldr tar&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616111745205.png&#34; alt=&#34;image-20220616111745205&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220616111745205.png&#34; alt=&#34;image-20220616111745205&#34;&gt;&lt;/p&gt;
 &lt;p&gt;chown修改文件目录的owner,修改inode&lt;/p&gt;
 &lt;p&gt;chgrp修改文件目录的group&lt;/p&gt;
 </description>

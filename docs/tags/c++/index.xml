@@ -29,14 +29,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;l&lt;/code&gt;可以查看需要 调试的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;b 4&lt;/code&gt;表示在第4行设置断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;r&lt;/code&gt;程序就会运行到断点处&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;display i&lt;/code&gt;表示显示变量i的值&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;n&lt;/code&gt;表示运行下一行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2021/09/28/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;基本的就到这里，剩下的就慢慢探索吧&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;list/l 命令 可以使用list/l命令查看程序，方便我们添加断点时查看信息。&lt;/li&gt;

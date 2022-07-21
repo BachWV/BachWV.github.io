@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机 </title>
+	<title>AC自动机  | 图床</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/life/index.xml" type="application/rss+xml" title="AC自动机">
-	<link rel="feed" href="/life/index.xml" type="application/rss+xml" title="AC自动机">
 	
 	
 	
@@ -119,16 +116,92 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="http://blog.junling.xyz/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="http://blog.junling.xyz/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
+	</h2>
+</div>
+<h1 class="pt-2">图床</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-07-21T19:28:17&#43;08:00">2022-7-21</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。</p>
+<p>首先开通oss</p>
+<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193540567.png" alt="image-20220721193540567">创建桶bucket</p>
+<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193617083.png" alt="image-20220721193617083"></p>
+<p>创建用户并为他添加权限</p>
+<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193743942.png" alt="image-20220721193743942"></p>
+<p>参考picgo文档</p>
+<h3 id="阿里云oss">阿里云OSS</h3>
+<p>配置项及说明：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;accessKeyId&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;accessKeySecret&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;bucket&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span> <span style="color:#75715e">// 存储空间名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;area&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span> <span style="color:#75715e">// 存储区域代号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;path&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span> <span style="color:#75715e">// 自定义存储路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;customUrl&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span> <span style="color:#75715e">// 自定义域名，注意要加http://或者https://
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首先先在阿里云OSS的<a href="https://usercenter.console.aliyun.com/#/manage/ak">控制台</a>里找到你的<code>accessKeyId</code>和<code>accessKeySecret</code>：</p>
+<p>确认你的<a href="https://www.alibabacloud.com/help/zh/doc-detail/31837.htm?spm=a2c63.p38356.a3.3.179112f0PBtYui">存储区域</a>的代码：</p>
+<p>如上图，存储区域就是<code>oss-cn-beijing</code></p>
+<p>存储路径比如<code>img/</code>的话，上传的图片会默认放在OSS的<code>img</code>文件夹下。注意存储路径一定要以<code>/</code>结尾！存储路径是可选的，如果不需要请留空。</p>
+<p>最后防止盗刷，最后一定还要添加流量报警，防止一晚上以后房子都是阿里云的了</p>
+<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193957579.png" alt="image-20220721193957579"></p>
+<p>暂时的打算是新的图传阿里云，老图还在github仓库</p>
+<p>希望一次配置，以后永远不用再烦图床了。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" >
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -152,8 +225,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/life/" title="Life page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/life/" title="Life page" >
 			Life
 		</a>
 	</li>
@@ -171,10 +243,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/life/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -187,254 +255,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-<article>
-	<section></section>
-	<section>
-		
-		<hr class="p-0 pt-4 m-0" />
-		<section class="flex flex-col md:flex-row items-start items-baseline">
-			<div class="md:pl-4 pb-2 md:sticky top-0 order-1 pr-6">
-				<h2 class=" text-eucalyptus-600">2022</h2>
-			</div>
-			<ul class="order-2 flex-grow">
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">05-15</span>
-					<div class="font-serif font-medium">
-						<a href="http://blog.junling.xyz/life/blog_comment_test/">
-							Blog_comment_test
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">02-14</span>
-					<div class="font-serif font-medium">
-						<a href="http://blog.junling.xyz/life/lixiang/">
-							李想《节奏把控对于创业的重要性》
-						</a>
-						
-					</div>
-				</div>
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">01-27</span>
-					<div class="font-serif font-medium">
-						<a href="http://blog.junling.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/">
-							一些影评
-						</a>
-						
-					</div>
-				</div>
-				
-			</ul>
-		</section>
-		
-		<hr class="p-0 pt-4 m-0" />
-		<section class="flex flex-col md:flex-row items-start items-baseline">
-			<div class="md:pl-4 pb-2 md:sticky top-0 order-1 pr-6">
-				<h2 class=" text-eucalyptus-600">2021</h2>
-			</div>
-			<ul class="order-2 flex-grow">
-				
-				<div class="py-2 flex">
-					<span class="font-serif pr-4 flex-shrink-0">09-21</span>
-					<div class="font-serif font-medium">
-						<a href="http://blog.junling.xyz/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/">
-							辛丑中秋节
-						</a>
-						
-					</div>
-				</div>
-				
-			</ul>
-		</section>
-		
-		
-	</section>
-</article>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
@@ -495,25 +315,64 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021-2022
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			84 pages, 108535 words in total.
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 422 words in this page.
 	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/tmux/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        Tmux
+    </a>
+    
+    
+</div>
+<div >
 
 
 
-
-
-
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@1.6.0/dist/Waline.min.js', function(){
+         new Waline({
+          el: '#wcomments',  
+          serverURL: 'https://waline-li.vercel.app', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
 
 		</footer>
 		

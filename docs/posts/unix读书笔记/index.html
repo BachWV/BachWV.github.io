@@ -378,7 +378,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码</p>
 <h2 id="系统结构">系统结构：</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612144726435.png" alt="image-20210612144726435"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612144726435.png" alt="image-20210612144726435"></p>
 <p>内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。</p>
 <blockquote>
 <p>注意：系统工具和UNIX命令不是内核组件。</p>
@@ -389,21 +389,20 @@ Linux       开放源代码</p>
 <p>虚拟计算机：UNIX操作系统向系统中的<strong>每个用户指定一个执行环境</strong>，这个环境成为虚拟计算机，包括一个<strong>用户终端</strong>和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。</p>
 <p><strong>进程</strong>：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。</p>
 <h1 id="第3章-unix入门">第3章 UNIX入门</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612145535579.png" alt="image-20210612145535579"></p>
 <h2 id="31登录与退出">3.1登录与退出</h2>
 <p>1.登录</p>
 <p>输入用户名，密码</p>
 <p>2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612151234131.png" alt="image-20210612151234131"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612151234131.png" alt="image-20210612151234131"></p>
 <p>3.退出系统：[ctrl+d] 或是exit，即可退出</p>
 <h2 id="32-简单的unix命令">3.2 简单的UNIX命令</h2>
 <p>命令行格式：<code>[命令] [选项] [参数]</code></p>
 <p>字段间要用一个或多个空格隔开。选项的前面一般会有连字符<code>-</code>，一个命令同时也可以有多个，例如下列著名的命令：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-2021061215201111.jpg" alt="image-2021061215201111"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-2021061215201111.jpg" alt="image-2021061215201111"></p>
 <p><code>rm</code>表示删除，<code>-rf</code>表示两个选项：r和f，<code>/*</code>表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件</p>
 <p>下面介绍一些简单的命令：</p>
 <p>1.date：显示日期和时间</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210612152830573.png" alt="image-20210612152830573"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612152830573.png" alt="image-20210612152830573"></p>
 <p>2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下</p>
 <blockquote>
 <p>who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义</p>
@@ -413,12 +412,12 @@ Linux       开放源代码</p>
 </blockquote>
 <p>who还有一些的选项：-q -H -b。</p>
 <p>3.显示日历：cal</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104917751.png" alt="image-20220616104917751"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104917751.png" alt="image-20220616104917751"></p>
 <h2 id="33-获取帮助信息">3.3 获取帮助信息</h2>
 <p>learn和help，使用时需要安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616104948628.png" alt="image-20220616104948628"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104948628.png" alt="image-20220616104948628"></p>
 <p>比如我不知道exit的用法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105333358.png" alt="image-20220616105333358"></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616105333358.png" alt="image-20220616105333358"></p>
 <h3 id="333-man手册">3.3.3 man手册：</h3>
 <p>学习新命令时使用，可以得到该man(manual)命令的详细说明，当然</p>
 <p>在简洁的wsl中也是没有man的，需要先<code>sudo apt install man-db manpages manpages-dev</code>,之后才能愉快地使用man</p>
@@ -454,7 +453,7 @@ Linux       开放源代码</p>
 <p><code>vi 文件名</code>启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入<code>:wq</code>，即可保存或退出。</p>
 <p>以上就是最最基础的用法。下面介绍高级用法：</p>
 <h2 id="41模式">4.1模式：</h2>
-<p><img src="https://www.hualigs.cn/image/60cae3c22adf0.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612165940750.png" alt="image-20210612165940750"></p>
 <p>从命令模式进入文本输入模式：</p>
 <table>
 <thead>
@@ -823,7 +822,7 @@ Linux       开放源代码</p>
 </tbody>
 </table>
 <p>例如：</p>
-<p><img src="https://www.hualigs.cn/image/60cae3c2d6e0c.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615181145639.png" alt="image-20210615181145639"></p>
 <p><code>drwxr-xr-x</code> 为属性字段</p>
 <p><img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" alt="img"></p>
 <p>文件属性字段总共有10个字母组成；第一个字符代表<strong>文件的类型</strong>。</p>
@@ -1022,7 +1021,7 @@ Linux       开放源代码</p>
 </table>
 <h2 id="66-定制vi">6.6 定制vi</h2>
 <p>用户可以调整vi编辑器的设置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210615203331825.png" alt="image-20210615203331825"></p>
+<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20210615203331825.png" alt="image-20210615203331825"></p>
 <p>可以看到有众多选项可以自定义。</p>
 <p>下面介绍一些常用选项：</p>
 <table>
@@ -1275,7 +1274,7 @@ Linux       开放源代码</p>
 <p>单向通过，没有格式，以流的形式进行通信</p>
 <p>例如，我想在查找<code>ls -l</code>的结果中以正则表达式搜索<code>s.*h</code>，可以执行</p>
 <p><code>ls -l|grep -e&quot;s.*h&quot;</code></p>
-<p><img src="https://www.hualigs.cn/image/60cae3c1ebe12.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615214626196.png" alt="image-20210615214626196"></p>
 <h3 id="821--shell如何实现管道">8.2.1  Shell如何实现管道？</h3>
 <p>1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出</p>
 <p>2.fork()创建子进程</p>
@@ -3261,7 +3260,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 </div>
 </div><p>tar</p>
 <p><code>tldr tar</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616111745205.png" alt="image-20220616111745205"></p>
+<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220616111745205.png" alt="image-20220616111745205"></p>
 <p>chown修改文件目录的owner,修改inode</p>
 <p>chgrp修改文件目录的group</p>
 </div>

@@ -152,7 +152,55 @@ onload='renderMathInElement(document.body);'></script>
 <p>杀死<code>tmux kill-session -t &quot;name&quot;|id</code></p>
 <p>切换会话 <code>tmux switch -t &quot;name&quot;|id</code></p>
 <p>上下分窗口 <code>ctrl+b d</code></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Ctrl+b d：分离当前会话。
+</span></span><span style="display:flex;"><span>Ctrl+b s：列出所有会话。
+</span></span><span style="display:flex;"><span>Ctrl+b $：重命名当前会话。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ctrl+b  再按上下左右键切换窗口
+</span></span><span style="display:flex;"><span>Ctrl+b  %:左右分窗口  &#34;：上下分窗口
+</span></span><span style="display:flex;"><span>Ctrl+b  d:退出当前窗口
+</span></span><span style="display:flex;"><span>Ctrl+b  [:进行上下翻页，q取消翻页
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ctrl+b {：当前窗格与上一个窗格交换位置。
+</span></span><span style="display:flex;"><span>Ctrl+b }：当前窗格与下一个窗格交换位置。
+</span></span><span style="display:flex;"><span>Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
+</span></span><span style="display:flex;"><span>Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
+</span></span><span style="display:flex;"><span>Ctrl+b x：关闭当前窗格。 # exit
+</span></span><span style="display:flex;"><span>Ctrl+b !：将当前窗格拆分为一个独立窗口。
+</span></span><span style="display:flex;"><span>Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+</span></span><span style="display:flex;"><span>Ctrl+b Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
+</span></span><span style="display:flex;"><span>Ctrl+b q：显示窗格编号。
+</span></span><span style="display:flex;"><span>————————————————
+</span></span><span style="display:flex;"><span>版权声明：本文为CSDN博主「仰望星空的小随」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+</span></span><span style="display:flex;"><span>原文链接：https://blog.csdn.net/sui_152/article/details/121650341
+</span></span></code></pre></td></tr></table>
 </div>
+</div></div>
 	</section>
 
 
@@ -288,7 +336,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 88 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 523 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -312,6 +360,13 @@ onload='renderMathInElement(document.body);'></script>
         操作系统-jyy-8
     </a>
     
+    
+    <a class="flex-grow-0" href="/posts/%E5%9B%BE%E5%BA%8A/">
+        图床
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
