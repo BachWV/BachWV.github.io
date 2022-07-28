@@ -29,8 +29,7 @@ toc: true
 有代表性的版本：
 
 AIX          IBM公司
-XENIX/OpenServer
-                       Microsoft、SCO公司
+XENIX/OpenServer Microsoft、SCO公司
 HP-UX    HP公司
 BSD          加州大学伯克利分校 
 Solaris     SUN公司
@@ -1464,7 +1463,10 @@ git merge
 开始前我们先创建一个测试目录：
 
 ```
-$ mkdir gitdemo$ cd gitdemo/$ git initInitialized empty Git repository...$ touch README$ git add README$ git commit -m '第一次版本提交'[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
+$ mkdir gitdemo$ cd git-demo/
+$ git initInitialized empty Git repository...
+$ touch README$ git add README
+$ git commit -m '第一次版本提交'[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
 ```
 
 ------
@@ -1662,7 +1664,8 @@ Shell是一种语言，bash、csh
 ### 12.1.1 编写简单脚本
 
 ```
-endwsl@LAPTOP-U1E6STIA:~$ cat <<EOF>> won.list> ls> -bash: warning: here-document at line 74 delimited by end-of-file (wanted `EOF')endwsl@LAPTOP-U1E6STIA:~$ cat won.listls
+$ cat <<EOF>> won.list> ls> -bash: warning: here-document at line 74 delimited by end-of-file (wanted `EOF')
+$ cat won.listls
 ```
 
 ### 12.1.2 执行脚本
@@ -1670,7 +1673,7 @@ endwsl@LAPTOP-U1E6STIA:~$ cat <<EOF>> won.list> ls> -bash: warning: here-documen
 执行脚本 sh won.list :
 
 ````
-endwsl@LAPTOP-U1E6STIA:~$ sh won.list-  ew  ew.list  goodstuff  new.list  vinew  won.list  xxxscriptendwsl@LAPTOP-U1E6STIA:~$
+$ sh won.list-  ew  ew.list  goodstuff  new.list  vinew  won.list  xxxscript
 ````
 
 另一种方法：chmod改变文件权限，使其变成可执行
@@ -1725,10 +1728,10 @@ shell脚本可以从命令行最多读取10个命令行参数存入特殊变量�
 
 | **参数变量**                                                 |
 | ------------------------------------------------------------ |
-| $1-$9，${10}表示参数                                         |
+| \$1-\$9，${10}表示参数                                       |
 | $0表示被调用脚本的名字                                       |
 | $#表示参数个数                                               |
-| $*将所有参数使用$IFS隔开，形成一个字符串                     |
+| \$*将所有参数使用$IFS隔开，形成一个字符串                    |
 | $@是每个参数一行，将参数隔开，实际上是多个字符串，可以用在for循环 |
 | $$表示当前进程id                                             |
 
