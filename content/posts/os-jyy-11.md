@@ -12,11 +12,17 @@ date: 2022-07-26T16:09:16+08:00
 -  execve 
 -  exit
 
-复习[第九讲]({{< relref "os-jyy-9.md" >}})的内容
-
-操作系统内核的启动： CPU Reset-> BIOS/UEFI->Boot loader->Kernel_start()
-
 本次课回答的问题
 
 - **Q1**: 操作系统启动后到底做了什么？
 - **Q2**: 操作系统如何管理程序 (进程)？
+
+复习[第九讲]({{< relref "os-jyy-9.md" >}})的内容
+
+操作系统内核的启动： CPU Reset-> BIOS/UEFI->Boot loader->Kernel_start()
+
+
+
+操作系统会加载第一个程序
+
+systemd/init
