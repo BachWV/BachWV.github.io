@@ -369,8 +369,7 @@ onload='renderMathInElement(document.body);'></script>
 1983年    AT&amp;T发布UNIX System V,  系统功能已趋于稳定和完善. 此后System V又有一系列的公布号:1.0/2.0/2.3/3.5/4.0/4.2 等, 现在最后版本为 System V  Release  4  (SVR4)</p>
 <p>有代表性的版本：</p>
 <p>AIX          IBM公司
-XENIX/OpenServer
-Microsoft、SCO公司
+XENIX/OpenServer Microsoft、SCO公司
 HP-UX    HP公司
 BSD          加州大学伯克利分校 
 Solaris     SUN公司
@@ -2353,9 +2352,15 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ mkdir gitdemo$ cd gitdemo/$ git initInitialized empty Git repository...$ touch README$ git add README$ git commit -m &#39;第一次版本提交&#39;[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ mkdir gitdemo$ cd git-demo/
+</span></span><span style="display:flex;"><span>$ git initInitialized empty Git repository...
+</span></span><span style="display:flex;"><span>$ touch README$ git add README
+</span></span><span style="display:flex;"><span>$ git commit -m &#39;第一次版本提交&#39;[master (root-commit) 3b58100] 第一次版本提交 1 file changed, 0 insertions(+), 0 deletions(-) create mode 100644 README
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -2637,9 +2642,11 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ cat &lt;&lt;EOF&gt;&gt; won.list&gt; ls&gt; -bash: warning: here-document at line 74 delimited by end-of-file (wanted `EOF&#39;)endwsl@LAPTOP-U1E6STIA:~$ cat won.listls
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cat &lt;&lt;EOF&gt;&gt; won.list&gt; ls&gt; -bash: warning: here-document at line 74 delimited by end-of-file (wanted `EOF&#39;)
+</span></span><span style="display:flex;"><span>$ cat won.listls
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="1212-执行脚本">12.1.2 执行脚本</h3>
@@ -2649,7 +2656,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ sh won.list-  ew  ew.list  goodstuff  new.list  vinew  won.list  xxxscriptendwsl@LAPTOP-U1E6STIA:~$
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ sh won.list-  ew  ew.list  goodstuff  new.list  vinew  won.list  xxxscript
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>另一种方法：chmod改变文件权限，使其变成可执行</p>
@@ -3399,7 +3406,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 21797 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 21805 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

@@ -1,10 +1,9 @@
 ---
 title: "操作系统-jyy-9"
 date: 2022-07-26T16:09:07+08:00
-draft: false
 ---
 
-操作系统的状态机模型
+# 第9讲 操作系统的状态机模型
 
 谁加载了操作系统？
 
@@ -26,30 +25,84 @@ draft: false
 
 硬件厂商会约定，只要按照约定来就没问题了
 
-比如硬件厂商会让CPU有reset按钮。确定CPU这个状态机的初始状态，PC指针指向一段memory-mapped ROM
-
-去看CPU手册吧，对intel x86来说，reset后 Real mode =0 处在16位兼容模式，
+根据CPU手册(https://cdrdv2.intel.com/v1/dl/getContent/671190)，对intel x86来说，reset后 Real mode =0 处在16位兼容模式，
 
 ELPAGS=0X0000002 中断关闭
 
+![image-20220728173525607](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173525607.png)
+
+CPU reset后，CPU这个状态机的初始状态是唯一确定，PC指针指向一段memory-mapped ROM,这虽然是内存地址，但是是ROM断电后仍能保存数据，PC=ffff0
+
+用qemu-x86_64模拟一下
+
+```
+(gdb) info register
+rip            0xfff0              0xfff0
+eflags         0x2                 [ IOPL=0 ]
+cs             0xf000              61440
+
+(gdb) x/16xb 0xffff0
+0xffff0:        0xea    0x5b    0xe0    0x00    0xf0    0x30    0x36    0x2f
+0xffff8:        0x32    0x33    0x2f    0x39    0x39    0x00    0xfc    0x00
+(gdb) x/10i ($cs * 16 + $rip)
+   0xffff0:     (bad)
+   0xffff1:     pop    %rbx
+   0xffff2:     loopne 0xffff4
+   0xffff4:     lock xor %dh,(%rsi)
+   0xffff7:     (bad)
+   0xffff8:     xor    (%rbx),%dh
+   0xffffa:     (bad)
+   0xffffb:     cmp    %edi,(%rcx)
+   0xffffd:     add    %bh,%ah
+   0xfffff:     add    %al,(%rax)
+```
+
+![image-20220728173355906](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173355906.png)
+
+![在这里插入图片描述](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/2021040911271119.png)
+
+查看资料都说这一段是跳转到jmp f000:e05b,确实跳转到e05b（也就是BIOS区域中某个地址）
+
 
 
 ```
-gdb
-!qemu-system-x86_64 -S -s\
--machine accel=tcg \
--smp\
--drive format=raw,file=build/thread-os-$ARCH &
-pid=$
+
+(gdb) si
+0x000000000000e05b in ?? ()
+(gdb) x/10i ($cs * 16 + $rip)
+   0xfe05b:     cmpw   $0xffc8,%cs:(%rsi)
+   0xfe060:     (bad)
+   0xfe061:     add    %cl,(%rdi)
+   0xfe063:     test   %ecx,-0x10(%rdx)
+   0xfe066:     xor    %edx,%edx
+   0xfe068:     mov    %edx,%ss
+   0xfe06a:     mov    $0x7000,%sp
+   0xfe06e:     add    %al,(%rax)
+   0xfe070:     mov    $0x7c4,%dx
+   0xfe074:     verw   %cx
+
 ```
 
-会看到屏幕为 “Guest has not initialized the display(yet)”
+以后，随后又是一段跳转，到了bios真正的地方，
 
-通过info register可以看到寄存器的值
+```
+(gdb) si
+0x000000000000e062 in ?? ()
+(gdb) x/10i ($cs * 16 + $rip)
+   0xfe062:     jne    0xffffffffd241d0b2
+   0xfe068:     mov    %edx,%ss
+   0xfe06a:     mov    $0x7000,%sp
+   0xfe06e:     add    %al,(%rax)
+   0xfe070:     mov    $0x7c4,%dx
+   0xfe074:     verw   %cx
+   0xfe077:     stos   %eax,%es:(%rdi)
+   0xfe078:     out    %al,(%dx)
+   0xfe079:     push   %bp
+   0xfe07b:     push   %di
+(gdb)
+```
 
-CPU reset 以后，从fireware（由硬件厂商写的）开始执行
-
-PC=ffff0
+ BIOS 把第一个可引导设备的第一个扇区加载到物理内存的 `7c00` 位置
 
 
 
@@ -57,7 +110,9 @@ BIOS/UEFI
 
 #### BIOS
 
-Legacy BIOS把第一个可引导设备的第一个扇区512B（MBR主引导扇区，最后两个字节是aa55）加载到物理内存的 7c00的位置，此时处理器处于16-bit模式，规定CS:IP =0x7c。
+Legacy BIOS把第一个可引导设备的第一个扇区512B（MBR主引导扇区，最后两个字节是aa55）加载到物理内存的 7c00的位置，此时处理器还处于16-bit模式，规定CS:IP =0x7c00
+
+同时寄存器BL里保存着当前启动的设备的设备号，这个设备号用于INT 13中断服务，如果这个扇区的最后两个字节是55AA，那么就跳转到7C00上，并转交控制权
 
 这是firemare和操作系统的第一次也是唯一的一次握手。
 
@@ -66,6 +121,7 @@ Legacy BIOS把第一个可引导设备的第一个扇区512B（MBR主引导扇�
 翻译 https://www.usenix.org/legacy/publications/library/proceedings/usenix05/tech/freenix/full_papers/bellard/bellard.pdf
 
 ```
+
 (gdb) x/16xb 0x7c00
 0x7c00: 0x00    0x00    0x00    0x00    0x00    0x00    0x00    0x00
 0x7c08: 0x00    0x00    0x00    0x00    0x00    0x00    0x00    0x00
