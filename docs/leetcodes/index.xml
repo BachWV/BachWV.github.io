@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leetcodes on AC自动机</title>
-    <link>http://blog.junling.xyz/leetcodes/</link>
+    <link>https://junling.li/leetcodes/</link>
     <description>Recent content in Leetcodes on AC自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
     
-	<atom:link href="http://blog.junling.xyz/leetcodes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junling.li/leetcodes/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

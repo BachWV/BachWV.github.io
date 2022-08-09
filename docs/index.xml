@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AC自动机</title>
-    <link>http://blog.junling.xyz/</link>
+    <link>https://junling.li/</link>
     <description>Recent content on AC自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
     <lastBuildDate>Thu, 28 Jul 2022 00:55:59 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.junling.xyz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junling.li/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cpp Acllib</title>
-      <link>http://blog.junling.xyz/posts/cpp-acllib/</link>
+      <link>https://junling.li/posts/cpp-acllib/</link>
       <pubDate>Thu, 28 Jul 2022 00:55:59 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/cpp-acllib/</guid>
+      <guid>https://junling.li/posts/cpp-acllib/</guid>
       <description>&lt;p&gt;今天开始整理一下大学的一些项目&lt;/p&gt;
 &lt;p&gt;首先看的是一个俄罗斯方块的实现，这应该是我大学以来的第一个项目&lt;/p&gt;
 &lt;p&gt;那个时候，我c语言还是刚入门，还没写明白if-else，还不知道什么是编译，什么是链接，却能借助visual studio通过简单的点点操作，基于翁恺的acllib库跑一个图形程序，我自己都佩服我自己。&lt;/p&gt;
@@ -371,10 +371,10 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-11</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-11/</link>
+      <link>https://junling.li/posts/os-jyy-11/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:16 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-11/</guid>
+      <guid>https://junling.li/posts/os-jyy-11/</guid>
       <description>&lt;h1 id=&#34;第11讲-操作系统上的进程&#34;&gt;第11讲 操作系统上的进程&lt;/h1&gt;
 &lt;p&gt;主要内容：&lt;/p&gt;
 &lt;ul&gt;
@@ -388,7 +388,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Q1&lt;/strong&gt;: 操作系统启动后到底做了什么？&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Q2&lt;/strong&gt;: 操作系统如何管理程序 (进程)？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;复习&lt;a href=&#34;http://blog.junling.xyz/posts/os-jyy-9/&#34;&gt;第九讲&lt;/a&gt;的内容&lt;/p&gt;
+&lt;p&gt;复习&lt;a href=&#34;https://junling.li/posts/os-jyy-9/&#34;&gt;第九讲&lt;/a&gt;的内容&lt;/p&gt;
 &lt;p&gt;操作系统内核的启动： CPU Reset-&amp;gt; BIOS/UEFI-&amp;gt;Boot loader-&amp;gt;Kernel_start()&lt;/p&gt;
 &lt;p&gt;操作系统会加载第一个程序&lt;/p&gt;
 &lt;p&gt;比如systemd/init&lt;/p&gt;
@@ -882,10 +882,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-10</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-10/</link>
+      <link>https://junling.li/posts/os-jyy-10/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-10/</guid>
+      <guid>https://junling.li/posts/os-jyy-10/</guid>
       <description>&lt;h1 id=&#34;第10讲-状态机模型的应用&#34;&gt;第10讲 状态机模型的应用&lt;/h1&gt;
 &lt;h2 id=&#34;细胞自动机&#34;&gt;细胞自动机&lt;/h2&gt;
 &lt;p&gt;使用状态机视角理解物理世界&lt;/p&gt;
@@ -922,7 +922,7 @@ registration.&lt;/li&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;观测状态机的执行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;strace -T&lt;/code&gt;系统调用需要的时间&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb调试&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb调试&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;gdb怎么回到上一个状态？&lt;/p&gt;
 &lt;p&gt;gdb隐藏功能：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;record full&lt;/code&gt;&lt;/p&gt;
@@ -1066,10 +1066,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-9</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-9/</link>
+      <link>https://junling.li/posts/os-jyy-9/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:07 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-9/</guid>
+      <guid>https://junling.li/posts/os-jyy-9/</guid>
       <description>&lt;h1 id=&#34;第9讲-操作系统的状态机模型&#34;&gt;第9讲 操作系统的状态机模型&lt;/h1&gt;
 &lt;p&gt;谁加载了操作系统？&lt;/p&gt;
 &lt;p&gt;不能被小学生吓倒，小学生是用有限的资料探索，大学能将已有的经验的方法重新消化，建立知识体系。&lt;/p&gt;
@@ -1376,10 +1376,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>图床</title>
-      <link>http://blog.junling.xyz/posts/%E5%9B%BE%E5%BA%8A/</link>
+      <link>https://junling.li/posts/%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Thu, 21 Jul 2022 19:28:17 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E5%9B%BE%E5%BA%8A/</guid>
+      <guid>https://junling.li/posts/%E5%9B%BE%E5%BA%8A/</guid>
       <description>&lt;p&gt;在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。&lt;/p&gt;
 &lt;p&gt;首先开通oss&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193540567.png&#34; alt=&#34;image-20220721193540567&#34;&gt;创建桶bucket&lt;/p&gt;
@@ -1424,10 +1424,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>Tmux</title>
-      <link>http://blog.junling.xyz/posts/tmux/</link>
+      <link>https://junling.li/posts/tmux/</link>
       <pubDate>Wed, 20 Jul 2022 11:00:02 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/tmux/</guid>
+      <guid>https://junling.li/posts/tmux/</guid>
       <description>&lt;p&gt;简单记住一下 tmux的基本使用，因为自己记性不行&lt;/p&gt;
 &lt;p&gt;新建会话 &lt;code&gt;tmux new -s &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;退出会话 &lt;code&gt;ctrl+b d&lt;/code&gt;或&lt;code&gt;tmux detach&lt;/code&gt;&lt;/p&gt;
@@ -1489,10 +1489,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-8</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-8/</link>
+      <link>https://junling.li/posts/os-jyy-8/</link>
       <pubDate>Wed, 20 Jul 2022 09:55:58 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-8/</guid>
+      <guid>https://junling.li/posts/os-jyy-8/</guid>
       <description>&lt;h1 id=&#34;第8讲-并发-bug-和应对&#34;&gt;第8讲 并发 bug 和应对&lt;/h1&gt;
 &lt;p&gt;本节课回答的问题：如何应对bug&lt;/p&gt;
 &lt;p&gt;看起来今天的主要内容是很工程的，讲了许多例子，都不是很懂，写完lab1再回来看吧&lt;/p&gt;
@@ -2048,10 +2048,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>一个艰难的找bug过程</title>
-      <link>http://blog.junling.xyz/posts/fixbug_difficultly/</link>
+      <link>https://junling.li/posts/fixbug_difficultly/</link>
       <pubDate>Mon, 18 Jul 2022 00:17:23 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/fixbug_difficultly/</guid>
+      <guid>https://junling.li/posts/fixbug_difficultly/</guid>
       <description>&lt;h3 id=&#34;尝试一&#34;&gt;尝试一&lt;/h3&gt;
 &lt;p&gt;重启&lt;/p&gt;
 &lt;h3 id=&#34;尝试二&#34;&gt;尝试二&lt;/h3&gt;
@@ -2202,10 +2202,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>Github Actions</title>
-      <link>http://blog.junling.xyz/posts/github-actions/</link>
+      <link>https://junling.li/posts/github-actions/</link>
       <pubDate>Sat, 16 Jul 2022 21:11:48 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/github-actions/</guid>
+      <guid>https://junling.li/posts/github-actions/</guid>
       <description>&lt;h1 id=&#34;起因&#34;&gt;起因&lt;/h1&gt;
 &lt;p&gt;最近想到我还有一个用于记录生活的 Hexo 博客需要更新&lt;/p&gt;
 &lt;p&gt;由于代码在Windows上，而我有时候在manjaro上写作，同步就是一个问题。Git仓库上是&lt;code&gt;hexo d&lt;/code&gt;直接deploy上去的（因为不想让你们看到md文件）&lt;/p&gt;
@@ -2427,10 +2427,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-7</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-7/</link>
+      <link>https://junling.li/posts/os-jyy-7/</link>
       <pubDate>Sat, 16 Jul 2022 18:01:22 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-7/</guid>
+      <guid>https://junling.li/posts/os-jyy-7/</guid>
       <description>&lt;h1 id=&#34;第七讲-真实世界的并发编程&#34;&gt;第七讲 真实世界的并发编程&lt;/h1&gt;
 &lt;p&gt;(高性能计算/数据中心/人机交互中的并发编程)
 之前跳过了两节，之后补。&lt;/p&gt;
@@ -2803,10 +2803,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>Crontab</title>
-      <link>http://blog.junling.xyz/posts/crontab/</link>
+      <link>https://junling.li/posts/crontab/</link>
       <pubDate>Thu, 14 Jul 2022 17:15:13 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/crontab/</guid>
+      <guid>https://junling.li/posts/crontab/</guid>
       <description>&lt;h1 id=&#34;手把手教你如何利用-工具crontab执行定时脚本&#34;&gt;手把手教你如何利用 工具crontab执行定时脚本&lt;/h1&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Cron 是一个在 Unix 及类似操作系统上执行计划任务的程序。cron 使用户能够安排工作(命令或shell脚本)在特定时间、日期或间隔定期运行，通常用于系统的自动化维护或者管理。[摘自 &lt;a href=&#34;https://en.wikipedia.org/wiki/zh:Cron&#34;&gt;Wikipedia&lt;/a&gt;]&lt;/p&gt;
@@ -3126,10 +3126,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>git 指南</title>
-      <link>http://blog.junling.xyz/posts/gitpusherror/</link>
+      <link>https://junling.li/posts/gitpusherror/</link>
       <pubDate>Mon, 11 Jul 2022 19:37:54 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/gitpusherror/</guid>
+      <guid>https://junling.li/posts/gitpusherror/</guid>
       <description>&lt;h1 id=&#34;git-push到别人的分支如何回退&#34;&gt;git push到别人的分支如何回退&lt;/h1&gt;
 &lt;h2 id=&#34;1备份战场&#34;&gt;1.备份战场&lt;/h2&gt;
 &lt;p&gt;建立新分支&lt;/p&gt;
@@ -3176,20 +3176,20 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-5</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-5/</link>
+      <link>https://junling.li/posts/os-jyy-5/</link>
       <pubDate>Thu, 07 Jul 2022 16:22:07 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-5/</guid>
+      <guid>https://junling.li/posts/os-jyy-5/</guid>
       <description>&lt;p&gt;这节课主要讲了互斥锁和自旋锁的实现。&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>操作系统-jyy-4</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-4/</link>
+      <link>https://junling.li/posts/os-jyy-4/</link>
       <pubDate>Tue, 05 Jul 2022 22:52:40 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-4/</guid>
+      <guid>https://junling.li/posts/os-jyy-4/</guid>
       <description>&lt;h1 id=&#34;第四讲-理解并发程序的执行&#34;&gt;第四讲 理解并发程序的执行&lt;/h1&gt;
 &lt;p&gt;Peterson算法、模型检验和软件自动化工具&lt;/p&gt;
 &lt;p&gt;主要内容：&lt;/p&gt;
@@ -3311,10 +3311,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-3</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-3/</link>
+      <link>https://junling.li/posts/os-jyy-3/</link>
       <pubDate>Sun, 26 Jun 2022 18:01:41 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-3/</guid>
+      <guid>https://junling.li/posts/os-jyy-3/</guid>
       <description>&lt;h1 id=&#34;第三讲&#34;&gt;第三讲&lt;/h1&gt;
 &lt;p&gt;在多处理器时代，状态机模型会发生什么变化&lt;/p&gt;
 &lt;p&gt;主要内容&lt;/p&gt;
@@ -3334,10 +3334,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-2</title>
-      <link>http://blog.junling.xyz/posts/os-jyy-2/</link>
+      <link>https://junling.li/posts/os-jyy-2/</link>
       <pubDate>Mon, 20 Jun 2022 22:32:41 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/os-jyy-2/</guid>
+      <guid>https://junling.li/posts/os-jyy-2/</guid>
       <description>&lt;h1 id=&#34;第2讲&#34;&gt;第2讲&lt;/h1&gt;
 &lt;p&gt;主要内容&lt;/p&gt;
 &lt;ul&gt;
@@ -4226,10 +4226,10 @@ inline assembly也可以参与优化&lt;/p&gt;
     
     <item>
       <title>Compiler</title>
-      <link>http://blog.junling.xyz/posts/compiler/</link>
+      <link>https://junling.li/posts/compiler/</link>
       <pubDate>Sat, 28 May 2022 18:38:04 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/compiler/</guid>
+      <guid>https://junling.li/posts/compiler/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;语义分析semantic analyzer&lt;/p&gt;
@@ -4607,10 +4607,10 @@ op R_i,z
     
     <item>
       <title>计算机系统结构笔记</title>
-      <link>http://blog.junling.xyz/posts/isa/</link>
+      <link>https://junling.li/posts/isa/</link>
       <pubDate>Sat, 28 May 2022 18:27:57 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/isa/</guid>
+      <guid>https://junling.li/posts/isa/</guid>
       <description>&lt;h1 id=&#34;第一章-量化设计与分析基础&#34;&gt;第一章 量化设计与分析基础&lt;/h1&gt;
 &lt;h2 id=&#34;11-引言&#34;&gt;1.1 引言&lt;/h2&gt;
 &lt;p&gt;86年以前：性能增长主要依赖实现技术的进步&lt;/p&gt;
@@ -5126,19 +5126,19 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Blog_comment_test</title>
-      <link>http://blog.junling.xyz/life/blog_comment_test/</link>
+      <link>https://junling.li/life/blog_comment_test/</link>
       <pubDate>Sun, 15 May 2022 17:28:26 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/life/blog_comment_test/</guid>
+      <guid>https://junling.li/life/blog_comment_test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blog_comments</title>
-      <link>http://blog.junling.xyz/posts/blog_comments/</link>
+      <link>https://junling.li/posts/blog_comments/</link>
       <pubDate>Sun, 15 May 2022 16:58:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/blog_comments/</guid>
+      <guid>https://junling.li/posts/blog_comments/</guid>
       <description>&lt;p&gt;blog评论一直没做，这次终于不嫌麻烦开整了。&lt;/p&gt;
 &lt;p&gt;我选用的是waline，主要是用户评论时不需要登录，而且好看。&lt;/p&gt;
 &lt;p&gt;部署指南参见 &lt;a href=&#34;https://waline.js.org/guide&#34;&gt;https://waline.js.org/guide&lt;/a&gt;&lt;/p&gt;
@@ -5183,19 +5183,19 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Synology</title>
-      <link>http://blog.junling.xyz/posts/synology/</link>
+      <link>https://junling.li/posts/synology/</link>
       <pubDate>Fri, 13 May 2022 19:55:45 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/synology/</guid>
+      <guid>https://junling.li/posts/synology/</guid>
       <description>&lt;p&gt;今天送走了一台j1900主机，上面部署过黑群晖，也花了很久才调教成一个顺手的群晖。
 我给群晖的定义是一个更智能的云盘，首要的任务是文件的保存同步和共享。&lt;/p&gt;
 &lt;p&gt;而首先需要解决的问题是&lt;/p&gt;
 &lt;h2 id=&#34;外网访问&#34;&gt;外网访问&lt;/h2&gt;
 &lt;p&gt;在没有公网IP的情况下，我总结了3种方法。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/&#34;&gt;洗白&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/zerotier/&#34;&gt;zerotier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://junling.li/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/&#34;&gt;洗白&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://junling.li/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://junling.li/posts/zerotier/&#34;&gt;zerotier&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;云盘&#34;&gt;云盘&lt;/h2&gt;
 &lt;p&gt;群晖提供了各种方式访问群晖的文件。&lt;/p&gt;
@@ -5231,10 +5231,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>链式前向星</title>
-      <link>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</link>
+      <link>https://junling.li/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</link>
       <pubDate>Thu, 07 Apr 2022 14:06:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</guid>
+      <guid>https://junling.li/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</guid>
       <description>&lt;p&gt;很久以前看过一遍链式前向星 的存图方法，一知半解。最近几天详细学习了一波，感觉非常有用。所以，那就开始吧。
 链式前向星自然是链表的方法。它需要构建3个数组，&lt;code&gt;next[],head[],to[]&lt;/code&gt;
 所有的数据都在这3个数组里面。
@@ -5310,10 +5310,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Best Bilibili Video of 2021</title>
-      <link>http://blog.junling.xyz/posts/2021%E7%99%BE%E5%A4%A7bilibili/</link>
+      <link>https://junling.li/posts/2021%E7%99%BE%E5%A4%A7bilibili/</link>
       <pubDate>Tue, 08 Mar 2022 01:03:42 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/2021%E7%99%BE%E5%A4%A7bilibili/</guid>
+      <guid>https://junling.li/posts/2021%E7%99%BE%E5%A4%A7bilibili/</guid>
       <description>&lt;p&gt;这是从去年底就想做的，2021年我的B站收藏夹推荐，一直拖到现在。&lt;/p&gt;
 &lt;p&gt;根据某视频网站的数据，某人去年（指2021年）在该平台看过11112个视频，总时长474.3小时，这是一个惊人的数字，如果它每天看10小时，也得花48天才能完成这个任务。&lt;/p&gt;
 &lt;h2 id=&#34;健康&#34;&gt;健康&lt;/h2&gt;
@@ -5487,12 +5487,12 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Zerotier</title>
-      <link>http://blog.junling.xyz/posts/zerotier/</link>
+      <link>https://junling.li/posts/zerotier/</link>
       <pubDate>Wed, 23 Feb 2022 15:50:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/zerotier/</guid>
+      <guid>https://junling.li/posts/zerotier/</guid>
       <description>&lt;h1 id=&#34;使用zerotier建立局域网&#34;&gt;使用zerotier建立局域网&lt;/h1&gt;
-&lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;https://junling.li/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;于是又想尝试zerotie&lt;/p&gt;
 &lt;p&gt;群晖上的操作比较简单，官网上说的很详细&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.zerotier.com/devices/synology/&#34;&gt;https://docs.zerotier.com/devices/synology/&lt;/a&gt;&lt;/p&gt;
@@ -5579,10 +5579,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>李想《节奏把控对于创业的重要性》</title>
-      <link>http://blog.junling.xyz/life/lixiang/</link>
+      <link>https://junling.li/life/lixiang/</link>
       <pubDate>Mon, 14 Feb 2022 22:31:29 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/life/lixiang/</guid>
+      <guid>https://junling.li/life/lixiang/</guid>
       <description>&lt;h1 id=&#34;节奏把控对于创业的重要性&#34;&gt;《节奏把控对于创业的重要性》&lt;/h1&gt;
 &lt;p&gt;李想&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://weibo.com/1243861097/Lb1uEq20b?type=comment&#34;&gt;https://weibo.com/1243861097/Lb1uEq20b?type=comment&lt;/a&gt;&lt;/p&gt;
@@ -5642,10 +5642,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>Junling.xyz</title>
-      <link>http://blog.junling.xyz/posts/domains/</link>
+      <link>https://junling.li/posts/domains/</link>
       <pubDate>Sun, 13 Feb 2022 23:55:00 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/domains/</guid>
+      <guid>https://junling.li/posts/domains/</guid>
       <description>&lt;p&gt;今天Godaddy告诉我uest.xyz还有一个月就到期了，让我付100新加坡元续费一年。这钱对学生党岂不是天价。遵循打一枪换一炮的理念，回撤去wawei云注册了junling.xyz
 总得能通过新域名访问到github pages吧，我一个滑铲，用waweicloud解析添加一个cname记录，然后error！&lt;/p&gt;
 &lt;p&gt;原来我当年使用A记录解析到GitHub的服务器
@@ -5683,10 +5683,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>C&#43;&#43; vector使用方法</title>
-      <link>http://blog.junling.xyz/posts/vector/</link>
+      <link>https://junling.li/posts/vector/</link>
       <pubDate>Thu, 03 Feb 2022 23:15:57 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/vector/</guid>
+      <guid>https://junling.li/posts/vector/</guid>
       <description>&lt;p&gt;来自https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html&lt;/p&gt;
 &lt;h1 id=&#34;c-vector使用方法&#34;&gt;C++ vector使用方法&lt;/h1&gt;
 &lt;p&gt;2021-08-23 11:07 更新&lt;/p&gt;
@@ -6084,10 +6084,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>1996.游戏中弱角色的数量</title>
-      <link>http://blog.junling.xyz/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</link>
+      <link>https://junling.li/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</link>
       <pubDate>Fri, 28 Jan 2022 11:49:37 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</guid>
+      <guid>https://junling.li/leetcode/1996.%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;你正在参加一个多角色游戏，每个角色都有两个主要属性：攻击 和 防御 。给你一个二维整数数组 properties ，其中 properties[i] = [attacki, defensei] 表示游戏中第 i 个角色的属性。&lt;/p&gt;
 &lt;p&gt;如果存在一个其他角色的攻击和防御等级 都严格高于 该角色的攻击和防御等级，则认为该角色为 弱角色 。更正式地，如果认为角色 i 弱于 存在的另一个角色 j ，那么 attackj &amp;gt; attacki 且 defensej &amp;gt; defensei 。&lt;/p&gt;
@@ -6368,10 +6368,10 @@ properties[i].length == 2
     
     <item>
       <title>一些影评</title>
-      <link>http://blog.junling.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</link>
+      <link>https://junling.li/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</link>
       <pubDate>Thu, 27 Jan 2022 21:36:31 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</guid>
+      <guid>https://junling.li/life/%E4%B8%80%E4%BA%9B%E5%BD%B1%E8%AF%84/</guid>
       <description>&lt;h2 id=&#34;开端&#34;&gt;《开端》&lt;/h2&gt;
 &lt;p&gt;最近最火的剧当属《开端》了，我也很喜欢。情节不错，新颖不俗套。白敬亭和赵今麦的演技在线，特别李诗情对肖鹤云说的那句：“你也进循环了？”，微表情和那种惊喜和激动很戳我，到最后表白都是意料之中了。刘奕君成熟稳重，在倒数第二次循环毅然决然拿起炸弹，真的给人很大的信心，还有耐心听李诗情叙述循环，都符合我心中对老刑警的定位，比扫黑风暴更像一个正面角色了。那次被领盒饭就感觉没有依靠了，单靠江枫我都不知道能不能完成任务，相比之下女警的形象就不那么鲜明了，就像个念台词的。&lt;/p&gt;
 &lt;p&gt;情节逻辑都很流畅，除了有些地方拖沓了，有几次循环完全可以不再有，或者可以合并。两人组加一个第三人也未尝不可，给老焦多一点戏份也行，汽车上的男孩也可以去掉。&lt;/p&gt;
@@ -6397,10 +6397,10 @@ properties[i].length == 2
     
     <item>
       <title>Manjaro Setup</title>
-      <link>http://blog.junling.xyz/posts/manjaro_setup/</link>
+      <link>https://junling.li/posts/manjaro_setup/</link>
       <pubDate>Thu, 13 Jan 2022 22:57:54 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/manjaro_setup/</guid>
+      <guid>https://junling.li/posts/manjaro_setup/</guid>
       <description>&lt;p&gt;Manjaro 的一些安装经验吧&lt;/p&gt;
 &lt;p&gt;首先进bios，解除security，然后进boot menu，把首选启动项改成uefi
 进入u盘安装
@@ -6464,10 +6464,10 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
     
     <item>
       <title>Zeller</title>
-      <link>http://blog.junling.xyz/posts/zeller/</link>
+      <link>https://junling.li/posts/zeller/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/zeller/</guid>
+      <guid>https://junling.li/posts/zeller/</guid>
       <description>&lt;p&gt;蔡勒(zeller)公式&lt;/p&gt;
 &lt;p&gt;给出日期，计算星期几&lt;/p&gt;
 &lt;p&gt;$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$&lt;/p&gt;
@@ -6551,10 +6551,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>Merry Christmas</title>
-      <link>http://blog.junling.xyz/posts/eatenapples/</link>
+      <link>https://junling.li/posts/eatenapples/</link>
       <pubDate>Fri, 24 Dec 2021 19:55:00 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/eatenapples/</guid>
+      <guid>https://junling.li/posts/eatenapples/</guid>
       <description>&lt;p&gt;​&lt;/p&gt;
 &lt;p&gt;今天大家吃苹果了没，没吃的朋友来一起吃哈，&lt;/p&gt;
 &lt;blockquote&gt;
@@ -6616,7 +6616,7 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;p&gt;本题给了两个数组，一个是每天生成的苹果数量apples[i]，另一个是那天生成苹果的腐烂日期days[i]。&lt;/p&gt;
 &lt;p&gt;很自然地，如果某一天想吃苹果，那么苹果必定没有腐烂，如果有一个表或者其他的什么东东能告诉我苹果有没有腐烂就好了。&lt;/p&gt;
 &lt;p&gt;这时想到键值对，对于每天生成的苹果，记录一个腐烂截止日期，再记录苹果数。再将这个键值对排序，每次取最近腐烂但是还没腐烂的苹果吃。&lt;/p&gt;
-&lt;p&gt;这就需要小根堆了，Java中是&lt;a href=&#34;http://blog.junling.xyz/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/&#34;&gt;优先队列&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这就需要小根堆了，Java中是&lt;a href=&#34;https://junling.li/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/&#34;&gt;优先队列&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;具体实现上，分为两个阶段，在小于n（n是apples数组的长度）的日子里，每天产生苹果，将其入队，并且看看有没有腐烂的苹果，将其出队，再看看有没有能吃到的苹果，把它吃掉；大于n的日子，由于不产生苹果，就只有清理腐烂的苹果和吃苹果这两件事要做了。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -6728,10 +6728,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>Java 优先队列</title>
-      <link>http://blog.junling.xyz/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
+      <link>https://junling.li/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 24 Dec 2021 19:45:00 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
+      <guid>https://junling.li/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
       <description>&lt;h2 id=&#34;priorityquenet&#34;&gt;priorityQuene&lt;T&gt;&lt;/h2&gt;
 &lt;p&gt;优先队列，意思是呢，它能对add进去的元素排列&lt;/p&gt;
 &lt;p&gt;可以给它一个Comparator指定排列顺序&lt;/p&gt;
@@ -7048,10 +7048,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>汇编不会编</title>
-      <link>http://blog.junling.xyz/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</link>
+      <link>https://junling.li/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Tue, 14 Dec 2021 20:05:28 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</guid>
+      <guid>https://junling.li/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</guid>
       <description>&lt;p&gt;汇编考完了，总的来说，有点迷糊。当然上课的体验很好，还算行。&lt;/p&gt;
 &lt;p&gt;乘着记忆力的顶峰，回忆下汇编学了啥。&lt;/p&gt;
 &lt;p&gt;核心就是成就嘤特尔的8086系列CPU，和围绕CPU的存储器，外设。严格遵照冯诺依曼架构，采用存取程序的方式设计。构架了x86体系，尽管牙膏厂裹足不前，但直到今天，x86系列的老大还是嘤特尔。众多外设厂还得围绕牙膏厂和农厂转，比如今天被拉出来批判的联想，不是不想造cpu，而是壁垒太高了，差了几十年的发展，已经无法再构建一套新体系了&lt;/p&gt;
@@ -7098,10 +7098,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>CentOS上部署tomcat项目</title>
-      <link>http://blog.junling.xyz/posts/pdd_on_centos/</link>
+      <link>https://junling.li/posts/pdd_on_centos/</link>
       <pubDate>Sun, 12 Dec 2021 23:56:31 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/pdd_on_centos/</guid>
+      <guid>https://junling.li/posts/pdd_on_centos/</guid>
       <description>&lt;p&gt;CentOS部署pdd&lt;/p&gt;
 &lt;p&gt;1.CentOS安装jdk&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -7158,10 +7158,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>Ascii</title>
-      <link>http://blog.junling.xyz/posts/ascii/</link>
+      <link>https://junling.li/posts/ascii/</link>
       <pubDate>Fri, 10 Dec 2021 23:23:40 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/ascii/</guid>
+      <guid>https://junling.li/posts/ascii/</guid>
       <description>&lt;p&gt;ASCII 打印字符：**数字 32–126 分配给了能在键盘上找到的字符，当您查看或打印文档时就会出现。注：十进制32代表空格 ，十进制数字 127 代表 DELETE 命令。下面是ASCII码和相应数字的对照表&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -7616,10 +7616,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>383.赎金信</title>
-      <link>http://blog.junling.xyz/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</link>
+      <link>https://junling.li/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</link>
       <pubDate>Sat, 04 Dec 2021 00:28:37 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</guid>
+      <guid>https://junling.li/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/</guid>
       <description>&lt;blockquote&gt;
 &lt;h4 id=&#34;383-赎金信httpsleetcode-cncomproblemsransom-note&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/ransom-note/&#34;&gt;383. 赎金信&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;难度简单202&lt;/p&gt;
@@ -7709,10 +7709,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>400.第N位数字</title>
-      <link>http://blog.junling.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</link>
+      <link>https://junling.li/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</link>
       <pubDate>Sat, 04 Dec 2021 00:19:37 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</guid>
+      <guid>https://junling.li/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/</guid>
       <description>&lt;p&gt;11月的力扣打卡有点懈怠了，今天看到某些人全站排名7000，竞赛排名2400，表示再&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h4 id=&#34;400-第-n-位数字httpsleetcode-cncomproblemsnth-digit&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/nth-digit/&#34;&gt;400. 第 N 位数字&lt;/a&gt;&lt;/h4&gt;
@@ -7816,10 +7816,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>1.两数之和</title>
-      <link>http://blog.junling.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <link>https://junling.li/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
       <pubDate>Fri, 03 Dec 2021 16:49:37 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <guid>https://junling.li/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
       <description>&lt;blockquote&gt;
 &lt;h4 id=&#34;1-两数之和httpsleetcode-cncomproblemstwo-sum&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/two-sum/&#34;&gt;1. 两数之和&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;难度简单&lt;/p&gt;
@@ -7915,14 +7915,14 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>跳转测试</title>
-      <link>http://blog.junling.xyz/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</link>
+      <link>https://junling.li/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Fri, 03 Dec 2021 16:35:57 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://blog.junling.xyz/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/&#34;&gt;1.两数之和&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&#34;&gt;链式前向星&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://blog.junling.xyz/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/&#34;&gt;383.赎金信&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://blog.junling.xyz/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/&#34;&gt;400.第N位数字&lt;/a&gt;&lt;/p&gt;
+      <guid>https://junling.li/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://junling.li/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/&#34;&gt;1.两数之和&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&#34;&gt;链式前向星&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/&#34;&gt;383.赎金信&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/&#34;&gt;400.第N位数字&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -7936,7 +7936,7 @@ idea中build-&amp;gt;build artifacts
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 建议使用绝对路径（根目录为content目录），而非相对路径，否则容易出错&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ref绝对路径：
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;http://blog.junling.xyz/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;https://junling.li/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;relref相对路径：
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -8016,10 +8016,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>frp内网穿透</title>
-      <link>http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/</link>
+      <link>https://junling.li/posts/%E7%BE%A4%E6%99%96frp/</link>
       <pubDate>Wed, 10 Nov 2021 16:58:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E7%BE%A4%E6%99%96frp/</guid>
+      <guid>https://junling.li/posts/%E7%BE%A4%E6%99%96frp/</guid>
       <description>&lt;p&gt;前几天被群晖官方从阿尔及利亚区强制迁回中国，导致需要手机号验证，验证完了以后会显示序列号冲突，得拍视频提交工单才能解除冲突，才能使用easyconnect，这令我十分不爽。一怒之下注销了群晖的号，打算自己弄。&lt;/p&gt;
 &lt;p&gt;由于我没有公网ip，又不想弄花生壳，teamviewer，所以我得想办法解决公网访问的问题。&lt;/p&gt;
 &lt;p&gt;下面介绍借助frp实现内网穿透。&lt;/p&gt;
@@ -8249,10 +8249,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>丧</title>
-      <link>http://blog.junling.xyz/posts/%E4%B8%A7/</link>
+      <link>https://junling.li/posts/%E4%B8%A7/</link>
       <pubDate>Fri, 05 Nov 2021 00:01:16 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E4%B8%A7/</guid>
+      <guid>https://junling.li/posts/%E4%B8%A7/</guid>
       <description>&lt;p&gt;深夜emo&lt;/p&gt;
 &lt;p&gt;emoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemo&lt;/p&gt;
 &lt;p&gt;无意间翻到大佬的博客，发现自己真的错失了许多机会，做错了不少选择。&lt;/p&gt;
@@ -8266,10 +8266,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>869.重新排序得到 2 的幂</title>
-      <link>http://blog.junling.xyz/leetcode/869.%E9%87%8D%E6%96%B0%E6%8E%92%E5%BA%8F%E5%BE%97%E5%88%B02%E7%9A%84%E5%B9%82/</link>
+      <link>https://junling.li/leetcode/869.%E9%87%8D%E6%96%B0%E6%8E%92%E5%BA%8F%E5%BE%97%E5%88%B02%E7%9A%84%E5%B9%82/</link>
       <pubDate>Thu, 28 Oct 2021 00:39:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/869.%E9%87%8D%E6%96%B0%E6%8E%92%E5%BA%8F%E5%BE%97%E5%88%B02%E7%9A%84%E5%B9%82/</guid>
+      <guid>https://junling.li/leetcode/869.%E9%87%8D%E6%96%B0%E6%8E%92%E5%BA%8F%E5%BE%97%E5%88%B02%E7%9A%84%E5%B9%82/</guid>
       <description>&lt;blockquote&gt;
 &lt;h4 id=&#34;869-重新排序得到-2-的幂httpsleetcode-cncomproblemsreordered-power-of-2&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/reordered-power-of-2/&#34;&gt;869. 重新排序得到 2 的幂&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;难度中等&lt;/p&gt;
@@ -8442,10 +8442,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>301. 删除无效的括号</title>
-      <link>http://blog.junling.xyz/leetcode/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</link>
+      <link>https://junling.li/leetcode/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</link>
       <pubDate>Wed, 27 Oct 2021 22:49:20 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</guid>
+      <guid>https://junling.li/leetcode/301.%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</guid>
       <description>&lt;blockquote&gt;
 &lt;h4 id=&#34;301-删除无效的括号httpsleetcode-cncomproblemsremove-invalid-parentheses&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/remove-invalid-parentheses/&#34;&gt;301. 删除无效的括号&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;难度困难&lt;/p&gt;
@@ -8649,10 +8649,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>全排列</title>
-      <link>http://blog.junling.xyz/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</link>
+      <link>https://junling.li/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</link>
       <pubDate>Sat, 23 Oct 2021 21:05:28 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</guid>
+      <guid>https://junling.li/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</guid>
       <description>&lt;p&gt;dfs回溯&lt;/p&gt;
 &lt;p&gt;如何将1-9个数字排序？&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic.leetcode-cn.com/0bf18f9b86a2542d1f6aa8db6cc45475fce5aa329a07ca02a9357c2ead81eec1-image.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
@@ -8785,10 +8785,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>如何拥有一个域名邮箱？</title>
-      <link>http://blog.junling.xyz/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</link>
+      <link>https://junling.li/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</link>
       <pubDate>Thu, 14 Oct 2021 09:05:28 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</guid>
+      <guid>https://junling.li/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</guid>
       <description>&lt;p&gt;邮箱i@nb.ph岂不是很牛逼，如果主站和邮箱的域名都相同也方便记忆。&lt;/p&gt;
 &lt;p&gt;虽然我不像某些人对邮箱域名非常敏感，特别是怎么有人会反感QQ邮箱啊，我觉得QQ邮箱绑定微信的推送很好啊，实时推送不香吗？非要Gmail有逼格上都上不去，非要超长的edu邮箱记不住，虽然腾讯可能活不到100年，但是哪家邮箱能存在100年呢，说不定被其他的通讯工具取代了呢。“越过长城，走向世界”这句话也仅仅发送了34年呐。根据邮箱来识人不可取，这也算是生活中的逻辑错误吧。&lt;/p&gt;
 &lt;p&gt;言归正传，如何才能有i@xx.xxx的邮箱捏？首先，你得有个域名，这个可以去godaddy或者阿里云，腾讯云上申请，.xyz .top .moe价格也不贵,5-10￥/year。然后去dns解析商为你的邮箱服务器添加一条的MX记录就行了。&lt;/p&gt;
@@ -8810,10 +8810,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>Gdb调试</title>
-      <link>http://blog.junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/</link>
+      <link>https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/gdb%E8%B0%83%E8%AF%95/</guid>
+      <guid>https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/</guid>
       <description>&lt;p&gt;今天尝试使用gdb调试，相比ide的调试没那么容易好上手&lt;/p&gt;
 &lt;p&gt;对于一个cpp文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -8891,10 +8891,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>103. 二叉树的锯齿形层序遍历</title>
-      <link>http://blog.junling.xyz/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</link>
+      <link>https://junling.li/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</link>
       <pubDate>Tue, 28 Sep 2021 09:49:20 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</guid>
+      <guid>https://junling.li/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/</guid>
       <description>&lt;blockquote&gt;
 &lt;blockquote&gt;
 &lt;h4 id=&#34;103-二叉树的锯齿形层序遍历httpsleetcode-cncomproblemsbinary-tree-zigzag-level-order-traversal&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/&#34;&gt;103. 二叉树的锯齿形层序遍历&lt;/a&gt;&lt;/h4&gt;
@@ -9079,10 +9079,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>辛丑中秋节</title>
-      <link>http://blog.junling.xyz/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</link>
+      <link>https://junling.li/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</link>
       <pubDate>Tue, 21 Sep 2021 23:35:19 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</guid>
+      <guid>https://junling.li/life/%E8%BE%9B%E4%B8%91%E4%B8%AD%E7%A7%8B%E8%8A%82/</guid>
       <description>&lt;p&gt;今天是辛丑年中秋节，古人选择每年月亮最圆的日子，作为节日来庆祝，并期冀着这一天假日能够团圆，吃月饼，赏明月，在我看来，中秋的节日氛围是仅次于春节的。&lt;/p&gt;
 &lt;p&gt;苏东坡的《水调歌头》，算是中秋诗词的顶峰。我没多少文化，只能祝大家中秋节快乐。不像大师能写就&lt;/p&gt;
 &lt;p&gt;“但愿人长久，千里共婵娟”这样的流传千古的名句。&lt;/p&gt;
@@ -9094,10 +9094,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>怎么有人用码图啊</title>
-      <link>http://blog.junling.xyz/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</link>
+      <link>https://junling.li/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</link>
       <pubDate>Mon, 20 Sep 2021 15:57:28 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</guid>
+      <guid>https://junling.li/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</guid>
       <description>&lt;p&gt;很久以前发现在浏览器里直接粘贴url就能自动下载码图提交的文件。而且是没有权限的，意味着你能下载到所有码图提交。而且对于请求次数也是没有限制的。&lt;/p&gt;
 &lt;p&gt;比如在已经登录码图的浏览器中复制这个url：http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038358&lt;/p&gt;
 &lt;p&gt;浏览器就会自动下载这个文件。&lt;/p&gt;
@@ -9209,10 +9209,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>多少个1</title>
-      <link>http://blog.junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
+      <link>https://junling.li/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
       <pubDate>Mon, 13 Sep 2021 20:56:00 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
+      <guid>https://junling.li/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
       <description>&lt;h1 id=&#34;一个二进制数中有多少个1&#34;&gt;一个二进制数中有多少个1&lt;/h1&gt;
 &lt;p&gt;我只能想到用移位消去最小的1的方法&lt;/p&gt;
 &lt;h2 id=&#34;时间复杂度为i中1的个数的做法&#34;&gt;时间复杂度为i中1的个数的做法&lt;/h2&gt;
@@ -9528,10 +9528,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>11.盛水最多的容器</title>
-      <link>http://blog.junling.xyz/posts/11/</link>
+      <link>https://junling.li/posts/11/</link>
       <pubDate>Fri, 10 Sep 2021 18:06:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/11/</guid>
+      <guid>https://junling.li/posts/11/</guid>
       <description>&lt;h1 id=&#34;11-盛最多水的容器httpsleetcode-cncomproblemscontainer-with-most-water&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/container-with-most-water/&#34;&gt;11. 盛最多水的容器&lt;/a&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;给你 &lt;code&gt;n&lt;/code&gt; 个非负整数 &lt;code&gt;a1，a2，...，a``n&lt;/code&gt;，每个数代表坐标中的一个点 &lt;code&gt;(i, ai)&lt;/code&gt; 。在坐标内画 &lt;code&gt;n&lt;/code&gt; 条垂直线，垂直线 &lt;code&gt;i&lt;/code&gt; 的两个端点分别为 &lt;code&gt;(i, ai)&lt;/code&gt; 和 &lt;code&gt;(i, 0)&lt;/code&gt; 。找出其中的两条线，使得它们与 &lt;code&gt;x&lt;/code&gt; 轴共同构成的容器可以容纳最多的水。&lt;/p&gt;
@@ -9656,10 +9656,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>About</title>
-      <link>http://blog.junling.xyz/about/</link>
+      <link>https://junling.li/about/</link>
       <pubDate>Thu, 09 Sep 2021 22:12:07 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/about/</guid>
+      <guid>https://junling.li/about/</guid>
       <description>&lt;p&gt;UESTC 大三狗，爱好各种手机，果吹，MIUI喷，雷军粉，嘉心糖&lt;/p&gt;
 &lt;p&gt;日常逛B站，逛河畔，水群，睡大觉&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;不会数学，不会编程，不会java，不会c++，不会python，不会go，不会kotlin，不会pascal，不会汇编，不会开关机&lt;/del&gt;&lt;/p&gt;
@@ -9675,10 +9675,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>从黑群晖走向白</title>
-      <link>http://blog.junling.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
+      <link>https://junling.li/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
       <pubDate>Thu, 09 Sep 2021 21:58:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
+      <guid>https://junling.li/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
       <description>&lt;p&gt;弄了快半年的黑群晖，感觉太难受了，处处受限，想来一个花生壳内网穿透都不行，zerotie没效果，放在docker里也不行，索性放弃，直接咸鱼15块洗白。&lt;/p&gt;
 &lt;p&gt;速速开始改sn/mac吧&lt;/p&gt;
 &lt;h2 id=&#34;1-开放ssh端口&#34;&gt;1 开放SSH端口&lt;/h2&gt;
@@ -9717,10 +9717,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>1567.乘积为正数的最长子数组</title>
-      <link>http://blog.junling.xyz/leetcode/1567%E4%B9%98%E7%A7%AF%E4%B8%BA%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84/</link>
+      <link>https://junling.li/leetcode/1567%E4%B9%98%E7%A7%AF%E4%B8%BA%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84/</link>
       <pubDate>Tue, 24 Aug 2021 21:03:42 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/1567%E4%B9%98%E7%A7%AF%E4%B8%BA%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84/</guid>
+      <guid>https://junling.li/leetcode/1567%E4%B9%98%E7%A7%AF%E4%B8%BA%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/&#34;&gt;1567. 乘积为正数的最长子数组长度&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;难度中等&lt;/p&gt;
@@ -9870,10 +9870,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>740.删除并获得点数</title>
-      <link>http://blog.junling.xyz/leetcode/740.%E5%88%A0%E9%99%A4%E5%B9%B6%E8%8E%B7%E5%BE%97%E7%82%B9%E6%95%B0/</link>
+      <link>https://junling.li/leetcode/740.%E5%88%A0%E9%99%A4%E5%B9%B6%E8%8E%B7%E5%BE%97%E7%82%B9%E6%95%B0/</link>
       <pubDate>Mon, 23 Aug 2021 19:39:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/740.%E5%88%A0%E9%99%A4%E5%B9%B6%E8%8E%B7%E5%BE%97%E7%82%B9%E6%95%B0/</guid>
+      <guid>https://junling.li/leetcode/740.%E5%88%A0%E9%99%A4%E5%B9%B6%E8%8E%B7%E5%BE%97%E7%82%B9%E6%95%B0/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/delete-and-earn/&#34;&gt;740. 删除并获得点数&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;给你一个整数数组 &lt;code&gt;nums&lt;/code&gt; ，你可以对它进行一些操作。&lt;/p&gt;
@@ -10048,10 +10048,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>1329.将矩阵按对角线排序</title>
-      <link>http://blog.junling.xyz/leetcode/1329%E5%B0%86%E7%9F%A9%E9%98%B5%E6%8C%89%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%8E%92%E5%BA%8F/</link>
+      <link>https://junling.li/leetcode/1329%E5%B0%86%E7%9F%A9%E9%98%B5%E6%8C%89%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Thu, 12 Aug 2021 16:19:27 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/1329%E5%B0%86%E7%9F%A9%E9%98%B5%E6%8C%89%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%8E%92%E5%BA%8F/</guid>
+      <guid>https://junling.li/leetcode/1329%E5%B0%86%E7%9F%A9%E9%98%B5%E6%8C%89%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%8E%92%E5%BA%8F/</guid>
       <description>&lt;h1 id=&#34;1329-将矩阵按对角线排序httpsleetcode-cncomproblemssort-the-matrix-diagonally&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/sort-the-matrix-diagonally/&#34;&gt;1329. 将矩阵按对角线排序&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;矩阵对角线&lt;/strong&gt; 是一条从矩阵最上面行或者最左侧列中的某个元素开始的对角线，沿右下方向一直到矩阵末尾的元素。例如，矩阵 &lt;code&gt;mat&lt;/code&gt; 有 &lt;code&gt;6&lt;/code&gt; 行 &lt;code&gt;3&lt;/code&gt; 列，从 &lt;code&gt;mat[2][0]&lt;/code&gt; 开始的 &lt;strong&gt;矩阵对角线&lt;/strong&gt; 将会经过 &lt;code&gt;mat[2][0]&lt;/code&gt;、&lt;code&gt;mat[3][1]&lt;/code&gt; 和 &lt;code&gt;mat[4][2]&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;给你一个 &lt;code&gt;m * n&lt;/code&gt; 的整数矩阵 &lt;code&gt;mat&lt;/code&gt; ，请你将同一条 &lt;strong&gt;矩阵对角线&lt;/strong&gt; 上的元素按升序排序后，返回排好序的矩阵。&lt;/p&gt;
@@ -10287,10 +10287,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>Links</title>
-      <link>http://blog.junling.xyz/links/</link>
+      <link>https://junling.li/links/</link>
       <pubDate>Sat, 07 Aug 2021 23:41:56 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/links/</guid>
+      <guid>https://junling.li/links/</guid>
       <description>&lt;h2 id=&#34;东哥httpsminatoxeongithubio&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://minatoxeon.github.io/&#34;&gt;东哥&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;首先是东哥，一个啥手机都有的神，从经典iPhone SE 到机皇 Samsung Galaxy Note 10+ ,再到爵士Huawei Mate 30 Pro ，还有守门员小米10 ，大清亡了的一加7Pro, 以及东哥新宠 iPhone 13 mini。无论是配备M1的iPad Pro Cellular 256GB with 2 years Apple Care+，还是Pixel C。数不清的数码产品东哥这里应有尽有。&lt;/p&gt;
 &lt;h2 id=&#34;alexhhhhttpalexhhhmoe&#34;&gt;&lt;strong&gt;&lt;a href=&#34;http://alexhhh.moe/&#34;&gt;Alexhhh&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
@@ -10314,10 +10314,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>41缺失的第n个正整数</title>
-      <link>http://blog.junling.xyz/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/</link>
+      <link>https://junling.li/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/</link>
       <pubDate>Sat, 07 Aug 2021 21:49:20 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/</guid>
+      <guid>https://junling.li/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%ACn%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0/</guid>
       <description>&lt;h1 id=&#34;41-缺失的第一个正数httpsleetcode-cncomproblemsfirst-missing-positive&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/first-missing-positive/&#34;&gt;41. 缺失的第一个正数&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;给你一个未排序的整数数组 &lt;code&gt;nums&lt;/code&gt; ，请你找出其中没有出现的最小的正整数。&lt;/p&gt;
 &lt;p&gt;请你实现时间复杂度为 &lt;code&gt;O(n)&lt;/code&gt; 并且只使用常数级别额外空间的解决方案。&lt;/p&gt;
@@ -10463,10 +10463,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>二叉树的前中后序遍历</title>
-      <link>http://blog.junling.xyz/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <link>https://junling.li/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
       <pubDate>Thu, 29 Jul 2021 22:56:00 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <guid>https://junling.li/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
       <description>&lt;h1 id=&#34;二叉树的前中后序遍历&#34;&gt;二叉树的前中后序遍历&lt;/h1&gt;
 &lt;p&gt;前序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -10598,10 +10598,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>6.Z字型变换</title>
-      <link>http://blog.junling.xyz/leetcode/6.z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/</link>
+      <link>https://junling.li/leetcode/6.z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/</link>
       <pubDate>Tue, 20 Jul 2021 15:27:36 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/6.z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/</guid>
+      <guid>https://junling.li/leetcode/6.z%E5%AD%97%E5%9E%8B%E5%8F%98%E6%8D%A2/</guid>
       <description>&lt;h1 id=&#34;z字型变换&#34;&gt;Z字型变换&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;h4 id=&#34;6-z-字形变换httpsleetcode-cncomproblemszigzag-conversion&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/zigzag-conversion/&#34;&gt;6. Z 字形变换&lt;/a&gt;&lt;/h4&gt;
@@ -10809,10 +10809,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>415.字符串相加</title>
-      <link>http://blog.junling.xyz/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</link>
+      <link>https://junling.li/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</link>
       <pubDate>Sun, 18 Jul 2021 19:39:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
+      <guid>https://junling.li/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
       <description>&lt;h1 id=&#34;415-字符串相加httpsleetcode-cncomproblemsadd-strings&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/add-strings/&#34;&gt;415. 字符串相加&lt;/a&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;给定两个字符串形式的非负整数 &lt;code&gt;num1&lt;/code&gt; 和&lt;code&gt;num2&lt;/code&gt; ，计算它们的和。&lt;/p&gt;
@@ -10901,10 +10901,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>48.旋转图像</title>
-      <link>http://blog.junling.xyz/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</link>
+      <link>https://junling.li/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</link>
       <pubDate>Sat, 17 Jul 2021 19:56:17 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</guid>
+      <guid>https://junling.li/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</guid>
       <description>&lt;h1 id=&#34;48-旋转图像&#34;&gt;48. 旋转图像&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;h4 id=&#34;48-旋转图像httpsleetcode-cncomproblemsrotate-image&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/rotate-image/&#34;&gt;48. 旋转图像&lt;/a&gt;&lt;/h4&gt;
@@ -11150,10 +11150,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>Unix读书笔记</title>
-      <link>http://blog.junling.xyz/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://junling.li/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 17 Jun 2021 13:50:16 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://junling.li/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h1 id=&#34;unix-读书笔记&#34;&gt;UNIX 读书笔记&lt;/h1&gt;
 &lt;h1 id=&#34;第2章unix-发展历史以及系统架构&#34;&gt;第2章：UNIX 发展历史以及系统架构&lt;/h1&gt;
 &lt;p&gt;发展历史：&lt;/p&gt;
@@ -14074,10 +14074,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>19.删除链表的倒数第N个结点</title>
-      <link>http://blog.junling.xyz/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/</link>
+      <link>https://junling.li/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/</link>
       <pubDate>Wed, 05 May 2021 23:26:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/</guid>
+      <guid>https://junling.li/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/</guid>
       <description>&lt;h1 id=&#34;19-删除链表的倒数第-n-个结点httpsleetcode-cncomproblemsremove-nth-node-from-end-of-list&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/&#34;&gt;19. 删除链表的倒数第 N 个结点&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;难度中等&lt;/p&gt;
 &lt;p&gt;给你一个链表，删除链表的倒数第 &lt;code&gt;n&lt;/code&gt; 个结点，并且返回链表的头结点。&lt;/p&gt;
@@ -14170,10 +14170,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>147.链表插入排序</title>
-      <link>http://blog.junling.xyz/leetcode/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <link>https://junling.li/leetcode/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Tue, 04 May 2021 22:08:41 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <guid>https://junling.li/leetcode/147%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
       <description>&lt;h1 id=&#34;147-对链表进行插入排序httpsleetcode-cncomproblemsinsertion-sort-list&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/insertion-sort-list/&#34;&gt;147. 对链表进行插入排序&lt;/a&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对链表进行插入排序。&lt;/p&gt;
@@ -14297,10 +14297,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>283.移动0</title>
-      <link>http://blog.junling.xyz/leetcode/283.%E7%A7%BB%E5%8A%A80/</link>
+      <link>https://junling.li/leetcode/283.%E7%A7%BB%E5%8A%A80/</link>
       <pubDate>Fri, 30 Apr 2021 17:01:19 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/leetcode/283.%E7%A7%BB%E5%8A%A80/</guid>
+      <guid>https://junling.li/leetcode/283.%E7%A7%BB%E5%8A%A80/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -14384,10 +14384,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>搭建与发布blog</title>
-      <link>http://blog.junling.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
+      <link>https://junling.li/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
       <pubDate>Tue, 27 Apr 2021 21:50:40 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
+      <guid>https://junling.li/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
       <description>&lt;p&gt;来源https://sspai.com/post/59904&lt;/p&gt;
 &lt;p&gt;利用github + hugo 搭建轻量化的blog ，非常有用的教程！&lt;/p&gt;
 &lt;h4 id=&#34;1-安装-git-和-go&#34;&gt;1. 安装 Git 和 Go&lt;/h4&gt;
@@ -14445,10 +14445,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>反转链表</title>
-      <link>http://blog.junling.xyz/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <link>https://junling.li/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Tue, 27 Apr 2021 20:27:17 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://junling.li/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;这种链表题一定要画图&lt;/p&gt;
@@ -14590,10 +14590,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>云测评</title>
-      <link>http://blog.junling.xyz/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
+      <link>https://junling.li/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
       <pubDate>Sat, 24 Apr 2021 20:15:28 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
+      <guid>https://junling.li/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
       <description>&lt;p&gt;评价手机免不了打打嘴炮，写写垃圾，以下为云评测，如有不对的地方敬请指教。&lt;/p&gt;
 &lt;p&gt;1.K40系列&lt;/p&gt;
 &lt;p&gt;K40系列只有标准版是比较出众的，可以说把性价比做到了极致，卢伟冰可以说很好地完成了雷军交给红米的任务：极致性价比，留下小米的学生党和性价比党用户，并与realme和iqoo相比不落下风。redmi没有品牌转型的任务，价位段封顶4000元，不需要使用最新的技术，所以小米的120W快充不会下放redmi，红米今年的充电上限还是33w。这一点和iqoo不一样，iqoo作为19年的新品牌，初期仍需要打品牌，做充分的推广。所以iqoo从20年失败的iqoo3到120w的iqoo5p，再到今年的iqoo7，努力想做高端手机。&lt;/p&gt;
@@ -14620,10 +14620,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>最长公共前缀</title>
-      <link>http://blog.junling.xyz/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
+      <link>https://junling.li/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
       <pubDate>Tue, 20 Apr 2021 16:32:05 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
+      <guid>https://junling.li/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
       <description>&lt;h4 id=&#34;14-最长公共前缀httpsleetcode-cncomproblemslongest-common-prefix&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/longest-common-prefix/&#34;&gt;14. 最长公共前缀&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
 &lt;p&gt;如果不存在公共前缀，返回空字符串 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;。&lt;/p&gt;
@@ -14955,10 +14955,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>Sec</title>
-      <link>http://blog.junling.xyz/posts/sec/</link>
+      <link>https://junling.li/posts/sec/</link>
       <pubDate>Tue, 20 Apr 2021 16:00:12 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/posts/sec/</guid>
+      <guid>https://junling.li/posts/sec/</guid>
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 </description>
     </item>

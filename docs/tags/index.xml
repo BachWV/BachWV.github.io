@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on AC自动机</title>
-    <link>http://blog.junling.xyz/tags/</link>
+    <link>https://junling.li/tags/</link>
     <description>Recent content in Tags on AC自动机</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
     <lastBuildDate>Mon, 03 Jan 2022 00:57:54 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.junling.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junling.li/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Easy</title>
-      <link>http://blog.junling.xyz/tags/easy/</link>
+      <link>https://junling.li/tags/easy/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/easy/</guid>
+      <guid>https://junling.li/tags/easy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leetcode</title>
-      <link>http://blog.junling.xyz/tags/leetcode/</link>
+      <link>https://junling.li/tags/leetcode/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/leetcode/</guid>
+      <guid>https://junling.li/tags/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Medium</title>
-      <link>http://blog.junling.xyz/tags/medium/</link>
+      <link>https://junling.li/tags/medium/</link>
       <pubDate>Thu, 28 Oct 2021 00:39:21 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/medium/</guid>
+      <guid>https://junling.li/tags/medium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Difficult</title>
-      <link>http://blog.junling.xyz/tags/difficult/</link>
+      <link>https://junling.li/tags/difficult/</link>
       <pubDate>Wed, 27 Oct 2021 22:49:20 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/difficult/</guid>
+      <guid>https://junling.li/tags/difficult/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>http://blog.junling.xyz/tags/c&#43;&#43;/</link>
+      <link>https://junling.li/tags/c&#43;&#43;/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/c&#43;&#43;/</guid>
+      <guid>https://junling.li/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gdb</title>
-      <link>http://blog.junling.xyz/tags/gdb/</link>
+      <link>https://junling.li/tags/gdb/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>http://blog.junling.xyz/tags/gdb/</guid>
+      <guid>https://junling.li/tags/gdb/</guid>
       <description></description>
     </item>
     
