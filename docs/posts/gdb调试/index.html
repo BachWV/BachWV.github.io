@@ -181,7 +181,10 @@ onload='renderMathInElement(document.body);'></script>
 <p><code>list/l 3 </code> 可以使用list/l命令查看程序，方便我们添加断点时查看信息。</p>
 <ol>
 <li>
-<p>break … if &lt; condition&gt; 在处理某些循环体中可使用此方法进行调试，其中…可以是上述的break lineNumber、break +offset/break -offset中的参数，其中condition表示条件，在条件成立时程序即停止运行，如设置break if i=100表示当i为100时程序停止运行。 查看断点时，也可以使用info命令如info breakpoints [n]、info break [n]其中n 表示断点号来查看断点信息。</p>
+<p>break … if &lt; condition&gt; 在处理某些循环体中可使用此方法进行调试，其中…可以是上述的break lineNumber、break +offset/break -offset中的参数，其中condition表示条件，在条件成立时程序即停止运行，如设置break if i=100表示当i为100时程序停止运行。</p>
+</li>
+<li>
+<p>查看断点时，也可以使用info命令如info breakpoints [n]、info break [n]其中n 表示断点号来查看断点信息。</p>
 <p>好像不能在内联汇编里面打断点</p>
 </li>
 <li>
@@ -194,31 +197,36 @@ onload='renderMathInElement(document.body);'></script>
 <p>print/p 显示指定变量</p>
 </li>
 <li>
-<p><code>p $rax</code>查看寄存器</p>
+<p><code>p $rax</code>查看寄存器请查看：https://blog.csdn.net/linuxheik/article/details/17380767</p>
 </li>
 <li>
-<p>请查看：https://blog.csdn.net/linuxheik/article/details/17380767</p>
+<p>watch命令 watch命令一般来观察某个表达式(变量也可视为一种表达式)的值是否发生了变化，如果由变化则程序立即停止运行，其具体用法如下：watch &lt; expr&gt; 为表达式(变量)expr设置一个观察点一旦其数值由变化，程序立即停止运行 rwatch &lt; expr&gt; 当表达式expr被读时，程序立即停止运行 awatch &lt; expr&gt; 当表达式expr的值被读或被写时程序立即停止运行 info watchpoints 列出当前所设置的所有观察点</p>
 </li>
 <li>
-<p>watch命令 watch命令一般来观察某个表达式(变量也可视为一种表达式)的值是否发生了变化，如果由变化则程序立即停止运行，其具体用法如下：</p>
+<p>return命令 如果在函数中设置了调试断点，在断点后还有语句没有执行完，这个时候我们可以使用return命令强制函数忽略还没有执行的语句并返回。可以直接使用return命令用于取消当前函数的执行并立即返回函数值，也可以指定表达式如 return &lt; expression&gt;那么该表达式的值会被作为函数的返回值。</p>
 </li>
-</ol>
-<p>watch &lt; expr&gt; 为表达式(变量)expr设置一个观察点一旦其数值由变化，程序立即停止运行 rwatch &lt; expr&gt; 当表达式expr被读时，程序立即停止运行 awatch &lt; expr&gt; 当表达式expr的值被读或被写时程序立即停止运行 info watchpoints 列出当前所设置的所有观察点</p>
-<ol>
-<li>return命令 如果在函数中设置了调试断点，在断点后还有语句没有执行完，这个时候我们可以使用return命令强制函数忽略还没有执行的语句并返回。可以直接使用return命令用于取消当前函数的执行并立即返回函数值，也可以指定表达式如 return &lt; expression&gt;那么该表达式的值会被作为函数的返回值。</li>
-<li>info命令 info命令可以用来在调试时查看寄存器、断点、观察点和信号等信息。其用法如下：</li>
+<li>
+<p>info命令 info命令可以用来在调试时查看寄存器、断点、观察点和信号等信息。其用法如下：</p>
+</li>
 </ol>
 <p><code>info registers</code>:查看除了浮点寄存器以外的寄存器</p>
 <p><code>info all-registers</code>: 查看所有的寄存器包括浮点寄存器</p>
 <p><code>info registers &lt; registersName&gt;</code>:查看指定寄存器</p>
 <p><code>info break</code>: 查看所有断点信息 info watchpoints: 查看当前设置的所有观察点 info signals info handle: 查看有哪些信号正在被gdb检测 info line: 查看源代码在内存中的地址 info threads: 可以查看多线程</p>
-<ol>
-<li>finish命令  执行完当前的函数。</li>
-</ol>
+<p>finish命令  执行完当前的函数。</p>
 <p>run(缩写r)和quit(缩写q)分别可以开始运行程序和退出gdb调试</p>
 <p>whatis或ptype显示变量的类型</p>
 <p>bt显示函数调用路径</p>
 <p>回到过去<code>record full</code></p>
+<h2 id="查看内存">查看内存</h2>
+<p>使用examine（简写x）来查看内存地址中的值。语法：
+x/
+n、f、u是可选的参数。
+（1）n 是一个正整数，表示显示内存的长度，也就是说从当前地址向后显示几个地址的内容。
+（2）f 表示显示的格式，参见上面。如果地址所指的是字符串，那么格式可以是s，如果地十是指令地址，那么格式可以是i。
+（3）u 表示从当前地址往后请求的字节数，如果不指定的话，GDB默认是4个bytes。u参数可以用下面的字符来代替，b表示单字节，h表示双字节，w表示四字 节，g表示八字节。当我们指定了字节长度后，GDB会从指内存定的内存地址开始，读写指定字节，并把其当作一个值取出来。
+eg:</p>
+<p>x/3uh 0x54320 ：从内存地址0x54320读取内容，h表示以双字节为一个单位，3表示三个单位，u表示按十六进制显示。</p>
 </div>
 	</section>
 
@@ -355,7 +363,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1591 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1925 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

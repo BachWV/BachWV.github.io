@@ -321,7 +321,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>最后的最后:</p>
-<p>突然看到acllib的git repo好像由sample，那例子能不能运行呢？</p>
+<p>突然看到翁老师acllib的git repo好像有sample，那例子能不能运行呢？</p>
 <p>我直接一个clone，一个make，好家伙，给的例子研究一下</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -379,22 +379,16 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVER=0x0501 -o src
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$mingw32-make -nB
+</span></span><span style="display:flex;"><span>gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVER=0x0501 -o src
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其实和刚开始的差不多，感谢makefile，</p>
 <p>复盘了一下，看到devcpp添加lib是多余的，只要在参数加<code>-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32</code>才是关键，我之前只加了<code>-lwinmm</code>所以还是报错</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mingw32-make -nB
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>搞定！</p>
+<p>搞定！</p>
 <p>虽然很简单的一个项目，和b站小学生写操作系统没法比</p>
 <p>还是说明一下啊</p>
 <p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141017067.png" alt="image-20220728141017067"></p>
@@ -416,7 +410,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 <p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141157276.png" alt="image-20220728141157276"></p>
 <p>30对应y轴，15对应x轴</p>
 <p>数组值为1对应黑块，值为0对应空。初始值全为0。绘图时，遍历allPixel数组，遇到1时使用ACLLIB库中提供的rectangle命令在相应位置绘制矩形。</p>
-<p><strong>2</strong>**）下落定时与键盘控制**</p>
+<p><strong>2）下落定时与键盘控制</strong></p>
 <p>**下落定时：**考虑到俄罗斯方块匀速下落，本游戏使用ACLLIB库提供的定时器来控制下落，用整型变量x，y记录每一个下落的方块的位置，初始位置为上方正中，4*4矩形左上方点在整个坐标系的位置，每隔300ms，刷新一次界面（清屏并对已存在的和正在下落的方块进行重绘）</p>
 <p>每次下落（达到300ms）将y的加1，并且对下方进行预判断，如果方块下方存在障碍或者达到最底行，停止移动并将该方块的值写入allPixel中。</p>
 <p>**键盘控制：**每次按下按键时，触发keyEvent事件，对应改变bool变量的值。本游戏设计5个有交互的键。</p>
@@ -425,12 +419,12 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 <p><strong>下键</strong>：加速，改变计时器为50ms，刷新时间缩短到50ms，下落速度达到原来的6倍。</p>
 <p><strong>空格键</strong>：长按暂停游戏；</p>
 <p>松开空格键继续。</p>
-<p><strong>3</strong>**）图形界面和音效设计**</p>
+<p><strong>3）图形界面和音效设计</strong></p>
 <p>本游戏操作界面如下：</p>
 <p>左侧框中为正在下落的方块和已经下落的方块，右侧为计分和提示文字</p>
 <p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image002.jpg" alt="img"></p>
 <p>计分和等级功能：每下降一个方块加1分，每消去一行方块升1级。并播放升级音效。如果方块堆积到达顶部，则显示游戏结束。</p>
-<p>\3. 核心算法的详细设计与实现</p>
+<h3 id="核心算法的详细设计与实现">核心算法的详细设计与实现</h3>
 <p>下面列举本游戏的核心算法：</p>
 <p>**判断障碍算法：**在每次左右移动时，需要判断是否遇到障碍，拿右移的代码举例，该判断算法的步骤如下：</p>
 <p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image004.jpg" alt="img"></p>
@@ -475,15 +469,28 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>绘制正在下落的俄罗斯方块图形：</strong></p>
-<p>绘制俄罗斯方块图像是本游戏的基础，需要正在下落的坐标参数x,y和图形序号参数num（初始num由随机数确定），对确定序号num的三维数组Graphic进行遍历，若(0,1)处值为1，x=3,y=4则将该点绘制到整个窗口的(20+4 * pixelWidth, 4* pixelWidth)位置，为了让整个窗口居中的统一在x轴增加了20。代码如下</p>
-<p>for (int i = 0; i &lt; 4; i++) {</p>
-<p>​       for (int j = 0; j &lt; 4; j++) {</p>
-<p>​           if (Graphic[num][i][j]) {</p>
-<p>​              rectangle(20+(j + x) * pixelWidth, (i + y) * pixelWidth, 20+(j + 1 + x) * pixelWidth, (i + 1 + y) * pixelWidth);</p>
-<p>​           }</p>
-<p>​       }</p>
-<p>}</p>
-<p>绘制已经存在的像素点与此大同小异。</p>
+<p>绘制俄罗斯方块图像是本游戏的基础，需要正在下落的坐标参数x,y和图形序号参数num（初始num由随机数确定），对确定序号num的三维数组Graphic进行遍历，若(0,1)处值为1，x=3,y=4则将该点绘制到整个窗口的<code>(20+4 * pixelWidth, 4* pixelWidth)</code>位置，为了让整个窗口居中的统一在x轴增加了20。代码如下</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>for (int i = 0; i &lt; 4; i++) {
+</span></span><span style="display:flex;"><span>       for (int j = 0; j &lt; 4; j++) {
+</span></span><span style="display:flex;"><span>          if (Graphic[num][i][j]) {
+</span></span><span style="display:flex;"><span>             rectangle(20+(j + x) * pixelWidth, (i + y) * pixelWidth, 20+(j + 1 + x) * pixelWidth, (i + 1 + y) * pixelWidth);
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>绘制已经存在的像素点与此大同小异。</p>
 <p>**判断某一行是否填满方块：**对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。</p>
 </div>
 	</section>
@@ -621,7 +628,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3907 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3903 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

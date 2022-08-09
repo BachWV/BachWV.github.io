@@ -164,7 +164,7 @@ collect2.exe: error: ld returned 1 exit status
 
 最后的最后:
 
-突然看到acllib的git repo好像由sample，那例子能不能运行呢？
+突然看到翁老师acllib的git repo好像有sample，那例子能不能运行呢？
 
 我直接一个clone，一个make，好家伙，给的例子研究一下
 
@@ -199,6 +199,7 @@ char :
 
 
 ```
+$mingw32-make -nB
 gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVER=0x0501 -o src
 ```
 
@@ -208,9 +209,7 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 复盘了一下，看到devcpp添加lib是多余的，只要在参数加`-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32`才是关键，我之前只加了`-lwinmm`所以还是报错
 
-```
-mingw32-make -nB
-```
+
 
 搞定！
 
@@ -260,7 +259,7 @@ mingw32-make -nB
 
  
 
-**2****）下落定时与键盘控制**
+**2）下落定时与键盘控制**
 
 **下落定时：**考虑到俄罗斯方块匀速下落，本游戏使用ACLLIB库提供的定时器来控制下落，用整型变量x，y记录每一个下落的方块的位置，初始位置为上方正中，4*4矩形左上方点在整个坐标系的位置，每隔300ms，刷新一次界面（清屏并对已存在的和正在下落的方块进行重绘）
 
@@ -278,7 +277,7 @@ mingw32-make -nB
 
 松开空格键继续。
 
-**3****）图形界面和音效设计**
+**3）图形界面和音效设计**
 
 本游戏操作界面如下：
 
@@ -290,7 +289,7 @@ mingw32-make -nB
 
  
 
-\3. 核心算法的详细设计与实现
+### 核心算法的详细设计与实现
 
 下面列举本游戏的核心算法：
 
@@ -325,21 +324,21 @@ void isMoveRight() {
 
 **绘制正在下落的俄罗斯方块图形：**
 
-绘制俄罗斯方块图像是本游戏的基础，需要正在下落的坐标参数x,y和图形序号参数num（初始num由随机数确定），对确定序号num的三维数组Graphic进行遍历，若(0,1)处值为1，x=3,y=4则将该点绘制到整个窗口的(20+4 * pixelWidth, 4* pixelWidth)位置，为了让整个窗口居中的统一在x轴增加了20。代码如下
+绘制俄罗斯方块图像是本游戏的基础，需要正在下落的坐标参数x,y和图形序号参数num（初始num由随机数确定），对确定序号num的三维数组Graphic进行遍历，若(0,1)处值为1，x=3,y=4则将该点绘制到整个窗口的`(20+4 * pixelWidth, 4* pixelWidth)`位置，为了让整个窗口居中的统一在x轴增加了20。代码如下
 
+```
 for (int i = 0; i < 4; i++) {
-
-​       for (int j = 0; j < 4; j++) {
-
-​           if (Graphic[num][i][j]) {
-
-​              rectangle(20+(j + x) * pixelWidth, (i + y) * pixelWidth, 20+(j + 1 + x) * pixelWidth, (i + 1 + y) * pixelWidth);
-
-​           }
-
-​       }
-
+       for (int j = 0; j < 4; j++) {
+          if (Graphic[num][i][j]) {
+             rectangle(20+(j + x) * pixelWidth, (i + y) * pixelWidth, 20+(j + 1 + x) * pixelWidth, (i + 1 + y) * pixelWidth);
+          }
+       }
    }
+```
+
+
+
+
 
 绘制已经存在的像素点与此大同小异。
 
