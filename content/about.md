@@ -26,6 +26,12 @@ lijunlin0012@126.com
 
 li@junling.xyz
 
+i@junling.xyz
+
+li@junling.li
+
+i@junling.li
+
 2674855275@qq.com
 
 lijunling2077@gmail.com
@@ -37,4 +43,7 @@ Github: https://github.com/BachWV
 bilibili: https://space.bilibili.com/36175480
 
 weixin official account : 一行瑠璃
+
+每周五更新
+
 ![一行瑠璃](https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg)

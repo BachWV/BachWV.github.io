@@ -53,7 +53,10 @@ vercel的操作远远比我想的要简单，添加github仓库
 2011年，列支敦士登决定将允许出租整个国家，每晚租金是4万英镑（约42.5万人民币）。该国的临时“拥有者”会在议会仪式上得到一把象征性的钥匙，然后就可以使用土地，甚至调用当地警察。 
 
 盘点历史买过的域名
- uest.xyz 2021-3-15 godaddy
- lijunling.xyz 2019-08-25 阿里云	
+uest.xyz 2021-3-15 godaddy
+
+lijunling.xyz 2019-08-25 阿里云	
+
 bestboyofuestc.xyz 2019-08-24 阿里云（万网
+
 IAMAPPALLED.TODAY 2017-8-17 godaddy
