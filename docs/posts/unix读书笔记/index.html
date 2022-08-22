@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机 </title>
+	<title>AC自动机  | Unix笔记</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2"></h1>
+<h1 class="pt-2">Unix笔记</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,8 +131,214 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+		datetime="2021-06-17T13:50:16&#43;08:00">2021-6-17</time>
 </div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#系统结构">系统结构：</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31登录与退出">3.1登录与退出</a></li>
+    <li><a href="#32-简单的unix命令">3.2 简单的UNIX命令</a></li>
+    <li><a href="#33-获取帮助信息">3.3 获取帮助信息</a>
+      <ul>
+        <li><a href="#333-man手册">3.3.3 man手册：</a></li>
+      </ul>
+    </li>
+    <li><a href="#34-更正键盘输入错误">3.4 更正键盘输入错误</a></li>
+    <li><a href="#35-使用shell">3.5 使用shell</a>
+      <ul>
+        <li><a href="#352-更改用户shell">3.5.2 更改用户shell</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#41模式">4.1模式：</a></li>
+    <li><a href="#42-命令模式">4.2 命令模式：</a></li>
+    <li><a href="#43-退出">4.3 退出</a></li>
+    <li><a href="#44-存储缓冲区">4.4 存储缓冲区</a></li>
+    <li><a href="#45-高级操作">4.5 高级操作</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#51-磁盘组织">5.1 磁盘组织</a></li>
+    <li><a href="#52-unix中的文件类型">5.2 UNIX中的文件类型</a></li>
+    <li><a href="#53-目录详述">5.3 目录详述</a>
+      <ul>
+        <li><a href="#531-重要的目录">5.3.1 重要的目录：</a></li>
+        <li><a href="#532-路径">5.3.2 路径</a></li>
+      </ul>
+    </li>
+    <li><a href="#54-目录命令">5.4 目录命令</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#55-显示文件">5.5 显示文件</a></li>
+    <li><a href="#56-打印文件内容">5.6 打印文件内容</a></li>
+    <li><a href="#57-删除文件">5.7 删除文件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#61-更多vi知识">6.1 更多vi知识</a>
+      <ul>
+        <li><a href="#611-启动vi编辑器">6.1.1 启动vi编辑器</a></li>
+        <li><a href="#612-编辑多个文件">6.1.2 编辑多个文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#62-重排文本">6.2 重排文本</a></li>
+    <li><a href="#63-操作符的域">6.3 操作符的域</a></li>
+    <li><a href="#64-使用缓冲区">6.4 使用缓冲区</a>
+      <ul>
+        <li><a href="#641-数字编号缓冲区">6.4.1 数字编号缓冲区</a></li>
+        <li><a href="#642-字母编号缓冲区">6.4.2 字母编号缓冲区</a></li>
+      </ul>
+    </li>
+    <li><a href="#65--光标定位键">6.5  光标定位键</a></li>
+    <li><a href="#66-定制vi">6.6 定制vi</a>
+      <ul>
+        <li><a href="#664-缩写ab">6.6.4 缩写<code>ab</code></a></li>
+        <li><a href="#665-exrc文件">6.6.5 .exrc文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#67-其他命令">6.7 其他命令</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#例子">例子</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#81-重定向">8.1 重定向</a></li>
+    <li><a href="#82-管道">8.2 管道</a>
+      <ul>
+        <li><a href="#821--shell如何实现管道">8.2.1  Shell如何实现管道？</a></li>
+      </ul>
+    </li>
+    <li><a href="#83--文件操作">8.3  文件操作</a></li>
+    <li><a href="#84-ln链接文件">8.4 ln链接文件</a></li>
+    <li><a href="#85-其他wcheadtail">8.5 其他wc,head,tail</a></li>
+    <li><a href="#86-sed替换">8.6 sed替换</a></li>
+    <li><a href="#87-打开文件grep命令">8.7 打开文件：grep命令</a></li>
+    <li><a href="#88-find查找文件">8.8 find查找文件</a></li>
+    <li><a href="#89-文件系统">8.9 文件系统</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#91-显示消息echo命令">9.1 显示消息：echo命令</a></li>
+    <li><a href="#92-shell-变量">9.2 shell 变量</a>
+      <ul>
+        <li><a href="#921-显示和清除变量set和unset命令">9.2.1 显示和清除变量：set和unset命令</a></li>
+        <li><a href="#922-标准-shell-变量">9.2.2 标准 shell 变量</a></li>
+      </ul>
+    </li>
+    <li><a href="#93-其他元字符">9.3 其他元字符</a>
+      <ul>
+        <li><a href="#931-重音符号">9.3.1 重音符号</a></li>
+        <li><a href="#932-括号">9.3.2 括号</a></li>
+        <li><a href="#933-后台处理">9.3.3 后台处理&amp;</a></li>
+      </ul>
+    </li>
+    <li><a href="#94-其他unix工具">9.4 其他UNIX工具</a>
+      <ul>
+        <li><a href="#941-延时定时">9.4.1 延时定时</a></li>
+        <li><a href="#942-显示pid">9.4.2 显示PID</a></li>
+        <li><a href="#943-kill命令">9.4.3 kill命令</a></li>
+        <li><a href="#944-分离输出">9.4.4 分离输出</a></li>
+        <li><a href="#945-文本排序">9.4.5 文本排序</a></li>
+      </ul>
+    </li>
+    <li><a href="#95-列出之前输入的命令">9.5 列出之前输入的命令</a></li>
+    <li><a href="#96-创建别名">9.6 创建别名</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#101-通信方式">10.1 通信方式</a>
+      <ul>
+        <li><a href="#1011-write命令">10.1.1 write命令</a></li>
+        <li><a href="#1012-显示新闻news命令">10.1.2 显示新闻：news命令</a></li>
+        <li><a href="#1013-广播消息wall命令">10.1.3 广播消息：wall命令</a></li>
+        <li><a href="#1014-全双工通信talk命令">10.1.4 全双工通信：talk命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#102-电子邮件">10.2 电子邮件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#111-gnu工具链">11.1 Gnu工具链</a></li>
+    <li><a href="#112-gcc">11.2 gcc</a></li>
+    <li><a href="#113-gdb">11.3 gdb</a></li>
+    <li><a href="#114-makefile">11.4 makefile</a></li>
+    <li><a href="#115-cmake">11.5 cmake</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1211-编写简单脚本">12.1.1 编写简单脚本</a></li>
+        <li><a href="#1212-执行脚本">12.1.2 执行脚本</a></li>
+        <li><a href="#1221-使用特殊字符">12.2.1 使用特殊字符</a></li>
+        <li><a href="#1222-退出系统的方式">12.2.2 退出系统的方式</a></li>
+        <li><a href="#1223-点命令">12.2.3 点命令</a></li>
+        <li><a href="#1224-读取命令read">12.2.4 读取命令：read</a></li>
+        <li><a href="#1231-注释">12.3.1 注释</a></li>
+        <li><a href="#1232-变量">12.3.2 变量</a></li>
+        <li><a href="#1233-命令行参数">12.3.3 命令行参数</a></li>
+        <li><a href="#1234-条件与测试">12.3.4 条件与测试</a></li>
+        <li><a href="#1235-不同类型的判断">12.3.5 不同类型的判断</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a>
+      <ul>
+        <li><a href="#1236-参数替换">12.3.6 参数替换</a></li>
+      </ul>
+    </li>
+    <li><a href="#124-算术表达式">12.4 算术表达式</a>
+      <ul>
+        <li><a href="#1241-算术运算expr命令">12.4.1 算术运算：expr命令</a></li>
+        <li><a href="#1242-算术运算let命令">12.4.2 算术运算：let命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#125-循环结构">12.5 循环结构</a>
+      <ul>
+        <li><a href="#1251-for循环for-in-done-结构">12.5.1 for循环：for-in-done 结构</a></li>
+        <li><a href="#1252-while循环">12.5.2 while循环</a></li>
+        <li><a href="#1253-until循环">12.5.3 until循环</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#132-unix内核信号">13.2 UNIX内核：信号</a>
+      <ul>
+        <li><a href="#1321-捕捉信号trap命令">13.2.1 捕捉信号：<code>trap</code>命令</a></li>
+        <li><a href="#1322-捕捉复位">13.2.2 捕捉复位</a></li>
+        <li><a href="#1323-设置终端参数stty命令">13.2.3 设置终端参数：stty命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#133-对终端的进一步讨论">13.3 对终端的进一步讨论</a>
+      <ul>
+        <li><a href="#1331-终端数据库terminfo文件">13.3.1 终端数据库：terminfo文件</a></li>
+        <li><a href="#1332-设置终端功能tput命令">13.3.2 设置终端功能：tput命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#134-其他命令">13.4 其他命令</a>
+      <ul>
+        <li><a href="#多路分支case结构">多路分支：case结构</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</details>
 
 <hr />
 
@@ -144,12 +350,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><h2 id="toc-true">bs&mdash;
-title: &ldquo;Unix笔记&rdquo;
-date: 2021-06-17T13:50:16+08:00
-draft: false
-toc: true</h2>
-<h1 id="第2章unix-发展历史以及系统架构">第2章：UNIX 发展历史以及系统架构</h1>
+		<div class="c-rich-text"><h1 id="第2章unix-发展历史以及系统架构">第2章：UNIX 发展历史以及系统架构</h1>
 <p>发展历史：</p>
 <p>1965年    MULTICS  ( Multiplexed Information and Computing Service) 的开发</p>
 <p>1970年    Ken Thompson 和 Dennis Ritchie 在PDP7上用汇编语言开发出UNICS</p>
@@ -2815,7 +3016,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 19693 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 19665 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -2831,17 +3032,17 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
+    <a class="flex-grow-0" href="/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        84.柱状图中最大的矩形
+        19.删除链表的倒数第N个结点
     </a>
     
     
-    <a class="flex-grow-0" href="/posts/sec/">
-        Sec
+    <a class="flex-grow-0" href="/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
+        48.旋转图像
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />

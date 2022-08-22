@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | 84.柱状图中最大的矩形</title>
+	<title>AC自动机  | Qemu</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">84.柱状图中最大的矩形</h1>
+<h1 class="pt-2">Qemu</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+		datetime="2022-07-28T14:05:38&#43;08:00">2022-7-28</time>
 </div>
 
 <hr />
@@ -144,64 +144,99 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><h3 id="84-柱状图中最大的矩形">84. 柱状图中最大的矩形</h3>
-<p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
-<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
-<p>示例 1:</p>
-<p>输入：heights = [2,1,5,6,2,3]
-输出：10
-解释：最大的矩形为图中红色区域，面积为 10
-示例 2：</p>
-<p>输入： heights = [2,4]
-输出： 4</p>
-<p>提示：</p>
-<p>1 &lt;= heights.length &lt;=105
-0 &lt;= heights[i] &lt;= 104</p>
+		<div class="c-rich-text"><p>qemu入门</p>
+<p>报错</p>
+<h1 id="qemu">QEMU</h1>
+<p>QEMU是一款开源的模拟处理器，课程使用它来进行X86仿真。强烈建议使用MIT提供的魔改版。</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">largestRectangleArea</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">heights</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">heights</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">ph</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span> <span style="color:#f92672">[</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">2</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++)</span> <span style="color:#111">ph</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]=</span><span style="color:#111">heights</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">Deque</span><span style="color:#f92672">&lt;</span><span style="color:#111">Integer</span><span style="color:#f92672">&gt;</span> <span style="color:#111">stack</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#111">ArrayDeque</span><span style="color:#f92672">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">2</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e">//  System.out.println(i+&#34; &#34;+stack);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">while</span><span style="color:#f92672">(!</span><span style="color:#111">stack</span><span style="color:#f92672">.</span><span style="color:#75af00">isEmpty</span><span style="color:#f92672">()&amp;&amp;</span><span style="color:#111">ph</span><span style="color:#f92672">[</span><span style="color:#111">stack</span><span style="color:#f92672">.</span><span style="color:#75af00">getLast</span><span style="color:#f92672">()]&gt;</span><span style="color:#111">ph</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]){</span>
-</span></span><span style="display:flex;"><span>               
-</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">int</span> <span style="color:#111">cur</span><span style="color:#f92672">=</span><span style="color:#111">stack</span><span style="color:#f92672">.</span><span style="color:#75af00">removeLast</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">Math</span><span style="color:#f92672">.</span><span style="color:#75af00">max</span><span style="color:#f92672">(</span><span style="color:#111">ans</span><span style="color:#f92672">,(</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">stack</span><span style="color:#f92672">.</span><span style="color:#75af00">getLast</span><span style="color:#f92672">()-</span><span style="color:#111">1</span><span style="color:#f92672">)*</span><span style="color:#111">ph</span><span style="color:#f92672">[</span><span style="color:#111">cur</span><span style="color:#f92672">]);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">stack</span><span style="color:#f92672">.</span><span style="color:#75af00">offer</span><span style="color:#f92672">(</span><span style="color:#111">i</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/mit-pdos/6.828-qemu.git qemu
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><p>模拟一下loongson</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>qemu-system-loongarch64 \
+</span></span><span style="display:flex;"><span>          -nographic \
+</span></span><span style="display:flex;"><span>          -serial mon:stdio \
+</span></span><span style="display:flex;"><span>          -m 1024 \
+</span></span><span style="display:flex;"><span>          -kernel vmlinuz \
+</span></span><span style="display:flex;"><span>          -initrd build/initramfs.cpio.gz \
+</span></span><span style="display:flex;"><span>          -append &#34;console=ttyS0 quiet acpi=off&#34;
+</span></span><span style="display:flex;"><span>   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
+</span></span><span style="display:flex;"><span>   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编译qemu">编译QEMU</h2>
+<p>代码可能比较老了，编译中会出现一些问题。</p>
+<p>configure</p>
+<p>缺少ninja:<code>apt install ninja-build</code></p>
+<p>中间可能会遇到各种报错，此处引用大佬的博客（提及的问题我大部分都遇到了）：</p>
+<blockquote>
+<ol>
+<li>问题1：
+<ol>
+<li>出现：<code>ERROR: Python not found. Use --python=/path/to/python</code></li>
+<li>解决：添加<code>--python=python3</code>，还是不行提示<code>Note that Python 3 or later is not yet supported</code>。安装python2.7，然后使用<code>--python=python2.7</code>选项。</li>
+</ol>
+</li>
+<li>问题2：
+<ol>
+<li>出现：<code>ERROR: pkg-config binary 'pkg-config' not found</code></li>
+<li>解决：执行<code>apt-get install -y pkg-config</code></li>
+</ol>
+</li>
+<li>问题3：
+<ol>
+<li>出现：<code>ERROR: zlib check failed. Make sure to have the zlib libs and headers installed.</code></li>
+<li>解决：执行<code>sudo apt-get install zlib1g-dev</code></li>
+</ol>
+</li>
+<li>问题4：
+<ol>
+<li>出现：<code>ERROR: glib-2.12 gthread-2.0 is required to compile QEMU</code></li>
+<li>解决：<code>sudo apt-get install libglib2.0-dev</code></li>
+</ol>
+</li>
+<li>问题5：
+<ol>
+<li>出现：<code>ERROR: pixman &gt;= 0.21.8 not present.</code></li>
+<li>解决：<code>sudo apt-get install libpixman-1-dev</code></li>
+</ol>
+</li>
+<li>问题6：
+<ol>
+<li>出现：<code>vl.c: In function ‘main’: vl.c:2778:5: error: ‘g_mem_set_vtable’ is deprecated [-Werror=deprecated-declarations] g_mem_set_vtable(&amp;mem_trace); ^ In file included from /usr/include/glib-2.0/glib/glist.h:32:0, from /usr/include/glib-2.0/glib/ghash.h:33, from /usr/include/glib-2.0/glib.h:50, from vl.c:59: /usr/include/glib-2.0/glib/gmem.h:357:7: note: declared here void g_mem_set_vtable (GMemVTable *vtable); ^ cc1: all warnings being treated as errors rules.mak:57: recipe for target 'vl.o' fai·led make: *** [vl.o] Error 1</code></li>
+<li>解决：QEMU源码根目录下的Makefile文件最后加上一行 QEMU_CFLAGS+=-w优化</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p>如果遇到<code>undefined reference to 'major'</code>，在报错的源文件中添加<code>#include &lt;sys/sysmacros.h&gt;</code></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   ./qemu-system-loongarch64 -cdrom ~/loongarchlinux-2022.06.22.1-loongarch64.iso -device qemu-xhci,id=xhci -device qemu-xhci,id=verylongson -device usb-kbd,bus=xhci.0 -device usb-mouse,bus=verylongson.0 -vnc :0 -m 1g -vga virtio -boot a -bios ~/QEMU_EFI.fd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png" alt="image-20220731212512960"></p>
+</div>
 	</section>
 
 
@@ -218,7 +253,8 @@ onload='renderMathInElement(document.body);'></script>
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" >
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -248,8 +284,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/leetcode/" title="leetcode page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/leetcode/" title="leetcode page" >
 			leetcode
 		</a>
 	</li>
@@ -337,7 +372,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 196 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 636 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -353,9 +388,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
+    <a class="flex-grow-0" href="/posts/cpp-acllib/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        Cpp Acllib
+    </a>
     
-    <a class="flex-grow-0" href="/posts/sec/">
-        Sec
+    
+    <a class="flex-grow-0" href="/posts/junling-li/">
+        junling.li
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
