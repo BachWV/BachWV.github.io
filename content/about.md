@@ -11,11 +11,11 @@ with School of Computer Science and Engineering
 .University of Electronic Science and Technology of China(UESTC).
 
 
-### os note updating
+### Operate System Note Updating
 
-[os-1]({{< relref "posts/os-jyy-1.md" >}})
+[os-1 绪论]({{< relref "posts/os-jyy-1.md" >}})
 
-[os-2]({{< relref "posts/os-jyy-2.md" >}})
+[os-2 程序就是状态机]({{< relref "posts/os-jyy-2.md" >}})
 
 [os-3]({{< relref "posts/os-jyy-3.md" >}})
 

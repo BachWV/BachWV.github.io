@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Tue, 09 Aug 2022 16:00:12 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Aug 2022 16:00:12 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>信息安全大赛</title>
+      <link>https://junling.li/posts/contest-ciscn/</link>
+      <pubDate>Mon, 22 Aug 2022 16:00:12 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/contest-ciscn/</guid>
+      <description>&lt;p&gt;今天出结果了，只能说尽力了，没获得国一还是有点遗憾的。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>junling.li</title>
@@ -60,44 +70,12 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
       
       <guid>https://junling.li/posts/qemu/</guid>
       <description>&lt;p&gt;qemu入门&lt;/p&gt;
-&lt;p&gt;报错&lt;/p&gt;
 &lt;h1 id=&#34;qemu&#34;&gt;QEMU&lt;/h1&gt;
-&lt;p&gt;QEMU是一款开源的模拟处理器，课程使用它来进行X86仿真。强烈建议使用MIT提供的魔改版。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/mit-pdos/6.828-qemu.git qemu
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;模拟一下loongson&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;qemu-system-loongarch64 \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -nographic \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -serial mon:stdio \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -m 1024 \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -kernel vmlinuz \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -initrd build/initramfs.cpio.gz \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -append &amp;#34;console=ttyS0 quiet acpi=off&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;编译qemu&#34;&gt;编译QEMU&lt;/h2&gt;
-&lt;p&gt;代码可能比较老了，编译中会出现一些问题。&lt;/p&gt;
+&lt;p&gt;QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。&lt;/p&gt;
+&lt;p&gt;但是别急，Qemu在7.0rc0支持了loongarch，就是说我们可以轻松在x86上模拟loongarch了&lt;/p&gt;
+&lt;p&gt;下载源代码并编译&lt;/p&gt;
+&lt;h2 id=&#34;编译qemu&#34;&gt;编译QEMU&lt;/h2&gt;
+&lt;p&gt;编译中会出现一些问题&lt;/p&gt;
 &lt;p&gt;configure&lt;/p&gt;
 &lt;p&gt;缺少ninja:&lt;code&gt;apt install ninja-build&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;中间可能会遇到各种报错，此处引用大佬的博客（提及的问题我大部分都遇到了）：&lt;/p&gt;
@@ -142,6 +120,33 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;如果遇到&lt;code&gt;undefined reference to &#39;major&#39;&lt;/code&gt;，在报错的源文件中添加&lt;code&gt;#include &amp;lt;sys/sysmacros.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;下面是大佬的启动脚本，但是它没有给出源文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;qemu-system-loongarch64 \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -nographic \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -serial mon:stdio \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -m 1024 \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -kernel vmlinuz \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -initrd build/initramfs.cpio.gz \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          -append &amp;#34;console=ttyS0 quiet acpi=off&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;于是我又混迹龙芯bbs，找到一个构建的archlinux启动镜像。
+&lt;a href=&#34;https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06.22.1-loongarch64.iso&#34;&gt;https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06.22.1-loongarch64.iso&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -150,7 +155,8 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   ./qemu-system-loongarch64 -cdrom ~/loongarchlinux-2022.06.22.1-loongarch64.iso -device qemu-xhci,id=xhci -device qemu-xhci,id=verylongson -device usb-kbd,bus=xhci.0 -device usb-mouse,bus=verylongson.0 -vnc :0 -m 1g -vga virtio -boot a -bios ~/QEMU_EFI.fd
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png&#34; alt=&#34;image-20220731212512960&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;接下来就是见证奇迹的时刻&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png&#34; alt=&#34;image-20220731212512960&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -10271,9 +10277,9 @@ i=0010010100101011&lt;/p&gt;
       <description>&lt;p&gt;I am an undergraduate student&lt;/p&gt;
 &lt;p&gt;with School of Computer Science and Engineering&lt;/p&gt;
 &lt;p&gt;.University of Electronic Science and Technology of China(UESTC).&lt;/p&gt;
-&lt;h3 id=&#34;os-note-updating&#34;&gt;os note updating&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-1/&#34;&gt;os-1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-2/&#34;&gt;os-2&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;operate-system-note-updating&#34;&gt;Operate System Note Updating&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-1/&#34;&gt;os-1 绪论&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-2/&#34;&gt;os-2 程序就是状态机&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-3/&#34;&gt;os-3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-4/&#34;&gt;os-4&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-5/&#34;&gt;os-5&lt;/a&gt;&lt;/p&gt;

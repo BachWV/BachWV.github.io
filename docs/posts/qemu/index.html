@@ -145,44 +145,12 @@ onload='renderMathInElement(document.body);'></script>
 <article>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>qemu入门</p>
-<p>报错</p>
 <h1 id="qemu">QEMU</h1>
-<p>QEMU是一款开源的模拟处理器，课程使用它来进行X86仿真。强烈建议使用MIT提供的魔改版。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/mit-pdos/6.828-qemu.git qemu
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>模拟一下loongson</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>qemu-system-loongarch64 \
-</span></span><span style="display:flex;"><span>          -nographic \
-</span></span><span style="display:flex;"><span>          -serial mon:stdio \
-</span></span><span style="display:flex;"><span>          -m 1024 \
-</span></span><span style="display:flex;"><span>          -kernel vmlinuz \
-</span></span><span style="display:flex;"><span>          -initrd build/initramfs.cpio.gz \
-</span></span><span style="display:flex;"><span>          -append &#34;console=ttyS0 quiet acpi=off&#34;
-</span></span><span style="display:flex;"><span>   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
-</span></span><span style="display:flex;"><span>   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="编译qemu">编译QEMU</h2>
-<p>代码可能比较老了，编译中会出现一些问题。</p>
+<p>QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。</p>
+<p>但是别急，Qemu在7.0rc0支持了loongarch，就是说我们可以轻松在x86上模拟loongarch了</p>
+<p>下载源代码并编译</p>
+<h2 id="编译qemu">编译QEMU</h2>
+<p>编译中会出现一些问题</p>
 <p>configure</p>
 <p>缺少ninja:<code>apt install ninja-build</code></p>
 <p>中间可能会遇到各种报错，此处引用大佬的博客（提及的问题我大部分都遇到了）：</p>
@@ -227,6 +195,33 @@ onload='renderMathInElement(document.body);'></script>
 </ol>
 </blockquote>
 <p>如果遇到<code>undefined reference to 'major'</code>，在报错的源文件中添加<code>#include &lt;sys/sysmacros.h&gt;</code></p>
+<p>下面是大佬的启动脚本，但是它没有给出源文件</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>qemu-system-loongarch64 \
+</span></span><span style="display:flex;"><span>          -nographic \
+</span></span><span style="display:flex;"><span>          -serial mon:stdio \
+</span></span><span style="display:flex;"><span>          -m 1024 \
+</span></span><span style="display:flex;"><span>          -kernel vmlinuz \
+</span></span><span style="display:flex;"><span>          -initrd build/initramfs.cpio.gz \
+</span></span><span style="display:flex;"><span>          -append &#34;console=ttyS0 quiet acpi=off&#34;
+</span></span><span style="display:flex;"><span>   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
+</span></span><span style="display:flex;"><span>   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>于是我又混迹龙芯bbs，找到一个构建的archlinux启动镜像。
+<a href="https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06.22.1-loongarch64.iso">https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06.22.1-loongarch64.iso</a></p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -235,7 +230,8 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>   ./qemu-system-loongarch64 -cdrom ~/loongarchlinux-2022.06.22.1-loongarch64.iso -device qemu-xhci,id=xhci -device qemu-xhci,id=verylongson -device usb-kbd,bus=xhci.0 -device usb-mouse,bus=verylongson.0 -vnc :0 -m 1g -vga virtio -boot a -bios ~/QEMU_EFI.fd
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png" alt="image-20220731212512960"></p>
+</div><p>接下来就是见证奇迹的时刻</p>
+<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png" alt="image-20220731212512960"></p>
 </div>
 	</section>
 
@@ -372,7 +368,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 636 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 782 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

@@ -5,35 +5,19 @@ date: 2022-07-28T14:05:38+08:00
 
 qemu入门
 
-报错
+
 
 # QEMU
 
-QEMU是一款开源的模拟处理器，课程使用它来进行X86仿真。强烈建议使用MIT提供的魔改版。
+QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。
 
-```shell
-git clone https://github.com/mit-pdos/6.828-qemu.git qemu
-```
-
-模拟一下loongson
-
-```
-qemu-system-loongarch64 \
-          -nographic \
-          -serial mon:stdio \
-          -m 1024 \
-          -kernel vmlinuz \
-          -initrd build/initramfs.cpio.gz \
-          -append "console=ttyS0 quiet acpi=off"
-   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
-   
-```
+但是别急，Qemu在7.0rc0支持了loongarch，就是说我们可以轻松在x86上模拟loongarch了
 
 
 
+下载源代码并编译
 ## 编译QEMU
-
-代码可能比较老了，编译中会出现一些问题。
+编译中会出现一些问题
 
 configure
 
@@ -62,10 +46,27 @@ configure
 
 如果遇到`undefined reference to 'major'`，在报错的源文件中添加`#include <sys/sysmacros.h>`
 
+下面是大佬的启动脚本，但是它没有给出源文件
+```
+qemu-system-loongarch64 \
+          -nographic \
+          -serial mon:stdio \
+          -m 1024 \
+          -kernel vmlinuz \
+          -initrd build/initramfs.cpio.gz \
+          -append "console=ttyS0 quiet acpi=off"
+   BOOTROM=0x110000000 SIMPLEVGA=800x600-16:0x0e800000 ./qemu-system-loongarch64 -M ls2k -bios ./gzrom.bin -kernel ./vmlinuz  -serial stdio -m 4096 -s -monitor tcp::1235,server,nowait -netdev user,id=n1,net=10.20.41.0/24,host=10.20.41.50,tftp=/srv/tftp/  -device pci-synopgmac,netdev=n1 -usb -smp 1 
+   
+```
+
+
+于是我又混迹龙芯bbs，找到一个构建的archlinux启动镜像。
+https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06.22.1-loongarch64.iso
+
 ```
    ./qemu-system-loongarch64 -cdrom ~/loongarchlinux-2022.06.22.1-loongarch64.iso -device qemu-xhci,id=xhci -device qemu-xhci,id=verylongson -device usb-kbd,bus=xhci.0 -device usb-mouse,bus=verylongson.0 -vnc :0 -m 1g -vga virtio -boot a -bios ~/QEMU_EFI.fd
 ```
-
+接下来就是见证奇迹的时刻
 
 
 ![image-20220731212512960](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png)
