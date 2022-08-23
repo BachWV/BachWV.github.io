@@ -1,7 +1,6 @@
 ---
 title: "ffmpeg"
 date: 2022-08-23T16:00:12+08:00
-draft: false
 ---
 今天有人放着Premium Pro不用，执意要使用ffmpeg剪视频，这种症状一看就是被Fabrice Bellard冲昏了头脑，先是qemu然后就入坑了ffmpeg。
 
