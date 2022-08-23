@@ -2,8 +2,7 @@
 title: "Gdb调试"
 date: 2021-09-28T15:35:49+08:00
 draft: false
-tags: ["gdb",
-"C++"]
+tags: ["GNU"]
 ---
 
 今天尝试使用gdb调试，相比ide的调试没那么容易好上手

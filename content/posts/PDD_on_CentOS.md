@@ -6,6 +6,12 @@ draft: false
 
 CentOS部署pdd
 
+拼夕夕是一个对标拼多多的网络商城,构建的源码在:
+
+https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/
+
+这是软件工程的课程项目。
+
 1.CentOS安装jdk 
 
 ``` 

@@ -5,13 +5,6 @@ draft: false
 ---
 
 
-
-​	
-
-今天大家吃苹果了没，没吃的朋友来一起吃哈，
-
-
-
 >#### [1705. 吃苹果的最大数目](https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/)
 >
 >难度中等

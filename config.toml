@@ -79,7 +79,7 @@ weight = 4
 
 [[menu.main]]
 identifier = "LeetCode"
-name = "leetcode"
+name = "Leetcode"
 url = "/leetcode/"
 weight = 4
 

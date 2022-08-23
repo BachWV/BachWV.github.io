@@ -91,6 +91,72 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
     </item>
     
     <item>
+      <title>84.柱状图中最大的矩形</title>
+      <link>https://junling.li/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</link>
+      <pubDate>Mon, 15 Aug 2022 19:08:11 +0000</pubDate>
+      
+      <guid>https://junling.li/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</guid>
+      <description>&lt;h3 id=&#34;84-柱状图中最大的矩形&#34;&gt;84. 柱状图中最大的矩形&lt;/h3&gt;
+&lt;p&gt;给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。&lt;/p&gt;
+&lt;p&gt;求在该柱状图中，能够勾勒出来的矩形的最大面积。&lt;/p&gt;
+&lt;p&gt;示例 1:&lt;/p&gt;
+&lt;p&gt;输入：heights = [2,1,5,6,2,3]
+输出：10
+解释：最大的矩形为图中红色区域，面积为 10
+示例 2：&lt;/p&gt;
+&lt;p&gt;输入： heights = [2,4]
+输出： 4&lt;/p&gt;
+&lt;p&gt;提示：&lt;/p&gt;
+&lt;p&gt;1 &amp;lt;= heights.length &amp;lt;=105
+0 &amp;lt;= heights[i] &amp;lt;= 104&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Solution&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;largestRectangleArea&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;Deque&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ArrayDeque&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;//  System.out.println(i+&amp;#34; &amp;#34;+stack);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#00a8c8&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;isEmpty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&amp;amp;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;getLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()]&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;cur&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;removeLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;max&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;getLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;cur&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;offer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>junling.li</title>
       <link>https://junling.li/posts/junling-li/</link>
       <pubDate>Tue, 09 Aug 2022 16:00:12 +0800</pubDate>
@@ -2268,7 +2334,8 @@ registration.&lt;/li&gt;
       <pubDate>Mon, 18 Jul 2022 00:17:23 +0800</pubDate>
       
       <guid>https://junling.li/posts/fixbug_difficultly/</guid>
-      <description>&lt;h3 id=&#34;尝试一&#34;&gt;尝试一&lt;/h3&gt;
+      <description>&lt;p&gt;在某一次commit以后，github pages突然挂了，出了什么问题呢？&lt;/p&gt;
+&lt;h3 id=&#34;尝试一&#34;&gt;尝试一&lt;/h3&gt;
 &lt;p&gt;重启&lt;/p&gt;
 &lt;h3 id=&#34;尝试二&#34;&gt;尝试二&lt;/h3&gt;
 &lt;p&gt;回退，既然我没有问题，那就是引入的脚本的问题&lt;/p&gt;
@@ -5803,15 +5870,6 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     </item>
     
     <item>
-      <title>Blog_comment_test</title>
-      <link>https://junling.li/life/blog_comment_test/</link>
-      <pubDate>Sun, 15 May 2022 17:28:26 +0800</pubDate>
-      
-      <guid>https://junling.li/life/blog_comment_test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Blog_comments</title>
       <link>https://junling.li/posts/blog_comments/</link>
       <pubDate>Sun, 15 May 2022 16:58:12 +0800</pubDate>
@@ -5988,10 +6046,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Best Bilibili Video of 2021</title>
-      <link>https://junling.li/posts/2021%E7%99%BE%E5%A4%A7bilibili/</link>
+      <link>https://junling.li/life/2021%E7%99%BE%E5%A4%A7bilibili/</link>
       <pubDate>Tue, 08 Mar 2022 01:03:42 +0800</pubDate>
       
-      <guid>https://junling.li/posts/2021%E7%99%BE%E5%A4%A7bilibili/</guid>
+      <guid>https://junling.li/life/2021%E7%99%BE%E5%A4%A7bilibili/</guid>
       <description>&lt;p&gt;这是从去年底就想做的，2021年我的B站收藏夹推荐，一直拖到现在。&lt;/p&gt;
 &lt;p&gt;根据某视频网站的数据，某人去年（指2021年）在该平台看过11112个视频，总时长474.3小时，这是一个惊人的数字，如果它每天看10小时，也得花48天才能完成这个任务。&lt;/p&gt;
 &lt;h2 id=&#34;健康&#34;&gt;健康&lt;/h2&gt;
@@ -7231,13 +7289,11 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>Merry Christmas</title>
-      <link>https://junling.li/posts/eatenapples/</link>
+      <link>https://junling.li/leetcode/eatenapples/</link>
       <pubDate>Fri, 24 Dec 2021 19:55:00 +0800</pubDate>
       
-      <guid>https://junling.li/posts/eatenapples/</guid>
-      <description>&lt;p&gt;​&lt;/p&gt;
-&lt;p&gt;今天大家吃苹果了没，没吃的朋友来一起吃哈，&lt;/p&gt;
-&lt;blockquote&gt;
+      <guid>https://junling.li/leetcode/eatenapples/</guid>
+      <description>&lt;blockquote&gt;
 &lt;h4 id=&#34;1705-吃苹果的最大数目httpsleetcode-cncomproblemsmaximum-number-of-eaten-apples&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/&#34;&gt;1705. 吃苹果的最大数目&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;难度中等&lt;/p&gt;
 &lt;p&gt;有一棵特殊的苹果树，一连 &lt;code&gt;n&lt;/code&gt; 天，每天都可以长出若干个苹果。在第 &lt;code&gt;i&lt;/code&gt; 天，树上会长出 &lt;code&gt;apples[i]&lt;/code&gt; 个苹果，这些苹果将会在 &lt;code&gt;days[i]&lt;/code&gt; 天后（也就是说，第 &lt;code&gt;i + days[i]&lt;/code&gt; 天时）腐烂，变得无法食用。也可能有那么几天，树上不会长出新的苹果，此时用 &lt;code&gt;apples[i] == 0&lt;/code&gt; 且 &lt;code&gt;days[i] == 0&lt;/code&gt; 表示。&lt;/p&gt;
@@ -7783,6 +7839,9 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
       
       <guid>https://junling.li/posts/pdd_on_centos/</guid>
       <description>&lt;p&gt;CentOS部署pdd&lt;/p&gt;
+&lt;p&gt;拼夕夕是一个对标拼多多的网络商城,构建的源码在:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&#34;&gt;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是软件工程的课程项目。&lt;/p&gt;
 &lt;p&gt;1.CentOS安装jdk&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -8929,10 +8988,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>丧</title>
-      <link>https://junling.li/posts/%E4%B8%A7/</link>
+      <link>https://junling.li/life/%E4%B8%A7/</link>
       <pubDate>Fri, 05 Nov 2021 00:01:16 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E4%B8%A7/</guid>
+      <guid>https://junling.li/life/%E4%B8%A7/</guid>
       <description>&lt;p&gt;深夜emo&lt;/p&gt;
 &lt;p&gt;emoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemoemo&lt;/p&gt;
 &lt;p&gt;无意间翻到大佬的博客，发现自己真的错失了许多机会，做错了不少选择。&lt;/p&gt;
@@ -10345,50 +10404,65 @@ i=0010010100101011&lt;/p&gt;
       <description>&lt;p&gt;I am an undergraduate student&lt;/p&gt;
 &lt;p&gt;with School of Computer Science and Engineering&lt;/p&gt;
 &lt;p&gt;.University of Electronic Science and Technology of China(UESTC).&lt;/p&gt;
-&lt;h3 id=&#34;operate-system-note-updating&#34;&gt;Operate System Note Updating&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-1/&#34;&gt;os-1 绪论&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-2/&#34;&gt;os-2 程序就是状态机&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-3/&#34;&gt;os-3&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-4/&#34;&gt;os-4&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-5/&#34;&gt;os-5&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-7/&#34;&gt;os-7&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-8/&#34;&gt;os-8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-9/&#34;&gt;os-9&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-10/&#34;&gt;os-10&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;to-do-list&#34;&gt;to do list&lt;/h3&gt;
-&lt;p&gt;next target is cmu15445&lt;/p&gt;
-&lt;p&gt;next next is 6.824&lt;/p&gt;
-&lt;p&gt;life target is travel around the world&lt;/p&gt;
-&lt;h3 id=&#34;about-domain-junlingli&#34;&gt;about domain junling.li&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/junling-li/&#34;&gt;junling.li&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;about-gnulinux&#34;&gt;about GNU/Linux&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/qemu/&#34;&gt;qemu&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/crontab/&#34;&gt;crontab&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/tmux/&#34;&gt;tmux&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;unix读书笔记&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;notes&#34;&gt;notes&lt;/h3&gt;
+&lt;p&gt;I wish I could excel in algorithms. You can find my leetcode problem solution on left tag &amp;ldquo;Leetcode&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;I am a fan of GNU/Linux and I use Manjaro and Debian.&lt;/p&gt;
+&lt;p&gt;I hope to contribute myself to open sourse software project.&lt;/p&gt;
+&lt;h3 id=&#34;operate-system-note-updating&#34;&gt;&lt;strong&gt;Operate System Note Updating&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/os-jyy-1/&#34;&gt;1 绪论&lt;/a&gt; &lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-2/&#34;&gt;2 程序就是状态机&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-3/&#34;&gt;3 多处理器时代状态机模型&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-4/&#34;&gt;4 互斥算法&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-5/&#34;&gt;5 互斥锁和自旋锁的实现&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-7/&#34;&gt;7 真实世界的并发编程&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-8/&#34;&gt;8 并发 bug 和应对&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-9/&#34;&gt;9 操作系统的状态机模型和boot&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/os-jyy-10/&#34;&gt;10 状态机模型的应用&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;todo-list&#34;&gt;&lt;strong&gt;Todo list&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;neXt target is cmu15445&lt;br&gt;
+neXt next is 6.824&lt;br&gt;
+Life target is travel around the world&lt;/p&gt;
+&lt;h3 id=&#34;about-gnulinux&#34;&gt;&lt;strong&gt;about GNU/Linux&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/qemu/&#34;&gt;qemu&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/crontab/&#34;&gt;crontab&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/tmux/&#34;&gt;tmux&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;unix&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/ffmpeg/&#34;&gt;ffmpeg&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/git-guide/&#34;&gt;git&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://junling.li/posts/manjaro_setup/&#34;&gt;manjaro setup&lt;/a&gt;
+&lt;a href=&#34;https://junling.li/posts/github-actions/&#34;&gt;github actions&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;course-notes&#34;&gt;&lt;strong&gt;Course notes&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/isa/&#34;&gt;ISA&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/compiler/&#34;&gt;compiler&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:lijunlin0012@126.com&#34;&gt;lijunlin0012@126.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:li@junling.xyz&#34;&gt;li@junling.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:i@junling.xyz&#34;&gt;i@junling.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:li@junling.li&#34;&gt;li@junling.li&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:i@junling.li&#34;&gt;i@junling.li&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:2674855275@qq.com&#34;&gt;2674855275@qq.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;course-project&#34;&gt;&lt;strong&gt;Course project&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;2020&#34;&gt;2020&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/cpp-acllib/&#34;&gt;cpp&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2021&#34;&gt;2021&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/pdd_on_centos/&#34;&gt;pdd&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2022&#34;&gt;2022&lt;/h3&gt;
+&lt;h2 id=&#34;contact&#34;&gt;&lt;strong&gt;Contact&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:lijunlin0012@126.com&#34;&gt;lijunlin0012@126.com&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:li@junling.xyz&#34;&gt;li@junling.xyz&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:i@junling.xyz&#34;&gt;i@junling.xyz&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:li@junling.li&#34;&gt;li@junling.li&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:i@junling.li&#34;&gt;i@junling.li&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:2674855275@qq.com&#34;&gt;2674855275@qq.com&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;social-media&#34;&gt;Social Media&lt;/h2&gt;
 &lt;p&gt;Github: &lt;a href=&#34;https://github.com/BachWV&#34;&gt;https://github.com/BachWV&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;bilibili: &lt;a href=&#34;https://space.bilibili.com/36175480&#34;&gt;https://space.bilibili.com/36175480&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;weixin official account : 一行瑠璃&lt;/p&gt;
-&lt;p&gt;每周五更新&lt;/p&gt;
+&lt;p&gt;This site used to have a lot of content about life, but I removed them. You can still find it here on git commit(you know it is Github pages). Now I hope more life insights will be published on the Weixin Official Account and a private site (you can dig my GitHub to find this site), this site will only share technical content for now.&lt;/p&gt;
+&lt;p&gt;Weixin Official Account : 一行瑠璃&lt;/p&gt;
+&lt;p&gt;Update on Friday!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;一行瑠璃&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;little-trigger&#34;&gt;little trigger&lt;/h2&gt;
+&lt;h2 id=&#34;trigger&#34;&gt;trigger&lt;/h2&gt;
 &lt;p&gt;music server: &lt;a href=&#34;http://music.junling.xyz&#34;&gt;http://music.junling.xyz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;web drive: &lt;a href=&#34;http://pan.junling.xyz&#34;&gt;http://pan.junling.xyz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;bilibili record:http://junling.xyz:2345 (need password)&lt;/p&gt;
 &lt;p&gt;frp server:http://junling.xyz:7500 (need password)&lt;/p&gt;
+&lt;h3 id=&#34;about-domain-junlingli&#34;&gt;&lt;strong&gt;about domain junling.li&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://junling.li/posts/junling-li/&#34;&gt;junling.li&lt;/a&gt; and
+&lt;a href=&#34;https://junling.li/posts/domains/&#34;&gt;junling.xyz&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -11027,7 +11101,8 @@ i=0010010100101011&lt;/p&gt;
 &lt;li&gt;gay里gay气但不是gay&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;abi-kuhttpsblogabi-kucom&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.abi-ku.com/&#34;&gt;Abi-ku&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;一位年轻的大学生，有热情，有理想，热爱生活&lt;/p&gt;
+&lt;p&gt;一位年轻的大学生，有热情，有理想，热爱生活.Leetcode周赛ak选手&lt;/p&gt;
+&lt;p&gt;欢迎在评论区交换友链&lt;/p&gt;
 </description>
     </item>
     
@@ -14779,10 +14854,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>反转链表</title>
-      <link>https://junling.li/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <link>https://junling.li/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Tue, 27 Apr 2021 20:27:17 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://junling.li/leetcode/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;这种链表题一定要画图&lt;/p&gt;
@@ -14924,10 +14999,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>云测评</title>
-      <link>https://junling.li/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
+      <link>https://junling.li/life/%E4%BA%91%E6%B5%8B%E8%AF%84/</link>
       <pubDate>Sat, 24 Apr 2021 20:15:28 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
+      <guid>https://junling.li/life/%E4%BA%91%E6%B5%8B%E8%AF%84/</guid>
       <description>&lt;p&gt;评价手机免不了打打嘴炮，写写垃圾，以下为云评测，如有不对的地方敬请指教。&lt;/p&gt;
 &lt;p&gt;1.K40系列&lt;/p&gt;
 &lt;p&gt;K40系列只有标准版是比较出众的，可以说把性价比做到了极致，卢伟冰可以说很好地完成了雷军交给红米的任务：极致性价比，留下小米的学生党和性价比党用户，并与realme和iqoo相比不落下风。redmi没有品牌转型的任务，价位段封顶4000元，不需要使用最新的技术，所以小米的120W快充不会下放redmi，红米今年的充电上限还是33w。这一点和iqoo不一样，iqoo作为19年的新品牌，初期仍需要打品牌，做充分的推广。所以iqoo从20年失败的iqoo3到120w的iqoo5p，再到今年的iqoo7，努力想做高端手机。&lt;/p&gt;
@@ -14954,10 +15029,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>最长公共前缀</title>
-      <link>https://junling.li/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
+      <link>https://junling.li/leetcode/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
       <pubDate>Tue, 20 Apr 2021 16:32:05 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
+      <guid>https://junling.li/leetcode/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
       <description>&lt;h4 id=&#34;14-最长公共前缀httpsleetcode-cncomproblemslongest-common-prefix&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/longest-common-prefix/&#34;&gt;14. 最长公共前缀&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
 &lt;p&gt;如果不存在公共前缀，返回空字符串 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;。&lt;/p&gt;
@@ -15295,72 +15370,6 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
       <guid>https://junling.li/posts/sec/</guid>
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>84.柱状图中最大的矩形</title>
-      <link>https://junling.li/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://junling.li/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</guid>
-      <description>&lt;h3 id=&#34;84-柱状图中最大的矩形&#34;&gt;84. 柱状图中最大的矩形&lt;/h3&gt;
-&lt;p&gt;给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。&lt;/p&gt;
-&lt;p&gt;求在该柱状图中，能够勾勒出来的矩形的最大面积。&lt;/p&gt;
-&lt;p&gt;示例 1:&lt;/p&gt;
-&lt;p&gt;输入：heights = [2,1,5,6,2,3]
-输出：10
-解释：最大的矩形为图中红色区域，面积为 10
-示例 2：&lt;/p&gt;
-&lt;p&gt;输入： heights = [2,4]
-输出： 4&lt;/p&gt;
-&lt;p&gt;提示：&lt;/p&gt;
-&lt;p&gt;1 &amp;lt;= heights.length &amp;lt;=105
-0 &amp;lt;= heights[i] &amp;lt;= 104&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;Solution&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;largestRectangleArea&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;heights&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#111&#34;&gt;Deque&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Integer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ArrayDeque&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++){&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;//  System.out.println(i+&amp;#34; &amp;#34;+stack);
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#00a8c8&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;isEmpty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&amp;amp;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;getLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()]&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]){&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#00a8c8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;cur&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;removeLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Math&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;max&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;getLast&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()-&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;cur&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#111&#34;&gt;stack&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;offer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;ans&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
     </item>
     
   </channel>
