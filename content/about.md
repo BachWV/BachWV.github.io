@@ -21,7 +21,7 @@ I hope to contribute myself to open sourse software project.
 
 [1 绪论]({{< relref "posts/os-jyy-1.md" >}})    
 [2 程序就是状态机]({{< relref "posts/os-jyy-2.md" >}})  
-[3 多处理器时代状态机模型]({{< relref "posts/os-jyy-3.d" >}})   
+[3 多处理器时代状态机模型]({{< relref "posts/os-jyy-3.md" >}})   
 [4 互斥算法]({{< relref "posts/os-jyy-4.md" >}})  
 [5 互斥锁和自旋锁的实现]({{< relref "posts/os-jyy-5.md" >}})  
 [7 真实世界的并发编程]({{< relref "posts/os-jyy-7.md" >}})  
