@@ -45,7 +45,7 @@ Life target is travel around the world
 [unix]({{< relref "posts/unix读书笔记.md" >}})  
 [ffmpeg]({{< ref "ffmpeg.md">}})  
 [git]({{< ref "git-guide.md">}})  
-[manjaro setup]({{< ref "manjaro_setup.md">}})
+[manjaro setup]({{< ref "manjaro_setup.md">}})  
 [github actions]({{< ref "github-actions.md">}})    
 ### **Course notes**
 
@@ -76,7 +76,7 @@ Github: https://github.com/BachWV
 
 bilibili: https://space.bilibili.com/36175480
 
-This site used to have a lot of content about life, but I removed them. You can still find it here on git commit(you know it is Github pages). Now I hope more life insights will be published on the Weixin Official Account and a private site (you can dig my GitHub to find this site), this site will only share technical content for now.
+This site used to have a lot of content about life, but I removed it. You can still find it here on git commit(you know it is Github pages). Now I hope more life insights will be published on the Weixin Official Account and a private site (you can dig my GitHub to find this site), this site will only share technical content for now.
 
 Weixin Official Account : 一行瑠璃
 
@@ -92,7 +92,9 @@ web drive: http://pan.junling.xyz
 
 bilibili record:http://junling.xyz:2345 (need password)
 
-frp server:http://junling.xyz:7500 (need password)
+[frp]({{< ref "群晖frp.md">}}):http://junling.xyz:7500 (need password) 
+
+If you wanna to use my private frp server ,you can contact me to get the password.
 
 ### **about domain junling.li**
 [junling.li]({{< relref "posts/junling-li.md" >}}) and
