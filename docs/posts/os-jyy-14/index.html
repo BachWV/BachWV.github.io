@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-08-31T21:09:23&#43;08:00">2022-8-31</time>
+		datetime="2022-09-01T00:09:23&#43;08:00">2022-9-1</time>
 </div>
 
 <hr />
@@ -160,7 +160,272 @@ onload='renderMathInElement(document.body);'></script>
 <p>更多标准库需要做的：排序，查找,atoi,atol,atoll</p>
 <p>计算就更复杂了
 怎样在IEEE754这个浮点数优化计算，754在-1到1之间很密，怎么利用这个特性，怎么避免-INF精度爆炸的问题。</p>
-<h3 id="封装文件描述符">封装文件描述符</h3>
+<h2 id="封装操作系统的对象">封装操作系统的对象</h2>
+<p>在UNIX的世界里，实际上就是封装文件描述符</p>
+<p>FILE * 背后是一个文件描述符</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">FILE</span> <span style="color:#f92672">*</span><span style="color:#111">fp</span><span style="color:#f92672">=</span><span style="color:#111">fopen</span><span style="color:#111">(</span><span style="color:#d88200">&#34;a.txt&#34;</span><span style="color:#111">,</span><span style="color:#d88200">&#34;w&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">fprintf</span><span style="color:#111">(</span><span style="color:#111">fp</span><span style="color:#111">,</span><span style="color:#d88200">&#34;Hello os&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>窥探glibc的内部实现</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>openat(AT_FDCWD, &#34;a.txt&#34;, O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+</span></span><span style="display:flex;"><span>fstat(3, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+</span></span><span style="display:flex;"><span>write(3, &#34;Hello os&#34;, 8)                 = 8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回了一个3 的文件描述符，并在3这里做了一个write的系统调用</p>
+<p>我们甚至可以在gdb上<code>p *fp</code>或者<code>p *stdin</code>，会发现stdin的filenum=0</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$1 = {_flags = -72539004, _IO_read_ptr = 0x0, _IO_read_end = 0x0, _IO_read_base = 0x0, _IO_write_base = 0x0,
+</span></span><span style="display:flex;"><span>  _IO_write_ptr = 0x0, _IO_write_end = 0x0, _IO_buf_base = 0x0, _IO_buf_end = 0x0, _IO_save_base = 0x0,
+</span></span><span style="display:flex;"><span>  _IO_backup_base = 0x0, _IO_save_end = 0x0, _markers = 0x0, _chain = 0x7ffff7fb85c0 &lt;_IO_2_1_stderr_&gt;,
+</span></span><span style="display:flex;"><span>  _fileno = 3, _flags2 = 0, _old_offset = 0, _cur_column = 0, _vtable_offset = 0 &#39;\000&#39;, _shortbuf = &#34;&#34;,
+</span></span><span style="display:flex;"><span>  _lock = 0x555555559380, _offset = -1, _codecvt = 0x0, _wide_data = 0x555555559390, _freeres_list = 0x0,
+</span></span><span style="display:flex;"><span>  _freeres_buf = 0x0, __pad5 = 0, _mode = 0, _unused2 = &#39;\000&#39; &lt;repeats 19 times&gt;}
+</span></span><span style="display:flex;"><span>(gdb)n
+</span></span><span style="display:flex;"><span>(gdb)p *fp
+</span></span><span style="display:flex;"><span>$2 = {_flags = -72536956, _IO_read_ptr = 0x555555559480 &#34;Hello os&#34;,
+</span></span><span style="display:flex;"><span>  _IO_read_end = 0x555555559480 &#34;Hello os&#34;, _IO_read_base = 0x555555559480 &#34;Hello os&#34;,
+</span></span><span style="display:flex;"><span>  _IO_write_base = 0x555555559480 &#34;Hello os&#34;, _IO_write_ptr = 0x555555559488 &#34;&#34;,
+</span></span><span style="display:flex;"><span>  _IO_write_end = 0x55555555a480 &#34;&#34;, _IO_buf_base = 0x555555559480 &#34;Hello os&#34;,
+</span></span><span style="display:flex;"><span>  _IO_buf_end = 0x55555555a480 &#34;&#34;, _IO_save_base = 0x0, _IO_backup_base = 0x0, _IO_save_end = 0x0,
+</span></span><span style="display:flex;"><span>  _markers = 0x0, _chain = 0x7ffff7fb85c0 &lt;_IO_2_1_stderr_&gt;, _fileno = 3, _flags2 = 0, _old_offset = 0,
+</span></span><span style="display:flex;"><span>  _cur_column = 0, _vtable_offset = 0 &#39;\000&#39;, _shortbuf = &#34;&#34;, _lock = 0x555555559380, _offset = -1,
+</span></span><span style="display:flex;"><span>  _codecvt = 0x0, _wide_data = 0x555555559390, _freeres_list = 0x0, _freeres_buf = 0x0, __pad5 = 0,
+</span></span><span style="display:flex;"><span>  _mode = -1, _unused2 = &#39;\000&#39; &lt;repeats 19 times&gt;}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>怪?</p>
+<p><strong>这就是UNIX</strong></p>
+<h2 id="封装更多的东西">封装更多的东西</h2>
+<p>err,error,perror</p>
+<p>为什么你在很多地方都能看到No such file or directory?</p>
+<p>我们也可以打印一个这样的error msg</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;err.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">const</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">*</span><span style="color:#111">fname</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;xxx.c&#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">FILE</span> <span style="color:#f92672">*</span><span style="color:#111">fp</span><span style="color:#f92672">=</span><span style="color:#111">fopen</span><span style="color:#111">(</span><span style="color:#111">fname</span><span style="color:#111">,</span><span style="color:#d88200">&#34;r&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">fp</span><span style="color:#111">){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">warn</span><span style="color:#111">(</span><span style="color:#d88200">&#34;%s&#34;</span><span style="color:#111">,</span><span style="color:#111">fname</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>原来大家和我用的是同一个标准库</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>charon@DESKTOP-EIMRFTO:~/jyy/14$ gcc a.c
+</span></span><span style="display:flex;"><span>charon@DESKTOP-EIMRFTO:~/jyy/14$ ./a.out
+</span></span><span style="display:flex;"><span>a.out: xxx.c: No such file or directory
+</span></span><span style="display:flex;"><span>charon@DESKTOP-EIMRFTO:~/jyy/14$ cat a.c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>下一个关于env的魔术</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">extern</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">**</span><span style="color:#111">environ</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">char</span> <span style="color:#f92672">**</span><span style="color:#111">env</span> <span style="color:#f92672">=</span> <span style="color:#111">environ</span><span style="color:#111">;</span> <span style="color:#f92672">*</span><span style="color:#111">env</span><span style="color:#111">;</span> <span style="color:#111">env</span><span style="color:#f92672">++</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;%s</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">env</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>链接的时候会找到这个<strong>environ
+那么状态机重置以后</strong>environ会变成什么?</p>
+<p>我们通过gdb一步一步看一下哪一步**environ被赋值的</p>
+<p>静态链接结果:</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(gdb) wa (char**)environ
+</span></span><span style="display:flex;"><span>Hardware watchpoint 1: (char**)environ
+</span></span><span style="display:flex;"><span>(gdb) c
+</span></span><span style="display:flex;"><span>The program is not being run.
+</span></span><span style="display:flex;"><span>(gdb) start
+</span></span><span style="display:flex;"><span>Temporary breakpoint 2 at 0x401d05: file env.c, line 3.
+</span></span><span style="display:flex;"><span>Starting program: /home/charon/jyy/14/a.out
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Watchpoint 1: (char**)environ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Old value = (char **) 0x0
+</span></span><span style="display:flex;"><span>New value = (char **) 0x7fffffffe1b8
+</span></span><span style="display:flex;"><span>0x000000000040213a in __libc_start_main ()
+</span></span><span style="display:flex;"><span>(gdb)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>是__libc_start_main()赋值的</p>
+<p>动态链接结果：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(gdb) wa (char**)environ
+</span></span><span style="display:flex;"><span>Hardware watchpoint 1: (char**)environ
+</span></span><span style="display:flex;"><span>(gdb) start
+</span></span><span style="display:flex;"><span>Temporary breakpoint 2 at 0x1149: file env.c, line 3.
+</span></span><span style="display:flex;"><span>Starting program: /home/charon/jyy/14/a.out
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Watchpoint 1: (char**)environ
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Old value = (char **) 0x0
+</span></span><span style="display:flex;"><span>New value = (char **) 0x7fffffffe1b8
+</span></span><span style="display:flex;"><span>_init (argc=1, argv=&lt;optimized out&gt;, envp=&lt;optimized out&gt;) at init-first.c:77
+</span></span><span style="display:flex;"><span>77      init-first.c: No such file or directory.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="封装地址空间">封装地址空间</h2>
+<p>malloc和free</p>
+<p>标准库的实现要考虑什么?</p>
+<p>用户的使用场景</p>
+<ul>
+<li>小对象的创建/分配迅速（需要考虑并发）</li>
+<li>大的数组和对象拥有更长的生命周期（不太需要并发）</li>
+</ul>
+<p>设置两套系统，考虑fast path和slow path</p>
+<ul>
+<li>fast path
+<ul>
+<li>性能极好、并行度极高、覆盖大部分情况</li>
+<li>但有小概率会失败 (fall back to slow path)</li>
+</ul>
+</li>
+<li>slow path
+<ul>
+<li>不在乎那么快</li>
+<li>但把困难的事情做好
+<ul>
+<li>计算机系统里有很多这样的例子 (比如 cache)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>人类也是这样的系统</p>
+<p>Daniel Kahneman. <em>Thinking, Fast and Slow.</em> Farrar, Straus and Giroux, 2011.</p>
+<p>小内存：Segregated List</p>
+<p>分配: Segregated List (Slab)</p>
+<p>每个 slab 里的每个对象都一样大
+每个线程拥有每个对象大小的 slab
+fast path → 立即在线程本地分配完成
+slow path → pgalloc()
+两种实现
+全局大链表 v.s. List sharding (per-page 小链表)</p>
+<p>回收</p>
+<p>直接归还到 slab 中
+注意这可能是另一个线程持有的 slab，需要 per-slab 锁 (小心数据竞争)
+大内存：一把大锁保平安
+Buddy system (1963)</p>
+<p>如果你想分配 1, 2, 3, 4, &hellip;  个连续的页面？
+例如：64 KB/页面
+那就 first fit 或者 best fit 吧……
+你只需要一个数据结构解决问题</p>
+<p>区间树；线段树……</p>
+<p>更多标准库的设计推荐阅读libc的手册</p>
 </div>
 	</section>
 
@@ -297,7 +562,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 439 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1613 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -313,21 +578,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/os-jyy-13/">
+    <a class="flex-grow-0" href="/posts/power/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        操作系统-jyy-13
+        UESTC-电费余额
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/power/">
-        UESTC-电费余额
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

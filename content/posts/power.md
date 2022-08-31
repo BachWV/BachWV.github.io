@@ -53,7 +53,7 @@ sec-ch-ua-platform: "Windows"
 ```Content-Type: application/x-www-form-urlencoded; charset=UTF-8```这一行是有用的，它指明了body的编解码格式。
 
 body只有一个
-```roomCode=cep4NgTh7AgzjAeoLsMElQ==```
+`roomCode=cep4NgTh7AgzjAeoLsMElQ==`
 
 看看服务器返回我们什么：
 ```json
