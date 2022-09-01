@@ -146,14 +146,14 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>来自https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html</p>
 <h1 id="c-vector使用方法">C++ vector使用方法</h1>
-<p>2021-08-23 11:07 更新</p>
 <h2 id="heading"></h2>
-<h4 id="在-c-中vector-是一个十分有用的容器它能够像容器一样存放各种类型的对象简单地说vector是一个能够存放任意类型的动态数组能够增加和压缩数据-c-中数组很坑有没有类似-python-中-list-的数据类型呢类似的就是-vectorvector-是同一种类型的对象的集合每个对象都有一个对应的整数索引值和-string-对象一样标准库将负责管理与存储元素相关的内存我们把-vector-称为容器是因为它可以包含其他对象一个容器中的所有对象都必须是同一种类型的">在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。</h4>
+<p>在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。</p>
 <h2 id="一什么是vector">一、什么是vector？</h2>
 <p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
 <h2 id="二容器特性">二、容器特性</h2>
 <h3 id="1顺序序列">1.顺序序列</h3>
 <p>顺序容器中的元素按照严格的线性顺序排序。可以通过元素在序列中的位置访问对应的元素。</p>
+<p>下标访问</p>
 <h3 id="2动态数组">2.动态数组</h3>
 <p>支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算述进行该操作。操供了在序列末尾相对快速地添加/删除元素的操作。</p>
 <h3 id="3能够感知内存分配器的allocator-aware">3.能够感知内存分配器的（Allocator-aware）</h3>
@@ -209,28 +209,21 @@ onload='renderMathInElement(document.body);'></script>
 </ul>
 <h3 id="8看着清楚">8.看着清楚</h3>
 <blockquote>
-<p>1.push_back 在数组的最后添加一个数据2.pop_back 去掉数组的最后一个数据3.at 得到编号位置的数据4.begin 得到数组头的指针5.end 得到数组的最后一个单元+1的指针6．front 得到数组头的引用7.back 得到数组的最后一个单元的引用8.max_size 得到vector最大可以是多大9.capacity 当前vector分配的大小10.size 当前使用数据的大小11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值12.reserve 改变当前vecotr所分配空间的大小13.erase 删除指针指向的数据项14.clear 清空当前的vector15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)17.empty 判断vector是否为空18.swap 与另一个vector交换数据</p>
+<p>4.begin 得到数组头的指针
+5.end 得到数组的最后一个单元+1的指针
+6．front 得到数组头的引用
+8.max_size 得到vector最大可以是多大
+9.capacity 当前vector分配的大小
+11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值
+12.reserve 改变当前vecotr所分配空间的大小
+13.erase 删除指针指向的数据项
+14.clear 清空当前的vector
+15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)
+16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)
+17.empty 判断vector是否为空18.swap 与另一个vector交换数据</p>
 </blockquote>
-<h2 id="四基本用法">四、基本用法</h2>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt; vector&gt; 
-</span></span><span style="display:flex;"><span>using namespace std;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="五简单介绍">五、简单介绍</h2>
-<ol>
-<li>Vector&lt;类型&gt;标识符</li>
-<li>Vector&lt;类型&gt;标识符(最大容量)</li>
-<li>Vector&lt;类型&gt;标识符(最大容量,初始所有值)</li>
-<li>Int i[5]={1,2,3,4,5}Vector&lt;类型&gt;vi(I,i+2);//得到i索引值为3以后的值</li>
-<li>Vector&lt; vector&lt; int&gt; &gt;v; 二维向量//这里最外的&lt;&gt;要有空格。否则在比较旧的编译器下无法通过</li>
-</ol>
-<h2 id="六vector使用实例">六、vector使用实例</h2>
+<p>vector&lt; vector&lt; int&gt; &gt;v; 二维向量//这里最外的&lt;&gt;要有空格。否则在比较旧的编译器下无法通过</p>
+<h2 id="vector使用实例">vector使用实例</h2>
 <p><strong>使用vector注意事项：</strong></p>
 <p>1、如果你要表示的向量长度较长（需要为向量内部保存很多数），容易导致内存泄漏，而且效率会很低；</p>
 <p>2、Vector 作为函数的参数或者返回值时，需要注意它的写法：</p>
@@ -243,7 +236,6 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中的“&amp;”绝对不能少！！！</p>
-<h1 id="vector对象的定义和初始化">vector对象的定义和初始化</h1>
 <p>同样的，使用前，导入头文件 #include 可以使用using声明：using std::vector;vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
 声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：</p>
 <table>
@@ -301,12 +293,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>points[0].size();  //指第一行的列数
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>1 、基本操作</strong></p>
-<p>(1)头文件<code>#include&lt;vector&gt;</code>.</p>
-<p>(2)创建vector对象，<code>vector&lt;int&gt; vec</code>;</p>
-<p>(3)尾部插入数字：<code>vec.push_back(a)</code>;</p>
-<p>(4)使用下标访问元素，<code>cout&lt;&lt;vec[0]&lt;&lt;endl</code>;记住下标是从0开始的。</p>
-<p>(5)使用迭代器访问元素.</p>
+</div><p>使用迭代器访问元素.</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -322,7 +309,6 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>(6)插入元素：<code>vec.insert(vec.begin()+i,a)</code>; 在第i+1个元素前面插入a;</p>
 <p>(7)删除元素：<code>vec.erase(vec.begin()+2)</code> ; 删除第3个元素</p>
 <p><code>vec.erase(vec.begin()+i,vec.end()+j)</code>; 删除区间[ i,j-1] 区间从0开始</p>
-<p>(8)向量大小: <code>vec.size()</code>;</p>
 <p>(9)清空: <code>vec.clear()</code>;</p>
 <p>特别提示：这里有 begin() 与 end() 函数、front() 与 back() 的差别</p>
 <p><strong>2、重要说明</strong></p>
@@ -449,7 +435,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要注意的是：以方法一进行输出时，数组的下表必须保证是整数。</p>
-<p>//打印 vecClass,方法二：</p>
+<p>//打印 vecClass,方法二：</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -672,7 +658,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3800 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3307 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

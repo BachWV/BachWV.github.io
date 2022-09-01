@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | 操作系统-jyy-1</title>
+	<title>AC自动机  | 操作系统-jyy-15</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">操作系统-jyy-1</h1>
+<h1 class="pt-2">操作系统-jyy-15</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-06-15T22:32:41&#43;08:00">2022-6-15</time>
+		datetime="2022-09-01T22:32:41&#43;08:00">2022-9-1</time>
 </div>
 
 <hr />
@@ -144,13 +144,79 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>看了jyy的os录播，就觉得以前从来没有人这么上过cs的课，正常的课都是老师放这ppt在bb讲，从操作系统的概念讲到线程和进程管理，从分页讲到文件系统。但这个老师一边开着wsl一边狂敲，超6的vim操作，无敌的手速。
-最后慢慢告诉你，源码之下，了无秘密。一切行为都是确定的，可预测的状态机转换，你也可以按照你的想法打造你自己的os，这就很有意思了。</p>
-<p>希望这一系列的笔记可以在内容充实的基础上，尽可能少的原封不动搬运Slides上的内容</p>
-<p>今天在看13讲，又有一些感触。我们学好操作系统，另一个很重要的心态就是回到上世纪90年代，回到Linus写操作系统时。作为一个拓荒者，为仅有的系统调用添加东西。比如让多个任务执行起来，让两个进程能通信，在内存不够的时候操作系统能跑起来。</p>
-<p>想到这些的解决方案其实并不复杂，但最终只有好的idea活好最后，大家互相借鉴。</p>
-<p>在GUI前的世界有无数的宝藏。有无数经典的设计。他们奠定了现代计算机的基础。</p>
-<p>15讲，看得出jyy准备了很多小trick</p>
+		<div class="c-rich-text"><h1 id="第15讲-fork-的应用">第15讲 fork 的应用</h1>
+<p>(文件描述符的复制；写时复制；创建平行宇宙的魔法)</p>
+<p>sh-xv6.c</p>
+<ul>
+<li>fork状态机复制包括持有的所有操作系统对象</li>
+<li>execve重置状态机，但继承持有的所有操作系统对象</li>
+</ul>
+<p>由此可以轻松实现管道。</p>
+<p>什么是文件描述符？</p>
+<p>一个指向操作系统内对象的指针</p>
+<p>O_CLOEXEC 关闭execve继承的文件描述符</p>
+<p>对于数据文件，文件描述符会记住上一次打开的位置。(offset)</p>
+<p>一个例子</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#111">cat</span> <span style="color:#111">a</span><span style="color:#111">.</span><span style="color:#111">c</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;assert.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">int</span> <span style="color:#111">main</span><span style="color:#111">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">fd</span> <span style="color:#f92672">=</span> <span style="color:#111">open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;a.txt&#34;</span><span style="color:#111">,</span> <span style="color:#111">O_WRONLY</span> <span style="color:#f92672">|</span> <span style="color:#111">O_CREAT</span><span style="color:#111">);</span> <span style="color:#111">assert</span><span style="color:#111">(</span><span style="color:#111">fd</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">pid_t</span> <span style="color:#111">pid</span> <span style="color:#f92672">=</span> <span style="color:#111">fork</span><span style="color:#111">();</span> <span style="color:#111">assert</span><span style="color:#111">(</span><span style="color:#111">pid</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">pid</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">write</span><span style="color:#111">(</span><span style="color:#111">fd</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Hello&#34;</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span> <span style="color:#00a8c8">else</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">write</span><span style="color:#111">(</span><span style="color:#111">fd</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;World&#34;</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#111">cat</span> <span style="color:#111">a</span><span style="color:#111">.</span><span style="color:#111">txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">WorldHello</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用dup复制文件描述符，</p>
+<p>两个文件描述符是共享offset的，但不共享descriptor flags</p>
+<p>fork还需要考虑的问题</p>
+<p>1GB内存的进程，fork以后这1GB完全复制吗?</p>
+<p>解决办法：写时复制</p>
+<p>进程的页面是由操作系统管理的，进程看到的页面是由一层映射关系的。</p>
+<p>这一段 jyy讲的很细，一步一步来很舒服。</p>
+<p>对于libc.so，复制是假的复制。整个系统只有一份libc.so的实体。</p>
+<p>例子
+<a href="https://jyywiki.cn/pages/OS/2022/demos/cow-test.c">cow-test.c</a>
+好吧，看来今天还是颠覆了我的一点认知的，因为共享的存在，进程的内存占用空间不可信了。</p>
+<p>状态机并行还可以做什么？</p>
+<p>平行宇宙！</p>
+<h3 id="1dfs记住状态fork的魔法">1.dfs记住状态，fork的魔法。</h3>
+<p><a href="https://jyywiki.cn/pages/OS/2022/demos/dfs-fork.c">dfs-fork.c</a>
+这个跑起来还是蛮震撼的，让快睡着的我顿时来了兴趣。</p>
+<h3 id="2跳过初始化">2.跳过初始化</h3>
+<p>QEMU,JVM初始化加载</p>
+<h3 id="3备份">3.备份</h3>
+<p>创建快照</p>
+<h2 id="fork带来的一些麻烦">fork带来的一些麻烦</h2>
+<p>引入信号以后如何处理</p>
+<p>线程怎么办？</p>
+<p>更&hellip;的解决方案 POSIX spawn</p>
 </div>
 	</section>
 
@@ -287,7 +353,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 431 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 585 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -303,21 +369,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/compiler/">
+    <a class="flex-grow-0" href="/posts/os-jyy-14/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        Compiler
+        操作系统-jyy-14
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/os-jyy-2/">
-        操作系统-jyy-2
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

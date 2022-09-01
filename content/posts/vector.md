@@ -8,11 +8,10 @@ draft: false
 
 # C++ vector使用方法
 
-2021-08-23 11:07 更新
 
 ## 
 
-#### 在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。
+在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。
 
 ## 一、什么是vector？
 
@@ -23,6 +22,8 @@ draft: false
 ### 1.顺序序列
 
 顺序容器中的元素按照严格的线性顺序排序。可以通过元素在序列中的位置访问对应的元素。
+
+下标访问
 
 ### 2.动态数组
 
@@ -84,26 +85,23 @@ draft: false
 
 ### 8.看着清楚
 
-> 1.push_back 在数组的最后添加一个数据2.pop_back 去掉数组的最后一个数据3.at 得到编号位置的数据4.begin 得到数组头的指针5.end 得到数组的最后一个单元+1的指针6．front 得到数组头的引用7.back 得到数组的最后一个单元的引用8.max_size 得到vector最大可以是多大9.capacity 当前vector分配的大小10.size 当前使用数据的大小11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值12.reserve 改变当前vecotr所分配空间的大小13.erase 删除指针指向的数据项14.clear 清空当前的vector15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)17.empty 判断vector是否为空18.swap 与另一个vector交换数据
+> 4.begin 得到数组头的指针
+> 5.end 得到数组的最后一个单元+1的指针
+> 6．front 得到数组头的引用
+> 8.max_size 得到vector最大可以是多大
+> 9.capacity 当前vector分配的大小
+> 11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值
+> 12.reserve 改变当前vecotr所分配空间的大小
+> 13.erase 删除指针指向的数据项
+> 14.clear 清空当前的vector
+> 15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)
+> 16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)
+> 17.empty 判断vector是否为空18.swap 与另一个vector交换数据
 
-## 四、基本用法
-
-```
-#include < vector> 
-using namespace std;
-```
-
-## 五、简单介绍
-
-1. Vector<类型>标识符
-2. Vector<类型>标识符(最大容量)
-3. Vector<类型>标识符(最大容量,初始所有值)
-4. Int i[5]={1,2,3,4,5}Vector<类型>vi(I,i+2);//得到i索引值为3以后的值
-5. Vector< vector< int> >v; 二维向量//这里最外的<>要有空格。否则在比较旧的编译器下无法通过
+vector< vector< int> >v; 二维向量//这里最外的<>要有空格。否则在比较旧的编译器下无法通过
 
 
-
-## 六、vector使用实例
+## vector使用实例
 
 **使用vector注意事项：**
 
@@ -117,7 +115,6 @@ double Distance(vector<int>&a, vector<int>&b)
 
  其中的“&”绝对不能少！！！
 
-# vector对象的定义和初始化
 
 同样的，使用前，导入头文件 #include 可以使用using声明：using std::vector;vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
 声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：
@@ -158,17 +155,7 @@ points[0].size();  //指第一行的列数
 
 
 
-**1 、基本操作**
-
-(1)头文件`#include<vector>`.
-
-(2)创建vector对象，`vector<int> vec`;
-
-(3)尾部插入数字：`vec.push_back(a)`;
-
-(4)使用下标访问元素，`cout<<vec[0]<<endl`;记住下标是从0开始的。
-
-(5)使用迭代器访问元素.
+使用迭代器访问元素.
 
 ```
 vector<int>::iterator it;
@@ -182,12 +169,10 @@ for(it=vec.begin();it!=vec.end();it++)
 
 `vec.erase(vec.begin()+i,vec.end()+j)`; 删除区间[ i,j-1] 区间从0开始
 
-(8)向量大小: `vec.size()`;
 
 (9)清空: `vec.clear()`;
 
 特别提示：这里有 begin() 与 end() 函数、front() 与 back() 的差别
-
 
 
 **2、重要说明**
@@ -280,7 +265,7 @@ for(int i=0;i<nSize;i++)
 
 需要注意的是：以方法一进行输出时，数组的下表必须保证是整数。
 
- //打印 vecClass,方法二：   
+ //打印 vecClass,方法二：   
 
 ```
 for(int i=0;i<nSize;i++)    
