@@ -146,6 +146,8 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><h1 id="第15讲-fork-的应用">第15讲 fork 的应用</h1>
 <p>(文件描述符的复制；写时复制；创建平行宇宙的魔法)</p>
+<p>既然前面都说过fork的形式语义，那你还不知道能用fork做哪些奇怪的事？</p>
+<p>看看jyy是怎么把fork玩出花的。</p>
 <p>sh-xv6.c</p>
 <ul>
 <li>fork状态机复制包括持有的所有操作系统对象</li>
@@ -213,6 +215,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>QEMU,JVM初始化加载</p>
 <h3 id="3备份">3.备份</h3>
 <p>创建快照</p>
+<p>容错计算</p>
 <h2 id="fork带来的一些麻烦">fork带来的一些麻烦</h2>
 <p>引入信号以后如何处理</p>
 <p>线程怎么办？</p>
@@ -353,7 +356,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 585 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 644 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -377,6 +380,13 @@ onload='renderMathInElement(document.body);'></script>
         操作系统-jyy-14
     </a>
     
+    
+    <a class="flex-grow-0" href="/posts/power/">
+        UESTC-电费查询
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

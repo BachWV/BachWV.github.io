@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | UESTC-电费余额</title>
+	<title>AC自动机  | UESTC-电费查询</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
 	</h2>
 </div>
-<h1 class="pt-2">UESTC-电费余额</h1>
+<h1 class="pt-2">UESTC-电费查询</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-08-31T22:09:23&#43;08:00">2022-8-31</time>
+		datetime="2022-09-02T22:09:23&#43;08:00">2022-9-2</time>
 </div>
 
 <hr />
@@ -146,7 +146,7 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>众所周知，四川在今年夏天遭受了严重的缺电危机。为了保障居民用电，许多工业企业停电长达一周，写字楼、地铁也关了空调。春熙路关闭了外灯。</p>
 <p>某高校的寝室电费高达10元/每天。作为留守儿童，常常50元的电费5天就用完了。每个月的额度根本不够用。</p>
-<p>今天在微信公众号乱逛的时候，发现了一个查询UESTC寝室用电量的接口。相比于支付宝仅仅能查询余额，多了一个查询用电量的功能。</p>
+<p>前几天在微信公众号乱逛的时候，发现了一个查询UESTC寝室用电量的接口。相比于支付宝仅仅能查询余额，多了一个查询用电量的功能。</p>
 <p><a href="https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7">https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7</a></p>
 <p>当然查询也非常的简单，只需要
 用Chrome的开发者工具，来看看点下搜索键以后发生了什么。</p>
@@ -204,7 +204,8 @@ onload='renderMathInElement(document.body);'></script>
 <code>Content-Type: application/x-www-form-urlencoded; charset=UTF-8</code>这一行是有用的，它指明了body的编解码格式。</p>
 <p>body只有一个
 <code>roomCode=cep4NgTh7AgzjAeoLsMElQ==</code></p>
-<p>看看服务器返回我们什么：</p>
+<p>这一个加密是怎么来的，已经迷糊了我一天了？</p>
+<p>当然我们可以不用管，直接看看服务器返回我们什么：</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -316,7 +317,175 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>作为一个mirai机器人选手，自然少不了通过群聊的方式查询功能。</p>
 <p>我们在qq群聊中监听查询请求（这里直接指定群聊），调用上述函数，即可完成实时查询电费。以下是效果：</p>
 <p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/QQ%E5%9B%BE%E7%89%8720220831211457.png" alt="效果图"></p>
-<p>这个项目还是有遗憾的地方，目前roomcode的构建方式还知道，只能通过开发者工具看看前端计算的roomcode。目前来说，这个机器人只能查询咱们寝室的电费。实在是太逊了。不然咱直接在公众号做一个接口，就叫成电查电费。</p>
+<p>这个项目还是有遗憾的地方，目前roomcode的构建方式还知道，只能通过开发者工具看看前端计算的roomcode。目前来说，这个机器人只能查询咱们寝室的电费。实在是太逊了。</p>
+<p>但是经过一天的猜想和学习。</p>
+<p>我学废了nodejs，可以直接用node发送请求</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">SendRequest</span><span style="color:#111">(</span><span style="color:#75af00">datatosend</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">function</span> <span style="color:#75af00">OnResponse</span><span style="color:#111">(</span><span style="color:#75af00">response</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">var</span> <span style="color:#75af00">data</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;&#39;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">response</span><span style="color:#111">.</span><span style="color:#75af00">on</span><span style="color:#111">(</span><span style="color:#d88200">&#39;data&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">chunk</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>           
+</span></span><span style="display:flex;"><span>             
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">data</span> <span style="color:#f92672">+=</span> <span style="color:#75af00">chunk</span><span style="color:#111">;</span> <span style="color:#75715e">//Append each chunk of data received to this variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">response</span><span style="color:#111">.</span><span style="color:#75af00">on</span><span style="color:#111">(</span><span style="color:#d88200">&#39;end&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">jsonParsed</span> <span style="color:#f92672">=</span> <span style="color:#75af00">JSON</span><span style="color:#111">.</span><span style="color:#75af00">parse</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#75715e">// console.log(data);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">vals</span><span style="color:#f92672">=</span><span style="color:#75af00">jsonParsed</span><span style="color:#111">[</span><span style="color:#d88200">&#39;data&#39;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">roomName</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;roomName&#39;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">dl</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;sydl&#39;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">je</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;syje&#39;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#34;房间号：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">roomName</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;\n剩余电量：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">dl</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;kWh\n剩余金额：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">je</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;元&#34;</span><span style="color:#111">);</span> <span style="color:#75715e">//Display the server&#39;s response, if any.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#75af00">request</span> <span style="color:#f92672">=</span> <span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">request</span><span style="color:#111">(</span><span style="color:#75af00">urlparams</span><span style="color:#111">,</span> <span style="color:#75af00">OnResponse</span><span style="color:#111">);</span> <span style="color:#75715e">//Create a request object.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">request</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#75af00">datatosend</span><span style="color:#111">);</span> <span style="color:#75715e">//Send off the request.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75af00">request</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span> <span style="color:#75715e">//End the request.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">SendRequest</span><span style="color:#111">(</span><span style="color:#d88200">&#34;roomCode=&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">crynum</span><span style="color:#111">);</span> <span style="color:#75715e">//Execute the function the request is in.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>既然nodejs入门了（不是），那我们是不是能看懂加密的过程了</p>
+<p>我灵机一动，看到index.js里roomCode</p>
+<p><code>{roomcode:_0x477250[_0x33e7('0x213','zw!i')](encrypt,_0x1e1aee)}</code></p>
+<p>虽然我啥都不知道它干了啥，但是在控制台上输入encrypt(&ldquo;120335&rdquo;)，然后就给我打印了<code>cep4NgTh7AgzjAeoLsMElQ==</code></p>
+<p>这真是振奋人心的好结果。当然我也找到了函数原型，嗯谁能看懂？</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">_0x461dd2</span><span style="color:#111">)</span> <span style="color:#111">{</span> <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0xc95c0</span> <span style="color:#f92672">=</span> <span style="color:#111">{};</span>
+</span></span><span style="display:flex;"><span> <span style="color:#75af00">_0xc95c0</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x1e7&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;W[(T&#39;</span><span style="color:#111">)]</span> <span style="color:#f92672">=</span> <span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x1c9&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;3iDq&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x2c854d</span> <span style="color:#f92672">=</span> <span style="color:#75af00">_0xc95c0</span><span style="color:#111">;</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x29656e</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x362&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;x3AB&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x14a&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;MQfJ&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x217&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;e$AE&#39;</span><span style="color:#111">)](</span><span style="color:#75af00">_0x2c854d</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x20c&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;B9iG&#39;</span><span style="color:#111">)]);</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x113ce7</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x289&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;wvF(&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x299&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;b7w3&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x12f&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;66GX&#39;</span><span style="color:#111">)](</span><span style="color:#75af00">_0x461dd2</span><span style="color:#111">);</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x5c922b</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x24d&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;U&amp;UX&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x90&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;gln^&#39;</span><span style="color:#111">)](</span><span style="color:#75af00">_0x113ce7</span><span style="color:#111">,</span> <span style="color:#75af00">_0x29656e</span><span style="color:#111">,</span> <span style="color:#111">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;mode&#39;</span><span style="color:#f92672">:</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x130&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;gln^&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x13f&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;MQfJ&#39;</span><span style="color:#111">)],</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;padding&#39;</span><span style="color:#f92672">:</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0xd8&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;[0J^&#39;</span><span style="color:#111">)][</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x2f&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;n$4Y&#39;</span><span style="color:#111">)]</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#111">});</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">_0x5c922b</span><span style="color:#111">[</span><span style="color:#75af00">_0x33e7</span><span style="color:#111">(</span><span style="color:#d88200">&#39;0x243&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;jc)R&#39;</span><span style="color:#111">)]();</span> 
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>经过我好几天的逆向(实际上是一晚上)</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">_0x461dd2</span><span style="color:#111">)</span> <span style="color:#111">{</span> <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0xc95c0</span> <span style="color:#f92672">=</span> <span style="color:#111">{};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x29656e</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#d88200">&#39;enc&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;Utf8&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;parse&#39;</span><span style="color:#111">](</span><span style="color:#d88200">&#39;wxUESTCpowerqwer&#39;</span><span style="color:#111">);</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x113ce7</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#d88200">&#39;enc&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;Utf8&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;parse&#39;</span><span style="color:#111">](</span><span style="color:#75af00">_0x461dd2</span><span style="color:#111">);</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">_0x5c922b</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#d88200">&#39;AES&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;encrypt&#39;</span><span style="color:#111">](</span><span style="color:#75af00">_0x113ce7</span><span style="color:#111">,</span> <span style="color:#75af00">_0x29656e</span><span style="color:#111">,</span> <span style="color:#111">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;mode&#39;</span><span style="color:#f92672">:</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#d88200">&#39;mode&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;ECB&#39;</span><span style="color:#111">],</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;padding&#39;</span><span style="color:#f92672">:</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">[</span><span style="color:#d88200">&#39;pad&#39;</span><span style="color:#111">][</span><span style="color:#d88200">&#39;Pkcs7&#39;</span><span style="color:#111">]</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#111">});</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">_0x5c922b</span><span style="color:#111">[</span><span style="color:#d88200">&#39;toString&#39;</span><span style="color:#111">]();</span> 
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其实就是crypto-js的第一个示例代码,aseKey是&rsquo;wxUESTCpowerqwer&rsquo;，有了密钥能做的事情就很多了</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">CryptoJS</span>  <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;crypto-js&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">cryptoEncryption</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">,</span><span style="color:#75af00">message</span><span style="color:#111">){</span> <span style="color:#75715e">//aseKey为密钥（必须为：8/16/32位），message为要加密的密文
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">encrypt</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">AES</span><span style="color:#111">.</span><span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">message</span><span style="color:#111">,</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">enc</span><span style="color:#111">.</span><span style="color:#75af00">Utf8</span><span style="color:#111">.</span><span style="color:#75af00">parse</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">),{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">mode</span><span style="color:#f92672">:</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">mode</span><span style="color:#111">.</span><span style="color:#75af00">ECB</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">padding</span><span style="color:#f92672">:</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">pad</span><span style="color:#111">.</span><span style="color:#75af00">Pkcs7</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}).</span><span style="color:#75af00">toString</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">encrypt</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#75af00">aseKey</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;wxUESTCpowerqwer&#39;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#75af00">encrpytText</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;120335&#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#75af00">cryptoEncryption</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">,</span><span style="color:#75af00">encrpytText</span><span style="color:#111">));</span> <span style="color:#75715e">//调用加密方法
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>把上述解密和发送post请求合并为一个js文件，添加控制台传入参数，这就很优雅。甚至我们添加了错误处理（警觉）。
+<img src="https://mmbiz.qpic.cn/mmbiz_png/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaFXmEVIDmB4mq7MVibfKCW6SpCKUtLLibBSmGricGjoWPLa0vA9eaJw0hQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="">
+咱们是否可以通过公众号提供接口，为广大成电水友提供查询服务？</p>
+<p>在我飞速阅读了微信公众号平台的文档以后，</p>
+<p>使用 Python 快速踩坑（不是),快速起了一个web server。</p>
+<p>接收用户输入，经过简单判断是否为房间号，再fork-exec运行nodejs，</p>
+<p>微信公众平台的接口可比QQ机器人稳定多了。打通了这一过程还是有不少坑的。</p>
+<p>只需要向公众号的后台发送房间号，就可以看到电费使用情况了。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaUrToa5gibmgoic3BKbxFADEsa9e1SfAWDPkZqZe51x6n8bLm2WvRfeTQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<p>欢迎关注我在微信平台的号哦（疯狂引流</p>
+<p><img src="https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg" alt=""></p>
 </div>
 	</section>
 
@@ -453,7 +622,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1244 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2199 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -469,17 +638,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/os-jyy-13/">
+    <a class="flex-grow-0" href="/posts/os-jyy-15/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        操作系统-jyy-13
+        操作系统-jyy-15
     </a>
     
     
-    <a class="flex-grow-0" href="/posts/os-jyy-14/">
-        操作系统-jyy-14
+    <a class="flex-grow-0" href="/posts/os-jyy-16/">
+        操作系统-jyy-16
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
