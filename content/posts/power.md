@@ -212,7 +212,7 @@ var encrpytText = "120335";
 console.log(cryptoEncryption(aseKey,encrpytText)); //调用加密方法
 ```
 把上述解密和发送post请求合并为一个js文件，添加控制台传入参数，这就很优雅。甚至我们添加了错误处理（警觉）。
-![](https://mmbiz.qpic.cn/mmbiz_png/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaFXmEVIDmB4mq7MVibfKCW6SpCKUtLLibBSmGricGjoWPLa0vA9eaJw0hQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-wx.png)
 咱们是否可以通过公众号提供接口，为广大成电水友提供查询服务？
 
 在我飞速阅读了微信公众号平台的文档以后，
@@ -226,7 +226,7 @@ console.log(cryptoEncryption(aseKey,encrpytText)); //调用加密方法
 
 只需要向公众号的后台发送房间号，就可以看到电费使用情况了。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaUrToa5gibmgoic3BKbxFADEsa9e1SfAWDPkZqZe51x6n8bLm2WvRfeTQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-node.jpg)
 
 欢迎关注我在微信平台的号哦（疯狂引流
 

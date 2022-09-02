@@ -361,14 +361,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;把上述解密和发送post请求合并为一个js文件，添加控制台传入参数，这就很优雅。甚至我们添加了错误处理（警觉）。
-&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaFXmEVIDmB4mq7MVibfKCW6SpCKUtLLibBSmGricGjoWPLa0vA9eaJw0hQ/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-wx.png&#34; alt=&#34;&#34;&gt;
 咱们是否可以通过公众号提供接口，为广大成电水友提供查询服务？&lt;/p&gt;
 &lt;p&gt;在我飞速阅读了微信公众号平台的文档以后，&lt;/p&gt;
 &lt;p&gt;使用 Python 快速踩坑（不是),快速起了一个web server。&lt;/p&gt;
 &lt;p&gt;接收用户输入，经过简单判断是否为房间号，再fork-exec运行nodejs，&lt;/p&gt;
 &lt;p&gt;微信公众平台的接口可比QQ机器人稳定多了。打通了这一过程还是有不少坑的。&lt;/p&gt;
 &lt;p&gt;只需要向公众号的后台发送房间号，就可以看到电费使用情况了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_jpg/jbl7Mn9ibTicbSwDXqcEgFBicl3JgRMNgPaUrToa5gibmgoic3BKbxFADEsa9e1SfAWDPkZqZe51x6n8bLm2WvRfeTQ/640?wx_fmt=jpeg&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-node.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;欢迎关注我在微信平台的号哦（疯狂引流&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 </description>
