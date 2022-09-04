@@ -70,3 +70,78 @@ binutils
 
 `gcc -g`
 
+## 关于popcount，我好像还有一点话要说
+```c
+#include <stdio.h>
+
+__attribute__((noinline))
+int popcount(int x) {
+  int s = 0;
+  int b0 = (x >> 0) & 1;
+  s += b0;
+  int b1 = (x >> 1) & 1;
+  s += b1;
+  int b2 = (x >> 2) & 1;
+  s += b2;
+  int b3 = (x >> 3) & 1;
+  s += b3;
+  return s;
+}
+
+int main() {
+  printf("%d\n", popcount(0b1101));
+}
+```
+在某个知乎回答上我提过[bitcount]({{< relref "多少个1.md" >}})
+底下就有z友评论了，不是有内建的popcount吗？😅建议不要用这种代码。内建的popcount 有些实现是汇编使用cpu机器指令，比这个快一倍轻轻松松。
+
+当然我看到的小技巧不一定比汇编实现的快，啊对对对。
+
+
+## 编译和链接 compile and link
+
+relocation
+
+S+A-P 太难了，没看懂
+
+
+
+## 重新理解编译、链接流程
+编译器 (gcc)
+
+High-level semantics (C 状态机) → low-level semantics (汇编)
+
+汇编器 (as)
+
+Low-level semantics → Binary semantics (状态机容器)
+
+- “一一对应” 地翻译成二进制代码
+
+- sections, symbols, debug info
+不能决定的要留下 “之后怎么办” 的信息
+relocations
+链接器 (ld)
+
+合并所有容器，得到 “一个完整的状态机”
+- ldscript (-Wl,--verbose); 和 C Runtime Objects (CRT) 链接
+- missing/duplicate symbol 会出错
+
+奇怪，我们完全没有讲 ELF 的细节？
+ELF 就是一个 “容器数据结构”，包含了必要的信息
+
+你完全可以试着自己定义二进制文件格式 (dump it to disk)！
+```c
+struct executable {
+  uint32_t entry;
+  struct segment *segments;
+  struct reloc *relocs;
+  struct symbol *symbols;
+};
+struct segment { uint32_t flags, size; char data[0]; }
+struct reloc   { uint32_t S, A, P; char name[32]; };
+struct symbol  { uint32_t off; char name[32]; };
+```
+
+当然，这有很多缺陷
+- “名字” 其实应该集中存储 (const char * 而不是 char[])
+- 慢慢理解了 ELF 里的各种设计 (例如 memsz 和 filesz 不一样大)

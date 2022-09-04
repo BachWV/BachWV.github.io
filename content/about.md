@@ -70,7 +70,7 @@ i@junling.li
 2674855275@qq.com  
 lijunling2077@gmail.com
 
-## Social Media
+## Find me on
 
 Github: https://github.com/BachWV
 

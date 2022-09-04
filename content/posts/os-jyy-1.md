@@ -15,3 +15,5 @@ draft: false
 在GUI前的世界有无数的宝藏。有无数经典的设计。他们奠定了现代计算机的基础。
 
 15讲，看得出jyy准备了很多小trick
+
+教育不仅仅是"filling of a pail"，更要"lighting of a fire"

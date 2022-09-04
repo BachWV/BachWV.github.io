@@ -226,6 +226,110 @@ binutils</p>
 <p>调试器读取运行时状态。为什么gdb知道出错的位置？</p>
 <p>靠的是二进制文件中的info。</p>
 <p><code>gcc -g</code></p>
+<h2 id="关于popcount我好像还有一点话要说">关于popcount，我好像还有一点话要说</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#111">__attribute__</span><span style="color:#111">((</span><span style="color:#111">noinline</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">popcount</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">x</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">b0</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">s</span> <span style="color:#f92672">+=</span> <span style="color:#111">b0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">b1</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">s</span> <span style="color:#f92672">+=</span> <span style="color:#111">b1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">b2</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">s</span> <span style="color:#f92672">+=</span> <span style="color:#111">b2</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">b3</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">x</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">3</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">s</span> <span style="color:#f92672">+=</span> <span style="color:#111">b3</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#111">s</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;%d</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">popcount</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">b1101</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在某个知乎回答上我提过<a href="/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/">bitcount</a>
+底下就有z友评论了，不是有内建的popcount吗？😅建议不要用这种代码。内建的popcount 有些实现是汇编使用cpu机器指令，比这个快一倍轻轻松松。</p>
+<p>当然我看到的小技巧不一定比汇编实现的快，啊对对对。</p>
+<h2 id="编译和链接-compile-and-link">编译和链接 compile and link</h2>
+<p>relocation</p>
+<p>S+A-P 太难了，没看懂</p>
+<h2 id="重新理解编译链接流程">重新理解编译、链接流程</h2>
+<p>编译器 (gcc)</p>
+<p>High-level semantics (C 状态机) → low-level semantics (汇编)</p>
+<p>汇编器 (as)</p>
+<p>Low-level semantics → Binary semantics (状态机容器)</p>
+<ul>
+<li>
+<p>“一一对应” 地翻译成二进制代码</p>
+</li>
+<li>
+<p>sections, symbols, debug info
+不能决定的要留下 “之后怎么办” 的信息
+relocations
+链接器 (ld)</p>
+</li>
+</ul>
+<p>合并所有容器，得到 “一个完整的状态机”</p>
+<ul>
+<li>ldscript (-Wl,&ndash;verbose); 和 C Runtime Objects (CRT) 链接</li>
+<li>missing/duplicate symbol 会出错</li>
+</ul>
+<p>奇怪，我们完全没有讲 ELF 的细节？
+ELF 就是一个 “容器数据结构”，包含了必要的信息</p>
+<p>你完全可以试着自己定义二进制文件格式 (dump it to disk)！</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">struct</span> <span style="color:#111">executable</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">uint32_t</span> <span style="color:#111">entry</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">struct</span> <span style="color:#111">segment</span> <span style="color:#f92672">*</span><span style="color:#111">segments</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">struct</span> <span style="color:#111">reloc</span> <span style="color:#f92672">*</span><span style="color:#111">relocs</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">struct</span> <span style="color:#111">symbol</span> <span style="color:#f92672">*</span><span style="color:#111">symbols</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">struct</span> <span style="color:#111">segment</span> <span style="color:#111">{</span> <span style="color:#00a8c8">uint32_t</span> <span style="color:#111">flags</span><span style="color:#111">,</span> <span style="color:#111">size</span><span style="color:#111">;</span> <span style="color:#00a8c8">char</span> <span style="color:#111">data</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">];</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">struct</span> <span style="color:#111">reloc</span>   <span style="color:#111">{</span> <span style="color:#00a8c8">uint32_t</span> <span style="color:#111">S</span><span style="color:#111">,</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">P</span><span style="color:#111">;</span> <span style="color:#00a8c8">char</span> <span style="color:#111">name</span><span style="color:#111">[</span><span style="color:#ae81ff">32</span><span style="color:#111">];</span> <span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">struct</span> <span style="color:#111">symbol</span>  <span style="color:#111">{</span> <span style="color:#00a8c8">uint32_t</span> <span style="color:#111">off</span><span style="color:#111">;</span> <span style="color:#00a8c8">char</span> <span style="color:#111">name</span><span style="color:#111">[</span><span style="color:#ae81ff">32</span><span style="color:#111">];</span> <span style="color:#111">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当然，这有很多缺陷</p>
+<ul>
+<li>“名字” 其实应该集中存储 (const char * 而不是 char[])</li>
+<li>慢慢理解了 ELF 里的各种设计 (例如 memsz 和 filesz 不一样大)</li>
+</ul>
 </div>
 	</section>
 
@@ -362,7 +466,7 @@ binutils</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 523 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1050 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
