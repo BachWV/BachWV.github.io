@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tech on AC自动机</title>
+    <title>tech on 8086</title>
     <link>https://junling.li/categories/tech/</link>
-    <description>Recent content in tech on AC自动机</description>
+    <description>Recent content in tech on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
@@ -233,7 +233,7 @@
 &lt;p&gt;接下来，回到群晖的控制台，在控制面板的计划任务中
 &lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png&#34; alt=&#34;ds&#34;&gt;
 新建任务,事件为开机
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image_1594785587631.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/fYPhLojxJ1eQZNc.png&#34; alt=&#34;&#34;&gt;
 在任务设置中填写：
 bash /home/frp/start.sh
 重启群晖

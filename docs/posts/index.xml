@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on AC自动机</title>
+    <title>Posts on 8086</title>
     <link>https://junling.li/posts/</link>
-    <description>Recent content in Posts on AC自动机</description>
+    <description>Recent content in Posts on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Sat, 03 Sep 2022 22:32:41 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Sep 2022 22:32:41 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>操作系统-jyy-18</title>
+      <link>https://junling.li/posts/os-jyy-18/</link>
+      <pubDate>Mon, 05 Sep 2022 22:32:41 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/os-jyy-18/</guid>
+      <description>&lt;h1 id=&#34;第17讲-xv6-代码导读-调试工具配置调试系统调用执行&#34;&gt;第17讲 Xv6 代码导读 (调试工具配置；调试系统调用执行)&lt;/h1&gt;
+&lt;p&gt;经典UNIX v6的克隆&lt;/p&gt;
+&lt;h2 id=&#34;xv6-unix-v6-的现代-克隆&#34;&gt;xv6: UNIX v6 的现代 “克隆”&lt;/h2&gt;
+&lt;p&gt;接近完整的 UNIX Shell 体验&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本工具集 (wc, echo, cat, &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;命令执行、管道、重定向
+&lt;ul&gt;
+&lt;li&gt;支持多处理器&lt;/li&gt;
+&lt;li&gt;Now in RISC-V!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面是jyy狂吹xv6的code&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>操作系统-jyy-17</title>
@@ -18,7 +41,66 @@
       <pubDate>Sat, 03 Sep 2022 22:32:41 +0800</pubDate>
       
       <guid>https://junling.li/posts/os-jyy-17/</guid>
-      <description>&lt;h1 id=&#34;第17讲&#34;&gt;第17讲&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;第17讲-动态链接和加载-静态-elf-加载器实现调试-linux-内核动态链接和加载&#34;&gt;第17讲 动态链接和加载 (静态 ELF 加载器实现；调试 Linux 内核；动态链接和加载)&lt;/h1&gt;
+&lt;p&gt;从这里开始了看不懂的旅程&lt;/p&gt;
+&lt;h2 id=&#34;若干真正的静态elf加载器&#34;&gt;若干真正的静态elf加载器&lt;/h2&gt;
+&lt;p&gt;a.out:ELF header &amp;hellip;&lt;/p&gt;
+&lt;p&gt;loader 需要做哪些工作：解析数据结构+复制到内存+跳转&lt;/p&gt;
+&lt;p&gt;用mmap系统调用把elf描述的结构搬到内存中相应的位置&lt;a href=&#34;https://jyywiki.cn/pages/OS/2022/demos/loader-static.c&#34;&gt;loader-static.c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;设置运行时状态 argv,envp&lt;/p&gt;
+&lt;p&gt;这是魔法？有没有偷偷调用其他的加载器？jyy的loader对env做了处理，过滤掉了带下划线的环境变量，以此证明在这短短的几行里确实实现了一个loader-static&lt;/p&gt;
+&lt;p&gt;定义的函数功能与execve一样，用来从第一个参数中取file，直接映射文件的4096B到内存中。&lt;/p&gt;
+&lt;p&gt;下面是抄手册的过程&lt;/p&gt;
+&lt;h2 id=&#34;boot-loader&#34;&gt;Boot Loader&lt;/h2&gt;
+&lt;p&gt;Load kernel 过程&lt;/p&gt;
+&lt;p&gt;准备，load program&lt;/p&gt;
+&lt;p&gt;下面开始编译内核&lt;/p&gt;
+&lt;h2 id=&#34;动态链接&#34;&gt;动态链接&lt;/h2&gt;
+&lt;p&gt;自然有运行时链接的需求&lt;/p&gt;
+&lt;p&gt;jyy表示elf内容很多，由于咱们的短时记忆能力有限，一灌输就会让我们栈溢出，导致咱们跟不少老师的思路&lt;/p&gt;
+&lt;p&gt;我们需要实现什么?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加载动态库&lt;/li&gt;
+&lt;li&gt;加载外部符号&lt;/li&gt;
+&lt;li&gt;为动态库导出符号&lt;/li&gt;
+&lt;li&gt;动态符号链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DL_HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOAD(&amp;#34;libc.dl&amp;#34;) # 加载动态库
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IMPORT(putchar) # 加载外部符号
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;EXPORT(hello)   # 为动态库导出符号
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DL_CODE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hello:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  call DSYM(putchar) # 动态链接符号
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DL_END
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;让我们自己打造一套加载dl的工具链（大部分偷来的&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;dlbox！&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -395,7 +477,7 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;作为一个mirai机器人选手，自然少不了通过群聊的方式查询功能。&lt;/p&gt;
 &lt;p&gt;我们在qq群聊中监听查询请求（这里直接指定群聊），调用上述函数，即可完成实时查询电费。以下是效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/QQ%E5%9B%BE%E7%89%8720220831211457.png&#34; alt=&#34;效果图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/5IXfiNeCapFMxHK.png&#34; alt=&#34;power-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这个项目还是有遗憾的地方，目前roomcode的构建方式还知道，只能通过开发者工具看看前端计算的roomcode。目前来说，这个机器人只能查询咱们寝室的电费。实在是太逊了。&lt;/p&gt;
 &lt;p&gt;但是经过一天的猜想和学习。&lt;/p&gt;
 &lt;p&gt;我学废了nodejs，可以直接用node发送请求&lt;/p&gt;
@@ -555,14 +637,14 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;把上述解密和发送post请求合并为一个js文件，添加控制台传入参数，这就很优雅。甚至我们添加了错误处理（警觉）。
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-wx.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/IXYHkhSaOtcZTD9.png&#34; alt=&#34;power-wx.png&#34;&gt;
 咱们是否可以通过公众号提供接口，为广大成电水友提供查询服务？&lt;/p&gt;
 &lt;p&gt;在我飞速阅读了微信公众号平台的文档以后，&lt;/p&gt;
 &lt;p&gt;使用 Python 快速踩坑（不是),快速起了一个web server。&lt;/p&gt;
 &lt;p&gt;接收用户输入，经过简单判断是否为房间号，再fork-exec运行nodejs，&lt;/p&gt;
 &lt;p&gt;微信公众平台的接口可比QQ机器人稳定多了。打通了这一过程还是有不少坑的。&lt;/p&gt;
 &lt;p&gt;只需要向公众号的后台发送房间号，就可以看到电费使用情况了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-node.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/86oSvPNWcJH4f97.jpg&#34; alt=&#34;power-node.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;欢迎关注我在微信平台的号哦（疯狂引流&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 </description>
@@ -1546,23 +1628,23 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
       <guid>https://junling.li/posts/junling-li/</guid>
       <description>&lt;p&gt;今天心血来潮注册了junling.li&lt;/p&gt;
 &lt;p&gt;?? copilot 已经如此智能了吗？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_17-50-15.png&#34; alt=&#34;smart-copilot&#34;&gt;&lt;/p&gt;
-&lt;p&gt;整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 &lt;a href=&#34;https://www.metanet.ch&#34;&gt;metanet&lt;/a&gt;，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 &lt;a href=&#34;https://jun.li/tech/202.html&#34;&gt;https://jun.li/tech/202.html&lt;/a&gt; 下面的评论，发现 &lt;a href=&#34;https://gandi.net&#34;&gt;https://gandi.net&lt;/a&gt;可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/OCAJ8aMWnEIcTxl.png&#34; alt=&#34;junling-li-1.png&#34;&gt;
+整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 &lt;a href=&#34;https://www.metanet.ch&#34;&gt;metanet&lt;/a&gt;，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 &lt;a href=&#34;https://jun.li/tech/202.html&#34;&gt;https://jun.li/tech/202.html&lt;/a&gt; 下面的评论，发现 &lt;a href=&#34;https://gandi.net&#34;&gt;https://gandi.net&lt;/a&gt;可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。&lt;/p&gt;
 &lt;p&gt;之后改一下默认dns到dnspod.cn,&lt;/p&gt;
 &lt;p&gt;?? 过于智能了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_17-59-12.png&#34; alt=&#34;smart-copilot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/7lUBLWtS5eAsauF.png&#34; alt=&#34;junling-li-2.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;就遇到了当初一样的备案问题，先不说备案的要花时间和精力，&lt;code&gt;.li.&lt;/code&gt;能不能备案都是一个问题，所以想到了&lt;/p&gt;
 &lt;p&gt;?? 
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_18-02-44.png&#34; alt=&#34;smart-copilot&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/5rgtTRji9Vs7aey.png&#34; alt=&#34;junling-li-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;看来copilot提供的解决方案简单粗暴。
 事实上我想用 vercel 加速 Github pages，这样&lt;/p&gt;
 &lt;p&gt;??听君一席话??
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_18-08-00.png&#34; alt=&#34;smart-copilot&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/XPM57pg9Is8VuOl.png&#34; alt=&#34;junling-li-4.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这样就直接把 junling.li cname到 vercel给的域名或者a记录到vercel服务器ip，就跳过了备案。&lt;/p&gt;
 &lt;p&gt;vercel的操作远远比我想的要简单，添加github仓库
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_18-13-37.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/qsUt1kQ7cMXdirx.png&#34; alt=&#34;junling-li-5.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;自动选择hugo，点击部署
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/Snipaste_2022-08-09_18-14-31.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/KA1djrDcJ2NSaCx.png&#34; alt=&#34;junling-li-6.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;设置a记录，结束！&lt;/p&gt;
 &lt;p&gt;整个过程不超过5分钟&lt;/p&gt;
 &lt;p&gt;至此，Blog 已经“一键”搬到 junling.li了，还免去了配置ssl证书&lt;/p&gt;
@@ -1929,7 +2011,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;p&gt;搞定！&lt;/p&gt;
 &lt;p&gt;虽然很简单的一个项目，和b站小学生写操作系统没法比&lt;/p&gt;
 &lt;p&gt;还是说明一下啊&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141017067.png&#34; alt=&#34;image-20220728141017067&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/IzZh7ia8os4fjM1.png&#34; alt=&#34;acllib-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;根据以上流程图和游戏操作，本阶段的介绍分三个部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1）&lt;/strong&gt; &lt;strong&gt;基本图形的存储与绘制&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2）&lt;/strong&gt; &lt;strong&gt;下落定时与键盘控制&lt;/strong&gt;&lt;/p&gt;
@@ -1938,14 +2020,15 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1）&lt;/strong&gt; &lt;strong&gt;基本图形的存储与绘制&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;俄罗斯方块有5类19种不同的图形，分别为1字形（2种），Z字形（4种），T字形（4种），L字形（8种），田字形（1种），每类之间可以通过旋转对称得到，每次生成图形时要使用这19种图形来绘制。本游戏使用一个三维数组Graphics[19][4][4]来存储该图形，19对应编号，两个4对应4*4矩阵。0代表空，1代表黑块。&lt;/p&gt;
 &lt;p&gt;例如&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image002.jpg&#34; alt=&#34;img&#34;&gt;对应&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/fl76bPzH2KRWmrZ.png&#34; alt=&#34;acllib-5.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;对应&lt;/p&gt;
 &lt;p&gt;0 0 0 0&lt;/p&gt;
 &lt;p&gt;0 1 0 0&lt;/p&gt;
 &lt;p&gt;0 1 0 0&lt;/p&gt;
 &lt;p&gt;1 1 0 0&lt;/p&gt;
 &lt;p&gt;绘图时，使用循环语句遍历4*4数组，当值为1时，在适当位置（下文会详细说明这个适当位置）绘制正方形，这里使用ACLLIB库中提供的rectangle命令绘制矩形。&lt;/p&gt;
 &lt;p&gt;所有图形保存在TXT文件中，可以通过改变TXT文件中的值获得任何你想要的形状，每次运行时使用文件操作读取所有的19种图形。对于已经下落的图形，使用二维数组allPixel[30][15]存储像素点，如图所示建立坐标系：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141157276.png&#34; alt=&#34;image-20220728141157276&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/SpCXZI3lzamDx41.png&#34; alt=&#34;acllib-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;30对应y轴，15对应x轴&lt;/p&gt;
 &lt;p&gt;数组值为1对应黑块，值为0对应空。初始值全为0。绘图时，遍历allPixel数组，遇到1时使用ACLLIB库中提供的rectangle命令在相应位置绘制矩形。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2）下落定时与键盘控制&lt;/strong&gt;&lt;/p&gt;
@@ -1960,12 +2043,12 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3）图形界面和音效设计&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本游戏操作界面如下：&lt;/p&gt;
 &lt;p&gt;左侧框中为正在下落的方块和已经下落的方块，右侧为计分和提示文字&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image002.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/Fusi7R15ID32OZB.jpg&#34; alt=&#34;acllib-2.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;计分和等级功能：每下降一个方块加1分，每消去一行方块升1级。并播放升级音效。如果方块堆积到达顶部，则显示游戏结束。&lt;/p&gt;
 &lt;h3 id=&#34;核心算法的详细设计与实现&#34;&gt;核心算法的详细设计与实现&lt;/h3&gt;
 &lt;p&gt;下面列举本游戏的核心算法：&lt;/p&gt;
 &lt;p&gt;**判断障碍算法：**在每次左右移动时，需要判断是否遇到障碍，拿右移的代码举例，该判断算法的步骤如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image004.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/fmFJ4gy83RuIZzY.jpg&#34; alt=&#34;acllib-4.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;当收到键盘请求isToRight==true后，首先设置布尔变量isReach值为false，对下落的方块的4*4矩阵进行遍历，如果某一位置为1，进行下一步判断：移动后的位置是否超出右侧边界？移动后的位置是否有已知方块？&lt;/p&gt;
 &lt;p&gt;只要有一个回答是，则说明有障碍，无法移动，标记isReach为true，结束循环。当遍历结束后isReach仍然为false，即中间一次没有被标记，则说明右移后没有障碍，可以放心移动，令位置变量x加1。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -2029,7 +2112,8 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;绘制已经存在的像素点与此大同小异。&lt;/p&gt;
-&lt;p&gt;**判断某一行是否填满方块：**对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;判断某一行是否填满方块：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。&lt;/p&gt;
 </description>
     </item>
     
@@ -2218,7 +2302,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;居然和我想的一样，不行这一定得拍下来&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/FDE8061D112A8F8005266EEE7D6A69A1.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/KTU2bQsg1CFAikn.jpg&#34; alt=&#34;os-jyy-11.jpg&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;fork-printfc&#34;&gt;fork-printf.c&lt;/h3&gt;
 &lt;p&gt;神奇的事情出现了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -2746,7 +2830,7 @@ registration.&lt;/li&gt;
 &lt;p&gt;硬件厂商会约定，只要按照约定来就没问题了&lt;/p&gt;
 &lt;p&gt;根据CPU手册(&lt;a href=&#34;https://cdrdv2.intel.com/v1/dl/getContent/671190&#34;&gt;https://cdrdv2.intel.com/v1/dl/getContent/671190&lt;/a&gt;)，对intel x86来说，reset后 Real mode =0 处在16位兼容模式，&lt;/p&gt;
 &lt;p&gt;ELPAGS=0X0000002 中断关闭&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173525607.png&#34; alt=&#34;image-20220728173525607&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/LKtdAp13oEIF6bw.png&#34; alt=&#34;intel-IA32-doc.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;CPU reset后，CPU这个状态机的初始状态是唯一确定，PC指针指向一段memory-mapped ROM,这虽然是内存地址，但是是ROM断电后仍能保存数据，PC=ffff0&lt;/p&gt;
 &lt;p&gt;用qemu-x86_64模拟一下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -2793,8 +2877,8 @@ registration.&lt;/li&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   0xfffff:     add    %al,(%rax)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173355906.png&#34; alt=&#34;image-20220728173355906&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/2021040911271119.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/279w3yJs1SHBjfA.png&#34; alt=&#34;os-jyy-9-2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/sktxpvC2H5Wnm1P.png&#34; alt=&#34;jyy-os-9-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;查看资料都说这一段是跳转到jmp f000:e05b,确实跳转到e05b（也就是BIOS区域中某个地址）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -3045,11 +3129,10 @@ registration.&lt;/li&gt;
       
       <guid>https://junling.li/posts/%E5%9B%BE%E5%BA%8A/</guid>
       <description>&lt;p&gt;在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。&lt;/p&gt;
-&lt;p&gt;首先开通oss&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193540567.png&#34; alt=&#34;image-20220721193540567&#34;&gt;创建桶bucket&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193617083.png&#34; alt=&#34;image-20220721193617083&#34;&gt;&lt;/p&gt;
+&lt;p&gt;首先开通oss，创建桶bucket&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/mxXREbBNe1i9PqA.png&#34; alt=&#34;oss-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;创建用户并为他添加权限&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193743942.png&#34; alt=&#34;image-20220721193743942&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/km4tgGahNHVE8BO.png&#34; alt=&#34;oss-2.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;参考picgo文档&lt;/p&gt;
 &lt;h3 id=&#34;阿里云oss&#34;&gt;阿里云OSS&lt;/h3&gt;
 &lt;p&gt;配置项及说明：&lt;/p&gt;
@@ -3080,9 +3163,12 @@ registration.&lt;/li&gt;
 &lt;p&gt;如上图，存储区域就是&lt;code&gt;oss-cn-beijing&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;存储路径比如&lt;code&gt;img/&lt;/code&gt;的话，上传的图片会默认放在OSS的&lt;code&gt;img&lt;/code&gt;文件夹下。注意存储路径一定要以&lt;code&gt;/&lt;/code&gt;结尾！存储路径是可选的，如果不需要请留空。&lt;/p&gt;
 &lt;p&gt;最后防止盗刷，最后一定还要添加流量报警，防止一晚上以后房子都是阿里云的了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193957579.png&#34; alt=&#34;image-20220721193957579&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/8HPYyWSKjQIGAsU.png&#34; alt=&#34;oss-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;暂时的打算是新的图传阿里云，老图还在github仓库&lt;/p&gt;
 &lt;p&gt;希望一次配置，以后永远不用再烦图床了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2022/9/6更新，由于最近看了几个例子，开了oss/cos被ddos了刷了好几万，阿里云开不了cdn（国内访问需备案域名），遂关了oss。这篇的保质期也只有两个月，阿里云也被我白嫖了两个月。&lt;/p&gt;
+&lt;p&gt;这当然不是因为我懒得配cloudflare加速（减速），这是本blog的网络安全周的特别企划。&lt;/p&gt;
 </description>
     </item>
     
@@ -9320,7 +9406,7 @@ http://localhost:1313/leetcode/，里面是leetcode文件夹中的文章&lt;/p&g
 &lt;p&gt;接下来，回到群晖的控制台，在控制面板的计划任务中
 &lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png&#34; alt=&#34;ds&#34;&gt;
 新建任务,事件为开机
-&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image_1594785587631.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/09/06/fYPhLojxJ1eQZNc.png&#34; alt=&#34;&#34;&gt;
 在任务设置中填写：
 bash /home/frp/start.sh
 重启群晖
@@ -9511,17 +9597,17 @@ bash /home/frp/start.sh
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;g++ test.cpp -o test -g
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb对生成可执行文件进行调试&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/WkF1jnztKqLQm46.png&#34; alt=&#34;gdb-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;l&lt;/code&gt;可以查看需要 调试的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/JoIYdxrSvMFzVea.png&#34; alt=&#34;gdb-2.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;break/b 4&lt;/code&gt;表示在第4行设置断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;break filename:&amp;lt; function &amp;gt;&lt;/code&gt;  在名称为filename的文件中的function函数入口处打断点 break *address 在程序运行的内存地址处打断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;run/&lt;/code&gt;程序就会运行到断点处&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;display i&lt;/code&gt;表示显示变量i的值&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;next/n 1&lt;/code&gt;表示运行下一行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;si&lt;/code&gt;会进入函数内部&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/menLWoN3iwqIOtr.png&#34; alt=&#34;gdb-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;layout asm&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;layout src&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;list/l 3 &lt;/code&gt; 可以使用list/l命令查看程序，方便我们添加断点时查看信息。&lt;/p&gt;
@@ -12789,6 +12875,15 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 &lt;p&gt;希望这里是不太正经的自我介绍&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://junling.li/posts/os-jyy-19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://junling.li/posts/os-jyy-19/</guid>
+      <description></description>
     </item>
     
   </channel>

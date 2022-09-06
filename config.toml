@@ -12,7 +12,7 @@ languageCode = "en"
 theme = "hugo-theme-tokiwa"
 #paginate might no use
 
-title = "AC自动机"
+title = "8086"
 publishDir = "docs"
 
 [markup]

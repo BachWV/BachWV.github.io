@@ -157,7 +157,7 @@ linux在执行shell命令之前，就会确定好所有的输入输出位置，�
 接下来，回到群晖的控制台，在控制面板的计划任务中
 ![ds](https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png)
 新建任务,事件为开机
-![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image_1594785587631.png)
+![](https://s2.loli.net/2022/09/06/fYPhLojxJ1eQZNc.png)
 在任务设置中填写：
 bash /home/frp/start.sh
 重启群晖

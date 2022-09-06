@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | 操作系统-jyy-9</title>
+	<title>8086  | 操作系统-jyy-9</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -119,7 +119,7 @@ onload='renderMathInElement(document.body);'></script>
 				
 <div>
 	<h2>
-		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
 <h1 class="pt-2">操作系统-jyy-9</h1>
@@ -156,7 +156,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>硬件厂商会约定，只要按照约定来就没问题了</p>
 <p>根据CPU手册(<a href="https://cdrdv2.intel.com/v1/dl/getContent/671190">https://cdrdv2.intel.com/v1/dl/getContent/671190</a>)，对intel x86来说，reset后 Real mode =0 处在16位兼容模式，</p>
 <p>ELPAGS=0X0000002 中断关闭</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173525607.png" alt="image-20220728173525607"></p>
+<p><img src="https://s2.loli.net/2022/09/06/LKtdAp13oEIF6bw.png" alt="intel-IA32-doc.png"></p>
 <p>CPU reset后，CPU这个状态机的初始状态是唯一确定，PC指针指向一段memory-mapped ROM,这虽然是内存地址，但是是ROM断电后仍能保存数据，PC=ffff0</p>
 <p>用qemu-x86_64模拟一下</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -203,8 +203,8 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>   0xfffff:     add    %al,(%rax)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173355906.png" alt="image-20220728173355906"></p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/2021040911271119.png" alt="在这里插入图片描述"></p>
+</div><p><img src="https://s2.loli.net/2022/09/06/279w3yJs1SHBjfA.png" alt="os-jyy-9-2.png"></p>
+<p><img src="https://s2.loli.net/2022/09/06/sktxpvC2H5Wnm1P.png" alt="jyy-os-9-3.png"></p>
 <p>查看资料都说这一段是跳转到jmp f000:e05b,确实跳转到e05b（也就是BIOS区域中某个地址）</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

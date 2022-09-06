@@ -29,7 +29,7 @@ date: 2022-07-26T16:09:07+08:00
 
 ELPAGS=0X0000002 中断关闭
 
-![image-20220728173525607](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173525607.png)
+![intel-IA32-doc.png](https://s2.loli.net/2022/09/06/LKtdAp13oEIF6bw.png)
 
 CPU reset后，CPU这个状态机的初始状态是唯一确定，PC指针指向一段memory-mapped ROM,这虽然是内存地址，但是是ROM断电后仍能保存数据，PC=ffff0
 
@@ -57,9 +57,9 @@ cs             0xf000              61440
    0xfffff:     add    %al,(%rax)
 ```
 
-![image-20220728173355906](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728173355906.png)
+![os-jyy-9-2.png](https://s2.loli.net/2022/09/06/279w3yJs1SHBjfA.png)
 
-![在这里插入图片描述](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/2021040911271119.png)
+![jyy-os-9-3.png](https://s2.loli.net/2022/09/06/sktxpvC2H5Wnm1P.png)
 
 查看资料都说这一段是跳转到jmp f000:e05b,确实跳转到e05b（也就是BIOS区域中某个地址）
 

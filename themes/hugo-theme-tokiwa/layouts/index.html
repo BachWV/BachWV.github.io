@@ -9,7 +9,7 @@
 <div>
 	<section>
 		{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-		{{ range (.Paginate $pages 6).Pages }}<div>
+		{{ range (.Paginate $pages 10).Pages }}<div>
 			{{ partial "summary.html" . }}
 		</div>
 		{{ end }}

@@ -120,7 +120,7 @@ public static Response ppp(String url) throws IOException {
 
 我们在qq群聊中监听查询请求（这里直接指定群聊），调用上述函数，即可完成实时查询电费。以下是效果：
 
-![效果图](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/QQ%E5%9B%BE%E7%89%8720220831211457.png)
+![power-3.png](https://s2.loli.net/2022/09/06/5IXfiNeCapFMxHK.png)
 
 这个项目还是有遗憾的地方，目前roomcode的构建方式还知道，只能通过开发者工具看看前端计算的roomcode。目前来说，这个机器人只能查询咱们寝室的电费。实在是太逊了。
 
@@ -212,7 +212,7 @@ var encrpytText = "120335";
 console.log(cryptoEncryption(aseKey,encrpytText)); //调用加密方法
 ```
 把上述解密和发送post请求合并为一个js文件，添加控制台传入参数，这就很优雅。甚至我们添加了错误处理（警觉）。
-![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-wx.png)
+![power-wx.png](https://s2.loli.net/2022/09/06/IXYHkhSaOtcZTD9.png)
 咱们是否可以通过公众号提供接口，为广大成电水友提供查询服务？
 
 在我飞速阅读了微信公众号平台的文档以后，
@@ -226,7 +226,7 @@ console.log(cryptoEncryption(aseKey,encrpytText)); //调用加密方法
 
 只需要向公众号的后台发送房间号，就可以看到电费使用情况了。
 
-![](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/power-node.jpg)
+![power-node.jpg](https://s2.loli.net/2022/09/06/86oSvPNWcJH4f97.jpg)
 
 欢迎关注我在微信平台的号哦（疯狂引流
 

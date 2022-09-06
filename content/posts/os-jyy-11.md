@@ -157,7 +157,7 @@ Hello World from (0, 0, 139)
 
 居然和我想的一样，不行这一定得拍下来
 
-![img](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/FDE8061D112A8F8005266EEE7D6A69A1.jpg)
+![os-jyy-11.jpg](https://s2.loli.net/2022/09/06/KTU2bQsg1CFAikn.jpg)
 
 ### fork-printf.c
 

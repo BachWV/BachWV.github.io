@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | 操作系统-jyy-17</title>
+	<title>8086  | 操作系统-jyy-17</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -119,7 +119,7 @@ onload='renderMathInElement(document.body);'></script>
 				
 <div>
 	<h2>
-		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
 <h1 class="pt-2">操作系统-jyy-17</h1>
@@ -144,7 +144,66 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><h1 id="第17讲">第17讲</h1>
+		<div class="c-rich-text"><h1 id="第17讲-动态链接和加载-静态-elf-加载器实现调试-linux-内核动态链接和加载">第17讲 动态链接和加载 (静态 ELF 加载器实现；调试 Linux 内核；动态链接和加载)</h1>
+<p>从这里开始了看不懂的旅程</p>
+<h2 id="若干真正的静态elf加载器">若干真正的静态elf加载器</h2>
+<p>a.out:ELF header &hellip;</p>
+<p>loader 需要做哪些工作：解析数据结构+复制到内存+跳转</p>
+<p>用mmap系统调用把elf描述的结构搬到内存中相应的位置<a href="https://jyywiki.cn/pages/OS/2022/demos/loader-static.c">loader-static.c</a></p>
+<p>设置运行时状态 argv,envp</p>
+<p>这是魔法？有没有偷偷调用其他的加载器？jyy的loader对env做了处理，过滤掉了带下划线的环境变量，以此证明在这短短的几行里确实实现了一个loader-static</p>
+<p>定义的函数功能与execve一样，用来从第一个参数中取file，直接映射文件的4096B到内存中。</p>
+<p>下面是抄手册的过程</p>
+<h2 id="boot-loader">Boot Loader</h2>
+<p>Load kernel 过程</p>
+<p>准备，load program</p>
+<p>下面开始编译内核</p>
+<h2 id="动态链接">动态链接</h2>
+<p>自然有运行时链接的需求</p>
+<p>jyy表示elf内容很多，由于咱们的短时记忆能力有限，一灌输就会让我们栈溢出，导致咱们跟不少老师的思路</p>
+<p>我们需要实现什么?</p>
+<ul>
+<li>加载动态库</li>
+<li>加载外部符号</li>
+<li>为动态库导出符号</li>
+<li>动态符号链接</li>
+</ul>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>DL_HEAD
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>LOAD(&#34;libc.dl&#34;) # 加载动态库
+</span></span><span style="display:flex;"><span>IMPORT(putchar) # 加载外部符号
+</span></span><span style="display:flex;"><span>EXPORT(hello)   # 为动态库导出符号
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DL_CODE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello:
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  call DSYM(putchar) # 动态链接符号
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DL_END
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>让我们自己打造一套加载dl的工具链（大部分偷来的</p>
+<p><strong>dlbox！</strong></p>
 </div>
 	</section>
 
@@ -281,7 +340,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 4 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 486 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -305,6 +364,13 @@ onload='renderMathInElement(document.body);'></script>
         操作系统-jyy-16
     </a>
     
+    
+    <a class="flex-grow-0" href="/posts/os-jyy-18/">
+        操作系统-jyy-18
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

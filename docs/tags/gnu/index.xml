@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GNU on AC自动机</title>
+    <title>GNU on 8086</title>
     <link>https://junling.li/tags/gnu/</link>
-    <description>Recent content in GNU on AC自动机</description>
+    <description>Recent content in GNU on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
@@ -28,17 +28,17 @@
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;g++ test.cpp -o test -g
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png&#34; alt=&#34;image-20210928151948226.png&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;记得一定要在编译时带-g参数，编译完成以后，使用gdb对生成可执行文件进行调试&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/WkF1jnztKqLQm46.png&#34; alt=&#34;gdb-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;l&lt;/code&gt;可以查看需要 调试的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png&#34; alt=&#34;image-20210928152039520.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/JoIYdxrSvMFzVea.png&#34; alt=&#34;gdb-2.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;break/b 4&lt;/code&gt;表示在第4行设置断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;break filename:&amp;lt; function &amp;gt;&lt;/code&gt;  在名称为filename的文件中的function函数入口处打断点 break *address 在程序运行的内存地址处打断点&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;run/&lt;/code&gt;程序就会运行到断点处&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;display i&lt;/code&gt;表示显示变量i的值&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;next/n 1&lt;/code&gt;表示运行下一行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;si&lt;/code&gt;会进入函数内部&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png&#34; alt=&#34;image-20210928152442778.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/menLWoN3iwqIOtr.png&#34; alt=&#34;gdb-3.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;layout asm&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;layout src&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;list/l 3 &lt;/code&gt; 可以使用list/l命令查看程序，方便我们添加断点时查看信息。&lt;/p&gt;

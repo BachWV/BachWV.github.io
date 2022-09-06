@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Gdb调试</title>
+	<title>8086 </title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Gdb调试</h1>
+<h1 class="pt-2"></h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -130,16 +130,8 @@ onload='renderMathInElement(document.body);'></script>
 	
 
 	
-	
-	
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/gnu'>GNU</a>
-	
-	
-	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2021-09-28T15:35:49&#43;08:00">2021-9-28</time>
+		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
 </div>
 
 <hr />
@@ -152,79 +144,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>今天尝试使用gdb调试，相比ide的调试没那么容易好上手</p>
-<p>对于一个cpp文件</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>g++ test.cpp -o test -g
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>记得一定要在编译时带-g参数，编译完成以后，使用gdb对生成可执行文件进行调试</p>
-<p><img src="https://s2.loli.net/2022/09/06/WkF1jnztKqLQm46.png" alt="gdb-1.png"></p>
-<p><code>l</code>可以查看需要 调试的文件</p>
-<p><img src="https://s2.loli.net/2022/09/06/JoIYdxrSvMFzVea.png" alt="gdb-2.png"></p>
-<p><code>break/b 4</code>表示在第4行设置断点</p>
-<p><code>break filename:&lt; function &gt;</code>  在名称为filename的文件中的function函数入口处打断点 break *address 在程序运行的内存地址处打断点</p>
-<p><code>run/</code>程序就会运行到断点处</p>
-<p><code>display i</code>表示显示变量i的值</p>
-<p><code>next/n 1</code>表示运行下一行</p>
-<p><code>si</code>会进入函数内部</p>
-<p><img src="https://s2.loli.net/2022/09/06/menLWoN3iwqIOtr.png" alt="gdb-3.png"></p>
-<p><code>layout asm</code></p>
-<p><code>layout src</code></p>
-<p><code>list/l 3 </code> 可以使用list/l命令查看程序，方便我们添加断点时查看信息。</p>
-<ol>
-<li>
-<p>break … if &lt; condition&gt; 在处理某些循环体中可使用此方法进行调试，其中…可以是上述的break lineNumber、break +offset/break -offset中的参数，其中condition表示条件，在条件成立时程序即停止运行，如设置break if i=100表示当i为100时程序停止运行。</p>
-</li>
-<li>
-<p>查看断点时，也可以使用info命令如info breakpoints [n]、info break [n]其中n 表示断点号来查看断点信息。</p>
-<p>好像不能在内联汇编里面打断点</p>
-</li>
-<li>
-<p>逐步调试命令 next &lt; count&gt;。单步跟踪，如果有函数调用不会进入函数，如果后面不加count表示一条一条的执行，加count表示执行后面的count条指令， step &lt; count&gt;。单步跟踪，如果有函数调用则进入该函数（进入该函数前提是此函数编译有Debug信息）,与next类似，其不加count表示一条一条执行，加上count表示自当前行开始执行count条代码指令 set step-mode.set step-mode on用于打开step-mode模式，这样在进行单步跟踪时，程序不会因为没有debug信息而不停止运行，这很有利于查看机器码，可以通过set step-mode off关闭step-mode模式 finish。运行程序直到当前函数完成并打印函数返回时的堆栈地址和返回值及参数值等信息。 until。运行程序直到退出循环体 stepi(缩写si)和nexti(缩写ni)。stepi和nexti用于单步跟踪一条及其指令，一条程序代码有可能由数条机器指令完成，stepi和nexi可以单步执行机器指令。</p>
-</li>
-<li>
-<p>continue/c命令 当程序遇到断点停止运行后可以使用continue命令恢复程序的运行到下一个断点或直到程序结束。</p>
-</li>
-<li>
-<p>print/p 显示指定变量</p>
-</li>
-<li>
-<p><code>p $rax</code>查看寄存器请查看：https://blog.csdn.net/linuxheik/article/details/17380767</p>
-</li>
-<li>
-<p>watch命令 watch命令一般来观察某个表达式(变量也可视为一种表达式)的值是否发生了变化，如果由变化则程序立即停止运行，其具体用法如下：watch &lt; expr&gt; 为表达式(变量)expr设置一个观察点一旦其数值由变化，程序立即停止运行 rwatch &lt; expr&gt; 当表达式expr被读时，程序立即停止运行 awatch &lt; expr&gt; 当表达式expr的值被读或被写时程序立即停止运行 info watchpoints 列出当前所设置的所有观察点</p>
-</li>
-<li>
-<p>return命令 如果在函数中设置了调试断点，在断点后还有语句没有执行完，这个时候我们可以使用return命令强制函数忽略还没有执行的语句并返回。可以直接使用return命令用于取消当前函数的执行并立即返回函数值，也可以指定表达式如 return &lt; expression&gt;那么该表达式的值会被作为函数的返回值。</p>
-</li>
-<li>
-<p>info命令 info命令可以用来在调试时查看寄存器、断点、观察点和信号等信息。其用法如下：</p>
-</li>
-</ol>
-<p><code>info registers</code>:查看除了浮点寄存器以外的寄存器</p>
-<p><code>info all-registers</code>: 查看所有的寄存器包括浮点寄存器</p>
-<p><code>info registers &lt; registersName&gt;</code>:查看指定寄存器</p>
-<p><code>info break</code>: 查看所有断点信息 info watchpoints: 查看当前设置的所有观察点 info signals info handle: 查看有哪些信号正在被gdb检测 info line: 查看源代码在内存中的地址 info threads: 可以查看多线程</p>
-<p>finish命令  执行完当前的函数。</p>
-<p>run(缩写r)和quit(缩写q)分别可以开始运行程序和退出gdb调试</p>
-<p>whatis或ptype显示变量的类型</p>
-<p>bt显示函数调用路径</p>
-<p>回到过去<code>record full</code></p>
-<h2 id="查看内存">查看内存</h2>
-<p>使用examine（简写x）来查看内存地址中的值。语法：
-x/
-n、f、u是可选的参数。
-（1）n 是一个正整数，表示显示内存的长度，也就是说从当前地址向后显示几个地址的内容。
-（2）f 表示显示的格式，参见上面。如果地址所指的是字符串，那么格式可以是s，如果地十是指令地址，那么格式可以是i。
-（3）u 表示从当前地址往后请求的字节数，如果不指定的话，GDB默认是4个bytes。u参数可以用下面的字符来代替，b表示单字节，h表示双字节，w表示四字 节，g表示八字节。当我们指定了字节长度后，GDB会从指内存定的内存地址开始，读写指定字节，并把其当作一个值取出来。
-eg:</p>
-<p>x/3uh 0x54320 ：从内存地址0x54320读取内容，h表示以双字节为一个单位，3表示三个单位，u表示按十六进制显示。</p>
-</div>
+		<div class="c-rich-text"></div>
 	</section>
 
 
@@ -360,7 +280,7 @@ eg:</p>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1925 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 0 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -376,17 +296,9 @@ eg:</p>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/">
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        103. 二叉树的锯齿形层序遍历
-    </a>
     
-    
-    <a class="flex-grow-0" href="/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
-        如何拥有一个域名邮箱？
+    <a class="flex-grow-0" href="/posts/sec/">
+        Sec
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />

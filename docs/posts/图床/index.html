@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>AC自动机  | 图床</title>
+	<title>8086  | 图床</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -119,7 +119,7 @@ onload='renderMathInElement(document.body);'></script>
 				
 <div>
 	<h2>
-		<a href="https://junling.li/" title="AC自动机" class="heading font-cursive icon">AC自动机</a>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
 <h1 class="pt-2">图床</h1>
@@ -145,11 +145,10 @@ onload='renderMathInElement(document.body);'></script>
 <article>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。</p>
-<p>首先开通oss</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193540567.png" alt="image-20220721193540567">创建桶bucket</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193617083.png" alt="image-20220721193617083"></p>
+<p>首先开通oss，创建桶bucket</p>
+<p><img src="https://s2.loli.net/2022/09/06/mxXREbBNe1i9PqA.png" alt="oss-1.png"></p>
 <p>创建用户并为他添加权限</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193743942.png" alt="image-20220721193743942"></p>
+<p><img src="https://s2.loli.net/2022/09/06/km4tgGahNHVE8BO.png" alt="oss-2.png"></p>
 <p>参考picgo文档</p>
 <h3 id="阿里云oss">阿里云OSS</h3>
 <p>配置项及说明：</p>
@@ -180,9 +179,12 @@ onload='renderMathInElement(document.body);'></script>
 <p>如上图，存储区域就是<code>oss-cn-beijing</code></p>
 <p>存储路径比如<code>img/</code>的话，上传的图片会默认放在OSS的<code>img</code>文件夹下。注意存储路径一定要以<code>/</code>结尾！存储路径是可选的，如果不需要请留空。</p>
 <p>最后防止盗刷，最后一定还要添加流量报警，防止一晚上以后房子都是阿里云的了</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220721193957579.png" alt="image-20220721193957579"></p>
+<p><img src="https://s2.loli.net/2022/09/06/8HPYyWSKjQIGAsU.png" alt="oss-3.png"></p>
 <p>暂时的打算是新的图传阿里云，老图还在github仓库</p>
 <p>希望一次配置，以后永远不用再烦图床了。</p>
+<hr>
+<p>2022/9/6更新，由于最近看了几个例子，开了oss/cos被ddos了刷了好几万，阿里云开不了cdn（国内访问需备案域名），遂关了oss。这篇的保质期也只有两个月，阿里云也被我白嫖了两个月。</p>
+<p>这当然不是因为我懒得配cloudflare加速（减速），这是本blog的网络安全周的特别企划。</p>
 </div>
 	</section>
 
@@ -319,7 +321,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 422 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 567 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

@@ -13,15 +13,15 @@ tags: ["GNU"]
 g++ test.cpp -o test -g
 ```
 
-记得一定要在编译时带-g参数，编译完成以后，使用gdb+生成可执行文件进行调试
+记得一定要在编译时带-g参数，编译完成以后，使用gdb对生成可执行文件进行调试
 
 
 
-![image-20210928151948226.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/HOKRY8kWrajiShQ.png)
+![gdb-1.png](https://s2.loli.net/2022/09/06/WkF1jnztKqLQm46.png)
 
 `l`可以查看需要 调试的文件
 
-![image-20210928152039520.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/lMpTUvSawgQHy2R.png)
+![gdb-2.png](https://s2.loli.net/2022/09/06/JoIYdxrSvMFzVea.png)
 
 `break/b 4`表示在第4行设置断点
 
@@ -35,7 +35,7 @@ g++ test.cpp -o test -g
 
 `si`会进入函数内部 
 
-![image-20210928152442778.png](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/cW4Ym5NItdKlDak.png)
+![gdb-3.png](https://s2.loli.net/2022/09/06/menLWoN3iwqIOtr.png)
 
 `layout asm`
 

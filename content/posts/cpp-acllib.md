@@ -217,9 +217,7 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 还是说明一下啊
 
-
-
-![image-20220728141017067](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141017067.png)
+![acllib-1.png](https://s2.loli.net/2022/09/06/IzZh7ia8os4fjM1.png)
 
 根据以上流程图和游戏操作，本阶段的介绍分三个部分：
 
@@ -237,7 +235,9 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 例如
 
-![img](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image002.jpg)对应
+![acllib-5.png](https://s2.loli.net/2022/09/06/fl76bPzH2KRWmrZ.png)
+
+对应
 
 0 0 0 0
 
@@ -251,7 +251,7 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 所有图形保存在TXT文件中，可以通过改变TXT文件中的值获得任何你想要的形状，每次运行时使用文件操作读取所有的19种图形。对于已经下落的图形，使用二维数组allPixel[30][15]存储像素点，如图所示建立坐标系：
 
-![image-20220728141157276](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220728141157276.png)
+![acllib-3.png](https://s2.loli.net/2022/09/06/SpCXZI3lzamDx41.png)
 
 30对应y轴，15对应x轴
 
@@ -283,7 +283,7 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 左侧框中为正在下落的方块和已经下落的方块，右侧为计分和提示文字
 
-![img](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image002.jpg)
+![acllib-2.jpg](https://s2.loli.net/2022/09/06/Fusi7R15ID32OZB.jpg)
 
 计分和等级功能：每下降一个方块加1分，每消去一行方块升1级。并播放升级音效。如果方块堆积到达顶部，则显示游戏结束。
 
@@ -297,7 +297,7 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 **判断障碍算法：**在每次左右移动时，需要判断是否遇到障碍，拿右移的代码举例，该判断算法的步骤如下：
 
-![img](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/clip_image004.jpg)
+![acllib-4.jpg](https://s2.loli.net/2022/09/06/fmFJ4gy83RuIZzY.jpg)
 
 当收到键盘请求isToRight==true后，首先设置布尔变量isReach值为false，对下落的方块的4*4矩阵进行遍历，如果某一位置为1，进行下一步判断：移动后的位置是否超出右侧边界？移动后的位置是否有已知方块？
 
@@ -338,8 +338,9 @@ for (int i = 0; i < 4; i++) {
 
 
 
-
-
 绘制已经存在的像素点与此大同小异。
 
-**判断某一行是否填满方块：**对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。
+**判断某一行是否填满方块：**
+
+对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。
+
