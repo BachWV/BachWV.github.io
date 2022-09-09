@@ -842,7 +842,7 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
   
   $(function(){
       $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         new Waline({
+         Waline.init({
           el: '#wcomments',  
           serverURL: 'https://waline.junling.li', 
         });

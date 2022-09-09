@@ -518,7 +518,7 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息</p>
   
   $(function(){
       $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         new Waline({
+         Waline.init({
           el: '#wcomments',  
           serverURL: 'https://waline.junling.li', 
         });

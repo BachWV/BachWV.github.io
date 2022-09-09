@@ -364,7 +364,7 @@ uest.xyz 2021-3-15 godaddy</p>
   
   $(function(){
       $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         new Waline({
+         Waline.init({
           el: '#wcomments',  
           serverURL: 'https://waline.junling.li', 
         });

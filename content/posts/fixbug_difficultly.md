@@ -140,3 +140,9 @@ https://lewky.cn/posts/hugo-3.1.html/#%E4%BD%BF%E7%94%A8waline%E6%9B%BF%E4%BB%A3
 仍然迷惑不解的地方：为什么昨天突然挂了
 
 对js不够了解
+
+------------
+22/9/9
+update
+
+cname waline.junling.xyz cname-china.vercel-dns.comhugo

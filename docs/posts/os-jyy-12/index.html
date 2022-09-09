@@ -547,7 +547,7 @@ FlexSC: Flexible system call scheduling with exception-less system calls (OSDI'1
   
   $(function(){
       $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         new Waline({
+         Waline.init({
           el: '#wcomments',  
           serverURL: 'https://waline.junling.li', 
         });
