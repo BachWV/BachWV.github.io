@@ -32,7 +32,24 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;下面是jyy狂吹xv6的code&lt;/p&gt;
-</description>
+&lt;p&gt;文档也十分不错，甚至可以当作操作系统的教科书。&lt;/p&gt;
+&lt;p&gt;（你需要一个riscv-gnu-toolchain)&lt;/p&gt;
+&lt;p&gt;工具链安装也十分简单，我们只需clone仓库，https://github.com/riscv-collab/riscv-gnu-toolchain&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./configure --prefix=/opt/riscv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -1611,12 +1628,21 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
       <guid>https://junling.li/posts/contest-ciscn/</guid>
       <description>&lt;p&gt;今天出结果了，只能说尽力了，没获得国一还是有点遗憾的。&lt;/p&gt;
 &lt;p&gt;从去年12月开始准备，到6月提交初赛，8月决赛，每周一次组会。半年也很快的。&lt;/p&gt;
+&lt;p&gt;初次线下见面应该是12月底，在宾诺咖啡见到了各位&lt;/p&gt;
 &lt;p&gt;我们在Tencent的coding平台做版本管理。使用的是private的仓库，只有团队成员才能看到。不用GitHub的原因当然是网不好。&lt;/p&gt;
 &lt;p&gt;现在已经放到GitHub上了
 &lt;a href=&#34;https://github.com/BachWV/AnotherMe-Android&#34;&gt;Another-me&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;git 除了merge的时候过于难受，其他时候做分支管理挺舒适的。&lt;/p&gt;
 &lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
-&lt;p&gt;文档部分算是一个大难题吧，初赛的化评委老师重点还是看文档的，所以从5月开始，咱们就很少加新功能了，开发按上了暂停键&lt;/p&gt;
+&lt;p&gt;文档部分算是一个大难题吧，初赛的化评委老师重点还是看文档的，所以从5月开始，咱们就很少加新功能了，开发按上了暂停键。&lt;/p&gt;
+&lt;p&gt;作为一个很少写文档的程序员，对于如何讲清楚一个功能是如何实现的很简单，但是结果就是别人看不懂，给评委老师加密通话，这一点是大忌。
+所以改文档前前后后开了不少组会。
+除了纠结每个功能点的实现，还究竟各个模块之间是如何耦合的。&lt;/p&gt;
+&lt;p&gt;记得很清楚的一点就是，有一个模块叫做http请求模块，实际上就是对okhttp3做了一个简单的封装。但我们很纠结究竟是放在核心模块里说，贯穿整个系统，还是作为一个单独的模块拿出来讲。当时真的是吵了一个下午。&lt;/p&gt;
+&lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
+&lt;p&gt;测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗&lt;/p&gt;
+&lt;p&gt;测位置混淆是否准确&lt;/p&gt;
+&lt;p&gt;具体操作：手动点重复&lt;/p&gt;
 </description>
     </item>
     

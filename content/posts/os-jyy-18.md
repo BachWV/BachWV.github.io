@@ -21,3 +21,18 @@ draft: false
 
 下面是jyy狂吹xv6的code
 
+文档也十分不错，甚至可以当作操作系统的教科书。
+
+（你需要一个riscv-gnu-toolchain)
+
+工具链安装也十分简单，我们只需clone仓库，https://github.com/riscv-collab/riscv-gnu-toolchain
+
+```
+sudo apt-get install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+
+./configure --prefix=/opt/riscv
+make linux
+```
+
+
+
