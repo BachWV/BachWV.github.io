@@ -7,10 +7,86 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Sun, 11 Sep 2022 22:32:41 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Sep 2022 22:00:12 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kaggle</title>
+      <link>https://junling.li/posts/kaggle/</link>
+      <pubDate>Mon, 12 Sep 2022 22:00:12 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/kaggle/</guid>
+      <description>&lt;p&gt;kaggle的经历因为人工智能应用与挑战课程。这门课根据比赛排名来确定部分平时分数。&lt;/p&gt;
+&lt;p&gt;一个给宠物照片打分的比赛，所以咱们有队友。&lt;/p&gt;
+&lt;h2 id=&#34;项目概况简介&#34;&gt;项目概况简介&lt;/h2&gt;
+&lt;p&gt;**竞赛题目：**PetFinder.my – Pawpularity Contest&lt;/p&gt;
+&lt;p&gt;**竞赛类型：**Research Code Competition&lt;/p&gt;
+&lt;p&gt;**开始时间：**2021.9.23&lt;/p&gt;
+&lt;p&gt;**结束时间：**2022.1.6&lt;/p&gt;
+&lt;p&gt;**竞赛地址：**&lt;a href=&#34;https://www.kaggle.com/c/petfinder-pawpularity-score/&#34;&gt;https://www.kaggle.com/c/petfinder-pawpularity-score/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;竞赛内容：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;PetFinder.my是一个宠物收容网站。用户上传宠物的照片使用https://www.petfinder.my/cutenessmeter的方法来预测宠物照片的受欢迎程度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;分析原始图像和元数据来预测宠物照片的“Pawpularity”。 对于测试集中的每个，预测目标图片的Pawpularity&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;结果：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;截至22年1月1日，排名为46/3027，RSME为17.7948，有几率获得银牌&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/12/5nLQVDAFsTytJkh.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们使用的是swin_large_patch4_window7_224_22kto1k（开源预训练模型）&lt;/p&gt;
+&lt;p&gt;微软亚洲研究院去年3月提出的transformer，通过引入CNN中常用的层次化构建方式构建层次化Transformer以及引入locality思想解决transformer迁移至CV上的scale和分辨率的问题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/12/b26u1H5OeGnoNcq.png&#34; alt=&#34;image-20220912230441358&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接下来就是调参了，最后的结果还是很不错滴。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;模型及参数&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;RMSE&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;排名&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;决策树模型&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;20.48770&lt;/td&gt;
+&lt;td&gt;1929&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;RAPIDS SVR Boost&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;18.02751&lt;/td&gt;
+&lt;td&gt;762&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Swin transformer模型Batch size=32，n fold=10&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;17.94193&lt;/td&gt;
+&lt;td&gt;411&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Batch  size=8，n fold=5&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;17.90508&lt;/td&gt;
+&lt;td&gt;291&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Batch size=8，n fold=8&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;17.83858&lt;/td&gt;
+&lt;td&gt;106&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Batch size=8，n fold=7&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;17.81823&lt;/td&gt;
+&lt;td&gt;66&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Batch size=8，n fold=7更改seed&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;17.79984&lt;/td&gt;
+&lt;td&gt;46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;更多内容正在施工中&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>课程设计</title>
@@ -38,9 +114,9 @@
 &lt;p&gt;当然我是不太喜欢PCA的，遥想某一年的数学建模使用了PCA做数据降维，然后那次数模啥奖都没有。算上是我个人的偏见。&lt;/p&gt;
 &lt;p&gt;把n维的数据压缩成k维，核心步骤也比较简单。两个变换就结束了&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;求协方差矩阵$$C=\frac{1}{m}XX^T$$&lt;/li&gt;
+&lt;li&gt;求协方差矩阵$C=\frac{1}{m}XX^T$&lt;/li&gt;
 &lt;li&gt;求协方差矩阵的特征值和对应的特征向量，特征向量按照特征值大小从上到下排列成矩阵，取前k行组成P&lt;/li&gt;
-&lt;li&gt;$$Y=PX$$即为降维到k的数据&lt;/li&gt;
+&lt;li&gt;$Y=PX$即为降维到k的数据&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;神经网络&#34;&gt;神经网络&lt;/h3&gt;
 &lt;p&gt;Dlib是一个基于C++ 开发的开源第三方库，包含不少机器学习的成熟算法和模型，拥有全面的文档说明。它聚焦于人脸面部特征提取和识别。Dlib提供具有独立使用的可移植的代码，在不借用第三方库的情况下，可以直接移植到Python项目中使用。本程序使用了Dlib提供的人脸识别模型和人脸关键点检测器。以及对应的68点人脸检测器模型：shape_predictor_68_face_landmarks.dat和resnet残差学习神经网络模型dlib_face_recognition_resnet_model_v1.dat。&lt;/p&gt;
@@ -2066,7 +2142,7 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
 &lt;p&gt;记得很清楚的一点就是，有一个模块叫做http请求模块，实际上就是对okhttp3做了一个简单的封装。但我们很纠结究竟是放在核心模块里说，贯穿整个系统，还是作为一个单独的模块拿出来讲。当时真的是吵了一个下午。&lt;/p&gt;
 &lt;p&gt;其实很慌文档写不完，提交的时候正好是期末周，当时改了有10几个版本，&lt;/p&gt;
 &lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
-&lt;p&gt;测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗。作为常年混迹酷安等论坛的机友，私认为测功耗是一件很难的事，它受到电池寿命，基带功耗，屏幕亮度方方面的影响，如何保证对照实验的准确性。&lt;/p&gt;
+&lt;p&gt;测功耗，属于体力活了，端午节的三天，每天都拿着3台手机，测试静置功耗和apk的功耗。作为常年混迹酷安等论坛的机友，私认为测功耗是一件很难的事，它受到电池寿命，基带功耗，屏幕亮度方方面的影响，如何保证对照实验的准确性。&lt;/p&gt;
 &lt;p&gt;测位置混淆是否准确，这一点让黄同学做的。总共用了K最近邻分类算法，高斯过程回归算法测试和神经网络来看究竟是否是假位置。&lt;/p&gt;
 &lt;p&gt;具体操作：手动点重复&lt;/p&gt;
 &lt;h2 id=&#34;决赛&#34;&gt;决赛&lt;/h2&gt;

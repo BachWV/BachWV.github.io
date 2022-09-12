@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | 课程设计</title>
+	<title>8086  | kaggle</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">课程设计</h1>
+<h1 class="pt-2">kaggle</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-09-11T22:32:41&#43;08:00">2022-9-11</time>
+		datetime="2022-09-12T22:00:12&#43;08:00">2022-9-12</time>
 </div>
 
 <hr />
@@ -144,35 +144,73 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>简单复盘一下计院大二下的课程设计，也就这肝这个东西时的收获最多。</p>
-<p>看了一下群聊消息，创建于21年3月29日，从4月做到6月底（原计划是5月底，后来推迟到6月），每两个星期做一次线上汇报，因为有项目进度催着，所以进展挺快的，也学到不少的东西。</p>
-<p>一开学就可以选题了，当时看了一下人脸识别还是蛮有趣的，就想着挑战一下自己。其实项目的要求很简单，根据提供的代码做一个壳，完成一个可以正常使用的图形化界面就可以了。</p>
-<p>通过畅游GitHub，发现有一个dlib库可以实现人脸识别的过程。通过比对两张图片，生成一个相似度。</p>
-<p>但由于咱学术水平不深，很多基于这个库的论文都介绍的很浅，今天也想通过复盘，重新深入了解一下。</p>
-<p>首先人脸识别的相关工作</p>
-<h3 id="基于几何特征">基于几何特征</h3>
-<p>人脸由眼睛、鼻子、嘴巴、下巴等部件构成，正因为这些部件的形状、大小和结构上的各种差异才使得世界上每个人脸千差万别，因此对这些部件的形状和结构关系的几何描述，可以做为人脸识别的重要特征。几何特征最早是用于人脸侧面轮廓的描述与识别，首先根据侧面轮廓曲线确定若干显著点，并由这些显著点导出一组用于识别的特征度量如距离、角度等。</p>
-<p>采用几何特征进行正面人脸识别一般是通过提取人眼、口、鼻等重要特征点的位置和眼睛等重要器官的几何形状作为分类特征</p>
-<p>可变形模板法可以视为几何特征方法的一种改进，其基本思想是 :设计一个参数可调的器官模型 (即可变形模板),定义一个能量函数，通过调整模型参数使能量函数最小化，此时的模型参数即做为该器官的几何特征。存在两个问题，一是能量函数中各种代价的加权系数只能由经验确定，难以推广，二是能量函数优化过程十分耗时，难以实际应用。 基于参数的人脸表示可以实现对人脸显著特征的一个高效描述，但它需要大量的前处理和精细的参数选择。同时，采用一般几何特征只描述了部件的基本形状与结构关系，忽略了局部细微特征，造成部分信息的丢失，更适合于做粗分类，而且目前已有的特征点检测技术在精确率上还远不能满足要求，计算量也较大。</p>
-<h3 id="特征脸方法eigenface或pca">特征脸方法（Eigenface或PCA）</h3>
-<p>特征脸方法是90年代初期由Turk和Pentland提出的目前最流行的算法之一，具有简单有效的特点, 也称为基于主成分分析(principal component analysis,简称PCA)的人脸识别方法。
-特征子脸技术的基本思想是：从统计的观点，寻找人脸图像分布的基本元素，即人脸图像样本集协方差矩阵的特征向量，以此近似地表征人脸图像。这些特征向量称为特征脸(Eigenface)。</p>
-<p>实际上，特征脸反映了隐含在人脸样本集合内部的信息和人脸的结构关系。将眼睛、面颊、下颌的样本集协方差矩阵的特征向量称为特征眼、特征颌和特征唇，统称特征子脸。特征子脸在相应的图像空间中生成子空间，称为子脸空间。计算出测试图像窗口在子脸空间的投影距离，若窗口图像满足阈值比较条件，则判断其为人脸。 
-基于特征分析的方法，也就是将人脸基准点的相对比率和其它描述人脸脸部特征的形状参数或类别参数等一起构成识别特征向量，这种基于整体脸的识别不仅保留了人脸部件之间的拓扑关系，而且也保留了各部件本身的信息，而基于部件的识别则是通过提取出局部轮廓信息及灰度信息来设计具体识别算法。</p>
-<p>利用主元分析法 (即 Principle Component Analysis,简称 PCA)进行识别是由 Anderson和 Kohonen提出的。由于 PCA在将高维向量向低维向量转化时，使低维向量各分量的方差最大，且各分量互不相关，因此可以达到最优的特征抽取。</p>
-<p>看到一篇文章<strong>Joint Image Denoising and Disparity Estimation via Stereo Structure PCA and Noise-Tolerant Cost</strong>咱们还是复习一下PCA吧，以防被问到PCA的问题。</p>
-<p>当然我是不太喜欢PCA的，遥想某一年的数学建模使用了PCA做数据降维，然后那次数模啥奖都没有。算上是我个人的偏见。</p>
-<p>把n维的数据压缩成k维，核心步骤也比较简单。两个变换就结束了</p>
-<ul>
-<li>求协方差矩阵$C=\frac{1}{m}XX^T$</li>
-<li>求协方差矩阵的特征值和对应的特征向量，特征向量按照特征值大小从上到下排列成矩阵，取前k行组成P</li>
-<li>$Y=PX$即为降维到k的数据</li>
-</ul>
-<h3 id="神经网络">神经网络</h3>
-<p>Dlib是一个基于C++ 开发的开源第三方库，包含不少机器学习的成熟算法和模型，拥有全面的文档说明。它聚焦于人脸面部特征提取和识别。Dlib提供具有独立使用的可移植的代码，在不借用第三方库的情况下，可以直接移植到Python项目中使用。本程序使用了Dlib提供的人脸识别模型和人脸关键点检测器。以及对应的68点人脸检测器模型：shape_predictor_68_face_landmarks.dat和resnet残差学习神经网络模型dlib_face_recognition_resnet_model_v1.dat。</p>
+		<div class="c-rich-text"><p>kaggle的经历因为人工智能应用与挑战课程。这门课根据比赛排名来确定部分平时分数。</p>
+<p>一个给宠物照片打分的比赛，所以咱们有队友。</p>
+<h2 id="项目概况简介">项目概况简介</h2>
+<p>**竞赛题目：**PetFinder.my – Pawpularity Contest</p>
+<p>**竞赛类型：**Research Code Competition</p>
+<p>**开始时间：**2021.9.23</p>
+<p>**结束时间：**2022.1.6</p>
+<p>**竞赛地址：**<a href="https://www.kaggle.com/c/petfinder-pawpularity-score/">https://www.kaggle.com/c/petfinder-pawpularity-score/</a></p>
+<p><strong>竞赛内容：</strong></p>
+<p>PetFinder.my是一个宠物收容网站。用户上传宠物的照片使用https://www.petfinder.my/cutenessmeter的方法来预测宠物照片的受欢迎程度。</p>
+<p><strong>要求：</strong></p>
+<p>分析原始图像和元数据来预测宠物照片的“Pawpularity”。 对于测试集中的每个，预测目标图片的Pawpularity</p>
+<p><strong>结果：</strong></p>
+<p>截至22年1月1日，排名为46/3027，RSME为17.7948，有几率获得银牌</p>
+<p><img src="https://s2.loli.net/2022/09/12/5nLQVDAFsTytJkh.jpg" alt="img"></p>
+<p>我们使用的是swin_large_patch4_window7_224_22kto1k（开源预训练模型）</p>
+<p>微软亚洲研究院去年3月提出的transformer，通过引入CNN中常用的层次化构建方式构建层次化Transformer以及引入locality思想解决transformer迁移至CV上的scale和分辨率的问题</p>
+<p><img src="https://s2.loli.net/2022/09/12/b26u1H5OeGnoNcq.png" alt="image-20220912230441358"></p>
+<p>接下来就是调参了，最后的结果还是很不错滴。</p>
+<table>
+<thead>
+<tr>
+<th><strong>模型及参数</strong></th>
+<th><strong>RMSE</strong></th>
+<th><strong>排名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>决策树模型</strong></td>
+<td>20.48770</td>
+<td>1929</td>
+</tr>
+<tr>
+<td><strong>RAPIDS SVR Boost</strong></td>
+<td>18.02751</td>
+<td>762</td>
+</tr>
+<tr>
+<td><strong>Swin transformer模型Batch size=32，n fold=10</strong></td>
+<td>17.94193</td>
+<td>411</td>
+</tr>
+<tr>
+<td><strong>Batch  size=8，n fold=5</strong></td>
+<td>17.90508</td>
+<td>291</td>
+</tr>
+<tr>
+<td><strong>Batch size=8，n fold=8</strong></td>
+<td>17.83858</td>
+<td>106</td>
+</tr>
+<tr>
+<td><strong>Batch size=8，n fold=7</strong></td>
+<td>17.81823</td>
+<td>66</td>
+</tr>
+<tr>
+<td><strong>Batch size=8，n fold=7更改seed</strong></td>
+<td>17.79984</td>
+<td>46</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>施工中ing</p>
-<p><img src="https://s2.loli.net/2022/09/12/O3ZJu8Rz5bN7nSH.jpg" alt="你电图书馆"></p>
+<p>更多内容正在施工中</p>
 </div>
 	</section>
 
@@ -309,7 +347,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1905 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 707 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -325,21 +363,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/ai-lab-1/">
+    <a class="flex-grow-0" href="/posts/dlib-pyqt/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        人工智能实验1
+        课程设计
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/kaggle/">
-        kaggle
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

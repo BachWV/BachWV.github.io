@@ -32,7 +32,7 @@ I hope to contribute myself to open sourse software project.
 I am learning Operate System to increase my understanding of the computer system based on hardware. 
 
 It's a tough journey and I suffered a lot of difficulties.But in jyy's course, this journey may not be so painful. 
-Jyy's courses are strongly recommended .You can find they on bilibili.
+Jyy's courses are strongly recommended .You can find them on bilibili.
 
 [1 绪论]({{< relref "posts/os-jyy-1.md" >}})    
 [2 程序就是状态机]({{< relref "posts/os-jyy-2.md" >}})  
@@ -46,8 +46,8 @@ Jyy's courses are strongly recommended .You can find they on bilibili.
 [11 操作系统上的进程]({{< relref "posts/os-jyy-11.md" >}})  
 [12 进程的地址空间]({{< relref "posts/os-jyy-12.md" >}})    
 [13 系统调用和Shell]({{< relref "posts/os-jyy-13.md" >}})   
-[14 C标准库的实现]({{< relref "posts/os-jyy-14.md" >}}) 
-[15 fork 的应用]({{< relref "posts/os-jyy-15.md" >}})   
+[14 C标准库的实现]({{< relref "posts/os-jyy-14.md" >}})     
+[15 fork 的应用]({{< relref "posts/os-jyy-15.md" >}})    
 [16 什么是可执行文件]({{< relref "posts/os-jyy-16.md" >}})  
 [17 动态链接和加载]({{< relref "posts/os-jyy-17.md" >}})    
 [18 Xv6 代码导读]({{< relref "posts/os-jyy-18.md" >}})  
@@ -58,9 +58,6 @@ Jyy's courses are strongly recommended .You can find they on bilibili.
 ### **Todo list**
 neXt target is cmu15445  
 neXt next is 6.824  
-Life target is travel around the world
-
-
    
 ### **Course notes**
 
@@ -68,7 +65,7 @@ Life target is travel around the world
 
 [编译原理]({{< ref "/posts/compiler.md" >}})
 
-## **Course project**
+## **Project**
 
 More content is updating.
 ### 2020
@@ -77,7 +74,9 @@ More content is updating.
 [软件工程项目]({{< ref "PDD_on_CentOS.md">}})  
 [课程设计项目]({{< ref "dlib-pyqt.md">}})  
 ### 2022
-[信息安全竞赛项目]({{< ref "contest-ciscn.md">}})
+[信息安全竞赛项目]({{< ref "contest-ciscn.md">}}) National Second Prize
+
+[kaggle]({{< ref "kaggle.md">}}) ranked 46/3046
 ## **Contact**
 
 lijunlin0012@126.com  
@@ -85,7 +84,6 @@ li@junling.xyz
 i@junling.xyz  
 li@junling.li  
 i@junling.li  
-2674855275@qq.com  
 lijunling2077@gmail.com
 
 ## Find me on
@@ -94,7 +92,7 @@ Github: https://github.com/BachWV
 
 bilibili: https://space.bilibili.com/36175480
 
-This site used to have a lot of content about life, and I removed it. You can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find this site).This site will only share technical content for now.
+This site used to have a lot of content about life, and I removed it. Of course you can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find the site).This site will only share technical content for now.
 
 Weixin Official Account : 一行瑠璃
 
@@ -117,5 +115,3 @@ If you wanna to use my private frp server ,you can contact me to get the passwor
 [junling.xyz]({{< relref "posts/domains.md" >}})
 
 New about-me is building ,you can find a demo on [New about me](https://junling.li/about-me.html)
-
-If you are interested in 
