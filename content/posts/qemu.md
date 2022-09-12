@@ -54,6 +54,7 @@ configure
 
 如果遇到`undefined reference to 'major'`，在报错的源文件中添加`#include <sys/sysmacros.h>`
 
+## 模拟loongarch
 下面是大佬的启动脚本，但是它没有给出源文件
 ```
 qemu-system-loongarch64 \
@@ -78,3 +79,9 @@ https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06
 
 
 ![image-20220731212512960](https://s2.loli.net/2022/09/06/eQF8mpzZDu1r4GM.png)
+
+## qemu使用指南
+info register 查看寄存器
+
+ctrl+a c从跳出模拟机的tty到qemu控制台
+

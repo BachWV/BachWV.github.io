@@ -102,7 +102,9 @@ vector< vector< int> >v; 二维向量//这里最外的<>要有空格。否则在
 
 
 ## vector使用实例
+排序sort(v.begin(),v.end())默认升序
 
+反转reverse(v.begin().v.end())
 **使用vector注意事项：**
 
 1、如果你要表示的向量长度较长（需要为向量内部保存很多数），容易导致内存泄漏，而且效率会很低；
