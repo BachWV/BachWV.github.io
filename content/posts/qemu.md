@@ -16,6 +16,14 @@ QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的�
 
 
 下载源代码并编译
+
+```shell
+mkdir build
+cd build
+../configure
+make
+```
+
 ## 编译QEMU
 编译中会出现一些问题
 
@@ -69,4 +77,4 @@ https://mirrors.wsyu.edu.cn/loongarch/2022.03/iso/2022.06/loongarchlinux-2022.06
 接下来就是见证奇迹的时刻
 
 
-![image-20220731212512960](https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png)
+![image-20220731212512960](https://s2.loli.net/2022/09/06/eQF8mpzZDu1r4GM.png)

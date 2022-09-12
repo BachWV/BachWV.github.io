@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Sec</title>
+	<title>8086  | 人工智能实验1</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Sec</h1>
+<h1 class="pt-2">人工智能实验1</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2021-04-20T16:00:12&#43;08:00">2021-4-20</time>
+		datetime="2022-09-10T22:32:41&#43;08:00">2022-9-10</time>
 </div>
 
 <hr />
@@ -144,8 +144,19 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><h1 id="sectest">secTest</h1>
-<p>希望这里是不太正经的自我介绍</p>
+		<div class="c-rich-text"><p>这个实验的主要目标是构建一个决策树。</p>
+<p>决策树，实际上是用来分类的。树，体现了这个数据结构是逐层分叉的。那么怎么找到分叉点呢？</p>
+<h2 id="id3-算法">ID3 算法</h2>
+<p>在谈ID3算法前，首先介绍一下熵的概念。</p>
+<p>训练元组D有若干个属性，每个属性有一些值。则D的信息熵(entropy)表示为</p>
+<p>$$ info(D) = - \sum_{i-1}^{m} p_i \log_2 (p_i) $$</p>
+<p>其中$p_i$表示第i个类别在整个训练元组中出现的概率，可以用此类别元素的数量除以训练元组总数量作为估计。熵的实际意义表示的是D中元组的类标号所需要的平均信息量。现在我们假设将训练元组按属性A进行划分，则A对D划分的期望信息为：</p>
+<p>$$info_A(D)=\sum_{j=1}^v \frac{D_j} {D}info(D_j)$$</p>
+<p>而信息增益即为两者的差值：</p>
+<p>$$gain(A)=info(D)-info_A(D)$$</p>
+<p>ID3算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。</p>
+<p>对于特征属性为连续值，可以将D中的元素按照特征属性排序，则每两个相邻元素的中间点可以看作潜在分裂点，从第一个潜在分裂点开始，分裂D并计算两个集合的期望信息，选择具有最小期望信息的点作为这个属性的最佳分裂点，此期望信息作为此属性的信息期望。</p>
+<p>施工中ing</p>
 </div>
 	</section>
 
@@ -282,7 +293,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 15 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 432 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -298,9 +309,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
+    <a class="flex-grow-0" href="/posts/os-jyy-20/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        操作系统-jyy-20
+    </a>
     
-    <a class="flex-grow-0" href="/leetcode/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">
-        最长公共前缀
+    
+    <a class="flex-grow-0" href="/posts/dlib-pyqt/">
+        课程设计
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />

@@ -175,7 +175,138 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>make linux
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><p>如何自动生成 compile_commands.json</p>
+<h2 id="bear">bear</h2>
+<p>A tool to generate compilation json database</p>
+<p>使用
+make qemu -&gt; bear make qemu</p>
+<p>为什么要配置好工具？</p>
+<p>因为它可以让你愿意去读这个代码。
+你内心里总有两股势力在斗争，一种是看代码好麻烦，我不想做了，另一个是老师说xv6代码很经典，值得学。
+最终看哪一个势力取胜。</p>
+<p>有了工具就能帮你战胜惰性。</p>
+<p>这一点我很有感触。这一篇我整整写了4天，为什么，因为我clone 的时候一直fail，导致riscv的gcc一直没装好。就导致我的惰性取胜了。</p>
+<h2 id="xv6进程发地址空间">xv6进程发地址空间</h2>
+<p>init.c</p>
+<p>init试图打开console，如果没有就创建它再打开。</p>
+<p>并执行一个while(1)，shell退出了就会立即再起一个shell</p>
+<p>神奇的页面 tarpframe和trampoline
+<img src="https://jyywiki.cn/pages/OS/img/xv6-process-memory.png" alt=""></p>
+<h2 id="调试用户代码">调试用户代码</h2>
+<p>initcode-&gt;ecall</p>
+<p>gdb初始化输入那么多你能接受吗？
+gdb init，在执行gdb时自动执行脚本make qemu-gdb</p>
+<p>ecall是什么</p>
+<p>关中断 pc-&gt;sepc 控制寄存器中会有一个flag stvec-&gt;pc</p>
+<p>在 xv6 中</p>
+<ul>
+<li>Trampoline: $stvec = 0x3ffffff000 (只读)</li>
+<li>Trapframe (0x3fffffe000): 保存进程寄存器现场的内存</li>
+</ul>
+<h2 id="trampoline-跳板">Trampoline (跳板)</h2>
+<p>trampoline.S (汇编代码)</p>
+<ul>
+<li>
+<p>对 ecall 瞬间的状态做快照</p>
+<ul>
+<li>
+<p>填充 <code>struct trapframe</code> (proc.h)</p>
+</li>
+<li>
+<p>利用 $sscratch (S-mode scratch) 保存所有寄存器</p>
+</li>
+<li>
+<p>切换到内核栈 (相当于切换到进程对应的 “内核线程”, <a href="https://jyywiki.cn/OS/2022/labs/L2">L2</a>)</p>
+</li>
+<li>
+<p>切换到内核地址空间</p>
+<ul>
+<li>修改 $satp (S-mode address translation and protection)</li>
+<li>sfence.vma</li>
+</ul>
+</li>
+<li>
+<p>跳转到</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tf-&gt;kernel_trap
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>痛苦时间解除，进入 C 代码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="系统调用处理">系统调用处理</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>struct proc *p = myproc()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>我们可以在 gdb 中查看 “进程” 在操作系统内的数据结构表示</p>
+<ul>
+<li>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>p/x *p
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>可以看到 trapframe 的地址 (和地址空间中映射的完全一样)</li>
+</ul>
+</li>
+<li>
+<p><code>p/x *p-&gt;trapframe</code> (a7 = 0x7)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>检查</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scause == 8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>(syscall)</p>
+<ul>
+<li>$epc += 4 (更正返回地址)</li>
+<li>打开中断</li>
+<li>执行系统调用</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usertrapret()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回</p>
+<ul>
+<li>ecall 的逆操作</li>
+</ul>
+</li>
+</ul>
+</div>
 	</section>
 
 
@@ -311,7 +442,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 254 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 852 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

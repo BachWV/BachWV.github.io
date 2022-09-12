@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086 </title>
+	<title>8086  | 操作系统-jyy-19</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.101.0" />
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2"></h1>
+<h1 class="pt-2">操作系统-jyy-19</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+		datetime="2022-09-09T22:32:41&#43;08:00">2022-9-9</time>
 </div>
 
 <hr />
@@ -144,7 +144,194 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"></div>
+		<div class="c-rich-text"><h1 id="第19讲-xv6-上下文切换">第19讲 Xv6 上下文切换</h1>
+<p>(上下文切换的实现；状态机的封装与恢复)</p>
+<h2 id="处理器虚拟化">处理器虚拟化</h2>
+<p>os是什么，是保存许多进程状态机的状态。然后选一个做调度。</p>
+<p>为什么while(1)不会让操作系统卡死？</p>
+<p>中断。对xv6来说，强行执行了一条ecall</p>
+<p>切换到操作系统代码执行，操作系统决定让哪个进程继续执行。</p>
+<p>使得cpu在时间上分割成多个cpu。</p>
+<p>这件事究竟是如何发生的？</p>
+<h3 id="热身协程">热身:协程</h3>
+<p>co_yield()// snapshut and switch</p>
+<p>如果编译器会是不是帮你添加co_yield()是不是意味着你在用户态对状态机做调度，实际上是一个用户态的操作系统</p>
+<p>每个协程有独自的stack</p>
+<h3 id="复习程序的状态">复习：程序的状态</h3>
+<p>寄存器</p>
+<p>内存</p>
+<h2 id="虚拟化状态机的管理">虚拟化：状态机的管理</h2>
+<p>寄存器组 ($x0&hellip;$x31, $pc) 只有一份，物理内存也只有一份</p>
+<ul>
+<li>寄存器的虚拟化：我们可以把寄存器保存到内存</li>
+<li>内存的虚拟化：$satp 的数据结构</li>
+</ul>
+<hr>
+<p>操作系统代码最重要的 invariant (假设单处理器)</p>
+<ul>
+<li>操作系统代码开始真正 “处理” 系统调用/中断时，所有进程的状态都被 “封存” 在操作系统中
+<ul>
+<li>可以通过 <code>struct proc</code> 里的指针访问 (<code>struct trapframe</code>)</li>
+<li>中断/异常处理的一小段代码需要保证这一点</li>
+<li>中断返回时，把进程的状态机 “恢复” 到 CPU</li>
+</ul>
+</li>
+</ul>
+<h2 id="状态的封存trivial-的操作系统实现">状态的封存：Trivial 的操作系统实现</h2>
+<p>用最直观的 “封存” 方式</p>
+<ul>
+<li>直接都保存到内存
+<ul>
+<li>假设操作系统代码直接 “看到” 所有物理内存 (L1)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>struct page { int prot; void *va, *pa; }
+</span></span><span style="display:flex;"><span>struct proc {
+</span></span><span style="display:flex;"><span>  uint64_t x1, x2, ... x31;
+</span></span><span style="display:flex;"><span>  struct page pages[MAXPAGES];
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>保存：把 x1, &hellip;, x31 保存到当前的 proc 即可
+<ul>
+<li>就满足了 “状态机封存” 的 invariant</li>
+</ul>
+</li>
+<li>恢复：把 pages 送到 $satp 对应的数据结构里
+<ul>
+<li>通常我们是把这个数据结构准备好，只要一个赋值就行</li>
+</ul>
+</li>
+</ul>
+<p>x86的中断/异常就比较麻烦了</p>
+<p>好处，中断处理程序就简单了，只需要push保存寄存器</p>
+<h2 id="再次调试系统调用">再次调试系统调用</h2>
+<p>ecall 指令的行为</p>
+<ul>
+<li>关闭中断</li>
+<li>复制 $pc 到 $sepc</li>
+<li>设置 $sstatus 为 S-mode，$scause 为 trap 的原因 (ecall, 8)</li>
+<li>跳转到 $stvec (S-mode trap vector)</li>
+</ul>
+<hr>
+<p><img src="https://jyywiki.cn/pages/OS/img/vr.jpg" alt="img"></p>
+<p>究竟是什么原因让某南大计算机老师的slides上出现了抽象的UESTC的厕所照片，这究竟是人性的扭曲还是道德的沦丧。</p>
+<p>是操作系统给进程戴了VR眼镜，给进程的地址是虚假的地址空间。</p>
+<p>ecall 时额外的系统状态</p>
+<ul>
+<li>$satp 控制了 “虚假” 的地址空间
+<ul>
+<li>进程访问内存时仿佛戴了 VR</li>
+</ul>
+</li>
+<li>$sscratch 保存了进程的 trap frame 地址
+<ul>
+<li>均由操作系统设置</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="trampoline-代码完成的工作">Trampoline 代码完成的工作</h2>
+<p>把寄存器保存到 trap frame</p>
+<ul>
+<li>全靠 (struct trapframe *)$sscratch 寄存器</li>
+</ul>
+<hr>
+<p>切换到内核线程</p>
+<ul>
+<li>
+<p>堆栈切换: $sp ← <code>tf-&gt;kernel_sp</code></p>
+</li>
+<li>
+<p>设置当前处理: $tp ← <code>tf-&gt;kernel_hartid</code></p>
+</li>
+<li>
+<p>设置页表: $satp ←</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tf-&gt;kernel_trap
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>xv6: 与物理内存一一映射</li>
+<li>通过 info mem 查看内核线程的地址空间映射
+<ul>
+<li>低位的内存是 PLIC (0xc000000) 和 UART (0x10000000)</li>
+<li>物理内存一一映射 (A = Access, D = Dirty, xv6 中不使用)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>跳转到处理程序 <code>tf-&gt;kernel_trap</code> 执行</p>
+</li>
+</ul>
+<hr>
+<h2 id="调用-usertrap-后的系统状态">调用 usertrap() 后的系统状态</h2>
+<p>所有进程都被 “封存”</p>
+<ul>
+<li>通过 <code>struct proc</code> 就可以找到寄存器、内存、操作系统对象、……</li>
+<li>进程对应的 “内核线程” 开始执行
+<ul>
+<li>L2 - Kernel Multithreading</li>
+<li>从另一个角度，“进程” 就是拥有了地址空间的线程</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>操作系统代码可以为所欲为</p>
+<ul>
+<li>修改任何一个状态机
+<ul>
+<li>例如，执行系统调用</li>
+<li>执行系统调用时可能发生 I/O 中断</li>
+</ul>
+</li>
+<li>将任何另一个状态机调度到处理器上 (userret)</li>
+</ul>
+<hr>
+<h2 id="小结状态机的封存">小结：状态机的封存</h2>
+<p>在执行完 “寄存器现场保存” 之后</p>
+<ul>
+<li>操作系统处于 “invariant 成立” 的状态
+<ul>
+<li>每个进程的状态机都被 “封存”</li>
+<li>能被操作系统内核代码访问
+<ul>
+<li>xv6: <code>struct proc</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作系统可以把任何一个状态机 “加载” 回 CPU
+<ul>
+<li>恢复寄存器和 $satp，然后 sret (保持 invariant, 包括 $scratch)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>因为被封存，我们的处理器可以选择把任何一个状态机恢复</p>
+<ul>
+<li>机制：允许在中断/异常返回时把任何进程加载回 CPU</li>
+<li>策略：处理器调度 (下次课)</li>
+</ul>
+<hr>
+<p>class: center, middle</p>
+</div>
 	</section>
 
 
@@ -280,7 +467,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 0 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1287 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -296,9 +483,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
+    <a class="flex-grow-0" href="/leetcode/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        84.柱状图中最大的矩形
+    </a>
     
-    <a class="flex-grow-0" href="/posts/sec/">
-        Sec
+    
+    <a class="flex-grow-0" href="/posts/os-jyy-20/">
+        操作系统-jyy-20
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />

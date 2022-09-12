@@ -151,16 +151,38 @@ onload='renderMathInElement(document.body);'></script>
 <p>现在已经放到GitHub上了
 <a href="https://github.com/BachWV/AnotherMe-Android">Another-me</a></p>
 <p>git 除了merge的时候过于难受，其他时候做分支管理挺舒适的。</p>
+<p><strong>我们究竟做了一个什么东东？</strong></p>
+<p>简单说，是一个浏览器app，在使用此app查询当地天气时，会有js获取位置信息发送出去，这样可能造成你的位置隐私出现泄露。我们的浏览器会根据你的轨迹信息，映射到新的城市，在发送真实位置信息的同时，发送一串假位置。</p>
+<p>这时候就有人要来杠了，谁用浏览器查天气啊，不都是用系统自带的天气应用。确实，咱们的系统也考虑过对系统层面的位置信息做替换，比如乐健打卡、钉钉假签到类似的，但是看到虚拟位置的app被打击入刑。所以头到尾也没想过做应用内的信息修改。</p>
+<blockquote>
+<p>2021 年 10 月 8 日，北京市海淀区人民法院披露了一起破坏计算机信息系统罪的案件，犯罪人被判处有期徒刑 5 年 6 个月。该软件是一款名叫“大牛助手”的 APP，其通过虚拟定位技术，将虚假的位置传送至钉钉系统，以达到“打卡”的效果，主要供上班族和学生使用。该软件为收费软件，年费为 89 元，月费 25 元。截止案发，用户近10万余人/次，收取费用四五百万元。犯罪人已于 2019 年 5 月 31 日被羁押，同年 7 月 4 日被逮捕。</p>
+<p><a href="https://www.zhihu.com/question/491806902/answer/2168531030">https://www.zhihu.com/question/491806902/answer/2168531030</a></p>
+</blockquote>
+<p>所以我们做的东东的应用范围很狭窄，只能通过浏览器层面做处理。什么点外卖，定酒店就别想了。现在这个</p>
+<p>那又有人要问了，简单替换也没啥技术含量啊，随便用一个城市替代轻而易举啊。</p>
+<p>确实，大概在1月初的时候，简单的位置替换的demo就做好了。</p>
+<p>那我们多做了哪些工作呢？又比别人前进了多少呢？</p>
+<h3 id="相关工作">相关工作</h3>
+<p>基于空间隐匿的位置隐私保护方案</p>
+<p>Cheng 等人[1] 提出了在攻击者知道目标用户的伪装区域和最大速度时降低攻击影响的修补和 延迟方法。Chow 等人[2]提出了一种基于组的方法, 即隐匿区域必须始终覆盖连 续发送查询的组成员, 这可以抵抗位置相关的攻击。Xu 等人[18]将众多用户的历 史轨迹信息引入到隐匿区域的计算过程中, 从而实现更小的隐匿区域, 提高服务 质量。Lin 等人[19]提出了一种补救解决方案, 将所有真实位置转换为一个新域,  从而完全防止准确和连续位置的泄漏。 基于空间隐匿的位置隐私保护方法大多依赖于可信第三方, 并且需包含具 有相同职责的位置匿名器。此外, 此类方案多将用户的位置泛化为一个区域, 基 第 5 页 共 94 页 于位置服务的隐私级别取决于伪装区域的大小, 这在一定程度上会降低服务质 量。</p>
+<p>首先是</p>
+<p>所以最终我们不是做了一个应用狭窄的APP，而是实现了一个位置映射的完整解决方案，但是受限于不能对系统内部的位置信息做修改，导致我们的应用范围比较窄。</p>
+<h2 id="算法">算法</h2>
 <h2 id="文档">文档</h2>
 <p>文档部分算是一个大难题吧，初赛的化评委老师重点还是看文档的，所以从5月开始，咱们就很少加新功能了，开发按上了暂停键。</p>
-<p>作为一个很少写文档的程序员，对于如何讲清楚一个功能是如何实现的很简单，但是结果就是别人看不懂，给评委老师加密通话，这一点是大忌。
-所以改文档前前后后开了不少组会。
-除了纠结每个功能点的实现，还究竟各个模块之间是如何耦合的。</p>
+<p>作为一个很少写文档的程序员，对于如何讲清楚一个功能是如何实现的很简单，但是结果就是别人看不懂，给评委老师加密通话，这一点是大忌。</p>
+<p>所以改文档前前后后开了不少组会。</p>
+<p>除了纠结每个功能点的实现，还究竟各个模块之间是如何耦合的。</p>
 <p>记得很清楚的一点就是，有一个模块叫做http请求模块，实际上就是对okhttp3做了一个简单的封装。但我们很纠结究竟是放在核心模块里说，贯穿整个系统，还是作为一个单独的模块拿出来讲。当时真的是吵了一个下午。</p>
+<p>其实很慌文档写不完，提交的时候正好是期末周，当时改了有10几个版本，</p>
 <h2 id="测试">测试</h2>
-<p>测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗</p>
-<p>测位置混淆是否准确</p>
+<p>测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗。作为常年混迹酷安等论坛的机友，私认为测功耗是一件很难的事，它受到电池寿命，基带功耗，屏幕亮度方方面的影响，如何保证对照实验的准确性。</p>
+<p>测位置混淆是否准确，这一点让黄同学做的。总共用了K最近邻分类算法，高斯过程回归算法测试和神经网络来看究竟是否是假位置。</p>
 <p>具体操作：手动点重复</p>
+<h2 id="决赛">决赛</h2>
+<p>当初还想去长沙喝茶颜悦色，但是疫情嘛，一切都线上了。</p>
+<p>[1]Cheng R, Zhang Y, Bertino E, et al. Preserving user location privacy in mobile data  management infrastructures[C]//International Workshop on Privacy Enhancing  Technologies. Springer, Berlin, Heidelberg, 2006: 393-412.</p>
+<p>[2]Chow C Y, Mokbel M F. Enabling private continuous queries for revealed user  locations[C]//International Symposium on Spatial and Temporal Databases.  Springer, Berlin, Heidelberg, 2007: 258-275.</p>
 </div>
 	</section>
 
@@ -297,7 +319,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 539 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1744 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

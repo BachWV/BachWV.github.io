@@ -7,10 +7,266 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2022</copyright>
-    <lastBuildDate>Mon, 05 Sep 2022 22:32:41 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Sep 2022 22:32:41 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>课程设计</title>
+      <link>https://junling.li/posts/dlib-pyqt/</link>
+      <pubDate>Sun, 11 Sep 2022 22:32:41 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/dlib-pyqt/</guid>
+      <description>&lt;p&gt;简单复盘一下计院大二下的课程设计，也就这肝这个东西时的收获最多。&lt;/p&gt;
+&lt;p&gt;看了一下群聊消息，创建于21年3月29日，从4月做到6月底（原计划是5月底，后来推迟到6月），每两个星期做一次线上汇报，因为有项目进度催着，所以进展挺快的，也学到不少的东西。&lt;/p&gt;
+&lt;p&gt;一开学就可以选题了，当时看了一下人脸识别还是蛮有趣的，就想着挑战一下自己。其实项目的要求很简单，根据提供的代码做一个壳，完成一个可以正常使用的图形化界面就可以了。&lt;/p&gt;
+&lt;p&gt;通过畅游GitHub，发现有一个dlib库可以实现人脸识别的过程。通过比对两张图片，生成一个相似度。&lt;/p&gt;
+&lt;p&gt;但由于咱学术水平不深，很多基于这个库的论文都介绍的很浅，今天也想通过复盘，重新深入了解一下。&lt;/p&gt;
+&lt;p&gt;首先相关工作&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;施工中ing&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>人工智能实验1</title>
+      <link>https://junling.li/posts/ai-lab-1/</link>
+      <pubDate>Sat, 10 Sep 2022 22:32:41 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/ai-lab-1/</guid>
+      <description>&lt;p&gt;这个实验的主要目标是构建一个决策树。&lt;/p&gt;
+&lt;p&gt;决策树，实际上是用来分类的。树，体现了这个数据结构是逐层分叉的。那么怎么找到分叉点呢？&lt;/p&gt;
+&lt;h2 id=&#34;id3-算法&#34;&gt;ID3 算法&lt;/h2&gt;
+&lt;p&gt;在谈ID3算法前，首先介绍一下熵的概念。&lt;/p&gt;
+&lt;p&gt;训练元组D有若干个属性，每个属性有一些值。则D的信息熵(entropy)表示为&lt;/p&gt;
+&lt;p&gt;$$ info(D) = - \sum_{i-1}^{m} p_i \log_2 (p_i) $$&lt;/p&gt;
+&lt;p&gt;其中$p_i$表示第i个类别在整个训练元组中出现的概率，可以用此类别元素的数量除以训练元组总数量作为估计。熵的实际意义表示的是D中元组的类标号所需要的平均信息量。现在我们假设将训练元组按属性A进行划分，则A对D划分的期望信息为：&lt;/p&gt;
+&lt;p&gt;$$info_A(D)=\sum_{j=1}^v \frac{D_j} {D}info(D_j)$$&lt;/p&gt;
+&lt;p&gt;而信息增益即为两者的差值：&lt;/p&gt;
+&lt;p&gt;$$gain(A)=info(D)-info_A(D)$$&lt;/p&gt;
+&lt;p&gt;ID3算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。&lt;/p&gt;
+&lt;p&gt;对于特征属性为连续值，可以将D中的元素按照特征属性排序，则每两个相邻元素的中间点可以看作潜在分裂点，从第一个潜在分裂点开始，分裂D并计算两个集合的期望信息，选择具有最小期望信息的点作为这个属性的最佳分裂点，此期望信息作为此属性的信息期望。&lt;/p&gt;
+&lt;p&gt;施工中ing&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>操作系统-jyy-20</title>
+      <link>https://junling.li/posts/os-jyy-20/</link>
+      <pubDate>Sat, 10 Sep 2022 22:32:41 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/os-jyy-20/</guid>
+      <description>&lt;h1 id=&#34;第20讲-处理器调度&#34;&gt;第20讲 处理器调度&lt;/h1&gt;
+&lt;p&gt;(RR, MLFQ 和 CFS；优先级翻转；多处理器调度)&lt;/p&gt;
+&lt;p&gt;上下文切换的策略&lt;/p&gt;
+&lt;p&gt;中断机制&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;处理器以固定的频率被中断
+&lt;ul&gt;
+&lt;li&gt;Linux Kernel可以配置：100/250/300/1000hz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;中断/系统调用返回时可以自由选择进程/线程执行&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>操作系统-jyy-19</title>
+      <link>https://junling.li/posts/os-jyy-19/</link>
+      <pubDate>Fri, 09 Sep 2022 22:32:41 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/os-jyy-19/</guid>
+      <description>&lt;h1 id=&#34;第19讲-xv6-上下文切换&#34;&gt;第19讲 Xv6 上下文切换&lt;/h1&gt;
+&lt;p&gt;(上下文切换的实现；状态机的封装与恢复)&lt;/p&gt;
+&lt;h2 id=&#34;处理器虚拟化&#34;&gt;处理器虚拟化&lt;/h2&gt;
+&lt;p&gt;os是什么，是保存许多进程状态机的状态。然后选一个做调度。&lt;/p&gt;
+&lt;p&gt;为什么while(1)不会让操作系统卡死？&lt;/p&gt;
+&lt;p&gt;中断。对xv6来说，强行执行了一条ecall&lt;/p&gt;
+&lt;p&gt;切换到操作系统代码执行，操作系统决定让哪个进程继续执行。&lt;/p&gt;
+&lt;p&gt;使得cpu在时间上分割成多个cpu。&lt;/p&gt;
+&lt;p&gt;这件事究竟是如何发生的？&lt;/p&gt;
+&lt;h3 id=&#34;热身协程&#34;&gt;热身:协程&lt;/h3&gt;
+&lt;p&gt;co_yield()// snapshut and switch&lt;/p&gt;
+&lt;p&gt;如果编译器会是不是帮你添加co_yield()是不是意味着你在用户态对状态机做调度，实际上是一个用户态的操作系统&lt;/p&gt;
+&lt;p&gt;每个协程有独自的stack&lt;/p&gt;
+&lt;h3 id=&#34;复习程序的状态&#34;&gt;复习：程序的状态&lt;/h3&gt;
+&lt;p&gt;寄存器&lt;/p&gt;
+&lt;p&gt;内存&lt;/p&gt;
+&lt;h2 id=&#34;虚拟化状态机的管理&#34;&gt;虚拟化：状态机的管理&lt;/h2&gt;
+&lt;p&gt;寄存器组 ($x0&amp;hellip;$x31, $pc) 只有一份，物理内存也只有一份&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;寄存器的虚拟化：我们可以把寄存器保存到内存&lt;/li&gt;
+&lt;li&gt;内存的虚拟化：$satp 的数据结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;操作系统代码最重要的 invariant (假设单处理器)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统代码开始真正 “处理” 系统调用/中断时，所有进程的状态都被 “封存” 在操作系统中
+&lt;ul&gt;
+&lt;li&gt;可以通过 &lt;code&gt;struct proc&lt;/code&gt; 里的指针访问 (&lt;code&gt;struct trapframe&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;中断/异常处理的一小段代码需要保证这一点&lt;/li&gt;
+&lt;li&gt;中断返回时，把进程的状态机 “恢复” 到 CPU&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;状态的封存trivial-的操作系统实现&#34;&gt;状态的封存：Trivial 的操作系统实现&lt;/h2&gt;
+&lt;p&gt;用最直观的 “封存” 方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接都保存到内存
+&lt;ul&gt;
+&lt;li&gt;假设操作系统代码直接 “看到” 所有物理内存 (L1)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;struct page { int prot; void *va, *pa; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;struct proc {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  uint64_t x1, x2, ... x31;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  struct page pages[MAXPAGES];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;保存：把 x1, &amp;hellip;, x31 保存到当前的 proc 即可
+&lt;ul&gt;
+&lt;li&gt;就满足了 “状态机封存” 的 invariant&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;恢复：把 pages 送到 $satp 对应的数据结构里
+&lt;ul&gt;
+&lt;li&gt;通常我们是把这个数据结构准备好，只要一个赋值就行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;x86的中断/异常就比较麻烦了&lt;/p&gt;
+&lt;p&gt;好处，中断处理程序就简单了，只需要push保存寄存器&lt;/p&gt;
+&lt;h2 id=&#34;再次调试系统调用&#34;&gt;再次调试系统调用&lt;/h2&gt;
+&lt;p&gt;ecall 指令的行为&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关闭中断&lt;/li&gt;
+&lt;li&gt;复制 $pc 到 $sepc&lt;/li&gt;
+&lt;li&gt;设置 $sstatus 为 S-mode，$scause 为 trap 的原因 (ecall, 8)&lt;/li&gt;
+&lt;li&gt;跳转到 $stvec (S-mode trap vector)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/vr.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;究竟是什么原因让某南大计算机老师的slides上出现了抽象的UESTC的厕所照片，这究竟是人性的扭曲还是道德的沦丧。&lt;/p&gt;
+&lt;p&gt;是操作系统给进程戴了VR眼镜，给进程的地址是虚假的地址空间。&lt;/p&gt;
+&lt;p&gt;ecall 时额外的系统状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$satp 控制了 “虚假” 的地址空间
+&lt;ul&gt;
+&lt;li&gt;进程访问内存时仿佛戴了 VR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$sscratch 保存了进程的 trap frame 地址
+&lt;ul&gt;
+&lt;li&gt;均由操作系统设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;trampoline-代码完成的工作&#34;&gt;Trampoline 代码完成的工作&lt;/h2&gt;
+&lt;p&gt;把寄存器保存到 trap frame&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全靠 (struct trapframe *)$sscratch 寄存器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;切换到内核线程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;堆栈切换: $sp ← &lt;code&gt;tf-&amp;gt;kernel_sp&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置当前处理: $tp ← &lt;code&gt;tf-&amp;gt;kernel_hartid&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置页表: $satp ←&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tf-&amp;gt;kernel_trap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;xv6: 与物理内存一一映射&lt;/li&gt;
+&lt;li&gt;通过 info mem 查看内核线程的地址空间映射
+&lt;ul&gt;
+&lt;li&gt;低位的内存是 PLIC (0xc000000) 和 UART (0x10000000)&lt;/li&gt;
+&lt;li&gt;物理内存一一映射 (A = Access, D = Dirty, xv6 中不使用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跳转到处理程序 &lt;code&gt;tf-&amp;gt;kernel_trap&lt;/code&gt; 执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;调用-usertrap-后的系统状态&#34;&gt;调用 usertrap() 后的系统状态&lt;/h2&gt;
+&lt;p&gt;所有进程都被 “封存”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 &lt;code&gt;struct proc&lt;/code&gt; 就可以找到寄存器、内存、操作系统对象、……&lt;/li&gt;
+&lt;li&gt;进程对应的 “内核线程” 开始执行
+&lt;ul&gt;
+&lt;li&gt;L2 - Kernel Multithreading&lt;/li&gt;
+&lt;li&gt;从另一个角度，“进程” 就是拥有了地址空间的线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;操作系统代码可以为所欲为&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改任何一个状态机
+&lt;ul&gt;
+&lt;li&gt;例如，执行系统调用&lt;/li&gt;
+&lt;li&gt;执行系统调用时可能发生 I/O 中断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;将任何另一个状态机调度到处理器上 (userret)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;小结状态机的封存&#34;&gt;小结：状态机的封存&lt;/h2&gt;
+&lt;p&gt;在执行完 “寄存器现场保存” 之后&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统处于 “invariant 成立” 的状态
+&lt;ul&gt;
+&lt;li&gt;每个进程的状态机都被 “封存”&lt;/li&gt;
+&lt;li&gt;能被操作系统内核代码访问
+&lt;ul&gt;
+&lt;li&gt;xv6: &lt;code&gt;struct proc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;操作系统可以把任何一个状态机 “加载” 回 CPU
+&lt;ul&gt;
+&lt;li&gt;恢复寄存器和 $satp，然后 sret (保持 invariant, 包括 $scratch)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;因为被封存，我们的处理器可以选择把任何一个状态机恢复&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;机制：允许在中断/异常返回时把任何进程加载回 CPU&lt;/li&gt;
+&lt;li&gt;策略：处理器调度 (下次课)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;class: center, middle&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>操作系统-jyy-18</title>
@@ -49,7 +305,138 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make linux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;p&gt;如何自动生成 compile_commands.json&lt;/p&gt;
+&lt;h2 id=&#34;bear&#34;&gt;bear&lt;/h2&gt;
+&lt;p&gt;A tool to generate compilation json database&lt;/p&gt;
+&lt;p&gt;使用
+make qemu -&amp;gt; bear make qemu&lt;/p&gt;
+&lt;p&gt;为什么要配置好工具？&lt;/p&gt;
+&lt;p&gt;因为它可以让你愿意去读这个代码。
+你内心里总有两股势力在斗争，一种是看代码好麻烦，我不想做了，另一个是老师说xv6代码很经典，值得学。
+最终看哪一个势力取胜。&lt;/p&gt;
+&lt;p&gt;有了工具就能帮你战胜惰性。&lt;/p&gt;
+&lt;p&gt;这一点我很有感触。这一篇我整整写了4天，为什么，因为我clone 的时候一直fail，导致riscv的gcc一直没装好。就导致我的惰性取胜了。&lt;/p&gt;
+&lt;h2 id=&#34;xv6进程发地址空间&#34;&gt;xv6进程发地址空间&lt;/h2&gt;
+&lt;p&gt;init.c&lt;/p&gt;
+&lt;p&gt;init试图打开console，如果没有就创建它再打开。&lt;/p&gt;
+&lt;p&gt;并执行一个while(1)，shell退出了就会立即再起一个shell&lt;/p&gt;
+&lt;p&gt;神奇的页面 tarpframe和trampoline
+&lt;img src=&#34;https://jyywiki.cn/pages/OS/img/xv6-process-memory.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;调试用户代码&#34;&gt;调试用户代码&lt;/h2&gt;
+&lt;p&gt;initcode-&amp;gt;ecall&lt;/p&gt;
+&lt;p&gt;gdb初始化输入那么多你能接受吗？
+gdb init，在执行gdb时自动执行脚本make qemu-gdb&lt;/p&gt;
+&lt;p&gt;ecall是什么&lt;/p&gt;
+&lt;p&gt;关中断 pc-&amp;gt;sepc 控制寄存器中会有一个flag stvec-&amp;gt;pc&lt;/p&gt;
+&lt;p&gt;在 xv6 中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trampoline: $stvec = 0x3ffffff000 (只读)&lt;/li&gt;
+&lt;li&gt;Trapframe (0x3fffffe000): 保存进程寄存器现场的内存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;trampoline-跳板&#34;&gt;Trampoline (跳板)&lt;/h2&gt;
+&lt;p&gt;trampoline.S (汇编代码)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对 ecall 瞬间的状态做快照&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;填充 &lt;code&gt;struct trapframe&lt;/code&gt; (proc.h)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;利用 $sscratch (S-mode scratch) 保存所有寄存器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切换到内核栈 (相当于切换到进程对应的 “内核线程”, &lt;a href=&#34;https://jyywiki.cn/OS/2022/labs/L2&#34;&gt;L2&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切换到内核地址空间&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 $satp (S-mode address translation and protection)&lt;/li&gt;
+&lt;li&gt;sfence.vma&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跳转到&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tf-&amp;gt;kernel_trap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;痛苦时间解除，进入 C 代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;系统调用处理&#34;&gt;系统调用处理&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;struct proc *p = myproc()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我们可以在 gdb 中查看 “进程” 在操作系统内的数据结构表示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;p/x *p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;可以看到 trapframe 的地址 (和地址空间中映射的完全一样)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;p/x *p-&amp;gt;trapframe&lt;/code&gt; (a7 = 0x7)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scause == 8
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;(syscall)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$epc += 4 (更正返回地址)&lt;/li&gt;
+&lt;li&gt;打开中断&lt;/li&gt;
+&lt;li&gt;执行系统调用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usertrapret()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;返回&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ecall 的逆操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -1633,16 +2020,38 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
 &lt;p&gt;现在已经放到GitHub上了
 &lt;a href=&#34;https://github.com/BachWV/AnotherMe-Android&#34;&gt;Another-me&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;git 除了merge的时候过于难受，其他时候做分支管理挺舒适的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我们究竟做了一个什么东东？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单说，是一个浏览器app，在使用此app查询当地天气时，会有js获取位置信息发送出去，这样可能造成你的位置隐私出现泄露。我们的浏览器会根据你的轨迹信息，映射到新的城市，在发送真实位置信息的同时，发送一串假位置。&lt;/p&gt;
+&lt;p&gt;这时候就有人要来杠了，谁用浏览器查天气啊，不都是用系统自带的天气应用。确实，咱们的系统也考虑过对系统层面的位置信息做替换，比如乐健打卡、钉钉假签到类似的，但是看到虚拟位置的app被打击入刑。所以头到尾也没想过做应用内的信息修改。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2021 年 10 月 8 日，北京市海淀区人民法院披露了一起破坏计算机信息系统罪的案件，犯罪人被判处有期徒刑 5 年 6 个月。该软件是一款名叫“大牛助手”的 APP，其通过虚拟定位技术，将虚假的位置传送至钉钉系统，以达到“打卡”的效果，主要供上班族和学生使用。该软件为收费软件，年费为 89 元，月费 25 元。截止案发，用户近10万余人/次，收取费用四五百万元。犯罪人已于 2019 年 5 月 31 日被羁押，同年 7 月 4 日被逮捕。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/491806902/answer/2168531030&#34;&gt;https://www.zhihu.com/question/491806902/answer/2168531030&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以我们做的东东的应用范围很狭窄，只能通过浏览器层面做处理。什么点外卖，定酒店就别想了。现在这个&lt;/p&gt;
+&lt;p&gt;那又有人要问了，简单替换也没啥技术含量啊，随便用一个城市替代轻而易举啊。&lt;/p&gt;
+&lt;p&gt;确实，大概在1月初的时候，简单的位置替换的demo就做好了。&lt;/p&gt;
+&lt;p&gt;那我们多做了哪些工作呢？又比别人前进了多少呢？&lt;/p&gt;
+&lt;h3 id=&#34;相关工作&#34;&gt;相关工作&lt;/h3&gt;
+&lt;p&gt;基于空间隐匿的位置隐私保护方案&lt;/p&gt;
+&lt;p&gt;Cheng 等人[1] 提出了在攻击者知道目标用户的伪装区域和最大速度时降低攻击影响的修补和 延迟方法。Chow 等人[2]提出了一种基于组的方法, 即隐匿区域必须始终覆盖连 续发送查询的组成员, 这可以抵抗位置相关的攻击。Xu 等人[18]将众多用户的历 史轨迹信息引入到隐匿区域的计算过程中, 从而实现更小的隐匿区域, 提高服务 质量。Lin 等人[19]提出了一种补救解决方案, 将所有真实位置转换为一个新域,  从而完全防止准确和连续位置的泄漏。 基于空间隐匿的位置隐私保护方法大多依赖于可信第三方, 并且需包含具 有相同职责的位置匿名器。此外, 此类方案多将用户的位置泛化为一个区域, 基 第 5 页 共 94 页 于位置服务的隐私级别取决于伪装区域的大小, 这在一定程度上会降低服务质 量。&lt;/p&gt;
+&lt;p&gt;首先是&lt;/p&gt;
+&lt;p&gt;所以最终我们不是做了一个应用狭窄的APP，而是实现了一个位置映射的完整解决方案，但是受限于不能对系统内部的位置信息做修改，导致我们的应用范围比较窄。&lt;/p&gt;
+&lt;h2 id=&#34;算法&#34;&gt;算法&lt;/h2&gt;
 &lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
 &lt;p&gt;文档部分算是一个大难题吧，初赛的化评委老师重点还是看文档的，所以从5月开始，咱们就很少加新功能了，开发按上了暂停键。&lt;/p&gt;
-&lt;p&gt;作为一个很少写文档的程序员，对于如何讲清楚一个功能是如何实现的很简单，但是结果就是别人看不懂，给评委老师加密通话，这一点是大忌。
-所以改文档前前后后开了不少组会。
-除了纠结每个功能点的实现，还究竟各个模块之间是如何耦合的。&lt;/p&gt;
+&lt;p&gt;作为一个很少写文档的程序员，对于如何讲清楚一个功能是如何实现的很简单，但是结果就是别人看不懂，给评委老师加密通话，这一点是大忌。&lt;/p&gt;
+&lt;p&gt;所以改文档前前后后开了不少组会。&lt;/p&gt;
+&lt;p&gt;除了纠结每个功能点的实现，还究竟各个模块之间是如何耦合的。&lt;/p&gt;
 &lt;p&gt;记得很清楚的一点就是，有一个模块叫做http请求模块，实际上就是对okhttp3做了一个简单的封装。但我们很纠结究竟是放在核心模块里说，贯穿整个系统，还是作为一个单独的模块拿出来讲。当时真的是吵了一个下午。&lt;/p&gt;
+&lt;p&gt;其实很慌文档写不完，提交的时候正好是期末周，当时改了有10几个版本，&lt;/p&gt;
 &lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
-&lt;p&gt;测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗&lt;/p&gt;
-&lt;p&gt;测位置混淆是否准确&lt;/p&gt;
+&lt;p&gt;测试，测功耗，记得有3天，好像是端午节，每天都拿着3台手机，测试静置功耗和apk的功耗。作为常年混迹酷安等论坛的机友，私认为测功耗是一件很难的事，它受到电池寿命，基带功耗，屏幕亮度方方面的影响，如何保证对照实验的准确性。&lt;/p&gt;
+&lt;p&gt;测位置混淆是否准确，这一点让黄同学做的。总共用了K最近邻分类算法，高斯过程回归算法测试和神经网络来看究竟是否是假位置。&lt;/p&gt;
 &lt;p&gt;具体操作：手动点重复&lt;/p&gt;
+&lt;h2 id=&#34;决赛&#34;&gt;决赛&lt;/h2&gt;
+&lt;p&gt;当初还想去长沙喝茶颜悦色，但是疫情嘛，一切都线上了。&lt;/p&gt;
+&lt;p&gt;[1]Cheng R, Zhang Y, Bertino E, et al. Preserving user location privacy in mobile data  management infrastructures[C]//International Workshop on Privacy Enhancing  Technologies. Springer, Berlin, Heidelberg, 2006: 393-412.&lt;/p&gt;
+&lt;p&gt;[2]Chow C Y, Mokbel M F. Enabling private continuous queries for revealed user  locations[C]//International Symposium on Spatial and Temporal Databases.  Springer, Berlin, Heidelberg, 2007: 258-275.&lt;/p&gt;
 </description>
     </item>
     
@@ -1698,7 +2107,21 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
 &lt;p&gt;QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。&lt;/p&gt;
 &lt;p&gt;但是别急，Qemu在7.0rc0支持了loongarch，就是说我们可以轻松在x86上模拟loongarch了&lt;/p&gt;
 &lt;p&gt;下载源代码并编译&lt;/p&gt;
-&lt;h2 id=&#34;编译qemu&#34;&gt;编译QEMU&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir build
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;cd&lt;/span&gt; build
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;../configure
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;编译qemu&#34;&gt;编译QEMU&lt;/h2&gt;
 &lt;p&gt;编译中会出现一些问题&lt;/p&gt;
 &lt;p&gt;configure&lt;/p&gt;
 &lt;p&gt;缺少ninja:&lt;code&gt;apt install ninja-build&lt;/code&gt;&lt;/p&gt;
@@ -1780,7 +2203,7 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;接下来就是见证奇迹的时刻&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png&#34; alt=&#34;image-20220731212512960&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/eQF8mpzZDu1r4GM.png&#34; alt=&#34;image-20220731212512960&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -3977,7 +4400,7 @@ registration.&lt;/li&gt;
 &lt;hr&gt;
 &lt;p&gt;22/9/9
 update&lt;/p&gt;
-&lt;p&gt;cname waline.junling.xyz cname-china.vercel-dns.comhugo&lt;/p&gt;
+&lt;p&gt;cname waline.junling.xyz cname-china.vercel-dns.com&lt;/p&gt;
 </description>
     </item>
     
@@ -6463,9 +6886,17 @@ inline assembly也可以参与优化&lt;/p&gt;
       <pubDate>Wed, 15 Jun 2022 22:32:41 +0800</pubDate>
       
       <guid>https://junling.li/posts/os-jyy-1/</guid>
-      <description>&lt;p&gt;看了jyy的os录播，就觉得以前从来没有人这么上过cs的课，正常的课都是老师放这ppt在bb讲，从操作系统的概念讲到线程和进程管理，从分页讲到文件系统。但这个老师一边开着wsl一边狂敲，超6的vim操作，无敌的手速。
-最后慢慢告诉你，源码之下，了无秘密。一切行为都是确定的，可预测的状态机转换，你也可以按照你的想法打造你自己的os，这就很有意思了。&lt;/p&gt;
-&lt;p&gt;希望这一系列的笔记可以在内容充实的基础上，尽可能少的原封不动搬运Slides上的内容&lt;/p&gt;
+      <description>&lt;p&gt;看了jyy的os录播，就觉得以前从来没有人这么上过cs的课，正常的课都是老师放这ppt在讲，从操作系统的概念讲到线程和进程管理，从分页讲到文件系统。&lt;/p&gt;
+&lt;p&gt;但这个老师开着terminal狂敲，超6的vim操作，无敌的手速。&lt;/p&gt;
+&lt;p&gt;最后慢慢告诉你，源码之下，了无秘密。一切行为都是确定的，可预测的状态机转换，你也可以按照你的想法打造你自己的os，这就很有意思了。&lt;/p&gt;
+&lt;p&gt;学完你将懂得：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何创造出一个没有任何依赖的程序&lt;/li&gt;
+&lt;li&gt;如何看懂经典xv6的代码&lt;/li&gt;
+&lt;li&gt;如何查看文档&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望这一系列的笔记可以在内容充实的基础上，尽可能少的原封不动搬运Slides上的内容。&lt;/p&gt;
 &lt;p&gt;今天在看13讲，又有一些感触。我们学好操作系统，另一个很重要的心态就是回到上世纪90年代，回到Linus写操作系统时。作为一个拓荒者，为仅有的系统调用添加东西。比如让多个任务执行起来，让两个进程能通信，在内存不够的时候操作系统能跑起来。&lt;/p&gt;
 &lt;p&gt;想到这些的解决方案其实并不复杂，但最终只有好的idea活好最后，大家互相借鉴。&lt;/p&gt;
 &lt;p&gt;在GUI前的世界有无数的宝藏。有无数经典的设计。他们奠定了现代计算机的基础。&lt;/p&gt;
@@ -8582,11 +9013,6 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;li&gt;sprite的数据也不存在由CPU从卡带读入到RAM的过程（除了后期的磁碟机），而是直接由卡带映射到FC的64KB地址空间进行访问。不同的卡带硬件（所谓的mapper）支持由程序控制将卡带上的不同地址映射到FC的同一&lt;a href=&#34;https://www.zhihu.com/search?q=%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4&amp;amp;search_source=Entity&amp;amp;hybrid_search_source=Entity&amp;amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D&#34;&gt;地址空间&lt;/a&gt;，所以尽管8位的FC只有64KB寻址能力，但卡带容量可以做到256KB甚至更大。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;2bit图像，你们见过吗？&lt;/p&gt;
-&lt;p&gt;今天OPPO发布的NPU，MariSilicon X的影像处理单元最高支持20bit处理位宽，20 bit Ultra HDR&lt;/p&gt;
-&lt;p&gt;可以想象Computer的基石是怎么打下的，现在回看当时都不能叫做程序员，应该叫做Creator。我们算什么，一群调包者罢了，没什么自己创造的东西。不过是站在前人的肩膀上罢了，用别人的框架实现别人的idea了，就能当作自己的成果了。&lt;/p&gt;
-&lt;p&gt;如果大家都用层层封装的Python，在装着Windows的mac上用Linux虚拟机写作业。计网看那个ppt就写个实验报告，啥都不干。&lt;/p&gt;
-&lt;p&gt;我现在非常想弄清楚的一个问题，在浏览器中输入www.baidu.com究竟会经历什么，能不能详细说说。键盘就怎么输入进去的，操作系统起了什么作用，baidu.com怎么相应这么大规模的请求的，ip层究竟发生了什么，能不能换一条路到达，我需要北京的百度服务器对我相应，然后走上海的路最后到成都能不能做到？有没有人偷看我的包，怎么防止他偷看？作为一个计算机网络的小弱鸡，真的想搞明白这些问题。&lt;/p&gt;
 &lt;p&gt;1 微型计算机基础概论&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203182036501.png&#34; alt=&#34;image-20211203182036501&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.微处理器8086和8088&lt;/p&gt;
@@ -12905,15 +13331,6 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 &lt;p&gt;希望这里是不太正经的自我介绍&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://junling.li/posts/os-jyy-19/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://junling.li/posts/os-jyy-19/</guid>
-      <description></description>
     </item>
     
   </channel>

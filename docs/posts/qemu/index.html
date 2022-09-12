@@ -149,7 +149,21 @@ onload='renderMathInElement(document.body);'></script>
 <p>QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。</p>
 <p>但是别急，Qemu在7.0rc0支持了loongarch，就是说我们可以轻松在x86上模拟loongarch了</p>
 <p>下载源代码并编译</p>
-<h2 id="编译qemu">编译QEMU</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir build
+</span></span><span style="display:flex;"><span><span style="color:#111">cd</span> build
+</span></span><span style="display:flex;"><span>../configure
+</span></span><span style="display:flex;"><span>make
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编译qemu">编译QEMU</h2>
 <p>编译中会出现一些问题</p>
 <p>configure</p>
 <p>缺少ninja:<code>apt install ninja-build</code></p>
@@ -231,7 +245,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>接下来就是见证奇迹的时刻</p>
-<p><img src="https://charon-pic.oss-cn-hangzhou.aliyuncs.com/image-20220731212512960.png" alt="image-20220731212512960"></p>
+<p><img src="https://s2.loli.net/2022/09/06/eQF8mpzZDu1r4GM.png" alt="image-20220731212512960"></p>
 </div>
 	</section>
 
@@ -368,7 +382,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 782 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 792 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

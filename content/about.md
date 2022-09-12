@@ -28,6 +28,16 @@ I hope to contribute myself to open sourse software project.
 [8 并发 bug 和应对]({{< relref "posts/os-jyy-8.md" >}})  
 [9 操作系统的状态机模型和boot]({{< relref "posts/os-jyy-9.md" >}})  
 [10 状态机模型的应用]({{< relref "posts/os-jyy-10.md" >}})
+[11 操作系统上的进程]({{< relref "posts/os-jyy-11.md" >}})
+[12 进程的地址空间]({{< relref "posts/os-jyy-12.md" >}})
+[13 系统调用和Shell]({{< relref "posts/os-jyy-13.md" >}})
+[14 C标准库的实现]({{< relref "posts/os-jyy-14.md" >}})
+[15 fork 的应用]({{< relref "posts/os-jyy-15.md" >}})
+[16 什么是可执行文件]({{< relref "posts/os-jyy-16.md" >}})
+[17 动态链接和加载]({{< relref "posts/os-jyy-17.md" >}})
+[18 Xv6 代码导读]({{< relref "posts/os-jyy-18.md" >}})
+[19 状态机模型的应用]({{< relref "posts/os-jyy-19.md" >}})
+
 
 
 ### **Todo list**
@@ -49,17 +59,17 @@ Life target is travel around the world
 [github actions]({{< ref "github-actions.md">}})    
 ### **Course notes**
 
-[ISA]({{< relref "posts/ISA.md" >}})
+[计算机体系结构]({{< relref "posts/ISA.md" >}})
 
-[compiler]({{< ref "/posts/compiler.md" >}})
+[编译原理]({{< ref "/posts/compiler.md" >}})
 
 ## **Course project**
 ### 2020
-[cpp]({{< ref "cpp-acllib.md">}})  
+[cpp项目]({{< ref "cpp-acllib.md">}})  
 ### 2021
-[pdd]({{< ref "PDD_on_CentOS.md">}})  
+[软件工程项目]({{< ref "PDD_on_CentOS.md">}})  
 ### 2022
-
+[信息安全竞赛项目]({{< ref "contest-ciscn.md">}})
 ## **Contact**
 
 lijunlin0012@126.com  
@@ -99,3 +109,7 @@ If you wanna to use my private frp server ,you can contact me to get the passwor
 ### **about domain junling.li**
 [junling.li]({{< relref "posts/junling-li.md" >}}) and
 [junling.xyz]({{< relref "posts/domains.md" >}})
+
+New about-me is building ,you can find a demo on [New about me](https://junling.li/about-me.html)
+
+If you are interested in 
