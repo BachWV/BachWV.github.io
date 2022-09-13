@@ -153,14 +153,14 @@ onload='renderMathInElement(document.body);'></script>
 <p>**结束时间：**2022.1.6</p>
 <p>**竞赛地址：**<a href="https://www.kaggle.com/c/petfinder-pawpularity-score/">https://www.kaggle.com/c/petfinder-pawpularity-score/</a></p>
 <p><strong>竞赛内容：</strong></p>
-<p>PetFinder.my是一个宠物收容网站。用户上传宠物的照片使用https://www.petfinder.my/cutenessmeter的方法来预测宠物照片的受欢迎程度。</p>
+<p>PetFinder.my是一个宠物收容网站。用户上传宠物的照片使用https://www.petfinder.my/cutenessmeter 的方法来预测宠物照片的受欢迎程度。</p>
 <p><strong>要求：</strong></p>
 <p>分析原始图像和元数据来预测宠物照片的“Pawpularity”。 对于测试集中的每个，预测目标图片的Pawpularity</p>
 <p><strong>结果：</strong></p>
 <p>截至22年1月1日，排名为46/3027，RSME为17.7948，有几率获得银牌</p>
 <p><img src="https://s2.loli.net/2022/09/12/5nLQVDAFsTytJkh.jpg" alt="img"></p>
 <p>我们使用的是swin_large_patch4_window7_224_22kto1k（开源预训练模型）</p>
-<p>微软亚洲研究院去年3月提出的transformer，通过引入CNN中常用的层次化构建方式构建层次化Transformer以及引入locality思想解决transformer迁移至CV上的scale和分辨率的问题</p>
+<p>swin是微软亚洲研究院去年3月提出的transformer，通过引入CNN中常用的层次化构建方式构建层次化Transformer以及引入locality思想解决transformer迁移至CV上的scale和分辨率的问题</p>
 <p><img src="https://s2.loli.net/2022/09/12/b26u1H5OeGnoNcq.png" alt="image-20220912230441358"></p>
 <p>接下来就是调参了，最后的结果还是很不错滴。</p>
 <table>
@@ -209,6 +209,24 @@ onload='renderMathInElement(document.body);'></script>
 </tr>
 </tbody>
 </table>
+<p>好吧，transform不是用在nlp的吗？怎么能做cv了？</p>
+<p>先复习一下Transformer吧</p>
+<p>Attention is all you need.</p>
+<p>Input-&gt;Encoders -&gt; Decoders -&gt;Output</p>
+<p><img src="https://s2.loli.net/2022/09/13/ipegXqBlhcJIFnL.png" alt="image-20220913002229648"></p>
+<p>encoder 部分：</p>
+<p><img src="https://s2.loli.net/2022/09/13/mQYJiO374BCcWX8.png" alt="image-20220913002801696"></p>
+<p>输入部分</p>
+<ul>
+<li>embedding</li>
+<li>位置嵌入</li>
+</ul>
+<h3 id="位置编码">位置编码</h3>
+<p>为什么需要位置编码？</p>
+<p>以rnn为例，需要时序关系，需要单词之间的先后顺序。</p>
+<p>位置编码公式</p>
+<p>$$PE_{pos,2i}=\sin(pos/1000^{2i/d_{model}})$$</p>
+<p>$$PE_{pos,2i}=\cos(pos/1000^{2i/d_{model}})$$</p>
 <hr>
 <p>更多内容正在施工中</p>
 </div>
@@ -347,7 +365,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2022
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 707 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 829 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
