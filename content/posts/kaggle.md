@@ -80,7 +80,7 @@ encoder 部分：
 
 为什么需要位置编码？
 
-以rnn为例，需要时序关系，需要单词之间的先后顺序。
+以rnn为例，需要时序关系，transformer需要单词之间的先后顺序。
 
 位置编码公式
 
@@ -88,7 +88,27 @@ $$PE_{pos,2i}=\sin(pos/1000^{2i/d_{model}})$$
 
 $$PE_{pos,2i}=\cos(pos/1000^{2i/d_{model}})$$
 
+正弦、余弦相互交替。
 
+![image-20220913182543839](https://s2.loli.net/2022/09/13/NtWpbr2FRsJge7m.png)
+
+为什么位置嵌入会有用？
+
+![image-20220913182656951](https://s2.loli.net/2022/09/13/i6W5YJxNOg4r7Cu.png)
+
+好吧我没看懂
+
+### 注意力机制
+
+1. 基本注意力机制
+
+对于一张图，对不同区域的注意力不同。
+
+$$Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{D_k}})$$
+
+![image-20220913183230119](https://s2.loli.net/2022/09/13/aF6yRNYUfvZJpgI.png)
+
+2.. transformer中的注意力机制
 
 -------------
 更多内容正在施工中

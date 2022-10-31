@@ -97,10 +97,23 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;位置编码&#34;&gt;位置编码&lt;/h3&gt;
 &lt;p&gt;为什么需要位置编码？&lt;/p&gt;
-&lt;p&gt;以rnn为例，需要时序关系，需要单词之间的先后顺序。&lt;/p&gt;
+&lt;p&gt;以rnn为例，需要时序关系，transformer需要单词之间的先后顺序。&lt;/p&gt;
 &lt;p&gt;位置编码公式&lt;/p&gt;
 &lt;p&gt;$$PE_{pos,2i}=\sin(pos/1000^{2i/d_{model}})$$&lt;/p&gt;
 &lt;p&gt;$$PE_{pos,2i}=\cos(pos/1000^{2i/d_{model}})$$&lt;/p&gt;
+&lt;p&gt;正弦、余弦相互交替。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/13/NtWpbr2FRsJge7m.png&#34; alt=&#34;image-20220913182543839&#34;&gt;&lt;/p&gt;
+&lt;p&gt;为什么位置嵌入会有用？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/13/i6W5YJxNOg4r7Cu.png&#34; alt=&#34;image-20220913182656951&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好吧我没看懂&lt;/p&gt;
+&lt;h3 id=&#34;注意力机制&#34;&gt;注意力机制&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;基本注意力机制&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于一张图，对不同区域的注意力不同。&lt;/p&gt;
+&lt;p&gt;$$Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{D_k}})$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/13/aF6yRNYUfvZJpgI.png&#34; alt=&#34;image-20220913183230119&#34;&gt;&lt;/p&gt;
+&lt;p&gt;2.. transformer中的注意力机制&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;更多内容正在施工中&lt;/p&gt;
 </description>
@@ -1402,6 +1415,150 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
       <description>&lt;h1 id=&#34;第15讲-fork-的应用&#34;&gt;第15讲 fork 的应用&lt;/h1&gt;
 &lt;p&gt;(文件描述符的复制；写时复制；创建平行宇宙的魔法)&lt;/p&gt;
 &lt;p&gt;既然前面都说过fork的形式语义，那你还不知道能用fork做哪些奇怪的事？&lt;/p&gt;
+&lt;p&gt;关于fork的故事：&lt;/p&gt;
+&lt;h1 id=&#34;一次fork引发的惨案&#34;&gt;一次fork引发的惨案！&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;javascript:void(0);&#34;&gt;脚本之家&lt;/a&gt; &lt;em&gt;2021-11-03 17:00&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;以下文章来源于编程技术宇宙 ，作者轩辕之风O&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MjM5NTY1MjY0MQ==&amp;amp;mid=2650823531&amp;amp;idx=4&amp;amp;sn=620469d93fe88e41ae042bf8dcba35f8&amp;amp;chksm=bd01ce258a7647330015ca68c72c7e607f626a433265e7527fb0dd33b0b0fb4ac1ddda4e0e96&amp;amp;mpshare=1&amp;amp;scene=22&amp;amp;srcid=1103DMsYXppVVDIwrHbHytvP&amp;amp;sharer_sharetime=1635932496632&amp;amp;sharer_shareid=049dba64c0a4afe10f2b03cbfaf32231#&#34;&gt;&lt;img src=&#34;http://wx.qlogo.cn/mmhead/Q3auHgzwzM5iakZHNmMDuPl0azqlm8pPVtxhYTNqISsiat1OwT8f4I7Q/0&#34; alt=&#34;img&#34;&gt;&lt;strong&gt;编程技术宇宙&lt;/strong&gt;.用故事说技术，编程从未如此有趣&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_gif/iaky1Xjn7W0DiaoHmA4gHqSMxiaGJFTLQjiatEZ0wiaqbaOqN5LxYyicln5e5G8A85Tiaf0dGFhFLGxFDcKZGdXEuRwrQ/640?wx_fmt=gif&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;关注&lt;/p&gt;
+&lt;p&gt;“脚本之家&lt;/p&gt;
+&lt;p&gt;”，与百万开发者在一起&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_jpg/LGh7bn8KbYA8qQgVrCrPUbkGptoib0GCpHya6PqRECYlSyMnvfAibktiaBjXricIfJPI4UDlY5H7FSdrj3wezNpg6Q/640?wx_fmt=jpeg&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;作者 | 轩辕之风O&lt;/p&gt;
+&lt;p&gt;来源 | 编程技术宇宙（ID：xuanyuancoding）&lt;/p&gt;
+&lt;p&gt;“你还有什么要说的吗？没有的话我就要动手了”，kill程序最后问道。&lt;/p&gt;
+&lt;p&gt;这一次，我没有再回答。&lt;/p&gt;
+&lt;p&gt;只见kill老哥手起刀落，我短暂的一生就这样结束了···&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_jpg/LGh7bn8KbYA8qQgVrCrPUbkGptoib0GCpWGGuiaIdw8qbJkJg3mCaVbcB1URzYkoXoEsibdibmpeL7siaekRlvDGpIw/640?wx_fmt=jpeg&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我是一个网络程序，一直以来都运行在Windows系统上，日子过得很舒服。可前段时间，程序员告诉我要把我移植到Linux系统下运行，需要对我大动手术，我平静的生活就这样被打破了。&lt;/p&gt;
+&lt;p&gt;来到这个叫Linux的地方运行，一切对我都很陌生，没有了熟悉的C盘、D盘和E盘，取而代之的是各种各样的目录。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/boot
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/etc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/proc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/home
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr64
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/var
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/sys...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里很有意思，一切都是文件，硬件设备是文件、管道是文件、网络套接字也是文件，搞得我很不适应。&lt;/p&gt;
+&lt;p&gt;这些都还好，我都还能接受，但直到今天···&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;*- 1 -*&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;奇怪的fork&#34;&gt;&lt;strong&gt;奇怪的fork&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;今天早上，我收到了一个网络请求，需要完成一个功能，这个工作比较耗时，我准备创建一个子进程，让我的小弟去完成。&lt;/p&gt;
+&lt;p&gt;这是我第一次在Linux系统上创建进程，有点摸不着北，看了半天，只看到程序员在我的代码里写了一个fork函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pid_t pid=fork();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;if ( pid &amp;gt; 0 ) {   ···} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;else if( pid == 0 ) {    ···} 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;else {    ···}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我晃晃悠悠的来到fork函数的门前，四处观察。&lt;/p&gt;
+&lt;p&gt;“您是要创建进程吗？”，fork函数好像看出了我的来意。&lt;/p&gt;
+&lt;p&gt;“是的，我是第一次在这里创建进程，以前我在Windows那片儿的时候，都是调用CreateProcess，但这里好像没有叫这个名字的函数···”&lt;/p&gt;
+&lt;p&gt;fork函数听后笑了起来，说道：“别找了，我就是负责创建进程的函数”&lt;/p&gt;
+&lt;p&gt;“你？fork不是叉子的意思吗，好端端的干嘛取这么个名字？”，我一边说，一边朝fork函数走去。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_jpg/LGh7bn8KbYA8qQgVrCrPUbkGptoib0GCpCeaq9O84TAhlU0YdBUlRcolwppLlwvAxlIoLRL5KJz3EePico3eTQGw/640?wx_fmt=jpeg&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;fork没有理会我的问题，只是说道：“您这边稍坐一下，我要跟内核通信一下，让内核创建一个子进程”&lt;/p&gt;
+&lt;p&gt;这下我倒是明白他的意思，像创建进程这种操作，都是由操作系统内核中的系统调用来完成的，而像fork这些我们可以直接调用的函数只是应用层的接口而已，这跟以前在Windows上是一样的。&lt;/p&gt;
+&lt;p&gt;不过我突然反应过来，着急问道：“唉，我还没告诉你要创建的进程参数呢，你怎么知道要启动哪个程序？”&lt;/p&gt;
+&lt;p&gt;fork扑哧一下笑出了声，不过并没有回答我的问题。&lt;/p&gt;
+&lt;p&gt;人生地不熟的，我也没好再多问，只好耐心等待，等待期间我竟然睡着了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_jpg/LGh7bn8KbYB25yHFZyaPic247BbNJx3hCySaMJrGvnuwj4IiaronRrfXkcIu57lianzM9fhxNjwjSlicH3tOeybMhw/640?wx_fmt=jpeg&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;“醒醒”，不知过了多久，fork函数叫醒了我：“创建完成了，请拿好，这是进程号pid”，说完给了我一个数字。&lt;/p&gt;
+&lt;p&gt;我摊开一看，居然写了一个大大的0！&lt;/p&gt;
+&lt;p&gt;“怎么搞的，创建失败了？”，我问到。&lt;/p&gt;
+&lt;p&gt;“没有啊，您就是刚刚创建的子进程”&lt;/p&gt;
+&lt;p&gt;“啥？你是不是搞错了，我就是专程来创建子进程的，我自己怎么会是子进程？”&lt;/p&gt;
+&lt;p&gt;fork函数又笑了，“我没有搞错，您其实已经不是原来的你了，而是一个复制品，是内核刚刚复制出来的”&lt;/p&gt;
+&lt;p&gt;“复制品？什么意思？”，我越听越懵！&lt;/p&gt;
+&lt;p&gt;“每个进程在内核中都是一个task_struct结构，刚才您睡着期间，内核在创建进程的时候，把内核中原来的你的task_struct复制了一份，还创建了一个全新的进程地址空间和堆栈，现在的你和原来的你除了极少数地方不一样，基本上差不多”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/1hReHaqafacOBQvONaZuqgdEofKVoBGgz3icK7lHF5MzojpQiaxaTqicVvTia8CHs89A1J1hGdvGQ6etuVeONdpzTQ/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;“那原来的我呢？去哪里了”&lt;/p&gt;
+&lt;p&gt;“他已经变成你的父进程了，我是一个特殊的函数，一次调用会返回两次，在父进程和子进程中都会返回。在原来的进程中，我把你的进程号给了他，而我返回给你0，就表示你现在就是子进程”&lt;/p&gt;
+&lt;p&gt;原来是这样，我大受震撼，这简直颠覆我的认知，居然还有如此奇特的函数，调用一次，就变成了两个进程，思考之间，我忽然有些明白这个函数为什么要叫fork的原因了。&lt;/p&gt;
+&lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;*- 2 -*&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;写时拷贝&#34;&gt;&lt;strong&gt;写时拷贝&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;“您是刚来咱们这里吧，可能还不太熟悉，慢慢就习惯了”&lt;/p&gt;
+&lt;p&gt;“你们这效率也太高了吧，整个进程地址空间那么大，居然这么快就复制了一份！”&lt;/p&gt;
+&lt;p&gt;fork函数又笑了！难道我又说错话了？&lt;/p&gt;
+&lt;p&gt;“进程的内存地址空间可没有复制，你现在和父进程是共享的内存空间的”&lt;/p&gt;
+&lt;p&gt;“啥？共享？你刚才不是说创建了新的进程空间和堆栈吗？”&lt;/p&gt;
+&lt;p&gt;“您看到的内存地址空间是虚拟的，您的内存页面和父进程的内存页面实际上是映射的同一个物理内存页，所以实际上是共享的哟”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/1hReHaqafacOBQvONaZuqgdEofKVoBGgzLf1okOuwb3Fw36WSFZff84amH0icdJZt8JmpKrhUyeiavoyn5y9c1CA/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;“原来是这样，可是弄成共享了，两个进程一起用，岂不是要出乱子？”&lt;/p&gt;
+&lt;p&gt;“放心，内核把这些页面都设置成了只读，如果你们只是读的话，不会有问题，但只要有一方尝试写入，就会触发异常，内核发现异常后再去分配一个新的页面让你们分开使用。哦对了，这个叫写时拷贝（COW） 机制”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/1hReHaqafacOBQvONaZuqgdEofKVoBGgjwbGHUjoHk3OWBzcOTXtaozq2T4bxRLvXCDSWyJ12o26G1cqx9xhqw/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;“有点意思，你们倒是挺聪明的”&lt;/p&gt;
+&lt;p&gt;“没办法，尽量压缩成本，提高创建进程的效率嘛，因为进程中的很多内存页面都只会去读，如果全部无脑拷贝一份，那不是太浪费资源和时间了吗”，fork函数说到。&lt;/p&gt;
+&lt;p&gt;“有道理，有道理”，我点了点头，告别了fork函数，准备回去继续工作。&lt;/p&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;- 3 -&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;消失的线程们&#34;&gt;&lt;strong&gt;消失的线程们&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;本以为这奇怪的进程创建方式已经让我大开眼界了，没想到可怕的事情才刚刚开始。&lt;/p&gt;
+&lt;p&gt;告别fork函数没多久，我就卡在了一个地方没法执行下去，原来，前面有一把锁被别的线程占用了，而我现在也需要占用它。&lt;/p&gt;
+&lt;p&gt;这倒也不足为奇，以往工作的时候，也经常碰到锁被别的线程锁定的情况，但这一次，我等了很久也一直不见有线程来释放。&lt;/p&gt;
+&lt;p&gt;“喂，醒醒”&lt;/p&gt;
+&lt;p&gt;不知过了多久，我竟然又睡着了。&lt;/p&gt;
+&lt;p&gt;睁开眼睛，另一个程序站出现在了我的面前。&lt;/p&gt;
+&lt;p&gt;“你是？”&lt;/p&gt;
+&lt;p&gt;“你好，我是kill”&lt;/p&gt;
+&lt;p&gt;“kill？那个专门杀进程的kill程序？你来找我干嘛”，我惊的一下睡意全无。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mmbiz.qpic.cn/mmbiz_png/1hReHaqafacOBQvONaZuqgdEofKVoBGgyupE3qsTxUPeLqibdic6KLfYHTsWicboDwickVlz0d4iczcYhrlxxMSmXEQ/640?wx_fmt=png&amp;amp;wxfrom=5&amp;amp;wx_lazy=1&amp;amp;wx_co=1&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;kill程序从背后拿出了两个数字：9，1409&lt;/p&gt;
+&lt;p&gt;“你看，这是我收到的参数，1409是你的进程号PID，9表示要强制杀死你”&lt;/p&gt;
+&lt;p&gt;“啊？为什么？”，那一刻，我彻底慌了。&lt;/p&gt;
+&lt;p&gt;“可能是你卡死在这里太久了吧，人类才启动我来结束你的运行”，kill程序说到。&lt;/p&gt;
+&lt;p&gt;“是啊，不知道是哪个该死的线程占用了这把锁一直不释放，我才卡在这里”，我委屈的说到。&lt;/p&gt;
+&lt;p&gt;“哪里有别的线程，我看了一下，你这进程就只有一个线程啊！”&lt;/p&gt;
+&lt;p&gt;“你看错了吧？”，说完，我认真检查了起来，居然还真只有一个线程了！我白等了这么久！&lt;/p&gt;
+&lt;p&gt;“奇怪了，我明明是一个多线程的程序啊！”，我眉头紧锁。&lt;/p&gt;
+&lt;p&gt;“你仔细想想，刚才有没有发生什么事情？”，kill程序问到。&lt;/p&gt;
+&lt;p&gt;“我就执行了一下fork，生成了一个子进程，哦对了，我就是那个子进程”&lt;/p&gt;
+&lt;p&gt;“难怪！”，kill程序恍然大悟。&lt;/p&gt;
+&lt;p&gt;“难怪什么？&lt;/p&gt;
+&lt;p&gt;“fork那家伙创建子进程的时候，只会复制当前的线程，其他线程不会被复制！”，Kill程序说完叹了口气，仿佛已经见怪不怪了。&lt;/p&gt;
+&lt;p&gt;“what？怎么会这样？其他线程没复制，那岂不是要出乱子？”&lt;/p&gt;
+&lt;p&gt;kill程序不紧不慢地说道：“这都是历史遗留问题了，早期都是单线程的程序，一个task_struct就是一个进程，fork这样做是没有问题的，后来出现了多线程技术，一个task_struct实际上是一个线程了，多个task_struct通过共享地址空间，成为一个线程组，也就是进程，但fork仍然只复制当前的线程，就有了这个问题”&lt;/p&gt;
+&lt;p&gt;“我去，这坑爹的fork！”&lt;/p&gt;
+&lt;p&gt;“你不是第一个被坑的了！等着程序员把你重新改造下吧”&lt;/p&gt;
+&lt;p&gt;“唉···”，我长长的叹了口气。&lt;/p&gt;
+&lt;p&gt;“你还有什么要说的吗？没有的话我就要动手了”，kill程序最后问道。&lt;/p&gt;
+&lt;p&gt;这一次，我没有再回答。&lt;/p&gt;
+&lt;p&gt;只见kill老哥手起刀落，一切都消失了···&lt;/p&gt;
+&lt;p&gt;【完】&lt;/p&gt;
 &lt;p&gt;看看jyy是怎么把fork玩出花的。&lt;/p&gt;
 &lt;p&gt;sh-xv6.c&lt;/p&gt;
 &lt;ul&gt;

@@ -223,10 +223,23 @@ onload='renderMathInElement(document.body);'></script>
 </ul>
 <h3 id="位置编码">位置编码</h3>
 <p>为什么需要位置编码？</p>
-<p>以rnn为例，需要时序关系，需要单词之间的先后顺序。</p>
+<p>以rnn为例，需要时序关系，transformer需要单词之间的先后顺序。</p>
 <p>位置编码公式</p>
 <p>$$PE_{pos,2i}=\sin(pos/1000^{2i/d_{model}})$$</p>
 <p>$$PE_{pos,2i}=\cos(pos/1000^{2i/d_{model}})$$</p>
+<p>正弦、余弦相互交替。</p>
+<p><img src="https://s2.loli.net/2022/09/13/NtWpbr2FRsJge7m.png" alt="image-20220913182543839"></p>
+<p>为什么位置嵌入会有用？</p>
+<p><img src="https://s2.loli.net/2022/09/13/i6W5YJxNOg4r7Cu.png" alt="image-20220913182656951"></p>
+<p>好吧我没看懂</p>
+<h3 id="注意力机制">注意力机制</h3>
+<ol>
+<li>基本注意力机制</li>
+</ol>
+<p>对于一张图，对不同区域的注意力不同。</p>
+<p>$$Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{D_k}})$$</p>
+<p><img src="https://s2.loli.net/2022/09/13/aF6yRNYUfvZJpgI.png" alt="image-20220913183230119"></p>
+<p>2.. transformer中的注意力机制</p>
 <hr>
 <p>更多内容正在施工中</p>
 </div>
@@ -364,8 +377,8 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2021-2022
 		<br />
-		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 829 words in this page.
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 917 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
