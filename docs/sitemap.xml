@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://junling.li/</loc>
-    <lastmod>2022-09-18T13:52:32+08:00</lastmod>
+    <lastmod>2022-11-24T23:24:01+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/posts/kaggle/</loc>
     <lastmod>2022-09-13T18:36:29+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/posts/</loc>
-    <lastmod>2022-09-18T13:52:32+08:00</lastmod>
+    <lastmod>2022-11-24T23:24:01+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/posts/dlib-pyqt/</loc>
     <lastmod>2022-09-12T22:30:24+08:00</lastmod>
@@ -18,7 +18,7 @@
     <lastmod>2022-09-12T11:05:01+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/posts/os-jyy-20/</loc>
-    <lastmod>2022-09-12T00:18:32+08:00</lastmod>
+    <lastmod>2022-11-24T23:24:01+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/posts/os-jyy-19/</loc>
     <lastmod>2022-09-11T21:26:03+08:00</lastmod>
@@ -248,7 +248,7 @@
     <loc>https://junling.li/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-03-18T20:13:54+08:00</lastmod>
   </url><url>
-    <loc>https://junling.li/posts/11/</loc>
+    <loc>https://junling.li/leetcode/11/</loc>
     <lastmod>2022-03-18T20:13:54+08:00</lastmod>
   </url><url>
     <loc>https://junling.li/about/</loc>
@@ -314,5 +314,9 @@
     <loc>https://junling.li/leetcodes/</loc>
   </url><url>
     <loc>https://junling.li/series/</loc>
+  </url><url>
+    <loc>https://junling.li/movies/</loc>
+    <lastmod>2023-01-24T14:22:47+08:00</lastmod>
+    <priority>0.1</priority>
   </url>
 </urlset>

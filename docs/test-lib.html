@@ -12,15 +12,9 @@
 <link rel="stylesheet" href="staticreserve/style/apps/reserve/iphonex.css?v=cd93c8ac705fc78515552bc2db032db0">
 <link rel="stylesheet" href="staticreserve/style/apps/reserve/reserve_mobile.css?v=c82af1ca994e4214847fdc0e2502739a">
 <script src="staticreserve/js/lib/jquery/jquery.min.js"></script>
-<script>document.write("<script src='https://captcha.chaoxing.com/load.min.js?t=" + parseInt(Date.now()/60000) + "'><\/script>");</script>
-<script>document.write("<script src='https://captcha.chaoxing.com/light.js?t=" + parseInt(Date.now()/60000) + "'><\/script>");</script>
 <script type="text/javascript" src="staticreserve/js/lib/requirejs/require.min.js"></script>
 <script type="text/javascript" src="staticreserve/js/src/front/apps/seat/main.js?v=b2d3e27c5da0277406e314d8e3fb272a"></script>
-<script type="text/javascript">
-  var photoUrl = 'http://photo.chaoxing.com'
-  var panUrl = 'http://pan-yz.chaoxing.com'
-  var noteUrl = 'http://note-yd.chaoxing.com'
-</script>
+
 
 <script>requirejs.config({urlArgs: 't=20180619'})</script>
 </head>
@@ -31,7 +25,7 @@
       <p class="sign_top_adr"> 巢湖市图书馆 </p>
       <h6 class="sign_top_time">14:00 - 18:00</h6>
       <p class="sign_top_tip">2022-7-28</p>
-      <p class="sigin_top_name">cjx</p>
+      <p class="sigin_top_name">zs</p>
     </div>
   </div>
   <div class="sign_cont">
@@ -40,22 +34,45 @@
     <p class="sign_cont_time">{{signInTime |format('HH:mm:ss')}}</p>
     <div class="sign_btn" v-show="closeBack == 0" @click.stop="back()">我知道了</div>
   </div>
-  <audio id="audio" src="staticreserve/audio/front/apps/reserve/sign_in_success.mp3" style="width: 0px;height: 0px;"></audio>
 </div>
 <script>
+   function getUrlParam(key) {
+   var href = window.location.href;
+   var url = href.split("?");
+   if(url.length <= 1){
+      return "";
+   }
+   var params = url[1].split("&");
+   for(var i=0; i<params.length; i++){
+      var param = params[i].split("=");
+      if(key == param[0]){
+         return param[1];
+      }
+   }
+}
+  var aaa=getUrlParam('name');
+  aaa=decodeURI(aaa);
+  var bbb=document.getElementsByClassName("sigin_top_name");
+  var bb2=document.getElementsByClassName("sign_top_tip");
+  var bb3=document.getElementsByClassName("sign_top_time");
+  bbb[0].textContent=aaa;
+
+  var date = new Date();
+  var month = date.getMonth() + 1;//当前月
+  var year = date.getFullYear();//当前年(4位)
+  var day=date.getDate(); //获取当前日(1-31)
+  var dd=year+"-"+month+"-"+day;
+  bb2[0].textContent=dd;
+  var h=date.getHours(); //获取当前小时数(0-23)
+  if(h<12){
+    bb3[0].textContent="8:00 - 12:00"
+  }
   require(['jquery', 'Vue', 'popup', 'moment'], function ($, Vue, popup, moment) {
-    'use strict'
-    var resUserId = '19748217',
-        reserveId = '3646',
-        fidEnc = '9435181f6d5f71dc',
-        enc = '4b2ddbd1eaca61678f5c2a7e02adadec'
+  
     function operateData(url, data) {
       return $.getJSON(url, data)
     }
-    function audioAutoPlay(id) {
-      var audio = $('#' + id)
-      audio.get(0).play()
-    }
+   
     new Vue({
       el: '#sign_in_success',
       data: {
@@ -73,16 +90,6 @@
         }
       },
       methods: {
-        back: function () {
-          location.href = 'https://office.chaoxing.com'+ '/front/third/apps/reserve/item/index?reserveId=' + reserveId
-              + '&resvAppId=' + reserveId
-              + '&fidEnc=' + fidEnc
-              + '&enc=' + enc
-              + '&backEnc=1'
-        },
-        play: function () {
-          $('#audio').get(0).play()
-        },
         //动态刷新时间
         signInTimeRefresh: function () {
           var _this = this
@@ -91,42 +98,11 @@
             _this.$forceUpdate()
           }, 1000)
         }
+        
       },
       mounted: function () {
         var _this = this
         _this.signInTimeRefresh() //放在请求外面，防止刚打开时出现跳秒
-        operateData('data/apps/reserve/signIn/success/info', {resUserId: resUserId}).then(function (json) {
-          if (!json.success) {
-            popup.alert(json.msg)
-            return
-          }
-          _this.reserveUser = json.data.reserveUser
-          _this.reserveItem = json.data.reserveItem
-          _this.reserve = json.data.reserve
-          _this.userName = json.data.userName
-          //二维码加位置或者统一二维码模式去请求位置信息
-          if (_this.reserve.signInModel === 1 || _this.reserve.signInModel === 3 || _this.reserve.signInModel === 4) {
-            operateData('data/apps/reserve/address', {reserveId: _this.reserve.id}).then(function (addressJson) {
-              if (!addressJson.success) {
-                popup.alert(addressJson.msg)
-                return
-              }
-              if (addressJson.data.num > 0) {
-                _this.pageCloseLevel = -3
-              }
-            })
-          }
-          if (json.data.reserve.promptTone == 1) {
-            audioAutoPlay('audio')
-            $(document).on('touchstart',
-                function (e) {
-                  $('#audio').get(0).touchstart = true
-                  $('#audio').get(0).play()
-                  return false
-                }
-            )
-          }
-        })
       }
     })
   })

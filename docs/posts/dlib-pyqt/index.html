@@ -7,7 +7,7 @@
 	
 	<title>8086  | 课程设计</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.110.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -157,7 +157,7 @@ onload='renderMathInElement(document.body);'></script>
 <h3 id="特征脸方法eigenface或pca">特征脸方法（Eigenface或PCA）</h3>
 <p>特征脸方法是90年代初期由Turk和Pentland提出的目前最流行的算法之一，具有简单有效的特点, 也称为基于主成分分析(principal component analysis,简称PCA)的人脸识别方法。
 特征子脸技术的基本思想是：从统计的观点，寻找人脸图像分布的基本元素，即人脸图像样本集协方差矩阵的特征向量，以此近似地表征人脸图像。这些特征向量称为特征脸(Eigenface)。</p>
-<p>实际上，特征脸反映了隐含在人脸样本集合内部的信息和人脸的结构关系。将眼睛、面颊、下颌的样本集协方差矩阵的特征向量称为特征眼、特征颌和特征唇，统称特征子脸。特征子脸在相应的图像空间中生成子空间，称为子脸空间。计算出测试图像窗口在子脸空间的投影距离，若窗口图像满足阈值比较条件，则判断其为人脸。 
+<p>实际上，特征脸反映了隐含在人脸样本集合内部的信息和人脸的结构关系。将眼睛、面颊、下颌的样本集协方差矩阵的特征向量称为特征眼、特征颌和特征唇，统称特征子脸。特征子脸在相应的图像空间中生成子空间，称为子脸空间。计算出测试图像窗口在子脸空间的投影距离，若窗口图像满足阈值比较条件，则判断其为人脸。
 基于特征分析的方法，也就是将人脸基准点的相对比率和其它描述人脸脸部特征的形状参数或类别参数等一起构成识别特征向量，这种基于整体脸的识别不仅保留了人脸部件之间的拓扑关系，而且也保留了各部件本身的信息，而基于部件的识别则是通过提取出局部轮廓信息及灰度信息来设计具体识别算法。</p>
 <p>利用主元分析法 (即 Principle Component Analysis,简称 PCA)进行识别是由 Anderson和 Kohonen提出的。由于 PCA在将高维向量向低维向量转化时，使低维向量各分量的方差最大，且各分量互不相关，因此可以达到最优的特征抽取。</p>
 <p>看到一篇文章<strong>Joint Image Denoising and Disparity Estimation via Stereo Structure PCA and Noise-Tolerant Cost</strong>咱们还是复习一下PCA吧，以防被问到PCA的问题。</p>
