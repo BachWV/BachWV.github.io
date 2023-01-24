@@ -186,6 +186,10 @@ onload='renderMathInElement(document.body);'></script>
 <p><code>git push --force</code></p>
 <p>要用force因为push的版本小于远程仓库的版本</p>
 <p>这样别人就察觉不到你push错了</p>
+<h2 id="将最近的13次提交合并">将最近的13次提交合并</h2>
+<p>git rebase -i HEAD~13</p>
+<p>pick 保留该commit
+squash将该commit和前一个commit合并</p>
 <h1 id="116-git">11.6 git</h1>
 <p>这是Unix 笔记的git部分</p>
 <p>虽然之前学了下git，但学得不够深入，最近重新看了一下git的相关知识</p>
@@ -773,7 +777,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2519 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2570 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

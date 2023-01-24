@@ -5876,6 +5876,10 @@ update&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git push --force&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;要用force因为push的版本小于远程仓库的版本&lt;/p&gt;
 &lt;p&gt;这样别人就察觉不到你push错了&lt;/p&gt;
+&lt;h2 id=&#34;将最近的13次提交合并&#34;&gt;将最近的13次提交合并&lt;/h2&gt;
+&lt;p&gt;git rebase -i HEAD~13&lt;/p&gt;
+&lt;p&gt;pick 保留该commit
+squash将该commit和前一个commit合并&lt;/p&gt;
 &lt;h1 id=&#34;116-git&#34;&gt;11.6 git&lt;/h1&gt;
 &lt;p&gt;这是Unix 笔记的git部分&lt;/p&gt;
 &lt;p&gt;虽然之前学了下git，但学得不够深入，最近重新看了一下git的相关知识&lt;/p&gt;
