@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | 操作系统-jyy-11</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://junling.li/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://junling.li/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://junling.li/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://junling.li/fonts/exampleFont.woff2') format('woff2'),
+				url('https://junling.li/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">操作系统-jyy-11</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-07-26T16:09:16&#43;08:00">2022-7-26</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h1 id="第11讲-操作系统上的进程">第11讲 操作系统上的进程</h1>
+<p>主要内容：</p>
+<ul>
+<li>最小 Linux</li>
+<li>fork</li>
+<li>execve</li>
+<li>exit</li>
+</ul>
+<p>本次课回答的问题</p>
+<ul>
+<li><strong>Q1</strong>: 操作系统启动后到底做了什么？</li>
+<li><strong>Q2</strong>: 操作系统如何管理程序 (进程)？</li>
+</ul>
+<p>复习<a href="/posts/os-jyy-9/">第九讲</a>的内容</p>
+<p>操作系统内核的启动： CPU Reset-&gt; BIOS/UEFI-&gt;Boot loader-&gt;Kernel_start()</p>
+<p>操作系统会加载第一个程序</p>
+<p>比如systemd/init</p>
+<p>好像现在systemd已经是越来越多发行版的首选了，wsl2好像不是<a href="https://rainchan.win/2022/04/30/%E5%9C%A8WSL2%E7%9A%84Ubuntu%E9%87%8C%E9%85%8D%E7%BD%AEsystemd/">在WSL2的Ubuntu里配置systemd</a></p>
+<p>最小的linux</p>
+<p>makefile也十分简单</p>
+<p>make run 直接进入这个 qemu</p>
+<p>qemu 甚至没有图形界面 ctrl+a c退出sh</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/linux-minimal$ cat Makefile
+</span></span><span style="display:flex;"><span>.PHONY: initramfs run clean
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$(shell mkdir -p build)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>initramfs:
+</span></span><span style="display:flex;"><span>        @cd initramfs &amp;&amp; find . -print0 | cpio --null -ov --format=newc | gzip -9 \
+</span></span><span style="display:flex;"><span>          &gt; ../build/initramfs.cpio.gz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>run:
+</span></span><span style="display:flex;"><span>        @qemu-system-x86_64 \
+</span></span><span style="display:flex;"><span>          -nographic \
+</span></span><span style="display:flex;"><span>          -serial mon:stdio \
+</span></span><span style="display:flex;"><span>          -m 128 \
+</span></span><span style="display:flex;"><span>          -kernel vmlinuz \
+</span></span><span style="display:flex;"><span>          -initrd build/initramfs.cpio.gz \
+</span></span><span style="display:flex;"><span>          -append &#34;console=ttyS0 quiet acpi=off&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clean:
+</span></span><span style="display:flex;"><span>        @rm -rf build
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(qemu) info registers
+</span></span><span style="display:flex;"><span>RAX=ffffffffb62d5260 RBX=0000000000000000 RCX=0000000000000001 RDX=0000000000000f92
+</span></span><span style="display:flex;"><span>RSI=0000000000000087 RDI=0000000000000087 RBP=ffffffffb6e03e38 RSP=ffffffffb6e03e18
+</span></span><span style="display:flex;"><span>R8 =ffff9a834781df80 R9 =0000000000000200 R10=0000000000000000 R11=0000000000000000
+</span></span><span style="display:flex;"><span>R12=0000000000000000 R13=ffffffffb6e13780 R14=0000000000000000 R15=0000000000000000
+</span></span><span style="display:flex;"><span>RIP=ffffffffb62d564e RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+</span></span><span style="display:flex;"><span>ES =0000 0000000000000000 00000000 00000000
+</span></span><span style="display:flex;"><span>CS =0010 0000000000000000 ffffffff 00af9b00 DPL=0 CS64 [-RA]
+</span></span><span style="display:flex;"><span>SS =0018 0000000000000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+</span></span><span style="display:flex;"><span>DS =0000 0000000000000000 00000000 00000000
+</span></span><span style="display:flex;"><span>FS =0000 0000000000000000 00000000 00000000
+</span></span><span style="display:flex;"><span>GS =0000 ffff9a8347800000 00000000 00000000
+</span></span><span style="display:flex;"><span>LDT=0000 0000000000000000 00000000 00008200 DPL=0 LDT
+</span></span><span style="display:flex;"><span>TR =0040 fffffe0000003000 0000206f 00008900 DPL=0 TSS64-avl
+</span></span><span style="display:flex;"><span>GDT=     fffffe0000001000 0000007f
+</span></span><span style="display:flex;"><span>IDT=     fffffe0000000000 00000fff
+</span></span><span style="display:flex;"><span>CR0=80050033 CR2=0000000000a95c28 CR3=0000000003ca2000 CR4=000006f0
+</span></span><span style="display:flex;"><span>DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000
+</span></span><span style="display:flex;"><span>DR6=00000000ffff0ff0 DR7=0000000000000400
+</span></span><span style="display:flex;"><span>EFER=0000000000000d01
+</span></span><span style="display:flex;"><span>FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>busybox是一个工具集，这么多工具居然只有2M，我哭死，加载到内核里我们就能使用了</p>
+<p>init是一个启动脚本，它只有一行命令<code>/bin/busybox sh</code>启动sh，如果不让它启动shell会发生什么？</p>
+<p>会kernel panic</p>
+<p>你以为这个最小linux什么都做不了？非也！非也！</p>
+<p>gcc -c minimal.S&amp;&amp;ld minimal.o</p>
+<p>linux 内核启动后，把所有的权利都交给一个进程，这一个进程再创建成整个世界</p>
+<h2 id="fork">fork</h2>
+<p>创建状态机</p>
+<p>创建子进程，保留进程所有上下文（内存、寄存器现场）。</p>
+<p>新进程返回0，执行fork的进程返回子进程的进程号</p>
+<p>理解fork的两个例子</p>
+<h3 id="fork-democ">fork-demo.c</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;unistd.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int main() {
+</span></span><span style="display:flex;"><span>  pid_t pid1 = fork();
+</span></span><span style="display:flex;"><span>  pid_t pid2 = fork();
+</span></span><span style="display:flex;"><span>  pid_t pid3 = fork();
+</span></span><span style="display:flex;"><span>  printf(&#34;Hello World from (%d, %d, %d)\n&#34;, pid1, pid2, pid3);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ gcc fork-demo.c
+</span></span><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out
+</span></span><span style="display:flex;"><span>Hello World from (133, 134, 136)
+</span></span><span style="display:flex;"><span>Hello World from (0, 135, 137)
+</span></span><span style="display:flex;"><span>Hello World from (133, 134, 0)
+</span></span><span style="display:flex;"><span>Hello World from (0, 135, 0)
+</span></span><span style="display:flex;"><span>Hello World from (133, 0, 138)
+</span></span><span style="display:flex;"><span>Hello World from (133, 0, 0)
+</span></span><span style="display:flex;"><span>Hello World from (0, 0, 0)
+</span></span><span style="display:flex;"><span>Hello World from (0, 0, 139)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>居然和我想的一样，不行这一定得拍下来</p>
+<p><img src="https://s2.loli.net/2022/09/06/KTU2bQsg1CFAikn.jpg" alt="os-jyy-11.jpg"></p>
+<h3 id="fork-printfc">fork-printf.c</h3>
+<p>神奇的事情出现了</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out|cat
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>Hello
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是printf的缓冲区导致的，fork会把缓冲区复制一份，等于虽然调用了printf，但是此时还没有执行系统调用。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;unistd.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;sys/wait.h&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int main(int argc, char *argv[]) {
+</span></span><span style="display:flex;"><span>  int n = 2;
+</span></span><span style="display:flex;"><span>  for (int i = 0; i &lt; n; i++) {
+</span></span><span style="display:flex;"><span>    fork();
+</span></span><span style="display:flex;"><span>    printf(&#34;Hello&#34;);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  printf(&#34;\n&#34;);
+</span></span><span style="display:flex;"><span>  for (int i = 0; i &lt; n; i++) {
+</span></span><span style="display:flex;"><span>    wait(NULL);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>gcc fork-printf.c&amp;&amp;a.out
+</span></span><span style="display:flex;"><span>HelloHello
+</span></span><span style="display:flex;"><span>HelloHello
+</span></span><span style="display:flex;"><span>HelloHello
+</span></span><span style="display:flex;"><span>HelloHello
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是一个bug吗？不是，这是我们没有充分理解fork的语义，也不知道缓冲区行为，才导致6或8个hello</p>
+<p>stdout和pipe/file缓冲区是不一样的</p>
+<ul>
+<li>stdout line buffer</li>
+<li>pipe/file full buffer 写满一页才传管道</li>
+</ul>
+<p>如果你想得到6个hello，即让fork不复制缓冲区</p>
+<ul>
+<li>
+<p>设置成无缓冲区：setbuf(stdout,NULL);</p>
+</li>
+<li>
+<p>加上fflush(stdout)迅速刷新</p>
+</li>
+</ul>
+<p>如果你想得到8个hello，就让fork复制缓冲区就行了</p>
+<p>机器不知道你像做什么，只是忠实执行指令</p>
+<h2 id="execve">execve</h2>
+<p>重置一个状态机，丢失所有当前状态</p>
+<p><code>int execve(const char *pathname, char *const argv[], char *const envp[]);</code></p>
+<p>The argv and envp arrays must each include a null pointer at the end of the array.</p>
+<p>gcc strace结果</p>
+<p>gcc会在PATH下寻找as汇编器，找不到就g，我们可以指定PATH让找不到as</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ PATH=bb:Dsds /bin/strace -f /bin/gcc execve-demo.c |&amp; grep &#34;exec&#34;
+</span></span><span style="display:flex;"><span>execve(&#34;/bin/gcc&#34;, [&#34;/bin/gcc&#34;, &#34;execve-demo.c&#34;], 0x7ffeb064f200 /* 27 vars */) = 0
+</span></span><span style="display:flex;"><span>access(&#34;execve-demo.c&#34;, F_OK)           = 0
+</span></span><span style="display:flex;"><span>[pid   506] execve(&#34;/usr/lib/gcc/x86_64-linux-gnu/9/cc1&#34;, [&#34;/usr/lib/gcc/x86_64-linux-gnu/9/&#34;..., &#34;-quiet&#34;, &#34;-imultiarch&#34;, &#34;x86_64-linux-gnu&#34;, &#34;execve-demo.c&#34;, &#34;-quiet&#34;, &#34;-dumpbase&#34;, &#34;execve-demo.c&#34;, &#34;-mtune=generic&#34;, &#34;-march=x86-64&#34;, &#34;-auxbase&#34;, &#34;execve-demo&#34;, &#34;-fasynchronous-unwind-tables&#34;, &#34;-fstack-protector-strong&#34;, &#34;-Wformat&#34;, &#34;-Wformat-security&#34;, &#34;-fstack-clash-protection&#34;, &#34;-fcf-protection&#34;, &#34;-o&#34;, &#34;/tmp/ccfJr8oo.s&#34;], 0x149cf70 /* 32 vars */ &lt;unfinished ...&gt;
+</span></span><span style="display:flex;"><span>[pid   506] &lt;... execve resumed&gt;)       = 0
+</span></span><span style="display:flex;"><span>[pid   506] stat(&#34;execve-demo.c.gch&#34;, 0x7fff6bab32d0) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>[pid   506] openat(AT_FDCWD, &#34;execve-demo.c&#34;, O_RDONLY|O_NOCTTY) = 3
+</span></span><span style="display:flex;"><span>[pid   506] lstat(&#34;/home/bach/jyy/11/execve-demo.c&#34;, {st_mode=S_IFREG|0644, st_size=230, ...}) = 0
+</span></span><span style="display:flex;"><span>[pid   506] write(3, &#34;\t.file\t\&#34;execve-demo.c\&#34;\n\t.text\n\t.&#34;..., 1237) = 1237
+</span></span><span style="display:flex;"><span>[pid   507] execve(&#34;bb/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccH9mHSm.o&#34;, &#34;/tmp/ccfJr8oo.s&#34;], 0x149cf70 /* 32 vars */) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>[pid   507] execve(&#34;Dsds/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccH9mHSm.o&#34;, &#34;/tmp/ccfJr8oo.s&#34;], 0x149cf70 /* 32 vars */) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>write(2, &#34;gcc: fatal error: cannot execute&#34;..., 77gcc: fatal error: cannot execute ‘as’: execvp: No such file or directory
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>正常是：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[pid   465] execve(&#34;/usr/local/sbin/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccZ9qp1b.o&#34;, &#34;/tmp/ccYUOsnc.s&#34;], 0x1166f70 /* 32 vars */) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>[pid   465] execve(&#34;/usr/local/bin/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccZ9qp1b.o&#34;, &#34;/tmp/ccYUOsnc.s&#34;], 0x1166f70 /* 32 vars */) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>[pid   465] execve(&#34;/usr/sbin/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccZ9qp1b.o&#34;, &#34;/tmp/ccYUOsnc.s&#34;], 0x1166f70 /* 32 vars */) = -1 ENOENT (No such file or directory)
+</span></span><span style="display:flex;"><span>[pid   465] execve(&#34;/usr/bin/as&#34;, [&#34;as&#34;, &#34;--64&#34;, &#34;-o&#34;, &#34;/tmp/ccZ9qp1b.o&#34;, &#34;/tmp/ccYUOsnc.s&#34;], 0x1166f70 /* 32 vars */ &lt;unfinished ...&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="exit">exit</h2>
+<p>exit的几种不同的写法：</p>
+<h4 id="exit0">exit(0)</h4>
+<p>stdlib.h中libc函数，会调用atexit</p>
+<ul>
+<li>All functions registered with atexit(3) and on_exit(3) are called, in the  reverse  order  of  their
+registration.</li>
+<li>thread safety</li>
+</ul>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ strace ./a.out <span style="color:#111">exit</span>
+</span></span><span style="display:flex;"><span>execve<span style="color:#f92672">(</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#f92672">[</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#d88200">&#34;exit&#34;</span><span style="color:#f92672">]</span>, 0x7ffeba56b798 /* <span style="color:#ae81ff">27</span> vars */<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>arch_prctl<span style="color:#f92672">(</span>0x3001 /* ARCH_??? */, 0x7fff21d63de0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 EINVAL <span style="color:#f92672">(</span>Invalid argument<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x2282000
+</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>0x22831c0<span style="color:#f92672">)</span>                          <span style="color:#f92672">=</span> 0x22831c0
+</span></span><span style="display:flex;"><span>arch_prctl<span style="color:#f92672">(</span>ARCH_SET_FS, 0x2282880<span style="color:#f92672">)</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>uname<span style="color:#f92672">({</span><span style="color:#111">sysname</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Linux&#34;</span>, <span style="color:#111">nodename</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;LAPTOP-U1E6STIA&#34;</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>readlink<span style="color:#f92672">(</span><span style="color:#d88200">&#34;/proc/self/exe&#34;</span>, <span style="color:#d88200">&#34;/home/bach/jyy/11/a.out&#34;</span>, 4096<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>0x22a41c0<span style="color:#f92672">)</span>                          <span style="color:#f92672">=</span> 0x22a41c0
+</span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>0x22a5000<span style="color:#f92672">)</span>                          <span style="color:#f92672">=</span> 0x22a5000
+</span></span><span style="display:flex;"><span>mprotect<span style="color:#f92672">(</span>0x4bd000, 12288, PROT_READ<span style="color:#f92672">)</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>fstat<span style="color:#f92672">(</span>1, <span style="color:#f92672">{</span><span style="color:#111">st_mode</span><span style="color:#f92672">=</span>S_IFCHR<span style="color:#111">|</span>0620, <span style="color:#111">st_rdev</span><span style="color:#f92672">=</span>makedev<span style="color:#f92672">(</span>0x88, 0<span style="color:#f92672">)</span>, ...<span style="color:#f92672">})</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#d88200">&#34;Goodbye, Cruel OS World!\n&#34;</span>, 25Goodbye, Cruel OS World!
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>exit_group<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>                           <span style="color:#f92672">=</span> ?
+</span></span><span style="display:flex;"><span>+++ exited with <span style="color:#ae81ff">0</span> +++
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="_exit0">_exit(0)</h4>
+<p>glibc的syscall wrapper</p>
+<p>所有的线程都会被终止</p>
+<p>如果此时有一个还未fflush的buffer的话，将不会输出</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$cat exit-demo.c
+</span></span><span style="display:flex;"><span>#include &lt;stdlib.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;string.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;unistd.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;time.h&gt;
+</span></span><span style="display:flex;"><span>#include &lt;sys/syscall.h&gt;
+</span></span><span style="display:flex;"><span>int main(int argc, char *argv[]) {
+</span></span><span style="display:flex;"><span> // atexit(func);
+</span></span><span style="display:flex;"><span> printf(&#34;unfflush buffer&#34;);
+</span></span><span style="display:flex;"><span>  if (argc &lt; 2) return EXIT_FAILURE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  if (strcmp(argv[1], &#34;exit&#34;) == 0)
+</span></span><span style="display:flex;"><span>    exit(0);
+</span></span><span style="display:flex;"><span>  if (strcmp(argv[1], &#34;_exit&#34;) == 0)
+</span></span><span style="display:flex;"><span>    _exit(0);
+</span></span><span style="display:flex;"><span>  if (strcmp(argv[1], &#34;__exit&#34;) == 0)
+</span></span><span style="display:flex;"><span>    syscall(SYS_exit, 0);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>$ ./a.out _exit
+</span></span><span style="display:flex;"><span>$ ./a.out exit
+</span></span><span style="display:flex;"><span>unfflush buffer
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ strace ./a.out _exit
+</span></span><span style="display:flex;"><span>execve(&#34;./a.out&#34;, [&#34;./a.out&#34;, &#34;_exit&#34;], 0x7ffee2ba8958 /* 27 vars */) = 0
+</span></span><span style="display:flex;"><span>arch_prctl(0x3001 /* ARCH_??? */, 0x7fff5f104010) = -1 EINVAL (Invalid argument)
+</span></span><span style="display:flex;"><span>brk(NULL)                               = 0x1407000
+</span></span><span style="display:flex;"><span>brk(0x14081c0)                          = 0x14081c0
+</span></span><span style="display:flex;"><span>arch_prctl(ARCH_SET_FS, 0x1407880)      = 0
+</span></span><span style="display:flex;"><span>uname({sysname=&#34;Linux&#34;, nodename=&#34;LAPTOP-U1E6STIA&#34;, ...}) = 0
+</span></span><span style="display:flex;"><span>readlink(&#34;/proc/self/exe&#34;, &#34;/home/bach/jyy/11/a.out&#34;, 4096) = 23
+</span></span><span style="display:flex;"><span>brk(0x14291c0)                          = 0x14291c0
+</span></span><span style="display:flex;"><span>brk(0x142a000)                          = 0x142a000
+</span></span><span style="display:flex;"><span>mprotect(0x4bd000, 12288, PROT_READ)    = 0
+</span></span><span style="display:flex;"><span>exit_group(0)                           = ?
+</span></span><span style="display:flex;"><span>+++ exited with 0 +++
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="__syscallsys_exit0">__syscall(SYS_exit,0)</h4>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ strace ./a.out _exit
+</span></span><span style="display:flex;"><span>execve(&#34;./a.out&#34;, [&#34;./a.out&#34;, &#34;_exit&#34;], 0x7ffee2ba8958 /* 27 vars */) = 0
+</span></span><span style="display:flex;"><span>arch_prctl(0x3001 /* ARCH_??? */, 0x7fff5f104010) = -1 EINVAL (Invalid argument)
+</span></span><span style="display:flex;"><span>brk(NULL)                               = 0x1407000
+</span></span><span style="display:flex;"><span>brk(0x14081c0)                          = 0x14081c0
+</span></span><span style="display:flex;"><span>arch_prctl(ARCH_SET_FS, 0x1407880)      = 0
+</span></span><span style="display:flex;"><span>uname({sysname=&#34;Linux&#34;, nodename=&#34;LAPTOP-U1E6STIA&#34;, ...}) = 0
+</span></span><span style="display:flex;"><span>readlink(&#34;/proc/self/exe&#34;, &#34;/home/bach/jyy/11/a.out&#34;, 4096) = 23
+</span></span><span style="display:flex;"><span>brk(0x14291c0)                          = 0x14291c0
+</span></span><span style="display:flex;"><span>brk(0x142a000)                          = 0x142a000
+</span></span><span style="display:flex;"><span>mprotect(0x4bd000, 12288, PROT_READ)    = 0
+</span></span><span style="display:flex;"><span>exit(0)                           = ?
+</span></span><span style="display:flex;"><span>+++ exited with 0 +++
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>唯一的区别是exit(0) /exit_group(0)</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/life/" title="Life page" >
+			Life
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/leetcode/" title="Leetcode page" >
+			Leetcode
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://space.bilibili.com/36175480' target="_blank" class="bilibili icon pl-1 text-eucalyptus-400 hover:text-java-400" title="bilibili link" rel="noopener"
+		aria-label="follow on bilibili——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='http://github.com/bachwv' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+	<a href='http://twitter.com/' target="_blank" class="twitter icon pl-1 text-eucalyptus-400 hover:text-java-400" title="twitter link" rel="noopener"
+		aria-label="follow on twitter——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2022
+		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1952 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/os-jyy-10/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        操作系统-jyy-10
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/posts/cpp-acllib/">
+        Cpp Acllib
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
+         Waline.init({
+          el: '#wcomments',  
+          serverURL: 'https://waline.junling.li', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

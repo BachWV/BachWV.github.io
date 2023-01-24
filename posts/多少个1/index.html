@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | 多少个1</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://junling.li/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://junling.li/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://junling.li/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://junling.li/fonts/exampleFont.woff2') format('woff2'),
+				url('https://junling.li/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">多少个1</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/%E7%AE%97%E6%B3%95'>算法</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2021-09-13T20:56:00&#43;08:00">2021-9-13</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h1 id="一个二进制数中有多少个1">一个二进制数中有多少个1</h1>
+<p>我只能想到用移位消去最小的1的方法</p>
+<h2 id="时间复杂度为i中1的个数的做法">时间复杂度为i中1的个数的做法</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">hammingWeight</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">n</span><span style="color:#f92672">&amp;(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>java 本身也提供了这个方法，所以就来看看底层的源码。
+这个方法非常有意思，我已经被迷住了，源码的分析部分来自于</p>
+<p><a href="https://blog.csdn.net/weixin_42092787/article/details/106607426">https://blog.csdn.net/weixin_42092787/article/details/106607426</a></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">bitCount</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// HD, Figure 5-2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">-</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x55555555</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x33333333</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#f92672">((</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x33333333</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">))</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x0f0f0f0f</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">8</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#111">i</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">16</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#00a8c8">return</span> <span style="color:#111">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x3f</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>简单来说，源码非常非常巧妙的利用了 位运算的性质，大概我这辈子也想不到吧。</p>
+<p>我们从最后的落脚点出发，或许更能理解这种思路：</p>
+<p><code>return i &amp; 0x3f;</code>
+0x3f 十六进制转为二进制是：</p>
+<p>十六进制	二进制
+0x3f	00 00 00 00 00 00 00 00 00 00 00 00 00 11 11 11
+这时候我们想一下这行代码，对于 0x3f 来说，它和变量 i 做 与 运算，得到的最大结果也就是 0x3f 本身，也就是二进制 111111 ，对应 十进制是 63。</p>
+<p>这是什么意思呢？</p>
+<p>对于 输入 n ，即使这个数字的二进制表达占满了 32 位比特 且全都是 1，那么这条语句的功能，数 1 的个数，结果最多也就是 32 ，对应二进制表达是 100 000，长度为 6 位。</p>
+<p>所以这一点上，这种方法的计算过程保证了有效位足够，另一方面保证，最终返回的是 前面计算结果的最后六位的值，去掉了高位上面的干扰。</p>
+<p>而这整个代码也都是基于这种思想的，逐渐缩小有效位的范围</p>
+<p>我们先总结一下代码中的十六进制数：</p>
+<p>十六进制	二进制
+0x55555555	01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01
+0x33333333	00 11 00 11 00 11 00 11 00 11 00 11 00 11 00 11
+0x0f0f0f0f	00 00 11 11 00 00 11 11 00 00 11 11 00 00 11 11
+接着一行一行来看代码。</p>
+<p>第一行代码
+<code>i = i - ((i &gt;&gt;&gt; 1) &amp; 0x55555555);</code>
+我直接告诉你，它完成的功能叫做，每两位进行一次统计，统计 1 的个数，并把结果放在对应的原来位置上。</p>
+<h3 id="1-i--1-是将-i-无符号右移一位">1. i &raquo;&gt; 1 是将 i 无符号右移一位</h3>
+<h3 id="2-0x55555555-是-01-01-01-01-01-01-01-01-01-01-01-01-01-01-01-01">2. 0x55555555 是 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01</h3>
+<h3 id="3-右移后-和-0x55555555-进行按位与操作">3. 右移后 和 0x55555555 进行按位与操作</h3>
+<h3 id="4再用-i-减去-3-的结果">4.再用 i 减去 “3” 的结果</h3>
+<p>上面的 “1”
+想一想：对于一个 32 位的数 i ，右移一位之后，第 2、4、6、……、32位的数字，分别跑到了第 1、3、5、……、31位上，也就对应到了 0x55555555 的 所有 1 的位置。</p>
+<p>上面的 “2” 和 “3”
+i 在右移之后和 0x55555555 进行 与 操作，就会得到原来 i 的第 2、4、6、……、32 位上的所有真实的值；同时，第 1、3、5、……、31位上的值都和 0 进行与操作之后变成了0。（到这里还看不出这么做的意义，别着急，看下一步）</p>
+<p>上面的 “3”
+重点来了，接着用 i - （2 和 3 的结果）会发生什么事？</p>
+<p>一个二进制两位的数字，可能的形式有：00,01,10,11.
+右移之后分别和 01 进行与运算，得到： 00,00,01,01.
+用原来的数减去右移后的，就能够得到： 00,01,01,10.</p>
+<p>观察一下结果可以发现：每两位的数值 就表示了以前这两位上 有 1 的个数</p>
+<p>（这里可以回头想一想，先和0x55555555 进行 与 操作是非常必要的，因为如果仅仅右移，第 3 位如果有 1，右移之后会占用第二位，会影响统计结果，因此必须把这些位都通过和 0 的与操作清零。）</p>
+<p>第二行代码
+<code>i = (i &amp; 0x33333333) + ((i &gt;&gt;&gt; 2) &amp; 0x33333333);</code>
+第二行和第一行的本质思路是一样的，进一步扩大范围，统计原始 i 每 4 位上 1 的个数。</p>
+<h3 id="1-0x33333333-是-00-11-00-11-00-11-00-11-00-11-00-11-00-11-00-11">1. 0x33333333 是 00 11 00 11 00 11 00 11 00 11 00 11 00 11 00 11</h3>
+<h3 id="2-i-和-0x33333333-进行按位与操作">2. i 和 0x33333333 进行按位与操作</h3>
+<h3 id="3-i-右移两位再和-0x33333333-进行按位与操作">3. i 右移两位，再和 0x33333333 进行按位与操作</h3>
+<h3 id="4将--2--和--3--的结果相加">4.将 “ 2 ” 和 “ 3 ” 的结果相加</h3>
+<p>上面的 “1” 和 “2”
+和 0x33333333 进行 与 操作，就会得到第一行代码运行之后 的第 1 2、5 6、9 10、……、29 30 位上的所有真实的值；同时，第 3 4、7 8、11 12、……、31 32位上的值都和 00 与之后变成了00。</p>
+<p>上面的 “3”
+和只有 两位 的二进制数的减法性质不同，所以这里不能再使用减法。
+那么丢掉的那一半位置的数字还是需要找回来的。怎么办呢</p>
+<p>i 右移两位，第 3 4、7 8、11 12、……、 31 32 位上的值跑到了 第 1 2、5 6、9 10、……、 29 30位上。此时再做了一边和 “2” 一样的事情，这就得到了第一行代码运行之后的第 3 4、7 8、11 12、……、 31 32 位上的真实的值。</p>
+<p>上面的 “4”
+简单相加，功能完成。（直接相加不用考虑进位吗？答案是不用，原来的数字 每四位上面 1 的个数最多是 4 个，对应成二进制是 100 ，只会占用 3 个二进制位。）</p>
+<p>可以回头想想。源数字 i 的 每四位上面 1 的个数，已经被统计出来了，替换在了对应的位置上。</p>
+<p>第三行代码
+<code> i = (i + (i &gt;&gt;&gt; 4)) &amp; 0x0f0f0f0f;</code>
+这一步，要开始统计 原始数字 i 每 8 位上面 1 的个数。我们可以看到代码的方式又变了。
+（和第二行写法不一样，但其实第三行可以写成和第二行一样的格式；第二行却不能写成第三行这样的形式，大家可以想想为什么）</p>
+<h3 id="1-将-i-右移四位再与-i-相加">1. 将 i 右移四位，再与 i 相加</h3>
+<h3 id="20x0f0f0f0f-的二进制表达是-0000-1111-0000-1111-0000-1111-0000-1111">2.0x0f0f0f0f 的二进制表达是 0000 1111 0000 1111 0000 1111 0000 1111</h3>
+<h3 id="3将第一步的结果-和-0x0f0f0f0f-进行与操作">3.将第一步的结果 和 0x0f0f0f0f 进行与操作</h3>
+<p>上面的 “1”
+对其相加个数的时候，显然要以低位为准，所以第 5 6 7 8 、13 14 15 16、20 21 23 24、29 30 31 32 位的数字，挪到了 1 2 3 4 、 9 10 11 12、17 18 19 20 、25 26 27 28 位上，对应相加。</p>
+<p>这里的加和，最多不会超过 8 ，对应二进制是 1000，（因为源数字 i 每 8 位上面 1 个数不会超过 8）所以直接加也不会产生错误。</p>
+<p>上面的 “2” 和“3”
+和 0x0f0f0f0f 进行 与 操作，就会得到源数字 i 每 8 位上面 1 的个数，存储在了第 1 2 3 4 、 9 10 11 12、17 18 19 20 、25 26 27 28位上。而第 5 6 7 8 、13 14 15 16、20 21 23 24、29 30 31 32 位一定是 0.</p>
+<p>第四行和第五行代码</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>i = i + (i &gt;&gt;&gt; 8);
+</span></span><span style="display:flex;"><span>i = i + (i &gt;&gt;&gt; 16);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1~16位上。（此时没有做第17~32位的清零）</p>
+<p>当然，如果按照前几步的思路，你当然可以把这两行代码替换成：</p>
+<p><code>i = i + (i &gt;&gt;&gt; 8) &amp; ‭FF00FF‬;</code>
+这行是我想的，但经过验证可以达到一样的效果，因为 ‭FF00FF‬ 的二进制表达是：
+‭0000 0000 1111 1111 0000 0000 1111 1111‬</p>
+<p>不过显然原作者的做法更巧妙，毕竟直接右移16位就能达到效果。</p>
+<p>第六行代码
+<code>return i &amp; 0x3f;</code>
+回到最开始我们对这一步的分析，源数字 i 作为32位二进制数字，1 的个数就最多 32 而已。</p>
+<p>那么代码的意义显而意见。
+最终就会返回 原始输入 i 的二进制形式上 1 的个数。</p>
+<p>总结一下，如果这道题交给我们来做，即使是位运算，按位与 和 用了 n&amp;(n-1) 这两种方法，最差的情况下都是要运行 32 次位运算的，但是底层源码的方法，却是恒定只进行 6 次计算。不得不说真实优秀。</p>
+<p>相信我讲的很清楚了，希望对大家有帮助。（苦心成果，转载请标明出处
+————————————————
+版权声明：本文为CSDN博主「JohnArchie」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_42092787/article/details/106607426</p>
+<h2 id="我的理解">我的理解</h2>
+<p>第一行代码：将每两位的 1 的个数统计，并把结果每两位保存，例如1101一个有3个1，高2位(11)中1的个数为2(01)，低2位(01)的个数为1(01),最后保存的结果为0101
+i=0010010100101011</p>
+<p>0001001010010101 (i&raquo;&gt;1)</p>
+<p>0001000000010101(i&raquo;&gt;1&amp;0x5555555)</p>
+<p>0001010100010110</p>
+<p>第二行代码：将将每4位的 1 的个数统计，并把结果每4位保存</p>
+<p>0001010100010110(i)</p>
+<p>0000010101000101(i&raquo;&gt;2)</p>
+<p>0011001100110011</p>
+<p>0000000100000001(i&raquo;&gt;2&amp;0x3333333333)</p>
+<p>0001000100010010(i&amp;0x333333333)</p>
+<p>0001001000010011</p>
+<p>相当于对i=0001010100010110每隔两位提出来：</p>
+<p>0001000100010010(i&amp;0x333333333)</p>
+<p>0001001000010011</p>
+<p>每4位得到四位 的1的值</p>
+<p>第三行代码：将将每8位的 1 的个数统计，并把结果每8位保存</p>
+<p>0000111100001111</p>
+<p>0000001100000100</p>
+<p>每8位表示8位 的1的数量</p>
+<p>0000000000000011(i&raquo;&gt;8)</p>
+<p>0000000000000100</p>
+<p>0000000000000111</p>
+<p>这样就得到一共有7个1.</p>
+<h2 id="异或的性质">异或的性质：</h2>
+<p>110=100^10</p>
+<p>观察这三个数110 100 10</p>
+<p>任意两个异或的结果是另外一个数：</p>
+<p>110^100=10</p>
+<p>110^10=100</p>
+<blockquote>
+<h4 id="1720-解码异或后的数组httpsleetcode-cncomproblemsdecode-xored-array"><a href="https://leetcode-cn.com/problems/decode-xored-array/">1720. 解码异或后的数组</a></h4>
+<p>难度简单80</p>
+<p><strong>未知</strong> 整数数组 <code>arr</code> 由 <code>n</code> 个非负整数组成。</p>
+<p>经编码后变为长度为 <code>n - 1</code> 的另一个整数数组 <code>encoded</code> ，其中 <code>encoded[i] = arr[i] XOR arr[i + 1]</code> 。例如，<code>arr = [1,0,2,1]</code> 经编码后得到 <code>encoded = [1,2,3]</code> 。</p>
+<p>给你编码后的数组 <code>encoded</code> 和原数组 <code>arr</code> 的第一个元素 <code>first</code>（<code>arr[0]</code>）。</p>
+<p>请解码返回原数组 <code>arr</code> 。可以证明答案存在并且是唯一的。</p>
+<p><strong>示例 1：</strong></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [1,2,3], first = 1
+</span></span><span style="display:flex;"><span>输出：[1,0,2,1]
+</span></span><span style="display:flex;"><span>解释：若 arr = [1,0,2,1] ，那么 first = 1 且 encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例 2：</strong></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [6,2,7,3], first = 4
+</span></span><span style="display:flex;"><span>输出：[4,2,0,7,4]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= n &lt;= 104</code></li>
+<li><code>encoded.length == n - 1</code></li>
+<li><code>0 &lt;= encoded[i] &lt;= 105</code></li>
+<li><code>0 &lt;= first &lt;= 105</code></li>
+</ul>
+</blockquote>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#75af00">decode</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span><span style="color:#f92672">[]</span> <span style="color:#111">encoded</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">first</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">=</span><span style="color:#111">encoded</span><span style="color:#f92672">.</span><span style="color:#75af00">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#f92672">[]</span><span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#00a8c8">new</span> <span style="color:#00a8c8">int</span><span style="color:#f92672">[</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]=</span><span style="color:#111">encoded</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]^</span><span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>还有一题：</p>
+<blockquote>
+<h4 id="371-两整数之和httpsleetcode-cncomproblemssum-of-two-integers"><a href="https://leetcode-cn.com/problems/sum-of-two-integers/">371. 两整数之和</a></h4>
+<p>难度中等425</p>
+<p><strong>不使用</strong>运算符 <code>+</code> 和 <code>-</code> ，计算两整数 <code>a</code> 、<code>b</code> 之和。</p>
+<p><strong>示例 1:</strong></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入: a = 1, b = 2
+</span></span><span style="display:flex;"><span>输出: 3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>示例 2:</strong></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入: a = -2, b = 3
+</span></span><span style="display:flex;"><span>输出: 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过次数54,177</p>
+<p>提交次数93,386</p>
+</blockquote>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">getSum</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">a</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">b</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">a</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34; b=&#34;</span><span style="color:#f92672">+</span><span style="color:#111">b</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">a</span><span style="color:#f92672">^</span><span style="color:#111">b</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">and</span><span style="color:#f92672">=(</span><span style="color:#111">a</span><span style="color:#f92672">&amp;</span><span style="color:#111">b</span><span style="color:#f92672">)&lt;&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">getSum</span><span style="color:#f92672">(</span><span style="color:#111">xor</span><span style="color:#f92672">,</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>       
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">xor</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/life/" title="Life page" >
+			Life
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/leetcode/" title="Leetcode page" >
+			Leetcode
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://space.bilibili.com/36175480' target="_blank" class="bilibili icon pl-1 text-eucalyptus-400 hover:text-java-400" title="bilibili link" rel="noopener"
+		aria-label="follow on bilibili——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='http://github.com/bachwv' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+	<a href='http://twitter.com/' target="_blank" class="twitter icon pl-1 text-eucalyptus-400 hover:text-java-400" title="twitter link" rel="noopener"
+		aria-label="follow on twitter——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2022
+		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3306 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/leetcode/11/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        11.盛水最多的容器
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/">
+        怎么有人用码图啊
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
+         Waline.init({
+          el: '#wcomments',  
+          serverURL: 'https://waline.junling.li', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

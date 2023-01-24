@@ -1,0 +1,3093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | Unix笔记</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://junling.li/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://junling.li/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://junling.li/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://junling.li/fonts/exampleFont.woff2') format('woff2'),
+				url('https://junling.li/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">Unix笔记</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2021-06-17T13:50:16&#43;08:00">2021-6-17</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#系统结构">系统结构：</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31登录与退出">3.1登录与退出</a></li>
+    <li><a href="#32-简单的unix命令">3.2 简单的UNIX命令</a></li>
+    <li><a href="#33-获取帮助信息">3.3 获取帮助信息</a>
+      <ul>
+        <li><a href="#333-man手册">3.3.3 man手册：</a></li>
+      </ul>
+    </li>
+    <li><a href="#34-更正键盘输入错误">3.4 更正键盘输入错误</a></li>
+    <li><a href="#35-使用shell">3.5 使用shell</a>
+      <ul>
+        <li><a href="#352-更改用户shell">3.5.2 更改用户shell</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#41模式">4.1模式：</a></li>
+    <li><a href="#42-命令模式">4.2 命令模式：</a></li>
+    <li><a href="#43-退出">4.3 退出</a></li>
+    <li><a href="#44-存储缓冲区">4.4 存储缓冲区</a></li>
+    <li><a href="#45-高级操作">4.5 高级操作</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#51-磁盘组织">5.1 磁盘组织</a></li>
+    <li><a href="#52-unix中的文件类型">5.2 UNIX中的文件类型</a></li>
+    <li><a href="#53-目录详述">5.3 目录详述</a>
+      <ul>
+        <li><a href="#531-重要的目录">5.3.1 重要的目录：</a></li>
+        <li><a href="#532-路径">5.3.2 路径</a></li>
+      </ul>
+    </li>
+    <li><a href="#54-目录命令">5.4 目录命令</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#55-显示文件">5.5 显示文件</a></li>
+    <li><a href="#56-打印文件内容">5.6 打印文件内容</a></li>
+    <li><a href="#57-删除文件">5.7 删除文件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#61-更多vi知识">6.1 更多vi知识</a>
+      <ul>
+        <li><a href="#611-启动vi编辑器">6.1.1 启动vi编辑器</a></li>
+        <li><a href="#612-编辑多个文件">6.1.2 编辑多个文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#62-重排文本">6.2 重排文本</a></li>
+    <li><a href="#63-操作符的域">6.3 操作符的域</a></li>
+    <li><a href="#64-使用缓冲区">6.4 使用缓冲区</a>
+      <ul>
+        <li><a href="#641-数字编号缓冲区">6.4.1 数字编号缓冲区</a></li>
+        <li><a href="#642-字母编号缓冲区">6.4.2 字母编号缓冲区</a></li>
+      </ul>
+    </li>
+    <li><a href="#65--光标定位键">6.5  光标定位键</a></li>
+    <li><a href="#66-定制vi">6.6 定制vi</a>
+      <ul>
+        <li><a href="#664-缩写ab">6.6.4 缩写<code>ab</code></a></li>
+        <li><a href="#665-exrc文件">6.6.5 .exrc文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#67-其他命令">6.7 其他命令</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#例子">例子</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#81-重定向">8.1 重定向</a></li>
+    <li><a href="#82-管道">8.2 管道</a>
+      <ul>
+        <li><a href="#821--shell如何实现管道">8.2.1  Shell如何实现管道？</a></li>
+      </ul>
+    </li>
+    <li><a href="#83--文件操作">8.3  文件操作</a></li>
+    <li><a href="#84-ln链接文件">8.4 ln链接文件</a></li>
+    <li><a href="#85-其他wcheadtail">8.5 其他wc,head,tail</a></li>
+    <li><a href="#86-sed替换">8.6 sed替换</a></li>
+    <li><a href="#87-打开文件grep命令">8.7 打开文件：grep命令</a></li>
+    <li><a href="#88-find查找文件">8.8 find查找文件</a></li>
+    <li><a href="#89-文件系统">8.9 文件系统</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#91-显示消息echo命令">9.1 显示消息：echo命令</a></li>
+    <li><a href="#92-shell-变量">9.2 shell 变量</a>
+      <ul>
+        <li><a href="#921-显示和清除变量set和unset命令">9.2.1 显示和清除变量：set和unset命令</a></li>
+        <li><a href="#922-标准-shell-变量">9.2.2 标准 shell 变量</a></li>
+      </ul>
+    </li>
+    <li><a href="#93-其他元字符">9.3 其他元字符</a>
+      <ul>
+        <li><a href="#931-重音符号">9.3.1 重音符号</a></li>
+        <li><a href="#932-括号">9.3.2 括号</a></li>
+        <li><a href="#933-后台处理">9.3.3 后台处理&amp;</a></li>
+      </ul>
+    </li>
+    <li><a href="#94-其他unix工具">9.4 其他UNIX工具</a>
+      <ul>
+        <li><a href="#941-延时定时">9.4.1 延时定时</a></li>
+        <li><a href="#942-显示pid">9.4.2 显示PID</a></li>
+        <li><a href="#943-kill命令">9.4.3 kill命令</a></li>
+        <li><a href="#944-分离输出">9.4.4 分离输出</a></li>
+        <li><a href="#945-文本排序">9.4.5 文本排序</a></li>
+      </ul>
+    </li>
+    <li><a href="#95-列出之前输入的命令">9.5 列出之前输入的命令</a></li>
+    <li><a href="#96-创建别名">9.6 创建别名</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#101-通信方式">10.1 通信方式</a>
+      <ul>
+        <li><a href="#1011-write命令">10.1.1 write命令</a></li>
+        <li><a href="#1012-显示新闻news命令">10.1.2 显示新闻：news命令</a></li>
+        <li><a href="#1013-广播消息wall命令">10.1.3 广播消息：wall命令</a></li>
+        <li><a href="#1014-全双工通信talk命令">10.1.4 全双工通信：talk命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#102-电子邮件">10.2 电子邮件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#111-gnu工具链">11.1 Gnu工具链</a></li>
+    <li><a href="#112-gcc">11.2 gcc</a></li>
+    <li><a href="#113-gdb">11.3 gdb</a></li>
+    <li><a href="#114-makefile">11.4 makefile</a></li>
+    <li><a href="#115-cmake">11.5 cmake</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1211-编写简单脚本">12.1.1 编写简单脚本</a></li>
+        <li><a href="#1212-执行脚本">12.1.2 执行脚本</a></li>
+        <li><a href="#1221-使用特殊字符">12.2.1 使用特殊字符</a></li>
+        <li><a href="#1222-退出系统的方式">12.2.2 退出系统的方式</a></li>
+        <li><a href="#1223-点命令">12.2.3 点命令</a></li>
+        <li><a href="#1224-读取命令read">12.2.4 读取命令：read</a></li>
+        <li><a href="#1231-注释">12.3.1 注释</a></li>
+        <li><a href="#1232-变量">12.3.2 变量</a></li>
+        <li><a href="#1233-命令行参数">12.3.3 命令行参数</a></li>
+        <li><a href="#1234-条件与测试">12.3.4 条件与测试</a></li>
+        <li><a href="#1235-不同类型的判断">12.3.5 不同类型的判断</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a>
+      <ul>
+        <li><a href="#1236-参数替换">12.3.6 参数替换</a></li>
+      </ul>
+    </li>
+    <li><a href="#124-算术表达式">12.4 算术表达式</a>
+      <ul>
+        <li><a href="#1241-算术运算expr命令">12.4.1 算术运算：expr命令</a></li>
+        <li><a href="#1242-算术运算let命令">12.4.2 算术运算：let命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#125-循环结构">12.5 循环结构</a>
+      <ul>
+        <li><a href="#1251-for循环for-in-done-结构">12.5.1 for循环：for-in-done 结构</a></li>
+        <li><a href="#1252-while循环">12.5.2 while循环</a></li>
+        <li><a href="#1253-until循环">12.5.3 until循环</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#132-unix内核信号">13.2 UNIX内核：信号</a>
+      <ul>
+        <li><a href="#1321-捕捉信号trap命令">13.2.1 捕捉信号：<code>trap</code>命令</a></li>
+        <li><a href="#1322-捕捉复位">13.2.2 捕捉复位</a></li>
+        <li><a href="#1323-设置终端参数stty命令">13.2.3 设置终端参数：stty命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#133-对终端的进一步讨论">13.3 对终端的进一步讨论</a>
+      <ul>
+        <li><a href="#1331-终端数据库terminfo文件">13.3.1 终端数据库：terminfo文件</a></li>
+        <li><a href="#1332-设置终端功能tput命令">13.3.2 设置终端功能：tput命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#134-其他命令">13.4 其他命令</a>
+      <ul>
+        <li><a href="#多路分支case结构">多路分支：case结构</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h1 id="第2章unix-发展历史以及系统架构">第2章：UNIX 发展历史以及系统架构</h1>
+<p>发展历史：</p>
+<p>1965年    MULTICS  ( Multiplexed Information and Computing Service) 的开发</p>
+<p>1970年    Ken Thompson 和 Dennis Ritchie 在PDP7上用汇编语言开发出UNICS</p>
+<p>1971年    在PDP-11上用汇编开发出UNIX  v.1</p>
+<p>1972年    增加管道功能后开发出UNIX v.2</p>
+<p>1973年    Dennis Ritchie 在B language基础上发明了C language 并用C重写UNIX, 形成v.5 &mdash;- 当时第一个高级语言OS</p>
+<p>1975年    发表UNIX v.6  并广泛扩散到大学和科研单位, 为后期发展奠定了良好的基础</p>
+<p>1978年    优化后发布UNIX v.7 &mdash;- UNIX的第一个商业版本 &mdash;- 我国开始研究应用的最早版本</p>
+<p>1981年    AT&amp;T发布UNIX System III,  完全转向为社会提供的商品软件</p>
+<p>1983年    AT&amp;T发布UNIX System V,  系统功能已趋于稳定和完善. 此后System V又有一系列的公布号:1.0/2.0/2.3/3.5/4.0/4.2 等, 现在最后版本为 System V  Release  4  (SVR4)</p>
+<p>有代表性的版本：</p>
+<p>AIX          IBM公司
+XENIX/OpenServer Microsoft、SCO公司
+HP-UX    HP公司
+BSD          加州大学伯克利分校
+Solaris     SUN公司
+IRIX         SGI公司
+Ultrix       DEC公司
+Linux       开放源代码</p>
+<h2 id="系统结构">系统结构：</h2>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612144726435.png" alt="image-20210612144726435"></p>
+<p>内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。</p>
+<blockquote>
+<p>注意：系统工具和UNIX命令不是内核组件。</p>
+<p>用户应用程序得到保护，避免被其他用户的无意写操作破坏。</p>
+</blockquote>
+<p>常驻模块层：提供执行用户请求服务的例程，包括IO控制服务，文件/磁盘访问服务，以及进程创建和终止服务。</p>
+<p>工具层：是UNIX的用户接口，通常成为shell在后面会详细讲到shell</p>
+<p>虚拟计算机：UNIX操作系统向系统中的<strong>每个用户指定一个执行环境</strong>，这个环境成为虚拟计算机，包括一个<strong>用户终端</strong>和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。</p>
+<p><strong>进程</strong>：一个重要的概念。一般面试时都会问进程和线程 的区别。UNIX系统通过进程向用户和程序分配资源（这句话不怎么懂）。每个进程都有一个进程号pid和一组与之相关的资源。进程在虚拟计算机环境下运行，就好像在一个专用CPU上执行一样。</p>
+<h1 id="第3章-unix入门">第3章 UNIX入门</h1>
+<h2 id="31登录与退出">3.1登录与退出</h2>
+<p>1.登录</p>
+<p>输入用户名，密码</p>
+<p>2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612151234131.png" alt="image-20210612151234131"></p>
+<p>3.退出系统：[ctrl+d] 或是exit，即可退出</p>
+<h2 id="32-简单的unix命令">3.2 简单的UNIX命令</h2>
+<p>命令行格式：<code>[命令] [选项] [参数]</code></p>
+<p>字段间要用一个或多个空格隔开。选项的前面一般会有连字符<code>-</code>，一个命令同时也可以有多个，例如下列著名的命令：</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-2021061215201111.jpg" alt="image-2021061215201111"></p>
+<p><code>rm</code>表示删除，<code>-rf</code>表示两个选项：r和f，<code>/*</code>表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件</p>
+<p>下面介绍一些简单的命令：</p>
+<p>1.date：显示日期和时间</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612152830573.png" alt="image-20210612152830573"></p>
+<p>2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下</p>
+<blockquote>
+<p>who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义</p>
+<p>但在wsl里/init does not create /var/run/utmp</p>
+<p>解决方案： Use &rsquo;touch /var/run/utmp&rsquo; in some &ldquo;system startup script&rdquo;</p>
+<p>来源：https://github.com/Microsoft/WSL/issues/573</p>
+</blockquote>
+<p>who还有一些的选项：-q -H -b。</p>
+<p>3.显示日历：cal</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104917751.png" alt="image-20220616104917751"></p>
+<h2 id="33-获取帮助信息">3.3 获取帮助信息</h2>
+<p>learn和help，使用时需要安装</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104948628.png" alt="image-20220616104948628"></p>
+<p>比如我不知道exit的用法</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616105333358.png" alt="image-20220616105333358"></p>
+<h3 id="333-man手册">3.3.3 man手册：</h3>
+<p>学习新命令时使用，可以得到该man(manual)命令的详细说明，当然</p>
+<p>在简洁的wsl中也是没有man的，需要先<code>sudo apt install man-db manpages manpages-dev</code>,之后才能愉快地使用man</p>
+<h2 id="34-更正键盘输入错误">3.4 更正键盘输入错误</h2>
+<p>中断程序的执行，在大多数系统中，del或者ctrl-c就是中断键，比如不小心按了<code>rm -rf /*</code>，这是就要猛敲[ctrl-c]</p>
+<h2 id="35-使用shell">3.5 使用shell</h2>
+<p>命令的处理是位于用户和操作系统的其他部分之间的shell完成的，每输入一个命令以后，命令被传到shell，先进行分析，然后执行。</p>
+<p>bulitin命令：包含的是一些比较简单的linux系统命令，这些命令由shell程序识别并在shell程序内部完成运行，通常在linux系统加载运行时shell就被加载并驻留在系统内存中。内部命令是写在bashy源码里面的，其执行速度比外部命令快，因为解析内部命令shell不需要创建子进程。比如：exit，history，cd，echo等。</p>
+<p>外部命令是linux系统中的实用程序部分，因为实用程序的功能通常都比较强大，所以其包含的程序量也会很大，在系统加载时并不随系统一起被加载到内存中，而是在需要时才将其调用内存。通常外部命令的实体并不包含在shell中，但是其命令执行过程是由shell程序控制的。shell程序管理外部命令执行的路径查找、加载存放，并控制命令的执行。外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&hellip;&hellip;等等。可通过“echo $PATH”命令查看外部命令的存储路径，比如：ls、vi等。</p>
+<p>用type命令可以分辨内部命令与外部命令</p>
+<p>关于内部命令和外部命令执行顺序的问题：</p>
+<blockquote>
+<p>pwd命令用于显示当前工作目录，是Linux系统下最常用的命令之一。在不太能确定当前位置时，可以使用pwd命令来判断目录在文件系统内的确切位置。而涉及pwd指令，就不得不提及三个环境变量：PATH、OLDPWD、PWD。</p>
+<p>PATH：执行文件路径的变量；&ldquo;echo $PATH&rdquo;（PATH前面加$表示后面接的是变量）</p>
+<p>OLDPWD：表示前一次的工作目录；</p>
+<p>PWD：表示当前的工作目录。</p>
+<p>问题缘由：当输入“man pwd”时可以查看pwd的帮助文档，而输入“pwd &ndash;help”就提示有错误bash: pwd: &ndash;: invalid option；若输入“ /bin/pwd &ndash;help”就能正常显示pwd的帮助文档。</p>
+<p>从网上查找原因并经过整合可知，这主要是由于内部命令和外部命令的区别，pwd是内部命令，而/bin/pwd就是外部命令。在显示当前目录时，/bin/pwd能显示当前工作目录的完整文件路径，能更准确些。在多人共享同一台Linux机器时，经常会发现当前目录被别人删除后，pwd命令仍然会显示那个目录。</p>
+<p>后续试验：切换至root权限下，将/bin目录下的执行文件ls移动到非正规目录中去，mv /bin/ls /root（#mv为移动，可将文件在不同的目录间进行移动操作），然后不管在哪个目录底下输入任何与ls相关的指令，都不能顺利执行ls了（因为/root这个目录并不在PATH指定的目录中，外部命令ls是没法通过PATH路径找到执行文件ls），除非用/root/ls 才行。</p>
+<p>如果想要让root在任何目录下均可执行/root底下的ls，那么可以将/root加入到PATH当中，该命令PATH=&quot;$PATH&quot;:/root即可。若有两个ls指令在不同的目录中，例如/usr/local/bin/ls 和/bin/ls ，那么当我下达 ls命令时，是根据PATH里面哪个目录先被查询到，则那个目录下的指令就先被执行。</p>
+<p>而即使采用相同的方法移动/bin目录下的执行文件pwd，仍可以输入pwd命令执行，因为这时仍是调用内部命令pwd指令。</p>
+<p>故shell命令解释器在执行命令时，是应先执行内部指令，若要执行的指令不是内部指令，则应是调用的外部指令。
+————————————————
+版权声明：本文为CSDN博主「JustDo-IT」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/taohuaxinmu123/article/details/10845001</p>
+</blockquote>
+<h3 id="352-更改用户shell">3.5.2 更改用户shell</h3>
+<p>可以在 /etc/passwd里查看用户登录的shell</p>
+<p>例如第一行：<code>root:x:0:0:root:/root:/bin/bash</code>
+　用户名：密码：UID：GID：描述性信息：用户主目录：Shell　</p>
+<p>具体shell的内容将在第9章中详细说明</p>
+<h1 id="第4章-vi-编辑器入门">第4章 vi 编辑器入门</h1>
+<p><code>vi 文件名</code>启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入<code>:wq</code>，即可保存或退出。</p>
+<p>以上就是最最基础的用法。下面介绍高级用法：</p>
+<h2 id="41模式">4.1模式：</h2>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612165940750.png" alt="image-20210612165940750"></p>
+<p>从命令模式进入文本输入模式：</p>
+<table>
+<thead>
+<tr>
+<th>文本输入模式</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td></td>
+<td>在光标左侧加入文本</td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td></td>
+<td>在光标所在行首插入文本</td>
+<td></td>
+</tr>
+<tr>
+<td>a</td>
+<td></td>
+<td>在光标右侧加入文本</td>
+<td></td>
+</tr>
+<tr>
+<td>A</td>
+<td></td>
+<td>在光标所在行尾加入文本</td>
+<td></td>
+</tr>
+<tr>
+<td>o</td>
+<td></td>
+<td>在光标所在行下面新加一行</td>
+<td></td>
+</tr>
+<tr>
+<td>O</td>
+<td></td>
+<td>在光标所在行上面新加一行</td>
+<td></td>
+</tr>
+<tr>
+<td>ESC</td>
+<td></td>
+<td>退出文本输入模式</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="42-命令模式">4.2 命令模式：</h2>
+<p>光标移动：</p>
+<table>
+<thead>
+<tr>
+<th>光标移动</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h j k l</td>
+<td></td>
+<td>左下上右移动</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td></td>
+<td>行首</td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td></td>
+<td>行尾</td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td></td>
+<td>下一行的行首</td>
+<td></td>
+</tr>
+<tr>
+<td>_</td>
+<td></td>
+<td>上一行的行首</td>
+<td></td>
+</tr>
+<tr>
+<td>Space</td>
+<td></td>
+<td>右移</td>
+<td></td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td></td>
+<td>左移</td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td></td>
+<td>下一个字</td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td></td>
+<td>前一个字</td>
+<td></td>
+</tr>
+<tr>
+<td>e</td>
+<td></td>
+<td>当前字的末尾</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>文本修改：</p>
+<table>
+<thead>
+<tr>
+<th>文本修改</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td></td>
+<td>删除光标所在字符</td>
+</tr>
+<tr>
+<td>dw</td>
+<td></td>
+<td>删除光标所在词的从光标开始到该<strong>词</strong>结尾</td>
+</tr>
+<tr>
+<td>D</td>
+<td></td>
+<td>删除从光标到行尾</td>
+</tr>
+<tr>
+<td>dd</td>
+<td></td>
+<td>删除光标所在行</td>
+</tr>
+<tr>
+<td>u</td>
+<td></td>
+<td>撤销上一次修改</td>
+</tr>
+<tr>
+<td>r</td>
+<td></td>
+<td>把当前光标所在字符替换为紧跟在r后的一个字</td>
+</tr>
+</tbody>
+</table>
+<p>x,dw,dd前都可加上数字，表示同时删除多个单位</p>
+<p>.可以重复最近一次对文本的修改操作</p>
+<p>搜索文本</p>
+<table>
+<thead>
+<tr>
+<th>搜索</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>输入搜索词并回车，向尾部查找下一个词</td>
+</tr>
+<tr>
+<td>?</td>
+<td>与/相同，查找方向相反</td>
+</tr>
+</tbody>
+</table>
+<h2 id="43-退出">4.3 退出</h2>
+<p>在命令模式时，</p>
+<table>
+<thead>
+<tr>
+<th>退出</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:wq</td>
+<td>保存文本，退出vi，返回shell</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存文本，不退出</td>
+</tr>
+<tr>
+<td>:w file</td>
+<td>把文本保存到文件file中，不退出</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出vi，返回shell</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>快速保存文件并退出</td>
+</tr>
+</tbody>
+</table>
+<h2 id="44-存储缓冲区">4.4 存储缓冲区</h2>
+<p>vi编辑器为用户所要创建或修改的文件建立了一个临时工作区，用户编辑的过程中只作用于工作区的文件副本而不是源文件。如果用户需要保存，必须用命令将修改的文件替换原文件。</p>
+<h2 id="45-高级操作">4.5 高级操作</h2>
+<p>希望能在vim中完成大多数工作，而不是频繁的退出vim
+首先<code>:tabnew</code>创建一个标签
+然后<code>:e 文件名</code>打开一个文件
+<code>:tabnext</code>在窗口上打开下一个tab
+<code>:tabprevious</code>在窗口上打开前一个tab
+<code>:q</code>或者<code>:tabclose</code>关闭tab
+更多的高级用法将在第6章讲到</p>
+<h1 id="第5章-unix-文件系统介绍">第5章 UNIX 文件系统介绍</h1>
+<h2 id="51-磁盘组织">5.1 磁盘组织</h2>
+<p>UNIX允许用户将硬盘分为很多单元（称为目录）和子单元（子目录），这样可以在目录里嵌套子目录。UNIX提供命令，可以在磁盘上创建、组织、和查找目录和文件。</p>
+<p>文件系统原理</p>
+<p>Unix有三大抽象</p>
+<ul>
+<li>进程、线程对执行过程</li>
+<li>文件对io</li>
+<li>地址空间对内存</li>
+</ul>
+<p>Unix有四种io：文件系统、块设备、字符设备、socket</p>
+<ul>
+<li>块设备和字符设备出现在文件系统的名字空间</li>
+<li>Socket仅表现为文件</li>
+</ul>
+<p>考虑到磁盘的空间组织，主要有边长的堆、定长的记录、索引</p>
+<p>Unix文件系统选择：堆 + 索引</p>
+<h2 id="52-unix中的文件类型">5.2 UNIX中的文件类型</h2>
+<p>普通文件：包含字节序列，如程序代码、数据、文本。</p>
+<p>目录文件：目录文件和其他文件一样，用户可以像命名其他文件一样来命名目录文件。区别在于不是标准的ascii文本文件，包含的是关于其他文件的信息。</p>
+<p>特殊文件：包含与外部设备，如打印机、磁盘等相联系的的特定信息。unix的一大抽象就是将io设备视同文件对待，系统中的每个设备都分别对应一个文件。</p>
+<h2 id="53-目录详述">5.3 目录详述</h2>
+<p>目录结构以层次形式组织，称为层次结构（其实可以理解为树）。最高层目录为根目录。</p>
+<h3 id="531-重要的目录">5.3.1 重要的目录：</h3>
+<p>/usr 用户主目录，当用户在系统中登录时，会自动进入用户主目录，它在/usr/[username]下。</p>
+<p>/bin 可执行文件</p>
+<p>/dev设备文件，代表物理设备的抽象，如终端是/dev/tty文件。/dev/null是一个特殊设备，即空设备，所有发给空设备的信息都被删除。</p>
+<p>/sbin 存放系统文件，在3.5章讲到：</p>
+<blockquote>
+<p>外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&hellip;&hellip;等等</p>
+</blockquote>
+<p>/etc 存放unix配置文件，通常是文本，只要特权用户才有权限编辑。</p>
+<h3 id="532-路径">5.3.2 路径</h3>
+<p>绝对路径名：从根目录到该文件的路径，以/开始</p>
+<p>相对路径名：从当前路径到目的文件，开头没有/</p>
+<h2 id="54-目录命令">5.4 目录命令</h2>
+<p>1.打印工作目录 <code>pwd</code>(print working directory)</p>
+<p>2.改变工作目录 <code>cd </code></p>
+<table>
+<thead>
+<tr>
+<th>cd命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>返回用户主目录，缺省值</td>
+</tr>
+<tr>
+<td>cd $HOME</td>
+<td>返回用户主目录</td>
+</tr>
+<tr>
+<td>cd ..</td>
+<td>返回上一级目录</td>
+</tr>
+</tbody>
+</table>
+<p>3.创建目录 <code>mkdir</code></p>
+<p>选项有-p</p>
+<p><code>mkdir -p xx/yy/zz</code> 创建xx目录，在xx下创建yy目录，在yy下创建zz目录</p>
+<p>4.删除目录 <code>rmdir</code></p>
+<p>注意只能删除空目录，即除了本目录（.）和父目录（..）外，该目录不包含其他任何子目录和文件。</p>
+<p>5.目录列表 <code>ls</code></p>
+<p>显示指定目录的信息，如果没有指定目录，则列出当前目录。</p>
+<table>
+<thead>
+<tr>
+<th>UNIX选项</th>
+<th>linux选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>&ndash;all</td>
+<td>列出所有文件，包括隐藏文件</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>&ndash;format=vertical  &ndash;format=horizontal</td>
+<td>用多列方式列出文件，按列排列</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>&ndash;classify</td>
+<td>将子目录与普通文件类型分开，子目录加/，可执行文件加*</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>&ndash;format=single-column</td>
+<td>详细列出文件的属性，每行一个文件</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>&ndash;format=commas</td>
+<td>按页宽列出文件，用逗号隔开</td>
+</tr>
+<tr>
+<td>-p</td>
+<td></td>
+<td>在目录文件名后加斜杠 /</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>&ndash;reverse</td>
+<td>以反字母顺序列出文件</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>&ndash;recursive</td>
+<td>递归列出子目录的内容</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>&ndash;size</td>
+<td>以block为单位列出文件大小</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>&ndash;format=horizontal  &ndash;format=across</td>
+<td>以多列方式列出文件，按行排列</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615181145639.png" alt="image-20210615181145639"></p>
+<p><code>drwxr-xr-x</code> 为属性字段</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" alt="img"></p>
+<p>文件属性字段总共有10个字母组成；第一个字符代表<strong>文件的类型</strong>。</p>
+<p>字母**“-”**表示该文件是一个普通文件</p>
+<p>字母**“d”**表示该文件是一个目录，字母&quot;d&quot;，是dirtectory(目录)的缩写</p>
+<p>**注意：**目录或者是特殊文件，这个特殊文件存放其他文件或目录的相关信息</p>
+<p>字母**“l”**表示该文件是一个链接文件。字母&quot;l&quot;是link(链接)的缩写，类似于windows下的快捷方式</p>
+<p>字母**“b”**的表示块设备文件(block)，一般置于/dev目录下，设备文件是普通文件和程序访问硬件设备的入口，是很特殊的文件。没有文件大小，只有一个主设备号和一个辅设备号。一次传输数据为一整块的被称为块设备，如硬盘、光盘等。最小数据传输单位为一个数据块(通常一个数据块的大小为512字节)</p>
+<p>字母**“c”**表示该文件是一个字符设备文件(character)，一般置于/dev目录下，一次传输一个字节的设备被称为字符设备，如键盘、字符终端等，传输数据的最小单位为一个字节。</p>
+<p>字母**“p”**表示该文件为命令管道文件。与shell编程有关的文件。</p>
+<p>字母**“s”**表示该文件为sock文件。与shell编程有关的文件。</p>
+<p>后面的是文件访问模式：rwx分别为read，write，执行的权限。分为3组，第一组<code>rwx</code>是文件所有者，第二组<code>r-x</code>是同组用户权限，第三组<code>r-x</code>是其他用户权限。</p>
+<p>第2列是链接数，第3列是文件所有者，第4列是文件组，第5列是文件大小，第6列是上次修改的日期和时间，第7列是文件名。</p>
+<p>6.隐藏文件</p>
+<p>文件名以点开始的文件，不可见。</p>
+<h4 id="chmod命令">chmod命令</h4>
+<p>chmod命令可以使用八进制数来指定权限。文件或目录的权限位是由9个权限位来控制，每三位为一组，它们分别是文件所有者（User）的读、写、执行，用户组（Group）的读、写、执行以及其它用户（Other）的读、写、执行。历史上，文件权限被放在一个比特掩码中，掩码中指定的比特位设为1，用来说明一个类具有相应的优先级。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">#</th>
+<th style="text-align:left">权限</th>
+<th style="text-align:left">rwx</th>
+<th style="text-align:left">二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">读 + 写 + 执行</td>
+<td style="text-align:left">rwx</td>
+<td style="text-align:left">111</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">读 + 写</td>
+<td style="text-align:left">rw-</td>
+<td style="text-align:left">110</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">读 + 执行</td>
+<td style="text-align:left">r-x</td>
+<td style="text-align:left">101</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">只读</td>
+<td style="text-align:left">r&ndash;</td>
+<td style="text-align:left">100</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">写 + 执行</td>
+<td style="text-align:left">-wx</td>
+<td style="text-align:left">011</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">只写</td>
+<td style="text-align:left">-w-</td>
+<td style="text-align:left">010</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">只执行</td>
+<td style="text-align:left">&ndash;x</td>
+<td style="text-align:left">001</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">&mdash;</td>
+<td style="text-align:left">000</td>
+</tr>
+</tbody>
+</table>
+<p>.和. .目录项</p>
+<p>本目录（.）和父目录（..）mkdir命令自动将两项放到创建的每个目录中。分别代表当前目录和上一级目录。</p>
+<h2 id="55-显示文件">5.5 显示文件</h2>
+<p><code>cat</code> concatenate命令 可以显示一个、多个、创建文件、连接文件。</p>
+<h2 id="56-打印文件内容">5.6 打印文件内容</h2>
+<p><code>lp</code> 将文件发送给打印机</p>
+<p>Linux中的打印请求 <code>lpr</code>命令</p>
+<p>取消打印命令<code>cancel</code></p>
+<p>获取打印机状态<code>lpstat</code></p>
+<h2 id="57-删除文件">5.7 删除文件</h2>
+<p><code>rm</code>可以删除指定的文件</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>删除文件前，给出确认信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>删除指定的目录及目录下的所有文件和子目录</td>
+</tr>
+<tr>
+<td>-rf</td>
+<td>无提示地强制递归删除文件</td>
+</tr>
+</tbody>
+</table>
+<p>如果想无提示删除所有文件，可以作死尝试<code>sudo rm -rf /*</code></p>
+<h1 id="第6章-vi编辑器的高级用法">第6章 vi编辑器的高级用法</h1>
+<h2 id="61-更多vi知识">6.1 更多vi知识</h2>
+<h3 id="611-启动vi编辑器">6.1.1 启动vi编辑器</h3>
+<p>以不依靠文件的方式启动vi，可以最后用<code>:w filename</code>保存（如果有同名文件会提示）</p>
+<p>启动选项：</p>
+<p><code>-R</code> 只读，如果希望保存的话，必须用<code>!</code>强制执行写选项</p>
+<p><code>view filename</code>同样可以以只读模式打开</p>
+<h3 id="612-编辑多个文件">6.1.2 编辑多个文件</h3>
+<p><code>:n</code> 启动下一个编辑文件，此时用下一个文件替换工作缓冲区的内容（源文件要保存）。我觉得唯一作用就是可以省略退出的操作。</p>
+<p><code>:e</code>编辑另一个文件，感觉这种方法和<code>:n</code>一样啊</p>
+<p><code>:r</code>读另一个文件，将指定文件的副本放到缓冲区中光标位置之后，指定文件成为当前文件的一部分。保存到源文件。</p>
+<p><code>:w</code>将正在编辑的文件写入另一个文件中，就相当于6.1.1中最后的保存操作</p>
+<h2 id="62-重排文本">6.2 重排文本</h2>
+<p>vi提供了删除，复制，剪贴操作。就是命令有点复杂。</p>
+<p>书中讲了几个例子：</p>
+<p>1.剪贴行（使用删除和put操作符）</p>
+<p>在某一行按dd，会发现这一行消失了，但并没有完全消失，只是保存到临时缓冲区中，在合适的地方按p，这时刚才被删除的行就被放在当前行下。</p>
+<p>2.复制行（使用复制和put操作符）</p>
+<p>在某一行按yy，这一行保存到临时缓冲区中，在合适的地方按p，粘贴。</p>
+<p>当然先要精细化粘贴怎么办呢？</p>
+<h2 id="63-操作符的域">6.3 操作符的域</h2>
+<p>命令=操作符+域</p>
+<p>确定操作域后，可以使用户更好地控制编辑任务。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">键</th>
+<th style="text-align:center">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">标识域为从光标位置后到当前行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">标识域为从光标位置前到当前行首</td>
+</tr>
+<tr>
+<td style="text-align:center">e/w</td>
+<td style="text-align:center">标识域为从光标位置后到当前字尾</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">标识域为从光标位置前到当前字首</td>
+</tr>
+</tbody>
+</table>
+<p>比如要复制从光标到行尾的所有，可以按<code>d$</code>，这就实现了复制，再按p粘贴。</p>
+<p>删除2行，<code>d2d</code></p>
+<h2 id="64-使用缓冲区">6.4 使用缓冲区</h2>
+<h3 id="641-数字编号缓冲区">6.4.1 数字编号缓冲区</h3>
+<p>编号1-9，每次删除或复制的文本就会放在这些地方。使用<code>&quot;1p</code>就可以把1号缓冲区粘贴到下一行。</p>
+<h3 id="642-字母编号缓冲区">6.4.2 字母编号缓冲区</h3>
+<p>编号a-z，用户可以保存指定文本到某字母编号缓冲区。</p>
+<p>比如<code>&quot;wdd</code>将当前行删除，删除的副本保存在w号缓冲区</p>
+<p><code>&quot;z7yy</code>，复制7行内容到z缓冲区</p>
+<h2 id="65--光标定位键">6.5  光标定位键</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">键</th>
+<th style="text-align:center">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>Ctrl-d</code></td>
+<td style="text-align:center">将光标向下移动到文件尾，通常每次移动12行</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>Ctrl-u</code></td>
+<td style="text-align:center">将光标向下移动到文件头，通常每次移动12行</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>Ctrl-f</code></td>
+<td style="text-align:center">将光标向下移动到文件尾，通常每次移动24行</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>Ctrl-b</code></td>
+<td style="text-align:center">将光标向下移动到文件头，通常每次移动24行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="66-定制vi">6.6 定制vi</h2>
+<p>用户可以调整vi编辑器的设置</p>
+<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20210615203331825.png" alt="image-20210615203331825"></p>
+<p>可以看到有众多选项可以自定义。</p>
+<p>下面介绍一些常用选项：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">缩写</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">autoindent</td>
+<td style="text-align:center">ai</td>
+<td style="text-align:center">将新行与前一行的行首对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">ignorecase</td>
+<td style="text-align:center">ic</td>
+<td style="text-align:center">在搜索选项中忽略大小写</td>
+</tr>
+<tr>
+<td style="text-align:center">magic</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">允许在搜索时使用特殊字符</td>
+</tr>
+<tr>
+<td style="text-align:center">number</td>
+<td style="text-align:center">nu</td>
+<td style="text-align:center">显示行号</td>
+</tr>
+<tr>
+<td style="text-align:center">report</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">通知用户上一个命令影响的行号</td>
+</tr>
+<tr>
+<td style="text-align:center">scroll</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">设定<code>Ctrl-d</code>命令翻动的行数</td>
+</tr>
+<tr>
+<td style="text-align:center">shiftwidth</td>
+<td style="text-align:center">sw</td>
+<td style="text-align:center">设置缩进的空格数，与autoindent选项一起使用</td>
+</tr>
+<tr>
+<td style="text-align:center">showmode</td>
+<td style="text-align:center">smd</td>
+<td style="text-align:center">在屏幕的右角显示vi编辑器的模式</td>
+</tr>
+<tr>
+<td style="text-align:center">terse</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">缩短错误信息</td>
+</tr>
+<tr>
+<td style="text-align:center">wrapmargin</td>
+<td style="text-align:center">wm</td>
+<td style="text-align:center">设置距屏幕右边界为指定的字符数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="664-缩写ab">6.6.4 缩写<code>ab</code></h3>
+<p>在命令模式输入<code>:ab hos harmony OS</code>，进入文本模式，在任何地方输入<code>hos</code>，注意前后要有空格，vi就会把hos替换为harmony OS。</p>
+<p><code>:ab [return]</code>可以查看所有的缩写</p>
+<p>宏操作符<code>map</code>：可以指定单个键代表键序列。例如：想要用<code>q</code>代替删除5行<code>5dd</code>，可以在命令模式输入<code>:map q 5dd</code></p>
+<p>以上取消可以按<code>:unab hos</code>和<code>:unmap q</code></p>
+<h3 id="665-exrc文件">6.6.5 .exrc文件</h3>
+<p>用户的设置都是临时的，如果想要永久保存对vi的设置，可以在.exrc文件保存设置</p>
+<h2 id="67-其他命令">6.7 其他命令</h2>
+<p>当你想在vi编辑时运行shell命令，为了在vi中编辑文件不被打断，可以<code>:! </code>执行shell命令</p>
+<h1 id="第7章-正则表达式-regular-expressions">第7章 正则表达式 Regular Expressions</h1>
+<p>RE分为BRE和ERE</p>
+<p>Basic RE：</p>
+<table>
+<thead>
+<tr>
+<th><strong>字    符</strong></th>
+<th><strong>BRE/ERE</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>Both</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Both</td>
+<td>匹配单个字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Both</td>
+<td>匹配任意次，可以是0次。a*表示匹配任意多次a，.*表示任意字符串</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Both</td>
+<td>锚定匹配位置，从一行的行首开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>Both</td>
+<td>锚定匹配位置，到一行的行尾</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>Both</td>
+<td>匹配中括号内的某个字符。x-y表示一个范围；[^…]表示不匹配中括号中的任意字符。[开括号后跟-或]，-]转义为普通字符</td>
+</tr>
+<tr>
+<td>\{n,m\}</td>
+<td>BRE</td>
+<td>匹配次数为[n,m]，{n}匹配n次，{n,}最小匹配次数为n</td>
+</tr>
+<tr>
+<td>\ (\  )</td>
+<td>BRE</td>
+<td>定义一个匹配位置，在后部可以引用该位置。例如，\(ab\).*\1表示ab字符串包夹了一个任意字符串。</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>BRE</td>
+<td>引用已经定义的位置，可以从\1到\9</td>
+</tr>
+</tbody>
+</table>
+<p>下面是一些例子：</p>
+<p>a*g$ 匹配到行尾</p>
+<p>^a*g 匹配到行首（*表示0-任意次）</p>
+<p>a[a-z]g可以匹配aag，abg，&hellip;,azg都可以</p>
+<p>a[^0-9]g不匹配a9g</p>
+<blockquote>
+<p>[]中也可以加<code>[[:alnum:]]</code>表示字符+数字</p>
+<p>[[:alpha:]]表示字符</p>
+<p>[[:digit:]]表示数字</p>
+<p>[[:lower:]]表示小写字符</p>
+<p>[[:upper:]]大写字符</p>
+<p>[[:space:]]空字符：空格、tab</p>
+</blockquote>
+<p>a{3}匹配aaa,aaaaaa</p>
+<p>a{3,}匹配aaa，aaaa，aaaaaa</p>
+<h2 id="例子">例子</h2>
+<p>在leetcode上有shell分类，随便点开一题，发现是正则表达式的题目</p>
+<blockquote>
+<p>给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。</p>
+<p>你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）</p>
+<p>你也可以假设每行前后没有多余的空格字符。</p>
+<p>示例：</p>
+<p>假设 file.txt 内容如下：</p>
+<p>987-123-4567
+123 456 7890
+(123) 456-7890
+你的脚本应当输出下列有效的电话号码：</p>
+<p>987-123-4567
+(123) 456-7890</p>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/valid-phone-numbers</p>
+</blockquote>
+<p>首先当然是匹配行首到行尾，^和$不能少</p>
+<p>三位数字怎么弄：<code>[0-9]{3}</code></p>
+<p><code>^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) [0-9]{3}-[0-9]{4})$</code>
+当然也可以不同，下面截取一个leetcode网友的题解</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat file.txt <span style="color:#111">|</span> grep -P <span style="color:#d88200">&#34;^(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}</span>$<span style="color:#d88200">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img.mukewang.com/user/60cae86e00013d5806290466.jpg" alt=""></p>
+<p>简单修改一下在支持re的idea中搜索<code>(\([0-9]{3}\)\s|[0-9]{3}-)[0-9]{3}-[0-9]{4}$</code>成功匹配到了正确的电话号码</p>
+<h1 id="第8章-unix文件系统的高级操作">第8章 UNIX文件系统的高级操作</h1>
+<h2 id="81-重定向">8.1 重定向</h2>
+<ul>
+<li>
+<p>C语言程序一般会打开三个缺省文件，stdin、stdout、stderr，文件描述符分别是0,1,2。</p>
+</li>
+<li>
+<p>在Unix系统中，文件是io的基本抽象。标准输入、标准输出、错误输出可以替换为其它文件。</p>
+</li>
+</ul>
+<p>输出重定向</p>
+<p><code>command &gt; file</code></p>
+<p><code>command &gt;&gt; file</code> 追加</p>
+<p>标准输入重定向</p>
+<p><code>command &lt; file</code></p>
+<p><code>command &lt;&lt; EOF</code> 标准输入，当碰到EOF字符串时，输入结束</p>
+<p>标准错误输出重定向</p>
+<p><code>command 2&gt; file</code> 将command的错误输出重定向到file文件</p>
+<p><code>command 2&gt;&gt; file</code> 追加重定向</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ls &gt; mydir.list
+</span></span><span style="display:flex;"><span>cat mydir.list //显示mydir.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>此时再
+</span></span><span style="display:flex;"><span>ls .. &gt;&gt; mydir.list
+</span></span><span style="display:flex;"><span>//将新的内容追加到mydir.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rmdir ggg &amp;&gt;&gt; mydir.list//将报错消息追加到mydir.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat mydir.list
+</span></span><span style="display:flex;"><span>!
+</span></span><span style="display:flex;"><span>anaconda3
+</span></span><span style="display:flex;"><span>CLionProjects
+</span></span><span style="display:flex;"><span>Downloads
+</span></span><span style="display:flex;"><span>examples.desktop
+</span></span><span style="display:flex;"><span>mydir.list
+</span></span><span style="display:flex;"><span>myfirst
+</span></span><span style="display:flex;"><span>snap
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rmdir: 删除 &#39;ggg&#39; 失败: 没有那个文件或目录
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了提高效率，可以直接使用cat和&gt;创建文件：<code>cat file1</code></p>
+<p><code>cat file1 file2&gt; file3</code>可以将file1和file2文件内容复制到file3中。</p>
+<p><code>cat file3 &gt;&gt; file4</code> 将file3追加到file4的末尾。</p>
+<h2 id="82-管道">8.2 管道</h2>
+<p>shell将一个程序的标准输出作为另一个程序的标准输入，形成管道（pipeline）</p>
+<p><code>command A | command B</code></p>
+<p>注意两条命令之间是以一个匿名文件传输</p>
+<p>单向通过，没有格式，以流的形式进行通信</p>
+<p>例如，我想在查找<code>ls -l</code>的结果中以正则表达式搜索<code>s.*h</code>，可以执行</p>
+<p><code>ls -l|grep -e&quot;s.*h&quot;</code></p>
+<p><img src="https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615214626196.png" alt="image-20210615214626196"></p>
+<h3 id="821--shell如何实现管道">8.2.1  Shell如何实现管道？</h3>
+<p>1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出</p>
+<p>2.fork()创建子进程</p>
+<p>3.父进程关闭管道的输出端。</p>
+<p>4.子进程dup2，将标准输入替换为管道输入。</p>
+<p>5.子进程进一步关闭管道输入和输出。</p>
+<p>6.父进程写完数据后，关闭管道输出。</p>
+<p>7.子进程从父进程收到EOF，输入数据完毕。</p>
+<h2 id="83--文件操作">8.3  文件操作</h2>
+<p>cp拷贝源文件成目标文件</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th>长选项</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>&ndash;backup</td>
+<td>如果目标文件存在，创建备份</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>&ndash;interactive</td>
+<td>如果目标文件存在，要求确认</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>&ndash;recursive</td>
+<td>将目录复制到新的目录</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;verbose</td>
+<td>解释操作</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>显示帮助页并退出</td>
+</tr>
+</tbody>
+</table>
+<p>mv移动文件</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th>长选项</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>&ndash;backup</td>
+<td>如果目标文件存在，创建备份</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>&ndash;interactive</td>
+<td>如果目标文件存在，要求确认</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>&ndash;force</td>
+<td>强制移动，不要求确认</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>&ndash;verbose</td>
+<td>解释操作</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>显示帮助页并退出</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;version</td>
+<td>显示版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<h2 id="84-ln链接文件">8.4 ln链接文件</h2>
+<p>用于为已存在的文件创建另外的名字（链接）。</p>
+<p>假设有一个a.txt文件，想给他另一个名字b.txt</p>
+<p>输入<code>$ sudo ln a.txt b.txt</code></p>
+<p>再查看一下目录<code>$ ls -li</code></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 a.txt
+</span></span><span style="display:flex;"><span>10878 -rw-r--r-- 2 endwsl endwsl    0 Apr 12 20:08 b.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:/home$ cat &gt;&gt;a.txt 
+</span></span><span style="display:flex;"><span>atxt
+</span></span><span style="display:flex;"><span>//修改一下a.txt的内容
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:/home$ cat b.txt //再去看b.txt的内容
+</span></span><span style="display:flex;"><span>atxt //发现竟然也是atxt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>甚至ln命令不会创建新的i-node，而是引用已有i-node，增加引用计数。</p>
+<p>ln –s符号链接，分配一个新的inode，内部记录指向原有文件。</p>
+<h2 id="85-其他wcheadtail">8.5 其他wc,head,tail</h2>
+<p>wc统计字数</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th><strong>长选项</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-l</td>
+<td>&ndash;lines</td>
+<td>统计行数</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>&ndash;words</td>
+<td>统计单词数量</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>&ndash;chars</td>
+<td>统计字符数量</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>帮助</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ wc -l mydir.list
+</span></span><span style="display:flex;"><span>19 mydir.list
+</span></span><span style="display:flex;"><span>$ wc -w mydir.list
+</span></span><span style="display:flex;"><span>23 mydir.list
+</span></span><span style="display:flex;"><span>$ wc -c mydir.list
+</span></span><span style="display:flex;"><span>215 mydir.list
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>head显示文件头部，缺省显示头部10行。</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th><strong>长选项</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>&ndash;lines=n</td>
+<td>显示头部n行</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>&ndash;chars=n</td>
+<td>显示头部n个字符</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>显示帮助页并退出</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;version</td>
+<td>显示版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<p>tail显示文件尾部，缺省是尾部10行，与head类似就不再列举出。</p>
+<p>paste命令横向连接两个文件。缺省分隔符为TAB制表符。</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th><strong>长选项</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d  x</td>
+<td>&ndash;delimiters=x</td>
+<td>指定域分隔符</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;help</td>
+<td>显示帮助页并退出</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;version</td>
+<td>显示版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<h2 id="86-sed替换">8.6 sed替换</h2>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-e 脚本命令</td>
+<td>该选项会将其后跟的脚本命令添加到已有的命令中。</td>
+</tr>
+<tr>
+<td>-f 脚本命令文件</td>
+<td>该选项会将其后文件中的脚本命令添加到已有的命令中。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>默认情况下，sed 会在所有的脚本指定执行完毕后，会自动输出处理后的内容，而该选项会屏蔽启动输出，需使用 print 命令来完成输出。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>此选项会直接修改源文件，要慎用。</td>
+</tr>
+</tbody>
+</table>
+<p>一个使用的例子：</p>
+<p>我在使用群晖时发现：一旦ssd温度升高到61度就会引起自动关机,由于我的群晖没有风扇，对于ssd达到这个温度轻而易举，一个24小时工作的设备肯定不希望它经常关机，根据教程查看群晖的配置文件发现</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>admin@DiskStation:/usr/syno/etc.defaults$ cat scemd.xml | grep -E &#34;61&#34;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34; action=&#34;SHUTDOWN&#34;&gt;61&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34; action=&#34;SHUTDOWN&#34;&gt;61&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34;   action=&#34;SHUTDOWN&#34;&gt;61&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34;    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>群晖的温度墙为61度，此时使用sed替换所有的61为70</p>
+<p><code>sudo sed -i&quot;s/61/70/g&quot; scemd.xml</code></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>admin@DiskStation:/usr/syno/etc.defaults$ cat scemd.xml | grep -E &#34;70&#34;
+</span></span><span style="display:flex;"><span>action=&#34;SHUTDOWN&#34;&gt;70&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34; action=&#34;SHUTDOWN&#34;&gt;70&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34;   action=&#34;SHUTDOWN&#34;&gt;70&lt;/disk_temperature&gt;
+</span></span><span style="display:flex;"><span>        &lt;disk_temperature fan_speed=&#34;FULL&#34;   action=&#34;SHUTDOWN&#34;&gt;70&lt;/disk_temperature&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样就让温度墙设定为70度</p>
+<p>（由于群晖基于的是freebsd，因此在群晖的控制面板打开ssh即可使用ssh client登陆，注意：SSH 仅支持属于 local administrators 群组的帐户登录系统。默认端口为22）</p>
+<p>（尴尬的是改完温度墙以后，使用一段时间温度就会达到70°，只好去加了个风扇）</p>
+<p>不过使用<code>s///g</code>对替换里面字符里面要是有路径的话就会很难受,所以可以用<code>s:::g</code>来表示同样的意思。</p>
+<h2 id="87-打开文件grep命令">8.7 打开文件：grep命令</h2>
+<p>grep命令打开文件，在文件中以RE方式搜索字符串</p>
+<table>
+<thead>
+<tr>
+<th><strong>短选项</strong></th>
+<th><strong>长选项</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>&ndash;count</td>
+<td>只显示匹配的行数</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>&ndash;ignore-case</td>
+<td>忽略大小写匹配</td>
+</tr>
+<tr>
+<td>-G</td>
+<td>&ndash;basic-regexp</td>
+<td>BRE，grep缺省</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>&ndash;extended-regexp</td>
+<td>ERE，egrep缺省</td>
+</tr>
+<tr>
+<td>-e  PATTERNS</td>
+<td>&ndash;regexp=PATTERNS</td>
+<td>指定一个或多个RE</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>&ndash;invert-match</td>
+<td>显示不匹配的行</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>&ndash;line-number</td>
+<td>输出行号</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>&ndash;only-matching</td>
+<td>只输出匹配的部分</td>
+</tr>
+</tbody>
+</table>
+<h2 id="88-find查找文件">8.8 find查找文件</h2>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-name filename</td>
+<td>根据给定的filename查找文件。</td>
+</tr>
+<tr>
+<td>-size ± n</td>
+<td>查找文件大小为n的文件</td>
+</tr>
+<tr>
+<td>-type file type</td>
+<td>查找指定类型的文件</td>
+</tr>
+<tr>
+<td>-atime ± n</td>
+<td>查找n天以前访问的文件</td>
+</tr>
+<tr>
+<td>-mtime ± n</td>
+<td>查找n天以前修改的文件</td>
+</tr>
+<tr>
+<td>-newer filename</td>
+<td>查找比filename更近期更新的文件</td>
+</tr>
+<tr>
+<td>-print</td>
+<td>显示找到的每个文件的路径名</td>
+</tr>
+<tr>
+<td>-exec command\；</td>
+<td>对找到的文件执行command</td>
+</tr>
+<tr>
+<td>-ok command\；</td>
+<td>在执行command之前要求确认</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>-name选项实例：</p>
+<ul>
+<li>
+<p>-find.-name first.c-print[Return]  查找文件名为first.c的文件。</p>
+</li>
+<li>
+<p>$find.-name &ldquo;*.？&quot;-print[Return] 查找文件名为点和单个字符结尾的文件。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-size ± n选项：+表示大于，-表示小于。</p>
+</li>
+<li>
+<p>-type选项：</p>
+<ul>
+<li>-b :  块特殊文件（如磁盘）</li>
+<li>-c ：字符特殊文件（如终端）</li>
+<li>-d ： 目录文件</li>
+<li>-f ： 普通文件</li>
+</ul>
+</li>
+<li>
+<p>-emax</p>
+</li>
+</ul>
+<p>统计/usr/include/sys目录下的所有目录及子目录个数</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>find /usr/include/sys -type d|wc -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查找epoll_wait函数在那个文件：
+find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
+<p>搜索/usr/include目录中，引用EPOLLIN常数的头文件</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>find -name &#34;*.h&#34; -type f|xargs grep &#34;EPOLLIN&#34;./linux/eventpoll.h:#define EPOLLIN		0x00000001./x86_64-linux-gnu/sys/epoll.h:    EPOLLIN = 0x001,./x86_64-linux-gnu/sys/epoll.h:#define EPOLLIN EPOLLIN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在usr/include中查找文件名以.h结尾的所有普通文件。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find /usr/include -name <span style="color:#d88200">&#34;*.h&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="89-文件系统">8.9 文件系统</h2>
+<p>unix文件系统将每一个文件名与一个数字(inode)连接起来，并用文件的inode来标识每一个文件。</p>
+<p>磁盘结构：</p>
+<p>在unix先，磁盘是标准的块设备，unix的磁盘分为4个块</p>
+<ul>
+<li>
+<p>引导块</p>
+</li>
+<li>
+<p>超级块 包含有关磁盘自身的信息</p>
+<ul>
+<li>磁盘的总块数</li>
+<li>空闲块数</li>
+<li>块的大小</li>
+<li>已使用的块数</li>
+</ul>
+</li>
+<li>
+<p>inode列表块</p>
+<p>保存inode列表，列表中的每一个表项是一个inode，有64字节存储空间。普通文件或者目录文件的inode包含文件在磁盘块的位置。特殊文件的inode包含标识外部设备的信息。除了以上，还有：</p>
+<ul>
+<li>文件访问权限（读写执行）</li>
+<li>文件属主和组id</li>
+<li>文件链接数</li>
+<li>文件最后修改时间</li>
+<li>文件最后访问时间</li>
+<li>每个普通文件和目录文件的块位置</li>
+<li>特殊文件的设备标识号</li>
+</ul>
+</li>
+<li>
+<p>文件和目录块</p>
+<p>第二个inode包含根目录所在块的位置。创建目录时，系统自动创建两个表项：.（表示子目录）和..（表示父目录）</p>
+</li>
+</ul>
+<h1 id="第9章-探索shell">第9章 探索Shell</h1>
+<p>unix由内核和系统工具组成。内核是核心，所有直接与硬件通信的常规程序都集中在内核中。</p>
+<p>shell是用户和系统交流的工具，自身是一个应用程序。当用户登录到系统时shell被装入内存。</p>
+<p>用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210412205628871.png" alt="image-20210412205628871"></p>
+<p>对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。</p>
+<p>shell的主要功能：</p>
+<ul>
+<li>命令执行</li>
+<li>文件名替换</li>
+<li>I/O重定向</li>
+<li>管道：把简单程序连接到一起来完成一个较为复杂的任务。“|”就是管道操作符</li>
+<li>环境控制：用户通过设定，可以变更主目录、命令提示符或工作环境</li>
+<li>后台计算：shell的后台计算能力使用户能够在前台进行工作的同时在后台运行程序。</li>
+<li>shell脚本</li>
+</ul>
+<h2 id="91-显示消息echo命令">9.1 显示消息：echo命令</h2>
+<p>echo命令输出字符串，<code>echo hello there</code>就会输出hello there</p>
+<p>一般默认输出禁止换行</p>
+<h2 id="92-shell-变量">9.2 shell 变量</h2>
+<p>bash shell 用一个叫做环境变量(environment variable)的特性来存储有关shell会话和工作环境的信息。这项特性允许用户存储信息，以便程序或shell中运行的脚本能够轻松访问。这也是持久存储数据的一种简便方法。</p>
+<p>UNIX支持两种变量:环境变量和局部变量。（shell变量是字符串）</p>
+<ul>
+<li>环境变量：为系统所知道的变量名，通常由系统管理员定义。</li>
+<li>局部变量：用户定义，并完全由用户控制。</li>
+</ul>
+<h3 id="921-显示和清除变量set和unset命令">9.2.1 显示和清除变量：set和unset命令</h3>
+<p>使用set命令可以查看当前使用的shell变量</p>
+<p>使用echo显示变量的值。在这种情况下引用某个环境变量的时候，必须在变量前面 加上一个美元符（$）。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>echo $HOME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在echo命令中，在变量名前加上$可不仅仅是要显示变量当前的值。它能够让变量作为命令 行参数。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ls $HOME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>全局环境变量可用于进程的所有子shell。</p>
+<p>unset可以清除不想要的变量，也可以用赋值语句来修改用户变量或者标准变量。注意：标准shell变量的改变是占时的，只用于当前会话，当下次登录时，还要重新进行设置。如果想要长久改变系统变量的值，可以把变量放到名为.profile的文件中。</p>
+<h3 id="922-标准-shell-变量">9.2.2 标准 shell 变量</h3>
+<ul>
+<li>HOME 变量：shell把用户主目录的完整路径赋值给变量HOME。</li>
+<li>IFS 变量：内部字段分隔符，用来用户输入的分隔命令。包括空格，tab，换行符。即IFS=$&rsquo; \t\n&rsquo; 。</li>
+<li>MAIL 变量：接收用户邮件文件的文件名。</li>
+<li>PATH 变量：shell在定位命令时所要查找的目录名。UNIX一般把可执行文件存在一个叫做bin的目录中。以下是我的键入shell后的结果：</li>
+</ul>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">PATH</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="93-其他元字符">9.3 其他元字符</h2>
+<h3 id="931-重音符号">9.3.1 重音符号</h3>
+<p>shell执行重音符号`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105949017.png" alt="image-20220616105949017"></p>
+<h3 id="932-括号">9.3.2 括号</h3>
+<p>将几个命令放在括号里，可以编组。一个命令组可以像单条命令一样被重定向。</p>
+<h3 id="933-后台处理">9.3.3 后台处理&amp;</h3>
+<p>jobs命令列举后台执行的作业</p>
+<h2 id="94-其他unix工具">9.4 其他UNIX工具</h2>
+<h3 id="941-延时定时">9.4.1 延时定时</h3>
+<p><code>sleep</code>，让某个命令延缓一段时间执行。</p>
+<h3 id="942-显示pid">9.4.2 显示PID</h3>
+<p>当程序运行在系统上时，我们称之为进程（process）。想监测这些进程，需要熟悉<code>ps</code>命令的 用法。ps命令能输出运行在系统上的所有程序的许多信息。</p>
+<p>默认情况下，ps命令并不会提供那么多的信息,只显示PID,TTY,TIME,COMMAND</p>
+<p>默认情况下，ps命令只会显示运行在当前控制台下的属于当前用户的进程。</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有进程，但不包括会话leader，不包括无终端进程</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>显示进程完整信息</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>显示所有进程</td>
+</tr>
+<tr>
+<td>-H</td>
+<td>按照树型显示</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>按照job形式输出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="943-kill命令">9.4.3 kill命令</h3>
+<p>终止不想要的进程</p>
+<p>根据执行情况的不同，kill发送给进程的信号范围可以取1-15.</p>
+<h3 id="944-分离输出">9.4.4 分离输出</h3>
+<p><code>tee</code>将命令结果显示到终端同时保存到指定文件中。</p>
+<p><code>sort new.list|tee new1.list</code></p>
+<h3 id="945-文本排序">9.4.5 文本排序</h3>
+<p><code>sort</code>对文件内容按照字母或数字排序。</p>
+<h2 id="95-列出之前输入的命令">9.5 列出之前输入的命令</h2>
+<p>Bash在执行命令后，会在内存中记录所有使用的命令。当用户退出登录，所有命令保存在~/.bash_history文件中，history命令则列出到目前为止，执行的所有命令。使用这一功能可以使用用户已经键入过的命令，找到已经执行过的命令。</p>
+<p>~/.bash_history记录的是到上次退出前的所有命令，会一直增加并保存，最终会变得非常大。想要重新记录history的话可以将其删除。</p>
+<p><code>fc</code>命令:列出、编辑和重复执行history命令列表文件的命令。</p>
+<p><code>fc first last</code> 先编辑从first到last的命令，然后执行</p>
+<p><code>fc –s cmd cmd</code>是history的命令编号，执行该编号任务</p>
+<h2 id="96-创建别名">9.6 创建别名</h2>
+<p><code>alias ll=‘ls –al’</code>设置<code>ll</code>为<code>ls -al</code>命令的别名。</p>
+<h1 id="第10章-unix通信">第10章 Unix通信</h1>
+<p>UNIX提供了一组与其他用户通信的命令和工具。</p>
+<h2 id="101-通信方式">10.1 通信方式</h2>
+<h3 id="1011-write命令">10.1.1 write命令</h3>
+<p>write命令可以发送消息给系统内其他的已经登陆的用户。另一个用户无论在干什么，消息都会出现在屏幕上。甚至在使用vi时，write消息也会显示在光标处。但仅仅是覆盖在屏幕上的消息，不会破坏用户正在编辑的任务。当然也可以使用mesg禁止终端接收来自write命令的消息。</p>
+<h3 id="1012-显示新闻news命令">10.1.2 显示新闻：news命令</h3>
+<p>用户可以使用news命令来看看系统正在做什么。news从系统news命令读出消息。默认显示news目录下用户还没有看过的所有文件。</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有的新闻项，无论是新的还是旧的</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>仅仅列出新闻名</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>显示当前新闻的总数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1013-广播消息wall命令">10.1.3 广播消息：wall命令</h3>
+<p>wall(write all)命令给当前登录到系统上的所有用户发送消息。通常由系统管理员使用，用于通知用户一些紧急事件。</p>
+<h3 id="1014-全双工通信talk命令">10.1.4 全双工通信：talk命令</h3>
+<p>talk命令与write相似，都用于用户与系统中已经登录的其他用户通信。输入talk和用户名，连接建立成功，两个用户就可以进行交谈了。这时，双方的终端屏幕上都将显示信息<code>[Connection established]</code>并响铃，同时屏幕被linux中talk命令程序以一条水平线分割为上下两部分，上半部分用来显示用户自己输入的内容，下半部分用来显示对方输入的内容。两个用户可以同时输入，他们输入的内容将会立即显示在双方的屏幕上。</p>
+<p>在用户进行输入时，可按BACKSPACE见来更正前一个字符，也可按CTRL+w来删除一个完整的单词，或者用CTRL+U来删除一整行，另外，用户还可以通过按CTRL+L来刷新屏幕。如果要结束交谈，可由任何一方按下CTRL+C来中断连接，但在结束对话前最好道声“再见”，并等待对方回应。linux中talk命令程序结束时，在屏幕上将回显示一条信息：</p>
+<p><code>[Connection closing. Exiting]</code>
+并非每次要求对方交谈都能成功，有时对方没有登录，则linux中talk命令程序提示信息：</p>
+<p><code>[Your party is not logged on]</code>
+并退出；如果对方已登录，但因某种原因（如不是正在使用机器）没有响应，那么linux中talk命令程序将会每隔10秒钟给他发一条邀请信息，同时在自己的屏幕上显示：</p>
+<p><code>[Ringing your party again]</code>
+如果用户不愿等待，则可以按CTRL+C终止linux中talk命令程序。还有的时候系统可能出现下面的信息：
+<code>[Checking for invitation on caller’s machine]</code>
+这说明双方的linux中talk命令程序不兼容，这时可以试试ntalk和ytalk命令，如果没有，就只好找系统管理员了。</p>
+<p>如果用户在做某些紧急工作（如编辑邮件）时不希望被linux中talk命令的邀请打搅，他可以使用命令：<code>mesg n</code>来暂时拒绝交谈，这时如果有用户邀请他交谈，只能得到提示信息：<code>[Your party is refusing messages]</code></p>
+<h2 id="102-电子邮件">10.2 电子邮件</h2>
+<p>mailx工具为用户提供电子邮件系统，可以给系统上其他用户发邮件，无论对方是否已经登录到系统。</p>
+<p>当用户使用mailx读取文件时，它处于命令模式，该模式的命令提示符是问号。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>让用户执行shell命令（shell转义）</td>
+</tr>
+<tr>
+<td>cd directory</td>
+<td>切换到指定的目录direction，如果没有指定目录，则切换到主目录</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除指定消息</td>
+</tr>
+<tr>
+<td>f</td>
+<td>显示消息头行</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出mail，并将消息从系统邮箱移去</td>
+</tr>
+<tr>
+<td>h</td>
+<td>显示当前消息头</td>
+</tr>
+<tr>
+<td>m users</td>
+<td>给指定用户users发送邮件</td>
+</tr>
+<tr>
+<td>R messages</td>
+<td>给消息messages发送者回复消息</td>
+</tr>
+<tr>
+<td>r messages</td>
+<td>给消息messages发送者和同一消息的其他所有接收者回复消息</td>
+</tr>
+<tr>
+<td>s messages</td>
+<td>保存消息到filename文件</td>
+</tr>
+<tr>
+<td>t messages</td>
+<td>显示指定消息messages</td>
+</tr>
+<tr>
+<td>u messages</td>
+<td>恢复已删除的指定消息messages</td>
+</tr>
+<tr>
+<td>x</td>
+<td>退出mailx，不将消息从系统邮箱中移去</td>
+</tr>
+</tbody>
+</table>
+<p>mailx的~转义命令</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~?</td>
+<td>显示~转义命令列表</td>
+</tr>
+<tr>
+<td>~! command</td>
+<td>在编辑邮件时，让用户调用指定的shell命令command</td>
+</tr>
+<tr>
+<td>~ e</td>
+<td>调用编辑器</td>
+</tr>
+<tr>
+<td>~ p</td>
+<td>显示当前正编辑的消息</td>
+</tr>
+<tr>
+<td>~r filename</td>
+<td>读取filename文件</td>
+</tr>
+<tr>
+<td>~&lt; filename</td>
+<td>读取filename文件</td>
+</tr>
+<tr>
+<td>~&lt;! command</td>
+<td>执行指定命令command</td>
+</tr>
+<tr>
+<td>~v</td>
+<td>调用默认编辑器vi</td>
+</tr>
+<tr>
+<td>~q</td>
+<td>推出输入模式</td>
+</tr>
+<tr>
+<td>~w filename</td>
+<td>将当前正编辑的消息写到filename文件中</td>
+</tr>
+</tbody>
+</table>
+<h1 id="第11章-gnu-工具链">第11章 GNU 工具链</h1>
+<h2 id="111-gnu工具链">11.1 Gnu工具链</h2>
+<p>Gnu toolchain是开发操作系统、应用程序的一套完整的程序和库，包括gcc、gdb、glibc：</p>
+<h2 id="112-gcc">11.2 gcc</h2>
+<p>是一族编译器，包括c、c++、go、java等</p>
+<p>前端+后端</p>
+<ul>
+<li>
+<p>.c为后缀的文件，C语言源代码文件；</p>
+</li>
+<li>
+<p>.a为后缀的文件，是由目标文件构成的档案库文件；</p>
+</li>
+<li>
+<p>.C、.cc或.cxx 为后缀的文件，是C++源代码文件；</p>
+</li>
+<li>
+<p>.h为后缀的文件，是程序所包含的头文件；</p>
+</li>
+<li>
+<p>.i 为后缀的文件，是已经预处理过的C源代码文件；</p>
+</li>
+<li>
+<p>.ii为后缀的文件，是已经预处理过的C++源代码文件；</p>
+</li>
+<li>
+<p>.m为后缀的文件，是Objective-C源代码文件；</p>
+</li>
+<li>
+<p>.o为后缀的文件，是编译后的目标文件；</p>
+</li>
+<li>
+<p>.s为后缀的文件，是汇编语言源代码文件；</p>
+</li>
+<li>
+<p>.S为后缀的文件，是经过预编译的汇编语言源代码文件。</p>
+</li>
+</ul>
+<p>C语言编译过程</p>
+<ul>
+<li>
+<p>gcc -E hello.c -o hello.i</p>
+</li>
+<li>
+<p>gcc -S hello.i -o hello.s</p>
+</li>
+<li>
+<p>gcc -c hello.s -o hello.o</p>
+</li>
+<li>
+<p>gcc -o hello hello.o</p>
+</li>
+</ul>
+<h2 id="113-gdb">11.3 gdb</h2>
+<ul>
+<li>gdb program</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>缩写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>l</td>
+<td>打印当前位置源码</td>
+</tr>
+<tr>
+<td>break</td>
+<td>b</td>
+<td>设置断点</td>
+</tr>
+<tr>
+<td>run</td>
+<td>r</td>
+<td>运行程序</td>
+</tr>
+<tr>
+<td>step</td>
+<td>s</td>
+<td>单步，进入函数</td>
+</tr>
+<tr>
+<td>next</td>
+<td>n</td>
+<td>单步，不进入函数</td>
+</tr>
+<tr>
+<td>print</td>
+<td>p</td>
+<td>打印变量</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>c</td>
+<td>继续运行</td>
+</tr>
+<tr>
+<td>backtrace</td>
+<td>bt</td>
+<td>显示调用栈</td>
+</tr>
+<tr>
+<td>info threads</td>
+<td></td>
+<td>显示线程</td>
+</tr>
+<tr>
+<td>thread n</td>
+<td></td>
+<td>切换线程</td>
+</tr>
+<tr>
+<td>set scheduler-locking on</td>
+<td></td>
+<td>关闭线程调度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="114-makefile">11.4 makefile</h2>
+<p>Makefile用于工程组织和编译，与常见的命令式语言不同，它是一种依赖推导语言。</p>
+<p>Shell语言：变量定义+命令执行</p>
+<p>Makefile：变量定义+依赖描述</p>
+<p>显式规则与隐式规则</p>
+<ul>
+<li>
+<p>%.o: %.c</p>
+</li>
+<li>
+<p>$(COMPILE.c) $(OUTPUT_OPTION) $&lt;</p>
+</li>
+</ul>
+<p>推导规则</p>
+<ul>
+<li>
+<p>检查目标和依赖文件的时间，如果依赖更新，则执行动作</p>
+</li>
+<li>
+<p>显式规则 &gt; 隐式规则</p>
+</li>
+</ul>
+<p>推导过程</p>
+<ul>
+<li>
+<p>动态规划</p>
+</li>
+<li>
+<p>从target出发，枚举所有规则，直到依赖可达</p>
+</li>
+</ul>
+<h2 id="115-cmake">11.5 cmake</h2>
+<p>cross platform make跨平台自动化建置系统。</p>
+<p>Cmake vs Makefile</p>
+<ul>
+<li>Makefile的依赖推导不直观</li>
+<li>Cmake的语法设计采用命令式</li>
+<li>跨平台，可以导出为makefile、sln等</li>
+</ul>
+<p>Cmake在不同平台上生成不同的本地化脚本</p>
+<ul>
+<li>Linux下的Gnu Makefile</li>
+<li>Visual Studio的sln</li>
+<li>Google等ninja</li>
+</ul>
+<p>Cmake管理的代码编译主要有两步：</p>
+<ul>
+<li>
+<p>利用cmake生成本地编译脚本</p>
+</li>
+<li>
+<p>利用本地脚本编译程序</p>
+</li>
+</ul>
+<p>基本语法</p>
+<ul>
+<li>
+<p>定义工程</p>
+</li>
+<li>
+<p>设置变量</p>
+</li>
+<li>
+<p>添加可执行目标</p>
+</li>
+<li>
+<p>添加递归目录</p>
+</li>
+<li>
+<p>添加静态库、动态库</p>
+</li>
+<li>
+<p>条件分支</p>
+</li>
+<li>
+<p>定制命令和目标add_custom_command/add_custom_target</p>
+</li>
+</ul>
+<h1 id="第12章-shell编程">第12章 Shell编程</h1>
+<p>Shell是一种语言，bash、csh</p>
+<ul>
+<li>Unix的传统是提供基本的功能，由用户自行扩展，包括自己编写shell脚本</li>
+</ul>
+<h3 id="1211-编写简单脚本">12.1.1 编写简单脚本</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cat &lt;&lt;EOF&gt;&gt; won.list&gt; ls&gt; -bash: warning: here-document at line 74 delimited by end-of-file (wanted `EOF&#39;)
+</span></span><span style="display:flex;"><span>$ cat won.listls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1212-执行脚本">12.1.2 执行脚本</h3>
+<p>执行脚本 sh won.list :</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ sh won.list-  ew  ew.list  goodstuff  new.list  vinew  won.list  xxxscript
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另一种方法：chmod改变文件权限，使其变成可执行</p>
+<p>脚本工作原理</p>
+<ul>
+<li>
+<p>loader程序加载脚本，发现不是elf可执行文件，返回错误</p>
+</li>
+<li>
+<p>bash收到错误，然后打开文件头部，发现是脚本</p>
+</li>
+<li>
+<p>调用脚本执行</p>
+</li>
+</ul>
+<p>•基于兼容性考虑</p>
+<ul>
+<li>
+<p>#! /bin/sh</p>
+</li>
+<li>
+<p>Debian上的/bin/sh符号链接指向dash</p>
+</li>
+<li>
+<p>dash对标准的兼容性更好</p>
+</li>
+</ul>
+<h3 id="1221-使用特殊字符">12.2.1 使用特殊字符</h3>
+<p>echo换行：<code>echo &quot;\nhello\n&quot;</code></p>
+<h3 id="1222-退出系统的方式">12.2.2 退出系统的方式</h3>
+<p>在shell脚本里写<code>exit</code>是没用的，因为shell会fork子进程来执行命令。</p>
+<h3 id="1223-点命令">12.2.3 点命令</h3>
+<p>可以使用点命令来阻止shell创建子进程。</p>
+<h3 id="1224-读取命令read">12.2.4 读取命令：read</h3>
+<p>从标准输入设备读取用户输入，并将值存入用户自定义变量中。</p>
+<h3 id="1231-注释">12.3.1 注释</h3>
+<h3 id="1232-变量">12.3.2 变量</h3>
+<p>字符串类型，具体内容在前面讲过。</p>
+<h3 id="1233-命令行参数">12.3.3 命令行参数</h3>
+<p>shell脚本可以从命令行最多读取10个命令行参数存入特殊变量，命令行参数是用户输入命令后所跟的数据项，通常用空格分隔。这些变量按顺序从1到9计数。</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数变量</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1-$9，${10}表示参数</td>
+</tr>
+<tr>
+<td>$0表示被调用脚本的名字</td>
+</tr>
+<tr>
+<td>$#表示参数个数</td>
+</tr>
+<tr>
+<td>$*将所有参数使用$IFS隔开，形成一个字符串</td>
+</tr>
+<tr>
+<td>$@是每个参数一行，将参数隔开，实际上是多个字符串，可以用在for循环</td>
+</tr>
+<tr>
+<td>$$表示当前进程id</td>
+</tr>
+</tbody>
+</table>
+<p>特殊变量</p>
+<ul>
+<li>
+<p>$?表示进程退出状态</p>
+</li>
+<li>
+<p>ls -al hello</p>
+</li>
+<li>
+<p>echo $? 前面命令退出的状态</p>
+</li>
+</ul>
+<p>另外一个给变量赋值的方式是<code>set</code></p>
+<p><code>set hello &quot;I love bash&quot; world</code></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$0</span>
+</span></span><span style="display:flex;"><span>-bash
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">set</span> hello <span style="color:#d88200">&#34;i love&#34;</span> world
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$#</span><span style="color:#ae81ff">3</span>   //3个参数hello 和<span style="color:#d88200">&#34;i love&#34;</span>和world
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$1</span>hello
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$2</span>i love bash
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$3</span>world
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$*</span> //<span style="color:#111">$*</span>和<span style="color:#111">$@</span>相似hello i love world
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$*</span>hello i love world
+</span></span><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">echo</span> <span style="color:#111">$@</span>hello i love world
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1234-条件与测试">12.3.4 条件与测试</h3>
+<p>if-then-elif结构：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>if条件; then command1elif command2 then command3 else command4fi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>真或假：test命令</p>
+<p>实际上，if语句中括住条件的方括号是test命令的一种特殊形式。</p>
+<p>例子：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minatoxeon@OMEN:~$ cat eg_conditionechoecho <span style="color:#d88200">&#34;enter y or n:\c&#34;</span><span style="color:#111">read</span> condif <span style="color:#f92672">[</span> <span style="color:#111">$cond</span> <span style="color:#f92672">=</span> y <span style="color:#f92672">]</span><span style="color:#00a8c8">then</span> <span style="color:#111">echo</span> <span style="color:#d88200">&#34;you enter y&#34;</span><span style="color:#00a8c8">else</span> <span style="color:#111">echo</span> <span style="color:#d88200">&#34;you not  enter n&#34;</span>fiechoexit 0minatoxeon@OMEN:~$ sh eg_conditionenter y or n:yyou enter yminatoxeon@OMEN:~$ sh eg_conditionenter y or n:llyou not  enter n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1235-不同类型的判断">12.3.5 不同类型的判断</h3>
+<p>不单单是相等的判断，test可以进行多种类型的判断</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>例子</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>a -eq b</td>
+<td>a是否等于b</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>a -ne b</td>
+<td>a是否不等于b</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>a -gt b</td>
+<td>a是否大于b</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>a -ge b</td>
+<td>a是否大于大于b</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>a -lt b</td>
+<td>a是否小于b</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>a -le b</td>
+<td>a是否小于等于b</td>
+</tr>
+</tbody>
+</table>
+<p>test还可以比较字符串</p>
+<h2 id="heading"></h2>
+<table>
+<thead>
+<tr>
+<th><strong>操作符</strong></th>
+<th><strong>示例</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>“$STR1” = “STR2”</td>
+<td>两个字符串是否相同</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>“$STR1”  != “STR2”</td>
+<td>两个字符串是否不同</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>-n  “$STR”</td>
+<td>字符串不是null</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>-z  “$STR”</td>
+<td>字符串是null</td>
+</tr>
+</tbody>
+</table>
+<p>注意：在引用变量做字符串测试时，一定要加引号</p>
+<p>操作符两侧必须有空格</p>
+<p>[ … ]中括号必须有空格<code> [ &quot;$VAR1&quot; = &quot;VAR3&quot; ]</code></p>
+<p>文件</p>
+<h3 id="1236-参数替换">12.3.6 参数替换</h3>
+<p>用户可以检验参数的值并根据选项改变它的值。</p>
+<p>格式为<code>${parameter:optionchar word}</code></p>
+<p>变量替换</p>
+<table>
+<thead>
+<tr>
+<th><strong>替换操作</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${VAR:-word}</td>
+<td>如果变量不存在，返回word  #变量不会创建</td>
+</tr>
+<tr>
+<td>${VAR:=word}</td>
+<td>如果变量不存在，设置VAR变量为word，返回word</td>
+</tr>
+<tr>
+<td>${VAR:?message}</td>
+<td>如果变量不存在，打印message，退出，但交互shell不会退出</td>
+</tr>
+<tr>
+<td>${VAR:+word}</td>
+<td>如果变量存在，返回word；否则返回null</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ echo ${VAR:-world} #变量不会创建worldendwsl@LAPTOP-U1E6STIA:~$ echo $VAR
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>${var:?meg}</code>通常用来显示错误信息</p>
+<h2 id="124-算术表达式">12.4 算术表达式</h2>
+<h3 id="1241-算术运算expr命令">12.4.1 算术运算：expr命令</h3>
+<p>在powershell里可以直接输入1+1，会得到2</p>
+<p>但是在shell里直接输入1+1不会有结果，因为Shell会把1单作是字符串而不是变量，那么要想在shell里面计算1+1怎么办？</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>expr 1+1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>expr提供数字和非数字的关系运算符</p>
+<h3 id="1242-算术运算let命令">12.4.2 算术运算：let命令</h3>
+<p>let命令与expr命令类似，并可以相互替换。</p>
+<p>let命令自动使用变量的值：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minatoxeon@OMEN:~$ <span style="color:#111">x</span><span style="color:#f92672">=</span>100minatoxeon@OMEN:~$ <span style="color:#111">let</span> <span style="color:#111">x</span><span style="color:#f92672">=</span>x+1minatoxeon@OMEN:~$ <span style="color:#111">echo</span> <span style="color:#111">$x101</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>let命令的缩写：双括号<code>(())</code></p>
+<p>下面就是i++的经典问题</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ i=4endwsl@LAPTOP-U1E6STIA:~$ echo $i4endwsl@LAPTOP-U1E6STIA:~$ echo $((i++)) $i4 5endwsl@LAPTOP-U1E6STIA:~$ echo $((++i)) $i6 6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="125-循环结构">12.5 循环结构</h2>
+<ul>
+<li>Shell提供三种循环：for、while、until</li>
+<li>循环与分支类似，都带有一定的结构，是shell语言的支持</li>
+</ul>
+<h3 id="1251-for循环for-in-done-结构">12.5.1 for循环：for-in-done 结构</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>for variablein list-of-valuesdo	 commands    ...	 last-commanddone
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>例子：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ cat sum1.sh#! /bin/bashtotal=0for i in &#34;$@&#34;do        total=$(($total + $i))        printf &#34;$i + &#34;doneprintf &#34;\b\b= $total&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1252-while循环">12.5.2 while循环</h3>
+<p>直接上例子：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ cat sum.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#这里的$#每经过一轮循环就会减1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#位置参数可以用shift命令左移</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">total</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">while</span> <span style="color:#f92672">[</span> <span style="color:#111">$#</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">total</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$((</span><span style="color:#111">$total</span> <span style="color:#f92672">+</span> <span style="color:#111">$1</span><span style="color:#00a8c8">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">printf</span> <span style="color:#d88200">&#34;</span><span style="color:#111">$1</span><span style="color:#d88200"> + &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">shift</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">printf</span> <span style="color:#d88200">&#34;\b\b= </span><span style="color:#111">$total</span><span style="color:#d88200">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1253-until循环">12.5.3 until循环</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">total</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">until</span> <span style="color:#f92672">[</span> <span style="color:#111">$#</span> -le <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">total</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$((</span><span style="color:#111">$total</span> <span style="color:#f92672">+</span> <span style="color:#111">$1</span><span style="color:#00a8c8">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">printf</span> <span style="color:#d88200">&#34;</span><span style="color:#111">$1</span><span style="color:#d88200"> + &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">shift</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">printf</span> <span style="color:#d88200">&#34;\b\b= </span><span style="color:#111">$total</span><span style="color:#d88200">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="逻辑连接">逻辑连接</h4>
+<p>这里的&amp;&amp;和||和预想的会很不一样，举例如下：</p>
+<p><code>command1 &amp;&amp; command2</code>当command1正确执行，才会执行command2</p>
+<p>相当于：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">command1</span> <span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">command2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>command1 || command2</code>，当command1执行错误，才会执行command2</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#960050;background-color:#1e0010">!</span><span style="color:#111">command1</span> <span style="color:#111">:</span>    <span style="color:#111">command2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="代码分块">代码分块</h4>
+<p>将多行命令用分号;隔开，再利用()将多条命令组合在一起</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ (date ; echo $$)(date ; echo $$)+ dateMon 26 Apr 2021 09:07:31 PM CST+ echo 1717
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>算术表达式测试</p>
+<ul>
+<li>利用$(())计算算术表达式</li>
+<li>利用字符串比较</li>
+<li><code>[ $((2+3)) = 5 ]; echo $?</code></li>
+<li><code>i=3; [ $((i+7)) = 10 ];echo $?</code></li>
+</ul>
+<h4 id="调试">调试</h4>
+<p>替换处理后真实执行的指令，比如展开$$</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ echo &#34;hello world&#34;hello worldendwsl@LAPTOP-U1E6STIA:~$ set -vxendwsl@LAPTOP-U1E6STIA:~$ echo &#34;hello world&#34;echo &#34;hello world&#34; #原始命令+ echo &#39;hello world&#39; #替换处理后真实执行的指令hello world# 指令结果endwsl@LAPTOP-U1E6STIA:~$
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="heading-1"></h1>
+<h1 id="第13章-shell脚本编写应用程序">第13章 Shell脚本：编写应用程序</h1>
+<h2 id="132-unix内核信号">13.2 UNIX内核：信号</h2>
+<p>终止一个进程可以通过产生一个中断信号来终止进程。例如<code>Del</code>键、<code>Break</code>键和<code>Ctrl-c</code>键。</p>
+<p>有几类不同的事件导致内核向进程发送信号。信号编号表明它们代表的事件。</p>
+<table>
+<thead>
+<tr>
+<th>信号编号</th>
+<th>信号名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>挂起</td>
+<td>丢失终端连接</td>
+</tr>
+<tr>
+<td>2</td>
+<td>中断</td>
+<td>按下任一中断键</td>
+</tr>
+<tr>
+<td>3</td>
+<td>退出</td>
+<td>按下任一退出键</td>
+</tr>
+<tr>
+<td>9</td>
+<td>杀死</td>
+<td>发出kill-9命令</td>
+</tr>
+<tr>
+<td>15</td>
+<td>终止</td>
+<td>发出kill命令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>挂起信号</strong>：信号1用来通知进程系统已经与终端失去联系。当用户终端和计算机的连线断开，或者电话线（用来调制解调器相连）断开时，产生该信号。在某些系统中，如果用户关闭终端，系统也会产生挂起信号。</p>
+<p><strong>中断信号</strong>：当按下任何一个中断键时，产生信号2。中断键可以是<code>Del</code>键、<code>Break</code>键或者<code>Ctrl-c</code>键。</p>
+<p><strong>退出信号</strong>：当按下<code>Ctrl-\</code>键时，产生信号3。在进程终止之前，将进行内存信息转储。</p>
+<p><strong>终止信号</strong>：信号9和15由kill命令产生。信号15是默认的信号。信号9和15都使收到信号的进程终止。</p>
+<p>kill -l查看信号表</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ <span style="color:#111">kill</span> -l 1<span style="color:#f92672">)</span> SIGHUP       2<span style="color:#f92672">)</span> SIGINT       3<span style="color:#f92672">)</span> SIGQUIT      4<span style="color:#f92672">)</span> SIGILL       5<span style="color:#f92672">)</span> SIGTRAP 6<span style="color:#f92672">)</span> SIGABRT      7<span style="color:#f92672">)</span> SIGBUS       8<span style="color:#f92672">)</span> SIGFPE       9<span style="color:#f92672">)</span> SIGKILL     10<span style="color:#f92672">)</span> SIGUSR111<span style="color:#f92672">)</span> SIGSEGV     12<span style="color:#f92672">)</span> SIGUSR2     13<span style="color:#f92672">)</span> SIGPIPE     14<span style="color:#f92672">)</span> SIGALRM     15<span style="color:#f92672">)</span> SIGTERM16<span style="color:#f92672">)</span> SIGSTKFLT   17<span style="color:#f92672">)</span> SIGCHLD     18<span style="color:#f92672">)</span> SIGCONT     19<span style="color:#f92672">)</span> SIGSTOP     20<span style="color:#f92672">)</span> SIGTSTP21<span style="color:#f92672">)</span> SIGTTIN     22<span style="color:#f92672">)</span> SIGTTOU     23<span style="color:#f92672">)</span> SIGURG      24<span style="color:#f92672">)</span> SIGXCPU     25<span style="color:#f92672">)</span> SIGXFSZ26<span style="color:#f92672">)</span> SIGVTALRM   27<span style="color:#f92672">)</span> SIGPROF     28<span style="color:#f92672">)</span> SIGWINCH    29<span style="color:#f92672">)</span> SIGIO       30<span style="color:#f92672">)</span> SIGPWR31<span style="color:#f92672">)</span> SIGSYS      34<span style="color:#f92672">)</span> SIGRTMIN    35<span style="color:#f92672">)</span> SIGRTMIN+1  36<span style="color:#f92672">)</span> SIGRTMIN+2  37<span style="color:#f92672">)</span> SIGRTMIN+338<span style="color:#f92672">)</span> SIGRTMIN+4  39<span style="color:#f92672">)</span> SIGRTMIN+5  40<span style="color:#f92672">)</span> SIGRTMIN+6  41<span style="color:#f92672">)</span> SIGRTMIN+7  42<span style="color:#f92672">)</span> SIGRTMIN+843<span style="color:#f92672">)</span> SIGRTMIN+9  44<span style="color:#f92672">)</span> SIGRTMIN+10 45<span style="color:#f92672">)</span> SIGRTMIN+11 46<span style="color:#f92672">)</span> SIGRTMIN+12 47<span style="color:#f92672">)</span> SIGRTMIN+1348<span style="color:#f92672">)</span> SIGRTMIN+14 49<span style="color:#f92672">)</span> SIGRTMIN+15 50<span style="color:#f92672">)</span> SIGRTMAX-14 51<span style="color:#f92672">)</span> SIGRTMAX-13 52<span style="color:#f92672">)</span> SIGRTMAX-1253<span style="color:#f92672">)</span> SIGRTMAX-11 54<span style="color:#f92672">)</span> SIGRTMAX-10 55<span style="color:#f92672">)</span> SIGRTMAX-9  56<span style="color:#f92672">)</span> SIGRTMAX-8  57<span style="color:#f92672">)</span> SIGRTMAX-758<span style="color:#f92672">)</span> SIGRTMAX-6  59<span style="color:#f92672">)</span> SIGRTMAX-5  60<span style="color:#f92672">)</span> SIGRTMAX-4  61<span style="color:#f92672">)</span> SIGRTMAX-3  62<span style="color:#f92672">)</span> SIGRTMAX-263<span style="color:#f92672">)</span> SIGRTMAX-1  64<span style="color:#f92672">)</span> SIGRTMAX
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1321-捕捉信号trap命令">13.2.1 捕捉信号：<code>trap</code>命令</h3>
+<p>当进程接收到任何信号时，其默认处理功能是立即终止。使用trap命令可以改变进程的默认处理功能，执行指定的处理功能。</p>
+<p>trap命令的格式：trap&quot;optional commands&quot;signal numbers</p>
+<p>commands部分是可选的。如果有这一部分，当进程收到任一指定捕捉信号时，执行这些命令。</p>
+<p>注意：trap指定的命令必须用单引号或者双引号括起来。</p>
+<p>说明：1. 可以指定捕捉多个信号。</p>
+<p>​			2.信号编号是与用户希望用trap命令捕捉的信号相关联的数字。</p>
+<h3 id="1322-捕捉复位">13.2.2 捕捉复位</h3>
+<p>当希望在脚本中的一部分捕捉信号，而另一部分不捕捉信号时，捕捉复位命令就很有用。</p>
+<p>例如：</p>
+<ul>
+<li><code>$trap &quot; &quot;2 3 15</code> 忽略中断、退出和终止信号，如果按下这些键中的任一个，脚本继续运行。</li>
+<li><code>$trap 2 3 15</code>   复位指定的信号，就是恢复中断、退出和终止键。按下些键中的任一个，正在运行的脚本就会终止。</li>
+</ul>
+<h3 id="1323-设置终端参数stty命令">13.2.3 设置终端参数：stty命令</h3>
+<p>stty命令用来设置和显示终端属性。不带参数的stty命令显示指定的一组设置。用-a选项可以列出所有的终端设置。</p>
+<p>•stty设定终端模式</p>
+<ul>
+<li>stty –echo禁止回显，输入口令时，同时也会把命令会先禁了</li>
+<li>stty echo打开回显，撤销上一步</li>
+</ul>
+<h2 id="133-对终端的进一步讨论">13.3 对终端的进一步讨论</h2>
+<p>UNIX操作系统支持多钟终端类型，功能不限于清屏，还有粗字体、闪烁、下划线，等等。利用这些特性能使屏幕显示更有意义或更美观。</p>
+<h3 id="1331-终端数据库terminfo文件">13.3.1 终端数据库：terminfo文件</h3>
+<p>terminfo数据库是一个文本文件，其中包括各种终端类型的描述。数据库里的每一类终端都有一个功能列表。</p>
+<h3 id="1332-设置终端功能tput命令">13.3.2 设置终端功能：tput命令</h3>
+<p>tput实用程序允许用户打印出任一功能的值。这样就可以在shell编程中使用终端的功能。</p>
+<p>•tput向终端缓冲输出控制字符</p>
+<p>•tput clear清屏</p>
+<p>•tput cup row column移动光标到row行column列</p>
+<p>终端功能的简单列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bel</td>
+<td>回显终端的响铃字符</td>
+</tr>
+<tr>
+<td>blink</td>
+<td>闪烁显示</td>
+</tr>
+<tr>
+<td>bold</td>
+<td>粗体显示</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清屏</td>
+</tr>
+<tr>
+<td>cup <em>r</em> <em>c</em></td>
+<td>将光标移到r行c列</td>
+</tr>
+<tr>
+<td>dlim</td>
+<td>使显示变暗</td>
+</tr>
+<tr>
+<td>ed</td>
+<td>从光标位置到屏幕底清屏</td>
+</tr>
+<tr>
+<td>el</td>
+<td>清除从光标位置到行末的字符</td>
+</tr>
+<tr>
+<td>smso</td>
+<td>启动突显模式</td>
+</tr>
+<tr>
+<td>rmso</td>
+<td>结束突显模式</td>
+</tr>
+<tr>
+<td>smul</td>
+<td>启动下划线模式</td>
+</tr>
+<tr>
+<td>rmul</td>
+<td>结束下划线模式</td>
+</tr>
+<tr>
+<td>rev</td>
+<td>反色显示，白底上显示黑色</td>
+</tr>
+<tr>
+<td>sgr 0</td>
+<td>关闭所有属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="134-其他命令">13.4 其他命令</h2>
+<h3 id="多路分支case结构">多路分支：case结构</h3>
+<p>当需要使用许多elif语句时，用case结构更好。</p>
+<p>case、in和esac（case的反序）是保留字（关键字）。case和esac之间的语句称为case结构体。</p>
+<p>shell执行case语句时，将变量的内容与每一个模式比较，知道发现一个匹配或者shell到达关键字esac。shell执行与匹配模式相关联的命令。默认情况用*)表示，必须是程序的最后一种情况。每一种情况用两个分号（；；）结束。</p>
+<h1 id="其他命令">其他命令</h1>
+<p>磁盘命令</p>
+<p>du</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ df
+</span></span><span style="display:flex;"><span>Filesystem     1K-blocks      Used Available Use% Mounted on
+</span></span><span style="display:flex;"><span>/dev/sdb       263174212    788056 248948000   1% /
+</span></span><span style="display:flex;"><span>tmpfs            6475860         0   6475860   0% /mnt/wsl
+</span></span><span style="display:flex;"><span>tools          209715196 192647796  17067400  92% /init
+</span></span><span style="display:flex;"><span>none             6473568         0   6473568   0% /dev
+</span></span><span style="display:flex;"><span>none             6475860         4   6475856   1% /run
+</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/lock
+</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/shm
+</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/user
+</span></span><span style="display:flex;"><span>tmpfs            6475860         0   6475860   0% /sys/fs/cgroup
+</span></span><span style="display:flex;"><span>C:\            209715196 192647796  17067400  92% /mnt/c
+</span></span><span style="display:flex;"><span>D:\            289083388 253954812  35128576  88% /mnt/d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>tar</p>
+<p><code>tldr tar</code></p>
+<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220616111745205.png" alt="image-20220616111745205"></p>
+<p>chown修改文件目录的owner,修改inode</p>
+<p>chgrp修改文件目录的group</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/life/" title="Life page" >
+			Life
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/leetcode/" title="Leetcode page" >
+			Leetcode
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://space.bilibili.com/36175480' target="_blank" class="bilibili icon pl-1 text-eucalyptus-400 hover:text-java-400" title="bilibili link" rel="noopener"
+		aria-label="follow on bilibili——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='http://github.com/bachwv' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+	<a href='http://twitter.com/' target="_blank" class="twitter icon pl-1 text-eucalyptus-400 hover:text-java-400" title="twitter link" rel="noopener"
+		aria-label="follow on twitter——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2022
+		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 19665 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/leetcode/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        19.删除链表的倒数第N个结点
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
+        48.旋转图像
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
+         Waline.init({
+          el: '#wcomments',  
+          serverURL: 'https://waline.junling.li', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | Cpp Acllib</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://junling.li/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://junling.li/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://junling.li/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://junling.li/fonts/exampleFont.woff2') format('woff2'),
+				url('https://junling.li/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://junling.li/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">Cpp Acllib</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-07-28T00:55:59&#43;08:00">2022-7-28</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>今天开始整理一下大学的一些项目</p>
+<p>首先看的是一个俄罗斯方块的实现，这应该是我大学以来的第一个项目</p>
+<p>那个时候，我c语言还是刚入门，还没写明白if-else，还不知道什么是编译，什么是链接，却能借助visual studio通过简单的点点操作，基于翁恺的acllib库跑一个图形程序，我自己都佩服我自己。</p>
+<p>现在知道了汇编，操作系统，回来 再看看这个实验。</p>
+<p>很久很久以前，在一个遥远的银河系，有一个小男孩，它写的俄罗斯方块的所有源代码，都写在一个文件里。</p>
+<p>源.cpp-&gt;src.cpp</p>
+<p>一眼钉真，鉴定visual studio已经过时，作为GNU社区的忠实拥护者，怎么能使用msvc这种编译器。</p>
+<p>编译！</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>gcc src.cpp
+</span></span><span style="display:flex;"><span>c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\Charon\AppData\Local\Temp\ccxKdSbR.o:acllib.c:(.text+0x1b74): undefined reference to `__mingw_free&#39;
+</span></span><span style="display:flex;"><span>c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\Charon\AppData\Local\Temp\ccxKdSbR.o:acllib.c:(.text+0x1be8): undefined reference to `mciSendStringA@16&#39;
+</span></span><span style="display:flex;"><span>c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: C:\Users\Charon\AppData\Local\Temp\ccxKdSbR.o:acllib.c:(.text+0x1c31): undefined reference to `mciSendStringA@16&#39;
+</span></span><span style="display:flex;"><span>collect2.exe: error: ld returned 1 exit status
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一长串报错，当时的我一定会看懵了，这啥啊。但是现在的我不一样了，一眼鉴定是链接器的问题，acllib.c里的<code>mciSendString()</code>函数原型没找到，也就是编译以后，有一个call mciSendString ()函数，跳转到未知地址。链接器这时候就懵了，这啥啊，没见过啊，给他链接啥地址啊，然后就报错了。</p>
+<p>解决也很简单，-l把他找到函数原型就好了。那问题来了，在哪？</p>
+<p>搜索引擎，启动！</p>
+<p>有人告诉我devcpp使用acllib库应该这样用</p>
+<blockquote>
+<p>1，新建项目—&gt;Windows application—&gt;C项目–&gt;输入项目名称
+2，将acllib.c和acllib.h文件拷贝到创建的项目目录
+3，菜单栏–&gt;项目–&gt;项目属性–&gt;参数–&gt;链接–&gt;加入库文件，如下：（Dev C++具体目录以安装时为准）</p>
+<p>32位下，库文件是：
+“C:/Program Files/Dev-Cpp/MinGW32/lib/libwinmm.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libmsimg32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libkernel32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libuser32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libgdi32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libole32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/liboleaut32.a”</p>
+<p>“C:/Program Files/Dev-Cpp/MinGW32/lib/libuuid.a”</p>
+<p>64位下，库文件是：
+C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libmsimg32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libkernel32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libuser32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libgdi32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libole32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/liboleaut32.a</p>
+<p>C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libuuid.a</p>
+<p>如果出现“undefined reference to TransparentBlt ”这个错误，两个解决方案：
+打开acllib.c，找到“TransparentBlt”所在的行，把整行注释掉；
+打开工程配置，找到编译器选项，加入-DWINVER=0x0500。
+————————————————
+版权声明：本文为CSDN博主「sandonz」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/sandonz/article/details/118385519</p>
+</blockquote>
+<p>虽然很奇怪，为什么gcc不能给我自动引用呢？</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>gcc acllib.c src.cpp -lwinmm -DWINVER=0x0501 -o src
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>尝试使用devcpp</p>
+<p>按照上述方法配置，手动添加LIBS</p>
+<p>偷看makefile.win</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># Project: Project2
+</span></span><span style="display:flex;"><span># Makefile created by Dev-C++ 5.5.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CPP      = g++.exe
+</span></span><span style="display:flex;"><span>CC       = gcc.exe
+</span></span><span style="display:flex;"><span>WINDRES  = windres.exe
+</span></span><span style="display:flex;"><span>OBJ      = acllib.o main.o
+</span></span><span style="display:flex;"><span>LINKOBJ  = acllib.o main.o
+</span></span><span style="display:flex;"><span>LIBS     = -L&#34;C:/Program Files (x86)/Dev-Cpp/MinGW32/lib&#34; ....
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BIN      = Project2.exe
+</span></span><span style="display:flex;"><span>CXXFLAGS = $(CXXINCS) -g3 -DWINVER=0x0500
+</span></span><span style="display:flex;"><span>CFLAGS   = $(INCS) -g3
+</span></span><span style="display:flex;"><span>RM       = rm -f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.PHONY: all all-before all-after clean clean-custom
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>all: all-before $(BIN) all-after
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clean: clean-custom
+</span></span><span style="display:flex;"><span>	${RM} $(OBJ) $(BIN)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$(BIN): $(OBJ)
+</span></span><span style="display:flex;"><span>	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>acllib.o: acllib.c
+</span></span><span style="display:flex;"><span>	$(CC) -c acllib.c -o acllib.o $(CFLAGS)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main.o: main.cpp
+</span></span><span style="display:flex;"><span>	$(CC) -c main.cpp -o main.o $(CFLAGS)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>还是报错，就跟没引入lib一样</p>
+<p>尝试clion打开，</p>
+<p>在函数名上按下ctrl，函数原型在C:\MinGW\include\mmsystem.h里面，那么动态链接库在lib里为啥不给我链上？</p>
+<p>看了一波了cmakelist</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cmake_minimum_required(VERSION 3.20)
+</span></span><span style="display:flex;"><span>project(RU)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set(CMAKE_CXX_STANDARD 14)
+</span></span><span style="display:flex;"><span>set(CMAKE_CXX_FLAGS &#34;-DWINVER=0x0500&#34;)
+</span></span><span style="display:flex;"><span>add_executable(RU src.cpp acllib.c)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>还是报错</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>C:/Users/Charon/Desktop/code/RU/acllib.c:816: undefined reference to `mciSendStringA@16&#39;
+</span></span><span style="display:flex;"><span>c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: CMakeFiles\RU.dir/objects.a(acllib.c.obj): in function `playSound&#39;:
+</span></span><span style="display:flex;"><span>C:/Users/Charon/Desktop/code/RU/acllib.c:828: undefined reference to `mciSendStringA@16&#39;
+</span></span><span style="display:flex;"><span>c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: CMakeFiles\RU.dir/objects.a(acllib.c.obj): in function `stopSound&#39;:
+</span></span><span style="display:flex;"><span>C:/Users/Charon/Desktop/code/RU/acllib.c:835: undefined reference to `mciSendStringA@16&#39;
+</span></span><span style="display:flex;"><span>collect2.exe: error: ld returned 1 exit status
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后的最后:</p>
+<p>突然看到翁老师acllib的git repo好像有sample，那例子能不能运行呢？</p>
+<p>我直接一个clone，一个make，好家伙，给的例子研究一下</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#111">SRC</span> <span style="color:#f92672">=</span> ..<span style="color:#8045ff">\.</span>.<span style="color:#8045ff">\s</span>rc<span style="color:#8045ff">\a</span>cllib.c
+</span></span><span style="display:flex;"><span><span style="color:#111">INCLUDE_DIR</span> <span style="color:#f92672">=</span> ..<span style="color:#8045ff">\.</span>.<span style="color:#8045ff">\s</span>rc
+</span></span><span style="display:flex;"><span><span style="color:#111">LIB</span> <span style="color:#f92672">=</span> gdi32 ole32 oleaut32 uuid winmm msimg32
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">all </span><span style="color:#f92672">:</span> <span style="color:#111">keyboard</span> <span style="color:#111">mouse_move</span> <span style="color:#111">mouse_click</span> <span style="color:#111">image</span> <span style="color:#111">clock</span> <span style="color:#111">char</span> <span style="color:#111">src</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">keyboard </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#75af00">mouse_move </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#75af00">mouse_click </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">image </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#75af00">clock </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#75af00">char </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	gcc <span style="color:#00a8c8">$(</span>SRC<span style="color:#00a8c8">)</span> <span style="color:#111">$@</span>.c -I<span style="color:#00a8c8">$(</span>INCLUDE_DIR<span style="color:#00a8c8">)</span> <span style="color:#00a8c8">$(</span>LIB:%<span style="color:#f92672">=</span>-l%<span style="color:#00a8c8">)</span> -DWINVER<span style="color:#f92672">=</span>0x0501 -o <span style="color:#111">$@</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好像这么一瞬间，我已经完全懂了，我就看懂了makefile，多么简单明了，比cmakelist.txt好读多了。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$mingw32-make -nB
+</span></span><span style="display:flex;"><span>gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVER=0x0501 -o src
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其实和刚开始的差不多，感谢makefile，</p>
+<p>复盘了一下，看到devcpp添加lib是多余的，只要在参数加<code>-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32</code>才是关键，我之前只加了<code>-lwinmm</code>所以还是报错</p>
+<p>搞定！</p>
+<p>虽然很简单的一个项目，和b站小学生写操作系统没法比</p>
+<p>还是说明一下啊</p>
+<p><img src="https://s2.loli.net/2022/09/06/IzZh7ia8os4fjM1.png" alt="acllib-1.png"></p>
+<p>根据以上流程图和游戏操作，本阶段的介绍分三个部分：</p>
+<p><strong>1）</strong> <strong>基本图形的存储与绘制</strong></p>
+<p><strong>2）</strong> <strong>下落定时与键盘控制</strong></p>
+<p><strong>3）</strong> <strong>图形界面和音效设计</strong></p>
+<p>下面将就这三个方面做分别说明</p>
+<p><strong>1）</strong> <strong>基本图形的存储与绘制</strong></p>
+<p>俄罗斯方块有5类19种不同的图形，分别为1字形（2种），Z字形（4种），T字形（4种），L字形（8种），田字形（1种），每类之间可以通过旋转对称得到，每次生成图形时要使用这19种图形来绘制。本游戏使用一个三维数组Graphics[19][4][4]来存储该图形，19对应编号，两个4对应4*4矩阵。0代表空，1代表黑块。</p>
+<p>例如</p>
+<p><img src="https://s2.loli.net/2022/09/06/fl76bPzH2KRWmrZ.png" alt="acllib-5.png"></p>
+<p>对应</p>
+<p>0 0 0 0</p>
+<p>0 1 0 0</p>
+<p>0 1 0 0</p>
+<p>1 1 0 0</p>
+<p>绘图时，使用循环语句遍历4*4数组，当值为1时，在适当位置（下文会详细说明这个适当位置）绘制正方形，这里使用ACLLIB库中提供的rectangle命令绘制矩形。</p>
+<p>所有图形保存在TXT文件中，可以通过改变TXT文件中的值获得任何你想要的形状，每次运行时使用文件操作读取所有的19种图形。对于已经下落的图形，使用二维数组allPixel[30][15]存储像素点，如图所示建立坐标系：</p>
+<p><img src="https://s2.loli.net/2022/09/06/SpCXZI3lzamDx41.png" alt="acllib-3.png"></p>
+<p>30对应y轴，15对应x轴</p>
+<p>数组值为1对应黑块，值为0对应空。初始值全为0。绘图时，遍历allPixel数组，遇到1时使用ACLLIB库中提供的rectangle命令在相应位置绘制矩形。</p>
+<p><strong>2）下落定时与键盘控制</strong></p>
+<p>**下落定时：**考虑到俄罗斯方块匀速下落，本游戏使用ACLLIB库提供的定时器来控制下落，用整型变量x，y记录每一个下落的方块的位置，初始位置为上方正中，4*4矩形左上方点在整个坐标系的位置，每隔300ms，刷新一次界面（清屏并对已存在的和正在下落的方块进行重绘）</p>
+<p>每次下落（达到300ms）将y的加1，并且对下方进行预判断，如果方块下方存在障碍或者达到最底行，停止移动并将该方块的值写入allPixel中。</p>
+<p>**键盘控制：**每次按下按键时，触发keyEvent事件，对应改变bool变量的值。本游戏设计5个有交互的键。</p>
+<p><strong>左右键</strong>：先对移动后的图形是否遇到障碍进行预判断，如果遇到边界或者碰到已经存在的方块，则不移动，否则移动（变更x的值）。</p>
+<p><strong>上键</strong>：则改变俄罗斯方块的形状（在同一类中改变，比如L形变成倒L），这里使用随机数决定下一个图形是什么形状，注意这里也需要判断是否变形后遇到障碍，如果有，则不变形。</p>
+<p><strong>下键</strong>：加速，改变计时器为50ms，刷新时间缩短到50ms，下落速度达到原来的6倍。</p>
+<p><strong>空格键</strong>：长按暂停游戏；</p>
+<p>松开空格键继续。</p>
+<p><strong>3）图形界面和音效设计</strong></p>
+<p>本游戏操作界面如下：</p>
+<p>左侧框中为正在下落的方块和已经下落的方块，右侧为计分和提示文字</p>
+<p><img src="https://s2.loli.net/2022/09/06/Fusi7R15ID32OZB.jpg" alt="acllib-2.jpg"></p>
+<p>计分和等级功能：每下降一个方块加1分，每消去一行方块升1级。并播放升级音效。如果方块堆积到达顶部，则显示游戏结束。</p>
+<h3 id="核心算法的详细设计与实现">核心算法的详细设计与实现</h3>
+<p>下面列举本游戏的核心算法：</p>
+<p>**判断障碍算法：**在每次左右移动时，需要判断是否遇到障碍，拿右移的代码举例，该判断算法的步骤如下：</p>
+<p><img src="https://s2.loli.net/2022/09/06/fmFJ4gy83RuIZzY.jpg" alt="acllib-4.jpg"></p>
+<p>当收到键盘请求isToRight==true后，首先设置布尔变量isReach值为false，对下落的方块的4*4矩阵进行遍历，如果某一位置为1，进行下一步判断：移动后的位置是否超出右侧边界？移动后的位置是否有已知方块？</p>
+<p>只要有一个回答是，则说明有障碍，无法移动，标记isReach为true，结束循环。当遍历结束后isReach仍然为false，即中间一次没有被标记，则说明右移后没有障碍，可以放心移动，令位置变量x加1。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">isMoveRight</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">isToRight</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#111">isToRight</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>		 <span style="color:#111">isReach</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span> <span style="color:#111">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span><span style="color:#111">;</span> <span style="color:#111">i</span><span style="color:#f92672">++</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">j</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span> <span style="color:#111">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span><span style="color:#111">;</span> <span style="color:#111">j</span><span style="color:#f92672">++</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">Graphic</span><span style="color:#111">[</span><span style="color:#111">num</span><span style="color:#111">][</span><span style="color:#111">i</span><span style="color:#111">][</span><span style="color:#111">j</span><span style="color:#111">])</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#00a8c8">if</span> <span style="color:#111">(</span> <span style="color:#111">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#111">x</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">Width</span> <span style="color:#f92672">||</span> <span style="color:#111">allPixel</span><span style="color:#111">[</span><span style="color:#111">y</span> <span style="color:#f92672">+</span> <span style="color:#111">i</span><span style="color:#111">][</span><span style="color:#111">x</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#111">j</span><span style="color:#111">])</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#111">isReach</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>						<span style="color:#00a8c8">break</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">isReach</span><span style="color:#111">)</span> <span style="color:#111">x</span><span style="color:#f92672">++</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>绘制正在下落的俄罗斯方块图形：</strong></p>
+<p>绘制俄罗斯方块图像是本游戏的基础，需要正在下落的坐标参数x,y和图形序号参数num（初始num由随机数确定），对确定序号num的三维数组Graphic进行遍历，若(0,1)处值为1，x=3,y=4则将该点绘制到整个窗口的<code>(20+4 * pixelWidth, 4* pixelWidth)</code>位置，为了让整个窗口居中的统一在x轴增加了20。代码如下</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>for (int i = 0; i &lt; 4; i++) {
+</span></span><span style="display:flex;"><span>       for (int j = 0; j &lt; 4; j++) {
+</span></span><span style="display:flex;"><span>          if (Graphic[num][i][j]) {
+</span></span><span style="display:flex;"><span>             rectangle(20+(j + x) * pixelWidth, (i + y) * pixelWidth, 20+(j + 1 + x) * pixelWidth, (i + 1 + y) * pixelWidth);
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>绘制已经存在的像素点与此大同小异。</p>
+<p><strong>判断某一行是否填满方块：</strong></p>
+<p>对allPixel每一行的值进行遍历，如果某一行全为0，即为满格，此时播放音效并升级，再将上面多行的各值向下平移一行，这里代码较为简单，不再贴出。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/life/" title="Life page" >
+			Life
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/leetcode/" title="Leetcode page" >
+			Leetcode
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://space.bilibili.com/36175480' target="_blank" class="bilibili icon pl-1 text-eucalyptus-400 hover:text-java-400" title="bilibili link" rel="noopener"
+		aria-label="follow on bilibili——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='http://github.com/bachwv' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='mailto:li@junling.xyz' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+	<a href='http://twitter.com/' target="_blank" class="twitter icon pl-1 text-eucalyptus-400 hover:text-java-400" title="twitter link" rel="noopener"
+		aria-label="follow on twitter——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2022
+		<br />
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3899 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/os-jyy-11/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        操作系统-jyy-11
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/posts/qemu/">
+        Qemu
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
+         Waline.init({
+          el: '#wcomments',  
+          serverURL: 'https://waline.junling.li', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>
