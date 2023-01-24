@@ -53,7 +53,11 @@ lastmod: 2022-08-10T00:00:00+08:00
 
 这样别人就察觉不到你push错了
 
+## 将最近的13次提交合并
+ git rebase -i HEAD~13
 
+pick 保留该commit
+squash将该commit和前一个commit合并
 
 # 11.6 git
 
