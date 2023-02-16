@@ -11953,13 +11953,13 @@ bash /home/frp/start.sh
       <pubDate>Thu, 14 Oct 2021 09:05:28 +0800</pubDate>
       
       <guid>https://junling.li/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</guid>
-      <description>&lt;p&gt;邮箱i@junling.xyz岂不是很牛逼，如果主站和邮箱的域名都相同也方便记忆。&lt;/p&gt;
+      <description>&lt;p&gt;邮箱i@junling.li岂不是很牛逼，如果主站和邮箱的域名都相同也方便记忆。&lt;/p&gt;
 &lt;p&gt;虽然我不像某些人对邮箱域名非常敏感，特别是怎么有人会反感QQ邮箱啊，我觉得QQ邮箱绑定微信的推送很好啊，实时推送不香吗？非要Gmail有逼格上都上不去，非要超长的edu邮箱记不住，虽然腾讯可能活不到100年，但是哪家邮箱能存在100年呢，说不定被其他的通讯工具取代了呢。“越过长城，走向世界”这句话也仅仅发送了34年呐。根据邮箱来识人不可取，这也算是生活中的逻辑错误吧。&lt;/p&gt;
 &lt;p&gt;言归正传，如何才能有i@xx.xxx的邮箱捏？首先，你得有个域名，这个可以去godaddy或者阿里云，腾讯云上申请，.xyz .top .moe价格也不贵,5-10￥/year。然后去dns解析商为你的邮箱服务器添加一条的MX记录就行了。&lt;/p&gt;
-&lt;p&gt;邮箱服务器自己搭好像也行，但我没试过，哪天试试水一篇博客（等我啥时候有公网ip再说）。&lt;/p&gt;
+&lt;p&gt;邮箱服务器自己搭好像也行，用群晖试了下，就是不一定能保证收到。&lt;/p&gt;
 &lt;p&gt;俺使用的是腾讯的域名邮箱，也就是QQ企业邮箱。&lt;/p&gt;
-&lt;p&gt;(netease似乎也有http://app.ym.163.com/ym/reg/view/index)虽然没有企业，但也可以白嫖一个基础款。还要注册一个企业微信，然后设立一个公司（组织），这里你只需起一个名字就行，并不要你真的建个公司，做完以后，你就可以使用企业微信的所有服务了，管理1-50人的小团队了。（不知不觉中为企业微信引流）&lt;/p&gt;
-&lt;p&gt;我已经注册就不演示了（借一张截图）&lt;img src=&#34;https://pic1.zhimg.com/v2-d7de98ab9f60418e7ebdb12bf48cbef6_r.jpg?source=1940ef5c&#34; alt=&#34;preview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(netease似乎也有http://app.ym.163.com/ym/reg/view/index)&lt;/p&gt;
+&lt;p&gt;虽然没有企业，但也可以白嫖一个基础款。还要注册一个企业微信，然后设立一个公司（组织），这里你只需起一个名字就行，并不要你真的建个公司，做完以后，你就可以使用企业微信的所有服务了，管理1-50人的小团队了。（不知不觉中为企业微信引流）&lt;/p&gt;
 &lt;p&gt;最重要的一步当然是为你的域名邮箱添加mx解析了（这样别人才能根据你的域名找到邮箱服务器的ip地址）&lt;/p&gt;
 &lt;p&gt;由于我一直用的是dnspods的解析，都是腾讯家的一键就完成了，dns记录秒生效。&lt;/p&gt;
 &lt;p&gt;其他域名服务商需要手动设置&lt;/p&gt;
@@ -12882,9 +12882,6 @@ neXt next is 6.824&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/kaggle/&#34;&gt;kaggle&lt;/a&gt; ranked 46/3046&lt;/p&gt;
 &lt;h2 id=&#34;contact&#34;&gt;&lt;strong&gt;Contact&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;mailto:lijunlin0012@126.com&#34;&gt;lijunlin0012@126.com&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;mailto:li@junling.xyz&#34;&gt;li@junling.xyz&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;mailto:i@junling.xyz&#34;&gt;i@junling.xyz&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;mailto:li@junling.li&#34;&gt;li@junling.li&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;mailto:i@junling.li&#34;&gt;i@junling.li&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;find-me-on&#34;&gt;Find me on&lt;/h2&gt;
@@ -12894,9 +12891,8 @@ neXt next is 6.824&lt;/p&gt;
 &lt;p&gt;Weixin Official Account : 一行瑠璃&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;一行瑠璃&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;trigger&#34;&gt;trigger&lt;/h2&gt;
-&lt;p&gt;music server: &lt;a href=&#34;http://music.junling.xyz&#34;&gt;http://music.junling.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;web drive: &lt;a href=&#34;http://pan.junling.xyz&#34;&gt;http://pan.junling.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;bilibili record:http://junling.xyz:2345 (need password)&lt;/p&gt;
+&lt;p&gt;music server: &lt;a href=&#34;https://music.junling.li&#34;&gt;https://music.junling.li&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bilibili record:http://junling.li:2345 (need password)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://junling.li/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;:http://junling.xyz:7500 (need password)&lt;/p&gt;
 &lt;p&gt;If you wanna to use my private frp server ,you can contact me to get the password.&lt;/p&gt;
 &lt;h3 id=&#34;about-domain-junlingli&#34;&gt;&lt;strong&gt;about domain junling.li&lt;/strong&gt;&lt;/h3&gt;
