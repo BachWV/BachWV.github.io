@@ -58,7 +58,7 @@ Jyy's courses are strongly recommended .You can find them on bilibili.
 ### **Todo list**
 neXt target is cmu15445  
 neXt next is 6.824  
-   
+
 ### **Course notes**
 
 [计算机体系结构]({{< relref "posts/ISA.md" >}})
@@ -80,9 +80,6 @@ More content is updating.
 ## **Contact**
 
 lijunlin0012@126.com  
-li@junling.xyz  
-i@junling.xyz  
-li@junling.li  
 i@junling.li  
 lijunling2077@gmail.com
 
@@ -100,11 +97,9 @@ Weixin Official Account : 一行瑠璃
 
 ## trigger
 
-music server: http://music.junling.xyz
+music server: https://music.junling.li
 
-web drive: http://pan.junling.xyz
-
-bilibili record:http://junling.xyz:2345 (need password)
+bilibili record:http://junling.li:2345 (need password)
 
 [frp]({{< ref "群晖frp.md">}}):http://junling.xyz:7500 (need password) 
 
