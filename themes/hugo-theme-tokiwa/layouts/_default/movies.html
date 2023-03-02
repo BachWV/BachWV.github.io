@@ -131,12 +131,13 @@
       <div 
         class="sc-gKAaRy dfdORB" 
         data-year="{{index $movie 11}}" 
+        data-comment="{{index $movie 9}}"
         data-star="{{index $movie 8}}"
         data-rating="{{index $movie 6}}"
         data-genres="{{index $movie 7}}"  
       >
         <a rel="link" href="{{index $movie 5}}" target="_blank">
-          <div class="sc-hKFxyN HPRth">
+          <div class="sc-hKFxyN HPRth" style="height:190px" >
             <div class="lazyload-wrapper ">
               <img class="avatar" decoding="async" src="https://images.weserv.nl/?url={{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}" width="150" height="220">
             </div>
@@ -153,6 +154,7 @@
             </span>
             <span class="sc-pNWdM iibjPt">{{index $movie 6}}</span>
           </div>
+          <span class="sc-gtsrHT dvtjjf">“{{index $movie 9}}”</span>
         </a>
       </div>
       {{end}}
