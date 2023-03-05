@@ -1,109 +1,30 @@
 ---
 title: "操作系统-jyy-2"
 date: 2022-06-20T22:32:41+08:00
+lastmod: 2023-3-5
 draft: false
 ---
 
-# 第2讲
+# 第2讲 应用视角的操作系统
 
 主要内容
-
-- 程序的状态机模型（和编译器）
+- 什么是软件（程序）
 - 操作系统上的{最小/一般/图像}程序
+- 什么是编译器？编译器把一段代码翻译成什么样的指令序列才算正确？
   
 
-## 1.什么是程序
-
-程序是状态机
-
-jyy用一个数码管的例子，来把状态机的概念更清晰地表示了
-
-管道yyds！
-
-c语言程序是状态机
-
-
-状态栈帧的列表+全局变量
-
-初始状态=main(argc,argv)
-
-迁移=执行top stack frame PC++
 
 
 
-函数调用时是什么？
+## 最小的程序
+### HelloWorld
 
-栈帧oush stack frame
+`gcc a.c --verbose`可以查看所有编译选项
 
-创建新栈帧
+`gcc a.c -static -Wl,--verbose`查看所有链接选项
 
-函数返回pop stack frame
+走一遍编译链接流程
 
-一些小tips
-
-分屏 Windows Terminal可以用alt shift =/- 来左右/上下分屏，jyy用的是tmux
-
-terminal可以在explorer地址栏直接输入wt打开，记得配置要选父进程
-
-
-
-扩展阅读：
-
-介绍一个define的用法
-
-```c
-#define REGS_FOREACH(_)  _(X) _(Y)
-#define RUN_LOGIC        X1 = !X && Y; \
-                         Y1 = !X && !Y;
-#define DEFINE(X)        static int X, X##1;
-#define UPDATE(X)        X = X##1;
-#define PRINT(X)         printf(#X " = %d; ", X);
-
-int main() {
-  REGS_FOREACH(DEFINE);
-  while (1) { // clock
-    RUN_LOGIC;
-    REGS_FOREACH(PRINT);
-    REGS_FOREACH(UPDATE);
-    putchar('\n'); sleep(1);
-  }
-}
-```
-
-使用`gcc -E`展开
-
-```c
-int main() {
-  static int X, X1; static int Y, Y1;;
-  while (1) {
-    X1 = !X && Y; Y1 = !X && !Y;;
-    printf("X" " = %d; ", X); printf("Y" " = %d; ", Y);;
-    X = X1; Y = Y1;;
-    putchar('\n'); sleep(1);
-  }
-}
-```
-
-`#define t(func) func(x) func(y)`，遇到t(abs)展开以后变成 abs(x) abs(y)
-
-`##`是连接操作符
-
-什么意思呢
-```c
-#define Conn(x,y) x##y
-#define ToChar(x) #@x
-#define ToString(x) #x
-```
-表示x连接y
-
-```c
-int n = Conn(123,456);
-     ==> int n=123456;
-char* str = Conn("asdf", "adf");
-     ==> char* str = "asdfadf";
-```
-
-## 2.什么是二进制程序
 
 用gdb调试汇编代码
 
@@ -142,14 +63,8 @@ a.out  os.c  os_litter.c  os_litter.o
 ld: warning: cannot find entry symbol _start; defaulting to 00000000004000b0
 
 ```
-改成这个
+改成这个 ld os_litter.o -e main 指定入口
 
-```c
-void _start(){
-
-}
-
-```
 
 可以链接，运行失败
 ```bash
@@ -158,7 +73,6 @@ void _start(){
 [root@iZwz92v9xcjopgz0rhkwh1Z c]# ./a.out
 Segmentation fault (core dumped)
 ```
-
 
 加一个while(1)就可以运行了
 
@@ -266,7 +180,14 @@ Cannot access memory at address 0x1
 错位的地方在retq
 原因 返回的地址是非法的0x1?
 
+### 解决异常退出
+有什么办法让程序停下来？
+
+- 没有停机指令
 解决方法：增加系统调用42
+
+**系统调用**
+在syscall发生的时候，把程序完全交给操作系统
 
 ```
 #include<sys/syscall.h>
@@ -277,7 +198,7 @@ int main(){
 
 这就没有问题了，正常返回了
 
-```bahs
+```bash
 [root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc ex_sys.c
 ex_sys.c: In function ‘main’:
 ex_sys.c:3:5: warning: implicit declaration of function ‘syscall’ [-Wimplicit-function-declaration]
@@ -386,12 +307,91 @@ Hello, OS World
 0x0000000000400096 in _start ()
 0x000000000040009d in _start ()
 (gdb)
-
-
 ```
 
+## 操作系统中的程序
 
-## 3.什么是正确的编译
+你理解程序吗？
+如果你能写一个c语言的解释器，那你就完全理解了高级语言
+
+尝试写一个非递归的hanio吧，用基础结构模拟函数调用和递归
+
+来看看chatgpt写的例子
+```cpp
+void hanoi_non_recursive(int n, char from, char to, char via) {
+  struct Element { int n; char from; char to; char via; };
+  std::stack<Element> elements;
+  elements.push({n, from, to, via});
+  while (!elements.empty()) {
+    auto e = elements.top();
+    elements.pop();
+    if (e.n == 1) {
+      printf("%c -> %c\n", e.from, e.to);
+    } else {
+      elements.push({e.n - 1, e.via, e.to, e.from});
+      elements.push({1, e.from, e.to, e.via});
+      elements.push({e.n - 1, e.from, e.via, e.to});
+    }
+  }
+}
+```
+
+jyy写的非递归的hanio
+```c
+typedef struct {
+  int pc, n;
+  char from, to, via;
+} Frame;
+
+#define call(...) ({ *(++top) = (Frame) { .pc = 0, __VA_ARGS__ }; })
+#define ret()     ({ top--; })
+#define goto(loc) ({ f->pc = (loc) - 1; })
+
+void hanoi(int n, char from, char to, char via) {
+  Frame stk[64], *top = stk - 1;
+  call(n, from, to, via);
+  for (Frame *f; (f = top) >= stk; f->pc++) {
+    n = f->n; from = f->from; to = f->to; via = f->via;
+    switch (f->pc) {
+      case 0: if (n == 1) { printf("%c -> %c\n", from, to); goto(4); } break;
+      case 1: call(n - 1, from, via, to);   break;
+      case 2: call(    1, from, to,  via);  break;
+      case 3: call(n - 1, via,  to,  from); break;
+      case 4: ret();                        break;
+      default: assert(0);
+    }
+  }
+}
+```
+理解是函数调用，返回。
+
+**简单的c语言的状态机模型（语义）**
+
+c语言程序是状态机
+
+
+状态栈帧的列表+全局变量
+
+初始状态=main(argc,argv)
+
+迁移=执行top stack frame PC++
+
+
+
+函数调用时是什么？
+
+栈帧oush stack frame
+
+创建新栈帧
+
+函数返回pop stack frame
+
+**理解编译器**
+
+## 什么是正确的编译
+两种状态机的翻译
+
+外部观察需要完全一致
 
 除去不可优化的部分都给它优化了
 inline assembly也可以参与优化
@@ -416,7 +416,6 @@ PL的领域有一种倾向：用数学化的语言定义和理解一切
 
 背后的直觉依然是System/software
 
-## 4.操作系统中的一般程序
 
 和minimal.S没有本质区别：程序=计算->syscall
 
@@ -584,3 +583,74 @@ exit_group(0)                           = ?
 - strace xedit
   - 图形界面程序和 X-Window 服务器按照 X11 协议通信
   - 虚拟机中的 xedit 将 X11 命令通过 ssh (X11 forwarding) 转发到 Host
+
+
+jyy用一个数码管的例子，来把状态机的概念更清晰地表示了
+
+管道yyds！
+
+
+
+一些小tips
+
+分屏 Windows Terminal可以用alt shift =/- 来左右/上下分屏，jyy用的是tmux
+
+terminal可以在explorer地址栏直接输入wt打开，记得配置要选父进程
+
+
+
+扩展阅读：
+
+介绍一个define的用法
+
+```c
+#define REGS_FOREACH(_)  _(X) _(Y)
+#define RUN_LOGIC        X1 = !X && Y; \
+                         Y1 = !X && !Y;
+#define DEFINE(X)        static int X, X##1;
+#define UPDATE(X)        X = X##1;
+#define PRINT(X)         printf(#X " = %d; ", X);
+
+int main() {
+  REGS_FOREACH(DEFINE);
+  while (1) { // clock
+    RUN_LOGIC;
+    REGS_FOREACH(PRINT);
+    REGS_FOREACH(UPDATE);
+    putchar('\n'); sleep(1);
+  }
+}
+```
+
+使用`gcc -E`展开
+
+```c
+int main() {
+  static int X, X1; static int Y, Y1;;
+  while (1) {
+    X1 = !X && Y; Y1 = !X && !Y;;
+    printf("X" " = %d; ", X); printf("Y" " = %d; ", Y);;
+    X = X1; Y = Y1;;
+    putchar('\n'); sleep(1);
+  }
+}
+```
+
+`#define t(func) func(x) func(y)`，遇到t(abs)展开以后变成 abs(x) abs(y)
+
+`##`是连接操作符
+
+什么意思呢
+```c
+#define Conn(x,y) x##y
+#define ToChar(x) #@x
+#define ToString(x) #x
+```
+表示x连接y
+
+```c
+int n = Conn(123,456);
+     ==> int n=123456;
+char* str = Conn("asdf", "adf");
+     ==> char* str = "asdfadf";
+```
