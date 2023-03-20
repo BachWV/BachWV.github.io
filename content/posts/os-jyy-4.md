@@ -1,105 +1,291 @@
 ---
-title: "操作系统-jyy-4"
-date: 2022-07-05T22:52:40+08:00
+title: "OS-jyy-4 Python 实现操作系统模型"
+date: 2022-3-19
+create: 2022-6-26
 draft: false
 ---
 
-# 第四讲 理解并发程序的执行
-
-Peterson算法、模型检验和软件自动化工具
-
-主要内容：
-
-如何阅读理解教科书、互联网上的各种并发程序
-
-## 如何保证互斥：一个很简单的例子Peterson算法
-
-以及如何画出并发程序状态机的状态
-
-如何保证一个全局变量某一刻只被一个线程写、读？
-
-<=>如何保证一个厕所某一刻只被一个人使用？
-
-Peterson算法
-
-A和B争抢厕所，但是他们都很谦让。
-
-上厕所前，需要事先举旗并贴字。具体来说
-
-- 如果A想要上厕所，会事先举起旗子，旗子上写了A，并且将厕所门口贴上B
-- 如果B想要上厕所，会事先举起旗子，旗子上写了B，并且将厕所门口贴上A
-
-准备工作做好以后，下一步将根据旗子和厕所门口的字来决定是否进入厕所。具体来说
-
-- 如果A想要进入厕所，会观察是否有人举起旗子，并观察厕所门口的是否为A，如果B举了旗子，且门上的贴了B，他将等待，否则A将进入厕所
-- 如果B想要进入厕所，会观察是否有人举起旗子，并观察厕所门口的是否为B，如果A举了旗子，且门上的贴了A，他将等待，否则B将进入厕所
-
-出厕所后，将放下自己的旗子。
-
-这种奇怪的算法将保证A或B进入厕所时，厕所没人。
+# 第四讲 Python 实现操作系统模型
+*可以说从这一讲开始，才真正迈入操作系统的殿堂*
+https://jyywiki.cn/OS/2023/build/lect4.ipynb
+一个由
+**sys_write(),sys_spawn(),sys_sched(),sys_choose()**
+四个系统调用
+组成的简单操作系统
 
 
 
-```c
-#include "thread.h"
+jyy在2023年使用python重写了这个threads.h，几乎在50行里实现了一个解释器
+因为我太菜了，所以这段代码看了我一下午才理解
+```python
+#os-model.py
+import sys
+import random
+from pathlib import Path
 
-#define A 1
-#define B 2
+class OperatingSystem():
+    """A minimal executable operating system model."""
 
-atomic_int nested;
-atomic_long count;
+    SYSCALLS = ['choose', 'write', 'spawn', 'sched']
+    class Thread:
+        """A "freezed" thread state."""
 
-void critical_section() {
-  long cnt = atomic_fetch_add(&count, 1);
-  assert(atomic_fetch_add(&nested, 1) == 0);
-  atomic_fetch_add(&nested, -1);
-}
+        def __init__(self, func, *args):
+            self._func = func(*args)
+            self.retval = None
 
-int volatile x = 0, y = 0, turn = A;
+        def step(self):
+            """Proceed with the thread until its next trap."""
+            syscall, args, *_ = self._func.send(self.retval)# 第一次调用send 到达第一个yield，获得返回值 "choose",并将syscall： choose返回，交给match比较
+            # 注意，这里同时传递了args参数，可以解答下面的xs的疑问
+            self.retval = None
+            return syscall, args
 
-void TA() {
-    while (1) {
-/* PC=1 */  x = 1;
-/* PC=2 */  turn = B;
-/* PC=3 */  while (y && turn == B) ;
-            critical_section();
-/* PC=4 */  x = 0;
-    }
-}
+    def __init__(self, src):
+        variables = {}
+        exec(src, variables)
+        self._main = variables['main']
 
-void TB() {
-  while (1) {
-/* PC=1 */  y = 1;
-/* PC=2 */  turn = A;
-/* PC=3 */  while (x && turn == A) ;
-            critical_section();
-/* PC=4 */  y = 0;
-  }
-}
+    def run(self):
+        threads = [OperatingSystem.Thread(self._main)]
+        print(threads[0])
+        while threads:  # Any thread lives
+            try:
+                match (t := threads[0]).step():
+                    case 'choose', xs:  # Return a random choice
+                        t.retval = random.choice(xs)
+                    case 'write', xs:  # Write to debug console
+                        print(xs, end='')
+                    case 'spawn', (fn, args):  # Spawn a new threadL:::
+                        threads += [OperatingSystem.Thread(fn, *args)]
+                    case 'sched', _:  # Non-deterministic schedule
+                        random.shuffle(threads)
+            except StopIteration:  # A thread terminates
+                threads.remove(t)
+                random.shuffle(threads)  # sys_sched()
 
-int main() {
-  create(TA);
-  create(TB);
-}
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print(f'Usage: {sys.argv[0]} file')
+        exit(1)
 
+    src = Path(sys.argv[1]).read_text()
+    for syscall in OperatingSystem.SYSCALLS:
+        src = src.replace(f'sys_{syscall}',        # sys_write(...)
+                          f'yield "{syscall}", ')  #  -> yield 'write', (...)
+
+    OperatingSystem(src).run()
+```
+
+## 前置知识yield
+
+Generator Object 
+```python
+def numbers():
+    i = 0
+    while True:
+        ret = yield f'{i:b}'
+        i += ret
+n=numbers()
+n.send(None)
+s.send(0)
+```
+在调用生成器函数的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息（保留局部变量），返回yield的值, 并在下一次执行next()方法时从当前位置继续运行，直到生成器被全部遍历完。
+
+https://www.liaoxuefeng.com/article/895920356978720
+
+send()的意思是，传入给ret值，让迭代器能接受外部的值，从而改变状态机的状态
+
+```
+def fab(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        print("fab:"+n+"val:"+a)
+        a, b = b, a + b
+        n = n + 1
+```
+如果你大致明白了 yield 是做什么的，再来看一下os-model.py究竟做了什么。
+## 基础的玩具
+读入thread.py的内容，这里有一个巧妙的地方，把threads.py替换成下面代码，通过exec运行
+```python
+count = 0
+def Tprint(name):
+    global count
+    for i in range(3):
+        count += 1
+        yield "write", (f'#{count:02} Hello from {name}{i+1}\n')
+        yield "sched", ()
+def main():   
+    n = yield "choose", ([3, 4, 5])
+    yield "write", (f'#Thread = {n}\n')
+    for name in 'ABCDE'[:n]:
+        yield "spawn", (Tprint, name)
+        yield "sched", ()
+```
+创建迭代器，然后选择迭代器执行下一步，就相当于选择状态机执行。在外部针对syscall做了传递
+
+这个模型还可以更加简化，比如现在有3个迭代器，斐波那契迭代器，倍增迭代器，和倒数迭代器，每次通过random选择迭代器执行一步，然后转交控制权，等待调度执行。感谢python，让写代码变得这么容易。
+
+```python
+import random
+def fab(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        print(f"fab:{n} val:{b}")
+        a, b = b, a + b
+        n = n + 1
+
+def declin(max):
+    n, a= 0, 0
+    while n < max:
+        yield a
+        print(f"dec:{n} val:{a}")
+        a = a - 1
+        n = n + 1
+
+def doubl(max):
+    n, a= 0, 1
+    while n < max:
+        yield a
+        print(f"dou:{n} val:{a}")
+        a *= 2
+        n = n + 1
+
+threads = [fab(10),doubl(10),declin(10)]
+
+
+while threads:
+    try:
+        random.shuffle(threads)
+        next(threads[0])
+    except StopIteration:  # A thread terminates
+            threads.remove(threads[0])
+            random.shuffle(threads) 
 ```
 
 
 
-当然这种奇怪算法的正确性需要验证，接下来的所有内容都是围绕验证的。
+当你熟悉了python构建的状态机，来试试c吧
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
 
-一种方法是通过人脑来枚举A和B抢着上厕所以及举旗过程的所有状态。模拟多线程执行代码的顺序。
+static pthread_t threads[64];
+static int nthreads = 0;
 
-另一种方法是计算机验证，jyy的功底就体现出来了。
+static inline void
+sys_write(const char *s) {
+  printf("%s", s);
+  fflush(stdout);
+}
 
-使用Python这种动态语言模拟验证状态机正确性。 Model checker
+static inline void
+sys_sched() {
+  usleep(rand() % 10000);
+}
 
-并利用某些库可视化状态机的所有状态。
+static inline void
+sys_spawn(void *(*fn)(void *), void *args) {
+    pthread_create(&threads[nthreads++], NULL, fn, args);
+}
 
-jyy利用了Generator的一个特性来保存函数运行的上下文。这使得我们能够更方便地模拟状态机的执行过程。
+static inline int
+sys_choose(int x) {
+  return rand() % x;
+}
 
-关于Model Checker的Python实现和可视化展示这里就暂且不说了。
+// Constructor called before main()
+static inline void __attribute__((constructor))
+srand_init() {
+  srand(time(0));
+}
+
+// Destructor called after main()
+static inline void __attribute__((destructor))
+thread_join() {
+  for (int i = 0; i < nthreads; i++) {
+    pthread_join(threads[i], NULL);  // Wait for thread terminations
+  }
+}
+```
+
+```c
+#include "os-real.h"
+
+int count = 0;
+
+void *Tprint(void *s) {
+  char buf[64];
+  for (int i = 0; i < 3; i++) {
+    sprintf(buf, "#%02d Hello from %c%d\n", ++count, *(const char *)s, i);
+    sys_write(buf);
+    sys_sched();
+  }
+  return NULL;
+}
+
+int main() {
+  int n = sys_choose(3) + 3;
+  char buf[64];
+  sprintf(buf, "#Thread = %d\n", n);
+  sys_write(buf);
+  for (int i = 0; i < n; i++) {
+    sys_spawn(Tprint, &"ABCDE"[i]);
+  }
+}
+```
+
+将上面的调度改写成c的
+```c
+void *fab(int max){
+  int n=0, a=0, b=1;
+  char buf[64];
+  while(n < max){
+    sys_sched();
+    sprintf(buf,"fab: %d val:%d\n",n,b);
+    sys_write(buf);
+    int tmp=a;
+    a=b;
+    b=tmp + b;
+    n++;
+  }
+  return NULL;
+}
+void *declin(int max){
+  int n=0,a=0;
+  char buf[64];
+  while (n<max){
+    sys_sched();
+    sprintf(buf,"dec: %d val:%d\n",n,a);
+    sys_write(buf);
+    a--;
+    n++;
+  }
+  return NULL;
+}
+void *doubl(int max){
+  int n=0,a=1;
+  char buf[64];
+  while (n<max){
+    sys_sched();
+    sprintf(buf,"dou: %d val:%d\n",n,a);
+    sys_write(buf);
+    a*=2;
+    n++;
+  }
+  return NULL;
+}
+int main() {
+  sys_spawn(doubl,10);
+  sys_spawn(fab,10);
+  sys_spawn(declin,10);
+}
+```
+## 更完善的玩具
+所以这节课学了什么呢？一个简化的操作系统模型，如果你对一个简化的系统了解非常深刻，再去学习实际的操作系统，去比较其中的差异，就不会那么困难了。
 
 
-
-这节课告诉了我们工具的重要性，计算机辅助验证彳亍，人脑模拟计算机不彳亍！

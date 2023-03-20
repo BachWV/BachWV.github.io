@@ -55,11 +55,11 @@ void main(){
 哈哈居然可以不以main函数为开头，见到c语言代码必须有main函数是不是可以判错了
 
 ```bash
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# vim os_litter.c
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc -c os_litter.c
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# ls
+$ vim os_litter.c
+$ gcc -c os_litter.c
+$ ls
 a.out  os.c  os_litter.c  os_litter.o
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# ld os_litter.o
+$ ld os_litter.o
 ld: warning: cannot find entry symbol _start; defaulting to 00000000004000b0
 
 ```
@@ -91,7 +91,6 @@ total 16
 [root@iZwz92v9xcjopgz0rhkwh1Z c]# size a.out
    text    data     bss     dec     hex filename
      58       0       0      58      3a a.out
-[root@iZwz92v9xcjopgz0rhkwh1Z c]#
 ```
 这是一个超级小的a.out
 
@@ -199,15 +198,14 @@ int main(){
 这就没有问题了，正常返回了
 
 ```bash
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc ex_sys.c
+$ gcc ex_sys.c
 ex_sys.c: In function ‘main’:
 ex_sys.c:3:5: warning: implicit declaration of function ‘syscall’ [-Wimplicit-function-declaration]
      syscall(SYS_exit,42);
      ^~~~~~~
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# ls
+$ ls
 a.out  ex_sys.c  os.c
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# ./a.out
-[root@iZwz92v9xcjopgz0rhkwh1Z c]#
+$ ./a.out
 
 ```
 syscall的实现在libc里，不方便直接链接
@@ -446,7 +444,7 @@ int main() {
 
 
 ```bash
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# gcc tryopen.c &&./a.out
+$ gcc tryopen.c &&./a.out
 open("/something/not/exist") returns -1
   FAIL: No such file or directory
 open("/dev/") returns -1
@@ -496,7 +494,7 @@ elf里写的是ld-linux-x86-64.so
 strace能看到所有的系统调用
 
 ```bash
-[root@iZwz92v9xcjopgz0rhkwh1Z c]# strace ./a.out
+$ strace ./a.out
 execve("./a.out", ["./a.out"], 0x7ffcbb202a30 /* 37 vars */) = 0
 brk(NULL)                               = 0x12ae000
 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffcb59f2750) = -1 EINVAL (Invalid argument)
@@ -546,7 +544,6 @@ write(3, "  FAIL: Is a directory\n", 23  FAIL: Is a directory
 close(3)                                = 0
 exit_group(0)                           = ?
 +++ exited with 0 +++
-[root@iZwz92v9xcjopgz0rhkwh1Z c]#
 ```
 
 本质上所有的程序和 Hello World 类似
