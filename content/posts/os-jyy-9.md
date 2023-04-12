@@ -2,7 +2,172 @@
 title: "操作系统-jyy-9"
 date: 2022-07-26T16:09:07+08:00
 ---
+# 同步：生产者-消费者与条件变量 (算法并行化；万能同步方法)
+生活中的同步
 
+并发程序的同步
+- 线程同步：在某个时间点共同达到互相已知的状态
+
+## 什么是生产者-消费者问题？
+
+先来看看这个
+```c
+void Tproduce(){while(1) printf("(");}
+void Tconsume(){while(1) printf(")");}
+```
+在printf前后增加代码，使得打印的括号序列满足
+- 一定是某个合法的括号序列的前缀
+- 括号嵌套的深度不超过n
+如果你能解决上面这个问题，那么你就能解决生产者-消费者问题。
+
+所以生产者-消费者问题可以这样理解：
+打印左括号：生产资源(任务)、放入队列
+打印右括号：从队列中取出资源（任务）执行
+
+## 计算图
+寻找并行计算的机会
+- 计算任务构成有向无环图
+
+## 生产者-消费者实现
+使用互斥锁保证条件满足
+- 左括号：嵌套深度不足n时才能打印
+- 右括号：嵌套深度大于0时才能打印
+
+```c
+#include "thread.h"
+#include "thread-sync.h"
+
+int n, count = 0;
+mutex_t lk = MUTEX_INIT();
+
+#define CAN_PRODUCE (count < n)
+#define CAN_CONSUME (count > 0)
+
+void Tproduce() {
+  while (1) {
+retry:
+    mutex_lock(&lk);//上锁，如果有其他线程抢这个锁，其他线程上锁失败，切换到有锁线程执行
+    if (!CAN_PRODUCE) { 
+      mutex_unlock(&lk);//判断条件不满足，循环，此时操作系统切换到其他等待锁的线程执行
+      goto retry;
+    }
+    count++;
+    printf("(");  // Push an element into buffer
+    mutex_unlock(&lk);
+  }
+}
+
+void Tconsume() {
+  while (1) {
+retry:
+    mutex_lock(&lk);
+    if (!CAN_CONSUME) {
+      mutex_unlock(&lk);
+      goto retry;
+    }
+    count--;
+    printf(")");  // Pop an element from buffer
+    mutex_unlock(&lk);
+  }
+}
+
+int main(int argc, char *argv[]) {
+  assert(argc == 2);
+  n = atoi(argv[1]);
+  setbuf(stdout, NULL);
+  for (int i = 0; i < 8; i++) {
+    create(Tproduce);
+    create(Tconsume);
+  }
+}
+```
+
+检测输出是否正确
+pc-check.py
+```python
+import sys
+
+BATCH_SIZE = 100000
+
+limit = int(sys.argv[1])
+count, checked = 0, 0
+
+while True:
+    for ch in sys.stdin.read(BATCH_SIZE):
+        match ch:
+            case '(': count += 1
+            case ')': count -= 1
+            case _: assert 0
+        assert 0 <= count <= limit
+    checked += BATCH_SIZE
+    print(f'{checked} Ok.')
+```
+
+通过管道传值`./a.out 2|python3 pc-check.py 2`
+未来：ai帮我们做这些事
+## 条件变量
+一把互斥锁+一个条件变量+手工唤醒
+- wait(cv,mutex)
+  - 调用时必须保证已经获得mutex
+  - wait释放mutex、进入睡眠状态、等待被唤醒
+  - 被唤醒后需要重新执行lock(mutex)
+- signal/notity(cv)
+  - 唤醒一个等待在cv上的线程
+  - 如果没有线程在cv上等待，则不做任何事情
+- broadcast(notify_all)(cv)
+  - 唤醒所有等待在cv上的线程
+  - 如果没有线程在cv上等待，则不做任何事情
+## 错误的条件变量实现
+```c
+#include "thread.h"
+#include "thread-sync.h"
+
+int n, count = 0;
+mutex_t lk = MUTEX_INIT();
+cond_t cv = COND_INIT();
+ 
+#define CAN_PRODUCE (count < n)
+#define CAN_CONSUME (count > 0)
+
+void Tproduce() {
+  while (1) {
+    mutex_lock(&lk);
+    if (!CAN_PRODUCE) {
+      cond_wait(&cv, &lk);
+    }
+    printf("("); count++;
+    cond_signal(&cv);
+    mutex_unlock(&lk);
+  }
+}
+
+void Tconsume() {
+  while (1) {
+    mutex_lock(&lk);
+    if (!CAN_CONSUME) {
+      cond_wait(&cv, &lk);
+    }
+    printf(")"); count--;
+    cond_signal(&cv);
+    mutex_unlock(&lk);
+  }
+}
+
+int main(int argc, char *argv[]) {
+  assert(argc == 3);
+  n = atoi(argv[1]);
+  int T = atoi(argv[2]); // Number of threads,add by copilot
+  setbuf(stdout, NULL);
+  for (int i = 0; i < T; i++) {
+    create(Tproduce);
+    create(Tconsume);
+  }
+}
+```
+`./a.out 1 2`
+出现了错误的答案，两个线程失败了？
+假设有两个consume在等待，produce打印了"("唤醒了一个consume,打印了")"，consume随机唤醒一个条件变量，唤醒了consume,打印了")"，错误的答案出现了
+还是没弄懂唤醒后继续执行吗？
 # 第9讲 操作系统的状态机模型
 
 谁加载了操作系统？
