@@ -132,7 +132,7 @@ cond_t cv = COND_INIT();
 void Tproduce() {
   while (1) {
     mutex_lock(&lk);
-    if (!CAN_PRODUCE) {
+    while (!CAN_PRODUCE) {
       cond_wait(&cv, &lk);
     }
     printf("("); count++;
@@ -144,7 +144,7 @@ void Tproduce() {
 void Tconsume() {
   while (1) {
     mutex_lock(&lk);
-    if (!CAN_CONSUME) {
+    while (!CAN_CONSUME) {
       cond_wait(&cv, &lk);
     }
     printf(")"); count--;

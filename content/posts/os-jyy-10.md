@@ -2,6 +2,24 @@
 title: "操作系统-jyy-10"
 date: 2022-07-26T16:09:12+08:00
 ---
+# 同步：信号量与哲♂学家吃饭问题 (信号量的正确打开方式)
+
+## 信号量：一种条件变量的特例
+```c
+void P(sem_t *sem) { // wait
+  wait_until(sem->count > 0) {
+    sem->count--;
+  }
+}
+
+void V(sem_t *sem) { // post (signal)
+  sem->count++;
+}
+```
+正是因为条件的特殊性，信号量不需要 broadcast
+
+- P 失败时立即睡眠等待
+- 执行 V 时，唤醒任意等待的线程
 
 # 第10讲 状态机模型的应用
 

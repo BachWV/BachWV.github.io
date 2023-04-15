@@ -1,6 +1,6 @@
 ---
-title: "OS-jyy-5 多处理器编程"
-date: 2022-3-20
+title: "操作系统-jyy-5 多处理器编程"
+date: 2023-3-20
 draft: false
 ---
 
