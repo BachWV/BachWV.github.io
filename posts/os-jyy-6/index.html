@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | OS-jyy-6 并发控制基础</title>
+	<title>8086  | 操作系统-jyy-6 并发控制基础</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.111.3">
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">OS-jyy-6 并发控制基础</h1>
+<h1 class="pt-2">操作系统-jyy-6 并发控制基础</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -161,8 +161,8 @@ onload='renderMathInElement(document.body);'></script>
 </ul>
 <p>准备工作做好以后，下一步将根据旗子和厕所门口的字来决定是否进入厕所。具体来说</p>
 <ul>
-<li>如果A想要进入厕所，会观察是否有人举起旗子，并观察厕所门口的是否为A，如果B举了旗子，且门上的贴了B，他将等待，否则A将进入厕所</li>
-<li>如果B想要进入厕所，会观察是否有人举起旗子，并观察厕所门口的是否为B，如果A举了旗子，且门上的贴了A，他将等待，否则B将进入厕所</li>
+<li>如果A想要进入厕所，会观察是否有人举起旗子，如果B举了旗子，且门上的贴了B，他将等待，否则A将进入厕所</li>
+<li>如果B想要进入厕所，会观察是否有人举起旗子，如果A举了旗子，且门上的贴了A，他将等待，否则B将进入厕所</li>
 </ul>
 <p>出厕所后，将放下自己的旗子。</p>
 <p>这种奇怪的算法将保证A或B进入厕所时，厕所没人。</p>
@@ -252,13 +252,41 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>当然这种奇怪算法的正确性需要验证，接下来的所有内容都是围绕验证的。</p>
+</div><p>我们会不自觉地提出一些问题：</p>
+<ul>
+<li>如果结束后把门上的字条撕掉，算法还正确吗？
+<ul>
+<li>在放下旗子之前撕</li>
+<li>在放下旗子之后撕</li>
+</ul>
+</li>
+<li>如果先贴标签再举旗，算法还正确吗？</li>
+<li>我们有两个 “查看” 的操作
+<ul>
+<li>看对方的旗有没有举起来</li>
+<li>看门上的贴纸是不是自己</li>
+<li>这两个操作的顺序影响算法的正确性吗？</li>
+</ul>
+</li>
+<li>是否存在 “两个人谁都无法进入临界区” (liveness)、“对某一方不公平” (fairness) 等行为？
+<ul>
+<li>都转换成图 (状态空间) 上的遍历问题了！</li>
+</ul>
+</li>
+</ul>
+<p>为了保证peterson的正确性，我们还需要什么？</p>
+<ul>
+<li>原子指令来保证读/写单个变量是“原子不可分割”的</li>
+<li>编译器设置屏障</li>
+</ul>
+<p>当然这种奇怪算法的正确性需要验证，接下来的所有内容都是围绕验证的。</p>
 <p>一种方法是通过人脑来枚举A和B抢着上厕所以及举旗过程的所有状态。模拟多线程执行代码的顺序。</p>
 <p>另一种方法是计算机验证，jyy的功底就体现出来了。</p>
 <p>使用Python这种动态语言模拟验证状态机正确性。 Model checker</p>
 <p>并利用某些库可视化状态机的所有状态。</p>
 <p>jyy利用了Generator的一个特性来保存函数运行的上下文。这使得我们能够更方便地模拟状态机的执行过程。</p>
 <p>关于Model Checker的Python实现和可视化展示这里就暂且不说了。</p>
+<p>所以究竟是怎么做到的，还需要看看2022年的视频</p>
 <p>这节课告诉了我们工具的重要性，计算机辅助验证彳亍，人脑模拟计算机不彳亍！</p>
 </div>
 	</section>
@@ -396,7 +424,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 902 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1138 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
