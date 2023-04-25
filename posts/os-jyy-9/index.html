@@ -407,7 +407,7 @@ pc-check.py</p>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">Tproduce</span><span style="color:#111">()</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">mutex_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">lk</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">CAN_PRODUCE</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">CAN_PRODUCE</span><span style="color:#111">)</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">cond_wait</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">cv</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">lk</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;(&#34;</span><span style="color:#111">);</span> <span style="color:#111">count</span><span style="color:#f92672">++</span><span style="color:#111">;</span>
@@ -419,7 +419,7 @@ pc-check.py</p>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">Tconsume</span><span style="color:#111">()</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">mutex_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">lk</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">CAN_CONSUME</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">CAN_CONSUME</span><span style="color:#111">)</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">cond_wait</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">cv</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">lk</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;)&#34;</span><span style="color:#111">);</span> <span style="color:#111">count</span><span style="color:#f92672">--</span><span style="color:#111">;</span>
@@ -442,8 +442,39 @@ pc-check.py</p>
 </div>
 </div><p><code>./a.out 1 2</code>
 出现了错误的答案，两个线程失败了？
-假设有两个consume在等待，produce打印了&quot;(&ldquo;唤醒了一个consume,打印了&rdquo;)&quot;，consume随机唤醒一个条件变量，唤醒了consume,打印了&quot;)&quot;，错误的答案出现了
-还是没弄懂唤醒后继续执行吗？</p>
+假设有两个consume在等待，produce打印了&quot;(&ldquo;唤醒了一个consume,打印了&rdquo;)&quot;，consume随机唤醒一个条件变量，唤醒了consume,打印了&quot;)&quot;，错误的答案出现了</p>
+<p>还是没弄懂唤醒后继续执行吗？确实</p>
+<p>如何解决？</p>
+<p>if(!CAN_CONSUME)改成while(!CAN_CONSUME)就可以了，就相当于写了assert(CAN_CONSUME)</p>
+<p><strong>初学者很难写出正确的并发程序</strong></p>
+<h2 id="有意思的条件变量问题和实现">有意思的条件变量问题和实现</h2>
+<p>有三种线程</p>
+<ul>
+<li>
+<p>Ta 若干: 死循环打印 &lt;</p>
+</li>
+<li>
+<p>Tb 若干: 死循环打印 &gt;</p>
+</li>
+<li>
+<p>Tc 若干: 死循环打印 _
+任务：</p>
+</li>
+<li>
+<p>对这些线程进行同步，使得屏幕打印出 &lt;&gt;&lt;_ 和 &gt;&lt;&gt;_ 的组合
+使用条件变量，只要回答三个问题：</p>
+</li>
+<li>
+<p>打印 “&lt;” 的条件？</p>
+</li>
+<li>
+<p>打印 “&gt;” 的条件？</p>
+</li>
+<li>
+<p>打印 “_” 的条件？</p>
+</li>
+</ul>
+<p>状态转移</p>
 <h1 id="第9讲-操作系统的状态机模型">第9讲 操作系统的状态机模型</h1>
 <p>谁加载了操作系统？</p>
 <p>不能被小学生吓倒，小学生是用有限的资料探索，大学能将已有的经验的方法重新消化，建立知识体系。</p>
@@ -881,7 +912,7 @@ pc-check.py</p>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2585 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2800 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
