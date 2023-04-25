@@ -2,7 +2,7 @@
 title: "git 指南"
 date: 2022-07-11T19:37:54+08:00
 draft: false
-lastmod: 2022-08-10T00:00:00+08:00
+lastmod: 2023-4-25T00:00:00+08:00
 ---
 
 这里讲记录一些自己使用git时候的一些注意事项和小tips
@@ -58,6 +58,8 @@ lastmod: 2022-08-10T00:00:00+08:00
 
 pick 保留该commit
 squash将该commit和前一个commit合并
+
+至少保留一个pick，不然把head给删了
 
 # 11.6 git
 

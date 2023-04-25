@@ -132,7 +132,7 @@ cond_t cv = COND_INIT();
 void Tproduce() {
   while (1) {
     mutex_lock(&lk);
-    while (!CAN_PRODUCE) {
+    if (!CAN_PRODUCE) {
       cond_wait(&cv, &lk);
     }
     printf("("); count++;
@@ -144,7 +144,7 @@ void Tproduce() {
 void Tconsume() {
   while (1) {
     mutex_lock(&lk);
-    while (!CAN_CONSUME) {
+    if (!CAN_CONSUME) {
       cond_wait(&cv, &lk);
     }
     printf(")"); count--;
@@ -167,7 +167,31 @@ int main(int argc, char *argv[]) {
 `./a.out 1 2`
 出现了错误的答案，两个线程失败了？
 假设有两个consume在等待，produce打印了"("唤醒了一个consume,打印了")"，consume随机唤醒一个条件变量，唤醒了consume,打印了")"，错误的答案出现了
-还是没弄懂唤醒后继续执行吗？
+
+还是没弄懂唤醒后继续执行吗？确实
+
+如何解决？
+
+if(!CAN_CONSUME)改成while(!CAN_CONSUME)就可以了，就相当于写了assert(CAN_CONSUME)
+
+**初学者很难写出正确的并发程序**
+
+## 有意思的条件变量问题和实现
+有三种线程
+
+- Ta 若干: 死循环打印 <
+- Tb 若干: 死循环打印 >
+- Tc 若干: 死循环打印 _
+任务：
+- 对这些线程进行同步，使得屏幕打印出 <><_ 和 ><>_ 的组合
+使用条件变量，只要回答三个问题：
+
+- 打印 “<” 的条件？
+- 打印 “>” 的条件？
+- 打印 “_” 的条件？
+
+状态转移
+
 # 第9讲 操作系统的状态机模型
 
 谁加载了操作系统？
