@@ -231,3 +231,50 @@ console.log(cryptoEncryption(aseKey,encrpytText)); //调用加密方法
 欢迎关注我在微信平台的号哦（疯狂引流
 
 ![](https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg)
+
+附上python
+```
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+import requests
+import json
+import time
+import os
+import urllib
+
+
+def send_power(msgs):
+    aseKey = 'wxUESTCpowerqwer' 
+    try:
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', #Specifying to the server that we are sending JSON 
+        }
+        key = "wxUESTCpowerqwer"
+
+        def aes_ecb_encrypt(plaintext):
+            cipher = AES.new(key.encode(),AES.MODE_ECB)
+            return b64encode(cipher.encrypt(pad(plaintext.encode(),16)))
+
+
+        def aes_ecb_decrypt(ciphertext):
+            cipher = AES.new(key.encode(),AES.MODE_ECB)
+            return unpad(cipher.decrypt(b64decode(ciphertext.encode())),16).decode()
+        print(msgs)
+        encryptStr=aes_ecb_encrypt(msgs)
+        print(encryptStr)
+        ss=str(encryptStr, encoding = "utf-8")  
+        send_msg="roomCode="+urllib.parse.quote(ss)
+        
+        print(send_msg)
+        #response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=json_data,timeout=14.2)
+        response = requests.post('https://wx.uestc.edu.cn/power/oneCartoon/list', headers=headers, data=send_msg,timeout=4.2)
+        response_parse = json.loads(response.text)
+        data=response_parse["data"]
+        roomName=data['roomName']
+        dl=data['sydl']
+        je=data['syje']
+        return "房间号："+roomName+"\n剩余电量："+dl+"kWh\n剩余金额："+je+"元" 
+    except Exception as e:
+        print(e)
+        return '请求超时，请稍后再试！'
+```
