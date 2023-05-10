@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Life of a Pixel</title>
+	<title>8086 </title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.111.3">
 	
@@ -26,6 +26,9 @@
 
 	
 
+	
+	<link rel="alternate" href="/index.xml" type="application/rss+xml" title="8086">
+	<link rel="feed" href="/index.xml" type="application/rss+xml" title="8086">
 	
 	
 	
@@ -116,82 +119,16 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div style="background-color:transparent" 
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-				
-<div>
-	<h2>
-		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
-	</h2>
-</div>
-<h1 class="pt-2">Life of a Pixel</h1>
-
-<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
-</div>
-
-<hr />
-
-
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-
-<article>
-	<section class="mx-auto content">
-		<div class="c-rich-text"><p>今天在B站看到一个up讲浏览器的前世今生，我平时不会轻易评价一个技术视频讲得好不好，深入了就没有受众，浅显易懂才符合大众的口味。但是这个视频和Life of a Pixel相比，属于是一个班门弄斧了。所以我还是想要吹一下Life of a Pixel。
-<img src="https://s2.loli.net/2023/04/08/g7kcMOwznGtYIBd.png" alt=""></p>
-<p><em>The system is very complicated,and the design doc is tended to assume that you already knew a lot of stuffs</em></p>
-<p>让我们跟着Steve Kobes，了解web内容是怎么渲染成像素的吧。</p>
-<h1 id="我们要渲染什么">我们要渲染什么</h1>
-<p>当然是网页啦
-包括html,css,js，还有一些图片视频什么的，就这么多啦。</p>
-<p>当然考虑到受众，还是解释一下这些东西是什么。</p>
-<p>html是一种标记语言，比如</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">p</span><span style="color:#111">&gt;</span>hello world<span style="color:#111">&lt;/</span><span style="color:#f92672">p</span><span style="color:#111">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这就是一段最简单的代码啦，带尖括号的p标识了hello world是一个段落</p>
-<p>css是控制样式的</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
-</div>
-</div><h1 id="heading"></h1>
-<ul>
-<li>以上内容适用于Chrome 版本 69.0.3445</li>
-</ul>
-</div>
-	</section>
-
-
-</article>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-	<div class="md:max-w-xs  flex flex-col md:items-end">
+					<div class="pb-4">
+		<h1 >
+			<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+		</h1>
+	</div>
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/posts/" title="Posts page" >
 			Posts
 		</a>
 	</li>
@@ -233,6 +170,10 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
+	<li>
+		<a href='/index.xml'>RSS</a>
+	</li>
+	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -245,6 +186,273 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<div class="font-serif text-medium-red-violet-400 pt-3">
+	Men always remember love because of romance only.
+</div>
+<hr  class="pt-2"/>
+
+
+<div>
+	<section>
+		
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://junling.li/posts/os-jyy-8/">
+			操作系统-jyy-8 调试理论与实践
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+	</div>
+</div>
+
+		</div>
+		
+	</section>
+</div>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
@@ -305,71 +513,160 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="text-sm text-white leading-tight a-gray">
+	<div class="a-gray text-sm text-white leading-tight">
 		Copyright © 2021-2023
 		<br />
-		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 318 words in this page.
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号-1</a><br/>
+		Built with Hugo and theme <a 
+			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
+			<br />
+			109 pages, 145642 words in total.
 	</div>
-	<span id="busuanzi_container_page_pv">
-			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		  </span>
 </div>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
-<hr class="double-line" />
-<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
-    
-    <a class="flex-grow-0" href="/posts/movie-diy/">
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        Movie and Book
-    </a>
-    
-    
-    <a class="flex-grow-0" href="/posts/sec/">
-        Sec
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
-    
-</div>
-<div >
 
 
 
-</div>
 <hr />
-<div class="pb-2">
+
+
+<ul class="flex justify-between">
     
-</div>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
-/>
-<div id="wcomments"></div>
-<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
-<script type="text/javascript">
-  
-  $(function(){
-      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         Waline.init({
-          el: '#wcomments',  
-          serverURL: 'https://waline.junling.li', 
-        });
-      });      
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevrons-left h-4 w-4 relative -bottom-1">
+                    <polyline points="11 17 6 12 11 7"></polyline>
+                    <polyline points="18 17 13 12 18 7"></polyline>
+                </svg>
+            </span></a>
+    </li>
     
-  });
-</script>
-<hr />
+    <li class="page-item">
+        <a href="/page/6/"  class="page-link" aria-label="Previous"><span
+                aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-left h-4 w-4 relative -bottom-1">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    <div class="flex-grow-3"></div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/">1</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/6/">6</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item active"><a class="page-link" href="/page/7/">7</a>
+    </li>
+    
+    
+    <div class="flex-grow-3"></div>
+    <li class="page-item disabled">
+        <a  class="page-link" aria-label="Next"><span
+                aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-right h-4 w-4 relative -bottom-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevrons-right h-4 w-4 relative -bottom-1">
+                    <polyline points="13 17 18 12 13 7"></polyline>
+                    <polyline points="6 17 11 12 6 7"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    
+</ul>
+
+
+
 
 		</footer>
 		
