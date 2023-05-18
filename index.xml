@@ -10257,12 +10257,12 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     </item>
     
     <item>
-      <title>CentOS上部署tomcat项目</title>
+      <title>部署PDD项目</title>
       <link>https://junling.li/posts/pdd_on_centos/</link>
       <pubDate>Sun, 12 Dec 2021 23:56:31 +0800</pubDate>
       
       <guid>https://junling.li/posts/pdd_on_centos/</guid>
-      <description>&lt;p&gt;CentOS部署pdd&lt;/p&gt;
+      <description>&lt;p&gt;部署pdd&lt;/p&gt;
 &lt;p&gt;拼夕夕是一个对标拼多多的网络商城,构建的源码在:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&#34;&gt;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这是软件工程的课程项目。&lt;/p&gt;
@@ -17855,8 +17855,9 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://junling.li/posts/movie-diy/</guid>
-      <description>&lt;p&gt;为你的静态站点添加一个观影页面&lt;/p&gt;
-&lt;p&gt;效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。&lt;/p&gt;
+      <description>&lt;p&gt;为你的静态站点添加一个观影页面
+&lt;img src=&#34;https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png&#34; alt=&#34;&#34;&gt;
+效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。&lt;/p&gt;
 &lt;p&gt;使用git管理的好处是，历史记录能够轻易查看，https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
 &lt;p&gt;借助这个https://imnerd.org/doumark.html提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。&lt;/p&gt;
@@ -17864,6 +17865,101 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
 &lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
 &lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>一个不知名的备份打包程序</title>
+      <link>https://junling.li/posts/backup-lab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://junling.li/posts/backup-lab/</guid>
+      <description>&lt;p&gt;使用古老的Java Swing框架&lt;/p&gt;
+&lt;p&gt;实现功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;文件类型支持(Java文件接口，支持软链接，硬链接)
+我们使用File类来与操作系统交互。对软链接特殊处理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;元数据支持（属主、时间权限）
+这里的实现同样是使用File类。我们将文件的创建时间、最后修改时间、属主等元数据打包至新文件结构字段中，解包时先创建新文件完成所有解包解密操作，最后修改创建时间，保证last modified time与源文件一致。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自定义备份
+文件名过滤，指定备份文件位置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;压缩解压
+我们将打包后的文件看作字节流，对字节出现频率构建Huffman树对文件进行压缩，&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打包解包 ：将目录下文件按照规则写入同一个文件。
+加密解密：使用自定义的映射函数实现&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实时备份：Java WatchService监听目录变化。
+图形界面：Java Swing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络备份：将备份后的本地文件一键上传至网盘 ，借助Alist开源项目实现存放到商业网盘如百度网盘、阿里网盘。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;构建了跨系统运行的jar包。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提供了dockerfile构建脚本，在docker hub提供了测试镜像，并借助x11vnc项目实现docker的GUI展示。
+可以使用&lt;code&gt;docker pull bachwv/docker-desktop:zh_CN&lt;/code&gt;命令下载镜像。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;项目目录 &lt;a href=&#34;https://github.com/BachWV/backup&#34;&gt;https://github.com/BachWV/backup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/11/17/MF7LErvhaoye5SD.png&#34; alt=&#34;demo_wslg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;功能&#34;&gt;功能&lt;/h2&gt;
+&lt;p&gt;整体功能为备份指定文件夹并还原。&lt;/p&gt;
+&lt;p&gt;备份过程分为以下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打包（&lt;code&gt;sourceDir -&amp;gt; sourceDir.pack&lt;/code&gt; ）：将指定文件夹下的文件（普通文件、目录和软链接）打包，可以通过创建 &lt;code&gt;.bakignore&lt;/code&gt; 文件指定需要过滤的文件。打包目录中如果多个硬链接指向同一份数据，那么该数据只会打包一次，并且还原时也只还原一份，并建立多个指向它的硬链接。&lt;/li&gt;
+&lt;li&gt;压缩（&lt;code&gt;sourceDir.pack -&amp;gt; sourceDir.pack.huff&lt;/code&gt;）：使用 Huffman 压缩算法进行压缩。&lt;/li&gt;
+&lt;li&gt;加密（&lt;code&gt;sourceDir.pack.huff -&amp;gt; sourceDir.pack.huff.enc&lt;/code&gt; ）：使用一个简单的带混淆机制的加密算法进行加密。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;还原过程就是上面过程反过来。&lt;/p&gt;
+&lt;p&gt;上传至网盘，当然是公共目录。http://120.24.176.162:5244/aliyun/pantest&lt;/p&gt;
+&lt;h2 id=&#34;编译运行&#34;&gt;编译运行&lt;/h2&gt;
+&lt;p&gt;本项目使用 Maven 构建。
+编译：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mvn compile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;运行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -jar backup_lab.jar
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;docker-运行环境&#34;&gt;docker 运行环境&lt;/h2&gt;
+&lt;p&gt;本项目使用的运行环境 已上传至docker hub&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull bachwv/docker-desktop:zh_CN
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;构建参考
+&lt;a href=&#34;https://github.com/BachWV/x11vnc-desktop/&#34;&gt;https://github.com/BachWV/x11vnc-desktop/&lt;/a&gt;
+的zh_CN分支，并使用Github Action打包，直接使用dockerfile打包可能出现问题&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;python init_desktop.py&lt;/code&gt;运行docker（挂载当前目录至docker中的~/shared目录，在docker中使用&lt;code&gt;java -jar backup_lab.jar&lt;/code&gt;运行本软件 ）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/11/17/FSWDYUKEZHPeqIb.png&#34; alt=&#34;image-20221117163256291&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

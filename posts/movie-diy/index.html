@@ -144,8 +144,9 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>为你的静态站点添加一个观影页面</p>
-<p>效果如 <a href="https://junling.li/movies/">https://junling.li/movies/</a> 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。</p>
+		<div class="c-rich-text"><p>为你的静态站点添加一个观影页面
+<img src="https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png" alt="">
+效果如 <a href="https://junling.li/movies/">https://junling.li/movies/</a> 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。</p>
 <p>使用git管理的好处是，历史记录能够轻易查看，https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味</p>
 <p>借助这个https://imnerd.org/doumark.html提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。</p>
@@ -153,6 +154,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？</p>
 <p>Hugo作为静态网页生成工具，早就为你想到了这一点，参考<a href="https://gohugo.io/templates/data-templates/">Hugo文档</a> 只需要<code>{{ $dataC := getCSV &quot;separator&quot; &quot;url&quot; }}</code>一下，即可获得csv里的数据。使用<code>{{index $movie 5}}</code>即可获得csv文件第五列的数据。</p>
 <p>具体过程见<a href="https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html">movies.html</a></p>
+<p>重新构建一下，你也能拥有如此炫酷的页面啦</p>
 </div>
 	</section>
 
@@ -289,7 +291,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 566 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 586 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -305,12 +307,12 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/essay/">
+    <a class="flex-grow-0" href="/posts/backup-lab/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        我的BB
+        一个不知名的备份打包程序
     </a>
     
     

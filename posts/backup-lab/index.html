@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086 </title>
+	<title>8086  | 一个不知名的备份打包程序</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.111.3">
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/leetcodes/index.xml" type="application/rss+xml" title="8086">
-	<link rel="feed" href="/leetcodes/index.xml" type="application/rss+xml" title="8086">
 	
 	
 	
@@ -119,16 +116,138 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div style="background-color:transparent" 
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">一个不知名的备份打包程序</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>使用古老的Java Swing框架</p>
+<p>实现功能：</p>
+<ul>
+<li>
+<p>文件类型支持(Java文件接口，支持软链接，硬链接)
+我们使用File类来与操作系统交互。对软链接特殊处理</p>
+</li>
+<li>
+<p>元数据支持（属主、时间权限）
+这里的实现同样是使用File类。我们将文件的创建时间、最后修改时间、属主等元数据打包至新文件结构字段中，解包时先创建新文件完成所有解包解密操作，最后修改创建时间，保证last modified time与源文件一致。</p>
+</li>
+<li>
+<p>自定义备份
+文件名过滤，指定备份文件位置。</p>
+</li>
+<li>
+<p>压缩解压
+我们将打包后的文件看作字节流，对字节出现频率构建Huffman树对文件进行压缩，</p>
+</li>
+<li>
+<p>打包解包 ：将目录下文件按照规则写入同一个文件。
+加密解密：使用自定义的映射函数实现</p>
+</li>
+<li>
+<p>实时备份：Java WatchService监听目录变化。
+图形界面：Java Swing</p>
+</li>
+<li>
+<p>网络备份：将备份后的本地文件一键上传至网盘 ，借助Alist开源项目实现存放到商业网盘如百度网盘、阿里网盘。</p>
+</li>
+<li>
+<p>构建了跨系统运行的jar包。</p>
+</li>
+<li>
+<p>提供了dockerfile构建脚本，在docker hub提供了测试镜像，并借助x11vnc项目实现docker的GUI展示。
+可以使用<code>docker pull bachwv/docker-desktop:zh_CN</code>命令下载镜像。</p>
+</li>
+</ul>
+<p>项目目录 <a href="https://github.com/BachWV/backup">https://github.com/BachWV/backup</a></p>
+<p><img src="https://s2.loli.net/2022/11/17/MF7LErvhaoye5SD.png" alt="demo_wslg"></p>
+<h2 id="功能">功能</h2>
+<p>整体功能为备份指定文件夹并还原。</p>
+<p>备份过程分为以下几步：</p>
+<ol>
+<li>打包（<code>sourceDir -&gt; sourceDir.pack</code> ）：将指定文件夹下的文件（普通文件、目录和软链接）打包，可以通过创建 <code>.bakignore</code> 文件指定需要过滤的文件。打包目录中如果多个硬链接指向同一份数据，那么该数据只会打包一次，并且还原时也只还原一份，并建立多个指向它的硬链接。</li>
+<li>压缩（<code>sourceDir.pack -&gt; sourceDir.pack.huff</code>）：使用 Huffman 压缩算法进行压缩。</li>
+<li>加密（<code>sourceDir.pack.huff -&gt; sourceDir.pack.huff.enc</code> ）：使用一个简单的带混淆机制的加密算法进行加密。</li>
+</ol>
+<p>还原过程就是上面过程反过来。</p>
+<p>上传至网盘，当然是公共目录。http://120.24.176.162:5244/aliyun/pantest</p>
+<h2 id="编译运行">编译运行</h2>
+<p>本项目使用 Maven 构建。
+编译：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn compile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行:</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -jar backup_lab.jar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="docker-运行环境">docker 运行环境</h2>
+<p>本项目使用的运行环境 已上传至docker hub</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker pull bachwv/docker-desktop:zh_CN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>构建参考
+<a href="https://github.com/BachWV/x11vnc-desktop/">https://github.com/BachWV/x11vnc-desktop/</a>
+的zh_CN分支，并使用Github Action打包，直接使用dockerfile打包可能出现问题</p>
+<p>使用<code>python init_desktop.py</code>运行docker（挂载当前目录至docker中的~/shared目录，在docker中使用<code>java -jar backup_lab.jar</code>运行本软件 ）</p>
+<p><img src="https://s2.loli.net/2022/11/17/FSWDYUKEZHPeqIb.png" alt="image-20221117163256291"></p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" >
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -170,10 +289,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/leetcodes/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -186,251 +301,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-
-
-<article>
-	<div>
-		
-	</div>
-</article>
-<div>
-	<section>
-		
-	</section>
-</div>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
@@ -491,21 +361,72 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-white leading-tight">
+	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2023
 		<br />
-		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号-1</a><br/>
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			110 pages, 146681 words in total.
+		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1025 words in this page.
 	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
-			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/essay/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        我的BB
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/posts/movie-diy/">
+        Movie and Book
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  
+  $(function(){
+      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
+         Waline.init({
+          el: '#wcomments',  
+          serverURL: 'https://waline.junling.li', 
+        });
+      });      
+    
+  });
+</script>
+<hr />
+
 		</footer>
 		
 
