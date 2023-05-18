@@ -1,10 +1,10 @@
 ---
-title: "CentOS上部署tomcat项目"
+title: "部署PDD项目"
 date: 2021-12-12T23:56:31+08:00
 draft: false
 ---
 
-CentOS部署pdd
+部署pdd
 
 拼夕夕是一个对标拼多多的网络商城,构建的源码在:
 

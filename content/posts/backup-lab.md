@@ -22,7 +22,7 @@ date: 2023-5-12
 
 - 构建了跨系统运行的jar包。
 - 提供了dockerfile构建脚本，在docker hub提供了测试镜像，并借助x11vnc项目实现docker的GUI展示。
-可以使用docker pull bachwv/docker-desktop:zh_CN命令下载镜像。
+可以使用`docker pull bachwv/docker-desktop:zh_CN`命令下载镜像。
 
 项目目录 https://github.com/BachWV/backup
 

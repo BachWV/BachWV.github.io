@@ -3,7 +3,7 @@ title: Movie and Book
 date: 2023-5-10
 ---
 为你的静态站点添加一个观影页面
-
+![](https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png)
 效果如 https://junling.li/movies/ 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。
 
 
@@ -19,6 +19,8 @@ date: 2023-5-10
 Hugo作为静态网页生成工具，早就为你想到了这一点，参考[Hugo文档](https://gohugo.io/templates/data-templates/) 只需要`{{ $dataC := getCSV "separator" "url" }}`一下，即可获得csv里的数据。使用`{{index $movie 5}}`即可获得csv文件第五列的数据。
 
 具体过程见[movies.html](https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html)
+
+重新构建一下，你也能拥有如此炫酷的页面啦
 
 
 
