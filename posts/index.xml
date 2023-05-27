@@ -7,10 +7,74 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2023</copyright>
-    <lastBuildDate>Mon, 12 Sep 2022 22:00:12 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 May 2023 15:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo update</title>
+      <link>https://junling.li/posts/hugo/</link>
+      <pubDate>Sat, 27 May 2023 15:00:00 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/hugo/</guid>
+      <description>&lt;p&gt;这几天每天邮箱都会收到Github Actions执行错误的邮件：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[BachWV/BachWV.github.io] Deploy Hugo workflow run
+Deploy Hugo: All jobs have failed&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;点开一看&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Run hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Start building sites … 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo v0.112.0-0a95d6704a8ac8d41cc5ca8fffaad8c5c7a3754a linux/amd64 BuildDate=2023-05-23T08:14:20Z VendorInfo=gohugoio
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR 2023/05/23 23:17:26 render of &amp;#34;page&amp;#34; failed: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/_default/single.html:19:4&amp;#34;: execute of template failed: template: _default/single.html:19:4: executing &amp;#34;aside&amp;#34; at &amp;lt;partial &amp;#34;page-aside.html&amp;#34; .&amp;gt;: error calling partial: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/page-aside.html:3:4&amp;#34;: execute of template failed: template: partials/page-aside.html:3:4: executing &amp;#34;partials/page-aside.html&amp;#34; at &amp;lt;partial &amp;#34;social-follow.html&amp;#34; .&amp;gt;: error calling partial: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/social-follow.html:10:6&amp;#34;: execute of template failed: template: partials/social-follow.html:10:6: executing &amp;#34;partials/social-follow.html&amp;#34; at &amp;lt;partial (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;-line.svg&amp;#34;) .&amp;gt;: error calling partial: partial &amp;#34;svg/_merge-line.svg&amp;#34; not found
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;新版本0.112.0不知道升级了什么东西，这是啥错？&lt;/p&gt;
+&lt;p&gt;把hugo下载到本地，发现同样的错误，可以定位是hugo升级带来的不兼容问题了。&lt;/p&gt;
+&lt;p&gt;定位bug文件&lt;/p&gt;
+&lt;p&gt;partials/social-follow.html&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{{ range $key,$value:=.Site.Social }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{$value}}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{- $key}} icon pl-1 text-eucalyptus-400 hover:text-java-400&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{- $key}} link&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;noopener&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75af00&#34;&gt;aria-label&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;follow on {{$key}}——Opens in a new window&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		{{/*  &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;image/svg+xml&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{ relURL (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;.svg&amp;#34;) }}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;w-12 h-12
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;		text-gray-200&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;object&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt; */}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;fill-current h-8 w-8&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			{{ partial (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;-line.svg&amp;#34;) . }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{{ end }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;看了仓库的issue，没人提。问题在哪？&lt;/p&gt;
+&lt;p&gt;找了半天，找到112的更新日志&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/content-management/multilingual/#changes-in-hugo-01120&#34;&gt;https://gohugo.io/content-management/multilingual/#changes-in-hugo-01120&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;提到了配置文件config.toml映射的变化&lt;/p&gt;
+&lt;p&gt;所以把第一行的&lt;code&gt;	{{ range $key,$value:=.Site.Social }}&lt;/code&gt;改成&lt;code&gt;	{{ range $key,$value:=.Site.Params.Social }}&lt;/code&gt;就好啦&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>kaggle</title>
@@ -13487,70 +13551,6 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
       <guid>https://junling.li/posts/sec/</guid>
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 &lt;p&gt;希望这里是不太正经的自我介绍&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>hugo update</title>
-      <link>https://junling.li/posts/hugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://junling.li/posts/hugo/</guid>
-      <description>&lt;p&gt;这几天每天邮箱都会收到Github Actions执行错误的邮件：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[BachWV/BachWV.github.io] Deploy Hugo workflow run
-Deploy Hugo: All jobs have failed&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;点开一看&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Run hugo
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Start building sites … 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo v0.112.0-0a95d6704a8ac8d41cc5ca8fffaad8c5c7a3754a linux/amd64 BuildDate=2023-05-23T08:14:20Z VendorInfo=gohugoio
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR 2023/05/23 23:17:26 render of &amp;#34;page&amp;#34; failed: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/_default/single.html:19:4&amp;#34;: execute of template failed: template: _default/single.html:19:4: executing &amp;#34;aside&amp;#34; at &amp;lt;partial &amp;#34;page-aside.html&amp;#34; .&amp;gt;: error calling partial: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/page-aside.html:3:4&amp;#34;: execute of template failed: template: partials/page-aside.html:3:4: executing &amp;#34;partials/page-aside.html&amp;#34; at &amp;lt;partial &amp;#34;social-follow.html&amp;#34; .&amp;gt;: error calling partial: &amp;#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/social-follow.html:10:6&amp;#34;: execute of template failed: template: partials/social-follow.html:10:6: executing &amp;#34;partials/social-follow.html&amp;#34; at &amp;lt;partial (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;-line.svg&amp;#34;) .&amp;gt;: error calling partial: partial &amp;#34;svg/_merge-line.svg&amp;#34; not found
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;新版本0.112.0不知道升级了什么东西，这是啥错？&lt;/p&gt;
-&lt;p&gt;把hugo下载到本地，发现同样的错误，可以定位是hugo升级带来的不兼容问题了。&lt;/p&gt;
-&lt;p&gt;定位bug文件&lt;/p&gt;
-&lt;p&gt;partials/social-follow.html&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{{ range $key,$value:=.Site.Social }}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{$value}}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{- $key}} icon pl-1 text-eucalyptus-400 hover:text-java-400&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;{{- $key}} link&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;noopener&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75af00&#34;&gt;aria-label&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;follow on {{$key}}——Opens in a new window&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		{{/*  &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;image/svg+xml&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;{{ relURL (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;.svg&amp;#34;) }}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;w-12 h-12
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;		text-gray-200&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;object&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt; */}}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;fill-current h-8 w-8&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			{{ partial (printf &amp;#34;%s%s%s&amp;#34; &amp;#34;svg/&amp;#34; $key &amp;#34;-line.svg&amp;#34;) . }}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{{ end }}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;看了仓库的issue，没人提。问题在哪？&lt;/p&gt;
-&lt;p&gt;找了半天，找到112的更新日志&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/content-management/multilingual/#changes-in-hugo-01120&#34;&gt;https://gohugo.io/content-management/multilingual/#changes-in-hugo-01120&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;提到了配置文件config.toml映射的变化&lt;/p&gt;
-&lt;p&gt;所以把第一行的&lt;code&gt;	{{ range $key,$value:=.Site.Social }}&lt;/code&gt;改成&lt;code&gt;	{{ range $key,$value:=.Site.Params.Social }}&lt;/code&gt;就好啦&lt;/p&gt;
 </description>
     </item>
     
