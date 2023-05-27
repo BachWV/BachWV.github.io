@@ -32,7 +32,7 @@ sudo pacman -S fcitx-sogoupinyin
 就完事，因为需要`~/.xprofile`配置文件，然后重启就好了
 
 
-第三个是tim，这个只能通过wine来达到最好的体验，注意要调分辨率，
+~~第三个是tim，这个只能通过wine来达到最好的体验，注意要调分辨率，~~
 `env WINEPREFIX="$HOME/.deepinwine/Spark-TIM" deepin-wine5 winecfg`
 在弹出的窗口中改dpi，我觉得2k屏改成200dpi左右比较合适
 
