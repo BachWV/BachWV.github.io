@@ -1,6 +1,6 @@
 ---
 title: "hugo update"
-date: 2023-5-27
+date: 2023-05-27T15:00:00+08:00
 draft: false
 ---
 这几天每天邮箱都会收到Github Actions执行错误的邮件：
