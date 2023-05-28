@@ -1,6 +1,6 @@
 ---
 title: Movie and Book
-date: 2023-5-10
+date: 2023-05-10T16:58:12+08:00
 ---
 为你的静态站点添加一个观影页面
 ![](https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png)
