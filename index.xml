@@ -84,9 +84,9 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;
       <guid>https://junling.li/posts/movie-diy/</guid>
       <description>&lt;p&gt;为你的静态站点添加一个观影页面
 &lt;img src=&#34;https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png&#34; alt=&#34;&#34;&gt;
-效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。&lt;/p&gt;
-&lt;p&gt;使用git管理的好处是，历史记录能够轻易查看，https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
-&lt;p&gt;借助这个https://imnerd.org/doumark.html提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
+效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。&lt;/p&gt;
+&lt;p&gt;使用git管理的好处是，文件修改的&lt;a href=&#34;https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv&#34;&gt;历史记录&lt;/a&gt;能够轻易查看， 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
+&lt;p&gt;借助这个 &lt;a href=&#34;https://imnerd.org/doumark.html&#34;&gt;https://imnerd.org/doumark.html&lt;/a&gt; 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。&lt;/p&gt;
 &lt;p&gt;还记得怎么写&lt;strong&gt;每小说的30分钟执行一下脚本&lt;/strong&gt;，可以去复习&lt;a href=&#34;https://junling.li/posts/crontab/&#34;&gt;crontab&lt;/a&gt; 或者直接在（https://crontab.guru/#30_&lt;em&gt;_&lt;/em&gt;&lt;em&gt;*&lt;/em&gt;*）里看一下。&lt;/p&gt;
 &lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
