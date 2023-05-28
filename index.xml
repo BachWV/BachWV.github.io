@@ -77,6 +77,26 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;
     </item>
     
     <item>
+      <title>Movie and Book</title>
+      <link>https://junling.li/posts/movie-diy/</link>
+      <pubDate>Wed, 10 May 2023 16:58:12 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/movie-diy/</guid>
+      <description>&lt;p&gt;为你的静态站点添加一个观影页面
+&lt;img src=&#34;https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png&#34; alt=&#34;&#34;&gt;
+效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。&lt;/p&gt;
+&lt;p&gt;使用git管理的好处是，历史记录能够轻易查看，https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
+&lt;p&gt;借助这个https://imnerd.org/doumark.html提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
+如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。&lt;/p&gt;
+&lt;p&gt;还记得怎么写&lt;strong&gt;每小说的30分钟执行一下脚本&lt;/strong&gt;，可以去复习&lt;a href=&#34;https://junling.li/posts/crontab/&#34;&gt;crontab&lt;/a&gt; 或者直接在（https://crontab.guru/#30_&lt;em&gt;_&lt;/em&gt;&lt;em&gt;*&lt;/em&gt;*）里看一下。&lt;/p&gt;
+&lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
+&lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
+&lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>kaggle</title>
       <link>https://junling.li/posts/kaggle/</link>
       <pubDate>Mon, 12 Sep 2022 22:00:12 +0800</pubDate>
@@ -17911,26 +17931,6 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;ul&gt;
 &lt;li&gt;以上内容适用于Chrome 版本 69.0.3445&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Movie and Book</title>
-      <link>https://junling.li/posts/movie-diy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://junling.li/posts/movie-diy/</guid>
-      <description>&lt;p&gt;为你的静态站点添加一个观影页面
-&lt;img src=&#34;https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png&#34; alt=&#34;&#34;&gt;
-效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷啦。&lt;/p&gt;
-&lt;p&gt;使用git管理的好处是，历史记录能够轻易查看，https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
-&lt;p&gt;借助这个https://imnerd.org/doumark.html提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
-如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。&lt;/p&gt;
-&lt;p&gt;还记得怎么写&lt;strong&gt;每小说的30分钟执行一下脚本&lt;/strong&gt;，可以去复习&lt;a href=&#34;https://junling.li/posts/crontab/&#34;&gt;crontab&lt;/a&gt; 或者直接在（https://crontab.guru/#30_&lt;em&gt;_&lt;/em&gt;&lt;em&gt;*&lt;/em&gt;*）里看一下。&lt;/p&gt;
-&lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
-&lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
-&lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦&lt;/p&gt;
 </description>
     </item>
     
