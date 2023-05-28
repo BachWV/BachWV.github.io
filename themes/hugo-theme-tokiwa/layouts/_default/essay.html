@@ -77,6 +77,14 @@
     border: 1px solid #ccc;
     padding: 10px;
     }
+    .bber-content-img img {
+    object-fit: cover;
+    max-height: 100%;
+    border-radius: 12px;
+    min-height: 100px;
+    height: 100px;
+    }
+
 
     </style>
 {{ end }}
@@ -104,6 +112,7 @@
               </div>
               <div class="bber-bottom">
                 <div class="bber-info-time">
+                  
                   <time class="datatime" datetime="{{ $item.date }}">{{ $item.date }}</time>
                 </div>
               </div>

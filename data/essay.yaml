@@ -7,5 +7,6 @@ essay_list:
     date: 2022-08-12
   - content: 在整理转载文章的时候发现很多文章原文都无法访问了，所以本地保存网页是非常重要的
     date: 2022-08-05
-  - content: adguardhome真的不能设置太久的缓存时间，否则非常容易卡和无响应。然后就是注意添加白名单
+  - content: 11111adguardhome真的不能设置太久的缓存时间，否则非常容易卡和无响应。然后就是注意添加白名单
     date: 2022-08-04
+    image: http://wx.qlogo.cn/mmhead/Q3auHgzwzM5iakZHNmMDuPl0azqlm8pPVtxhYTNqISsiat1OwT8f4I7Q/0
