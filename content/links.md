@@ -10,7 +10,7 @@ draft: false
 
 
 
-## **[Alexhhh](http://alexhhh.moe/)**
+## **[Alexhhh](https://aleksana.moe/)**
 
 这个真的是大佬
 
@@ -30,4 +30,13 @@ draft: false
 
 一位年轻的大学生，有热情，有理想，热爱生活.Leetcode周赛ak选手
 
+## **[iLei](http://jiangxavier.online/)**
+
+335最强的男人
+
+## **[三味冰淇淋](http://harlequinicecream.com)**
+
+很快，他就走出了公园。第二天去了墨西哥。
+
+------
 欢迎在评论区交换友链
