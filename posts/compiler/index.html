@@ -232,11 +232,12 @@ onload='renderMathInElement(document.body);'></script>
 2.5节将给出从中缀翻译到后缀表达式，只考虑加减号分割的数位序列。
 2.6节介绍词法单元（由多个字符组成的标识符）
 2.8节将介绍一个构造语法树的方法
-<img src="../../../obsidian/Course/Screenshot_20220321_105255.png" alt=""></p>
+<img src="Screenshot_20220321_105255.png" alt=""></p>
 <h2 id="22-语法定义">2.2 语法定义</h2>
-<p>一个例子：<code>if(expr) statement else statement</code>
-我们用stmt代表语句<code>stmt -&gt; if (expr) stmt else stmt</code>
-箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal 像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal</p>
+<p>一个例子：<code>if(expr) statement else statement</code></p>
+<p>我们用stmt代表语句<code>stmt -&gt; if (expr) stmt else stmt</code>
+箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal</p>
+<p>像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal</p>
 <h3 id="221文法定义">2.2.1文法定义</h3>
 <p>一个上下文无关文法由下面四个元素组成</p>
 <ol>
@@ -317,7 +318,7 @@ ALGOL 称为结构</p>
 <h3 id="6幂集">6.幂集</h3>
 <p>类型T的元素的所有子集的集合，称为幂集
 它们的操作是集合的操作，例如联合，与，以及测试某个元素是否在一个集合中</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220405173620.png" alt="Pasted image 20220405173620">
+<p><img src="https://s2.loli.net/2022/12/12/NGKy9bOiDTd1rAf.png" alt="">
 可以通过以上六种机制定义复杂的数据对象（新的类型)
 新的类型可以通过非显式的方式说明</p>
 <h1 id="第三章">第三章</h1>
@@ -360,14 +361,23 @@ ALGOL 称为结构</p>
 </li>
 </ol>
 <p>文法分类</p>
-<pre><code>  1. 0型文法
-     短结构文法
-  2. 1型文法
-  3. 2型文法
-  4. 3型文法
-</code></pre>
-<ol start="5">
-<li>语言的设计 介绍设计高级语言的一般知识和方法</li>
+<ol>
+<li>
+<p>0型文法
+短结构文法</p>
+</li>
+<li>
+<p>1型文法</p>
+</li>
+<li>
+<p>2型文法</p>
+</li>
+<li>
+<p>3型文法</p>
+</li>
+<li>
+<p>语言的设计 介绍设计高级语言的一般知识和方法</p>
+</li>
 </ol>
 <h1 id="第五章-编译概述">第五章 编译概述</h1>
 <p>基本概念：宿主语言</p>
@@ -407,18 +417,18 @@ ALGOL 称为结构</p>
 <p>文法转换 如何改造文法使之适合自顶向下的文法分析
 文法的问题：1.需要回溯 2.无限递归</p>
 <p>含有$$A-&gt;A \alpha$$ 形式产生式的文法是直接左递归的
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172234.png" alt="Pasted image 20220327172234" style="zoom:50%;" /></p>
-<p>消除直接左递归$A -&gt; A \alpha| \beta$</p>
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172510.png" alt="Pasted image 20220327172510" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/12/12/61iUu4bBEmzQT5X.png" alt=""></p>
+<p>消除直接左递归$A -&gt; A \alpha| \beta$
+<img src="https://s2.loli.net/2022/12/12/yGKefxmA935icPC.png" alt=""></p>
 <p>按照这种方法，我们可以对如下例子消除直接左递归</p>
 <p>E-&gt;E+T|T 我们将+T看成$\alpha$ ,T看成$\beta$
 因此有 E-&gt;TE&rsquo; E&rsquo;-&gt;+TE&rsquo;|$\epsilon$
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327173209.png" alt="Pasted image 20220327173209" style="zoom: 50%;" />
-消除左递归是要付出代价的&ndash;引进了一些非终结符和空产生式</p>
+<img src="https://s2.loli.net/2022/12/12/v7dS2xkRnsMBlEI.png" alt=""></p>
+<p>消除左递归是要付出代价的&ndash;引进了一些非终结符和空产生式</p>
 <p>消除间接左递归
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174557.png" alt="Pasted image 20220327174557" style="zoom:33%;" />
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174620.png" alt="Pasted image 20220327174620" style="zoom:33%;" />
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174746.png" alt="Pasted image 20220327174746" style="zoom: 50%;" /></p>
+<img src="https://s2.loli.net/2022/12/12/rWtsN2QlnXVqOwG.png" alt="">
+<img src="https://s2.loli.net/2022/12/12/cU2SJzi5nbq8IdQ.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/12/MvRXurh25W8yngY.png" alt=""></p>
 <p>这里应该给出一个例子的
 E-&gt;E+T|T
 T-&gt;F|T*F
@@ -446,23 +456,24 @@ F-&gt;I|(E)</p>
 <p>如果文法中包含空产生式，会出现什么问题呢
 这个例子没有说清楚，所以也不知道引入follow集解决了什么问题</p>
 <p>SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合</p>
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327195832.png" alt="Pasted image 20220327195832" style="zoom:33%;" />
-q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法
+<p><img src="https://s2.loli.net/2022/12/12/7bY6CyE38UFgWZK.png" alt=""></p>
+<p>q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法</p>
 <p>串首终结符集，</p>
 <blockquote>
 <p>串首终结符:串首第一个符号，并且是终结符</p>
 </blockquote>
 <img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
 FIRST(\alpha)
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327213226.png" alt="Pasted image 20220327213226" style="zoom:33%;" />
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327215321.png" alt="Pasted image 20220327215321" style="zoom:33%;" />
+<p><img src="https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/12/ZKhj9s5GSyVgzOU.png" alt=""></p>
 <p>FIRST集是针对表达式左边的，
-Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着$</p>
+Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着#</p>
 <p>根据FIRST FOLLOW集就可以得到select集</p>
 <p>所以我们要牢记SELECT集的定义：
 SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合</p>
 <p>select集是针对表达式的，一般说就是表达式左边的FIRST集不含空串；如果直接表达式右边推出空，那遇到什么时可以用这条推出空的表达式呢？则是该表达式左边的Follow集，当紧跟着follow后面的token时，需要空串，这条表达式意味着这直接推没了，这条表达式奉献了自己成就了左式的follow集。
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327221212.png" alt="Pasted image 20220327221212" style="zoom:33%;" /></p>
+<img src="https://s2.loli.net/2022/12/12/D4lWnKVEAfk15vc.png" alt=""></p>
 <p>预测分析法
 表驱动
 下推栈 预测分析表 控制程序</p>
@@ -477,8 +488,8 @@ LR分析法</p>
 给定一个句型，其语法分析树中的每一棵子树的边缘称为该句型的一个短语</p>
 <p>直接短语：
 如果子树只有父子两代结点，那么这棵子树的边缘成为该句型的一个直接短语</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220401232735.png" alt="Pasted image 20220401232735">
-直接短语一定是某个产生式的右部，产生式的右部不一定是给定句型的直接短语</p>
+<p><img src="https://s2.loli.net/2022/12/12/2cx9zYQJh5Vgk7X.png" alt=""></p>
+<p>直接短语一定是某个产生式的右部，产生式的右部不一定是给定句型的直接短语</p>
 <p>句柄：最左直接短语</p>
 <p>算符优先分析法：一种直观、简单、有效的方法，适合于表达式的分析；但不严格按照最左归约进行，不是规范归约。</p>
 <p>算符文法：如果一个文法的任何产生式都不含两个或两个以上的相连的非终结符，且不含$\epsilon$产生式，则称该文法为算符文法。</p>
@@ -503,11 +514,26 @@ LR分析法是一种自下而上的分析方法，其功能强大，适用于一
 句柄之后的待入栈符号串总是终结符；
 规范句型（由规范推导推出的句型）在符号栈中的符号串是规范句型的前缀；</p>
 <p>必经节点，不需掌握</p>
-<h2 id="循环优化">循环优化</h2>
+<h2 id="优化">优化</h2>
+<p>局部优化：</p>
+<p>基本块内的优化：</p>
+<ol>
+<li>合并已知量</li>
+<li>删除公共子表达式</li>
+<li>删除无用赋值</li>
+<li>删除死代码 永远不会执行的代码</li>
+</ol>
+<h3 id="全局优化有很多种本节只讨论循环优化">全局优化有很多种，本节只讨论循环优化</h3>
 <ol>
 <li>代码外提</li>
 <li>强度削弱</li>
 <li>删除归纳不变量</li>
+</ol>
+<p>必经结点具有如下性质：</p>
+<ol>
+<li>自反性，a的必经结点是它本身</li>
+<li>传递性，</li>
+<li>反对称性</li>
 </ol>
 <h2 id="目标代码生成">目标代码生成</h2>
 <p>三地址码的代码生成方法
@@ -597,7 +623,7 @@ op R_i,z
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 4978 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 5069 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

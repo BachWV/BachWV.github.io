@@ -2742,7 +2742,7 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
       <description>&lt;p&gt;今天心血来潮注册了junling.li&lt;/p&gt;
 &lt;p&gt;?? copilot 已经如此智能了吗？&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/OCAJ8aMWnEIcTxl.png&#34; alt=&#34;junling-li-1.png&#34;&gt;
-整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 &lt;a href=&#34;https://www.metanet.ch&#34;&gt;metanet&lt;/a&gt;，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 &lt;a href=&#34;https://jun.li/tech/202.html&#34;&gt;https://jun.li/tech/202.html&lt;/a&gt; 下面的评论，发现 &lt;a href=&#34;https://gandi.net&#34;&gt;https://gandi.net&lt;/a&gt;可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。&lt;/p&gt;
+整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 &lt;a href=&#34;https://www.metanet.ch&#34;&gt;metanet&lt;/a&gt;，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 &lt;a href=&#34;https://jun.li/tech/202.html&#34;&gt;https://jun.li/tech/202.html&lt;/a&gt; 下面的评论，发现 &lt;a href=&#34;https://gandi.net&#34;&gt;https://gandi.net&lt;/a&gt; 可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。&lt;/p&gt;
 &lt;p&gt;之后改一下默认dns到dnspod.cn,&lt;/p&gt;
 &lt;p&gt;?? 过于智能了&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/7lUBLWtS5eAsauF.png&#34; alt=&#34;junling-li-2.png&#34;&gt;&lt;/p&gt;
@@ -7586,11 +7586,12 @@ inline assembly也可以参与优化&lt;/p&gt;
 2.5节将给出从中缀翻译到后缀表达式，只考虑加减号分割的数位序列。
 2.6节介绍词法单元（由多个字符组成的标识符）
 2.8节将介绍一个构造语法树的方法
-&lt;img src=&#34;../../../obsidian/Course/Screenshot_20220321_105255.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;Screenshot_20220321_105255.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;22-语法定义&#34;&gt;2.2 语法定义&lt;/h2&gt;
-&lt;p&gt;一个例子：&lt;code&gt;if(expr) statement else statement&lt;/code&gt;
-我们用stmt代表语句&lt;code&gt;stmt -&amp;gt; if (expr) stmt else stmt&lt;/code&gt;
-箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal 像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal&lt;/p&gt;
+&lt;p&gt;一个例子：&lt;code&gt;if(expr) statement else statement&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我们用stmt代表语句&lt;code&gt;stmt -&amp;gt; if (expr) stmt else stmt&lt;/code&gt;
+箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal&lt;/p&gt;
+&lt;p&gt;像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal&lt;/p&gt;
 &lt;h3 id=&#34;221文法定义&#34;&gt;2.2.1文法定义&lt;/h3&gt;
 &lt;p&gt;一个上下文无关文法由下面四个元素组成&lt;/p&gt;
 &lt;ol&gt;
@@ -7671,7 +7672,7 @@ ALGOL 称为结构&lt;/p&gt;
 &lt;h3 id=&#34;6幂集&#34;&gt;6.幂集&lt;/h3&gt;
 &lt;p&gt;类型T的元素的所有子集的集合，称为幂集
 它们的操作是集合的操作，例如联合，与，以及测试某个元素是否在一个集合中&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220405173620.png&#34; alt=&#34;Pasted image 20220405173620&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/NGKy9bOiDTd1rAf.png&#34; alt=&#34;&#34;&gt;
 可以通过以上六种机制定义复杂的数据对象（新的类型)
 新的类型可以通过非显式的方式说明&lt;/p&gt;
 &lt;h1 id=&#34;第三章&#34;&gt;第三章&lt;/h1&gt;
@@ -7714,14 +7715,23 @@ ALGOL 称为结构&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;文法分类&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  1. 0型文法
-     短结构文法
-  2. 1型文法
-  3. 2型文法
-  4. 3型文法
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;语言的设计 介绍设计高级语言的一般知识和方法&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;0型文法
+短结构文法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;1型文法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2型文法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3型文法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;语言的设计 介绍设计高级语言的一般知识和方法&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;第五章-编译概述&#34;&gt;第五章 编译概述&lt;/h1&gt;
 &lt;p&gt;基本概念：宿主语言&lt;/p&gt;
@@ -7761,18 +7771,18 @@ ALGOL 称为结构&lt;/p&gt;
 &lt;p&gt;文法转换 如何改造文法使之适合自顶向下的文法分析
 文法的问题：1.需要回溯 2.无限递归&lt;/p&gt;
 &lt;p&gt;含有$$A-&amp;gt;A \alpha$$ 形式产生式的文法是直接左递归的
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172234.png&#34; alt=&#34;Pasted image 20220327172234&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;消除直接左递归$A -&amp;gt; A \alpha| \beta$&lt;/p&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172510.png&#34; alt=&#34;Pasted image 20220327172510&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/61iUu4bBEmzQT5X.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;消除直接左递归$A -&amp;gt; A \alpha| \beta$
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/yGKefxmA935icPC.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;按照这种方法，我们可以对如下例子消除直接左递归&lt;/p&gt;
 &lt;p&gt;E-&amp;gt;E+T|T 我们将+T看成$\alpha$ ,T看成$\beta$
 因此有 E-&amp;gt;TE&amp;rsquo; E&amp;rsquo;-&amp;gt;+TE&amp;rsquo;|$\epsilon$
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327173209.png&#34; alt=&#34;Pasted image 20220327173209&#34; style=&#34;zoom: 50%;&#34; /&gt;
-消除左递归是要付出代价的&amp;ndash;引进了一些非终结符和空产生式&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/v7dS2xkRnsMBlEI.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;消除左递归是要付出代价的&amp;ndash;引进了一些非终结符和空产生式&lt;/p&gt;
 &lt;p&gt;消除间接左递归
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174557.png&#34; alt=&#34;Pasted image 20220327174557&#34; style=&#34;zoom:33%;&#34; /&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174620.png&#34; alt=&#34;Pasted image 20220327174620&#34; style=&#34;zoom:33%;&#34; /&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174746.png&#34; alt=&#34;Pasted image 20220327174746&#34; style=&#34;zoom: 50%;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/rWtsN2QlnXVqOwG.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/cU2SJzi5nbq8IdQ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/MvRXurh25W8yngY.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这里应该给出一个例子的
 E-&amp;gt;E+T|T
 T-&amp;gt;F|T*F
@@ -7800,23 +7810,24 @@ F-&amp;gt;I|(E)&lt;/p&gt;
 &lt;p&gt;如果文法中包含空产生式，会出现什么问题呢
 这个例子没有说清楚，所以也不知道引入follow集解决了什么问题&lt;/p&gt;
 &lt;p&gt;SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合&lt;/p&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327195832.png&#34; alt=&#34;Pasted image 20220327195832&#34; style=&#34;zoom:33%;&#34; /&gt;
-q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/7bY6CyE38UFgWZK.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法&lt;/p&gt;
 &lt;p&gt;串首终结符集，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;串首终结符:串首第一个符号，并且是终结符&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png&#34; alt=&#34;Pasted image 20220327203357&#34; style=&#34;zoom:33%;&#34; /&gt;
 FIRST(\alpha)
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327213226.png&#34; alt=&#34;Pasted image 20220327213226&#34; style=&#34;zoom:33%;&#34; /&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327215321.png&#34; alt=&#34;Pasted image 20220327215321&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/ZKhj9s5GSyVgzOU.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;FIRST集是针对表达式左边的，
-Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着$&lt;/p&gt;
+Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着#&lt;/p&gt;
 &lt;p&gt;根据FIRST FOLLOW集就可以得到select集&lt;/p&gt;
 &lt;p&gt;所以我们要牢记SELECT集的定义：
 SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合&lt;/p&gt;
 &lt;p&gt;select集是针对表达式的，一般说就是表达式左边的FIRST集不含空串；如果直接表达式右边推出空，那遇到什么时可以用这条推出空的表达式呢？则是该表达式左边的Follow集，当紧跟着follow后面的token时，需要空串，这条表达式意味着这直接推没了，这条表达式奉献了自己成就了左式的follow集。
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327221212.png&#34; alt=&#34;Pasted image 20220327221212&#34; style=&#34;zoom:33%;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/12/12/D4lWnKVEAfk15vc.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;预测分析法
 表驱动
 下推栈 预测分析表 控制程序&lt;/p&gt;
@@ -7831,8 +7842,8 @@ LR分析法&lt;/p&gt;
 给定一个句型，其语法分析树中的每一棵子树的边缘称为该句型的一个短语&lt;/p&gt;
 &lt;p&gt;直接短语：
 如果子树只有父子两代结点，那么这棵子树的边缘成为该句型的一个直接短语&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220401232735.png&#34; alt=&#34;Pasted image 20220401232735&#34;&gt;
-直接短语一定是某个产生式的右部，产生式的右部不一定是给定句型的直接短语&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/2cx9zYQJh5Vgk7X.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;直接短语一定是某个产生式的右部，产生式的右部不一定是给定句型的直接短语&lt;/p&gt;
 &lt;p&gt;句柄：最左直接短语&lt;/p&gt;
 &lt;p&gt;算符优先分析法：一种直观、简单、有效的方法，适合于表达式的分析；但不严格按照最左归约进行，不是规范归约。&lt;/p&gt;
 &lt;p&gt;算符文法：如果一个文法的任何产生式都不含两个或两个以上的相连的非终结符，且不含$\epsilon$产生式，则称该文法为算符文法。&lt;/p&gt;
@@ -7857,11 +7868,26 @@ LR分析法是一种自下而上的分析方法，其功能强大，适用于一
 句柄之后的待入栈符号串总是终结符；
 规范句型（由规范推导推出的句型）在符号栈中的符号串是规范句型的前缀；&lt;/p&gt;
 &lt;p&gt;必经节点，不需掌握&lt;/p&gt;
-&lt;h2 id=&#34;循环优化&#34;&gt;循环优化&lt;/h2&gt;
+&lt;h2 id=&#34;优化&#34;&gt;优化&lt;/h2&gt;
+&lt;p&gt;局部优化：&lt;/p&gt;
+&lt;p&gt;基本块内的优化：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;合并已知量&lt;/li&gt;
+&lt;li&gt;删除公共子表达式&lt;/li&gt;
+&lt;li&gt;删除无用赋值&lt;/li&gt;
+&lt;li&gt;删除死代码 永远不会执行的代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;全局优化有很多种本节只讨论循环优化&#34;&gt;全局优化有很多种，本节只讨论循环优化&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;代码外提&lt;/li&gt;
 &lt;li&gt;强度削弱&lt;/li&gt;
 &lt;li&gt;删除归纳不变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;必经结点具有如下性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自反性，a的必经结点是它本身&lt;/li&gt;
+&lt;li&gt;传递性，&lt;/li&gt;
+&lt;li&gt;反对称性&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;目标代码生成&#34;&gt;目标代码生成&lt;/h2&gt;
 &lt;p&gt;三地址码的代码生成方法
@@ -13625,6 +13651,8 @@ neXt next is 6.824&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;abi-kuhttpsblogabi-kucom&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.abi-ku.com/&#34;&gt;Abi-ku&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;一位年轻的大学生，有热情，有理想，热爱生活.Leetcode周赛ak选手&lt;/p&gt;
+&lt;h2 id=&#34;三味冰淇淋httpharlequinicecreamcom&#34;&gt;&lt;strong&gt;&lt;a href=&#34;http://harlequinicecream.com&#34;&gt;三味冰淇淋&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;很快，他就走出了公园。第二天去了墨西哥。&lt;/p&gt;
 &lt;p&gt;欢迎在评论区交换友链&lt;/p&gt;
 </description>
     </item>
