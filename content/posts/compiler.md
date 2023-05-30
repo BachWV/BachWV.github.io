@@ -78,9 +78,9 @@ public private protected可以由子类访问
 本节将讨论实在参数（调用过程中使用的参数）和形式参数（在过程中使用的参数）关联起来的。
 
 - 值调用
-  相当于传一个拷贝
+ 相当于传一个拷贝
 - 引用调用
-  传递一个引用（指针）使得可以改变对象的值。Java中可能一个对象很大，拷贝的代价是高昂额，Java在解决数组，字符串和其他对象的参数传递问题的方法仅仅是复制这些对象的引用
+传递一个引用（指针）使得可以改变对象的值。Java中可能一个对象很大，拷贝的代价是高昂额，Java在解决数组，字符串和其他对象的参数传递问题的方法仅仅是复制这些对象的引用
 - 名调用 algol 60
 
 ### 1.6.7 别名
@@ -97,18 +97,19 @@ alias
 2.5节将给出从中缀翻译到后缀表达式，只考虑加减号分割的数位序列。
 2.6节介绍词法单元（由多个字符组成的标识符）
 2.8节将介绍一个构造语法树的方法
-![](../../../obsidian/Course/Screenshot_20220321_105255.png)
-
+![](Screenshot_20220321_105255.png)
 ## 2.2 语法定义
 
 一个例子：`if(expr) statement else statement`
+
 我们用stmt代表语句`stmt -> if (expr) stmt else stmt`
-箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal 像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal
+箭头可以读有如下形式，这样的规则成为产生式（production），向if被成为终结符 terminal 
+
+像expr和stmt这样的变量表示终结符号序列，被称为非终结符nonterminal
 
 ### 2.2.1文法定义
 
 一个上下文无关文法由下面四个元素组成
-
 1. 一个终结符号集合，有时又称“**词法单元**”，终结符号是该文法所定义的语言的基本符号的集合。
 2. 一个非终结符号集合，它们有时又称“**语法变量**”，每个非终结符号表示一个终结符号串的集合
 3. 一个产生式集合，其中每一个产生式包括一个称为产生式头部的非终结符号，一个箭头，和一个称为产生式体的由终结符号及非终结符号组成的序列。产生式主要用来表示某个构造的某种书写形式。
@@ -125,7 +126,7 @@ alias
 以非终结符号list为头部的三个产生式可以等价得组合为：
 
 >list->list+digit|list-digit|digit
->根据我们的习惯，该文法的终结符号包括以下符号：
+根据我们的习惯，该文法的终结符号包括以下符号：
 >\+ \- 1 2 3 4 5 6 7 8 9
 
 该文法的非终结符号是斜体名字list和digit。因为list的产生式首先被列出，所以我们知道list是该文法的开始符号。
@@ -147,21 +148,20 @@ alias
 
 1. 内部类型反映了基本的硬件特性
 2. 内部类型标识共用某些操作的数据对象的抽象表示（整型表示能实现+-
-   \*/ 等定点操作的数据对象的集合）
-   二、内部类型的优越性
-3. 基本表示的不可见性
-   - 基本位串如35+9=34的基本表示为00011001+00001001=00100010
-   - 优点：
-     - 导致不同的程序设计风格
-     - 可写性
-     - 可读性
-     - 可修改性
-4. 编译时能检查变量使用的正确性
-   进行静态编译检查，如非法运算，形实参类型匹配
-5. 编译时可以确定无二义性的操作
-   多态
-6. 精度控制
-
+\*/ 等定点操作的数据对象的集合）
+二、内部类型的优越性
+1. 基本表示的不可见性
+    - 基本位串如35+9=34的基本表示为00011001+00001001=00100010
+    - 优点：
+        - 导致不同的程序设计风格
+        - 可写性
+        - 可读性
+        - 可修改性
+2. 编译时能检查变量使用的正确性
+进行静态编译检查，如非法运算，形实参类型匹配
+3. 编译时可以确定无二义性的操作
+    多态
+4. 精度控制
 ## 2.3 用户定义类型
 
 ### 1.笛卡尔积
@@ -205,7 +205,8 @@ pascal和ada中的变体
 类型T的元素的所有子集的集合，称为幂集
 它们的操作是集合的操作，例如联合，与，以及测试某个元素是否在一个集合中
 
-![Pasted image 20220405173620](https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220405173620.png)
+
+![](https://s2.loli.net/2022/12/12/NGKy9bOiDTd1rAf.png)
 可以通过以上六种机制定义复杂的数据对象（新的类型)
 新的类型可以通过非显式的方式说明
 
@@ -242,7 +243,7 @@ pascal和ada中的变体
 
 - 位置绑定
 - 关键字绑定
-  副作用：对局部环境的修改
+副作用：对局部环境的修改
 
 
 
@@ -252,20 +253,22 @@ pascal和ada中的变体
 
 1.  语言的定义
 
-    -   语法
+    -   语法    
 
     -   文法
-
+ 
 2.  文法 定义语言语法的形式化规则
 
  文法分类
 
-      1. 0型文法
-         短结构文法
-      2. 1型文法
-      3. 2型文法
-      4. 3型文法
-   5. 语言的设计 介绍设计高级语言的一般知识和方法
+   1. 0型文法
+      短结构文法
+   2. 1型文法
+   3. 2型文法
+   4. 3型文法
+
+3.  语言的设计 介绍设计高级语言的一般知识和方法
+    
 
 # 第五章 编译概述
 
@@ -322,23 +325,25 @@ pascal和ada中的变体
 文法的问题：1.需要回溯 2.无限递归
 
 含有$$A->A \alpha$$ 形式产生式的文法是直接左递归的
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172234.png" alt="Pasted image 20220327172234" style="zoom:50%;" />
+![](https://s2.loli.net/2022/12/12/61iUu4bBEmzQT5X.png)
 
 消除直接左递归$A -> A \alpha| \beta$
+![](https://s2.loli.net/2022/12/12/yGKefxmA935icPC.png)
 
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327172510.png" alt="Pasted image 20220327172510" style="zoom:50%;" />
 
 按照这种方法，我们可以对如下例子消除直接左递归
 
 E->E+T|T 我们将+T看成$\alpha$ ,T看成$\beta$
 因此有 E->TE' E'->+TE'|$\epsilon$
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327173209.png" alt="Pasted image 20220327173209" style="zoom: 50%;" />
+![](https://s2.loli.net/2022/12/12/v7dS2xkRnsMBlEI.png)
+
 消除左递归是要付出代价的--引进了一些非终结符和空产生式
 
 消除间接左递归
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174557.png" alt="Pasted image 20220327174557" style="zoom:33%;" />
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174620.png" alt="Pasted image 20220327174620" style="zoom:33%;" />
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327174746.png" alt="Pasted image 20220327174746" style="zoom: 50%;" />
+![](https://s2.loli.net/2022/12/12/rWtsN2QlnXVqOwG.png)
+![](https://s2.loli.net/2022/12/12/cU2SJzi5nbq8IdQ.png)
+
+![](https://s2.loli.net/2022/12/12/MvRXurh25W8yngY.png)
 
 
 
@@ -372,7 +377,7 @@ S_ 文法 简单的确定性文法：
 
 1. 每个产生式的右部都以终结符开始
 2. 同一非终结符的各个候选式的首终结符都不同。
-   比如上面一个ppt中的例子
+比如上面一个ppt中的例子
 3. S_ 文法不包含空产生式
 
 如果文法中包含空产生式，会出现什么问题呢
@@ -380,7 +385,8 @@ S_ 文法 简单的确定性文法：
 
 SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合
 
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327195832.png" alt="Pasted image 20220327195832" style="zoom:33%;" />
+![](https://s2.loli.net/2022/12/12/7bY6CyE38UFgWZK.png)
+
 q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法
 
 
@@ -393,14 +399,16 @@ q_文法不允许右部以非终结符开始，所以我们还需要功能更加
 <img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
 FIRST(\alpha)
 
+![](https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png)
+
+![](https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png)
 
 
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327213226.png" alt="Pasted image 20220327213226" style="zoom:33%;" />
+![](https://s2.loli.net/2022/12/12/ZKhj9s5GSyVgzOU.png)
 
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327215321.png" alt="Pasted image 20220327215321" style="zoom:33%;" />
 
 FIRST集是针对表达式左边的，
-Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着$
+Follow集是针对一个非终结符或者终结符的右边可以紧跟着什么，特别地，可以跟着#
 
 根据FIRST FOLLOW集就可以得到select集
 
@@ -408,7 +416,8 @@ Follow集是针对一个非终结符或者终结符的右边可以紧跟着什�
 SELECT集：表达式的可选集是指 可以用该产生式进行推导时对应的输入符号的集合
 
 select集是针对表达式的，一般说就是表达式左边的FIRST集不含空串；如果直接表达式右边推出空，那遇到什么时可以用这条推出空的表达式呢？则是该表达式左边的Follow集，当紧跟着follow后面的token时，需要空串，这条表达式意味着这直接推没了，这条表达式奉献了自己成就了左式的follow集。
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327221212.png" alt="Pasted image 20220327221212" style="zoom:33%;" />
+![](https://s2.loli.net/2022/12/12/D4lWnKVEAfk15vc.png)
+
 
 预测分析法
 表驱动
@@ -419,7 +428,6 @@ select集是针对表达式的，一般说就是表达式左边的FIRST集不含
 
 
 # 第八章 自下而上的语法分析
-
 算符优先分析法
 LR分析法
 
@@ -431,7 +439,8 @@ LR分析法
 直接短语：
 如果子树只有父子两代结点，那么这棵子树的边缘成为该句型的一个直接短语
 
-![Pasted image 20220401232735](https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220401232735.png)
+![](https://s2.loli.net/2022/12/12/2cx9zYQJh5Vgk7X.png)
+
 直接短语一定是某个产生式的右部，产生式的右部不一定是给定句型的直接短语
 
 句柄：最左直接短语
@@ -456,7 +465,6 @@ LR分析法是一种自下而上的分析方法，其功能强大，适用于一
 LR分析器主要有两部分组成：一个总控程序和一张分析表；总控程序对所有文法都是一样的，且易于实现。不同文法的LR分析器的不同体现在不同的分析表上。
 
 LR分析法的种类
-
 1. LR(0)分析法 使用LR(0)分析表，基础
 2. SLR分析法 简单，有效，实用
 3. 规范LR分析法 分析能力强大
@@ -470,11 +478,32 @@ LR分析法的种类
 
 必经节点，不需掌握
 
-## 循环优化
+## 优化
+
+
+
+局部优化：
+
+基本块内的优化：
+
+1. 合并已知量
+2. 删除公共子表达式
+3. 删除无用赋值
+4. 删除死代码 永远不会执行的代码
+
+
+
+### 全局优化有很多种，本节只讨论循环优化
 
 1. 代码外提
 2. 强度削弱
 3. 删除归纳不变量
+
+必经结点具有如下性质：
+
+1. 自反性，a的必经结点是它本身
+2. 传递性，
+3. 反对称性
 
 ## 目标代码生成
 

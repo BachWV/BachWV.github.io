@@ -9,7 +9,7 @@ draft: false
 ?? copilot 已经如此智能了吗？
 
 ![junling-li-1.png](https://s2.loli.net/2022/09/06/OCAJ8aMWnEIcTxl.png)
-整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 [metanet](https://www.metanet.ch)，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 https://jun.li/tech/202.html 下面的评论，发现 https://gandi.net可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。
+整个过程很顺利，首先是尝试了一家 瑞士的注册商叫 [metanet](https://www.metanet.ch)，我嫌他太慢了，而且没有能付chz的卡。冲浪时看到 https://jun.li/tech/202.html 下面的评论，发现 https://gandi.net 可以注册，而且可以支付宝，有中文页面，遂付了98大洋注册。
 
 之后改一下默认dns到dnspod.cn,
 
