@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Synology</title>
+	<title>8086  | 博客评论</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.113.0">
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://junling.li/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Synology</h1>
+<h1 class="pt-2">博客评论</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-05-13T19:55:45&#43;08:00">2022-5-13</time>
+		datetime="2022-05-15T16:58:12&#43;08:00">2022-5-15</time>
 </div>
 
 <hr />
@@ -144,46 +144,45 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>今天送走了一台j1900主机，上面部署过黑群晖，也花了很久才调教成一个顺手的群晖。
-我给群晖的定义是一个更智能的云盘，首要的任务是文件的保存同步和共享。</p>
-<p>而首先需要解决的问题是</p>
-<h2 id="外网访问">外网访问</h2>
-<p>在没有公网IP的情况下，我总结了4种方法。</p>
-<ol>
-<li><a href="/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/">洗白</a></li>
-<li><a href="/posts/%E7%BE%A4%E6%99%96frp/">frp</a></li>
-<li><a href="/posts/zerotier/">zerotier</a></li>
-<li>公网ipv6+ddns</li>
-</ol>
-<h2 id="云盘">云盘</h2>
-<p>群晖提供了各种方式访问群晖的文件。</p>
-<p>SMB 局域网共享</p>
-<p>WEBDAV 挂载成网盘</p>
-<p>FTP/SFTP 最广泛的文件传输协议</p>
-<p>最近发现的一个很好用的支持多种存储的目录文件列表程序Alist，可以直接使用docker构建</p>
-<h2 id="其他服务">其他服务</h2>
-<h3 id="笔记-notestation">笔记 NoteStation</h3>
-<p>笔记可以直接从印象笔记转移，是相当不错的功能。也有桌面和手机端的APP，手机端除了有些bug，功能挺全的。</p>
-<p>原本对于笔记的要求就是简单，查看方便，保存100年，加上私密性。Note Station足够了。</p>
-<h3 id="下载">下载</h3>
-<p>bt，电驴应有尽有。</p>
-<h3 id="百度网盘">百度网盘</h3>
-<p>可以同步百度网盘，Google网盘啥的，很强大。</p>
-<h3 id="docker">Docker</h3>
-<p>方便管理各种docker应用，反正就是无限可能。</p>
-<h3 id="chat">Chat</h3>
-<p>私密聊天，吊打微信，多用户，多频道。不过好像没有手机端app</p>
-<h3 id="drive">Drive</h3>
-<p>同步云盘，手机公测 的新APP可以同步微信聊天记录和文件夹。</p>
-<h3 id="photo">Photo</h3>
-<p>手机APP挺稳定的，无论备份多少东西都不会被杀后台，将50G的照片放在群晖上，手机随时查看，属于是我的小米云平替了。</p>
-<h3 id="movie">Movie</h3>
-<p>iPad客户端体验捉急，用了一次就不用了。</p>
-<p>其他的话由于群晖也是在bsd基础上开发的，也可以正常用很多linux-x86的应用，比如gcc,java,node,python,群晖套件也就相当于包管理工具了。</p>
-<p>群晖官方的应用服务的质量良莠不齐，不过可能是我还在dsm6，没有体验过dsm7，有些就一直是老版本。</p>
-<p>手机APP</p>
-<p>群晖助手，这是第三方写的，很好用，更新也很及时。可以直接打开视频，可以用android官方共享接口上传文件。</p>
-<p>官方叫群晖管家，也能凑合用。</p>
+		<div class="c-rich-text"><p>blog评论一直没做，这次终于不嫌麻烦开整了。</p>
+<p>我选用的是waline，主要是用户评论时不需要登录，而且好看。</p>
+<p>部署指南参见 <a href="https://waline.js.org/guide">https://waline.js.org/guide</a></p>
+<p>我用的是hugo搭建的blog，html引入就只能自己试试了。</p>
+<p>在\themes\hugo-theme-tokiwa\layouts\partials下找到page-footer.html</p>
+<p>加上</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://unpkg.com/@waline/client@v2/dist/waline.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">link</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">rel</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;stylesheet&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://unpkg.com/@waline/client@v2/dist/waline.css&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">Waline</span><span style="color:#111">.</span><span style="color:#75af00">init</span><span style="color:#111">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">el</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;#waline&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">serverURL</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://waline-66tg5wuyr-bachwv.vercel.app&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>即可。</p>
+<p>评论系统：https://waline-66tg5wuyr-bachwv.vercel.app/</p>
+<p>评论管理：https://waline-66tg5wuyr-bachwv.vercel.app/ui</p>
 </div>
 	</section>
 
@@ -265,7 +264,7 @@ onload='renderMathInElement(document.body);'></script>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 732 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 283 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -281,17 +280,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/">
+    <a class="flex-grow-0" href="/posts/synology/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        链式前向星
+        Synology
     </a>
     
     
-    <a class="flex-grow-0" href="/posts/blog-comments/">
-        博客评论
+    <a class="flex-grow-0" href="/posts/isa/">
+        计算机系统结构笔记
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />

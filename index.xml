@@ -7,10 +7,59 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2023</copyright>
-    <lastBuildDate>Sat, 27 May 2023 15:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jun 2023 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://junling.li/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>群晖外网访问终极篇 Cloudflare隧道</title>
+      <link>https://junling.li/posts/synology-cloudflare/</link>
+      <pubDate>Thu, 15 Jun 2023 12:00:00 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/synology-cloudflare/</guid>
+      <description>&lt;p&gt;终于到这个终极篇了，作为外网访问的最后一篇，我要介绍的是Cloudflare隧道，这个隧道是Cloudflare的一个0元付费服务，因为它可以让你的群晖外网访问变得更加安全，而且还可以让你的群晖外网访问变得更加快速。&lt;/p&gt;
+&lt;p&gt;使用非常简单，部署不超过3分钟。&lt;/p&gt;
+&lt;p&gt;cloudflare注册账号，添加域名，添加DNS解析，添加隧道，&lt;/p&gt;
+&lt;p&gt;群晖ssh,docker 运行，cf配置一下域名，搞定。&lt;/p&gt;
+&lt;p&gt;为什么用cf呢，因为群晖在只支持v4的路由器下，v6直接访问就没戏了，本着多试试的原则，就试了试cf的隧道。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gradle使用指南</title>
+      <link>https://junling.li/posts/gradle-guide/</link>
+      <pubDate>Wed, 14 Jun 2023 12:00:00 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/gradle-guide/</guid>
+      <description>&lt;p&gt;Gradle是我碰都不愿意碰的东西，从Android项目开始，我对这玩意就没有好印象，留下一堆配置文件，在我的环境里就run不起来，我只想run一下看看效果，为什么要下一版gradle-7.4-all.zip，你就不能做到向前兼容？
+我的~.gradle\wrapper\dists\gradle-7.4-all里面有4个不同文件名的文件夹，里面都是同一个东西，我不知道为什么同样的东西被下了四次。&lt;/p&gt;
+&lt;p&gt;既然gradle这么折磨难用，但短时间还没有东西能把它淘汰，所以只能硬着头皮学下去了。&lt;/p&gt;
+&lt;p&gt;gradle是什么？官方的解释是：Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言来声明项目设置，而不是传统的XML。但是我觉得这个解释并不好，因为我不知道Apache Ant和Apache Maven是什么，所以我也不知道gradle是什么。&lt;/p&gt;
+&lt;p&gt;对于Android项目，项目目录下都会有一个gradle目录，里面有一个wrapper目录，jar是用来下载特定版本的gradle的，对于Android项目来说，不同项目可能锚定在不同的gradle版本，这就导致了你会有无数不同版本的gardle并存。gradle-wrapper.properties是配置去哪找对应的分发版本，然后帮你下载到~/.gradle/wrapper/dists中，并且产生一串奇怪的目录名，Gradle对应版本下载完成之后，Gradle Wrapper的使命基本完成了，真™笑死，占了一个大文件夹只为了你下载分发的gradle，欺负你们不会自己下载gradle。不能忍，必须所有项目共用一个gradle，指定use local gradle distribution，什么，你说gardle不能保证兼容性，不同项目共用一个gradle会有意想不到的问题，那咋办，忍着，谁让这gradle如此垃圾呢。&lt;/p&gt;
+&lt;p&gt;接下来终于到重头戏了，到达坑贼多的构建环节。&lt;/p&gt;
+&lt;p&gt;还没学会，等我更新&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AC2100 CatWrt</title>
+      <link>https://junling.li/posts/ac2100-catwrt/</link>
+      <pubDate>Tue, 06 Jun 2023 12:00:00 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/ac2100-catwrt/</guid>
+      <description>&lt;p&gt;这几天一直在折腾路由器，之前一直用的是pandaven老毛子的固件，前几天终于折腾好了远程唤醒，突然又不知道什么原因想换固件了，于是就尝试了几个基于openwrt的包，开始了踩坑的路。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;混迹恩山找到一个bleach的固件，尝试开始！&lt;/li&gt;
+&lt;li&gt;沉淀
+wol插件，安装！
+luci-wol安装以后一直见不到，不知道是什么原因。
+装不来，难受，换！&lt;/li&gt;
+&lt;li&gt;固件不稳定，换cawrt
+喵二的这个固件，很早就看到了，但因为它的WiFi只能用脚本开启，就一直没用，这次尝试一下。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>hugo update</title>
@@ -8415,6 +8464,54 @@ ID_rs2IsReg=and+or+add+sub （排除立即数运算指令、load和转移指令�
 &lt;p&gt;踪迹cache
 踪迹cache：块中是动态指令序列，而不是限制指令在一个静态cache块中。
 cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅由存储器确定的静态指令序列&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>博客评论</title>
+      <link>https://junling.li/posts/blog-comments/</link>
+      <pubDate>Sun, 15 May 2022 16:58:12 +0800</pubDate>
+      
+      <guid>https://junling.li/posts/blog-comments/</guid>
+      <description>&lt;p&gt;blog评论一直没做，这次终于不嫌麻烦开整了。&lt;/p&gt;
+&lt;p&gt;我选用的是waline，主要是用户评论时不需要登录，而且好看。&lt;/p&gt;
+&lt;p&gt;部署指南参见 &lt;a href=&#34;https://waline.js.org/guide&#34;&gt;https://waline.js.org/guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我用的是hugo搭建的blog，html引入就只能自己试试了。&lt;/p&gt;
+&lt;p&gt;在\themes\hugo-theme-tokiwa\layouts\partials下找到page-footer.html&lt;/p&gt;
+&lt;p&gt;加上&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;https://unpkg.com/@waline/client@v2/dist/waline.js&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#75af00&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#75af00&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;https://unpkg.com/@waline/client@v2/dist/waline.css&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#111&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75af00&#34;&gt;Waline&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;init&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;el&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;#waline&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;serverURL&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#d88200&#34;&gt;&amp;#39;https://waline-66tg5wuyr-bachwv.vercel.app&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;即可。&lt;/p&gt;
+&lt;p&gt;评论系统：https://waline-66tg5wuyr-bachwv.vercel.app/&lt;/p&gt;
+&lt;p&gt;评论管理：https://waline-66tg5wuyr-bachwv.vercel.app/ui&lt;/p&gt;
 </description>
     </item>
     
