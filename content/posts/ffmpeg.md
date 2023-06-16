@@ -47,3 +47,9 @@ outlineColour=&Hffffff,outline=1'" -c:v libx264 output-srt-color-white-2.flv
 ```
 
 这就完成了我们的全部需求了。
+
+
+
+如果想控制导出大小，比如某演示视频需要提交20M以内文件，可以加上`-fs 20M`的参数。ffmpeg的命令行是很复杂的，以至于没有人能hold得住为它做一个GUI，对于一开始的我来说，使用搜索引擎寻找guide博客是很花时间的。当然我也找到一个做的比较好的[guide]([FFmpeg.guide - One stop solution to all things FFmpeg](https://ffmpeg.guide/?utm_source=hackernewsletter&utm_medium=email&utm_term=show_hn))
+
+现在，我们有了GPT，感觉是可以把这部分的搜索给替代了。
