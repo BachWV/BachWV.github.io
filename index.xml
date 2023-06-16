@@ -2731,6 +2731,8 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这就完成了我们的全部需求了。&lt;/p&gt;
+&lt;p&gt;如果想控制导出大小，比如某演示视频需要提交20M以内文件，可以加上&lt;code&gt;-fs 20M&lt;/code&gt;的参数。ffmpeg的命令行是很复杂的，以至于没有人能hold得住为它做一个GUI，对于一开始的我来说，使用搜索引擎寻找guide博客是很花时间的。当然我也找到一个做的比较好的[guide](&lt;a href=&#34;https://ffmpeg.guide/?utm_source=hackernewsletter&amp;amp;utm_medium=email&amp;amp;utm_term=show_hn&#34;&gt;FFmpeg.guide - One stop solution to all things FFmpeg&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;现在，我们有了GPT，感觉是可以把这部分的搜索给替代了。&lt;/p&gt;
 </description>
     </item>
     
