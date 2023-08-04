@@ -170,7 +170,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">hammingWeight</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">ans</span><span style="color:#f92672">=</span><span style="color:#111">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">n</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">){</span>
 </span></span><span style="display:flex;"><span>            
 </span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">++;</span>
@@ -337,30 +337,13 @@ i=0010010100101011</p>
 <p>给你编码后的数组 <code>encoded</code> 和原数组 <code>arr</code> 的第一个元素 <code>first</code>（<code>arr[0]</code>）。</p>
 <p>请解码返回原数组 <code>arr</code> 。可以证明答案存在并且是唯一的。</p>
 <p><strong>示例 1：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [1,2,3], first = 1
-</span></span><span style="display:flex;"><span>输出：[1,0,2,1]
-</span></span><span style="display:flex;"><span>解释：若 arr = [1,0,2,1] ，那么 first = 1 且 encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>示例 2：</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入：encoded = [6,2,7,3], first = 4
-</span></span><span style="display:flex;"><span>输出：[4,2,0,7,4]
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>提示：</strong></p>
+<p>输入：encoded = [1,2,3], first = 1
+输出：[1,0,2,1]
+解释：若 arr = [1,0,2,1] ，那么 first = 1 且 encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]</p>
+<p><strong>示例 2：</strong></p>
+<p>输入：encoded = [6,2,7,3], first = 4
+输出：[4,2,0,7,4]</p>
+<p><strong>提示：</strong></p>
 <ul>
 <li><code>2 &lt;= n &lt;= 104</code></li>
 <li><code>encoded.length == n - 1</code></li>
@@ -381,8 +364,6 @@ i=0010010100101011</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
@@ -392,10 +373,8 @@ i=0010010100101011</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">0</span><span style="color:#f92672">]=</span><span style="color:#111">first</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#f92672">=</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">&lt;</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#111">1</span><span style="color:#f92672">;</span><span style="color:#111">i</span><span style="color:#f92672">++){</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">]=</span><span style="color:#111">encoded</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">]^</span><span style="color:#111">ans</span><span style="color:#f92672">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#111">1</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">ans</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></td></tr></table>
@@ -406,17 +385,9 @@ i=0010010100101011</p>
 <p>难度中等425</p>
 <p><strong>不使用</strong>运算符 <code>+</code> 和 <code>-</code> ，计算两整数 <code>a</code> 、<code>b</code> 之和。</p>
 <p><strong>示例 1:</strong></p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>输入: a = 1, b = 2
-</span></span><span style="display:flex;"><span>输出: 3
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>示例 2:</strong></p>
+<p>输入: a = 1, b = 2
+输出: 3</p>
+<p><strong>示例 2:</strong></p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -442,9 +413,6 @@ i=0010010100101011</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Solution</span> <span style="color:#f92672">{</span>
@@ -454,15 +422,19 @@ i=0010010100101011</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">and</span><span style="color:#f92672">=(</span><span style="color:#111">a</span><span style="color:#f92672">&amp;</span><span style="color:#111">b</span><span style="color:#f92672">)&lt;&lt;</span><span style="color:#111">1</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#f92672">(</span><span style="color:#111">and</span><span style="color:#f92672">!=</span><span style="color:#111">0</span><span style="color:#f92672">)</span> <span style="color:#111">xor</span><span style="color:#f92672">=</span><span style="color:#111">getSum</span><span style="color:#f92672">(</span><span style="color:#111">xor</span><span style="color:#f92672">,</span><span style="color:#111">and</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>       
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">xor</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><hr>
+<p>2023-8-4更新</p>
+<p>今天混迹知乎，又看到一个答案，原来popcnt是有cpu指令的，愚蠢的程序员的这些小心思，最后都能让编译器收拾烂摊子。</p>
+<p>开<code>-O2 -mpopcnt</code>，聪明的编译器知道你想算popcnt，直接给你生成x86指令了，你也可以用gcc的内联函数直接生成popcnt指令 <code>int __builtin_popcount (unsigned int x);</code>，自 GCC 3.4 版本（2004年）。如果你的机器架构支持的话，会直接译成一条CPU指令。</p>
+<p>Linux可以使用<code>cat /proc/cpuinfo | grep popcnt</code>查看你的cpu是否支持这一条指令</p>
+<p><a href="https://www.zhihu.com/question/444266754/answer/1729863823">https://www.zhihu.com/question/444266754/answer/1729863823</a></p>
+<p>最后，抛出一个问题，在程序中计算多少个1的频率高吗？是否真的需要专用的硬件来实现，编译器的适配又如何呢？</p>
+</div>
 	</section>
 
 
@@ -543,7 +515,7 @@ i=0010010100101011</p>
 		Copyright © 2021-2023
 		<br />
 		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855-1号</a><br/>
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3306 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3569 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
