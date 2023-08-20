@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech on 8086</title>
-    <link>https://junling.li/categories/tech/</link>
+    <link>https://bachwv.github.io/categories/tech/</link>
     <description>Recent content in tech on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2023</copyright>
     <lastBuildDate>Wed, 10 Nov 2021 16:58:12 +0800</lastBuildDate>
     
-	<atom:link href="https://junling.li/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bachwv.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>frp内网穿透</title>
-      <link>https://junling.li/posts/%E7%BE%A4%E6%99%96frp/</link>
+      <link>https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/</link>
       <pubDate>Wed, 10 Nov 2021 16:58:12 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E7%BE%A4%E6%99%96frp/</guid>
+      <guid>https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/</guid>
       <description>&lt;p&gt;前几天被群晖官方从阿尔及利亚区强制迁回中国，导致需要手机号验证，验证完了以后会显示序列号冲突，得拍视频提交工单才能解除冲突，才能使用easyconnect，这令我十分不爽。一怒之下注销了群晖的号，打算自己弄。&lt;/p&gt;
 &lt;p&gt;由于我没有公网ip，又不想弄花生壳，teamviewer，所以我得想办法解决公网访问的问题。&lt;/p&gt;
 &lt;p&gt;下面介绍借助frp实现内网穿透。&lt;/p&gt;
@@ -247,10 +247,10 @@ bash /home/frp/start.sh
     
     <item>
       <title>从黑群晖走向白</title>
-      <link>https://junling.li/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
+      <link>https://bachwv.github.io/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
       <pubDate>Thu, 09 Sep 2021 21:58:12 +0800</pubDate>
       
-      <guid>https://junling.li/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
+      <guid>https://bachwv.github.io/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
       <description>&lt;p&gt;弄了快半年的黑群晖，感觉太难受了，处处受限，想来一个花生壳内网穿透都不行，zerotie没效果，放在docker里也不行，索性放弃，直接咸鱼15块洗白。&lt;/p&gt;
 &lt;p&gt;速速开始改sn/mac吧&lt;/p&gt;
 &lt;h2 id=&#34;1-开放ssh端口&#34;&gt;1 开放SSH端口&lt;/h2&gt;

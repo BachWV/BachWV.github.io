@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GNU on 8086</title>
-    <link>https://junling.li/tags/gnu/</link>
+    <link>https://bachwv.github.io/tags/gnu/</link>
     <description>Recent content in GNU on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2023</copyright>
     <lastBuildDate>Tue, 28 Sep 2021 15:35:49 +0800</lastBuildDate>
     
-	<atom:link href="https://junling.li/tags/gnu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bachwv.github.io/tags/gnu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gdb调试</title>
-      <link>https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/</link>
+      <link>https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://junling.li/posts/gdb%E8%B0%83%E8%AF%95/</guid>
+      <guid>https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/</guid>
       <description>&lt;p&gt;今天尝试使用gdb调试，相比ide的调试没那么容易好上手&lt;/p&gt;
 &lt;p&gt;对于一个cpp文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
