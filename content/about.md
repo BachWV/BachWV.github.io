@@ -97,9 +97,6 @@ Weixin Official Account : 一行瑠璃
 
 ## trigger
 
-music server: https://music.junling.li
-
-bilibili record:http://junling.li:2345 (need password)
 
 [frp]({{< ref "群晖frp.md">}}):http://junling.li:7500 (need password) 
 
