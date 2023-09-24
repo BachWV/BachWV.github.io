@@ -7,7 +7,7 @@
 	
 	<title>8086  | Crontab</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -213,14 +213,14 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@reboot 启动时
-</span></span><span style="display:flex;"><span>@yearly 每年一次
-</span></span><span style="display:flex;"><span>@annually ( 同 @yearly)
-</span></span><span style="display:flex;"><span>@monthly 每月一次
-</span></span><span style="display:flex;"><span>@weekly 每周一次
-</span></span><span style="display:flex;"><span>@daily 每天一次
-</span></span><span style="display:flex;"><span>@midnight (午夜，同 @daily)
-</span></span><span style="display:flex;"><span>@hourly 每小时一次
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">reboot</span> <span style="color:#960050;background-color:#1e0010">启动时</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">yearly</span> <span style="color:#960050;background-color:#1e0010">每年一次</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">annually</span> <span style="color:#111">(</span> <span style="color:#960050;background-color:#1e0010">同</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">yearly</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">monthly</span> <span style="color:#960050;background-color:#1e0010">每月一次</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">weekly</span> <span style="color:#960050;background-color:#1e0010">每周一次</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">daily</span> <span style="color:#960050;background-color:#1e0010">每天一次</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">midnight</span> <span style="color:#111">(</span><span style="color:#960050;background-color:#1e0010">午夜，同</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">daily</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">hourly</span> <span style="color:#960050;background-color:#1e0010">每小时一次</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>例如：</p>
@@ -229,7 +229,7 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@reboot ~/bin/i_love_cron.sh
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">reboot</span> <span style="color:#f92672">~/</span><span style="color:#111">bin</span><span style="color:#f92672">/</span><span style="color:#111">i_love_cron</span><span style="color:#f92672">.</span><span style="color:#111">sh</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>将在启动时执行脚本 <code>i_love_cron.sh</code>。</p>
@@ -370,7 +370,7 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@hourly  python /root/py_datetime &gt;&gt;/root/date_time_py
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">hourly</span>  <span style="color:#111">python</span> <span style="color:#f92672">/</span><span style="color:#111">root</span><span style="color:#f92672">/</span><span style="color:#111">py_datetime</span> <span style="color:#f92672">&gt;&gt;/</span><span style="color:#111">root</span><span style="color:#f92672">/</span><span style="color:#111">date_time_py</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="例子5">例子5</h4>

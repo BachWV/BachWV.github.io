@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-5 多处理器编程</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.118.2">
+	<meta name="generator" content="Hugo 0.119.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -190,27 +190,27 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>       #include &lt;pthread.h&gt;
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>       <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;pthread.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>       <span style="color:#00a8c8">int</span> <span style="color:#75af00">pthread_join</span><span style="color:#111">(</span><span style="color:#00a8c8">pthread_t</span> <span style="color:#00a8c8">thread</span><span style="color:#111">,</span> <span style="color:#00a8c8">void</span> <span style="color:#f92672">**</span><span style="color:#111">retval</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       int pthread_join(pthread_t thread, void **retval);
+</span></span><span style="display:flex;"><span>       <span style="color:#111">Compile</span> <span style="color:#111">and</span> <span style="color:#111">link</span> <span style="color:#111">with</span> <span style="color:#f92672">-</span><span style="color:#111">pthread</span><span style="color:#111">.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       Compile and link with -pthread.
+</span></span><span style="display:flex;"><span>       <span style="color:#111">The</span> <span style="color:#75af00">pthread_join</span><span style="color:#111">()</span> <span style="color:#111">function</span> <span style="color:#111">waits</span> <span style="color:#00a8c8">for</span> <span style="color:#111">the</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">specified</span> <span style="color:#111">by</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#00a8c8">thread</span> <span style="color:#111">to</span> <span style="color:#111">terminate</span><span style="color:#111">.</span>  <span style="color:#111">If</span> <span style="color:#111">that</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">has</span> <span style="color:#111">already</span> <span style="color:#111">terminated</span><span style="color:#111">,</span> <span style="color:#111">then</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75af00">pthread_join</span><span style="color:#111">()</span> <span style="color:#111">returns</span> <span style="color:#111">immediately</span><span style="color:#111">.</span>  <span style="color:#111">The</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">specified</span> <span style="color:#111">by</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#00a8c8">thread</span> <span style="color:#111">must</span> <span style="color:#111">be</span> <span style="color:#111">joinable</span><span style="color:#111">.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       The pthread_join() function waits for the thread specified by
-</span></span><span style="display:flex;"><span>       thread to terminate.  If that thread has already terminated, then
-</span></span><span style="display:flex;"><span>       pthread_join() returns immediately.  The thread specified by
-</span></span><span style="display:flex;"><span>       thread must be joinable.
+</span></span><span style="display:flex;"><span>       <span style="color:#111">If</span> <span style="color:#111">retval</span> <span style="color:#111">is</span> <span style="color:#111">not</span> <span style="color:#111">NULL</span><span style="color:#111">,</span> <span style="color:#111">then</span> <span style="color:#75af00">pthread_join</span><span style="color:#111">()</span> <span style="color:#111">copies</span> <span style="color:#111">the</span> <span style="color:#111">exit</span> <span style="color:#111">status</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">of</span> <span style="color:#111">the</span> <span style="color:#111">target</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">.</span><span style="color:#111">e</span><span style="color:#111">.,</span> <span style="color:#111">the</span> <span style="color:#111">value</span> <span style="color:#111">that</span> <span style="color:#111">the</span> <span style="color:#111">target</span> <span style="color:#00a8c8">thread</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">supplied</span> <span style="color:#111">to</span> <span style="color:#75af00">pthread_exit</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">))</span> <span style="color:#111">into</span> <span style="color:#111">the</span> <span style="color:#111">location</span> <span style="color:#111">pointed</span> <span style="color:#111">to</span> <span style="color:#111">by</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">retval</span><span style="color:#111">.</span>  <span style="color:#111">If</span> <span style="color:#111">the</span> <span style="color:#111">target</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">was</span> <span style="color:#111">canceled</span><span style="color:#111">,</span> <span style="color:#111">then</span> <span style="color:#111">PTHREAD_CANCELED</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">is</span> <span style="color:#111">placed</span> <span style="color:#111">in</span> <span style="color:#111">the</span> <span style="color:#111">location</span> <span style="color:#111">pointed</span> <span style="color:#111">to</span> <span style="color:#111">by</span> <span style="color:#111">retval</span><span style="color:#111">.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       If retval is not NULL, then pthread_join() copies the exit status
-</span></span><span style="display:flex;"><span>       of the target thread (i.e., the value that the target thread
-</span></span><span style="display:flex;"><span>       supplied to pthread_exit(3)) into the location pointed to by
-</span></span><span style="display:flex;"><span>       retval.  If the target thread was canceled, then PTHREAD_CANCELED
-</span></span><span style="display:flex;"><span>       is placed in the location pointed to by retval.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       If multiple threads simultaneously try to join with the same
-</span></span><span style="display:flex;"><span>       thread, the results are undefined.  If the thread calling
-</span></span><span style="display:flex;"><span>       pthread_join() is canceled, then the target thread will remain
-</span></span><span style="display:flex;"><span>       joinable (i.e., it will not be detached).
+</span></span><span style="display:flex;"><span>       <span style="color:#111">If</span> <span style="color:#111">multiple</span> <span style="color:#111">threads</span> <span style="color:#111">simultaneously</span> <span style="color:#111">try</span> <span style="color:#111">to</span> <span style="color:#111">join</span> <span style="color:#111">with</span> <span style="color:#111">the</span> <span style="color:#111">same</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#00a8c8">thread</span><span style="color:#111">,</span> <span style="color:#111">the</span> <span style="color:#111">results</span> <span style="color:#111">are</span> <span style="color:#111">undefined</span><span style="color:#111">.</span>  <span style="color:#111">If</span> <span style="color:#111">the</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">calling</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75af00">pthread_join</span><span style="color:#111">()</span> <span style="color:#111">is</span> <span style="color:#111">canceled</span><span style="color:#111">,</span> <span style="color:#111">then</span> <span style="color:#111">the</span> <span style="color:#111">target</span> <span style="color:#00a8c8">thread</span> <span style="color:#111">will</span> <span style="color:#111">remain</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75af00">joinable</span> <span style="color:#111">(</span><span style="color:#111">i</span><span style="color:#111">.</span><span style="color:#111">e</span><span style="color:#111">.,</span> <span style="color:#111">it</span> <span style="color:#111">will</span> <span style="color:#111">not</span> <span style="color:#111">be</span> <span style="color:#111">detached</span><span style="color:#111">).</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>pthread_join()函数可以阻塞当前线程，直到指定的线程完成执行为止。它的作用是等待一个线程结束并回收它的资源，同时将线程的返回值传递给调用线程。</p>
