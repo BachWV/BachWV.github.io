@@ -7,7 +7,7 @@
 	
 	<title>8086  | Zerotier</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.1">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -186,7 +186,7 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkdir /var/lib/zerotier-one
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">mkdir</span> <span style="color:#f92672">/</span><span style="color:#00a8c8">var</span><span style="color:#f92672">/</span><span style="color:#111">lib</span><span style="color:#f92672">/</span><span style="color:#111">zerotier</span><span style="color:#f92672">-</span><span style="color:#111">one</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Make Docker container called zt (Repo: zerotier/zerotier-synology)</p>
@@ -202,14 +202,14 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -d           \
-</span></span><span style="display:flex;"><span>  --name zt             \
-</span></span><span style="display:flex;"><span>  --restart=always      \
-</span></span><span style="display:flex;"><span>  --device=/dev/net/tun \
-</span></span><span style="display:flex;"><span>  --net=host            \
-</span></span><span style="display:flex;"><span>  --cap-add=NET_ADMIN   \
-</span></span><span style="display:flex;"><span>  --cap-add=SYS_ADMIN   \
-</span></span><span style="display:flex;"><span>  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">docker</span> <span style="color:#111">run</span> <span style="color:#f92672">-</span><span style="color:#111">d</span>           \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">name</span> <span style="color:#111">zt</span>             \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">restart</span><span style="color:#f92672">=</span><span style="color:#111">always</span>      \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">device</span><span style="color:#f92672">=/</span><span style="color:#111">dev</span><span style="color:#f92672">/</span><span style="color:#111">net</span><span style="color:#f92672">/</span><span style="color:#111">tun</span> \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">net</span><span style="color:#f92672">=</span><span style="color:#111">host</span>            \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">cap</span><span style="color:#f92672">-</span><span style="color:#111">add</span><span style="color:#f92672">=</span><span style="color:#111">NET_ADMIN</span>   \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">--</span><span style="color:#111">cap</span><span style="color:#f92672">-</span><span style="color:#111">add</span><span style="color:#f92672">=</span><span style="color:#111">SYS_ADMIN</span>   \
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span><span style="color:#111">v</span> <span style="color:#f92672">/</span><span style="color:#00a8c8">var</span><span style="color:#f92672">/</span><span style="color:#111">lib</span><span style="color:#f92672">/</span><span style="color:#111">zerotier</span><span style="color:#f92672">-</span><span style="color:#111">one</span><span style="color:#111">:</span><span style="color:#f92672">/</span><span style="color:#00a8c8">var</span><span style="color:#f92672">/</span><span style="color:#111">lib</span><span style="color:#f92672">/</span><span style="color:#111">zerotier</span><span style="color:#f92672">-</span><span style="color:#111">one</span> <span style="color:#111">zerotier</span><span style="color:#f92672">/</span><span style="color:#111">zerotier</span><span style="color:#f92672">-</span><span style="color:#111">synology</span><span style="color:#111">:</span><span style="color:#111">latest</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="4添加网络">4.添加网络</h2>

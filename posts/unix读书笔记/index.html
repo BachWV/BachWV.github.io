@@ -7,7 +7,7 @@
 	
 	<title>8086  | Unix笔记</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.120.1">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -1235,26 +1235,26 @@ Linux       开放源代码</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ls &gt; mydir.list
-</span></span><span style="display:flex;"><span>cat mydir.list //显示mydir.list
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">ls</span> <span style="color:#f92672">&gt;</span> <span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">cat</span> <span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span> <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">显示</span><span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>此时再
-</span></span><span style="display:flex;"><span>ls .. &gt;&gt; mydir.list
-</span></span><span style="display:flex;"><span>//将新的内容追加到mydir.list
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">此时再</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ls</span> <span style="color:#f92672">..</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">将新的内容追加到</span><span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>rmdir ggg &amp;&gt;&gt; mydir.list//将报错消息追加到mydir.list
+</span></span><span style="display:flex;"><span><span style="color:#111">rmdir</span> <span style="color:#111">ggg</span> <span style="color:#f92672">&amp;&gt;&gt;</span> <span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">将报错消息追加到</span><span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cat mydir.list
-</span></span><span style="display:flex;"><span>!
-</span></span><span style="display:flex;"><span>anaconda3
-</span></span><span style="display:flex;"><span>CLionProjects
-</span></span><span style="display:flex;"><span>Downloads
-</span></span><span style="display:flex;"><span>examples.desktop
-</span></span><span style="display:flex;"><span>mydir.list
-</span></span><span style="display:flex;"><span>myfirst
-</span></span><span style="display:flex;"><span>snap
+</span></span><span style="display:flex;"><span><span style="color:#111">cat</span> <span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">!</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">anaconda3</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">CLionProjects</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Downloads</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">examples</span><span style="color:#f92672">.</span><span style="color:#111">desktop</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mydir</span><span style="color:#f92672">.</span><span style="color:#111">list</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">myfirst</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">snap</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>rmdir: 删除 &#39;ggg&#39; 失败: 没有那个文件或目录
+</span></span><span style="display:flex;"><span><span style="color:#111">rmdir</span><span style="color:#111">:</span> <span style="color:#960050;background-color:#1e0010">删除</span> <span style="color:#d88200">&#39;ggg&#39;</span> <span style="color:#960050;background-color:#1e0010">失败</span><span style="color:#111">:</span> <span style="color:#960050;background-color:#1e0010">没有那个文件或目录</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>为了提高效率，可以直接使用cat和&gt;创建文件：<code>cat file1</code></p>
@@ -2569,7 +2569,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>for variablein list-of-valuesdo	 commands    ...	 last-commanddone
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">variablein</span> <span style="color:#111">list</span><span style="color:#f92672">-</span><span style="color:#111">of</span><span style="color:#f92672">-</span><span style="color:#111">valuesdo</span>	 <span style="color:#111">commands</span>    <span style="color:#f92672">...</span>	 <span style="color:#111">last</span><span style="color:#f92672">-</span><span style="color:#111">commanddone</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>例子：</p>
@@ -2860,19 +2860,19 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>endwsl@LAPTOP-U1E6STIA:~$ df
-</span></span><span style="display:flex;"><span>Filesystem     1K-blocks      Used Available Use% Mounted on
-</span></span><span style="display:flex;"><span>/dev/sdb       263174212    788056 248948000   1% /
-</span></span><span style="display:flex;"><span>tmpfs            6475860         0   6475860   0% /mnt/wsl
-</span></span><span style="display:flex;"><span>tools          209715196 192647796  17067400  92% /init
-</span></span><span style="display:flex;"><span>none             6473568         0   6473568   0% /dev
-</span></span><span style="display:flex;"><span>none             6475860         4   6475856   1% /run
-</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/lock
-</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/shm
-</span></span><span style="display:flex;"><span>none             6475860         0   6475860   0% /run/user
-</span></span><span style="display:flex;"><span>tmpfs            6475860         0   6475860   0% /sys/fs/cgroup
-</span></span><span style="display:flex;"><span>C:\            209715196 192647796  17067400  92% /mnt/c
-</span></span><span style="display:flex;"><span>D:\            289083388 253954812  35128576  88% /mnt/d
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">endwsl</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~$</span> <span style="color:#111">df</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Filesystem</span>     <span style="color:#ae81ff">1</span><span style="color:#111">K</span><span style="color:#f92672">-</span><span style="color:#111">blocks</span>      <span style="color:#111">Used</span> <span style="color:#111">Available</span> <span style="color:#111">Use</span><span style="color:#f92672">%</span> <span style="color:#111">Mounted</span> <span style="color:#111">on</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span><span style="color:#111">dev</span><span style="color:#f92672">/</span><span style="color:#111">sdb</span>       <span style="color:#ae81ff">263174212</span>    <span style="color:#ae81ff">788056</span> <span style="color:#ae81ff">248948000</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tmpfs</span>            <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6475860</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">mnt</span><span style="color:#f92672">/</span><span style="color:#111">wsl</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tools</span>          <span style="color:#ae81ff">209715196</span> <span style="color:#ae81ff">192647796</span>  <span style="color:#ae81ff">17067400</span>  <span style="color:#ae81ff">92</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">init</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">none</span>             <span style="color:#ae81ff">6473568</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6473568</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">dev</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">none</span>             <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">4</span>   <span style="color:#ae81ff">6475856</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">run</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">none</span>             <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6475860</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">run</span><span style="color:#f92672">/</span><span style="color:#111">lock</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">none</span>             <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6475860</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">run</span><span style="color:#f92672">/</span><span style="color:#111">shm</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">none</span>             <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6475860</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">run</span><span style="color:#f92672">/</span><span style="color:#111">user</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tmpfs</span>            <span style="color:#ae81ff">6475860</span>         <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">6475860</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">sys</span><span style="color:#f92672">/</span><span style="color:#111">fs</span><span style="color:#f92672">/</span><span style="color:#111">cgroup</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">C</span><span style="color:#111">:</span>\            <span style="color:#ae81ff">209715196</span> <span style="color:#ae81ff">192647796</span>  <span style="color:#ae81ff">17067400</span>  <span style="color:#ae81ff">92</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">mnt</span><span style="color:#f92672">/</span><span style="color:#111">c</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">D</span><span style="color:#111">:</span>\            <span style="color:#ae81ff">289083388</span> <span style="color:#ae81ff">253954812</span>  <span style="color:#ae81ff">35128576</span>  <span style="color:#ae81ff">88</span><span style="color:#f92672">%</span> <span style="color:#f92672">/</span><span style="color:#111">mnt</span><span style="color:#f92672">/</span><span style="color:#111">d</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>tar</p>
