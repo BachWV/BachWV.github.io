@@ -137,10 +137,9 @@
 &lt;/div&gt;&lt;p&gt;可以在服务器ip:7500端口看到frps的运行状态，至此，服务器端的配置就完成了。&lt;/p&gt;
 &lt;h2 id=&#34;客户端&#34;&gt;客户端&lt;/h2&gt;
 &lt;p&gt;首先，得用ssh登录群晖。如果你没有用过ssh登录过，可以进入群晖控制面板，找到终端机和SNMP，点击启动SSH功能，设定你的端口（默认22）
-&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/DMHVvjpmkCgzoaT.png&#34; alt=&#34;image-20211109174257597.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2023/12/03/MqJHS4AoYzIRlXh.png&#34; alt=&#34;image-20231203141728504&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击应用。&lt;/p&gt;
-&lt;p&gt;接下来使用你顺手的ssh登录就可以了。利用admin账号和密码登录（注意admin账号登录进去以后还要用&lt;code&gt;sudo -i&lt;/code&gt;，不然没有权限）
-&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/4NkOdg1Q5DtIYXl.png&#34; alt=&#34;image-20211109174413962.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接下来使用你顺手的ssh登录就可以了。利用admin账号和密码登录（注意admin账号登录进去以后还要用&lt;code&gt;sudo -i&lt;/code&gt;，不然没有权限）&lt;/p&gt;
 &lt;p&gt;找到一个顺手的 目录，比如home，利用同样的命令 &lt;a href=&#34;#%E4%B8%8B%E8%BD%BD&#34;&gt;下载&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这时，我们关注的是frpc.ini这个配置文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -230,17 +229,16 @@
 &lt;p&gt;2&amp;gt;&amp;amp;1
 这条命令用到了重定向绑定，采用&amp;amp;可以将两个输出绑定在一起。这条命令的作用是错误输出将和标准输出同用一个文件描述符，说人话就是错误输出将会和标准输出输出到同一个地方。&lt;/p&gt;
 &lt;p&gt;linux在执行shell命令之前，就会确定好所有的输入输出位置，并且从左到右依次执行重定向的命令，所以&amp;gt;/dev/null 2&amp;gt;&amp;amp;1的作用就是让标准输出重定向到/dev/null中（丢弃标准输出），然后错误输出由于重用了标准输出的描述符，所以错误输出也被定向到了/dev/null中，错误输出同样也被丢弃了。执行了这条命令之后，该条shell命令将不会输出任何信息到控制台，也不会有任何信息输出到文件中。&lt;/p&gt;
-&lt;p&gt;接下来，回到群晖的控制台，在控制面板的计划任务中
-&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-crontab.png&#34; alt=&#34;ds&#34;&gt;
-新建任务,事件为开机
+&lt;p&gt;接下来，回到群晖的控制台，在控制面板的计划任务中&lt;/p&gt;
+&lt;p&gt;新建任务,事件为开机
 &lt;img src=&#34;https://s2.loli.net/2022/09/06/fYPhLojxJ1eQZNc.png&#34; alt=&#34;&#34;&gt;
 在任务设置中填写：
-bash /home/frp/start.sh
-重启群晖
+bash /home/frp/start.sh&lt;/p&gt;
+&lt;p&gt;直接填写&lt;code&gt;nohup /home/frp/frpc -c /home/frp/frpc.ini &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/code&gt;其实也可以&lt;/p&gt;
+&lt;p&gt;重启群晖
 就可以在服务器的7500看到刚刚登录进来的群晖。&lt;/p&gt;
-&lt;p&gt;输入服务器ip:端口（在frpc.ini中设置的remote端口），即可看到你的设备啦。
-&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-zhangwei.jpg&#34; alt=&#34;屏幕截图 2021-11-10 173901.jpg&#34;&gt;
-如果你不嫌烦+不怕死，你也可以把群晖的22端口映射出去。&lt;/p&gt;
+&lt;p&gt;输入服务器ip:端口（在frpc.ini中设置的remote端口），即可看到你的设备啦。&lt;/p&gt;
+&lt;p&gt;如果你不嫌烦+不怕死，你也可以把群晖的22端口映射出去。&lt;/p&gt;
 &lt;p&gt;当然，如果你有远程桌面，tomcat，nginx的需求都可以用这种方法，对我来说frp取代teamviewer和花生壳是完全可以的。&lt;/p&gt;
 </description>
     </item>
