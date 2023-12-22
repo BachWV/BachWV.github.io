@@ -37,7 +37,7 @@ https://github.com/walinejs/waline/discussions/735
 
 
 
-![image-20220717233112043](https://raw.githubusercontent.com/bachwv/picgo/master/image-20220717233112043.png)
+![image-20220717233112043](https://r2.bi-li.fun/2023/12/image-20220717233112043.png)
 
 好家伙，直接解决出现问题的人，换了个评论系统不就完了
 

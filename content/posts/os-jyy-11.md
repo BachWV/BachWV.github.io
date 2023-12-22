@@ -54,7 +54,7 @@ mpi
 
 截图
 
-![image-20220716190952071](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220716190952071.png)
+![image-20220716190952071](https://r2.bi-li.fun/2023/12/image-20220716190952071.png)
 
 `convert mandelbrot.ppm a.jpg`
 

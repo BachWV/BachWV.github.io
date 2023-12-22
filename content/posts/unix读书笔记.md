@@ -42,7 +42,7 @@ Linux       开放源代码
 
 ## 系统结构：
 
-![image-20210612144726435](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612144726435.png)
+![image-20210612144726435](https://r2.bi-li.fun/2023/12/image-20210612144726435.png)
 
 
 
@@ -72,7 +72,7 @@ Linux       开放源代码
 
 2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述
 
-![image-20210612151234131](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612151234131.png)
+![image-20210612151234131](https://r2.bi-li.fun/2023/12/image-20210612151234131.png)
 
 3.退出系统：[ctrl+d] 或是exit，即可退出
 
@@ -84,7 +84,7 @@ Linux       开放源代码
 
 
 
-![image-2021061215201111](https://raw.githubusercontents.com/bachwv/picgo/master/image-2021061215201111.jpg)
+![image-2021061215201111](https://r2.bi-li.fun/2023/12/image-2021061215201111.jpg)
 
 ```rm```表示删除，```-rf```表示两个选项：r和f，```/*```表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件
 
@@ -94,7 +94,7 @@ Linux       开放源代码
 
 1.date：显示日期和时间
 
-![image-20210612152830573](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612152830573.png)
+![image-20210612152830573](https://r2.bi-li.fun/2023/12/image-20210612152830573.png)
 
 2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下
 
@@ -112,7 +112,7 @@ who还有一些的选项：-q -H -b。
 
 3.显示日历：cal
 
-![image-20220616104917751](https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104917751.png)
+![image-20220616104917751](https://r2.bi-li.fun/2023/12/image-20220616104917751.png)
 
 ## 3.3 获取帮助信息
 
@@ -120,13 +120,13 @@ who还有一些的选项：-q -H -b。
 
 learn和help，使用时需要安装
 
-![image-20220616104948628](https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104948628.png)
+![image-20220616104948628](https://r2.bi-li.fun/2023/12/image-20220616104948628.png)
 
 
 
 比如我不知道exit的用法
 
-![image-20220616105333358](https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616105333358.png)
+![image-20220616105333358](https://r2.bi-li.fun/2023/12/image-20220616105333358.png)
 
 ### 3.3.3 man手册：
 
@@ -200,7 +200,7 @@ bulitin命令：包含的是一些比较简单的linux系统命令，这些命�
 
 ## 4.1模式：
 
-![image-20210612165940750](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612165940750.png)
+![image-20210612165940750](https://r2.bi-li.fun/2023/12/image-20210612165940750.png)
 
 
 
@@ -385,7 +385,7 @@ Unix文件系统选择：堆 + 索引
 
 例如：
 
-![image-20210615181145639](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615181145639.png)
+![image-20210615181145639](https://r2.bi-li.fun/2023/12/image-20210615181145639.png)
 
 
 
@@ -558,7 +558,7 @@ vi提供了删除，复制，剪贴操作。就是命令有点复杂。
 
 用户可以调整vi编辑器的设置
 
-![image-20210615203331825](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20210615203331825.png)
+![image-20210615203331825](https://r2.bi-li.fun/2023/12/image-20210615203331825.png)
 
 可以看到有众多选项可以自定义。
 
@@ -763,7 +763,7 @@ shell将一个程序的标准输出作为另一个程序的标准输入，形成
 
 `ls -l|grep -e"s.*h"`
 
-![image-20210615214626196](https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615214626196.png)
+![image-20210615214626196](https://r2.bi-li.fun/2023/12/image-20210615214626196.png)
 
 ### 8.2.1  Shell如何实现管道？
 
@@ -1041,7 +1041,7 @@ shell是用户和系统交流的工具，自身是一个应用程序。当用户
 
 用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程
 
-![image-20210412205628871](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210412205628871.png)
+![image-20210412205628871](https://r2.bi-li.fun/2023/12/image-20210412205628871.png)
 
 
 
@@ -1111,7 +1111,7 @@ PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 
 shell执行重音符号\`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。
 
-![image-20220616105949017](https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105949017.png)
+![image-20220616105949017](https://r2.bi-li.fun/2023/12/image-20220616105949017.png)
 
 ### 9.3.2 括号
 
@@ -1839,7 +1839,7 @@ tar
 
 `tldr tar`
 
-![image-20220616111745205](https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220616111745205.png)
+![image-20220616111745205](https://r2.bi-li.fun/2023/12/image-20220616111745205.png)
 
 chown修改文件目录的owner,修改inode
 
