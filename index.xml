@@ -3342,7 +3342,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;argv=1 2 4 8&lt;/code&gt;线程数&lt;/p&gt;
 &lt;p&gt;还是有点炫的&lt;/p&gt;
 &lt;p&gt;截图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220716190952071.png&#34; alt=&#34;image-20220716190952071&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220716190952071.png&#34; alt=&#34;image-20220716190952071&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;convert mandelbrot.ppm a.jpg&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://charon-pic.oss-cn-hangzhou.aliyuncs.com/a.jpg&#34; alt=&#34;a&#34;&gt;&lt;/p&gt;
 &lt;p&gt;ppm这种rgb数字构成的图片格式&lt;/p&gt;
@@ -5080,6 +5080,10 @@ pc-check.py&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;2022/9/6更新，由于最近看了几个例子，开了oss/cos被ddos了刷了好几万，阿里云开不了cdn（国内访问需备案域名），遂关了oss。这篇的保质期也只有两个月，阿里云也被我白嫖了两个月。&lt;/p&gt;
 &lt;p&gt;这当然不是因为我懒得配cloudflare加速（减速），这是本blog的网络安全周的特别企划。&lt;/p&gt;
+&lt;p&gt;2023/12/22&lt;/p&gt;
+&lt;p&gt;cloudflare r2图床&lt;/p&gt;
+&lt;p&gt;今天打算移除所有git仓库里的图片，全部替换为cloudflare图床&lt;/p&gt;
+&lt;p&gt;操作都一样啦，创建桶bucket，可以绑定自己的域名，&lt;/p&gt;
 </description>
     </item>
     
@@ -5167,7 +5171,7 @@ pc-check.py&lt;/p&gt;
 &lt;p&gt;这时我找到waline的讨论区，有人遇到和我一样的问题&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/walinejs/waline/discussions/735&#34;&gt;https://github.com/walinejs/waline/discussions/735&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;看看它是这么解决的&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/bachwv/picgo/master/image-20220717233112043.png&#34; alt=&#34;image-20220717233112043&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220717233112043.png&#34; alt=&#34;image-20220717233112043&#34;&gt;&lt;/p&gt;
 &lt;p&gt;好家伙，直接解决出现问题的人，换了个评论系统不就完了&lt;/p&gt;
 &lt;h3 id=&#34;尝试三&#34;&gt;尝试三&lt;/h3&gt;
 &lt;p&gt;看看别人是怎么在客户端引入waline的，先是找到了一个hugo的主题next:https://github.com/elkan1788/hugo-theme-next，抄一遍他的代码，怎么不管用？&lt;/p&gt;
@@ -5429,10 +5433,10 @@ update&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这时需要我们把私钥写入HEXO_DEPLOY_PRIVATE_KEY这个环境变量。&lt;/p&gt;
 &lt;p&gt;在仓库设置settings的secrets里新建actions变量，注意，这里的名称要填&lt;code&gt;HEXO_DEPLOY_PRIVATE_KEY&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo@master/image-20220716230625530.png&#34; alt=&#34;image-20220716230625530&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220716230625530.png&#34; alt=&#34;image-20220716230625530&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这样提交到仓库就不需要密码了，Windows、linux的私钥一般在~/.ssh/id_rsa里。&lt;/p&gt;
 &lt;p&gt;到此就配置结束了，每次 push 都会触发actions，我们可以在actions里查看运行情况&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo@master/image-20220716230657527.png&#34; alt=&#34;image-20220716230657527&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220716230657527.png&#34; alt=&#34;image-20220716230657527&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;问题&#34;&gt;问题&lt;/h1&gt;
 &lt;h3 id=&#34;问题1&#34;&gt;问题1&lt;/h3&gt;
 &lt;p&gt;action执行失败卡在deploy&lt;/p&gt;
@@ -7867,7 +7871,7 @@ F-&amp;gt;I|(E)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;串首终结符:串首第一个符号，并且是终结符&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220327203357.png&#34; alt=&#34;Pasted image 20220327203357&#34; style=&#34;zoom:33%;&#34; /&gt;
+&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220327203357.png&#34; alt=&#34;Pasted image 20220327203357&#34; style=&#34;zoom:33%;&#34; /&gt;
 FIRST(\alpha)
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -8131,7 +8135,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 &lt;p&gt;我们讨论的所有指令系统都是字节寻址的，都提供了字节，半字，字（32位）寻址&lt;/p&gt;
 &lt;p&gt;大端&lt;/p&gt;
 &lt;p&gt;小端模式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124032265.png&#34; alt=&#34;image-20220528124032265&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528124032265.png&#34; alt=&#34;image-20220528124032265&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对齐&lt;/p&gt;
 &lt;p&gt;寻址方式：立即数通常也被认为是一种存储器寻址方式、寄存器不属于存储器寻址，相对寻址&lt;/p&gt;
 &lt;p&gt;位移量位13-16位，立即数为16位&lt;/p&gt;
@@ -8139,7 +8143,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 &lt;h2 id=&#34;24-操作数的类型&#34;&gt;2.4 操作数的类型&lt;/h2&gt;
 &lt;p&gt;操作数的类型如何指定：&lt;/p&gt;
 &lt;p&gt;操作数编码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124548498.png&#34; alt=&#34;image-20220528124548498&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528124548498.png&#34; alt=&#34;image-20220528124548498&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;25-指令系统的操作&#34;&gt;2.5 指令系统的操作&lt;/h2&gt;
 &lt;p&gt;指令系统有一条共同的规律：使用最多的是一些简单指令。&lt;/p&gt;
 &lt;p&gt;所有计算机都提供 算数和逻辑运算、load/store、控制 指令&lt;/p&gt;
@@ -8231,9 +8235,9 @@ ALU指令: add r1,r2,r3
 &lt;p&gt;改进硬件冗余：ALU可以共享，数据和指令寄存器可以合并，因为访问发生在不同的时钟周期&lt;/p&gt;
 &lt;h3 id=&#34;313-经典5段流水线risc处理器&#34;&gt;3.1.3 经典5段流水线RISC处理器&lt;/h3&gt;
 &lt;p&gt;CPI减少到1，因为平均每个时钟周期发射或完成一条指令，在任意时钟周期，在每个流水段正执行一条指令的部分
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329142216.png&#34; alt=&#34;Pasted image 20220329142216&#34;&gt;
+&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329142216.png&#34; alt=&#34;Pasted image 20220329142216&#34;&gt;
 理想情况下，性能增加了5倍
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329142353.png&#34; alt=&#34;Pasted image 20220329142353&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329142353.png&#34; alt=&#34;Pasted image 20220329142353&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;流水线如何减少执行时间&#34;&gt;流水线如何减少执行时间？&lt;/h4&gt;
 &lt;p&gt;对比不同串行实现的机器
 （一个指令一个周期的机器）流水线减少周期的长度
@@ -8244,7 +8248,7 @@ ALU指令: add r1,r2,r3
 &lt;p&gt;分离的数据存储器和指令存储器
 使用分开的指令cache和数据cache
 如果时钟周期不变 流水线存储系统的带宽必须是非流水线的5倍
-&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329143347.png&#34; alt=&#34;Pasted image 20220329143347&#34;&gt;
+&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329143347.png&#34; alt=&#34;Pasted image 20220329143347&#34;&gt;
 重新设计寄存器堆资源
 允许在一个时钟周期WB段先写，ID段后读&lt;/p&gt;
 &lt;ul&gt;
@@ -8266,7 +8270,7 @@ ALU指令: add r1,r2,r3
 &lt;p&gt;冒险总是可以用停顿解决&lt;/p&gt;
 &lt;p&gt;插入停顿 stall&lt;/p&gt;
 &lt;p&gt;流水线CPI=理想CPI（一般是1）+平均每条指令停顿的周期数&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528144320572.png&#34; alt=&#34;image-20220528144320572&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528144320572.png&#34; alt=&#34;image-20220528144320572&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;322-结构冒险&#34;&gt;3.2.2 结构冒险&lt;/h3&gt;
 &lt;p&gt;两条或多条指令想要使用同一个硬件资源&lt;/p&gt;
 &lt;ul&gt;
@@ -8274,19 +8278,19 @@ ALU指令: add r1,r2,r3
 &lt;li&gt;多重访问存储器&lt;/li&gt;
 &lt;li&gt;没有或没有充分流水功能部件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329143347.png&#34; alt=&#34;Pasted image 20220329143347&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329143347.png&#34; alt=&#34;Pasted image 20220329143347&#34;&gt;&lt;/p&gt;
 &lt;p&gt;解决方法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;简单插入一个停顿，将降低加速比&lt;/li&gt;
 &lt;li&gt;在一个时钟周期WB段先写，ID段后写&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528144516022.png&#34; alt=&#34;image-20220528144516022&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528145626862.png&#34; alt=&#34;image-20220528145626862&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528144516022.png&#34; alt=&#34;image-20220528144516022&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528145626862.png&#34; alt=&#34;image-20220528145626862&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;为什么允许结构冒险&#34;&gt;为什么允许结构冒险&lt;/h4&gt;
 &lt;p&gt;减少成本，完全浮点部件需要很多逻辑门,如果结构冒险不经常发生，则消除冒险的成本就太高&lt;/p&gt;
 &lt;p&gt;减少部件延迟&lt;/p&gt;
 &lt;h3 id=&#34;323数据冒险&#34;&gt;3.2.3数据冒险&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528164710823.png&#34; alt=&#34;image-20220528164710823&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528164710823.png&#34; alt=&#34;image-20220528164710823&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们可以消除or r8,r1,r9这一行冒险&lt;/p&gt;
 &lt;p&gt;方法：让寄存器堆WB段先写，ID段后读&lt;/p&gt;
 &lt;p&gt;其他的冒险：停顿消除&lt;/p&gt;
@@ -8301,10 +8305,10 @@ ALU指令: add r1,r2,r3
 &lt;p&gt;Forwarding&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528170705403.png&#34; alt=&#34;image-20220528170705403&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528170705403.png&#34; alt=&#34;image-20220528170705403&#34;&gt;&lt;/p&gt;
 &lt;p&gt;有无Forwarding的比较&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528174126956.png&#34; alt=&#34;image-20220528174126956&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528174152821.png&#34; alt=&#34;image-20220528174152821&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528174126956.png&#34; alt=&#34;image-20220528174126956&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528174152821.png&#34; alt=&#34;image-20220528174152821&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;324-控制冒险&#34;&gt;3.2.4 控制冒险&lt;/h3&gt;
 &lt;p&gt;在进入ID段时，转移条件和转移目标地址，不能按时提供给IF段取指令&lt;/p&gt;
 &lt;p&gt;控制冒险引起MIPS流水线的性能损失，比数据冒险大得多&lt;/p&gt;
@@ -8323,7 +8327,7 @@ ALU指令: add r1,r2,r3
 &lt;/ul&gt;
 &lt;h4 id=&#34;冻结或冲刷流水线停顿&#34;&gt;冻结或冲刷流水线（停顿）&lt;/h4&gt;
 &lt;p&gt;保持或废除转移指令之后进入流水线的指令，性能损失是固定的，不能跳过软件来减少&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528175200433.png&#34; alt=&#34;image-20220528175200433&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528175200433.png&#34; alt=&#34;image-20220528175200433&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;预测转移不发生&#34;&gt;预测转移不发生&lt;/h4&gt;
 &lt;p&gt;未选中：没有任何停顿&lt;/p&gt;
 &lt;p&gt;选中：需要重新取目标指令，引起3个stall&lt;/p&gt;
@@ -8332,14 +8336,14 @@ ALU指令: add r1,r2,r3
 对于经典5段流水线，性能没有提升&lt;/p&gt;
 &lt;p&gt;因此没有任何益处&lt;/p&gt;
 &lt;p&gt;转移地址提前计算，目标地址提前到ID段计算，增加一个ALU&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180044595.png&#34; alt=&#34;image-20220528180044595&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528180044595.png&#34; alt=&#34;image-20220528180044595&#34;&gt;&lt;/p&gt;
 &lt;p&gt;综上，预测对了可以节省时钟周期，预测错了会开始执行错误指令，要修复错误指令到没有真正执行，保证错误指令没有改变机器状态&lt;/p&gt;
 &lt;h4 id=&#34;转移延迟&#34;&gt;转移延迟&lt;/h4&gt;
 &lt;p&gt;将转移计算提前更早。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180630783.png&#34; alt=&#34;image-20220528180630783&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180743055.png&#34; alt=&#34;image-20220528180743055&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180810629.png&#34; alt=&#34;image-20220528180810629&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180836275.png&#34; alt=&#34;image-20220528180836275&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528180630783.png&#34; alt=&#34;image-20220528180630783&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528180743055.png&#34; alt=&#34;image-20220528180743055&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528180810629.png&#34; alt=&#34;image-20220528180810629&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220528180836275.png&#34; alt=&#34;image-20220528180836275&#34;&gt;&lt;/p&gt;
 &lt;h5 id=&#34;撤销功能&#34;&gt;撤销功能&lt;/h5&gt;
 &lt;p&gt;如果预测转移是错误的,CPU能将转移延迟槽中的指令转换为一条空操作指令&lt;/p&gt;
 &lt;p&gt;能够减少编译器选择有用指令进入转移延迟槽的复杂性&lt;/p&gt;
@@ -8383,7 +8387,7 @@ branch
 运算类和Load、Store指令所需要的控制信号&lt;/p&gt;
 &lt;h5 id=&#34;一算术操作和存储器访问控制&#34;&gt;一、算术操作和存储器访问控制&lt;/h5&gt;
 &lt;p&gt;例子：很重要&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220331102507.png&#34; alt=&#34;Pasted image 20220331102507&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/Pasted%20image%2020220331102507.png&#34; alt=&#34;Pasted image 20220331102507&#34;&gt;&lt;/p&gt;
 &lt;h5 id=&#34;二流水线转移指令控制&#34;&gt;二、流水线转移指令控制&lt;/h5&gt;
 &lt;p&gt;bne disp , if z ==0 ,PC=PC+disp
 beq disp , if  z==1 ,PC=PC+disp
@@ -13061,9 +13065,9 @@ neXt next is 6.824&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;挂载成功以后，切换到/tmp/boot目录，&lt;code&gt;ls&lt;/code&gt;以后发现有一个文件夹叫grub&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220721181715935.png&#34; alt=&#34;image-20220721181715935&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220721181715935.png&#34; alt=&#34;image-20220721181715935&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们需要修改的就是grub.cfg文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/synology-sn.png&#34; alt=&#34;image-20210909004835879.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/synology-sn.png&#34; alt=&#34;image-20210909004835879.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;看到那个sn和mac了吗，这就是我们目的要改的东西，改成洗白以后的号码，:wq完成！&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -14543,7 +14547,7 @@ IRIX         SGI公司
 Ultrix       DEC公司
 Linux       开放源代码&lt;/p&gt;
 &lt;h2 id=&#34;系统结构&#34;&gt;系统结构：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210612144726435.png&#34; alt=&#34;image-20210612144726435&#34;&gt;&lt;/p&gt;
 &lt;p&gt;内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：系统工具和UNIX命令不是内核组件。&lt;/p&gt;
@@ -14558,16 +14562,16 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;1.登录&lt;/p&gt;
 &lt;p&gt;输入用户名，密码&lt;/p&gt;
 &lt;p&gt;2.修改密码：passwd和一般的修改要验证旧密码并两次重新输入新密码，具体操作不再赘述&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210612151234131.png&#34; alt=&#34;image-20210612151234131&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3.退出系统：[ctrl+d] 或是exit，即可退出&lt;/p&gt;
 &lt;h2 id=&#34;32-简单的unix命令&#34;&gt;3.2 简单的UNIX命令&lt;/h2&gt;
 &lt;p&gt;命令行格式：&lt;code&gt;[命令] [选项] [参数]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;字段间要用一个或多个空格隔开。选项的前面一般会有连字符&lt;code&gt;-&lt;/code&gt;，一个命令同时也可以有多个，例如下列著名的命令：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-2021061215201111.jpg&#34; alt=&#34;image-2021061215201111&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-2021061215201111.jpg&#34; alt=&#34;image-2021061215201111&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm&lt;/code&gt;表示删除，&lt;code&gt;-rf&lt;/code&gt;表示两个选项：r和f，&lt;code&gt;/*&lt;/code&gt;表示的磁盘路径就是参数，告诉系统在哪里要删除什么文件&lt;/p&gt;
 &lt;p&gt;下面介绍一些简单的命令：&lt;/p&gt;
 &lt;p&gt;1.date：显示日期和时间&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210612152830573.png&#34; alt=&#34;image-20210612152830573&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.who：列出登录系统的所有用户的用户名，终端号，和登录时间。这里wsl没有这个命令，原因如下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义&lt;/p&gt;
@@ -14577,12 +14581,12 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;who还有一些的选项：-q -H -b。&lt;/p&gt;
 &lt;p&gt;3.显示日历：cal&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;33-获取帮助信息&#34;&gt;3.3 获取帮助信息&lt;/h2&gt;
 &lt;p&gt;learn和help，使用时需要安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616104948628.png&#34; alt=&#34;image-20220616104948628&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220616104948628.png&#34; alt=&#34;image-20220616104948628&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如我不知道exit的用法&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20220616105333358.png&#34; alt=&#34;image-20220616105333358&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220616105333358.png&#34; alt=&#34;image-20220616105333358&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;333-man手册&#34;&gt;3.3.3 man手册：&lt;/h3&gt;
 &lt;p&gt;学习新命令时使用，可以得到该man(manual)命令的详细说明，当然&lt;/p&gt;
 &lt;p&gt;在简洁的wsl中也是没有man的，需要先&lt;code&gt;sudo apt install man-db manpages manpages-dev&lt;/code&gt;,之后才能愉快地使用man&lt;/p&gt;
@@ -14618,7 +14622,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;vi 文件名&lt;/code&gt;启动vi 编辑器，进入的是shell的命令模式,如果你要输入文本，可以按i进入文本输入模式，退出vi：先esc，再输入&lt;code&gt;:wq&lt;/code&gt;，即可保存或退出。&lt;/p&gt;
 &lt;p&gt;以上就是最最基础的用法。下面介绍高级用法：&lt;/p&gt;
 &lt;h2 id=&#34;41模式&#34;&gt;4.1模式：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210612165940750.png&#34; alt=&#34;image-20210612165940750&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210612165940750.png&#34; alt=&#34;image-20210612165940750&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从命令模式进入文本输入模式：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -14987,7 +14991,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615181145639.png&#34; alt=&#34;image-20210615181145639&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210615181145639.png&#34; alt=&#34;image-20210615181145639&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;drwxr-xr-x&lt;/code&gt; 为属性字段&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;文件属性字段总共有10个字母组成；第一个字符代表&lt;strong&gt;文件的类型&lt;/strong&gt;。&lt;/p&gt;
@@ -15186,7 +15190,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;66-定制vi&#34;&gt;6.6 定制vi&lt;/h2&gt;
 &lt;p&gt;用户可以调整vi编辑器的设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210615203331825.png&#34; alt=&#34;image-20210615203331825&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到有众多选项可以自定义。&lt;/p&gt;
 &lt;p&gt;下面介绍一些常用选项：&lt;/p&gt;
 &lt;table&gt;
@@ -15439,7 +15443,7 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;单向通过，没有格式，以流的形式进行通信&lt;/p&gt;
 &lt;p&gt;例如，我想在查找&lt;code&gt;ls -l&lt;/code&gt;的结果中以正则表达式搜索&lt;code&gt;s.*h&lt;/code&gt;，可以执行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ls -l|grep -e&amp;quot;s.*h&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/bachwv/picgo/master/image-20210615214626196.png&#34; alt=&#34;image-20210615214626196&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210615214626196.png&#34; alt=&#34;image-20210615214626196&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;821--shell如何实现管道&#34;&gt;8.2.1  Shell如何实现管道？&lt;/h3&gt;
 &lt;p&gt;1.pipe()函数创建一个管道，两个文件描述符，一个输入，一个输出&lt;/p&gt;
 &lt;p&gt;2.fork()创建子进程&lt;/p&gt;
@@ -15935,7 +15939,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;p&gt;unix由内核和系统工具组成。内核是核心，所有直接与硬件通信的常规程序都集中在内核中。&lt;/p&gt;
 &lt;p&gt;shell是用户和系统交流的工具，自身是一个应用程序。当用户登录到系统时shell被装入内存。&lt;/p&gt;
 &lt;p&gt;用户登录时，init（进程号1）拉起login，输入密码成功后，由login进程拉起shell进程&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20210412205628871.png&#34; alt=&#34;image-20210412205628871&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20210412205628871.png&#34; alt=&#34;image-20210412205628871&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于大多数用户键入的命令，shell并不执行，它fork子进程来执行命令，shell等待wait子进程结束（等待SIGCHLD信号）。&lt;/p&gt;
 &lt;p&gt;shell的主要功能：&lt;/p&gt;
 &lt;ul&gt;
@@ -15997,7 +16001,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;/div&gt;&lt;h2 id=&#34;93-其他元字符&#34;&gt;9.3 其他元字符&lt;/h2&gt;
 &lt;h3 id=&#34;931-重音符号&#34;&gt;9.3.1 重音符号&lt;/h3&gt;
 &lt;p&gt;shell执行重音符号`中的命令，并将命令的输出插入到命令行的相应位置中，也被称为命令替换符。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/bachwv/picgo/image-20220616105949017.png&#34; alt=&#34;image-20220616105949017&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220616105949017.png&#34; alt=&#34;image-20220616105949017&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;932-括号&#34;&gt;9.3.2 括号&lt;/h3&gt;
 &lt;p&gt;将几个命令放在括号里，可以编组。一个命令组可以像单条命令一样被重定向。&lt;/p&gt;
 &lt;h3 id=&#34;933-后台处理&#34;&gt;9.3.3 后台处理&amp;amp;&lt;/h3&gt;
@@ -17049,7 +17053,7 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;tar&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;tldr tar&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220616111745205.png&#34; alt=&#34;image-20220616111745205&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2.bi-li.fun/2023/12/image-20220616111745205.png&#34; alt=&#34;image-20220616111745205&#34;&gt;&lt;/p&gt;
 &lt;p&gt;chown修改文件目录的owner,修改inode&lt;/p&gt;
 &lt;p&gt;chgrp修改文件目录的group&lt;/p&gt;
 </description>

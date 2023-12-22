@@ -319,7 +319,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 <p>我们讨论的所有指令系统都是字节寻址的，都提供了字节，半字，字（32位）寻址</p>
 <p>大端</p>
 <p>小端模式</p>
-<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124032265.png" alt="image-20220528124032265"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528124032265.png" alt="image-20220528124032265"></p>
 <p>对齐</p>
 <p>寻址方式：立即数通常也被认为是一种存储器寻址方式、寄存器不属于存储器寻址，相对寻址</p>
 <p>位移量位13-16位，立即数为16位</p>
@@ -327,7 +327,7 @@ the conceptual structure and functional behavior, as distinct from the organizat
 <h2 id="24-操作数的类型">2.4 操作数的类型</h2>
 <p>操作数的类型如何指定：</p>
 <p>操作数编码</p>
-<p><img src="https://raw.githubusercontents.com/BachWV/PicGo/master/image-20220528124548498.png" alt="image-20220528124548498"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528124548498.png" alt="image-20220528124548498"></p>
 <h2 id="25-指令系统的操作">2.5 指令系统的操作</h2>
 <p>指令系统有一条共同的规律：使用最多的是一些简单指令。</p>
 <p>所有计算机都提供 算数和逻辑运算、load/store、控制 指令</p>
@@ -419,9 +419,9 @@ ALU指令: add r1,r2,r3
 <p>改进硬件冗余：ALU可以共享，数据和指令寄存器可以合并，因为访问发生在不同的时钟周期</p>
 <h3 id="313-经典5段流水线risc处理器">3.1.3 经典5段流水线RISC处理器</h3>
 <p>CPI减少到1，因为平均每个时钟周期发射或完成一条指令，在任意时钟周期，在每个流水段正执行一条指令的部分
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329142216.png" alt="Pasted image 20220329142216">
+<img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329142216.png" alt="Pasted image 20220329142216">
 理想情况下，性能增加了5倍
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329142353.png" alt="Pasted image 20220329142353"></p>
+<img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329142353.png" alt="Pasted image 20220329142353"></p>
 <h4 id="流水线如何减少执行时间">流水线如何减少执行时间？</h4>
 <p>对比不同串行实现的机器
 （一个指令一个周期的机器）流水线减少周期的长度
@@ -432,7 +432,7 @@ ALU指令: add r1,r2,r3
 <p>分离的数据存储器和指令存储器
 使用分开的指令cache和数据cache
 如果时钟周期不变 流水线存储系统的带宽必须是非流水线的5倍
-<img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329143347.png" alt="Pasted image 20220329143347">
+<img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329143347.png" alt="Pasted image 20220329143347">
 重新设计寄存器堆资源
 允许在一个时钟周期WB段先写，ID段后读</p>
 <ul>
@@ -454,7 +454,7 @@ ALU指令: add r1,r2,r3
 <p>冒险总是可以用停顿解决</p>
 <p>插入停顿 stall</p>
 <p>流水线CPI=理想CPI（一般是1）+平均每条指令停顿的周期数</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528144320572.png" alt="image-20220528144320572"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528144320572.png" alt="image-20220528144320572"></p>
 <h3 id="322-结构冒险">3.2.2 结构冒险</h3>
 <p>两条或多条指令想要使用同一个硬件资源</p>
 <ul>
@@ -462,19 +462,19 @@ ALU指令: add r1,r2,r3
 <li>多重访问存储器</li>
 <li>没有或没有充分流水功能部件</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220329143347.png" alt="Pasted image 20220329143347"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220329143347.png" alt="Pasted image 20220329143347"></p>
 <p>解决方法：</p>
 <ul>
 <li>简单插入一个停顿，将降低加速比</li>
 <li>在一个时钟周期WB段先写，ID段后写</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528144516022.png" alt="image-20220528144516022"></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528145626862.png" alt="image-20220528145626862"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528144516022.png" alt="image-20220528144516022"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528145626862.png" alt="image-20220528145626862"></p>
 <h4 id="为什么允许结构冒险">为什么允许结构冒险</h4>
 <p>减少成本，完全浮点部件需要很多逻辑门,如果结构冒险不经常发生，则消除冒险的成本就太高</p>
 <p>减少部件延迟</p>
 <h3 id="323数据冒险">3.2.3数据冒险</h3>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528164710823.png" alt="image-20220528164710823"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528164710823.png" alt="image-20220528164710823"></p>
 <p>我们可以消除or r8,r1,r9这一行冒险</p>
 <p>方法：让寄存器堆WB段先写，ID段后读</p>
 <p>其他的冒险：停顿消除</p>
@@ -489,10 +489,10 @@ ALU指令: add r1,r2,r3
 <p>Forwarding</p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528170705403.png" alt="image-20220528170705403"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528170705403.png" alt="image-20220528170705403"></p>
 <p>有无Forwarding的比较</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528174126956.png" alt="image-20220528174126956"></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528174152821.png" alt="image-20220528174152821"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528174126956.png" alt="image-20220528174126956"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528174152821.png" alt="image-20220528174152821"></p>
 <h3 id="324-控制冒险">3.2.4 控制冒险</h3>
 <p>在进入ID段时，转移条件和转移目标地址，不能按时提供给IF段取指令</p>
 <p>控制冒险引起MIPS流水线的性能损失，比数据冒险大得多</p>
@@ -511,7 +511,7 @@ ALU指令: add r1,r2,r3
 </ul>
 <h4 id="冻结或冲刷流水线停顿">冻结或冲刷流水线（停顿）</h4>
 <p>保持或废除转移指令之后进入流水线的指令，性能损失是固定的，不能跳过软件来减少</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528175200433.png" alt="image-20220528175200433"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528175200433.png" alt="image-20220528175200433"></p>
 <h4 id="预测转移不发生">预测转移不发生</h4>
 <p>未选中：没有任何停顿</p>
 <p>选中：需要重新取目标指令，引起3个stall</p>
@@ -520,14 +520,14 @@ ALU指令: add r1,r2,r3
 对于经典5段流水线，性能没有提升</p>
 <p>因此没有任何益处</p>
 <p>转移地址提前计算，目标地址提前到ID段计算，增加一个ALU</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180044595.png" alt="image-20220528180044595"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528180044595.png" alt="image-20220528180044595"></p>
 <p>综上，预测对了可以节省时钟周期，预测错了会开始执行错误指令，要修复错误指令到没有真正执行，保证错误指令没有改变机器状态</p>
 <h4 id="转移延迟">转移延迟</h4>
 <p>将转移计算提前更早。</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180630783.png" alt="image-20220528180630783"></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180743055.png" alt="image-20220528180743055"></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180810629.png" alt="image-20220528180810629"></p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/image-20220528180836275.png" alt="image-20220528180836275"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528180630783.png" alt="image-20220528180630783"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528180743055.png" alt="image-20220528180743055"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528180810629.png" alt="image-20220528180810629"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/image-20220528180836275.png" alt="image-20220528180836275"></p>
 <h5 id="撤销功能">撤销功能</h5>
 <p>如果预测转移是错误的,CPU能将转移延迟槽中的指令转换为一条空操作指令</p>
 <p>能够减少编译器选择有用指令进入转移延迟槽的复杂性</p>
@@ -571,7 +571,7 @@ branch
 运算类和Load、Store指令所需要的控制信号</p>
 <h5 id="一算术操作和存储器访问控制">一、算术操作和存储器访问控制</h5>
 <p>例子：很重要</p>
-<p><img src="https://raw.githubusercontent.com/BachWV/PicGo/master/Pasted%20image%2020220331102507.png" alt="Pasted image 20220331102507"></p>
+<p><img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220331102507.png" alt="Pasted image 20220331102507"></p>
 <h5 id="二流水线转移指令控制">二、流水线转移指令控制</h5>
 <p>bne disp , if z ==0 ,PC=PC+disp
 beq disp , if  z==1 ,PC=PC+disp
