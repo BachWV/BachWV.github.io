@@ -154,7 +154,8 @@ onload='renderMathInElement(document.body);'></script>
 <p>有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？</p>
 <p>Hugo作为静态网页生成工具，早就为你想到了这一点，参考<a href="https://gohugo.io/templates/data-templates/">Hugo文档</a> 只需要<code>{{ $dataC := getCSV &quot;separator&quot; &quot;url&quot; }}</code>一下，即可获得csv里的数据。使用<code>{{index $movie 5}}</code>即可获得csv文件第五列的数据。</p>
 <p>具体过程见<a href="https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html">movies.html</a></p>
-<p>重新构建一下，你也能拥有如此炫酷的页面啦</p>
+<p>重新构建一下，你也能拥有如此炫酷的页面啦。</p>
+<p>2023-12-26 update: 把分类时的观影日期改为上映的日期。没想到json对字符串的比较如此鲁棒，只改了一个数字</p>
 </div>
 	</section>
 
@@ -235,7 +236,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2023
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 475 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 521 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

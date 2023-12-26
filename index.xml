@@ -141,7 +141,8 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;
 &lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
 &lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
 &lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦&lt;/p&gt;
+&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦。&lt;/p&gt;
+&lt;p&gt;2023-12-26 update: 把分类时的观影日期改为上映的日期。没想到json对字符串的比较如此鲁棒，只改了一个数字&lt;/p&gt;
 </description>
     </item>
     
@@ -12964,12 +12965,9 @@ i=0010010100101011&lt;/p&gt;
       <pubDate>Thu, 09 Sep 2021 22:12:07 +0800</pubDate>
       
       <guid>https://bachwv.github.io/about/</guid>
-      <description>&lt;p&gt;I am an undergraduate student&lt;/p&gt;
-&lt;p&gt;with School of Computer Science and Engineering&lt;/p&gt;
-&lt;p&gt;.University of Electronic Science and Technology of China(UESTC).&lt;/p&gt;
-&lt;p&gt;I wish I could excel in algorithms. You can find my leetcode problem solution on left tag &amp;ldquo;Leetcode&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;I am a fan of GNU/Linux and I use Manjaro and Debian.&lt;/p&gt;
-&lt;p&gt;I hope to contribute myself to open sourse software project.&lt;/p&gt;
+      <description>&lt;p&gt;我也不知道我是谁&lt;/p&gt;
+&lt;p&gt;定义自己是一项很难的工作&lt;/p&gt;
+&lt;p&gt;我没有信心用这么一段话来介绍我自己&lt;/p&gt;
 &lt;h3 id=&#34;about-gnulinux&#34;&gt;&lt;strong&gt;about GNU/Linux&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;https://bachwv.github.io/posts/qemu/&#34;&gt;qemu&lt;/a&gt;&lt;br&gt;
@@ -13010,31 +13008,14 @@ neXt next is 6.824&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/compiler/&#34;&gt;编译原理&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;project&#34;&gt;&lt;strong&gt;Project&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;More content is updating.&lt;/p&gt;
-&lt;h3 id=&#34;2020&#34;&gt;2020&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/cpp-acllib/&#34;&gt;cpp项目&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2021&#34;&gt;2021&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/pdd_on_centos/&#34;&gt;软件工程项目&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://bachwv.github.io/posts/dlib-pyqt/&#34;&gt;课程设计项目&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2022&#34;&gt;2022&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/contest-ciscn/&#34;&gt;信息安全竞赛项目&lt;/a&gt; National Second Prize&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/kaggle/&#34;&gt;kaggle&lt;/a&gt; ranked 46/3046&lt;/p&gt;
 &lt;h2 id=&#34;contact&#34;&gt;&lt;strong&gt;Contact&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:lijunlin0012@126.com&#34;&gt;lijunlin0012@126.com&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;mailto:i@junling.li&#34;&gt;i@junling.li&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;find-me-on&#34;&gt;Find me on&lt;/h2&gt;
 &lt;p&gt;Github: &lt;a href=&#34;https://github.com/BachWV&#34;&gt;https://github.com/BachWV&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;bilibili: &lt;a href=&#34;https://space.bilibili.com/36175480&#34;&gt;https://space.bilibili.com/36175480&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This site used to have a lot of content about life, and I removed it. Of course you can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find the site).This site will only share technical content for now.&lt;/p&gt;
 &lt;p&gt;Weixin Official Account : 一行瑠璃&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;一行瑠璃&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;trigger&#34;&gt;trigger&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;:http://junling.li:7500 (need password)&lt;/p&gt;
-&lt;p&gt;If you wanna to use my private frp server ,you can contact me to get the password.&lt;/p&gt;
-&lt;h3 id=&#34;about-domain-junlingli&#34;&gt;&lt;strong&gt;about domain junling.li&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/junling-li/&#34;&gt;junling.li&lt;/a&gt; and
-&lt;a href=&#34;https://bachwv.github.io/posts/domains/&#34;&gt;junling.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;New about-me is building ,you can find a demo on &lt;a href=&#34;https://junling.li/about-me.html&#34;&gt;New about me&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;New about-me is building ,you can find a demo on &lt;a href=&#34;https://bi-li.fun/about-me.html&#34;&gt;New about me&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

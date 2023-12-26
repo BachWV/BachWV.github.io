@@ -141,7 +141,8 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;
 &lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
 &lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
 &lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦&lt;/p&gt;
+&lt;p&gt;重新构建一下，你也能拥有如此炫酷的页面啦。&lt;/p&gt;
+&lt;p&gt;2023-12-26 update: 把分类时的观影日期改为上映的日期。没想到json对字符串的比较如此鲁棒，只改了一个数字&lt;/p&gt;
 </description>
     </item>
     
