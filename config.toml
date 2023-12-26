@@ -14,6 +14,7 @@ theme = "hugo-theme-tokiwa"
 
 title = "8086"
 publishDir = "docs"
+disableKinds = ['sitemap']
 
 [markup]
 [markup.highlight]
