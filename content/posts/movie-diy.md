@@ -20,7 +20,9 @@ Hugo作为静态网页生成工具，早就为你想到了这一点，参考[Hug
 
 具体过程见[movies.html](https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html)
 
-重新构建一下，你也能拥有如此炫酷的页面啦
+重新构建一下，你也能拥有如此炫酷的页面啦。
+
+2023-12-26 update: 把分类时的观影日期改为上映的日期。没想到json对字符串的比较如此鲁棒，只改了一个数字
 
 
 

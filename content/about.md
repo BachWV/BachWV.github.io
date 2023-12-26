@@ -5,17 +5,13 @@ draft: false
 toc: true
 ---
 
-I am an undergraduate student 
+我也不知道我是谁
 
-with School of Computer Science and Engineering
+定义自己是一项很难的工作
 
-.University of Electronic Science and Technology of China(UESTC).
+我没有信心用这么一段话来介绍我自己
 
-I wish I could excel in algorithms. You can find my leetcode problem solution on left tag "Leetcode".
 
-I am a fan of GNU/Linux and I use Manjaro and Debian.
-
-I hope to contribute myself to open sourse software project.
 ### **about GNU/Linux**
 
 [gdb]({{< relref "posts/gdb调试.md" >}})  
@@ -68,26 +64,14 @@ neXt next is 6.824
 ## **Project**
 
 More content is updating.
-### 2020
-[cpp项目]({{< ref "cpp-acllib.md">}})  
-### 2021
-[软件工程项目]({{< ref "PDD_on_CentOS.md">}})  
-[课程设计项目]({{< ref "dlib-pyqt.md">}})  
-### 2022
-[信息安全竞赛项目]({{< ref "contest-ciscn.md">}}) National Second Prize
 
-[kaggle]({{< ref "kaggle.md">}}) ranked 46/3046
 ## **Contact**
 
-lijunlin0012@126.com  
-i@junling.li  
 lijunling2077@gmail.com
 
 ## Find me on
 
 Github: https://github.com/BachWV
-
-bilibili: https://space.bilibili.com/36175480
 
 This site used to have a lot of content about life, and I removed it. Of course you can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find the site).This site will only share technical content for now.
 
@@ -95,15 +79,5 @@ Weixin Official Account : 一行瑠璃
 
 ![一行瑠璃](https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg)
 
-## trigger
 
-
-[frp]({{< ref "群晖frp.md">}}):http://junling.li:7500 (need password) 
-
-If you wanna to use my private frp server ,you can contact me to get the password.
-
-### **about domain junling.li**
-[junling.li]({{< relref "posts/junling-li.md" >}}) and
-[junling.xyz]({{< relref "posts/domains.md" >}})
-
-New about-me is building ,you can find a demo on [New about me](https://junling.li/about-me.html)
+New about-me is building ,you can find a demo on [New about me](https://bi-li.fun/about-me.html)
