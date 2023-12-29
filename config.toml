@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "bach"
 baseURL = "https://bachwv.github.io/"
-copyright = "Copyright © 2021-2023"
+copyright = "Copyright © 2021-2024"
 
 # disqusShortname = "BachWV"
 enableInlineShortcodes = true

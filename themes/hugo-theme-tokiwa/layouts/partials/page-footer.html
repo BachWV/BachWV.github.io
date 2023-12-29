@@ -40,20 +40,15 @@
 </div>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+  href="https://unpkg.com/@waline/client@2/dist/waline.css"
 />
 <div id="wcomments"></div>
-<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
-<script type="text/javascript">
-  
-  $(function(){
-      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         Waline.init({
-          el: '#wcomments',  
-          serverURL: 'https://waline.bi-li.fun', 
-        });
-      });      
-    
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    el: '#wcomments',
+    serverURL: 'https://waline.bi-li.fun/',
   });
 </script>
 <hr />

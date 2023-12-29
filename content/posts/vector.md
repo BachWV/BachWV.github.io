@@ -9,8 +9,6 @@ draft: false
 # C++ vector使用方法
 
 
-## 
-
 在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。
 
 ## 一、什么是vector？
@@ -115,10 +113,7 @@ vector< vector< int> >v; 二维向量//这里最外的<>要有空格。否则在
 double Distance(vector<int>&a, vector<int>&b)
 ```
 
- 其中的“&”绝对不能少！！！
-
-
-同样的，使用前，导入头文件 #include 可以使用using声明：using std::vector;vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
+vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
 声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：
 
 | vector<T> v1;       | 保存类型为 T 对象。默认构造函数 v1 为空。 |
@@ -155,8 +150,6 @@ vector<vector<Point2f> > points; //定义一个二维数组
 points[0].size();  //指第一行的列数
 ```
 
-
-
 使用迭代器访问元素.
 
 ```
@@ -179,7 +172,6 @@ for(it=vec.begin();it!=vec.end();it++)
 
 **2、重要说明**
 
-vector 的元素不仅仅可以是 int,double,string 还可以是结构体，但是要注意：结构体要定义为全局的，否则会出错。
 
 ```
 #include<stdio.h>  
@@ -219,34 +211,6 @@ int main()
 return 0;  
 }  
 ```
-
-
-
-**3、算法**
-
-(1) 使用reverse将元素翻转：需要头文件 #include<algorithm>
-
-reverse(vec.begin(),vec.end());将元素翻转，即逆序排列！
-
-(在vecto r中，如果一个函数中需要两个迭代器，一般后一个都不包含)
-
-(2)使用 sort 排序：需要头文件 #include<algorithm>，
-
-sort(vec.begin(),vec.end());(默认是按升序排列,即从小到大).
-
-可以通过重写排序比较函数按照降序比较，如下：
-
-定义排序比较函数：
-
-```
-bool Comp(const int &a,const int &b)
-{
-    return a>b;
-}
-```
-
-调用时: sort(vec.begin(),vec.end(),Comp)，这样就降序排序。 
-
 
 
 **输出Vector的中的元素**  
