@@ -144,13 +144,15 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。</p>
+		<div class="c-rich-text"><h3 id="picgo">PicGo</h3>
+<p>下载<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo</a></p>
+<p>参考picgo文档</p>
+<h3 id="阿里云oss">阿里云OSS</h3>
+<p>在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资使用阿里云对象存储。</p>
 <p>首先开通oss，创建桶bucket</p>
 <p><img src="https://s2.loli.net/2022/09/06/mxXREbBNe1i9PqA.png" alt="oss-1.png"></p>
 <p>创建用户并为他添加权限</p>
 <p><img src="https://s2.loli.net/2022/09/06/km4tgGahNHVE8BO.png" alt="oss-2.png"></p>
-<p>参考picgo文档</p>
-<h3 id="阿里云oss">阿里云OSS</h3>
 <p>配置项及说明：</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -184,11 +186,12 @@ onload='renderMathInElement(document.body);'></script>
 <p>希望一次配置，以后永远不用再烦图床了。</p>
 <hr>
 <p>2022/9/6更新，由于最近看了几个例子，开了oss/cos被ddos了刷了好几万，阿里云开不了cdn（国内访问需备案域名），遂关了oss。这篇的保质期也只有两个月，阿里云也被我白嫖了两个月。</p>
-<p>这当然不是因为我懒得配cloudflare加速（减速），这是本blog的网络安全周的特别企划。</p>
+<p>这当然不是因为我懒得配cloudflare加速（减速）</p>
+<hr>
 <p>2023/12/22</p>
 <p>cloudflare r2图床</p>
 <p>今天打算移除所有git仓库里的图片，全部替换为cloudflare图床</p>
-<p>操作都一样啦，创建桶bucket，可以绑定自己的域名，</p>
+<p>操作都一样啦，创建桶bucket，可以绑定自己的域名，在插件中选择S3，填入引用密钥ID(accessKeyID)和应用密钥(secretAccessKey)即可。</p>
 </div>
 	</section>
 
@@ -269,7 +272,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2023
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 635 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 680 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

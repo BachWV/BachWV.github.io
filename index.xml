@@ -5040,13 +5040,15 @@ pc-check.py&lt;/p&gt;
       <pubDate>Thu, 21 Jul 2022 19:28:17 +0800</pubDate>
       
       <guid>https://bachwv.github.io/posts/%E5%9B%BE%E5%BA%8A/</guid>
-      <description>&lt;p&gt;在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资阿里云对象存储。&lt;/p&gt;
+      <description>&lt;h3 id=&#34;picgo&#34;&gt;PicGo&lt;/h3&gt;
+&lt;p&gt;下载&lt;a href=&#34;https://picgo.github.io/PicGo-Doc/zh/guide/&#34;&gt;PicGo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考picgo文档&lt;/p&gt;
+&lt;h3 id=&#34;阿里云oss&#34;&gt;阿里云OSS&lt;/h3&gt;
+&lt;p&gt;在尝试众多GitHub加速的免费cdn以后，指jsd和raw.githubcontents.com,发现都不够稳定，索性斥巨资使用阿里云对象存储。&lt;/p&gt;
 &lt;p&gt;首先开通oss，创建桶bucket&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/mxXREbBNe1i9PqA.png&#34; alt=&#34;oss-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;创建用户并为他添加权限&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/km4tgGahNHVE8BO.png&#34; alt=&#34;oss-2.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;参考picgo文档&lt;/p&gt;
-&lt;h3 id=&#34;阿里云oss&#34;&gt;阿里云OSS&lt;/h3&gt;
 &lt;p&gt;配置项及说明：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -5080,11 +5082,12 @@ pc-check.py&lt;/p&gt;
 &lt;p&gt;希望一次配置，以后永远不用再烦图床了。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;2022/9/6更新，由于最近看了几个例子，开了oss/cos被ddos了刷了好几万，阿里云开不了cdn（国内访问需备案域名），遂关了oss。这篇的保质期也只有两个月，阿里云也被我白嫖了两个月。&lt;/p&gt;
-&lt;p&gt;这当然不是因为我懒得配cloudflare加速（减速），这是本blog的网络安全周的特别企划。&lt;/p&gt;
+&lt;p&gt;这当然不是因为我懒得配cloudflare加速（减速）&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;2023/12/22&lt;/p&gt;
 &lt;p&gt;cloudflare r2图床&lt;/p&gt;
 &lt;p&gt;今天打算移除所有git仓库里的图片，全部替换为cloudflare图床&lt;/p&gt;
-&lt;p&gt;操作都一样啦，创建桶bucket，可以绑定自己的域名，&lt;/p&gt;
+&lt;p&gt;操作都一样啦，创建桶bucket，可以绑定自己的域名，在插件中选择S3，填入引用密钥ID(accessKeyID)和应用密钥(secretAccessKey)即可。&lt;/p&gt;
 </description>
     </item>
     
