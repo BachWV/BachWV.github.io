@@ -146,7 +146,6 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>来自https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html</p>
 <h1 id="c-vector使用方法">C++ vector使用方法</h1>
-<h2 id="heading"></h2>
 <p>在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。</p>
 <h2 id="一什么是vector">一、什么是vector？</h2>
 <p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
@@ -237,8 +236,7 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>double Distance(vector&lt;int&gt;&amp;a, vector&lt;int&gt;&amp;b)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>其中的“&amp;”绝对不能少！！！</p>
-<p>同样的，使用前，导入头文件 #include 可以使用using声明：using std::vector;vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
+</div><p>vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
 声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：</p>
 <table>
 <thead>
@@ -314,7 +312,6 @@ onload='renderMathInElement(document.body);'></script>
 <p>(9)清空: <code>vec.clear()</code>;</p>
 <p>特别提示：这里有 begin() 与 end() 函数、front() 与 back() 的差别</p>
 <p><strong>2、重要说明</strong></p>
-<p>vector 的元素不仅仅可以是 int,double,string 还可以是结构体，但是要注意：结构体要定义为全局的，否则会出错。</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -393,30 +390,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>  
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>3、算法</strong></p>
-<p>(1) 使用reverse将元素翻转：需要头文件 #include<algorithm></p>
-<p>reverse(vec.begin(),vec.end());将元素翻转，即逆序排列！</p>
-<p>(在vecto r中，如果一个函数中需要两个迭代器，一般后一个都不包含)</p>
-<p>(2)使用 sort 排序：需要头文件 #include<algorithm>，</p>
-<p>sort(vec.begin(),vec.end());(默认是按升序排列,即从小到大).</p>
-<p>可以通过重写排序比较函数按照降序比较，如下：</p>
-<p>定义排序比较函数：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#75af00">bool</span> <span style="color:#111">Comp</span><span style="color:#111">(</span><span style="color:#00a8c8">const</span> <span style="color:#75af00">int</span> <span style="color:#f92672">&amp;</span><span style="color:#111">a</span><span style="color:#111">,</span><span style="color:#00a8c8">const</span> <span style="color:#75af00">int</span> <span style="color:#f92672">&amp;</span><span style="color:#111">b</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">a</span><span style="color:#f92672">&gt;</span><span style="color:#111">b</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>调用时: sort(vec.begin(),vec.end(),Comp)，这样就降序排序。</p>
-<p><strong>输出Vector的中的元素</strong></p>
+</div><p><strong>输出Vector的中的元素</strong></p>
 <p>vector<float> vecClass;</p>
 <p>int nSize = vecClass.size();</p>
 <p>//打印 vecClass,方法一：</p>
@@ -602,9 +576,9 @@ onload='renderMathInElement(document.body);'></script>
 	
 </div>
 	<div class="text-sm text-white leading-tight a-gray">
-		Copyright © 2021-2023
+		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3364 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3011 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -649,20 +623,15 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+  href="https://unpkg.com/@waline/client@2/dist/waline.css"
 />
 <div id="wcomments"></div>
-<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
-<script type="text/javascript">
-  
-  $(function(){
-      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         Waline.init({
-          el: '#wcomments',  
-          serverURL: 'https://waline.bi-li.fun', 
-        });
-      });      
-    
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    el: '#wcomments',
+    serverURL: 'https://waline.bi-li.fun/',
   });
 </script>
 <hr />

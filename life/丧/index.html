@@ -229,7 +229,7 @@ onload='renderMathInElement(document.body);'></script>
 	
 </div>
 	<div class="text-sm text-white leading-tight a-gray">
-		Copyright © 2021-2023
+		Copyright © 2021-2024
 		<br />
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 150 words in this page.
 	</div>
@@ -276,20 +276,15 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@waline/client@2.3.1/dist/waline.css"
+  href="https://unpkg.com/@waline/client@2/dist/waline.css"
 />
 <div id="wcomments"></div>
-<script type="text/javascript" src="https://unpkg.com/jquery@2.1.4/dist/jquery.min.js"></script>
-<script type="text/javascript">
-  
-  $(function(){
-      $.getScript('https://unpkg.com/@waline/client@2.3.1/dist/waline.js', function(){
-         Waline.init({
-          el: '#wcomments',  
-          serverURL: 'https://waline.bi-li.fun', 
-        });
-      });      
-    
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    el: '#wcomments',
+    serverURL: 'https://waline.bi-li.fun/',
   });
 </script>
 <hr />
