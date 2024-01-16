@@ -1,8 +1,6 @@
 ---
 title: "我的BB"
-sitemap:
-  priority : 0.1
 layout: "essay"
-date: 2023-3-26
+date: 2024-01-16T20:41:56+08:00
 ---
 

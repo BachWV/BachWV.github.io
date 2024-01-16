@@ -79,9 +79,9 @@ url = "/links/"
 weight = 4
 
 [[menu.main]]
-identifier = "LeetCode"
-name = "Leetcode"
-url = "/leetcode/"
+identifier = "Memos"
+name = "随便BB"
+url = "/essay/"
 weight = 4
 
 [taxonomies]
