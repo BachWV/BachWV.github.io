@@ -13,6 +13,24 @@
     
     
     <item>
+      <title>我的BB</title>
+      <link>https://bachwv.github.io/essay/</link>
+      <pubDate>Tue, 16 Jan 2024 20:41:56 +0800</pubDate>
+      
+      <guid>https://bachwv.github.io/essay/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>我的观影</title>
+      <link>https://bachwv.github.io/movies/</link>
+      <pubDate>Tue, 16 Jan 2024 20:41:56 +0800</pubDate>
+      
+      <guid>https://bachwv.github.io/movies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>群晖外网访问终极篇 Cloudflare隧道</title>
       <link>https://bachwv.github.io/posts/synology-cloudflare/</link>
       <pubDate>Thu, 15 Jun 2023 12:00:00 +0800</pubDate>
@@ -18039,24 +18057,6 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
 &lt;p&gt;使用&lt;code&gt;python init_desktop.py&lt;/code&gt;运行docker（挂载当前目录至docker中的~/shared目录，在docker中使用&lt;code&gt;java -jar backup_lab.jar&lt;/code&gt;运行本软件 ）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/11/17/FSWDYUKEZHPeqIb.png&#34; alt=&#34;image-20221117163256291&#34;&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>我的BB</title>
-      <link>https://bachwv.github.io/essay/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bachwv.github.io/essay/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>我的观影</title>
-      <link>https://bachwv.github.io/movies/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bachwv.github.io/movies/</guid>
-      <description></description>
     </item>
     
     <item>
