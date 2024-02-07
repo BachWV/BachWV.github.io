@@ -260,10 +260,10 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 </div><p>这时需要我们把私钥写入HEXO_DEPLOY_PRIVATE_KEY这个环境变量。</p>
 <p>在仓库设置settings的secrets里新建actions变量，注意，这里的名称要填<code>HEXO_DEPLOY_PRIVATE_KEY</code></p>
-<p><img src="https://r2.bi-li.fun/2023/12/image-20220716230625530.png" alt="image-20220716230625530"></p>
+<p><img src="https://r2.csapp.fun/2023/12/image-20220716230625530.png" alt="image-20220716230625530"></p>
 <p>这样提交到仓库就不需要密码了，Windows、linux的私钥一般在~/.ssh/id_rsa里。</p>
 <p>到此就配置结束了，每次 push 都会触发actions，我们可以在actions里查看运行情况</p>
-<p><img src="https://r2.bi-li.fun/2023/12/image-20220716230657527.png" alt="image-20220716230657527"></p>
+<p><img src="https://r2.csapp.fun/2023/12/image-20220716230657527.png" alt="image-20220716230657527"></p>
 <h1 id="问题">问题</h1>
 <h3 id="问题1">问题1</h3>
 <p>action执行失败卡在deploy</p>
@@ -493,7 +493,7 @@ onload='renderMathInElement(document.body);'></script>
 
   init({
     el: '#wcomments',
-    serverURL: 'https://waline.bi-li.fun/',
+    serverURL: 'https://waline.csapp.fun/',
   });
 </script>
 <hr />
