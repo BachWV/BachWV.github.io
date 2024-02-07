@@ -396,7 +396,7 @@ q_文法不允许右部以非终结符开始，所以我们还需要功能更加
 
 
 
-<img src="https://r2.bi-li.fun/2023/12/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
+<img src="https://r2.csapp.fun/2023/12/Pasted%20image%2020220327203357.png" alt="Pasted image 20220327203357" style="zoom:33%;" />
 FIRST(\alpha)
 
 ![](https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png)

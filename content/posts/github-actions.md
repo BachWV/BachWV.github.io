@@ -88,13 +88,13 @@ jobs:
 
 在仓库设置settings的secrets里新建actions变量，注意，这里的名称要填`HEXO_DEPLOY_PRIVATE_KEY`
 
-![image-20220716230625530](https://r2.bi-li.fun/2023/12/image-20220716230625530.png)
+![image-20220716230625530](https://r2.csapp.fun/2023/12/image-20220716230625530.png)
 
 这样提交到仓库就不需要密码了，Windows、linux的私钥一般在~/.ssh/id_rsa里。
 
 到此就配置结束了，每次 push 都会触发actions，我们可以在actions里查看运行情况
 
-![image-20220716230657527](https://r2.bi-li.fun/2023/12/image-20220716230657527.png)
+![image-20220716230657527](https://r2.csapp.fun/2023/12/image-20220716230657527.png)
 
 # 问题
 
