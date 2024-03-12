@@ -3,10 +3,19 @@ title: "Links"
 date: 2021-08-07T23:41:56+08:00
 draft: false
 ---
+## **[JoyTsing](https://joytsing.github.io/)**
+
+<img src="https://joytsing.github.io/medias/avatars/touxiang2.jpg" alt="JoyTsing" width="100px" height="100px" style="border-radius: 50%;">
+
+
+连想改变别人的念头都不要有,要学着像太阳一样,只是发出光和热,每个人接受阳光的反应有所不同,有人觉得刺眼有人觉得温暖,有人甚至躲开阳光。种子破土发芽前没有任何的迹象,是因为没到那个时间点,只有自己才是自己的拯救者。
+
 
 ## **[东哥](https://minatoxeon.github.io/)**
 
 首先是东哥，一个啥手机都有的神，从经典iPhone SE 到机皇 Samsung Galaxy Note 10+ ,再到爵士Huawei Mate 30 Pro ，还有守门员小米10 ，大清亡了的一加7Pro, 以及东哥新宠 iPhone 13 mini。无论是配备M1的iPad Pro Cellular 256GB with 2 years Apple Care+，还是Pixel C。数不清的数码产品东哥这里应有尽有。
+
+最近新增 小米13Ultra，MatePad Pro，荣耀x40gt，荣耀MagicBook，已经数不过来了。
 
 
 
