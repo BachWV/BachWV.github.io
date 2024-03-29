@@ -1,5 +1,5 @@
 ---
-title: Oceanbase比赛实录
+title: "Oceanbase比赛实录"
 date: 2024-1-10
 ---
 Oceanbase比赛的最后一天是挺梦幻的，中午还是5秒2，晚上就冲上了2秒9。
