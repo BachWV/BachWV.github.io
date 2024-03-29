@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | Oceanbase比赛实录</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.124.1">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://bachwv.github.io/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://bachwv.github.io/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://bachwv.github.io/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://bachwv.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://bachwv.github.io/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://bachwv.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://bachwv.github.io/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">Oceanbase比赛实录</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="0001-01-01T00:00:00Z">0001-1-1</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>Oceanbase比赛的最后一天是挺梦幻的，中午还是5秒2，晚上就冲上了2秒9。</p>
+<p>比赛结束的前一天晚上，吃完晚饭已经8点多了，离比赛结束还有不到24小时。而我们只有18名，我知道接下来得争分夺秒了，目前的名次肯定是不够看的。</p>
+<p>从11点发现tpcc的问题，看了一波obd的报错，缩小了问题范围，是虚拟表的内容不对，可能牵扯到all_merge_info的那几张表，但不知道如何解决，怀疑是有几张表的重定向没有还原。我们一遍又一遍查gen_meta_tenant_id的调用地方，就这样不知不觉到了3点，又到了5点还没解决。我实在撑不住睡觉了，睡前想着如果庞哥能搞定就好了。我记得那晚寝室灯也没关，就那么睡着了。8点醒了发现庞哥7点发了一个消息，“tpcc问题解决了，去睡40分钟”，庞哥熬了一晚上把问题解决了，把所有重定向到sys租户的表基本上还原，肝一肝出了奇迹。这下并行没问题了。1号的思路终于在比赛结束前6小时实现了。</p>
+<p>早上起来看到庞哥还没睡，真是神人。起床来继续创造奇迹，一个上午尝试把refresh放到后台执行，到中午12点发现无果。此时，离比赛结束还剩6个小时了，而我们的最新成绩是5秒2，排名16的样子，相比6号进步了800ms，但是还不够啊，唉，点了一份大米先生外卖，直接肝。</p>
+<p>不知怎么发现，主线程只需睡1500ms，这样还是有几率通过的，而到下午4点，已经尝试缩短到300ms了，因为sysbench在本地有几率过，特别是把后台的vscode和clangd都关了，有3成的几率能通过sysbench，所以，线上一定能过！已经破罐子破摔了，毕竟没有多少可以失去的了，输了不亏，赢了血赚。</p>
+<p>一边改代码一边拍桌子，从来就没有这么兴奋过。</p>
+<p>这几天，首先是restart起不来，花了好几天时间解决，应该是all_server还是哪张表的start_service_time一直等于0，感觉是后台卡在start的一步里，但是看了好几天代码，没发现端倪。总之，我猜测和建表顺序有关系，因为从9号到10号，使用的是庞哥的sys表先建的方法，还原成串行建表以后，最先最古老的代码是一定能跑的，甚至没有考虑到建表失败的重试，可见ob对自己的信心。从那以后，几乎所有hash not exist问题都不存在了，虽然串行比较耗时，大约在2.7秒左右，但是小问题基本上消失了。</p>
+<p>最后一天下午，我们发现，deploy已经能到3.6s，这是1500ms的睡眠，少睡1秒应该能过，但sysbench大约在31秒，胜算很低，怎么缩短一秒，只能在建表这里挤一挤，恢复成并行建表逻辑，差距不大，但好像有一丢丢的提升，最后的最后，把refresh和set baseline schema version注释掉，因为6秒的那次提交能过，那么说明不刷新schema也是可以的。最后的俩小时，已经把日志级别去除了追求极限，已经没有时间排查问题，只有不断尝试（重试）。事实上到下午5点，我们还是半小时提交一发，还剩3发提交。</p>
+<p>3秒2的那次，已经很超出预期了，提升了2s，从20吊车尾到稳了前十。多刷几次也不过2.9s第七名。最后一小时，抱着死马当活马医的态度，创建了4个分支，尝试sleep时间从500ms到300ms不等，卡评测机器的极限。我们没有优化点了，只有把手上的牌全部提交，哪怕成绩作废。</p>
+<p>比赛结束的时候很平静，看着6点过了，心想这比赛再长，也让我们走到了终点，大家也不用费尽心思找优化点了，不用时刻盯着排行榜，来哥也不用凌晨重启服务器了。</p>
+<p>我和庞哥去龙湖吃鸡汤饭，出校门的路上突然就很困，从前一天上午到现在，好像一直坐在电脑前看log解决问题，时间在飞速流逝，不知不觉就第二天了，突然一下就比赛结束了，昨天晚上到现在，没时间顾及其他事情，也没怎么休息，看来是该睡了，看着评测结果全是红，一边复盘一边想着我这一天做了什么。5点半的倒数几次提交，基本上都挂了。看来健壮性确实不行，只跑出一次3秒2，没有提升。鸡汤饭快吃完了，关键的来了，庞哥在手机上看到2.3s的成绩，一瞬间还以为眼花，一看已经6点40，估计成绩作废了，我开了一下排行榜，成绩居然变了？！what the fuck？没想到在截止时间前的提交还计数？这下不得不起飞了，我也不知道5点51我抱着什么心态交的这一发，估计是看着那个版本sleep的300ms有希望过，那只有1成胜算，我也不知道最后一刻的评测机抱着什么心态跑完的，给了个2222ms的成绩，也不知道测评榜怎么还变化了，在比赛结束后还在滚动。也不知道成绩是否有效，所以，耐心等待最终提测成绩吧。</p>
+<p>回去的路上7点多了，街上霓虹闪烁，前几天晚上吃饭回去天还是蓝的，原来成都的天也会这么早黑啊。停在路口的红绿灯前，等着蓉2驶过路口，只想着回寝室快点睡上一觉。</p>
+<p>写着写着，发现对比赛的记忆也越来越淡了，不记得为了miniob所熬的几个夜，也不记得没去听的几门课，好像也不记得昨天究竟改了什么代码，让最终跑过了tpcc，跑过了sysbench。比赛时一遍又一遍想着最终的结果怎样怎样，能不能拿到前六和实习，现在回想看来，尽管题目很烂，写的代码也很烂，经常看了一整天log啥都没看出来，但经历很充足很充实，比赛结果还不赖，回顾比赛的感受冲淡了比赛结果本身带来的喜悦。觉得今年下半年多少是做了一些有意思的工作，推掉一些工作来肝oceanbase，取得了一点小小的回报，至少在22岁这年有这件事，感觉活着还是有点意思的。</p>
+<p>当然决赛答辩就没什么好说的了，就是上海7日游了。哈哈我发现我真的没什么好说的。明明这么有意思的比赛，写的和流水账一样。</p>
+<p>3月27日，今天庞哥说他看视频，发现有个队在采访中说印象最深刻的是我们队，还蛮惊讶的，没想到还有人关心我们这个无名小卒。</p>
+<h2 id="决赛答辩">决赛答辩</h2>
+<p>回忆使人憔悴，运来老师一早就提醒我们做答辩PPT，可是懒狗只会等到ddl之前做。叠加期末周，真正新建文件夹，已经到24号了。29号考完最后一门英语，那时候是有点慌的。我们做了什么很棒的东西吗？好像没有吧，只不过把能去掉的部分去掉了，然后就提交了。</p>
+<p>上海的冬天和成都一样，都是PM2.5超标的阴霾，我们下午还在宾馆改了一下午PPT。说实话这个PPT做的不怎么样，没有惊艳的流程图，也忘了把我们的优化时间展示清楚，人大的同学两晚上做完，一句“最长连续工作时间”，一看就是汇报的高手。</p>
+<p>人的失败是成功后的。成功意味着你没有失败，这就是失败，路走的太顺了，终有一天会摔倒的。当然如果什么奖都没拿，那更失败了。</p>
+<p>由于第一天住的不怎么样，第二天找了一家汉庭，就是位置有点偏，在匣北公园旁边。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/movies/" title="电影 page" >
+			电影
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/essay/" title="随便BB page" >
+			随便BB
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+</div>
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2024
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2675 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/backup-lab/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        一个不知名的备份打包程序
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/posts/life-of-a-pixel/">
+        Life of a Pixel
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    el: '#wcomments',
+    serverURL: 'https://waline.csapp.fun/',
+  });
+</script>
+<hr />
+
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>
