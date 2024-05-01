@@ -320,7 +320,7 @@ onload='renderMathInElement(document.body);'></script>
     
     async function loadMovies() {
       try {
-        const movies = await fetchAndParseCSV('http://120.24.176.162/power/movie.csv');
+        const movies = await fetchAndParseCSV('https://raw.githubusercontent.com/BachWV/gh-action-movie/main/movie.csv');
         console.log(movies);
     
         renderMovies(movies);
