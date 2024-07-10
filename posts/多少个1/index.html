@@ -7,7 +7,7 @@
 	
 	<title>8086  | 多少个1</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.125.5">
+	<meta name="generator" content="Hugo 0.128.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -282,7 +282,7 @@ i 在右移之后和 0x55555555 进行 与 操作，就会得到原来 i 的第 
 </span></span><span style="display:flex;"><span>i = i + (i &gt;&gt;&gt; 16);
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1~16位上。（此时没有做第17~32位的清零）</p>
+</div><p>这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1<del>16位上。（此时没有做第17</del>32位的清零）</p>
 <p>当然，如果按照前几步的思路，你当然可以把这两行代码替换成：</p>
 <p><code>i = i + (i &gt;&gt;&gt; 8) &amp; ‭FF00FF‬;</code>
 这行是我想的，但经过验证可以达到一样的效果，因为 ‭FF00FF‬ 的二进制表达是：
@@ -514,7 +514,7 @@ i=0010010100101011</p>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3569 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3567 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

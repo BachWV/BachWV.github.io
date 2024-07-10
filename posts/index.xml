@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2024</copyright>
-    <lastBuildDate>Wed, 10 Jan 2024 12:32:41 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2024 12:32:41 +0800</lastBuildDate>
     
 	<atom:link href="https://bachwv.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>远程桌面神器RDPWarp</title>
+      <link>https://bachwv.github.io/posts/2024-7-10-rdpwarp/</link>
+      <pubDate>Wed, 10 Jul 2024 12:32:41 +0800</pubDate>
+      
+      <guid>https://bachwv.github.io/posts/2024-7-10-rdpwarp/</guid>
+      <description>&lt;p&gt;作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。
+RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。
+RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。
+&lt;a href=&#34;https://github.com/stascorp/rdpwrap/releases&#34;&gt;github&lt;/a&gt;可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。如果显示如下图所示，说明安装成功。&lt;/p&gt;
+&lt;p&gt;检查Diagnostics部分的所有项目是否为绿色，并显示[Fully supported]。
+&lt;img src=&#34;https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620170209909-1234289277.png&#34; alt=&#34;&#34;&gt;
+如果显示如下图所示：
+&lt;img src=&#34;https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620164746511-796847635.png&#34; alt=&#34;image.png&#34;&gt;
+它报告此版本的 Windows 10（版本 10.0.19041.2913）不受 RDPWrapper 支持。可以在github issue中找到你的Windows版本，手动复制对应版本配置内容复制增加到“C:\Program Files\RDP Wrapper\rdpwrap.ini”文件中。
+取消勾选single session per user，然后重启电脑，就大功告成了。&lt;/p&gt;
+&lt;p&gt;全程不需要打开组策略管理器，重启即可生效。&lt;/p&gt;
+&lt;p&gt;如果你有一台配置强大的电脑，通过这种方式即可实现多人单账户使用一台电脑，互相看不到对方的窗口，大大提高了资源利用率。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Oceanbase比赛实录</title>
@@ -26,7 +47,7 @@
 &lt;p&gt;一边改代码一边拍桌子，从来就没有这么兴奋过。&lt;/p&gt;
 &lt;p&gt;这几天，首先是restart起不来，花了好几天时间解决，应该是all_server还是哪张表的start_service_time一直等于0，感觉是后台卡在start的一步里，但是看了好几天代码，没发现端倪。总之，我猜测和建表顺序有关系，因为从9号到10号，使用的是庞哥的sys表先建的方法，还原成串行建表以后，最先最古老的代码是一定能跑的，甚至没有考虑到建表失败的重试，可见ob对自己的信心。从那以后，几乎所有hash not exist问题都不存在了，虽然串行比较耗时，大约在2.7秒左右，但是小问题基本上消失了。&lt;/p&gt;
 &lt;p&gt;最后一天下午，我们发现，deploy已经能到3.6s，这是1500ms的睡眠的条件下，少睡1秒应该能过，但sysbench大约在31秒，胜算很低，怎么缩短一秒，只能在建表这里挤一挤，恢复成并行建表逻辑，差距不大，但好像有一丢丢的提升，最后的最后，把refresh和set baseline schema version注释掉，因为6秒的那次提交能过，那么说明不刷新schema也是可以的。最后的俩小时，已经把日志级别去除了追求极限，已经没有时间排查问题，只有不断尝试（重试）。事实上到下午5点，我们还是半小时提交一发，还剩3发提交。&lt;/p&gt;
-&lt;p&gt;3秒2的那次，已经很超出预期了，提升了2s，从20吊车尾到稳了前十。多刷几次也不过2.9s第七名。最后一小时，抱着死马当活马医的态度，创建了4个分支，尝试sleep时间从500ms到300ms不等，卡评测机器的极限。我们没有优化点了，只有把手上的牌全部提交，哪怕成绩作废。&lt;/p&gt;
+&lt;p&gt;3秒2的那次，已经很超出预期了，提升了2s，从20吊车尾到稳了前十。多刷几次也不过2.9s第七名。最后一小时，抱着死马当活马医的态度，创建了4个分支，尝试sleep时间从500ms到300ms不等，卡评测机器的极限。我们没有优化点了，只有把手上的牌全部提交，哪怕成绩作废。就像是海战里打完所有弹药的巡洋舰，能开回去好歹是个全员二等功。&lt;/p&gt;
 &lt;p&gt;比赛结束的时候很平静，看着6点到了也过了，心想这比赛再长，也让我们走到了终点，大家也不用费尽心思找优化点了，不用时刻盯着排行榜，来哥也不用凌晨重启服务器了。&lt;/p&gt;
 &lt;p&gt;我和庞哥去龙湖吃鸡汤饭，出校门的路上突然就很困，从前一天上午到现在，好像一直坐在电脑前看log解决问题，时间在飞速流逝，不知不觉就第二天了，突然一下就比赛结束了，昨天晚上到现在，没时间顾及其他事情，也没怎么休息，看来是该睡了，看着评测结果全是红，一边复盘一边想着我这一天做了什么。5点半的倒数几次提交，基本上都挂了。看来健壮性确实不行，只跑出一次3秒2，没有提升。鸡汤饭快吃完了，关键的来了，庞哥在手机上看到2.3s的成绩，一瞬间还以为眼花，一看已经6点40，估计成绩作废了，我开了一下排行榜，成绩居然变了？！what the fuck？没想到在截止时间前的提交还计数？这下不得不起飞了，我也不知道5点51我抱着什么心态交的这一发，估计是看着那个版本sleep的300ms有希望过，那只有1成胜算，我也不知道最后一刻的评测机抱着什么心态跑完的，给了个2222ms的成绩，也不知道测评榜怎么还变化了，在比赛结束后还在滚动。也不知道成绩是否有效，所以，耐心等待最终官方成绩吧。&lt;/p&gt;
 &lt;p&gt;回去的路上7点多了，停在路口的红绿灯前，等着蓉2驶过路口，街上霓虹闪烁，前几天晚上吃饭回去天还是蓝的，原来成都的天也会这么早黑啊。而现在只想着回寝室快点睡上一觉。&lt;/p&gt;
@@ -11021,7 +11042,7 @@ i 在右移之后和 0x55555555 进行 与 操作，就会得到原来 i 的第 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;i = i + (i &amp;gt;&amp;gt;&amp;gt; 16);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1~16位上。（此时没有做第17~32位的清零）&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这两行，完成的是一个功能，也就是把源数字 i 每 16 位上面 1 的个数，存储在了 1&lt;del&gt;16位上。（此时没有做第17&lt;/del&gt;32位的清零）&lt;/p&gt;
 &lt;p&gt;当然，如果按照前几步的思路，你当然可以把这两行代码替换成：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;i = i + (i &amp;gt;&amp;gt;&amp;gt; 8) &amp;amp; ‭FF00FF‬;&lt;/code&gt;
 这行是我想的，但经过验证可以达到一样的效果，因为 ‭FF00FF‬ 的二进制表达是：

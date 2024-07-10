@@ -7,7 +7,7 @@
 	
 	<title>8086  | Oceanbase比赛实录</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.125.5">
+	<meta name="generator" content="Hugo 0.128.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -152,7 +152,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>一边改代码一边拍桌子，从来就没有这么兴奋过。</p>
 <p>这几天，首先是restart起不来，花了好几天时间解决，应该是all_server还是哪张表的start_service_time一直等于0，感觉是后台卡在start的一步里，但是看了好几天代码，没发现端倪。总之，我猜测和建表顺序有关系，因为从9号到10号，使用的是庞哥的sys表先建的方法，还原成串行建表以后，最先最古老的代码是一定能跑的，甚至没有考虑到建表失败的重试，可见ob对自己的信心。从那以后，几乎所有hash not exist问题都不存在了，虽然串行比较耗时，大约在2.7秒左右，但是小问题基本上消失了。</p>
 <p>最后一天下午，我们发现，deploy已经能到3.6s，这是1500ms的睡眠的条件下，少睡1秒应该能过，但sysbench大约在31秒，胜算很低，怎么缩短一秒，只能在建表这里挤一挤，恢复成并行建表逻辑，差距不大，但好像有一丢丢的提升，最后的最后，把refresh和set baseline schema version注释掉，因为6秒的那次提交能过，那么说明不刷新schema也是可以的。最后的俩小时，已经把日志级别去除了追求极限，已经没有时间排查问题，只有不断尝试（重试）。事实上到下午5点，我们还是半小时提交一发，还剩3发提交。</p>
-<p>3秒2的那次，已经很超出预期了，提升了2s，从20吊车尾到稳了前十。多刷几次也不过2.9s第七名。最后一小时，抱着死马当活马医的态度，创建了4个分支，尝试sleep时间从500ms到300ms不等，卡评测机器的极限。我们没有优化点了，只有把手上的牌全部提交，哪怕成绩作废。</p>
+<p>3秒2的那次，已经很超出预期了，提升了2s，从20吊车尾到稳了前十。多刷几次也不过2.9s第七名。最后一小时，抱着死马当活马医的态度，创建了4个分支，尝试sleep时间从500ms到300ms不等，卡评测机器的极限。我们没有优化点了，只有把手上的牌全部提交，哪怕成绩作废。就像是海战里打完所有弹药的巡洋舰，能开回去好歹是个全员二等功。</p>
 <p>比赛结束的时候很平静，看着6点到了也过了，心想这比赛再长，也让我们走到了终点，大家也不用费尽心思找优化点了，不用时刻盯着排行榜，来哥也不用凌晨重启服务器了。</p>
 <p>我和庞哥去龙湖吃鸡汤饭，出校门的路上突然就很困，从前一天上午到现在，好像一直坐在电脑前看log解决问题，时间在飞速流逝，不知不觉就第二天了，突然一下就比赛结束了，昨天晚上到现在，没时间顾及其他事情，也没怎么休息，看来是该睡了，看着评测结果全是红，一边复盘一边想着我这一天做了什么。5点半的倒数几次提交，基本上都挂了。看来健壮性确实不行，只跑出一次3秒2，没有提升。鸡汤饭快吃完了，关键的来了，庞哥在手机上看到2.3s的成绩，一瞬间还以为眼花，一看已经6点40，估计成绩作废了，我开了一下排行榜，成绩居然变了？！what the fuck？没想到在截止时间前的提交还计数？这下不得不起飞了，我也不知道5点51我抱着什么心态交的这一发，估计是看着那个版本sleep的300ms有希望过，那只有1成胜算，我也不知道最后一刻的评测机抱着什么心态跑完的，给了个2222ms的成绩，也不知道测评榜怎么还变化了，在比赛结束后还在滚动。也不知道成绩是否有效，所以，耐心等待最终官方成绩吧。</p>
 <p>回去的路上7点多了，停在路口的红绿灯前，等着蓉2驶过路口，街上霓虹闪烁，前几天晚上吃饭回去天还是蓝的，原来成都的天也会这么早黑啊。而现在只想着回寝室快点睡上一觉。</p>
@@ -255,7 +255,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3609 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3640 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

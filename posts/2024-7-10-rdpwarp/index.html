@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086 </title>
+	<title>8086  | 远程桌面神器RDPWarp</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.128.2">
 	
@@ -26,9 +26,6 @@
 
 	
 
-	
-	<link rel="alternate" href="/tags/gnu/index.xml" type="application/rss+xml" title="8086">
-	<link rel="feed" href="/tags/gnu/index.xml" type="application/rss+xml" title="8086">
 	
 	
 	
@@ -119,16 +116,65 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div style="background-color:transparent" 
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://bachwv.github.io/" title="8086" class="heading font-cursive icon">8086</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://bachwv.github.io/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">远程桌面神器RDPWarp</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2024-07-10T12:32:41&#43;08:00">2024-7-10</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。
+RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。
+RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。
+<a href="https://github.com/stascorp/rdpwrap/releases">github</a>可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。如果显示如下图所示，说明安装成功。</p>
+<p>检查Diagnostics部分的所有项目是否为绿色，并显示[Fully supported]。
+<img src="https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620170209909-1234289277.png" alt="">
+如果显示如下图所示：
+<img src="https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620164746511-796847635.png" alt="image.png">
+它报告此版本的 Windows 10（版本 10.0.19041.2913）不受 RDPWrapper 支持。可以在github issue中找到你的Windows版本，手动复制对应版本配置内容复制增加到“C:\Program Files\RDP Wrapper\rdpwrap.ini”文件中。
+取消勾选single session per user，然后重启电脑，就大功告成了。</p>
+<p>全程不需要打开组策略管理器，重启即可生效。</p>
+<p>如果你有一台配置强大的电脑，通过这种方式即可实现多人单账户使用一台电脑，互相看不到对方的窗口，大大提高了资源利用率。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/posts/" title="Posts page" >
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -140,8 +186,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/tags/" title="Tags page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/tags/" title="Tags page" >
 			Tags
 		</a>
 	</li>
@@ -171,10 +216,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/tags/gnu/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -187,315 +228,64 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-<h1 class="pb-4">
-	GNU
-</h1>
-<div>
-	<section>
-		
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/">
-			Gdb调试
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-	
-	
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/gnu'>GNU</a>
-	
-	
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2021-09-28T15:35:49&#43;08:00">2021-9-28</time>
-	</div>
-</div>
-
-		</div>
-		
-	</section>
-</div>
-
-		</main>
-		<div class="w-full h-0 flex-none order-3"></div>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
 	
 </div>
-	<div class="a-gray text-sm text-white leading-tight">
+	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		<a href="http://beian.miit.gov.cn/" target="_blank">蜀ICP备2022004855号-1</a><br/>
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			116 pages, 153985 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 651 words in this page.
 	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/essay/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        我的BB
+    </a>
+    
+    
+</div>
+<div >
 
 
 
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@2/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
-
+  init({
+    el: '#wcomments',
+    serverURL: 'https://waline.csapp.fun/',
+  });
+</script>
+<hr />
 
 
 		</footer>
