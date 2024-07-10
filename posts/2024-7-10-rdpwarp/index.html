@@ -149,9 +149,9 @@ RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的
 RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。
 <a href="https://github.com/stascorp/rdpwrap/releases">github</a>可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。如果显示如下图所示，说明安装成功。</p>
 <p>检查Diagnostics部分的所有项目是否为绿色，并显示[Fully supported]。
-<img src="https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620170209909-1234289277.png" alt="">
+<img src="https://r2.csapp.fun/2024/07/3214624-20230620170209909-1234289277.png" alt="">
 如果显示如下图所示：
-<img src="https://img2023.cnblogs.com/blog/3214624/202306/3214624-20230620164746511-796847635.png" alt="image.png">
+<img src="https://r2.csapp.fun/2024/07/3214624-20230620164746511-796847635.png" alt="">
 它报告此版本的 Windows 10（版本 10.0.19041.2913）不受 RDPWrapper 支持。可以在github issue中找到你的Windows版本，手动复制对应版本配置内容复制增加到“C:\Program Files\RDP Wrapper\rdpwrap.ini”文件中。
 取消勾选single session per user，然后重启电脑，就大功告成了。</p>
 <p>全程不需要打开组策略管理器，重启即可生效。</p>
