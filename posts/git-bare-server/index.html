@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Tmux</title>
+	<title>8086  | git 局域网同步</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.133.1">
 	
@@ -122,7 +122,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://bachwv.github.io/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Tmux</h1>
+<h1 class="pt-2">git 局域网同步</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -131,7 +131,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2022-07-20T11:00:02&#43;08:00">2022-7-20</time>
+		datetime="2024-08-27T16:29:49&#43;08:00">2024-8-27</time>
 </div>
 
 <hr />
@@ -144,14 +144,44 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>简单记住一下 tmux的基本使用，因为自己记性不行</p>
-<p>新建会话 <code>tmux new -s &quot;name&quot;</code></p>
-<p>退出会话 <code>ctrl+b d</code>或<code>tmux detach</code></p>
-<p>进入某会话<code>tmux a -t &quot;name&quot;</code></p>
-<p>查看所有会话 <code>tmux ls</code></p>
-<p>杀死<code>tmux kill-session -t &quot;name&quot;|id</code></p>
-<p>切换会话 <code>tmux switch -t &quot;name&quot;|id</code></p>
-<p>上下分窗口 <code>ctrl+b d</code></p>
+		<div class="c-rich-text"><p>A电脑共享git仓库目录(<code>C:\Users\xxx\Desktop\code\cpp-httplib</code>)的文件夹，将文件夹权限更改为Everyone读取写入</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827162949843.png" alt="image-20240827162949843"></p>
+<p>比如A的ip是100.74.215.22，共享cpp-httplib的目录（该目录下存在.git）</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827162807944.png" alt="image-20240827162807944"></p>
+<p>在另一台电脑B上，命令行输入一下命令，即可克隆（如果是在A电脑的其他目录，可以输入<code>git clone file:///C:\Users\xxx\Desktop\code\cpp-httplib</code>  )</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone file://100.74.215.22/cpp-httplib
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://r2.csapp.fun/2024/08/image-20240827163233102.png" alt="image-20240827163233102"></p>
+<p>在B电脑克隆后的目录中，可以看到.git/config文件可以看到远端增加了一个局域网能访问的远端位置(如果是在A电脑的其他目录，<code>url = file:///C:\Users\xxx\Desktop\code\cpp-httplib </code>)：</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827163821442.png" alt="image-20240827163821442"></p>
+<p>一般来说他是一个git服务器的地址，比如</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>[remote &#34;origin&#34;]
+</span></span><span style="display:flex;"><span>	url = https://github.com/yhirose/cpp-httplib.git
+</span></span><span style="display:flex;"><span>	fetch = +refs/heads/*:refs/remotes/origin/*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时，B电脑可以对该仓库进行一些更改，比如创建一个分支LJL，做一个提交</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827164926561.png" alt="image-20240827164926561"></p>
+<p>再推回远端仓库<code>git push origin LJL</code>这个origin即是上面截图红框圈起的别名，也就是向A电脑的远端推送LJL分支。</p>
+<p>推送一个新分支显然是一个无害的操作，可以顺利进行。</p>
+<p><strong>注意</strong>，如果你想要在B电脑的master分支更新一次提交然后推送到A电脑，同时远端（A电脑）的HEAD指针也在master分支。B电脑提交master分支更新A电脑的HEAD指针，这是不被允许的。git会拒绝push到A电脑</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827165618158.png" alt="image-20240827165618158"></p>
+<p>如果想解除限制，可以在A电脑的目录下，<code>git config --local receive.denyCurrentBranch ignore</code>，</p>
+<p><img src="https://r2.csapp.fun/2024/08/image-20240827165716319.png" alt="image-20240827165716319"></p>
+<p>它的作用等价于在A电脑的.git/config文件添加<code>[receive] denyCurrentBranch = ignore </code>这两行</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -171,36 +201,29 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Ctrl+b d：分离当前会话。
-</span></span><span style="display:flex;"><span>Ctrl+b s：列出所有会话。
-</span></span><span style="display:flex;"><span>Ctrl+b $：重命名当前会话。
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[core]
+</span></span><span style="display:flex;"><span>	repositoryformatversion = 0
+</span></span><span style="display:flex;"><span>	filemode = false
+</span></span><span style="display:flex;"><span>	bare = false
+</span></span><span style="display:flex;"><span>	logallrefupdates = true
+</span></span><span style="display:flex;"><span>	symlinks = false
+</span></span><span style="display:flex;"><span>	ignorecase = true
+</span></span><span style="display:flex;"><span>[remote &#34;origin&#34;]
+</span></span><span style="display:flex;"><span>	url = https://github.com/yhirose/cpp-httplib.git
+</span></span><span style="display:flex;"><span>	fetch = +refs/heads/*:refs/remotes/origin/*
+</span></span><span style="display:flex;"><span>[branch &#34;master&#34;]
+</span></span><span style="display:flex;"><span>	remote = origin
+</span></span><span style="display:flex;"><span>	merge = refs/heads/master
+</span></span><span style="display:flex;"><span>	vscode-merge-base = origin/master
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Ctrl+b  再按上下左右键切换窗口
-</span></span><span style="display:flex;"><span>Ctrl+b  %:左右分窗口  &#34;：上下分窗口
-</span></span><span style="display:flex;"><span>Ctrl+b  d:退出当前窗口
-</span></span><span style="display:flex;"><span>Ctrl+b  [:进行上下翻页，q取消翻页
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Ctrl+b {：当前窗格与上一个窗格交换位置。
-</span></span><span style="display:flex;"><span>Ctrl+b }：当前窗格与下一个窗格交换位置。
-</span></span><span style="display:flex;"><span>Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
-</span></span><span style="display:flex;"><span>Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
-</span></span><span style="display:flex;"><span>Ctrl+b x：关闭当前窗格。 # exit
-</span></span><span style="display:flex;"><span>Ctrl+b !：将当前窗格拆分为一个独立窗口。
-</span></span><span style="display:flex;"><span>Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
-</span></span><span style="display:flex;"><span>Ctrl+b Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
-</span></span><span style="display:flex;"><span>Ctrl+b q：显示窗格编号。
-</span></span><span style="display:flex;"><span>————————————————
-</span></span><span style="display:flex;"><span>版权声明：本文为CSDN博主「仰望星空的小随」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-</span></span><span style="display:flex;"><span>原文链接：https://blog.csdn.net/sui_152/article/details/121650341
+</span></span><span style="display:flex;"><span>[receive]
+</span></span><span style="display:flex;"><span>	denyCurrentBranch = ignore
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><p>B电脑就可以更新A电脑的HEAD指针了，当然如果A电脑工作区有内容没有保存，会造成混乱。试了一下远端会暂存一次更改，再用新的HEAD覆盖，确实挺混乱的。</p>
+</div>
 	</section>
 
 
@@ -280,7 +303,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 523 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 716 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -297,21 +320,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/fixbug_difficultly/">
+    <a class="flex-grow-0" href="/posts/2024-7-10-rdpwarp/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        一个艰难的找bug过程
+        远程桌面神器RDPWarp
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/%E5%9B%BE%E5%BA%8A/">
-        图床
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
