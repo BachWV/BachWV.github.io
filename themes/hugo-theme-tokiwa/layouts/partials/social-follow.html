@@ -1,14 +1,17 @@
-
-{{ $count := len .Site.Params.Social}}
-<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start {{if gt $count 4}}md:flex-col{{end}}  max-h-16">
-	{{ range $key,$value:=.Site.Params.Social }}
-	<a href='{{$value}}' target="_blank" class="{{- $key}} icon pl-1 text-eucalyptus-400 hover:text-java-400" title="{{- $key}} link" rel="noopener"
-		aria-label="follow on {{$key}}——Opens in a new window">
-		{{/*  <object type="image/svg+xml" data='{{ relURL (printf "%s%s%s" "svg/" $key ".svg") }}' class="w-12 h-12
-		text-gray-200"></object> */}}
-		<div class="fill-current h-8 w-8">
-			{{ partial (printf "%s%s%s" "svg/" $key "-line.svg") . }}
-		</div>
-	</a>
-	{{ end }}
-</div>
+{{ if .Site.Params.social }}
+  <!-- 获取社交链接的数量 -->
+  {{ $count := len .Site.Params.social }}
+  
+  <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start {{ if gt $count 4 }}md:flex-col{{ end }} max-h-16">
+    {{ range .Site.Params.social }}
+      <a href="{{ .url }}" target="_blank" class="{{ .name | lower }} icon pl-1 text-eucalyptus-400 hover:text-java-400" title="{{ .name }} link" rel="noopener"
+        aria-label="follow on {{ .name }} —— Opens in a new window">
+        
+        <!-- 使用 partial 加载对应的 SVG 图标 -->
+        <div class="fill-current h-8 w-8">
+          {{ partial (printf "svg/%s-line.svg" (lower .name)) . }}
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}

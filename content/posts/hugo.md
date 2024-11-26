@@ -46,3 +46,20 @@ https://gohugo.io/content-management/multilingual/#changes-in-hugo-01120
 提到了配置文件config.toml映射的变化
 
 所以把第一行的`	{{ range $key,$value:=.Site.Social }}`改成`	{{ range $key,$value:=.Site.Params.Social }}`就好啦
+
+
+2024-11-26更新：
+今天github actions又报错了，这次是同样是social-follow.html的问题。hugo版本是0.139，不支持原来的social写法，
+
+>ERROR deprecated: .Site.Social was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.140.0. Implement taxonomy 'social' or use .Site.Params.Social instead.
+
+使用`.Site.Params.Social`替换以后还是错，因为格式不对，盯着social-follow.html看了半天，搜到几个issue，不知道哪里的问题。
+遂打开一个example项目：https://github.com/luizdepra/hugo-coder/，一下子就清晰明了。
+
+> [[params.social]]
+> name = "Github"
+> icon = "fa-brands fa-github fa-2x"
+> weight = 1
+> url = "https://github.com/johndoe/"
+
+又在copilot的帮助下完成了social-follow.html的修改。收工！

@@ -89,14 +89,22 @@ category = "categories"
 leetcode = "leetcodes"
 series = "series"
 tag = "tags"
+[[params.social]]
+name = "github"
+url = "https://github.com/bachwv"
 
-[social]
+
+[[params.social]]
+name = "mail"
+url = "mailto:lijunling2077@gmail.com"
+
+#[social]
 #_merge = "none"
-#bilibili = "https://space.bilibili.com/36175480"
-github = "http://github.com/bachwv"
+# bilibili = "https://space.bilibili.com/36175480"
+# github = "http://github.com/bachwv"
 # gitlab = "http://gitlab.com/"
-#mail = "mailto:lijunling2077@gmail.com"
-#twitter = "http://twitter.com/"
+# mail = "mailto:lijunling2077@gmail.com"
+# twitter = "http://twitter.com/"
 # zhihu = "http://example.com/"
 # any icon in layouts/partials/svg can be used by the name without the "-line.svg"
 
