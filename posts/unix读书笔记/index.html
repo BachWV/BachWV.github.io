@@ -7,7 +7,7 @@
 	
 	<title>8086  | Unix笔记</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.133.1">
+	<meta name="generator" content="Hugo 0.139.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -449,227 +449,227 @@ Linux       开放源代码</p>
 <p><img src="https://r2.csapp.fun/2023/12/image-20210612165940750.png" alt="image-20210612165940750"></p>
 <p>从命令模式进入文本输入模式：</p>
 <table>
-<thead>
-<tr>
-<th>文本输入模式</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td></td>
-<td>在光标左侧加入文本</td>
-<td></td>
-</tr>
-<tr>
-<td>I</td>
-<td></td>
-<td>在光标所在行首插入文本</td>
-<td></td>
-</tr>
-<tr>
-<td>a</td>
-<td></td>
-<td>在光标右侧加入文本</td>
-<td></td>
-</tr>
-<tr>
-<td>A</td>
-<td></td>
-<td>在光标所在行尾加入文本</td>
-<td></td>
-</tr>
-<tr>
-<td>o</td>
-<td></td>
-<td>在光标所在行下面新加一行</td>
-<td></td>
-</tr>
-<tr>
-<td>O</td>
-<td></td>
-<td>在光标所在行上面新加一行</td>
-<td></td>
-</tr>
-<tr>
-<td>ESC</td>
-<td></td>
-<td>退出文本输入模式</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>文本输入模式</th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>i</td>
+          <td></td>
+          <td>在光标左侧加入文本</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>I</td>
+          <td></td>
+          <td>在光标所在行首插入文本</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>a</td>
+          <td></td>
+          <td>在光标右侧加入文本</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>A</td>
+          <td></td>
+          <td>在光标所在行尾加入文本</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>o</td>
+          <td></td>
+          <td>在光标所在行下面新加一行</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>O</td>
+          <td></td>
+          <td>在光标所在行上面新加一行</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>ESC</td>
+          <td></td>
+          <td>退出文本输入模式</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="42-命令模式">4.2 命令模式：</h2>
 <p>光标移动：</p>
 <table>
-<thead>
-<tr>
-<th>光标移动</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h j k l</td>
-<td></td>
-<td>左下上右移动</td>
-<td></td>
-</tr>
-<tr>
-<td>^</td>
-<td></td>
-<td>行首</td>
-<td></td>
-</tr>
-<tr>
-<td>$</td>
-<td></td>
-<td>行尾</td>
-<td></td>
-</tr>
-<tr>
-<td>+</td>
-<td></td>
-<td>下一行的行首</td>
-<td></td>
-</tr>
-<tr>
-<td>_</td>
-<td></td>
-<td>上一行的行首</td>
-<td></td>
-</tr>
-<tr>
-<td>Space</td>
-<td></td>
-<td>右移</td>
-<td></td>
-</tr>
-<tr>
-<td>Backspace</td>
-<td></td>
-<td>左移</td>
-<td></td>
-</tr>
-<tr>
-<td>w</td>
-<td></td>
-<td>下一个字</td>
-<td></td>
-</tr>
-<tr>
-<td>b</td>
-<td></td>
-<td>前一个字</td>
-<td></td>
-</tr>
-<tr>
-<td>e</td>
-<td></td>
-<td>当前字的末尾</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>光标移动</th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>h j k l</td>
+          <td></td>
+          <td>左下上右移动</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>^</td>
+          <td></td>
+          <td>行首</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$</td>
+          <td></td>
+          <td>行尾</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>+</td>
+          <td></td>
+          <td>下一行的行首</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>_</td>
+          <td></td>
+          <td>上一行的行首</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Space</td>
+          <td></td>
+          <td>右移</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Backspace</td>
+          <td></td>
+          <td>左移</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>w</td>
+          <td></td>
+          <td>下一个字</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>b</td>
+          <td></td>
+          <td>前一个字</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>e</td>
+          <td></td>
+          <td>当前字的末尾</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p>文本修改：</p>
 <table>
-<thead>
-<tr>
-<th>文本修改</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x</td>
-<td></td>
-<td>删除光标所在字符</td>
-</tr>
-<tr>
-<td>dw</td>
-<td></td>
-<td>删除光标所在词的从光标开始到该<strong>词</strong>结尾</td>
-</tr>
-<tr>
-<td>D</td>
-<td></td>
-<td>删除从光标到行尾</td>
-</tr>
-<tr>
-<td>dd</td>
-<td></td>
-<td>删除光标所在行</td>
-</tr>
-<tr>
-<td>u</td>
-<td></td>
-<td>撤销上一次修改</td>
-</tr>
-<tr>
-<td>r</td>
-<td></td>
-<td>把当前光标所在字符替换为紧跟在r后的一个字</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>文本修改</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>x</td>
+          <td></td>
+          <td>删除光标所在字符</td>
+      </tr>
+      <tr>
+          <td>dw</td>
+          <td></td>
+          <td>删除光标所在词的从光标开始到该<strong>词</strong>结尾</td>
+      </tr>
+      <tr>
+          <td>D</td>
+          <td></td>
+          <td>删除从光标到行尾</td>
+      </tr>
+      <tr>
+          <td>dd</td>
+          <td></td>
+          <td>删除光标所在行</td>
+      </tr>
+      <tr>
+          <td>u</td>
+          <td></td>
+          <td>撤销上一次修改</td>
+      </tr>
+      <tr>
+          <td>r</td>
+          <td></td>
+          <td>把当前光标所在字符替换为紧跟在r后的一个字</td>
+      </tr>
+  </tbody>
 </table>
 <p>x,dw,dd前都可加上数字，表示同时删除多个单位</p>
 <p>.可以重复最近一次对文本的修改操作</p>
 <p>搜索文本</p>
 <table>
-<thead>
-<tr>
-<th>搜索</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>输入搜索词并回车，向尾部查找下一个词</td>
-</tr>
-<tr>
-<td>?</td>
-<td>与/相同，查找方向相反</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>搜索</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/</td>
+          <td>输入搜索词并回车，向尾部查找下一个词</td>
+      </tr>
+      <tr>
+          <td>?</td>
+          <td>与/相同，查找方向相反</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="43-退出">4.3 退出</h2>
 <p>在命令模式时，</p>
 <table>
-<thead>
-<tr>
-<th>退出</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:wq</td>
-<td>保存文本，退出vi，返回shell</td>
-</tr>
-<tr>
-<td>:w</td>
-<td>保存文本，不退出</td>
-</tr>
-<tr>
-<td>:w file</td>
-<td>把文本保存到文件file中，不退出</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>退出vi，返回shell</td>
-</tr>
-<tr>
-<td>ZZ</td>
-<td>快速保存文件并退出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>退出</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>:wq</td>
+          <td>保存文本，退出vi，返回shell</td>
+      </tr>
+      <tr>
+          <td>:w</td>
+          <td>保存文本，不退出</td>
+      </tr>
+      <tr>
+          <td>:w file</td>
+          <td>把文本保存到文件file中，不退出</td>
+      </tr>
+      <tr>
+          <td>:q</td>
+          <td>退出vi，返回shell</td>
+      </tr>
+      <tr>
+          <td>ZZ</td>
+          <td>快速保存文件并退出</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="44-存储缓冲区">4.4 存储缓冲区</h2>
 <p>vi编辑器为用户所要创建或修改的文件建立了一个临时工作区，用户编辑的过程中只作用于工作区的文件副本而不是源文件。如果用户需要保存，必须用命令将修改的文件替换原文件。</p>
@@ -720,26 +720,26 @@ Linux       开放源代码</p>
 <p>1.打印工作目录 <code>pwd</code>(print working directory)</p>
 <p>2.改变工作目录 <code>cd </code></p>
 <table>
-<thead>
-<tr>
-<th>cd命令</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd</td>
-<td>返回用户主目录，缺省值</td>
-</tr>
-<tr>
-<td>cd $HOME</td>
-<td>返回用户主目录</td>
-</tr>
-<tr>
-<td>cd ..</td>
-<td>返回上一级目录</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>cd命令</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>cd</td>
+          <td>返回用户主目录，缺省值</td>
+      </tr>
+      <tr>
+          <td>cd $HOME</td>
+          <td>返回用户主目录</td>
+      </tr>
+      <tr>
+          <td>cd ..</td>
+          <td>返回上一级目录</td>
+      </tr>
+  </tbody>
 </table>
 <p>3.创建目录 <code>mkdir</code></p>
 <p>选项有-p</p>
@@ -749,70 +749,70 @@ Linux       开放源代码</p>
 <p>5.目录列表 <code>ls</code></p>
 <p>显示指定目录的信息，如果没有指定目录，则列出当前目录。</p>
 <table>
-<thead>
-<tr>
-<th>UNIX选项</th>
-<th>linux选项</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>&ndash;all</td>
-<td>列出所有文件，包括隐藏文件</td>
-</tr>
-<tr>
-<td>-C</td>
-<td>&ndash;format=vertical  &ndash;format=horizontal</td>
-<td>用多列方式列出文件，按列排列</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>&ndash;classify</td>
-<td>将子目录与普通文件类型分开，子目录加/，可执行文件加*</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>&ndash;format=single-column</td>
-<td>详细列出文件的属性，每行一个文件</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>&ndash;format=commas</td>
-<td>按页宽列出文件，用逗号隔开</td>
-</tr>
-<tr>
-<td>-p</td>
-<td></td>
-<td>在目录文件名后加斜杠 /</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>&ndash;reverse</td>
-<td>以反字母顺序列出文件</td>
-</tr>
-<tr>
-<td>-R</td>
-<td>&ndash;recursive</td>
-<td>递归列出子目录的内容</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>&ndash;size</td>
-<td>以block为单位列出文件大小</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>&ndash;format=horizontal  &ndash;format=across</td>
-<td>以多列方式列出文件，按行排列</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>显示帮助信息</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>UNIX选项</th>
+          <th>linux选项</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-a</td>
+          <td>&ndash;all</td>
+          <td>列出所有文件，包括隐藏文件</td>
+      </tr>
+      <tr>
+          <td>-C</td>
+          <td>&ndash;format=vertical  &ndash;format=horizontal</td>
+          <td>用多列方式列出文件，按列排列</td>
+      </tr>
+      <tr>
+          <td>-F</td>
+          <td>&ndash;classify</td>
+          <td>将子目录与普通文件类型分开，子目录加/，可执行文件加*</td>
+      </tr>
+      <tr>
+          <td>-l</td>
+          <td>&ndash;format=single-column</td>
+          <td>详细列出文件的属性，每行一个文件</td>
+      </tr>
+      <tr>
+          <td>-m</td>
+          <td>&ndash;format=commas</td>
+          <td>按页宽列出文件，用逗号隔开</td>
+      </tr>
+      <tr>
+          <td>-p</td>
+          <td></td>
+          <td>在目录文件名后加斜杠 /</td>
+      </tr>
+      <tr>
+          <td>-r</td>
+          <td>&ndash;reverse</td>
+          <td>以反字母顺序列出文件</td>
+      </tr>
+      <tr>
+          <td>-R</td>
+          <td>&ndash;recursive</td>
+          <td>递归列出子目录的内容</td>
+      </tr>
+      <tr>
+          <td>-s</td>
+          <td>&ndash;size</td>
+          <td>以block为单位列出文件大小</td>
+      </tr>
+      <tr>
+          <td>-x</td>
+          <td>&ndash;format=horizontal  &ndash;format=across</td>
+          <td>以多列方式列出文件，按行排列</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>显示帮助信息</td>
+      </tr>
+  </tbody>
 </table>
 <p>例如：</p>
 <p><img src="https://r2.csapp.fun/2023/12/image-20210615181145639.png" alt="image-20210615181145639"></p>
@@ -834,64 +834,64 @@ Linux       开放源代码</p>
 <h4 id="chmod命令">chmod命令</h4>
 <p>chmod命令可以使用八进制数来指定权限。文件或目录的权限位是由9个权限位来控制，每三位为一组，它们分别是文件所有者（User）的读、写、执行，用户组（Group）的读、写、执行以及其它用户（Other）的读、写、执行。历史上，文件权限被放在一个比特掩码中，掩码中指定的比特位设为1，用来说明一个类具有相应的优先级。</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">#</th>
-<th style="text-align:left">权限</th>
-<th style="text-align:left">rwx</th>
-<th style="text-align:left">二进制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">7</td>
-<td style="text-align:left">读 + 写 + 执行</td>
-<td style="text-align:left">rwx</td>
-<td style="text-align:left">111</td>
-</tr>
-<tr>
-<td style="text-align:left">6</td>
-<td style="text-align:left">读 + 写</td>
-<td style="text-align:left">rw-</td>
-<td style="text-align:left">110</td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:left">读 + 执行</td>
-<td style="text-align:left">r-x</td>
-<td style="text-align:left">101</td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:left">只读</td>
-<td style="text-align:left">r&ndash;</td>
-<td style="text-align:left">100</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">写 + 执行</td>
-<td style="text-align:left">-wx</td>
-<td style="text-align:left">011</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">只写</td>
-<td style="text-align:left">-w-</td>
-<td style="text-align:left">010</td>
-</tr>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">只执行</td>
-<td style="text-align:left">&ndash;x</td>
-<td style="text-align:left">001</td>
-</tr>
-<tr>
-<td style="text-align:left">0</td>
-<td style="text-align:left">无</td>
-<td style="text-align:left">&mdash;</td>
-<td style="text-align:left">000</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">#</th>
+          <th style="text-align: left">权限</th>
+          <th style="text-align: left">rwx</th>
+          <th style="text-align: left">二进制</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">7</td>
+          <td style="text-align: left">读 + 写 + 执行</td>
+          <td style="text-align: left">rwx</td>
+          <td style="text-align: left">111</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">6</td>
+          <td style="text-align: left">读 + 写</td>
+          <td style="text-align: left">rw-</td>
+          <td style="text-align: left">110</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">读 + 执行</td>
+          <td style="text-align: left">r-x</td>
+          <td style="text-align: left">101</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">只读</td>
+          <td style="text-align: left">r&ndash;</td>
+          <td style="text-align: left">100</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">写 + 执行</td>
+          <td style="text-align: left">-wx</td>
+          <td style="text-align: left">011</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">只写</td>
+          <td style="text-align: left">-w-</td>
+          <td style="text-align: left">010</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">只执行</td>
+          <td style="text-align: left">&ndash;x</td>
+          <td style="text-align: left">001</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">000</td>
+      </tr>
+  </tbody>
 </table>
 <p>.和. .目录项</p>
 <p>本目录（.）和父目录（..）mkdir命令自动将两项放到创建的每个目录中。分别代表当前目录和上一级目录。</p>
@@ -905,26 +905,26 @@ Linux       开放源代码</p>
 <h2 id="57-删除文件">5.7 删除文件</h2>
 <p><code>rm</code>可以删除指定的文件</p>
 <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>删除文件前，给出确认信息</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>删除指定的目录及目录下的所有文件和子目录</td>
-</tr>
-<tr>
-<td>-rf</td>
-<td>无提示地强制递归删除文件</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-i</td>
+          <td>删除文件前，给出确认信息</td>
+      </tr>
+      <tr>
+          <td>-r</td>
+          <td>删除指定的目录及目录下的所有文件和子目录</td>
+      </tr>
+      <tr>
+          <td>-rf</td>
+          <td>无提示地强制递归删除文件</td>
+      </tr>
+  </tbody>
 </table>
 <p>如果想无提示删除所有文件，可以作死尝试<code>sudo rm -rf /*</code></p>
 <h1 id="第6章-vi编辑器的高级用法">第6章 vi编辑器的高级用法</h1>
@@ -951,30 +951,30 @@ Linux       开放源代码</p>
 <p>命令=操作符+域</p>
 <p>确定操作域后，可以使用户更好地控制编辑任务。</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">键</th>
-<th style="text-align:center">功能说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">标识域为从光标位置后到当前行尾</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">标识域为从光标位置前到当前行首</td>
-</tr>
-<tr>
-<td style="text-align:center">e/w</td>
-<td style="text-align:center">标识域为从光标位置后到当前字尾</td>
-</tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">标识域为从光标位置前到当前字首</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">键</th>
+          <th style="text-align: center">功能说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$</td>
+          <td style="text-align: center">标识域为从光标位置后到当前行尾</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">标识域为从光标位置前到当前行首</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">e/w</td>
+          <td style="text-align: center">标识域为从光标位置后到当前字尾</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">b</td>
+          <td style="text-align: center">标识域为从光标位置前到当前字首</td>
+      </tr>
+  </tbody>
 </table>
 <p>比如要复制从光标到行尾的所有，可以按<code>d$</code>，这就实现了复制，再按p粘贴。</p>
 <p>删除2行，<code>d2d</code></p>
@@ -987,30 +987,30 @@ Linux       开放源代码</p>
 <p><code>&quot;z7yy</code>，复制7行内容到z缓冲区</p>
 <h2 id="65--光标定位键">6.5  光标定位键</h2>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">键</th>
-<th style="text-align:center">功能说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>Ctrl-d</code></td>
-<td style="text-align:center">将光标向下移动到文件尾，通常每次移动12行</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>Ctrl-u</code></td>
-<td style="text-align:center">将光标向下移动到文件头，通常每次移动12行</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>Ctrl-f</code></td>
-<td style="text-align:center">将光标向下移动到文件尾，通常每次移动24行</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>Ctrl-b</code></td>
-<td style="text-align:center">将光标向下移动到文件头，通常每次移动24行</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">键</th>
+          <th style="text-align: center">功能说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>Ctrl-d</code></td>
+          <td style="text-align: center">将光标向下移动到文件尾，通常每次移动12行</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>Ctrl-u</code></td>
+          <td style="text-align: center">将光标向下移动到文件头，通常每次移动12行</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>Ctrl-f</code></td>
+          <td style="text-align: center">将光标向下移动到文件尾，通常每次移动24行</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>Ctrl-b</code></td>
+          <td style="text-align: center">将光标向下移动到文件头，通常每次移动24行</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="66-定制vi">6.6 定制vi</h2>
 <p>用户可以调整vi编辑器的设置</p>
@@ -1018,65 +1018,65 @@ Linux       开放源代码</p>
 <p>可以看到有众多选项可以自定义。</p>
 <p>下面介绍一些常用选项：</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">选项</th>
-<th style="text-align:center">缩写</th>
-<th style="text-align:center">功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">autoindent</td>
-<td style="text-align:center">ai</td>
-<td style="text-align:center">将新行与前一行的行首对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">ignorecase</td>
-<td style="text-align:center">ic</td>
-<td style="text-align:center">在搜索选项中忽略大小写</td>
-</tr>
-<tr>
-<td style="text-align:center">magic</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">允许在搜索时使用特殊字符</td>
-</tr>
-<tr>
-<td style="text-align:center">number</td>
-<td style="text-align:center">nu</td>
-<td style="text-align:center">显示行号</td>
-</tr>
-<tr>
-<td style="text-align:center">report</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">通知用户上一个命令影响的行号</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">设定<code>Ctrl-d</code>命令翻动的行数</td>
-</tr>
-<tr>
-<td style="text-align:center">shiftwidth</td>
-<td style="text-align:center">sw</td>
-<td style="text-align:center">设置缩进的空格数，与autoindent选项一起使用</td>
-</tr>
-<tr>
-<td style="text-align:center">showmode</td>
-<td style="text-align:center">smd</td>
-<td style="text-align:center">在屏幕的右角显示vi编辑器的模式</td>
-</tr>
-<tr>
-<td style="text-align:center">terse</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">缩短错误信息</td>
-</tr>
-<tr>
-<td style="text-align:center">wrapmargin</td>
-<td style="text-align:center">wm</td>
-<td style="text-align:center">设置距屏幕右边界为指定的字符数</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">选项</th>
+          <th style="text-align: center">缩写</th>
+          <th style="text-align: center">功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">autoindent</td>
+          <td style="text-align: center">ai</td>
+          <td style="text-align: center">将新行与前一行的行首对齐</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">ignorecase</td>
+          <td style="text-align: center">ic</td>
+          <td style="text-align: center">在搜索选项中忽略大小写</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">magic</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">允许在搜索时使用特殊字符</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">number</td>
+          <td style="text-align: center">nu</td>
+          <td style="text-align: center">显示行号</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">report</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">通知用户上一个命令影响的行号</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">scroll</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">设定<code>Ctrl-d</code>命令翻动的行数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">shiftwidth</td>
+          <td style="text-align: center">sw</td>
+          <td style="text-align: center">设置缩进的空格数，与autoindent选项一起使用</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">showmode</td>
+          <td style="text-align: center">smd</td>
+          <td style="text-align: center">在屏幕的右角显示vi编辑器的模式</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">terse</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">缩短错误信息</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">wrapmargin</td>
+          <td style="text-align: center">wm</td>
+          <td style="text-align: center">设置距屏幕右边界为指定的字符数</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="664-缩写ab">6.6.4 缩写<code>ab</code></h3>
 <p>在命令模式输入<code>:ab hos harmony OS</code>，进入文本模式，在任何地方输入<code>hos</code>，注意前后要有空格，vi就会把hos替换为harmony OS。</p>
@@ -1091,60 +1091,60 @@ Linux       开放源代码</p>
 <p>RE分为BRE和ERE</p>
 <p>Basic RE：</p>
 <table>
-<thead>
-<tr>
-<th><strong>字    符</strong></th>
-<th><strong>BRE/ERE</strong></th>
-<th><strong>含义</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\</td>
-<td>Both</td>
-<td>转义</td>
-</tr>
-<tr>
-<td>.</td>
-<td>Both</td>
-<td>匹配单个字符</td>
-</tr>
-<tr>
-<td>*</td>
-<td>Both</td>
-<td>匹配任意次，可以是0次。a*表示匹配任意多次a，.*表示任意字符串</td>
-</tr>
-<tr>
-<td>^</td>
-<td>Both</td>
-<td>锚定匹配位置，从一行的行首开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td>Both</td>
-<td>锚定匹配位置，到一行的行尾</td>
-</tr>
-<tr>
-<td>[…]</td>
-<td>Both</td>
-<td>匹配中括号内的某个字符。x-y表示一个范围；[^…]表示不匹配中括号中的任意字符。[开括号后跟-或]，-]转义为普通字符</td>
-</tr>
-<tr>
-<td>\{n,m\}</td>
-<td>BRE</td>
-<td>匹配次数为[n,m]，{n}匹配n次，{n,}最小匹配次数为n</td>
-</tr>
-<tr>
-<td>\ (\  )</td>
-<td>BRE</td>
-<td>定义一个匹配位置，在后部可以引用该位置。例如，\(ab\).*\1表示ab字符串包夹了一个任意字符串。</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>BRE</td>
-<td>引用已经定义的位置，可以从\1到\9</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>字    符</strong></th>
+          <th><strong>BRE/ERE</strong></th>
+          <th><strong>含义</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\</td>
+          <td>Both</td>
+          <td>转义</td>
+      </tr>
+      <tr>
+          <td>.</td>
+          <td>Both</td>
+          <td>匹配单个字符</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>Both</td>
+          <td>匹配任意次，可以是0次。a*表示匹配任意多次a，.*表示任意字符串</td>
+      </tr>
+      <tr>
+          <td>^</td>
+          <td>Both</td>
+          <td>锚定匹配位置，从一行的行首开始</td>
+      </tr>
+      <tr>
+          <td>$</td>
+          <td>Both</td>
+          <td>锚定匹配位置，到一行的行尾</td>
+      </tr>
+      <tr>
+          <td>[…]</td>
+          <td>Both</td>
+          <td>匹配中括号内的某个字符。x-y表示一个范围；[^…]表示不匹配中括号中的任意字符。[开括号后跟-或]，-]转义为普通字符</td>
+      </tr>
+      <tr>
+          <td>\{n,m\}</td>
+          <td>BRE</td>
+          <td>匹配次数为[n,m]，{n}匹配n次，{n,}最小匹配次数为n</td>
+      </tr>
+      <tr>
+          <td>\ (\  )</td>
+          <td>BRE</td>
+          <td>定义一个匹配位置，在后部可以引用该位置。例如，\(ab\).*\1表示ab字符串包夹了一个任意字符串。</td>
+      </tr>
+      <tr>
+          <td>\n</td>
+          <td>BRE</td>
+          <td>引用已经定义的位置，可以从\1到\9</td>
+      </tr>
+  </tbody>
 </table>
 <p>下面是一些例子：</p>
 <p>a*g$ 匹配到行尾</p>
@@ -1279,82 +1279,82 @@ Linux       开放源代码</p>
 <h2 id="83--文件操作">8.3  文件操作</h2>
 <p>cp拷贝源文件成目标文件</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th>长选项</th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td>&ndash;backup</td>
-<td>如果目标文件存在，创建备份</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>&ndash;interactive</td>
-<td>如果目标文件存在，要求确认</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>&ndash;recursive</td>
-<td>将目录复制到新的目录</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;verbose</td>
-<td>解释操作</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>显示帮助页并退出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th>长选项</th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-b</td>
+          <td>&ndash;backup</td>
+          <td>如果目标文件存在，创建备份</td>
+      </tr>
+      <tr>
+          <td>-i</td>
+          <td>&ndash;interactive</td>
+          <td>如果目标文件存在，要求确认</td>
+      </tr>
+      <tr>
+          <td>-r</td>
+          <td>&ndash;recursive</td>
+          <td>将目录复制到新的目录</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;verbose</td>
+          <td>解释操作</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>显示帮助页并退出</td>
+      </tr>
+  </tbody>
 </table>
 <p>mv移动文件</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th>长选项</th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td>&ndash;backup</td>
-<td>如果目标文件存在，创建备份</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>&ndash;interactive</td>
-<td>如果目标文件存在，要求确认</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>&ndash;force</td>
-<td>强制移动，不要求确认</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>&ndash;verbose</td>
-<td>解释操作</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>显示帮助页并退出</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;version</td>
-<td>显示版本信息并退出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th>长选项</th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-b</td>
+          <td>&ndash;backup</td>
+          <td>如果目标文件存在，创建备份</td>
+      </tr>
+      <tr>
+          <td>-i</td>
+          <td>&ndash;interactive</td>
+          <td>如果目标文件存在，要求确认</td>
+      </tr>
+      <tr>
+          <td>-f</td>
+          <td>&ndash;force</td>
+          <td>强制移动，不要求确认</td>
+      </tr>
+      <tr>
+          <td>-v</td>
+          <td>&ndash;verbose</td>
+          <td>解释操作</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>显示帮助页并退出</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;version</td>
+          <td>显示版本信息并退出</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="84-ln链接文件">8.4 ln链接文件</h2>
 <p>用于为已存在的文件创建另外的名字（链接）。</p>
@@ -1392,35 +1392,35 @@ Linux       开放源代码</p>
 <h2 id="85-其他wcheadtail">8.5 其他wc,head,tail</h2>
 <p>wc统计字数</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th><strong>长选项</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-l</td>
-<td>&ndash;lines</td>
-<td>统计行数</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>&ndash;words</td>
-<td>统计单词数量</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>&ndash;chars</td>
-<td>统计字符数量</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>帮助</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th><strong>长选项</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-l</td>
+          <td>&ndash;lines</td>
+          <td>统计行数</td>
+      </tr>
+      <tr>
+          <td>-w</td>
+          <td>&ndash;words</td>
+          <td>统计单词数量</td>
+      </tr>
+      <tr>
+          <td>-c</td>
+          <td>&ndash;chars</td>
+          <td>统计字符数量</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>帮助</td>
+      </tr>
+  </tbody>
 </table>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1442,90 +1442,90 @@ Linux       开放源代码</p>
 </div>
 </div><p>head显示文件头部，缺省显示头部10行。</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th><strong>长选项</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-n</td>
-<td>&ndash;lines=n</td>
-<td>显示头部n行</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>&ndash;chars=n</td>
-<td>显示头部n个字符</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>显示帮助页并退出</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;version</td>
-<td>显示版本信息并退出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th><strong>长选项</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-n</td>
+          <td>&ndash;lines=n</td>
+          <td>显示头部n行</td>
+      </tr>
+      <tr>
+          <td>-c</td>
+          <td>&ndash;chars=n</td>
+          <td>显示头部n个字符</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>显示帮助页并退出</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;version</td>
+          <td>显示版本信息并退出</td>
+      </tr>
+  </tbody>
 </table>
 <p>tail显示文件尾部，缺省是尾部10行，与head类似就不再列举出。</p>
 <p>paste命令横向连接两个文件。缺省分隔符为TAB制表符。</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th><strong>长选项</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d  x</td>
-<td>&ndash;delimiters=x</td>
-<td>指定域分隔符</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;help</td>
-<td>显示帮助页并退出</td>
-</tr>
-<tr>
-<td></td>
-<td>&ndash;version</td>
-<td>显示版本信息并退出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th><strong>长选项</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-d  x</td>
+          <td>&ndash;delimiters=x</td>
+          <td>指定域分隔符</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;help</td>
+          <td>显示帮助页并退出</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>&ndash;version</td>
+          <td>显示版本信息并退出</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="86-sed替换">8.6 sed替换</h2>
 <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-e 脚本命令</td>
-<td>该选项会将其后跟的脚本命令添加到已有的命令中。</td>
-</tr>
-<tr>
-<td>-f 脚本命令文件</td>
-<td>该选项会将其后文件中的脚本命令添加到已有的命令中。</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>默认情况下，sed 会在所有的脚本指定执行完毕后，会自动输出处理后的内容，而该选项会屏蔽启动输出，需使用 print 命令来完成输出。</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>此选项会直接修改源文件，要慎用。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-e 脚本命令</td>
+          <td>该选项会将其后跟的脚本命令添加到已有的命令中。</td>
+      </tr>
+      <tr>
+          <td>-f 脚本命令文件</td>
+          <td>该选项会将其后文件中的脚本命令添加到已有的命令中。</td>
+      </tr>
+      <tr>
+          <td>-n</td>
+          <td>默认情况下，sed 会在所有的脚本指定执行完毕后，会自动输出处理后的内容，而该选项会屏蔽启动输出，需使用 print 命令来完成输出。</td>
+      </tr>
+      <tr>
+          <td>-i</td>
+          <td>此选项会直接修改源文件，要慎用。</td>
+      </tr>
+  </tbody>
 </table>
 <p>一个使用的例子：</p>
 <p>我在使用群晖时发现：一旦ssd温度升高到61度就会引起自动关机,由于我的群晖没有风扇，对于ssd达到这个温度轻而易举，一个24小时工作的设备肯定不希望它经常关机，根据教程查看群晖的配置文件发现</p>
@@ -1570,102 +1570,102 @@ Linux       开放源代码</p>
 <h2 id="87-打开文件grep命令">8.7 打开文件：grep命令</h2>
 <p>grep命令打开文件，在文件中以RE方式搜索字符串</p>
 <table>
-<thead>
-<tr>
-<th><strong>短选项</strong></th>
-<th><strong>长选项</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>&ndash;count</td>
-<td>只显示匹配的行数</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>&ndash;ignore-case</td>
-<td>忽略大小写匹配</td>
-</tr>
-<tr>
-<td>-G</td>
-<td>&ndash;basic-regexp</td>
-<td>BRE，grep缺省</td>
-</tr>
-<tr>
-<td>-E</td>
-<td>&ndash;extended-regexp</td>
-<td>ERE，egrep缺省</td>
-</tr>
-<tr>
-<td>-e  PATTERNS</td>
-<td>&ndash;regexp=PATTERNS</td>
-<td>指定一个或多个RE</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>&ndash;invert-match</td>
-<td>显示不匹配的行</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>&ndash;line-number</td>
-<td>输出行号</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>&ndash;only-matching</td>
-<td>只输出匹配的部分</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>短选项</strong></th>
+          <th><strong>长选项</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-c</td>
+          <td>&ndash;count</td>
+          <td>只显示匹配的行数</td>
+      </tr>
+      <tr>
+          <td>-i</td>
+          <td>&ndash;ignore-case</td>
+          <td>忽略大小写匹配</td>
+      </tr>
+      <tr>
+          <td>-G</td>
+          <td>&ndash;basic-regexp</td>
+          <td>BRE，grep缺省</td>
+      </tr>
+      <tr>
+          <td>-E</td>
+          <td>&ndash;extended-regexp</td>
+          <td>ERE，egrep缺省</td>
+      </tr>
+      <tr>
+          <td>-e  PATTERNS</td>
+          <td>&ndash;regexp=PATTERNS</td>
+          <td>指定一个或多个RE</td>
+      </tr>
+      <tr>
+          <td>-v</td>
+          <td>&ndash;invert-match</td>
+          <td>显示不匹配的行</td>
+      </tr>
+      <tr>
+          <td>-n</td>
+          <td>&ndash;line-number</td>
+          <td>输出行号</td>
+      </tr>
+      <tr>
+          <td>-o</td>
+          <td>&ndash;only-matching</td>
+          <td>只输出匹配的部分</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="88-find查找文件">8.8 find查找文件</h2>
 <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-name filename</td>
-<td>根据给定的filename查找文件。</td>
-</tr>
-<tr>
-<td>-size ± n</td>
-<td>查找文件大小为n的文件</td>
-</tr>
-<tr>
-<td>-type file type</td>
-<td>查找指定类型的文件</td>
-</tr>
-<tr>
-<td>-atime ± n</td>
-<td>查找n天以前访问的文件</td>
-</tr>
-<tr>
-<td>-mtime ± n</td>
-<td>查找n天以前修改的文件</td>
-</tr>
-<tr>
-<td>-newer filename</td>
-<td>查找比filename更近期更新的文件</td>
-</tr>
-<tr>
-<td>-print</td>
-<td>显示找到的每个文件的路径名</td>
-</tr>
-<tr>
-<td>-exec command\；</td>
-<td>对找到的文件执行command</td>
-</tr>
-<tr>
-<td>-ok command\；</td>
-<td>在执行command之前要求确认</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-name filename</td>
+          <td>根据给定的filename查找文件。</td>
+      </tr>
+      <tr>
+          <td>-size ± n</td>
+          <td>查找文件大小为n的文件</td>
+      </tr>
+      <tr>
+          <td>-type file type</td>
+          <td>查找指定类型的文件</td>
+      </tr>
+      <tr>
+          <td>-atime ± n</td>
+          <td>查找n天以前访问的文件</td>
+      </tr>
+      <tr>
+          <td>-mtime ± n</td>
+          <td>查找n天以前修改的文件</td>
+      </tr>
+      <tr>
+          <td>-newer filename</td>
+          <td>查找比filename更近期更新的文件</td>
+      </tr>
+      <tr>
+          <td>-print</td>
+          <td>显示找到的每个文件的路径名</td>
+      </tr>
+      <tr>
+          <td>-exec command\；</td>
+          <td>对找到的文件执行command</td>
+      </tr>
+      <tr>
+          <td>-ok command\；</td>
+          <td>在执行command之前要求确认</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>
@@ -1838,34 +1838,34 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>默认情况下，ps命令并不会提供那么多的信息,只显示PID,TTY,TIME,COMMAND</p>
 <p>默认情况下，ps命令只会显示运行在当前控制台下的属于当前用户的进程。</p>
 <table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示所有进程，但不包括会话leader，不包括无终端进程</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>显示进程完整信息</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>显示所有进程</td>
-</tr>
-<tr>
-<td>-H</td>
-<td>按照树型显示</td>
-</tr>
-<tr>
-<td>-j</td>
-<td>按照job形式输出</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>选项</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-a</td>
+          <td>显示所有进程，但不包括会话leader，不包括无终端进程</td>
+      </tr>
+      <tr>
+          <td>-f</td>
+          <td>显示进程完整信息</td>
+      </tr>
+      <tr>
+          <td>-e</td>
+          <td>显示所有进程</td>
+      </tr>
+      <tr>
+          <td>-H</td>
+          <td>按照树型显示</td>
+      </tr>
+      <tr>
+          <td>-j</td>
+          <td>按照job形式输出</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="943-kill命令">9.4.3 kill命令</h3>
 <p>终止不想要的进程</p>
@@ -1891,26 +1891,26 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <h3 id="1012-显示新闻news命令">10.1.2 显示新闻：news命令</h3>
 <p>用户可以使用news命令来看看系统正在做什么。news从系统news命令读出消息。默认显示news目录下用户还没有看过的所有文件。</p>
 <table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示所有的新闻项，无论是新的还是旧的</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>仅仅列出新闻名</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>显示当前新闻的总数</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>选项</strong></th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-a</td>
+          <td>显示所有的新闻项，无论是新的还是旧的</td>
+      </tr>
+      <tr>
+          <td>-n</td>
+          <td>仅仅列出新闻名</td>
+      </tr>
+      <tr>
+          <td>-s</td>
+          <td>显示当前新闻的总数</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="1013-广播消息wall命令">10.1.3 广播消息：wall命令</h3>
 <p>wall(write all)命令给当前登录到系统上的所有用户发送消息。通常由系统管理员使用，用于通知用户一些紧急事件。</p>
@@ -1930,117 +1930,117 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>mailx工具为用户提供电子邮件系统，可以给系统上其他用户发邮件，无论对方是否已经登录到系统。</p>
 <p>当用户使用mailx读取文件时，它处于命令模式，该模式的命令提示符是问号。</p>
 <table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>!</td>
-<td>让用户执行shell命令（shell转义）</td>
-</tr>
-<tr>
-<td>cd directory</td>
-<td>切换到指定的目录direction，如果没有指定目录，则切换到主目录</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除指定消息</td>
-</tr>
-<tr>
-<td>f</td>
-<td>显示消息头行</td>
-</tr>
-<tr>
-<td>q</td>
-<td>退出mail，并将消息从系统邮箱移去</td>
-</tr>
-<tr>
-<td>h</td>
-<td>显示当前消息头</td>
-</tr>
-<tr>
-<td>m users</td>
-<td>给指定用户users发送邮件</td>
-</tr>
-<tr>
-<td>R messages</td>
-<td>给消息messages发送者回复消息</td>
-</tr>
-<tr>
-<td>r messages</td>
-<td>给消息messages发送者和同一消息的其他所有接收者回复消息</td>
-</tr>
-<tr>
-<td>s messages</td>
-<td>保存消息到filename文件</td>
-</tr>
-<tr>
-<td>t messages</td>
-<td>显示指定消息messages</td>
-</tr>
-<tr>
-<td>u messages</td>
-<td>恢复已删除的指定消息messages</td>
-</tr>
-<tr>
-<td>x</td>
-<td>退出mailx，不将消息从系统邮箱中移去</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>!</td>
+          <td>让用户执行shell命令（shell转义）</td>
+      </tr>
+      <tr>
+          <td>cd directory</td>
+          <td>切换到指定的目录direction，如果没有指定目录，则切换到主目录</td>
+      </tr>
+      <tr>
+          <td>d</td>
+          <td>删除指定消息</td>
+      </tr>
+      <tr>
+          <td>f</td>
+          <td>显示消息头行</td>
+      </tr>
+      <tr>
+          <td>q</td>
+          <td>退出mail，并将消息从系统邮箱移去</td>
+      </tr>
+      <tr>
+          <td>h</td>
+          <td>显示当前消息头</td>
+      </tr>
+      <tr>
+          <td>m users</td>
+          <td>给指定用户users发送邮件</td>
+      </tr>
+      <tr>
+          <td>R messages</td>
+          <td>给消息messages发送者回复消息</td>
+      </tr>
+      <tr>
+          <td>r messages</td>
+          <td>给消息messages发送者和同一消息的其他所有接收者回复消息</td>
+      </tr>
+      <tr>
+          <td>s messages</td>
+          <td>保存消息到filename文件</td>
+      </tr>
+      <tr>
+          <td>t messages</td>
+          <td>显示指定消息messages</td>
+      </tr>
+      <tr>
+          <td>u messages</td>
+          <td>恢复已删除的指定消息messages</td>
+      </tr>
+      <tr>
+          <td>x</td>
+          <td>退出mailx，不将消息从系统邮箱中移去</td>
+      </tr>
+  </tbody>
 </table>
 <p>mailx的~转义命令</p>
 <table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>~?</td>
-<td>显示~转义命令列表</td>
-</tr>
-<tr>
-<td>~! command</td>
-<td>在编辑邮件时，让用户调用指定的shell命令command</td>
-</tr>
-<tr>
-<td>~ e</td>
-<td>调用编辑器</td>
-</tr>
-<tr>
-<td>~ p</td>
-<td>显示当前正编辑的消息</td>
-</tr>
-<tr>
-<td>~r filename</td>
-<td>读取filename文件</td>
-</tr>
-<tr>
-<td>~&lt; filename</td>
-<td>读取filename文件</td>
-</tr>
-<tr>
-<td>~&lt;! command</td>
-<td>执行指定命令command</td>
-</tr>
-<tr>
-<td>~v</td>
-<td>调用默认编辑器vi</td>
-</tr>
-<tr>
-<td>~q</td>
-<td>推出输入模式</td>
-</tr>
-<tr>
-<td>~w filename</td>
-<td>将当前正编辑的消息写到filename文件中</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>~?</td>
+          <td>显示~转义命令列表</td>
+      </tr>
+      <tr>
+          <td>~! command</td>
+          <td>在编辑邮件时，让用户调用指定的shell命令command</td>
+      </tr>
+      <tr>
+          <td>~ e</td>
+          <td>调用编辑器</td>
+      </tr>
+      <tr>
+          <td>~ p</td>
+          <td>显示当前正编辑的消息</td>
+      </tr>
+      <tr>
+          <td>~r filename</td>
+          <td>读取filename文件</td>
+      </tr>
+      <tr>
+          <td>~&lt; filename</td>
+          <td>读取filename文件</td>
+      </tr>
+      <tr>
+          <td>~&lt;! command</td>
+          <td>执行指定命令command</td>
+      </tr>
+      <tr>
+          <td>~v</td>
+          <td>调用默认编辑器vi</td>
+      </tr>
+      <tr>
+          <td>~q</td>
+          <td>推出输入模式</td>
+      </tr>
+      <tr>
+          <td>~w filename</td>
+          <td>将当前正编辑的消息写到filename文件中</td>
+      </tr>
+  </tbody>
 </table>
 <h1 id="第11章-gnu-工具链">第11章 GNU 工具链</h1>
 <h2 id="111-gnu工具链">11.1 Gnu工具链</h2>
@@ -2100,70 +2100,70 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <li>gdb program</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>命令</th>
-<th>缩写</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>list</td>
-<td>l</td>
-<td>打印当前位置源码</td>
-</tr>
-<tr>
-<td>break</td>
-<td>b</td>
-<td>设置断点</td>
-</tr>
-<tr>
-<td>run</td>
-<td>r</td>
-<td>运行程序</td>
-</tr>
-<tr>
-<td>step</td>
-<td>s</td>
-<td>单步，进入函数</td>
-</tr>
-<tr>
-<td>next</td>
-<td>n</td>
-<td>单步，不进入函数</td>
-</tr>
-<tr>
-<td>print</td>
-<td>p</td>
-<td>打印变量</td>
-</tr>
-<tr>
-<td>continue</td>
-<td>c</td>
-<td>继续运行</td>
-</tr>
-<tr>
-<td>backtrace</td>
-<td>bt</td>
-<td>显示调用栈</td>
-</tr>
-<tr>
-<td>info threads</td>
-<td></td>
-<td>显示线程</td>
-</tr>
-<tr>
-<td>thread n</td>
-<td></td>
-<td>切换线程</td>
-</tr>
-<tr>
-<td>set scheduler-locking on</td>
-<td></td>
-<td>关闭线程调度</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>缩写</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>list</td>
+          <td>l</td>
+          <td>打印当前位置源码</td>
+      </tr>
+      <tr>
+          <td>break</td>
+          <td>b</td>
+          <td>设置断点</td>
+      </tr>
+      <tr>
+          <td>run</td>
+          <td>r</td>
+          <td>运行程序</td>
+      </tr>
+      <tr>
+          <td>step</td>
+          <td>s</td>
+          <td>单步，进入函数</td>
+      </tr>
+      <tr>
+          <td>next</td>
+          <td>n</td>
+          <td>单步，不进入函数</td>
+      </tr>
+      <tr>
+          <td>print</td>
+          <td>p</td>
+          <td>打印变量</td>
+      </tr>
+      <tr>
+          <td>continue</td>
+          <td>c</td>
+          <td>继续运行</td>
+      </tr>
+      <tr>
+          <td>backtrace</td>
+          <td>bt</td>
+          <td>显示调用栈</td>
+      </tr>
+      <tr>
+          <td>info threads</td>
+          <td></td>
+          <td>显示线程</td>
+      </tr>
+      <tr>
+          <td>thread n</td>
+          <td></td>
+          <td>切换线程</td>
+      </tr>
+      <tr>
+          <td>set scheduler-locking on</td>
+          <td></td>
+          <td>关闭线程调度</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="114-makefile">11.4 makefile</h2>
 <p>Makefile用于工程组织和编译，与常见的命令式语言不同，它是一种依赖推导语言。</p>
@@ -2308,31 +2308,31 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <h3 id="1233-命令行参数">12.3.3 命令行参数</h3>
 <p>shell脚本可以从命令行最多读取10个命令行参数存入特殊变量，命令行参数是用户输入命令后所跟的数据项，通常用空格分隔。这些变量按顺序从1到9计数。</p>
 <table>
-<thead>
-<tr>
-<th><strong>参数变量</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$1-$9，${10}表示参数</td>
-</tr>
-<tr>
-<td>$0表示被调用脚本的名字</td>
-</tr>
-<tr>
-<td>$#表示参数个数</td>
-</tr>
-<tr>
-<td>$*将所有参数使用$IFS隔开，形成一个字符串</td>
-</tr>
-<tr>
-<td>$@是每个参数一行，将参数隔开，实际上是多个字符串，可以用在for循环</td>
-</tr>
-<tr>
-<td>$$表示当前进程id</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>参数变量</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$1-$9，${10}表示参数</td>
+      </tr>
+      <tr>
+          <td>$0表示被调用脚本的名字</td>
+      </tr>
+      <tr>
+          <td>$#表示参数个数</td>
+      </tr>
+      <tr>
+          <td>$*将所有参数使用$IFS隔开，形成一个字符串</td>
+      </tr>
+      <tr>
+          <td>$@是每个参数一行，将参数隔开，实际上是多个字符串，可以用在for循环</td>
+      </tr>
+      <tr>
+          <td>$$表示当前进程id</td>
+      </tr>
+  </tbody>
 </table>
 <p>特殊变量</p>
 <ul>
@@ -2408,78 +2408,78 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 </div><h3 id="1235-不同类型的判断">12.3.5 不同类型的判断</h3>
 <p>不单单是相等的判断，test可以进行多种类型的判断</p>
 <table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>例子</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-eq</td>
-<td>a -eq b</td>
-<td>a是否等于b</td>
-</tr>
-<tr>
-<td>-ne</td>
-<td>a -ne b</td>
-<td>a是否不等于b</td>
-</tr>
-<tr>
-<td>-gt</td>
-<td>a -gt b</td>
-<td>a是否大于b</td>
-</tr>
-<tr>
-<td>-ge</td>
-<td>a -ge b</td>
-<td>a是否大于大于b</td>
-</tr>
-<tr>
-<td>-lt</td>
-<td>a -lt b</td>
-<td>a是否小于b</td>
-</tr>
-<tr>
-<td>-le</td>
-<td>a -le b</td>
-<td>a是否小于等于b</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>操作符</th>
+          <th>例子</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-eq</td>
+          <td>a -eq b</td>
+          <td>a是否等于b</td>
+      </tr>
+      <tr>
+          <td>-ne</td>
+          <td>a -ne b</td>
+          <td>a是否不等于b</td>
+      </tr>
+      <tr>
+          <td>-gt</td>
+          <td>a -gt b</td>
+          <td>a是否大于b</td>
+      </tr>
+      <tr>
+          <td>-ge</td>
+          <td>a -ge b</td>
+          <td>a是否大于大于b</td>
+      </tr>
+      <tr>
+          <td>-lt</td>
+          <td>a -lt b</td>
+          <td>a是否小于b</td>
+      </tr>
+      <tr>
+          <td>-le</td>
+          <td>a -le b</td>
+          <td>a是否小于等于b</td>
+      </tr>
+  </tbody>
 </table>
 <p>test还可以比较字符串</p>
 <h2 id="heading"></h2>
 <table>
-<thead>
-<tr>
-<th><strong>操作符</strong></th>
-<th><strong>示例</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>“$STR1” = “STR2”</td>
-<td>两个字符串是否相同</td>
-</tr>
-<tr>
-<td>!=</td>
-<td>“$STR1”  != “STR2”</td>
-<td>两个字符串是否不同</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>-n  “$STR”</td>
-<td>字符串不是null</td>
-</tr>
-<tr>
-<td>-z</td>
-<td>-z  “$STR”</td>
-<td>字符串是null</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>操作符</strong></th>
+          <th><strong>示例</strong></th>
+          <th><strong>说明</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>=</td>
+          <td>“$STR1” = “STR2”</td>
+          <td>两个字符串是否相同</td>
+      </tr>
+      <tr>
+          <td>!=</td>
+          <td>“$STR1”  != “STR2”</td>
+          <td>两个字符串是否不同</td>
+      </tr>
+      <tr>
+          <td>-n</td>
+          <td>-n  “$STR”</td>
+          <td>字符串不是null</td>
+      </tr>
+      <tr>
+          <td>-z</td>
+          <td>-z  “$STR”</td>
+          <td>字符串是null</td>
+      </tr>
+  </tbody>
 </table>
 <p>注意：在引用变量做字符串测试时，一定要加引号</p>
 <p>操作符两侧必须有空格</p>
@@ -2490,30 +2490,30 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>格式为<code>${parameter:optionchar word}</code></p>
 <p>变量替换</p>
 <table>
-<thead>
-<tr>
-<th><strong>替换操作</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>${VAR:-word}</td>
-<td>如果变量不存在，返回word  #变量不会创建</td>
-</tr>
-<tr>
-<td>${VAR:=word}</td>
-<td>如果变量不存在，设置VAR变量为word，返回word</td>
-</tr>
-<tr>
-<td>${VAR:?message}</td>
-<td>如果变量不存在，打印message，退出，但交互shell不会退出</td>
-</tr>
-<tr>
-<td>${VAR:+word}</td>
-<td>如果变量存在，返回word；否则返回null</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>替换操作</strong></th>
+          <th><strong>功能</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>${VAR:-word}</td>
+          <td>如果变量不存在，返回word  #变量不会创建</td>
+      </tr>
+      <tr>
+          <td>${VAR:=word}</td>
+          <td>如果变量不存在，设置VAR变量为word，返回word</td>
+      </tr>
+      <tr>
+          <td>${VAR:?message}</td>
+          <td>如果变量不存在，打印message，退出，但交互shell不会退出</td>
+      </tr>
+      <tr>
+          <td>${VAR:+word}</td>
+          <td>如果变量存在，返回word；否则返回null</td>
+      </tr>
+  </tbody>
 </table>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -2690,40 +2690,40 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>终止一个进程可以通过产生一个中断信号来终止进程。例如<code>Del</code>键、<code>Break</code>键和<code>Ctrl-c</code>键。</p>
 <p>有几类不同的事件导致内核向进程发送信号。信号编号表明它们代表的事件。</p>
 <table>
-<thead>
-<tr>
-<th>信号编号</th>
-<th>信号名</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>挂起</td>
-<td>丢失终端连接</td>
-</tr>
-<tr>
-<td>2</td>
-<td>中断</td>
-<td>按下任一中断键</td>
-</tr>
-<tr>
-<td>3</td>
-<td>退出</td>
-<td>按下任一退出键</td>
-</tr>
-<tr>
-<td>9</td>
-<td>杀死</td>
-<td>发出kill-9命令</td>
-</tr>
-<tr>
-<td>15</td>
-<td>终止</td>
-<td>发出kill命令</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>信号编号</th>
+          <th>信号名</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>挂起</td>
+          <td>丢失终端连接</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>中断</td>
+          <td>按下任一中断键</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>退出</td>
+          <td>按下任一退出键</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>杀死</td>
+          <td>发出kill-9命令</td>
+      </tr>
+      <tr>
+          <td>15</td>
+          <td>终止</td>
+          <td>发出kill命令</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>挂起信号</strong>：信号1用来通知进程系统已经与终端失去联系。当用户终端和计算机的连线断开，或者电话线（用来调制解调器相连）断开时，产生该信号。在某些系统中，如果用户关闭终端，系统也会产生挂起信号。</p>
 <p><strong>中断信号</strong>：当按下任何一个中断键时，产生信号2。中断键可以是<code>Del</code>键、<code>Break</code>键或者<code>Ctrl-c</code>键。</p>
@@ -2770,70 +2770,70 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 <p>•tput cup row column移动光标到row行column列</p>
 <p>终端功能的简单列表：</p>
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bel</td>
-<td>回显终端的响铃字符</td>
-</tr>
-<tr>
-<td>blink</td>
-<td>闪烁显示</td>
-</tr>
-<tr>
-<td>bold</td>
-<td>粗体显示</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>清屏</td>
-</tr>
-<tr>
-<td>cup <em>r</em> <em>c</em></td>
-<td>将光标移到r行c列</td>
-</tr>
-<tr>
-<td>dlim</td>
-<td>使显示变暗</td>
-</tr>
-<tr>
-<td>ed</td>
-<td>从光标位置到屏幕底清屏</td>
-</tr>
-<tr>
-<td>el</td>
-<td>清除从光标位置到行末的字符</td>
-</tr>
-<tr>
-<td>smso</td>
-<td>启动突显模式</td>
-</tr>
-<tr>
-<td>rmso</td>
-<td>结束突显模式</td>
-</tr>
-<tr>
-<td>smul</td>
-<td>启动下划线模式</td>
-</tr>
-<tr>
-<td>rmul</td>
-<td>结束下划线模式</td>
-</tr>
-<tr>
-<td>rev</td>
-<td>反色显示，白底上显示黑色</td>
-</tr>
-<tr>
-<td>sgr 0</td>
-<td>关闭所有属性</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>bel</td>
+          <td>回显终端的响铃字符</td>
+      </tr>
+      <tr>
+          <td>blink</td>
+          <td>闪烁显示</td>
+      </tr>
+      <tr>
+          <td>bold</td>
+          <td>粗体显示</td>
+      </tr>
+      <tr>
+          <td>clear</td>
+          <td>清屏</td>
+      </tr>
+      <tr>
+          <td>cup <em>r</em> <em>c</em></td>
+          <td>将光标移到r行c列</td>
+      </tr>
+      <tr>
+          <td>dlim</td>
+          <td>使显示变暗</td>
+      </tr>
+      <tr>
+          <td>ed</td>
+          <td>从光标位置到屏幕底清屏</td>
+      </tr>
+      <tr>
+          <td>el</td>
+          <td>清除从光标位置到行末的字符</td>
+      </tr>
+      <tr>
+          <td>smso</td>
+          <td>启动突显模式</td>
+      </tr>
+      <tr>
+          <td>rmso</td>
+          <td>结束突显模式</td>
+      </tr>
+      <tr>
+          <td>smul</td>
+          <td>启动下划线模式</td>
+      </tr>
+      <tr>
+          <td>rmul</td>
+          <td>结束下划线模式</td>
+      </tr>
+      <tr>
+          <td>rev</td>
+          <td>反色显示，白底上显示黑色</td>
+      </tr>
+      <tr>
+          <td>sgr 0</td>
+          <td>关闭所有属性</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="134-其他命令">13.4 其他命令</h2>
 <h3 id="多路分支case结构">多路分支：case结构</h3>
@@ -2953,10 +2953,42 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’</p>
 	
 </ul>
 	
+  
+  
+  
+  <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start  max-h-16">
+    
+      <a href="https://github.com/bachwv" target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+        aria-label="follow on github —— Opens in a new window">
+        
+        
+        <div class="fill-current h-8 w-8">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
 
-<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
-	
-</div>
+        </div>
+      </a>
+    
+      <a href="mailto:lijunling2077@gmail.com" target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+        aria-label="follow on mail —— Opens in a new window">
+        
+        
+        <div class="fill-current h-8 w-8">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+        </div>
+      </a>
+    
+  </div>
+
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
