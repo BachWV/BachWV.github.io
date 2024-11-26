@@ -1,6 +1,6 @@
 ---
 title: "操作系统-jyy-8 调试理论与实践"
-date: 2022-4-5
+date: 2022-04-05
 draft: false
 toc: true
 ---

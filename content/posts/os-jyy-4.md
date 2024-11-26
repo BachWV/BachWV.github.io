@@ -1,6 +1,6 @@
 ---
 title: "操作系统-jyy-4 Python 实现操作系统模型"
-date: 2023-3-19
+date: 2023-03-19
 create: 2022-6-26
 draft: false
 ---

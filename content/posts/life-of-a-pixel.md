@@ -1,6 +1,6 @@
 ---
 title: "Life of a Pixel"
-date: 2023-4-8
+date: 2023-04-08
 draft: false
 ---
 今天在B站看到一个up讲浏览器的前世今生，我平时不会轻易评价一个技术视频讲得好不好，深入了就没有受众，浅显易懂才符合大众的口味。但是这个视频和Life of a Pixel相比，属于是一个班门弄斧了。所以我还是想要吹一下Life of a Pixel。
