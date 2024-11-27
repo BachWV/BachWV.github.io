@@ -39,3 +39,7 @@ blog评论一直没做，这次终于不嫌麻烦开整了。
 
 评论管理：https://waline-66tg5wuyr-bachwv.vercel.app/ui
 
+-------------------------------
+2024-11-27
+将引入的waline.js升级到3.4.0
+使用https://github.com/walinejs/waline/issues/820里说的方法，解决了一个bug
