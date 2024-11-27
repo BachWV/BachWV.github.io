@@ -9750,6 +9750,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 &lt;/div&gt;&lt;p&gt;即可。&lt;/p&gt;
 &lt;p&gt;评论系统：https://waline-66tg5wuyr-bachwv.vercel.app/&lt;/p&gt;
 &lt;p&gt;评论管理：https://waline-66tg5wuyr-bachwv.vercel.app/ui&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2024-11-27
+将引入的waline.js升级到3.4.0
+使用https://github.com/walinejs/waline/issues/820里说的方法，解决了一个bug&lt;/p&gt;
 </description>
     </item>
     

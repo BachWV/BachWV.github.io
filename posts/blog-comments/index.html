@@ -183,6 +183,10 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>即可。</p>
 <p>评论系统：https://waline-66tg5wuyr-bachwv.vercel.app/</p>
 <p>评论管理：https://waline-66tg5wuyr-bachwv.vercel.app/ui</p>
+<hr>
+<p>2024-11-27
+将引入的waline.js升级到3.4.0
+使用https://github.com/walinejs/waline/issues/820里说的方法，解决了一个bug</p>
 </div>
 	</section>
 
@@ -295,7 +299,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 283 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 366 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -346,10 +350,13 @@ onload='renderMathInElement(document.body);'></script>
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#wcomments',
-    serverURL: 'https://waline.csapp.fun/',
-  });
+  
+  window.onload = () => 
+                  init({
+                  el: '#wcomments',
+                  serverURL: 'https://waline.csapp.fun/',
+                });
+                
 </script>
 <hr />
 

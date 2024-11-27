@@ -817,10 +817,13 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#wcomments',
-    serverURL: 'https://waline.csapp.fun/',
-  });
+  
+  window.onload = () => 
+                  init({
+                  el: '#wcomments',
+                  serverURL: 'https://waline.csapp.fun/',
+                });
+                
 </script>
 <hr />
 

@@ -348,10 +348,13 @@ onload='renderMathInElement(document.body);'></script>
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#wcomments',
-    serverURL: 'https://waline.csapp.fun/',
-  });
+  
+  window.onload = () => 
+                  init({
+                  el: '#wcomments',
+                  serverURL: 'https://waline.csapp.fun/',
+                });
+                
 </script>
 <hr />
 

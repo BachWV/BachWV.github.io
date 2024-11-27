@@ -657,10 +657,13 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-  init({
-    el: '#wcomments',
-    serverURL: 'https://waline.csapp.fun/',
-  });
+  
+  window.onload = () => 
+                  init({
+                  el: '#wcomments',
+                  serverURL: 'https://waline.csapp.fun/',
+                });
+                
 </script>
 <hr />
 
