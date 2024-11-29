@@ -15,8 +15,10 @@ https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6e
 当然查询也非常的简单，只需要
 用Chrome的开发者工具，来看看点下搜索键以后发生了什么。
 
-向[这个url](https://wx.uestc.edu.cn/power/oneCartoon/list)发送了一个post请求，body为"roomCode=cep4NgTh7AgzjAeoLsMElQ=="
+~向[这个url](https://wx.uestc.edu.cn/power/oneCartoon/list)发送了一个post请求~，body为"roomCode=cep4NgTh7AgzjAeoLsMElQ=="
 当然这个编号是经过加密的。
+
+**2024-11-29** 该接口已经被弃用，以下内容均无效。我立刻又发现了一个接口：https://eportal.uestc.edu.cn/qljfwapp/sys/lwUestcDormElecPrepaid/dormElecPrepaidMan/queryRoomInfo.do
 
 我试了BASE64,BASE62,BASE100都不是，查看源码发现一个power.js，发现里面内置了各种加密的库。
 
