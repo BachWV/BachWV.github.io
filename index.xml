@@ -2434,8 +2434,9 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7&#34;&gt;https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;当然查询也非常的简单，只需要
 用Chrome的开发者工具，来看看点下搜索键以后发生了什么。&lt;/p&gt;
-&lt;p&gt;向&lt;a href=&#34;https://wx.uestc.edu.cn/power/oneCartoon/list&#34;&gt;这个url&lt;/a&gt;发送了一个post请求，body为&amp;quot;roomCode=cep4NgTh7AgzjAeoLsMElQ==&amp;quot;
+&lt;p&gt;&lt;del&gt;向&lt;a href=&#34;https://wx.uestc.edu.cn/power/oneCartoon/list&#34;&gt;这个url&lt;/a&gt;发送了一个post请求&lt;/del&gt;，body为&amp;quot;roomCode=cep4NgTh7AgzjAeoLsMElQ==&amp;quot;
 当然这个编号是经过加密的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2024-11-29&lt;/strong&gt; 该接口已经被弃用，以下内容均无效。我立刻又发现了一个接口：https://eportal.uestc.edu.cn/qljfwapp/sys/lwUestcDormElecPrepaid/dormElecPrepaidMan/queryRoomInfo.do&lt;/p&gt;
 &lt;p&gt;我试了BASE64,BASE62,BASE100都不是，查看源码发现一个power.js，发现里面内置了各种加密的库。&lt;/p&gt;
 &lt;p&gt;前端的这个加密index.js是混淆过的，由于我前端也没会多少，很难看出是怎么调用power.js的。虽然不影响咱们查询需要的房间号，但源码之上无事可做可真让人难受。&lt;/p&gt;
 &lt;p&gt;下一步吧，做一个自动化的查询工具，帮我们自动发送post请求就好。&lt;/p&gt;

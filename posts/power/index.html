@@ -150,8 +150,9 @@ onload='renderMathInElement(document.body);'></script>
 <p><a href="https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7">https://wx.uestc.edu.cn/oneCartoon/index.html?code=9fa9fa82ac76ea8d9703c948f4f6eba7</a></p>
 <p>当然查询也非常的简单，只需要
 用Chrome的开发者工具，来看看点下搜索键以后发生了什么。</p>
-<p>向<a href="https://wx.uestc.edu.cn/power/oneCartoon/list">这个url</a>发送了一个post请求，body为&quot;roomCode=cep4NgTh7AgzjAeoLsMElQ==&quot;
+<p><del>向<a href="https://wx.uestc.edu.cn/power/oneCartoon/list">这个url</a>发送了一个post请求</del>，body为&quot;roomCode=cep4NgTh7AgzjAeoLsMElQ==&quot;
 当然这个编号是经过加密的。</p>
+<p><strong>2024-11-29</strong> 该接口已经被弃用，以下内容均无效。我立刻又发现了一个接口：https://eportal.uestc.edu.cn/qljfwapp/sys/lwUestcDormElecPrepaid/dormElecPrepaidMan/queryRoomInfo.do</p>
 <p>我试了BASE64,BASE62,BASE100都不是，查看源码发现一个power.js，发现里面内置了各种加密的库。</p>
 <p>前端的这个加密index.js是混淆过的，由于我前端也没会多少，很难看出是怎么调用power.js的。虽然不影响咱们查询需要的房间号，但源码之上无事可做可真让人难受。</p>
 <p>下一步吧，做一个自动化的查询工具，帮我们自动发送post请求就好。</p>
@@ -691,7 +692,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2442 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2572 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
