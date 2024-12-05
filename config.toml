@@ -1,6 +1,6 @@
 DefaultContentLanguage = "en"
 author = "bach"
-baseURL = "https://bachwv.github.io/"
+baseURL = "https://csapp.fun/"
 copyright = "Copyright © 2021-2024"
 
 # disqusShortname = "BachWV"
