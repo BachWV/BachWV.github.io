@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on 8086</title>
-    <link>https://bachwv.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <link>https://csapp.fun/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2024</copyright>
     <lastBuildDate>Mon, 13 Sep 2021 20:56:00 +0800</lastBuildDate>
     
-	<atom:link href="https://bachwv.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://csapp.fun/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>多少个1</title>
-      <link>https://bachwv.github.io/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
+      <link>https://csapp.fun/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
       <pubDate>Mon, 13 Sep 2021 20:56:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
+      <guid>https://csapp.fun/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
       <description>&lt;h1 id=&#34;一个二进制数中有多少个1&#34;&gt;一个二进制数中有多少个1&lt;/h1&gt;
 &lt;p&gt;我只能想到用移位消去最小的1的方法&lt;/p&gt;
 &lt;h2 id=&#34;时间复杂度为i中1的个数的做法&#34;&gt;时间复杂度为i中1的个数的做法&lt;/h2&gt;

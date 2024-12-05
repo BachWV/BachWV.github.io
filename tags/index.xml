@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 8086</title>
-    <link>https://bachwv.github.io/tags/</link>
+    <link>https://csapp.fun/tags/</link>
     <description>Recent content in Tags on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2024</copyright>
     <lastBuildDate>Mon, 03 Jan 2022 00:57:54 +0800</lastBuildDate>
     
-	<atom:link href="https://bachwv.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://csapp.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Easy</title>
-      <link>https://bachwv.github.io/tags/easy/</link>
+      <link>https://csapp.fun/tags/easy/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/tags/easy/</guid>
+      <guid>https://csapp.fun/tags/easy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leetcode</title>
-      <link>https://bachwv.github.io/tags/leetcode/</link>
+      <link>https://csapp.fun/tags/leetcode/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/tags/leetcode/</guid>
+      <guid>https://csapp.fun/tags/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Medium</title>
-      <link>https://bachwv.github.io/tags/medium/</link>
+      <link>https://csapp.fun/tags/medium/</link>
       <pubDate>Thu, 28 Oct 2021 00:39:21 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/tags/medium/</guid>
+      <guid>https://csapp.fun/tags/medium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Difficult</title>
-      <link>https://bachwv.github.io/tags/difficult/</link>
+      <link>https://csapp.fun/tags/difficult/</link>
       <pubDate>Wed, 27 Oct 2021 22:49:20 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/tags/difficult/</guid>
+      <guid>https://csapp.fun/tags/difficult/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GNU</title>
-      <link>https://bachwv.github.io/tags/gnu/</link>
+      <link>https://csapp.fun/tags/gnu/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/tags/gnu/</guid>
+      <guid>https://csapp.fun/tags/gnu/</guid>
       <description></description>
     </item>
     

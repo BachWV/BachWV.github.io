@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 8086</title>
-    <link>https://bachwv.github.io/posts/</link>
+    <link>https://csapp.fun/posts/</link>
     <description>Recent content in Posts on 8086</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2021-2024</copyright>
     <lastBuildDate>Tue, 27 Aug 2024 16:29:49 +0800</lastBuildDate>
     
-	<atom:link href="https://bachwv.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://csapp.fun/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>git 局域网同步</title>
-      <link>https://bachwv.github.io/posts/git-bare-server/</link>
+      <link>https://csapp.fun/posts/git-bare-server/</link>
       <pubDate>Tue, 27 Aug 2024 16:29:49 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/git-bare-server/</guid>
+      <guid>https://csapp.fun/posts/git-bare-server/</guid>
       <description>&lt;p&gt;A电脑共享git仓库目录(&lt;code&gt;C:\Users\xxx\Desktop\code\cpp-httplib&lt;/code&gt;)的文件夹，将文件夹权限更改为Everyone读取写入&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://r2.csapp.fun/2024/08/image-20240827162949843.png&#34; alt=&#34;image-20240827162949843&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如A的ip是100.74.215.22，共享cpp-httplib的目录（该目录下存在.git）&lt;/p&gt;
@@ -102,10 +102,10 @@
     
     <item>
       <title>远程桌面神器RDPWarp</title>
-      <link>https://bachwv.github.io/posts/2024-7-10-rdpwarp/</link>
+      <link>https://csapp.fun/posts/2024-7-10-rdpwarp/</link>
       <pubDate>Wed, 10 Jul 2024 12:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/2024-7-10-rdpwarp/</guid>
+      <guid>https://csapp.fun/posts/2024-7-10-rdpwarp/</guid>
       <description>&lt;p&gt;作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。
 RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。
 RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。
@@ -123,10 +123,10 @@ RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp�
     
     <item>
       <title>Oceanbase比赛实录</title>
-      <link>https://bachwv.github.io/posts/2024-1-6-oceanbase/</link>
+      <link>https://csapp.fun/posts/2024-1-6-oceanbase/</link>
       <pubDate>Wed, 10 Jan 2024 12:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/2024-1-6-oceanbase/</guid>
+      <guid>https://csapp.fun/posts/2024-1-6-oceanbase/</guid>
       <description>&lt;p&gt;Oceanbase比赛的最后一天是挺梦幻的，中午还是5秒2，晚上就冲上了2秒3。&lt;/p&gt;
 &lt;p&gt;比赛结束的前一天晚上，吃完晚饭已经8点多了，离比赛结束还有不到24小时。而我们只有18名，我知道接下来得争分夺秒了，目前的名次肯定是不够看的。&lt;/p&gt;
 &lt;p&gt;从晚上11点发现tpcc的问题，看了一波obd的报错，缩小了问题范围，是虚拟表的内容不对，可能牵扯到all_merge_info的那几张表，但不知道如何解决，怀疑是有几张表的重定向没有还原。我们一遍又一遍查gen_meta_tenant_id的调用地方，就这样不知不觉到了凌晨3点，又到了5点还没解决。我实在撑不住睡觉了，睡前想着如果庞哥能搞定就好了。我记得那晚寝室灯也没关，就那么睡着了。8点醒了发现庞哥7点发了一个消息，“tpcc问题解决了，去睡40分钟”，庞哥熬了一晚上把问题解决了，把所有重定向到sys租户的表基本上还原，肝一肝出了奇迹。这下并行没问题了。1号的思路终于在比赛结束前6小时实现了。&lt;/p&gt;
@@ -163,10 +163,10 @@ RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp�
     
     <item>
       <title>群晖外网访问终极篇 Cloudflare隧道</title>
-      <link>https://bachwv.github.io/posts/synology-cloudflare/</link>
+      <link>https://csapp.fun/posts/synology-cloudflare/</link>
       <pubDate>Thu, 15 Jun 2023 12:00:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/synology-cloudflare/</guid>
+      <guid>https://csapp.fun/posts/synology-cloudflare/</guid>
       <description>&lt;p&gt;终于到这个终极篇了，作为外网访问的最后一篇，我要介绍的是Cloudflare隧道，这个隧道是Cloudflare的一个0元付费服务，因为它可以让你的群晖外网访问变得更加安全，而且还可以让你的群晖外网访问变得更加快速。&lt;/p&gt;
 &lt;p&gt;使用非常简单，部署不超过3分钟。&lt;/p&gt;
 &lt;p&gt;cloudflare注册账号，添加域名，添加DNS解析，添加隧道，&lt;/p&gt;
@@ -177,10 +177,10 @@ RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp�
     
     <item>
       <title>Gradle使用指南</title>
-      <link>https://bachwv.github.io/posts/gradle-guide/</link>
+      <link>https://csapp.fun/posts/gradle-guide/</link>
       <pubDate>Wed, 14 Jun 2023 12:00:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/gradle-guide/</guid>
+      <guid>https://csapp.fun/posts/gradle-guide/</guid>
       <description>&lt;p&gt;Gradle是我碰都不愿意碰的东西，从Android项目开始，我对这玩意就没有好印象，留下一堆配置文件，在我的环境里就run不起来，我只想run一下看看效果，为什么要下一版gradle-7.4-all.zip，你就不能做到向前兼容？
 我的~.gradle\wrapper\dists\gradle-7.4-all里面有4个不同文件名的文件夹，里面都是同一个东西，我不知道为什么同样的东西被下了四次。&lt;/p&gt;
 &lt;p&gt;既然gradle这么折磨难用，但短时间还没有东西能把它淘汰，所以只能硬着头皮学下去了。&lt;/p&gt;
@@ -193,10 +193,10 @@ RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp�
     
     <item>
       <title>AC2100 CatWrt</title>
-      <link>https://bachwv.github.io/posts/ac2100-catwrt/</link>
+      <link>https://csapp.fun/posts/ac2100-catwrt/</link>
       <pubDate>Tue, 06 Jun 2023 12:00:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/ac2100-catwrt/</guid>
+      <guid>https://csapp.fun/posts/ac2100-catwrt/</guid>
       <description>&lt;p&gt;这几天一直在折腾路由器，之前一直用的是pandaven老毛子的固件，前几天终于折腾好了远程唤醒，突然又不知道什么原因想换固件了，于是就尝试了几个基于openwrt的包，开始了踩坑的路。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;混迹恩山找到一个bleach的固件，尝试开始！&lt;/li&gt;
@@ -212,10 +212,10 @@ luci-wol安装以后一直见不到，不知道是什么原因。
     
     <item>
       <title>hugo update</title>
-      <link>https://bachwv.github.io/posts/hugo/</link>
+      <link>https://csapp.fun/posts/hugo/</link>
       <pubDate>Sat, 27 May 2023 15:00:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/hugo/</guid>
+      <guid>https://csapp.fun/posts/hugo/</guid>
       <description>&lt;p&gt;这几天每天邮箱都会收到Github Actions执行错误的邮件：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[BachWV/BachWV.github.io] Deploy Hugo workflow run
@@ -291,10 +291,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>一个不知名的备份打包程序</title>
-      <link>https://bachwv.github.io/posts/backup-lab/</link>
+      <link>https://csapp.fun/posts/backup-lab/</link>
       <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bachwv.github.io/posts/backup-lab/</guid>
+      <guid>https://csapp.fun/posts/backup-lab/</guid>
       <description>&lt;p&gt;使用古老的Java Swing框架&lt;/p&gt;
 &lt;p&gt;实现功能：&lt;/p&gt;
 &lt;ul&gt;
@@ -385,17 +385,17 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>Movie and Book</title>
-      <link>https://bachwv.github.io/posts/movie-diy/</link>
+      <link>https://csapp.fun/posts/movie-diy/</link>
       <pubDate>Wed, 10 May 2023 16:58:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/movie-diy/</guid>
+      <guid>https://csapp.fun/posts/movie-diy/</guid>
       <description>&lt;p&gt;为你的静态站点添加一个观影页面
 &lt;img src=&#34;https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png&#34; alt=&#34;&#34;&gt;
 效果如 &lt;a href=&#34;https://junling.li/movies/&#34;&gt;https://junling.li/movies/&lt;/a&gt; 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。&lt;/p&gt;
 &lt;p&gt;使用git管理的好处是，文件修改的&lt;a href=&#34;https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv&#34;&gt;历史记录&lt;/a&gt;能够轻易查看， 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味&lt;/p&gt;
 &lt;p&gt;借助这个 &lt;a href=&#34;https://imnerd.org/doumark.html&#34;&gt;https://imnerd.org/doumark.html&lt;/a&gt; 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。&lt;/p&gt;
-&lt;p&gt;还记得怎么写&lt;strong&gt;每小说的30分钟执行一下脚本&lt;/strong&gt;，可以去复习&lt;a href=&#34;https://bachwv.github.io/posts/crontab/&#34;&gt;crontab&lt;/a&gt; 或者直接在（https://crontab.guru/#30_&lt;em&gt;_&lt;/em&gt;&lt;em&gt;*&lt;/em&gt;*）里看一下。&lt;/p&gt;
+&lt;p&gt;还记得怎么写&lt;strong&gt;每小说的30分钟执行一下脚本&lt;/strong&gt;，可以去复习&lt;a href=&#34;https://csapp.fun/posts/crontab/&#34;&gt;crontab&lt;/a&gt; 或者直接在（https://crontab.guru/#30_&lt;em&gt;_&lt;/em&gt;&lt;em&gt;*&lt;/em&gt;*）里看一下。&lt;/p&gt;
 &lt;p&gt;有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？&lt;/p&gt;
 &lt;p&gt;Hugo作为静态网页生成工具，早就为你想到了这一点，参考&lt;a href=&#34;https://gohugo.io/templates/data-templates/&#34;&gt;Hugo文档&lt;/a&gt; 只需要&lt;code&gt;{{ $dataC := getCSV &amp;quot;separator&amp;quot; &amp;quot;url&amp;quot; }}&lt;/code&gt;一下，即可获得csv里的数据。使用&lt;code&gt;{{index $movie 5}}&lt;/code&gt;即可获得csv文件第五列的数据。&lt;/p&gt;
 &lt;p&gt;具体过程见&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html&#34;&gt;movies.html&lt;/a&gt;&lt;/p&gt;
@@ -590,10 +590,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>Life of a Pixel</title>
-      <link>https://bachwv.github.io/posts/life-of-a-pixel/</link>
+      <link>https://csapp.fun/posts/life-of-a-pixel/</link>
       <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bachwv.github.io/posts/life-of-a-pixel/</guid>
+      <guid>https://csapp.fun/posts/life-of-a-pixel/</guid>
       <description>&lt;p&gt;今天在B站看到一个up讲浏览器的前世今生，我平时不会轻易评价一个技术视频讲得好不好，深入了就没有受众，浅显易懂才符合大众的口味。但是这个视频和Life of a Pixel相比，属于是一个班门弄斧了。所以我还是想要吹一下Life of a Pixel。
 &lt;img src=&#34;https://s2.loli.net/2023/04/08/g7kcMOwznGtYIBd.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;The system is very complicated,and the design doc is tended to assume that you already knew a lot of stuffs&lt;/em&gt;&lt;/p&gt;
@@ -628,10 +628,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>操作系统-jyy-5 多处理器编程</title>
-      <link>https://bachwv.github.io/posts/os-jyy-5/</link>
+      <link>https://csapp.fun/posts/os-jyy-5/</link>
       <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-5/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-5/</guid>
       <description>&lt;p&gt;进程间是否共享内存？&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;是，怎么证明？&lt;/li&gt;
@@ -822,10 +822,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>操作系统-jyy-4 Python 实现操作系统模型</title>
-      <link>https://bachwv.github.io/posts/os-jyy-4/</link>
+      <link>https://csapp.fun/posts/os-jyy-4/</link>
       <pubDate>Sun, 19 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-4/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-4/</guid>
       <description>&lt;h1 id=&#34;第四讲-python-实现操作系统模型&#34;&gt;第四讲 Python 实现操作系统模型&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;可以说从这一讲开始，才真正迈入操作系统的殿堂&lt;/em&gt;
 &lt;a href=&#34;https://jyywiki.cn/OS/2023/build/lect4.ipynb&#34;&gt;https://jyywiki.cn/OS/2023/build/lect4.ipynb&lt;/a&gt;
@@ -1358,10 +1358,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>kaggle</title>
-      <link>https://bachwv.github.io/posts/kaggle/</link>
+      <link>https://csapp.fun/posts/kaggle/</link>
       <pubDate>Mon, 12 Sep 2022 22:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/kaggle/</guid>
+      <guid>https://csapp.fun/posts/kaggle/</guid>
       <description>&lt;p&gt;kaggle的经历因为人工智能应用与挑战课程。这门课根据比赛排名来确定部分平时分数。&lt;/p&gt;
 &lt;p&gt;一个给宠物照片打分的比赛，所以咱们有队友。&lt;/p&gt;
 &lt;h2 id=&#34;项目概况简介&#34;&gt;项目概况简介&lt;/h2&gt;
@@ -1465,10 +1465,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>课程设计</title>
-      <link>https://bachwv.github.io/posts/dlib-pyqt/</link>
+      <link>https://csapp.fun/posts/dlib-pyqt/</link>
       <pubDate>Sun, 11 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/dlib-pyqt/</guid>
+      <guid>https://csapp.fun/posts/dlib-pyqt/</guid>
       <description>&lt;p&gt;简单复盘一下计院大二下的课程设计，也就这肝这个东西时的收获最多。&lt;/p&gt;
 &lt;p&gt;看了一下群聊消息，创建于21年3月29日，从4月做到6月底（原计划是5月底，后来推迟到6月），每两个星期做一次线上汇报，因为有项目进度催着，所以进展挺快的，也学到不少的东西。&lt;/p&gt;
 &lt;p&gt;一开学就可以选题了，当时看了一下人脸识别还是蛮有趣的，就想着挑战一下自己。其实项目的要求很简单，根据提供的代码做一个壳，完成一个可以正常使用的图形化界面就可以了。&lt;/p&gt;
@@ -1503,10 +1503,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>人工智能实验1</title>
-      <link>https://bachwv.github.io/posts/ai-lab-1/</link>
+      <link>https://csapp.fun/posts/ai-lab-1/</link>
       <pubDate>Sat, 10 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/ai-lab-1/</guid>
+      <guid>https://csapp.fun/posts/ai-lab-1/</guid>
       <description>&lt;p&gt;这个实验的主要目标是构建一个决策树。&lt;/p&gt;
 &lt;p&gt;决策树，实际上是用来分类的。树，体现了这个数据结构是逐层分叉的。那么怎么找到分叉点呢？&lt;/p&gt;
 &lt;h2 id=&#34;id3-算法&#34;&gt;ID3 算法&lt;/h2&gt;
@@ -1525,10 +1525,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>操作系统-jyy-20</title>
-      <link>https://bachwv.github.io/posts/os-jyy-20/</link>
+      <link>https://csapp.fun/posts/os-jyy-20/</link>
       <pubDate>Sat, 10 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-20/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-20/</guid>
       <description>&lt;h1 id=&#34;第20讲-处理器调度&#34;&gt;第20讲 处理器调度&lt;/h1&gt;
 &lt;p&gt;(RR, MLFQ 和 CFS；优先级翻转；多处理器调度)&lt;/p&gt;
 &lt;p&gt;上下文切换的策略&lt;/p&gt;
@@ -1546,10 +1546,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>操作系统-jyy-19</title>
-      <link>https://bachwv.github.io/posts/os-jyy-19/</link>
+      <link>https://csapp.fun/posts/os-jyy-19/</link>
       <pubDate>Fri, 09 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-19/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-19/</guid>
       <description>&lt;h1 id=&#34;第19讲-xv6-上下文切换&#34;&gt;第19讲 Xv6 上下文切换&lt;/h1&gt;
 &lt;p&gt;(上下文切换的实现；状态机的封装与恢复)&lt;/p&gt;
 &lt;h2 id=&#34;处理器虚拟化&#34;&gt;处理器虚拟化&lt;/h2&gt;
@@ -1742,10 +1742,10 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
     
     <item>
       <title>操作系统-jyy-18</title>
-      <link>https://bachwv.github.io/posts/os-jyy-18/</link>
+      <link>https://csapp.fun/posts/os-jyy-18/</link>
       <pubDate>Mon, 05 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-18/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-18/</guid>
       <description>&lt;h1 id=&#34;第17讲-xv6-代码导读-调试工具配置调试系统调用执行&#34;&gt;第17讲 Xv6 代码导读 (调试工具配置；调试系统调用执行)&lt;/h1&gt;
 &lt;p&gt;经典UNIX v6的克隆&lt;/p&gt;
 &lt;h2 id=&#34;xv6-unix-v6-的现代-克隆&#34;&gt;xv6: UNIX v6 的现代 “克隆”&lt;/h2&gt;
@@ -1913,10 +1913,10 @@ gdb init，在执行gdb时自动执行脚本make qemu-gdb&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-17</title>
-      <link>https://bachwv.github.io/posts/os-jyy-17/</link>
+      <link>https://csapp.fun/posts/os-jyy-17/</link>
       <pubDate>Sat, 03 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-17/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-17/</guid>
       <description>&lt;h1 id=&#34;第17讲-动态链接和加载-静态-elf-加载器实现调试-linux-内核动态链接和加载&#34;&gt;第17讲 动态链接和加载 (静态 ELF 加载器实现；调试 Linux 内核；动态链接和加载)&lt;/h1&gt;
 &lt;p&gt;从这里开始了看不懂的旅程&lt;/p&gt;
 &lt;h2 id=&#34;若干真正的静态elf加载器&#34;&gt;若干真正的静态elf加载器&lt;/h2&gt;
@@ -1982,10 +1982,10 @@ gdb init，在执行gdb时自动执行脚本make qemu-gdb&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-16</title>
-      <link>https://bachwv.github.io/posts/os-jyy-16/</link>
+      <link>https://csapp.fun/posts/os-jyy-16/</link>
       <pubDate>Fri, 02 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-16/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-16/</guid>
       <description>&lt;h2 id=&#34;minix2&#34;&gt;minix2&lt;/h2&gt;
 &lt;p&gt;请不要使用wsl2 mnt会有问题&lt;/p&gt;
 &lt;p&gt;以后的课堂：
@@ -2118,7 +2118,7 @@ binutils&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在某个知乎回答上我提过&lt;a href=&#34;https://bachwv.github.io/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/&#34;&gt;bitcount&lt;/a&gt;
+&lt;/div&gt;&lt;p&gt;在某个知乎回答上我提过&lt;a href=&#34;https://csapp.fun/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/&#34;&gt;bitcount&lt;/a&gt;
 底下就有z友评论了，不是有内建的popcount吗？😅建议不要用这种代码。内建的popcount 有些实现是汇编使用cpu机器指令，比这个快一倍轻轻松松。&lt;/p&gt;
 &lt;p&gt;当然我看到的小技巧不一定比汇编实现的快，啊对对对。&lt;/p&gt;
 &lt;h2 id=&#34;编译和链接-compile-and-link&#34;&gt;编译和链接 compile and link&lt;/h2&gt;
@@ -2182,10 +2182,10 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
     
     <item>
       <title>UESTC-电费查询</title>
-      <link>https://bachwv.github.io/posts/power/</link>
+      <link>https://csapp.fun/posts/power/</link>
       <pubDate>Fri, 02 Sep 2022 22:09:23 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/power/</guid>
+      <guid>https://csapp.fun/posts/power/</guid>
       <description>&lt;p&gt;众所周知，四川在今年夏天遭受了严重的缺电危机。为了保障居民用电，许多工业企业停电长达一周，写字楼、地铁也关了空调。春熙路关闭了外灯。&lt;/p&gt;
 &lt;p&gt;某高校的寝室电费高达10元/每天。作为留守儿童，常常50元的电费5天就用完了。每个月的额度根本不够用。&lt;/p&gt;
 &lt;p&gt;前几天在微信公众号乱逛的时候，发现了一个查询UESTC寝室用电量的接口。相比于支付宝仅仅能查询余额，多了一个查询用电量的功能。&lt;/p&gt;
@@ -2287,7 +2287,7 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;算得上是非常好读了，sydl是还剩多少度电，syje是还剩多少钱。&lt;/p&gt;
 &lt;p&gt;作为Java用户。下面就是用熟练的方式发送这个请求。&lt;/p&gt;
-&lt;p&gt;咱们上一次在matu的&lt;a href=&#34;https://bachwv.github.io/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/&#34;&gt;怎么有人用码图啊&lt;/a&gt;中使用了jsoup，这次我们用OKhttp这个库来试试。&lt;/p&gt;
+&lt;p&gt;咱们上一次在matu的&lt;a href=&#34;https://csapp.fun/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/&#34;&gt;怎么有人用码图啊&lt;/a&gt;中使用了jsoup，这次我们用OKhttp这个库来试试。&lt;/p&gt;
 &lt;p&gt;核心代码如下：没有考虑到出错处理，请大家轻拍。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -2627,10 +2627,10 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-15</title>
-      <link>https://bachwv.github.io/posts/os-jyy-15/</link>
+      <link>https://csapp.fun/posts/os-jyy-15/</link>
       <pubDate>Thu, 01 Sep 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-15/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-15/</guid>
       <description>&lt;h1 id=&#34;第15讲-fork-的应用&#34;&gt;第15讲 fork 的应用&lt;/h1&gt;
 &lt;p&gt;(文件描述符的复制；写时复制；创建平行宇宙的魔法)&lt;/p&gt;
 &lt;p&gt;既然前面都说过fork的形式语义，那你还不知道能用fork做哪些奇怪的事？&lt;/p&gt;
@@ -2856,10 +2856,10 @@ ELF 就是一个 “容器数据结构”，包含了必要的信息&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-14</title>
-      <link>https://bachwv.github.io/posts/os-jyy-14/</link>
+      <link>https://csapp.fun/posts/os-jyy-14/</link>
       <pubDate>Thu, 01 Sep 2022 00:09:23 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-14/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-14/</guid>
       <description>&lt;h1 id=&#34;第14讲-c标准库的实现&#34;&gt;第14讲 C标准库的实现&lt;/h1&gt;
 &lt;p&gt;系统调用的封装，内存空间管理&lt;/p&gt;
 &lt;p&gt;不会有人想用汇编来写操作系统吧，不会有人想直接用系统调用构建吧。
@@ -3147,10 +3147,10 @@ Buddy system (1963)&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-13</title>
-      <link>https://bachwv.github.io/posts/os-jyy-13/</link>
+      <link>https://csapp.fun/posts/os-jyy-13/</link>
       <pubDate>Tue, 30 Aug 2022 21:09:23 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-13/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-13/</guid>
       <description>&lt;h1 id=&#34;第13讲-系统调用和shell&#34;&gt;第13讲 系统调用和Shell&lt;/h1&gt;
 &lt;p&gt;freestanding shell, 终端和 job control&lt;/p&gt;
 &lt;p&gt;UNIX Shell的设计和实现&lt;/p&gt;
@@ -3432,10 +3432,10 @@ Hmmm……&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-12</title>
-      <link>https://bachwv.github.io/posts/os-jyy-12/</link>
+      <link>https://csapp.fun/posts/os-jyy-12/</link>
       <pubDate>Tue, 30 Aug 2022 16:09:19 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-12/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-12/</guid>
       <description>&lt;h1 id=&#34;第12讲-进程的地址空间&#34;&gt;第12讲 进程的地址空间&lt;/h1&gt;
 &lt;p&gt;堆区，栈只是对平坦的内存地址空间进行的抽象。对于汇编来说，能看见的只有地址，寄存器。
 比如定义一个指针，可以指向任何地方，但是你不能访问。就算你可以访问，也不一定能写它。&lt;/p&gt;
@@ -3656,10 +3656,10 @@ FlexSC: Flexible system call scheduling with exception-less system calls (OSDI&#
     
     <item>
       <title>ffmpeg</title>
-      <link>https://bachwv.github.io/posts/ffmpeg/</link>
+      <link>https://csapp.fun/posts/ffmpeg/</link>
       <pubDate>Mon, 22 Aug 2022 22:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/ffmpeg/</guid>
+      <guid>https://csapp.fun/posts/ffmpeg/</guid>
       <description>&lt;p&gt;今天有人放着Premium Pro不用，执意要使用ffmpeg剪视频，这种症状一看就是被Fabrice Bellard冲昏了头脑，先是qemu然后就入坑了ffmpeg。&lt;/p&gt;
 &lt;p&gt;因为自己的需求比较简单，不需要精确贴图的位置，不需要调色，就是简简单单的cut和加字幕，这就很好符合了大道至简思想，也只需要两段代码就能实现剪辑工作。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -3726,10 +3726,10 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
     
     <item>
       <title>信息安全大赛</title>
-      <link>https://bachwv.github.io/posts/contest-ciscn/</link>
+      <link>https://csapp.fun/posts/contest-ciscn/</link>
       <pubDate>Mon, 22 Aug 2022 16:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/contest-ciscn/</guid>
+      <guid>https://csapp.fun/posts/contest-ciscn/</guid>
       <description>&lt;p&gt;今天出结果了，只能说尽力了，没获得国一还是有点遗憾的。&lt;/p&gt;
 &lt;p&gt;从去年12月开始准备，到6月提交初赛，8月决赛，每周一次组会。半年也很快的。&lt;/p&gt;
 &lt;p&gt;初次线下见面应该是12月底，在宾诺咖啡见到了各位&lt;/p&gt;
@@ -3774,10 +3774,10 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
     
     <item>
       <title>junling.li</title>
-      <link>https://bachwv.github.io/posts/junling-li/</link>
+      <link>https://csapp.fun/posts/junling-li/</link>
       <pubDate>Tue, 09 Aug 2022 16:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/junling-li/</guid>
+      <guid>https://csapp.fun/posts/junling-li/</guid>
       <description>&lt;p&gt;今天心血来潮注册了junling.li&lt;/p&gt;
 &lt;p&gt;?? copilot 已经如此智能了吗？&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/09/06/OCAJ8aMWnEIcTxl.png&#34; alt=&#34;junling-li-1.png&#34;&gt;
@@ -3815,10 +3815,10 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
     
     <item>
       <title>Qemu</title>
-      <link>https://bachwv.github.io/posts/qemu/</link>
+      <link>https://csapp.fun/posts/qemu/</link>
       <pubDate>Thu, 28 Jul 2022 14:05:38 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/qemu/</guid>
+      <guid>https://csapp.fun/posts/qemu/</guid>
       <description>&lt;p&gt;qemu入门&lt;/p&gt;
 &lt;h1 id=&#34;qemu&#34;&gt;QEMU&lt;/h1&gt;
 &lt;p&gt;QEMU是一款开源的模拟处理器，由Fabrice Bellard打造，接触他的原因是想用Loongarch，但是市面上龙芯的版U可以说想到少，又不向个人买家出售，咱想支持国产也没办法。&lt;/p&gt;
@@ -3930,10 +3930,10 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
     
     <item>
       <title>Cpp Acllib</title>
-      <link>https://bachwv.github.io/posts/cpp-acllib/</link>
+      <link>https://csapp.fun/posts/cpp-acllib/</link>
       <pubDate>Thu, 28 Jul 2022 00:55:59 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/cpp-acllib/</guid>
+      <guid>https://csapp.fun/posts/cpp-acllib/</guid>
       <description>&lt;p&gt;今天开始整理一下大学的一些项目&lt;/p&gt;
 &lt;p&gt;首先看的是一个俄罗斯方块的实现，这应该是我大学以来的第一个项目&lt;/p&gt;
 &lt;p&gt;那个时候，我c语言还是刚入门，还没写明白if-else，还不知道什么是编译，什么是链接，却能借助visual studio通过简单的点点操作，基于翁恺的acllib库跑一个图形程序，我自己都佩服我自己。&lt;/p&gt;
@@ -4289,10 +4289,10 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-11</title>
-      <link>https://bachwv.github.io/posts/os-jyy-11/</link>
+      <link>https://csapp.fun/posts/os-jyy-11/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:16 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-11/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-11/</guid>
       <description>&lt;p&gt;真实世界的并发编程&lt;/p&gt;
 &lt;p&gt;(高性能计算/数据中心/人机交互中的并发编程)
 之前跳过了两节，之后补。&lt;/p&gt;
@@ -4673,7 +4673,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Q1&lt;/strong&gt;: 操作系统启动后到底做了什么？&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Q2&lt;/strong&gt;: 操作系统如何管理程序 (进程)？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;复习&lt;a href=&#34;https://bachwv.github.io/posts/os-jyy-9/&#34;&gt;第九讲&lt;/a&gt;的内容&lt;/p&gt;
+&lt;p&gt;复习&lt;a href=&#34;https://csapp.fun/posts/os-jyy-9/&#34;&gt;第九讲&lt;/a&gt;的内容&lt;/p&gt;
 &lt;p&gt;操作系统内核的启动： CPU Reset-&amp;gt; BIOS/UEFI-&amp;gt;Boot loader-&amp;gt;Kernel_start()&lt;/p&gt;
 &lt;p&gt;操作系统会加载第一个程序&lt;/p&gt;
 &lt;p&gt;比如systemd/init&lt;/p&gt;
@@ -5167,10 +5167,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-10</title>
-      <link>https://bachwv.github.io/posts/os-jyy-10/</link>
+      <link>https://csapp.fun/posts/os-jyy-10/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-10/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-10/</guid>
       <description>&lt;h1 id=&#34;同步信号量与哲学家吃饭问题-信号量的正确打开方式&#34;&gt;同步：信号量与哲♂学家吃饭问题 (信号量的正确打开方式)&lt;/h1&gt;
 &lt;h2 id=&#34;信号量一种条件变量的特例&#34;&gt;信号量：一种条件变量的特例&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -5238,7 +5238,7 @@ registration.&lt;/li&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;观测状态机的执行&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;strace -T&lt;/code&gt;系统调用需要的时间&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb调试&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://csapp.fun/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb调试&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;gdb怎么回到上一个状态？&lt;/p&gt;
 &lt;p&gt;gdb隐藏功能：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;record full&lt;/code&gt;&lt;/p&gt;
@@ -5382,10 +5382,10 @@ registration.&lt;/li&gt;
     
     <item>
       <title>操作系统-jyy-9</title>
-      <link>https://bachwv.github.io/posts/os-jyy-9/</link>
+      <link>https://csapp.fun/posts/os-jyy-9/</link>
       <pubDate>Tue, 26 Jul 2022 16:09:07 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-9/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-9/</guid>
       <description>&lt;h1 id=&#34;同步生产者-消费者与条件变量-算法并行化万能同步方法&#34;&gt;同步：生产者-消费者与条件变量 (算法并行化；万能同步方法)&lt;/h1&gt;
 &lt;p&gt;生活中的同步&lt;/p&gt;
 &lt;p&gt;并发程序的同步&lt;/p&gt;
@@ -6023,10 +6023,10 @@ pc-check.py&lt;/p&gt;
     
     <item>
       <title>图床</title>
-      <link>https://bachwv.github.io/posts/%E5%9B%BE%E5%BA%8A/</link>
+      <link>https://csapp.fun/posts/%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Thu, 21 Jul 2022 19:28:17 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%9B%BE%E5%BA%8A/</guid>
+      <guid>https://csapp.fun/posts/%E5%9B%BE%E5%BA%8A/</guid>
       <description>&lt;h3 id=&#34;picgo&#34;&gt;PicGo&lt;/h3&gt;
 &lt;p&gt;下载&lt;a href=&#34;https://picgo.github.io/PicGo-Doc/zh/guide/&#34;&gt;PicGo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考picgo文档&lt;/p&gt;
@@ -6080,10 +6080,10 @@ pc-check.py&lt;/p&gt;
     
     <item>
       <title>Tmux</title>
-      <link>https://bachwv.github.io/posts/tmux/</link>
+      <link>https://csapp.fun/posts/tmux/</link>
       <pubDate>Wed, 20 Jul 2022 11:00:02 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/tmux/</guid>
+      <guid>https://csapp.fun/posts/tmux/</guid>
       <description>&lt;p&gt;简单记住一下 tmux的基本使用，因为自己记性不行&lt;/p&gt;
 &lt;p&gt;新建会话 &lt;code&gt;tmux new -s &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;退出会话 &lt;code&gt;ctrl+b d&lt;/code&gt;或&lt;code&gt;tmux detach&lt;/code&gt;&lt;/p&gt;
@@ -6145,10 +6145,10 @@ pc-check.py&lt;/p&gt;
     
     <item>
       <title>一个艰难的找bug过程</title>
-      <link>https://bachwv.github.io/posts/fixbug_difficultly/</link>
+      <link>https://csapp.fun/posts/fixbug_difficultly/</link>
       <pubDate>Mon, 18 Jul 2022 00:17:23 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/fixbug_difficultly/</guid>
+      <guid>https://csapp.fun/posts/fixbug_difficultly/</guid>
       <description>&lt;p&gt;在某一次commit以后，github pages突然挂了，出了什么问题呢？&lt;/p&gt;
 &lt;h3 id=&#34;尝试一&#34;&gt;尝试一&lt;/h3&gt;
 &lt;p&gt;重启&lt;/p&gt;
@@ -6304,10 +6304,10 @@ update&lt;/p&gt;
     
     <item>
       <title>Github Actions</title>
-      <link>https://bachwv.github.io/posts/github-actions/</link>
+      <link>https://csapp.fun/posts/github-actions/</link>
       <pubDate>Sat, 16 Jul 2022 21:11:48 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/github-actions/</guid>
+      <guid>https://csapp.fun/posts/github-actions/</guid>
       <description>&lt;h1 id=&#34;起因&#34;&gt;起因&lt;/h1&gt;
 &lt;p&gt;最近想到我还有一个用于记录生活的 Hexo 博客需要更新&lt;/p&gt;
 &lt;p&gt;由于代码在Windows上，而我有时候在manjaro上写作，同步就是一个问题。Git仓库上是&lt;code&gt;hexo d&lt;/code&gt;直接deploy上去的（因为不想让你们看到md文件）&lt;/p&gt;
@@ -6529,10 +6529,10 @@ update&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-7</title>
-      <link>https://bachwv.github.io/posts/os-jyy-7/</link>
+      <link>https://csapp.fun/posts/os-jyy-7/</link>
       <pubDate>Sat, 16 Jul 2022 18:01:22 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-7/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-7/</guid>
       <description>&lt;h1 id=&#34;第七讲-并发控制-互斥&#34;&gt;第七讲 并发控制 互斥&lt;/h1&gt;
 &lt;h2 id=&#34;自旋锁&#34;&gt;自旋锁&lt;/h2&gt;
 &lt;h2 id=&#34;互斥锁&#34;&gt;互斥锁&lt;/h2&gt;
@@ -6546,10 +6546,10 @@ update&lt;/p&gt;
     
     <item>
       <title>Crontab</title>
-      <link>https://bachwv.github.io/posts/crontab/</link>
+      <link>https://csapp.fun/posts/crontab/</link>
       <pubDate>Thu, 14 Jul 2022 17:15:13 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/crontab/</guid>
+      <guid>https://csapp.fun/posts/crontab/</guid>
       <description>&lt;h1 id=&#34;手把手教你如何利用-工具crontab执行定时脚本&#34;&gt;手把手教你如何利用 工具crontab执行定时脚本&lt;/h1&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Cron 是一个在 Unix 及类似操作系统上执行计划任务的程序。cron 使用户能够安排工作(命令或shell脚本)在特定时间、日期或间隔定期运行，通常用于系统的自动化维护或者管理。[摘自 &lt;a href=&#34;https://en.wikipedia.org/wiki/zh:Cron&#34;&gt;Wikipedia&lt;/a&gt;]&lt;/p&gt;
@@ -6869,10 +6869,10 @@ update&lt;/p&gt;
     
     <item>
       <title>git 指南</title>
-      <link>https://bachwv.github.io/posts/git-guide/</link>
+      <link>https://csapp.fun/posts/git-guide/</link>
       <pubDate>Mon, 11 Jul 2022 19:37:54 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/git-guide/</guid>
+      <guid>https://csapp.fun/posts/git-guide/</guid>
       <description>&lt;p&gt;这里讲记录一些自己使用git时候的一些注意事项和小tips&lt;/p&gt;
 &lt;h1 id=&#34;git-push到别人的分支如何回退&#34;&gt;git push到别人的分支如何回退&lt;/h1&gt;
 &lt;h2 id=&#34;1备份战场&#34;&gt;1.备份战场&lt;/h2&gt;
@@ -7376,10 +7376,10 @@ squash将该commit和前一个commit合并&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-6 并发控制基础</title>
-      <link>https://bachwv.github.io/posts/os-jyy-6/</link>
+      <link>https://csapp.fun/posts/os-jyy-6/</link>
       <pubDate>Tue, 05 Jul 2022 22:52:40 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-6/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-6/</guid>
       <description>&lt;h1 id=&#34;第六讲-并发控制基础&#34;&gt;第六讲 并发控制基础&lt;/h1&gt;
 &lt;p&gt;Peterson算法、模型检验和软件自动化工具&lt;/p&gt;
 &lt;p&gt;主要内容：&lt;/p&gt;
@@ -7529,10 +7529,10 @@ squash将该commit和前一个commit合并&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-2</title>
-      <link>https://bachwv.github.io/posts/os-jyy-2/</link>
+      <link>https://csapp.fun/posts/os-jyy-2/</link>
       <pubDate>Mon, 20 Jun 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-2/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-2/</guid>
       <description>&lt;h1 id=&#34;第2讲-应用视角的操作系统&#34;&gt;第2讲 应用视角的操作系统&lt;/h1&gt;
 &lt;p&gt;主要内容&lt;/p&gt;
 &lt;ul&gt;
@@ -8515,10 +8515,10 @@ inline assembly也可以参与优化&lt;/p&gt;
     
     <item>
       <title>操作系统-jyy-1</title>
-      <link>https://bachwv.github.io/posts/os-jyy-1/</link>
+      <link>https://csapp.fun/posts/os-jyy-1/</link>
       <pubDate>Wed, 15 Jun 2022 22:32:41 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-1/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-1/</guid>
       <description>&lt;p&gt;看了jyy的os录播，就觉得以前从来没有人这么上过cs的课，正常的课都是老师放这ppt在讲，从操作系统的概念讲到线程和进程管理，从分页讲到文件系统。&lt;/p&gt;
 &lt;p&gt;但这个老师开着terminal狂敲，超6的vim操作，无敌的手速。&lt;/p&gt;
 &lt;p&gt;最后慢慢告诉你，源码之下，了无秘密。一切行为都是确定的，可预测的状态机转换，你也可以按照你的想法打造你自己的os，这就很有意思了。&lt;/p&gt;
@@ -8540,10 +8540,10 @@ inline assembly也可以参与优化&lt;/p&gt;
     
     <item>
       <title>Compiler</title>
-      <link>https://bachwv.github.io/posts/compiler/</link>
+      <link>https://csapp.fun/posts/compiler/</link>
       <pubDate>Sat, 28 May 2022 18:38:04 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/compiler/</guid>
+      <guid>https://csapp.fun/posts/compiler/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;语义分析semantic analyzer&lt;/p&gt;
@@ -8947,10 +8947,10 @@ op R_i,z
     
     <item>
       <title>计算机系统结构笔记</title>
-      <link>https://bachwv.github.io/posts/isa/</link>
+      <link>https://csapp.fun/posts/isa/</link>
       <pubDate>Sat, 28 May 2022 18:27:57 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/isa/</guid>
+      <guid>https://csapp.fun/posts/isa/</guid>
       <description>&lt;h1 id=&#34;第一章-量化设计与分析基础&#34;&gt;第一章 量化设计与分析基础&lt;/h1&gt;
 &lt;h2 id=&#34;11-引言&#34;&gt;1.1 引言&lt;/h2&gt;
 &lt;p&gt;86年以前：性能增长主要依赖实现技术的进步&lt;/p&gt;
@@ -9466,10 +9466,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>博客评论</title>
-      <link>https://bachwv.github.io/posts/blog-comments/</link>
+      <link>https://csapp.fun/posts/blog-comments/</link>
       <pubDate>Sun, 15 May 2022 16:58:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/blog-comments/</guid>
+      <guid>https://csapp.fun/posts/blog-comments/</guid>
       <description>&lt;p&gt;blog评论一直没做，这次终于不嫌麻烦开整了。&lt;/p&gt;
 &lt;p&gt;我选用的是waline，主要是用户评论时不需要登录，而且好看。&lt;/p&gt;
 &lt;p&gt;部署指南参见 &lt;a href=&#34;https://waline.js.org/guide&#34;&gt;https://waline.js.org/guide&lt;/a&gt;&lt;/p&gt;
@@ -9518,19 +9518,19 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Synology</title>
-      <link>https://bachwv.github.io/posts/synology/</link>
+      <link>https://csapp.fun/posts/synology/</link>
       <pubDate>Fri, 13 May 2022 19:55:45 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/synology/</guid>
+      <guid>https://csapp.fun/posts/synology/</guid>
       <description>&lt;p&gt;今天送走了一台j1900主机，上面部署过黑群晖，也花了很久才调教成一个顺手的群晖。
 我给群晖的定义是一个更智能的云盘，首要的任务是文件的保存同步和共享。&lt;/p&gt;
 &lt;p&gt;而首先需要解决的问题是&lt;/p&gt;
 &lt;h2 id=&#34;外网访问&#34;&gt;外网访问&lt;/h2&gt;
 &lt;p&gt;在没有公网IP的情况下，我总结了4种方法。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://bachwv.github.io/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/&#34;&gt;洗白&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://bachwv.github.io/posts/zerotier/&#34;&gt;zerotier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://csapp.fun/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/&#34;&gt;洗白&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://csapp.fun/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;frp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://csapp.fun/posts/zerotier/&#34;&gt;zerotier&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;公网ipv6+ddns&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;云盘&#34;&gt;云盘&lt;/h2&gt;
@@ -9567,10 +9567,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>链式前向星</title>
-      <link>https://bachwv.github.io/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</link>
+      <link>https://csapp.fun/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</link>
       <pubDate>Thu, 07 Apr 2022 14:06:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</guid>
+      <guid>https://csapp.fun/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/</guid>
       <description>&lt;p&gt;很久以前看过一遍链式前向星 的存图方法，一知半解。最近几天详细学习了一波，感觉非常有用。所以，那就开始吧。
 链式前向星自然是链表的方法。它需要构建3个数组，&lt;code&gt;next[],head[],to[]&lt;/code&gt;
 所有的数据都在这3个数组里面。
@@ -9646,10 +9646,10 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>操作系统-jyy-8 调试理论与实践</title>
-      <link>https://bachwv.github.io/posts/os-jyy-8/</link>
+      <link>https://csapp.fun/posts/os-jyy-8/</link>
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://bachwv.github.io/posts/os-jyy-8/</guid>
+      <guid>https://csapp.fun/posts/os-jyy-8/</guid>
       <description>&lt;h1 id=&#34;第8讲-调试理论与实践&#34;&gt;第8讲 调试理论与实践&lt;/h1&gt;
 &lt;p&gt;本节课回答的问题：如何应对bug&lt;/p&gt;
 &lt;h2 id=&#34;调试理论&#34;&gt;调试理论&lt;/h2&gt;
@@ -10227,12 +10227,12 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
     
     <item>
       <title>Zerotier</title>
-      <link>https://bachwv.github.io/posts/zerotier/</link>
+      <link>https://csapp.fun/posts/zerotier/</link>
       <pubDate>Wed, 23 Feb 2022 15:50:21 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/zerotier/</guid>
+      <guid>https://csapp.fun/posts/zerotier/</guid>
       <description>&lt;h1 id=&#34;使用zerotier建立局域网&#34;&gt;使用zerotier建立局域网&lt;/h1&gt;
-&lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最近不知道怎么了，某米ac2100的ipv6防火墙开不了，导致只能用frps去连接群晖，太慢了。&lt;a href=&#34;https://csapp.fun/posts/%E7%BE%A4%E6%99%96frp/&#34;&gt;详情点击这里&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;于是又想尝试zerotie&lt;/p&gt;
 &lt;p&gt;群晖上的操作比较简单，官网上说的很详细&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.zerotier.com/devices/synology/&#34;&gt;https://docs.zerotier.com/devices/synology/&lt;/a&gt;&lt;/p&gt;
@@ -10319,10 +10319,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>Junling.xyz</title>
-      <link>https://bachwv.github.io/posts/domains/</link>
+      <link>https://csapp.fun/posts/domains/</link>
       <pubDate>Sun, 13 Feb 2022 23:55:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/domains/</guid>
+      <guid>https://csapp.fun/posts/domains/</guid>
       <description>&lt;p&gt;今天Godaddy告诉我uest.xyz还有一个月就到期了，让我付100新加坡元续费一年。这钱对学生党岂不是天价。遵循打一枪换一炮的理念，回撤去wawei云注册了junling.xyz
 总得能通过新域名访问到github pages吧，我一个滑铲，用waweicloud解析添加一个cname记录，然后error！&lt;/p&gt;
 &lt;p&gt;原来我当年使用A记录解析到GitHub的服务器
@@ -10360,10 +10360,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>C&#43;&#43; vector使用方法</title>
-      <link>https://bachwv.github.io/posts/vector/</link>
+      <link>https://csapp.fun/posts/vector/</link>
       <pubDate>Thu, 03 Feb 2022 23:15:57 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/vector/</guid>
+      <guid>https://csapp.fun/posts/vector/</guid>
       <description>&lt;p&gt;来自https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html&lt;/p&gt;
 &lt;h1 id=&#34;c-vector使用方法&#34;&gt;C++ vector使用方法&lt;/h1&gt;
 &lt;p&gt;在 c++ 中，vector 是一个十分有用的容器。它能够像容器一样存放各种类型的对象，简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。 C++ 中数组很坑，有没有类似 Python 中 list 的数据类型呢？类似的就是 vector！vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。&lt;/p&gt;
@@ -10723,10 +10723,10 @@ Enter the container (optional)&lt;/p&gt;
     
     <item>
       <title>Manjaro Setup</title>
-      <link>https://bachwv.github.io/posts/manjaro_setup/</link>
+      <link>https://csapp.fun/posts/manjaro_setup/</link>
       <pubDate>Thu, 13 Jan 2022 22:57:54 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/manjaro_setup/</guid>
+      <guid>https://csapp.fun/posts/manjaro_setup/</guid>
       <description>&lt;p&gt;Manjaro 的一些安装经验吧&lt;/p&gt;
 &lt;p&gt;首先进bios，解除security，然后进boot menu，把首选启动项改成uefi
 进入u盘安装
@@ -10790,10 +10790,10 @@ debtop实在是没有成功解包，debtop还是从github上clone了原仓库，
     
     <item>
       <title>Zeller</title>
-      <link>https://bachwv.github.io/posts/zeller/</link>
+      <link>https://csapp.fun/posts/zeller/</link>
       <pubDate>Mon, 03 Jan 2022 00:57:54 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/zeller/</guid>
+      <guid>https://csapp.fun/posts/zeller/</guid>
       <description>&lt;p&gt;蔡勒(zeller)公式&lt;/p&gt;
 &lt;p&gt;给出日期，计算星期几&lt;/p&gt;
 &lt;p&gt;$$ {\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(month+1)}{10}}\right]+day-1\right){\bmod {7}}}$$&lt;/p&gt;
@@ -10877,10 +10877,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>Java 优先队列</title>
-      <link>https://bachwv.github.io/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
+      <link>https://csapp.fun/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
       <pubDate>Fri, 24 Dec 2021 19:45:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
+      <guid>https://csapp.fun/posts/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
       <description>&lt;h2 id=&#34;priorityquenet&#34;&gt;priorityQuene&lt;T&gt;&lt;/h2&gt;
 &lt;p&gt;优先队列，意思是呢，它能对add进去的元素排列&lt;/p&gt;
 &lt;p&gt;可以给它一个Comparator指定排列顺序&lt;/p&gt;
@@ -11197,10 +11197,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>汇编不会编</title>
-      <link>https://bachwv.github.io/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</link>
+      <link>https://csapp.fun/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Tue, 14 Dec 2021 20:05:28 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</guid>
+      <guid>https://csapp.fun/posts/%E6%B1%87%E7%BC%96%E5%A4%8D%E4%B9%A0/</guid>
       <description>&lt;p&gt;汇编考完了，总的来说，有点迷糊。当然上课的体验很好，还算行。&lt;/p&gt;
 &lt;p&gt;乘着记忆力的顶峰，回忆下汇编学了啥。&lt;/p&gt;
 &lt;p&gt;核心就是成就嘤特尔的8086系列CPU，和围绕CPU的存储器，外设。严格遵照冯诺依曼架构，采用存取程序的方式设计。构架了x86体系，尽管牙膏厂裹足不前，但直到今天，x86系列的老大还是嘤特尔。众多外设厂还得围绕牙膏厂和农厂转，比如今天被拉出来批判的联想，不是不想造cpu，而是壁垒太高了，差了几十年的发展，已经无法再构建一套新体系了&lt;/p&gt;
@@ -11242,10 +11242,10 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
     
     <item>
       <title>部署PDD项目</title>
-      <link>https://bachwv.github.io/posts/pdd_on_centos/</link>
+      <link>https://csapp.fun/posts/pdd_on_centos/</link>
       <pubDate>Sun, 12 Dec 2021 23:56:31 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/pdd_on_centos/</guid>
+      <guid>https://csapp.fun/posts/pdd_on_centos/</guid>
       <description>&lt;p&gt;部署pdd&lt;/p&gt;
 &lt;p&gt;拼夕夕是一个对标拼多多的网络商城,构建的源码在:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&#34;&gt;https://github.com/SoftwareEngineeringStormtrooper/PingTaoduo/&lt;/a&gt;&lt;/p&gt;
@@ -11305,10 +11305,10 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>Ascii</title>
-      <link>https://bachwv.github.io/posts/ascii/</link>
+      <link>https://csapp.fun/posts/ascii/</link>
       <pubDate>Fri, 10 Dec 2021 23:23:40 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/ascii/</guid>
+      <guid>https://csapp.fun/posts/ascii/</guid>
       <description>&lt;p&gt;ASCII 打印字符：**数字 32–126 分配给了能在键盘上找到的字符，当您查看或打印文档时就会出现。注：十进制32代表空格 ，十进制数字 127 代表 DELETE 命令。下面是ASCII码和相应数字的对照表&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -11763,14 +11763,14 @@ idea中build-&amp;gt;build artifacts
     
     <item>
       <title>跳转测试</title>
-      <link>https://bachwv.github.io/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</link>
+      <link>https://csapp.fun/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Fri, 03 Dec 2021 16:35:57 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/&#34;&gt;1.两数之和&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&#34;&gt;链式前向星&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/&#34;&gt;383.赎金信&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bachwv.github.io/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/&#34;&gt;400.第N位数字&lt;/a&gt;&lt;/p&gt;
+      <guid>https://csapp.fun/posts/%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://csapp.fun/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/&#34;&gt;1.两数之和&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://csapp.fun/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&#34;&gt;链式前向星&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://csapp.fun/leetcode/383.%E8%B5%8E%E9%87%91%E4%BF%A1/&#34;&gt;383.赎金信&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://csapp.fun/leetcode/400.%E7%AC%ACn%E4%BD%8D%E6%95%B0%E5%AD%97/&#34;&gt;400.第N位数字&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
@@ -11784,7 +11784,7 @@ idea中build-&amp;gt;build artifacts
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 建议使用绝对路径（根目录为content目录），而非相对路径，否则容易出错&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ref绝对路径：
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;https://bachwv.github.io/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;https://csapp.fun/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;relref相对路径：
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;链式前向星&lt;span style=&#34;color:#f92672&#34;&gt;](&lt;/span&gt;/posts/%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F/&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -11864,10 +11864,10 @@ http://localhost:1313/leetcode/，里面是leetcode文件夹中的文章&lt;/p&g
     
     <item>
       <title>frp内网穿透</title>
-      <link>https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/</link>
+      <link>https://csapp.fun/posts/%E7%BE%A4%E6%99%96frp/</link>
       <pubDate>Wed, 10 Nov 2021 16:58:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E7%BE%A4%E6%99%96frp/</guid>
+      <guid>https://csapp.fun/posts/%E7%BE%A4%E6%99%96frp/</guid>
       <description>&lt;p&gt;前几天被群晖官方从阿尔及利亚区强制迁回中国，导致需要手机号验证，验证完了以后会显示序列号冲突，得拍视频提交工单才能解除冲突，才能使用easyconnect，这令我十分不爽。一怒之下注销了群晖的号，打算自己弄。&lt;/p&gt;
 &lt;p&gt;由于我没有公网ip，又不想弄花生壳，teamviewer，所以我得想办法解决公网访问的问题。&lt;/p&gt;
 &lt;p&gt;下面介绍借助frp实现内网穿透。&lt;/p&gt;
@@ -12095,10 +12095,10 @@ bash /home/frp/start.sh&lt;/p&gt;
     
     <item>
       <title>全排列</title>
-      <link>https://bachwv.github.io/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</link>
+      <link>https://csapp.fun/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</link>
       <pubDate>Sat, 23 Oct 2021 21:05:28 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</guid>
+      <guid>https://csapp.fun/posts/%E5%85%A8%E6%8E%92%E5%88%97matlab/</guid>
       <description>&lt;p&gt;dfs回溯&lt;/p&gt;
 &lt;p&gt;如何将1-9个数字排序？&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic.leetcode-cn.com/0bf18f9b86a2542d1f6aa8db6cc45475fce5aa329a07ca02a9357c2ead81eec1-image.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
@@ -12231,10 +12231,10 @@ bash /home/frp/start.sh&lt;/p&gt;
     
     <item>
       <title>如何拥有一个域名邮箱？</title>
-      <link>https://bachwv.github.io/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</link>
+      <link>https://csapp.fun/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</link>
       <pubDate>Thu, 14 Oct 2021 09:05:28 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</guid>
+      <guid>https://csapp.fun/posts/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</guid>
       <description>&lt;p&gt;拥有一个i@junling.li真的是太酷啦，如果主站和邮箱的域名都相同也方便记忆。&lt;/p&gt;
 &lt;p&gt;虽然我不像某些人对邮箱域名非常敏感，特别是怎么有人会反感QQ邮箱啊，我觉得QQ邮箱绑定微信的推送很好啊，实时推送不香吗？非要Gmail有逼格上都上不去，非要超长的edu邮箱记不住，虽然腾讯可能活不到100年，但是哪家邮箱能存在100年呢，说不定被其他的通讯工具取代了呢。“越过长城，走向世界”这句话也仅仅发送了34年呐。根据邮箱来识人不可取，这也算是生活中的逻辑错误吧。&lt;/p&gt;
 &lt;p&gt;言归正传，如何才能有i@xx.xxx的邮箱捏？&lt;/p&gt;
@@ -12263,10 +12263,10 @@ bash /home/frp/start.sh&lt;/p&gt;
     
     <item>
       <title>Gdb调试</title>
-      <link>https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/</link>
+      <link>https://csapp.fun/posts/gdb%E8%B0%83%E8%AF%95/</link>
       <pubDate>Tue, 28 Sep 2021 15:35:49 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/gdb%E8%B0%83%E8%AF%95/</guid>
+      <guid>https://csapp.fun/posts/gdb%E8%B0%83%E8%AF%95/</guid>
       <description>&lt;p&gt;今天尝试使用gdb调试，相比ide的调试没那么容易好上手&lt;/p&gt;
 &lt;p&gt;对于一个cpp文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -12344,10 +12344,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>怎么有人用码图啊</title>
-      <link>https://bachwv.github.io/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</link>
+      <link>https://csapp.fun/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</link>
       <pubDate>Mon, 20 Sep 2021 15:57:28 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</guid>
+      <guid>https://csapp.fun/posts/%E6%80%8E%E4%B9%88%E6%9C%89%E4%BA%BA%E7%94%A8%E7%A0%81%E5%9B%BE%E5%95%8A/</guid>
       <description>&lt;p&gt;很久以前发现在浏览器里直接粘贴url就能自动下载码图提交的文件。而且是没有权限的，意味着你能下载到所有码图提交。而且对于请求次数也是没有限制的。&lt;/p&gt;
 &lt;p&gt;比如在已经登录码图的浏览器中复制这个url：http://matu.uestc.edu.cn/aptat/file/downloadassignmentfile?assignmentid=1038358&lt;/p&gt;
 &lt;p&gt;浏览器就会自动下载这个文件。&lt;/p&gt;
@@ -12459,10 +12459,10 @@ eg:&lt;/p&gt;
     
     <item>
       <title>多少个1</title>
-      <link>https://bachwv.github.io/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
+      <link>https://csapp.fun/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</link>
       <pubDate>Mon, 13 Sep 2021 20:56:00 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
+      <guid>https://csapp.fun/posts/%E5%A4%9A%E5%B0%91%E4%B8%AA1/</guid>
       <description>&lt;h1 id=&#34;一个二进制数中有多少个1&#34;&gt;一个二进制数中有多少个1&lt;/h1&gt;
 &lt;p&gt;我只能想到用移位消去最小的1的方法&lt;/p&gt;
 &lt;h2 id=&#34;时间复杂度为i中1的个数的做法&#34;&gt;时间复杂度为i中1的个数的做法&lt;/h2&gt;
@@ -12750,10 +12750,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>从黑群晖走向白</title>
-      <link>https://bachwv.github.io/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
+      <link>https://csapp.fun/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</link>
       <pubDate>Thu, 09 Sep 2021 21:58:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
+      <guid>https://csapp.fun/posts/%E4%BB%8E%E9%BB%91%E7%BE%A4%E6%99%96%E8%B5%B0%E5%90%91%E7%99%BD/</guid>
       <description>&lt;p&gt;弄了快半年的黑群晖，感觉太难受了，处处受限，想来一个花生壳内网穿透都不行，zerotie没效果，放在docker里也不行，索性放弃，直接咸鱼15块洗白。&lt;/p&gt;
 &lt;p&gt;速速开始改sn/mac吧&lt;/p&gt;
 &lt;h2 id=&#34;1-开放ssh端口&#34;&gt;1 开放SSH端口&lt;/h2&gt;
@@ -12792,10 +12792,10 @@ i=0010010100101011&lt;/p&gt;
     
     <item>
       <title>Unix笔记</title>
-      <link>https://bachwv.github.io/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://csapp.fun/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 17 Jun 2021 13:50:16 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://csapp.fun/posts/unix%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h1 id=&#34;第2章unix-发展历史以及系统架构&#34;&gt;第2章：UNIX 发展历史以及系统架构&lt;/h1&gt;
 &lt;p&gt;发展历史：&lt;/p&gt;
 &lt;p&gt;1965年    MULTICS  ( Multiplexed Information and Computing Service) 的开发&lt;/p&gt;
@@ -15331,10 +15331,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>搭建与发布blog</title>
-      <link>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
+      <link>https://csapp.fun/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</link>
       <pubDate>Tue, 27 Apr 2021 21:50:40 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
+      <guid>https://csapp.fun/posts/%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83blog/</guid>
       <description>&lt;p&gt;来源https://sspai.com/post/59904&lt;/p&gt;
 &lt;p&gt;利用github + hugo 搭建轻量化的blog ，非常有用的教程！&lt;/p&gt;
 &lt;h4 id=&#34;1-安装-git-和-go&#34;&gt;1. 安装 Git 和 Go&lt;/h4&gt;
@@ -15392,10 +15392,10 @@ find /usr/include –name “*.h” -type f | xargs grep ‘epoll_wait’&lt;/p&
     
     <item>
       <title>Sec</title>
-      <link>https://bachwv.github.io/posts/sec/</link>
+      <link>https://csapp.fun/posts/sec/</link>
       <pubDate>Tue, 20 Apr 2021 16:00:12 +0800</pubDate>
       
-      <guid>https://bachwv.github.io/posts/sec/</guid>
+      <guid>https://csapp.fun/posts/sec/</guid>
       <description>&lt;h1 id=&#34;sectest&#34;&gt;secTest&lt;/h1&gt;
 &lt;p&gt;希望这里是不太正经的自我介绍&lt;/p&gt;
 </description>
