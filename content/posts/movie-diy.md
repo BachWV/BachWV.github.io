@@ -122,4 +122,31 @@ server {
 我不懂当今前端是怎么用vue或者react框架的，但是这样也没写几行代码也满足了我的需求，我很满意。
 
 
+-------------------------
+2024-12-5
+今天发现 在movie页面下，左侧 Post Links侧边栏一直在最下方，花了一个小时也不知道为什么。
+```css
+.dfdORB { /* 侧边栏 */
+    flex: 0 0 20%; /* 固定宽度20% */
+    margin: 0 2% 30px 0; /* 右侧间距匹配容器负边距 */
+    padding: 0;
+    font-size: 15px;
+}
+```
+Github Copilot 随口一提让我改这个属性，我试了一下，就好了。
+
+
+并且外层要使用以下代码包裹。
+```html
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text">
+<div class="post">
+原内容
+</div>
+</div>
+</section>
+</article>
+```
+
 
