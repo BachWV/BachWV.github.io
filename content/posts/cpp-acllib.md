@@ -156,7 +156,7 @@ C:/Users/Charon/Desktop/code/RU/acllib.c:835: undefined reference to `mciSendStr
 collect2.exe: error: ld returned 1 exit status
 ```
 
-
+2024-12-10注：这是由于链接器选项没有找到的问题
 
 
 
@@ -209,6 +209,19 @@ gcc acllib.c src.cpp -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -DWINVE
 
 复盘了一下，看到devcpp添加lib是多余的，只要在参数加`-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32`才是关键，我之前只加了`-lwinmm`所以还是报错
 
+-----------------
+2024-12-10
+今天尝试了新方法，在DevC++中能顺利运行。即在Project Options 窗口中，选择 Linker 选项卡。
+在 Additional command line options 框中，添加你需要的链接器选项，如：
+`-static-libgcc -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32`
+他会在生成Makefile.win时自动添加LIBS选项，`LIBS= -static-libgcc  -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -mwindows`
+这样就能成功编译了。
+
+但是如果想让其他人也能运行你的项目，还需要配置DevC++的链接器，要把用户当作傻子，他们做对上面的还是有点难。
+
+因为devcpp默认会覆盖Makefile.win，想要默认使用Makefile.win，需要在Project Options中的Makefile Generation选项卡中，选择Custom Makefile，然后在Makefile name中填写Makefile.win。
+
+我是记事本打开[项目名称].dev才发现的，UseCustomMakefile 为 1然后Makefilename设置为 makefile.win，一搜才知道还能配置，这样下次打开就能直接用makefile.win了。
 
 
 搞定！
