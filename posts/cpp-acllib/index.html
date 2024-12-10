@@ -7,7 +7,7 @@
 	
 	<title>8086  | Cpp Acllib</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.139.3">
+	<meta name="generator" content="Hugo 0.139.4">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -320,7 +320,8 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 </span></span><span style="display:flex;"><span>collect2.exe: error: ld returned 1 exit status
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>最后的最后:</p>
+</div><p>2024-12-10注：这是由于链接器选项没有找到的问题</p>
+<p>最后的最后:</p>
 <p>突然看到翁老师acllib的git repo好像有sample，那例子能不能运行呢？</p>
 <p>我直接一个clone，一个make，好家伙，给的例子研究一下</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -388,6 +389,16 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 </div>
 </div><p>其实和刚开始的差不多，感谢makefile，</p>
 <p>复盘了一下，看到devcpp添加lib是多余的，只要在参数加<code>-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32</code>才是关键，我之前只加了<code>-lwinmm</code>所以还是报错</p>
+<hr>
+<p>2024-12-10
+今天尝试了新方法，在DevC++中能顺利运行。即在Project Options 窗口中，选择 Linker 选项卡。
+在 Additional command line options 框中，添加你需要的链接器选项，如：
+<code>-static-libgcc -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32</code>
+他会在生成Makefile.win时自动添加LIBS选项，<code>LIBS= -static-libgcc  -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -mwindows</code>
+这样就能成功编译了。</p>
+<p>但是如果想让其他人也能运行你的项目，还需要配置DevC++的链接器，要把用户当作傻子，他们做对上面的还是有点难。</p>
+<p>因为devcpp默认会覆盖Makefile.win，想要默认使用Makefile.win，需要在Project Options中的Makefile Generation选项卡中，选择Custom Makefile，然后在Makefile name中填写Makefile.win。</p>
+<p>我是记事本打开[项目名称].dev才发现的，UseCustomMakefile 为 1然后Makefilename设置为 makefile.win，一搜才知道还能配置，这样下次打开就能直接用makefile.win了。</p>
 <p>搞定！</p>
 <p>虽然很简单的一个项目，和b站小学生写操作系统没法比</p>
 <p>还是说明一下啊</p>
@@ -606,7 +617,7 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a</p>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3899 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 4350 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

@@ -4399,7 +4399,8 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;collect2.exe: error: ld returned 1 exit status
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;最后的最后:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;2024-12-10注：这是由于链接器选项没有找到的问题&lt;/p&gt;
+&lt;p&gt;最后的最后:&lt;/p&gt;
 &lt;p&gt;突然看到翁老师acllib的git repo好像有sample，那例子能不能运行呢？&lt;/p&gt;
 &lt;p&gt;我直接一个clone，一个make，好家伙，给的例子研究一下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -4467,6 +4468,16 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;其实和刚开始的差不多，感谢makefile，&lt;/p&gt;
 &lt;p&gt;复盘了一下，看到devcpp添加lib是多余的，只要在参数加&lt;code&gt;-lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32&lt;/code&gt;才是关键，我之前只加了&lt;code&gt;-lwinmm&lt;/code&gt;所以还是报错&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2024-12-10
+今天尝试了新方法，在DevC++中能顺利运行。即在Project Options 窗口中，选择 Linker 选项卡。
+在 Additional command line options 框中，添加你需要的链接器选项，如：
+&lt;code&gt;-static-libgcc -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32&lt;/code&gt;
+他会在生成Makefile.win时自动添加LIBS选项，&lt;code&gt;LIBS= -static-libgcc  -lgdi32 -lole32 -loleaut32 -luuid -lwinmm -lmsimg32 -mwindows&lt;/code&gt;
+这样就能成功编译了。&lt;/p&gt;
+&lt;p&gt;但是如果想让其他人也能运行你的项目，还需要配置DevC++的链接器，要把用户当作傻子，他们做对上面的还是有点难。&lt;/p&gt;
+&lt;p&gt;因为devcpp默认会覆盖Makefile.win，想要默认使用Makefile.win，需要在Project Options中的Makefile Generation选项卡中，选择Custom Makefile，然后在Makefile name中填写Makefile.win。&lt;/p&gt;
+&lt;p&gt;我是记事本打开[项目名称].dev才发现的，UseCustomMakefile 为 1然后Makefilename设置为 makefile.win，一搜才知道还能配置，这样下次打开就能直接用makefile.win了。&lt;/p&gt;
 &lt;p&gt;搞定！&lt;/p&gt;
 &lt;p&gt;虽然很简单的一个项目，和b站小学生写操作系统没法比&lt;/p&gt;
 &lt;p&gt;还是说明一下啊&lt;/p&gt;
