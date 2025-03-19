@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-15</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.140.0">
+	<meta name="generator" content="Hugo 0.145.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -197,7 +197,7 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 </div><p>这里很有意思，一切都是文件，硬件设备是文件、管道是文件、网络套接字也是文件，搞得我很不适应。</p>
 <p>这些都还好，我都还能接受，但直到今天···</p>
-<h2 id="heading"></h2>
+<h2></h2>
 <p><em><strong>*- 1 -*</strong></em></p>
 <h2 id="奇怪的fork"><strong>奇怪的fork</strong></h2>
 <p>今天早上，我收到了一个网络请求，需要完成一个功能，这个工作比较耗时，我准备创建一个子进程，让我的小弟去完成。</p>
@@ -240,7 +240,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>“那原来的我呢？去哪里了”</p>
 <p>“他已经变成你的父进程了，我是一个特殊的函数，一次调用会返回两次，在父进程和子进程中都会返回。在原来的进程中，我把你的进程号给了他，而我返回给你0，就表示你现在就是子进程”</p>
 <p>原来是这样，我大受震撼，这简直颠覆我的认知，居然还有如此奇特的函数，调用一次，就变成了两个进程，思考之间，我忽然有些明白这个函数为什么要叫fork的原因了。</p>
-<h2 id="heading-1"></h2>
+<h2></h2>
 <p><em><strong>*- 2 -*</strong></em></p>
 <h2 id="写时拷贝"><strong>写时拷贝</strong></h2>
 <p>“您是刚来咱们这里吧，可能还不太熟悉，慢慢就习惯了”</p>
@@ -256,7 +256,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>“有点意思，你们倒是挺聪明的”</p>
 <p>“没办法，尽量压缩成本，提高创建进程的效率嘛，因为进程中的很多内存页面都只会去读，如果全部无脑拷贝一份，那不是太浪费资源和时间了吗”，fork函数说到。</p>
 <p>“有道理，有道理”，我点了点头，告别了fork函数，准备回去继续工作。</p>
-<h2 id="heading-2"></h2>
+<h2></h2>
 <p><strong>- 3 -</strong></p>
 <h2 id="消失的线程们"><strong>消失的线程们</strong></h2>
 <p>本以为这奇怪的进程创建方式已经让我大开眼界了，没想到可怕的事情才刚刚开始。</p>

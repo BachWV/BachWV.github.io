@@ -7,7 +7,7 @@
 	
 	<title>8086  | 740.删除并获得点数</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.140.0">
+	<meta name="generator" content="Hugo 0.145.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -200,8 +200,7 @@ onload='renderMathInElement(document.body);'></script>
 <ul>
 <li><code>1 &lt;= nums.length &lt;= 2 * 104</code></li>
 <li><code>1 &lt;= nums[i] &lt;= 104</code></li>
-</ul>
-</blockquote>
+</ul></blockquote>
 <p>这一题很迷惑人，什么“每次操作中，选择任意一个 nums[i] ，删除它并获得 nums[i] 的点数。之后，你必须删除 所有 等于 nums[i] - 1 和 nums[i] + 1 的元素。”这都是些什么鬼操作。绕了我那么久，实际上就是打家劫舍。</p>
 <p>不能连着获得两个挨着的点数。</p>
 <p>打家劫舍中，挨着的是数组，nums[1]和nums[2]不能同时存在；这一题中，nums[x]+1和nums[x]不能同时存在，怎么办呢？</p>

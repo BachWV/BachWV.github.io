@@ -26,7 +26,7 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;p&gt;所得的w即为星期几，w=0为星期日，w=1为星期一，以此类推&lt;/p&gt;
 &lt;p&gt;注意：month的取值范围为3至14，如果月份数是1、2月要看作上一年的13、14月来计算，比如2000年2月29日要看作1999年的14月29日来计算&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;h4 id=&#34;1185-一周中的第几天httpsleetcode-cncomproblemsday-of-the-week&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/day-of-the-week/&#34;&gt;1185. 一周中的第几天&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;1185-一周中的第几天&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/day-of-the-week/&#34;&gt;1185. 一周中的第几天&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。&lt;/p&gt;
 &lt;p&gt;输入为三个整数：&lt;code&gt;day&lt;/code&gt;、&lt;code&gt;month&lt;/code&gt; 和 &lt;code&gt;year&lt;/code&gt;，分别表示日、月、年。&lt;/p&gt;
 &lt;p&gt;您返回的结果必须是这几个值中的一个 &lt;code&gt;{&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;}&lt;/code&gt;。&lt;/p&gt;
@@ -240,7 +240,7 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
       <pubDate>Sun, 18 Jul 2021 19:39:21 +0800</pubDate>
       
       <guid>/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
-      <description>&lt;h1 id=&#34;415-字符串相加httpsleetcode-cncomproblemsadd-strings&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/add-strings/&#34;&gt;415. 字符串相加&lt;/a&gt;&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;415-字符串相加&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/add-strings/&#34;&gt;415. 字符串相加&lt;/a&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;给定两个字符串形式的非负整数 &lt;code&gt;num1&lt;/code&gt; 和&lt;code&gt;num2&lt;/code&gt; ，计算它们的和。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
@@ -249,8 +249,7 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;num1&lt;/code&gt; 和&lt;code&gt;num2&lt;/code&gt; 都只包含数字 &lt;code&gt;0-9&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;num1&lt;/code&gt; 和&lt;code&gt;num2&lt;/code&gt; 都不包含任何前导零&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;p&gt;根据朴素的加法思想，关键在于模拟竖式计算，用一个字符串存储进位，每一列超过十进位。&lt;/p&gt;
 &lt;p&gt;注意要对齐，在短的字符串首部补零。字符串的生成使用拼接的方法。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;

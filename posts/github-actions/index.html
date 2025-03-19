@@ -7,7 +7,7 @@
 	
 	<title>8086  | Github Actions</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.140.0">
+	<meta name="generator" content="Hugo 0.145.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -236,7 +236,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span><span style="color:#111">:</span> <span style="color:#ae81ff">Setup Hexo Dependencies</span> <span style="color:#75715e"># 装一波hexo-cli</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span><span style="color:#111">:</span> <span style="color:#111">|</span><span style="color:#d88200">
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        npm install hexo-cli -g
-</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        npm install --force</span>        
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        npm install --force</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span><span style="color:#111">:</span> <span style="color:#ae81ff">Setup Deploy Private Key</span> <span style="color:#75715e"># 设置私钥 600=11000000B</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span><span style="color:#111">:</span>
@@ -246,7 +246,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        echo &#34;$HEXO_DEPLOY_PRIVATE_KEY&#34; &gt; ~/.ssh/id_rsa 
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        chmod 600 ~/.ssh/id_rsa
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts
-</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        </span>        
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        </span>
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span><span style="color:#111">:</span> <span style="color:#ae81ff">Setup Git Infomation</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span><span style="color:#111">:</span> <span style="color:#ae81ff">| </span>
 </span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">git config --global user.name &#39;yourname&#39; </span>
@@ -255,7 +255,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span><span style="color:#111">:</span> <span style="color:#111">|</span><span style="color:#d88200">
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        hexo clean
 </span></span></span><span style="display:flex;"><span><span style="color:#d88200">        hexo generate 
-</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        hexo deploy</span>        
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        hexo deploy</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时需要我们把私钥写入HEXO_DEPLOY_PRIVATE_KEY这个环境变量。</p>
@@ -301,8 +301,7 @@ onload='renderMathInElement(document.body);'></script>
 <p>哦，但是我的CNAME去哪了，把<code>ls pubilc</code>加入jobs检查CNAME是在public里面啊。</p>
 <p>然后看到官方文档</p>
 <blockquote>
-<p>此外，如果您的 Github Pages 需要使用 CNAME 文件<strong>自定义域名</strong>，请将 CNAME 文件置于 <code>source</code> 目录下，只有这样 <code>hexo deploy</code> 才能将 CNAME 文件一并推送至部署分支。</p>
-</blockquote>
+<p>此外，如果您的 Github Pages 需要使用 CNAME 文件<strong>自定义域名</strong>，请将 CNAME 文件置于 <code>source</code> 目录下，只有这样 <code>hexo deploy</code> 才能将 CNAME 文件一并推送至部署分支。</p></blockquote>
 <p>温馨提示：如非必要，别用&ndash;force</p>
 <h3 id="扩展">扩展</h3>
 <p>上一期提到了crontab这个工具，workflow也支持时间触发，使用的语法，就是上一期提到的POSIX cron语法</p>

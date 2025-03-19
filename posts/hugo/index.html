@@ -7,7 +7,7 @@
 	
 	<title>8086  | hugo update</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.140.0">
+	<meta name="generator" content="Hugo 0.145.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -147,8 +147,7 @@ onload='renderMathInElement(document.body);'></script>
 		<div class="c-rich-text"><p>这几天每天邮箱都会收到Github Actions执行错误的邮件：</p>
 <blockquote>
 <p>[BachWV/BachWV.github.io] Deploy Hugo workflow run
-Deploy Hugo: All jobs have failed</p>
-</blockquote>
+Deploy Hugo: All jobs have failed</p></blockquote>
 <p>点开一看</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -202,8 +201,7 @@ Deploy Hugo: All jobs have failed</p>
 <p>2024-11-26更新：
 今天github actions又报错了，这次是同样是social-follow.html的问题。hugo版本是0.139，不支持原来的social写法，</p>
 <blockquote>
-<p>ERROR deprecated: .Site.Social was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.140.0. Implement taxonomy &lsquo;social&rsquo; or use .Site.Params.Social instead.</p>
-</blockquote>
+<p>ERROR deprecated: .Site.Social was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.140.0. Implement taxonomy &lsquo;social&rsquo; or use .Site.Params.Social instead.</p></blockquote>
 <p>使用<code>.Site.Params.Social</code>替换以后还是错，因为格式不对，盯着social-follow.html看了半天，搜到几个issue，不知道哪里的问题。
 遂打开一个example项目：https://github.com/luizdepra/hugo-coder/，一下子就清晰明了。</p>
 <blockquote>
@@ -211,8 +209,7 @@ Deploy Hugo: All jobs have failed</p>
 name = &ldquo;Github&rdquo;
 icon = &ldquo;fa-brands fa-github fa-2x&rdquo;
 weight = 1
-url = &ldquo;<a href="https://github.com/johndoe/%22">https://github.com/johndoe/&quot;</a></p>
-</blockquote>
+url = &ldquo;<a href="https://github.com/johndoe/%22">https://github.com/johndoe/&quot;</a></p></blockquote>
 <p>又在copilot的帮助下完成了social-follow.html的修改。收工！</p>
 </div>
 	</section>

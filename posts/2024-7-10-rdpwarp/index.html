@@ -7,7 +7,7 @@
 	
 	<title>8086  | 远程桌面神器RDPWarp</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.140.0">
+	<meta name="generator" content="Hugo 0.145.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -144,10 +144,11 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。
-RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。
-RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。
-<a href="https://github.com/stascorp/rdpwrap/releases">github</a>可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。如果显示如下图所示，说明安装成功。</p>
+		<div class="c-rich-text"><p>作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。</p>
+<p>RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。</p>
+<p>RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。</p>
+<p><a href="https://github.com/stascorp/rdpwrap/releases">github</a>可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。</p>
+<p>如果显示如下图所示，说明安装成功。</p>
 <p>检查Diagnostics部分的所有项目是否为绿色，并显示[Fully supported]。
 <img src="https://r2.csapp.fun/2024/07/3214624-20230620170209909-1234289277.png" alt="">
 如果显示如下图所示：
