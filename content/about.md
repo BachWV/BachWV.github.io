@@ -5,6 +5,17 @@ draft: false
 toc: true
 ---
 
+[电影]({{< ref "movies.md" >}})  的页面内容来自[movie.csv](https://github.com/BachWV/gh-action-movie/blob/main/movie.csv)，它采用github actions每日更新。
+
+[随便BB]({{< ref "essay.md" >}})  的页面来自[memos](http://120.24.176.162:5230/)，它是一个[备忘录](https://github.com/usememos/memos)，采用docker部署。
+
+评论系统采用[waline](https://waline.csapp.fun/)，它部署在vercel上。
+
+图床采用Cloudflare R2，它兼容Amazon S3协议。
+
+博客采用hugo构建，使用[Github actions](https://github.com/BachWV/BachWV.github.io/blob/master/.github/workflows/main.yml)生成静态文件。
+
+
 我也不知道我是谁
 
 定义自己是一项很难的工作

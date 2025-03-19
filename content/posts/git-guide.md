@@ -374,3 +374,262 @@ $ git commit[master 88afe0e] Merge branch 'change_site'
 以上文字大多数摘自runoob.com，我感觉是写得非常有条理了，另外介绍一个学习gitbranch的神奇的网站，无聊的时候可以练练手。
 
 https://learngitbranching.js.org/
+
+2024-9
+最近因为招新把这个网站通关了，以下是解法
+
+# 基础篇
+
+```bash
+intro1
+git commit
+git commit
+intro2
+git branch bugFix
+git checkout bugFix
+
+
+```
+
+## intro3
+
+- 创建新分支 `bugFix`
+
+- 用 `git checkout bugFix` 命令切换到该分支
+
+- 提交一次
+
+- 用 `git checkout main` 切换回 `main`
+
+- 再提交一次
+
+- 用 `git merge` 把 `bugFix` 合并到 `main`
+
+  ```bash
+  git branch bugFix
+  git checkout bugFix
+  git commit
+  git checkout main
+  git commit
+  git merge bugFix
+  ```
+
+  
+
+## intro4
+
+要完成此关，执行以下操作：
+
+- 新建并切换到 `bugFix` 分支
+
+- 提交一次
+
+- 切换回 main 分支再提交一次
+
+- 再次切换到 bugFix 分支，rebase 到 main 上
+
+  ```bash
+  git checkout -b bugFix
+  git commit
+  git checkout main
+  git commit
+  git checkout bugFix
+  git rebase main
+  ```
+
+  
+
+# 高级篇
+
+
+
+## rampup1 分离HEAD
+
+想完成此关，从 `bugFix` 分支中分离出 HEAD 并让其指向一个提交记录。
+
+通过哈希值指定提交记录。每个提交记录的哈希值显示在代表提交记录的圆圈中。
+
+```bash
+git checkout C4
+```
+
+## rampup2 相对引用1
+
+要完成此关，切换到 `bugFix` 的 parent 节点。这会进入分离 `HEAD` 状态。
+
+如果你愿意的话，使用哈希值也可以过关，但请尽量使用相对引用！
+
+```bash
+git checkout bugFix^
+```
+
+
+
+## rampup3 相对引用2
+
+```bash
+git branch -f bugFix HEAD~2
+git branch -f main C6
+git checkout C1
+```
+
+## rampup4 撤销变更
+
+```bash
+git checkout local
+git reset HEAD^
+git checkout pushed
+git revert HEAD
+```
+
+
+
+# 移动提交记录
+
+## move1 cherry-pick
+
+```bash
+git cherry-pick C3 C4 C7
+```
+
+
+
+## move2 rebese
+
+```bash
+git rebase -i HEAD~4
+按照C2 C5 C4顺序选中提交
+```
+
+
+
+# 杂项
+
+## mixed1
+
+```bash
+git checkout main
+git cherry-pick C4
+```
+
+
+
+## mixed2 提交的技巧1 
+
+```bash
+git rebese -i HEAD~2 #将C2移到最前
+git commit --amend
+git rebese -i HEAD~2 #将C3移到最前
+git branch -f main HEAD
+
+```
+
+## mixed3 提交的技巧2
+
+```bash
+git checkout main
+git cherry-pick C2
+git commit --amend
+git cherry-pick C3
+```
+
+## mixed4 tag
+
+```bash
+git tag v1 C2
+git tag v0 C1
+git checkout C2
+```
+
+## mixed5 describe
+
+
+
+## advanced1
+
+```bash
+没想出来,快速查看答案
+git rebase main bugFix
+git rebase bugFix side
+git rebase side another
+git rebase another main
+```
+
+rebase b1 b2后，head会指向b2，因此只需要首尾相连这些branch就好了
+
+## advanced2
+
+```bash
+git branch bugWork main~1^2~1
+```
+
+
+
+尝试很多次才打对的，做到这里我觉得git命令还是不及git gragh这些可视化插件来的快
+
+
+
+# Push & Pull —— Git 远程仓库！
+
+```bash
+#remote1
+git clone
+#remote2
+git commit
+git checkout o/main
+git commit
+#remote3 fetch
+git fetch
+#remote4 pull
+git pull
+
+```
+
+
+
+## remote5 
+
+这个有点难
+
+```bash
+git clone
+git fakeTeamwork main 2
+git fetch
+git commit
+git merge o/main
+```
+
+参考答案是
+
+```bash
+git clone
+git fakeTeamwork main 2
+git commit
+git pull
+```
+
+还真是可以的，git fetch和git commit交换一下顺序，然后git pull就能代替两条命令了
+
+```bash
+# remote6 push
+git commit
+git commit
+git push
+
+# remote7 偏离的提交历史
+git clone
+git commit
+git pull --rebase
+git push
+#remote8 锁定的main
+这题也没写出来Ww
+git reset o/main
+git checkout -b feature C2
+git push origin feature
+```
+
+
+
+
+
+提问：如果想用git追踪符号链接指向的文件，这个文件在repo目录外，是否可行呢？
