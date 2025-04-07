@@ -114,8 +114,205 @@ onload='renderMathInElement(document.body);'></script>
 	
 </head>
 
-<body class="bg-gray-100 text-gray-700 font-sans" background="https://s2.loli.net/2022/11/19/JAu1kVxcENShBUM.png">
-	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+<body class="bg-gray-100 text-gray-700 font-sans">
+
+	
+
+
+
+
+<style>
+
+
+	.background {
+		position: relative;   
+		width: 100%;
+		height: 100vh;        
+		z-index: 1;           
+		overflow: hidden;     
+	}
+	.cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+	canvas#startrack {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	.floating-text {
+        position: absolute;
+        bottom: 200px;  
+        left: 200px;  
+        color: white;  
+        font-size: 50px;  
+        z-index: 2;  
+    }
+	
+
+</style>
+<div class="background">
+	<canvas id="startrack"></canvas>
+	<div class="cover"></div>
+</div>
+<div class="floating-text" id="slogan">我们的相遇，是宇宙大爆炸时预设的必然事件——概率 100%</div>
+	
+
+
+<script>
+
+window.requestAnimFrame = window.requestAnimationFrame || 
+                         window.webkitRequestAnimationFrame || 
+                         window.mozRequestAnimationFrame || 
+                         window.oRequestAnimationFrame || 
+                         window.msRequestAnimationFrame || 
+                         function(callback) { 
+                             window.setTimeout(callback, 1000 / 60) 
+                         };
+
+window.onresize = function() {
+    c.width = cw = c.offsetWidth;
+    c.height = ch = c.offsetHeight;
+    ctx.fillStyle = "rgba(21,21,21,1)";
+    ctx.fillRect(0, 0, cw, ch);
+};
+
+var cf = document.createElement("canvas");
+var c = document.getElementById("startrack");
+c.width = cf.width = cw = c.offsetWidth;
+c.height = cf.height = ch = c.offsetHeight;
+
+var longside = Math.max(cw, ch);
+cf.width = 2.6 * longside;
+cf.height = 2.6 * longside;
+
+var ctx = c.getContext("2d");
+var cftx = cf.getContext("2d");
+var centerX = cw;
+var centerY = 0;
+var stars = [];
+var drawTimes = 0;
+
+
+function rand(min, max) {
+    var range = max - min;
+    var random = Math.random();
+    return min + Math.round(random * range);
+}
+
+function random(min, max) {
+    return rand(min, max);
+}
+
+function randomColor() {
+    return "rgba(" + rand(120, 255) + "," + rand(120, 255) + "," + rand(120, 255) + "," + rand(30, 100) / 100 + ")";
+}
+
+
+function createStar() {
+    stars.push({
+        x: rand(-cf.width, cf.width),
+        y: rand(-cf.height, cf.height),
+        size: 1,
+        color: randomColor()
+    });
+}
+
+function drawStar() {
+    for (var i = stars.length; i--;) {
+        var star = stars[i];
+        cftx.beginPath();
+        cftx.arc(star.x, star.y, star.size, 0, 2 * Math.PI, true);
+        cftx.fillStyle = star.color;
+        cftx.closePath();
+        cftx.fill();
+    }
+}
+
+function drawfromCache() {
+    ctx.drawImage(cf, -cf.width / 2, -cf.height / 2);
+}
+
+
+function loop() {
+    drawfromCache();
+    if (++drawTimes > 150 && drawTimes % 8 == 0) {
+        ctx.fillStyle = "rgba(0,0,0,.04)";
+        ctx.fillRect(-3 * longside, -3 * longside, 6 * longside, 6 * longside);
+    }
+    rotateCanvas(0.025);
+}
+
+function rotateCanvas(degrees) {
+    ctx.rotate(degrees * Math.PI / 180);
+}
+
+function fireAnimate() {
+    requestAnimFrame(fireAnimate);
+    loop();
+}
+
+function changeStar() {
+    loop = function() {
+        drawfromCache();
+        if (++drawTimes > 150 && drawTimes % 8 == 0) {
+            ctx.fillStyle = "rgba(0,0,0,.04)";
+            ctx.fillRect(-3 * longside, -3 * longside, 6 * longside, 6 * longside);
+        }
+        rotateCanvas(random(1, 100));
+    };
+}
+
+
+ctx.fillStyle = "rgba(21,21,21,1)";
+ctx.fillRect(0, 0, cw, ch);
+ctx.lineCap = "round";
+
+
+for (var count = 20000; count--;) {
+    createStar();
+}
+drawStar();
+
+var x = centerX;
+var y = centerY;
+ctx.translate(x, y);
+fireAnimate();
+
+var slogans = [
+    "我们的相遇，是宇宙大爆炸时预设的必然事件——概率 100%",
+    "穿越千万光年的熵增洪流，只为在浩瀚数据星云里，与你建立一次量子纠缠的链接。",
+	"试试neovim吧",
+    "给时光以生命，给岁月以文明",
+    "你好，请多指教",
+    "将你的访问记录编译成引力波信号，向全宇宙广播！"
+];
+
+
+function getRandomSlogan() {
+    var index = Math.floor(Math.random() * slogans.length); 
+    return slogans[index];
+}
+
+
+document.getElementById("slogan").innerHTML = getRandomSlogan();
+window.onscroll = function() {
+    if ($(window).scrollTop() > 0.6 * $(window).height()) {
+        $(".background").addClass("fixed");
+    } else {
+        $(".background").removeClass("fixed");
+    }
+};
+</script>
+
+
+	
+	
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap bg-black">
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div style="background-color:transparent" 
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
@@ -203,6 +400,29 @@ onload='renderMathInElement(document.body);'></script>
 		<div>
 			<div class="pb-8">
 	<div class="font-serif font-medium text-xl">
+		<a href="/posts/2025-4-7-%E6%B7%BB%E5%8A%A0%E6%98%9F%E8%BD%A8%E8%83%8C%E6%99%AF/">
+			添加星轨背景
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2025-04-07T00:00:00&#43;08:00">2025-4-7</time>
+	</div>
+</div>
+
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
 		<a href="/posts/2025-3-19-lc-hot100/">
 			LeetCode-Hot100
 		</a>
@@ -265,6 +485,52 @@ onload='renderMathInElement(document.body);'></script>
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
 			datetime="2024-07-10T12:32:41&#43;08:00">2024-7-10</time>
+	</div>
+</div>
+
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="/essay/">
+			我的BB
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2024-01-16T20:41:56&#43;08:00">2024-1-16</time>
+	</div>
+</div>
+
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="/movies/">
+			我的观影
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2024-01-16T20:41:56&#43;08:00">2024-1-16</time>
 	</div>
 </div>
 
@@ -361,75 +627,6 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 
 		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="/posts/hugo/">
-			hugo update
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2023-05-27T15:00:00&#43;08:00">2023-5-27</time>
-	</div>
-</div>
-
-		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="/posts/backup-lab/">
-			一个不知名的备份打包程序
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2023-05-12T00:00:00Z">2023-5-12</time>
-	</div>
-</div>
-
-		</div>
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="/posts/movie-diy/">
-			Movie and Book
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-
-	
-
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2023-05-10T16:58:12&#43;08:00">2023-5-10</time>
-	</div>
-</div>
-
-		</div>
 		
 	</section>
 </div>
@@ -440,6 +637,8 @@ onload='renderMathInElement(document.body);'></script>
 			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
 			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
 				
+
+
 
 
 
@@ -722,7 +921,7 @@ onload='renderMathInElement(document.body);'></script>
 		Built with Hugo and theme <a 
 			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
 			<br />
-			118 pages, 163175 words in total.
+			119 pages, 164414 words in total.
 	</div>
 </div>
 			</div>
@@ -835,7 +1034,43 @@ onload='renderMathInElement(document.body);'></script>
     
     
     
-    <li class="page-item"><a class="page-link" href="/page/7/">7</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/11/">11</a>
     </li>
     
     
@@ -852,7 +1087,7 @@ onload='renderMathInElement(document.body);'></script>
     </li>
     
     <li class="page-item">
-        <a href="/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">
+        <a href="/page/11/" class="page-link" aria-label="Last"><span aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-chevrons-right h-4 w-4 relative -bottom-1">
