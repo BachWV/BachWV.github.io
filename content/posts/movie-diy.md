@@ -1,19 +1,21 @@
 ---
-title: Movie and Book
-date: 2023-05-10T16:58:12+08:00
-lastmod: 2024-05-01T16:58:12+08:00
+title: 为你的静态站点添加一个观影页面
+date: 2024-05-01T16:58:12+08:00
+create: 2023-05-10T16:58:12+08:00
+
 ---
 为你的静态站点添加一个观影页面
 ![](https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png)
-效果如 https://junling.li/movies/ 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。
+效果如 https://csapp.fun/movies/ 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。
 
+
+借助这个 https://imnerd.org/doumark.html 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 
 使用git管理的好处是，文件修改的[历史记录](https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv)能够轻易查看， 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味
 
-借助这个 https://imnerd.org/doumark.html 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
 如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。
 
-还记得怎么写**每小说的30分钟执行一下脚本**，可以去复习[crontab]({{< relref "posts/crontab.md" >}}) 或者直接在（https://crontab.guru/#30_*_*_*_*）里看一下。
+还记得怎么写**每30分钟执行一下脚本**，可以去复习[crontab]({{< relref "posts/crontab.md" >}}) 或者直接在（https://crontab.guru/#30_*_*_*_*）里看一下。
 
 有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？
 
@@ -106,7 +108,7 @@ movieDiv.innerHTML = `
         }
 ```
 
-最后还遇到了csv的跨域问题，改一下nginx配置就好了。
+最后本地还遇到了csv的跨域问题，改一下nginx配置就好了。当然我把csv放到github以后，就没有这个问题了。
 ```nginx
 server {
     add_header Access-Control-Allow-Origin *;
