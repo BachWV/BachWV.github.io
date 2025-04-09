@@ -147,11 +147,10 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>终于到这个终极篇了，作为外网访问的最后一篇，我要介绍的是Cloudflare隧道，这个隧道是Cloudflare的一个0元付费服务，因为它可以让你的群晖外网访问变得更加安全，而且还可以让你的群晖外网访问变得更加快速。</p>
-<p>使用非常简单，部署不超过3分钟。</p>
+		<div class="c-rich-text"><p>终于到这个终极篇了，作为外网访问的最后一篇，我要介绍的是Cloudflare隧道，这个隧道是Cloudflare的一个0元付费服务，相当于一个反向代理，省去配置证书的麻烦。</p>
+<p>使用非常简单，部署不超过3分钟。cf也给出了详细的教程。https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/</p>
 <p>cloudflare注册账号，添加域名，添加DNS解析，添加隧道，</p>
-<p>群晖ssh,docker 运行，cf配置一下域名，搞定。</p>
-<p>为什么用cf呢，因为群晖在只支持v4的路由器下，v6直接访问就没戏了，本着多试试的原则，就试了试cf的隧道。</p>
+<p>docker 运行或者 systemd守护，cf配置一下域名，搞定。</p>
 </div>
 	</section>
 
@@ -264,7 +263,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 238 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 252 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

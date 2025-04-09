@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Life of a Pixel</title>
+	<title>8086  | 我的BB &amp;&amp; memos改造</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.145.0">
 	
@@ -125,7 +125,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Life of a Pixel</h1>
+<h1 class="pt-2">我的BB &amp;&amp; memos改造</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -134,7 +134,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2023-04-08T00:00:00Z">2023-4-8</time>
+		datetime="2025-04-09T16:41:56&#43;08:00">2025-4-9</time>
 </div>
 
 <hr />
@@ -147,35 +147,50 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>今天在B站看到一个up讲浏览器的前世今生，我平时不会轻易评价一个技术视频讲得好不好，深入了就没有受众，浅显易懂才符合大众的口味。但是这个视频和Life of a Pixel相比，属于是一个班门弄斧了。所以我还是想要吹一下Life of a Pixel。
-<img src="https://s2.loli.net/2023/04/08/g7kcMOwznGtYIBd.png" alt=""></p>
-<p><em>The system is very complicated,and the design doc is tended to assume that you already knew a lot of stuffs</em></p>
-<p>让我们跟着Steve Kobes，了解web内容是怎么渲染成像素的吧。</p>
-<h1 id="我们要渲染什么">我们要渲染什么</h1>
-<p>当然是网页啦
-包括html,css,js，还有一些图片视频什么的，就这么多啦。</p>
-<p>当然考虑到受众，还是解释一下这些东西是什么。</p>
-<p>html是一种标记语言，比如</p>
+		<div class="c-rich-text"><p>我的BB也就是左边，可以用来写一些小笔记，或者一些想法。当然他还有一些问题，没有达到理想状态。</p>
+<p><img src="https://r2.csapp.fun/2025/04/20250409200058.png" alt="">
+今天将memos的存储从本地移到了Cloudflare R2上，因为对怕阿里云服务器到期忘记续费，导致数据丢失。所以将自己所有的数据都迁移到Cloudflare的S3存储桶上。</p>
+<p>很简单，官方给出了<a href="https://www.usememos.com/docs/advanced-settings/cloudflare-r2">教程</a>，只要把服务器映射的文件夹一整个搬到Cloudflare设置的目录就行了。</p>
+<p>他会自动在s3存储或者本地寻找asserts附件。</p>
+<p>尝试把sqlite数据库文件也放到Cloudflare上，结果发现爆炸了。</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">p</span><span style="color:#111">&gt;</span>hello world<span style="color:#111">&lt;/</span><span style="color:#f92672">p</span><span style="color:#111">&gt;</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#ae81ff">2025</span><span style="color:#f92672">/</span><span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">09</span> <span style="color:#ae81ff">09</span><span style="color:#111">:</span><span style="color:#ae81ff">00</span><span style="color:#111">:</span><span style="color:#ae81ff">30</span> <span style="color:#111">ERROR</span> <span style="color:#111">failed</span> <span style="color:#111">to</span> <span style="color:#111">migrate</span> <span style="color:#111">database</span> <span style="color:#f92672">!</span><span style="color:#111">BADKEY</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;SQL logic error: no such table: migration_history (1)</span><span style="color:#8045ff">\n</span><span style="color:#d88200">failed to find migration history</span><span style="color:#8045ff">\n</span><span style="color:#d88200">github.com/usememos/memos/store/db/sqlite.(*DB).Migrate</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/backend-build/store/db/sqlite/migrator.go:49</span><span style="color:#8045ff">\n</span><span style="color:#d88200">main.init.func1</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/backend-build/bin/memos/main.go:54</span><span style="color:#8045ff">\n</span><span style="color:#d88200">github.com/spf13/cobra.(*Command).execute</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/go/pkg/mod/github.com/spf13/cobra@v1.8.0/command.go:987</span><span style="color:#8045ff">\n</span><span style="color:#d88200">github.com/spf13/cobra.(*Command).ExecuteC</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/go/pkg/mod/github.com/spf13/cobra@v1.8.0/command.go:1115</span><span style="color:#8045ff">\n</span><span style="color:#d88200">github.com/spf13/cobra.(*Command).Execute</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/go/pkg/mod/github.com/spf13/cobra@v1.8.0/command.go:1039</span><span style="color:#8045ff">\n</span><span style="color:#d88200">main.Execute</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/backend-build/bin/memos/main.go:104</span><span style="color:#8045ff">\n</span><span style="color:#d88200">main.main</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/backend-build/bin/memos/main.go:194</span><span style="color:#8045ff">\n</span><span style="color:#d88200">runtime.main</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/usr/local/go/src/runtime/proc.go:271</span><span style="color:#8045ff">\n</span><span style="color:#d88200">runtime.goexit</span><span style="color:#8045ff">\n\t</span><span style="color:#d88200">/usr/local/go/src/runtime/asm_amd64.s:1695&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Server</span> <span style="color:#111">profile</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">version</span><span style="color:#111">:</span> <span style="color:#ae81ff">0.20</span><span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">data</span><span style="color:#111">:</span> <span style="color:#f92672">/</span><span style="color:#00a8c8">var</span><span style="color:#f92672">/</span><span style="color:#111">opt</span><span style="color:#f92672">/</span><span style="color:#111">memos</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">dsn</span><span style="color:#111">:</span> <span style="color:#f92672">/</span><span style="color:#00a8c8">var</span><span style="color:#f92672">/</span><span style="color:#111">opt</span><span style="color:#f92672">/</span><span style="color:#111">memos</span><span style="color:#f92672">/</span><span style="color:#111">memos_prod</span><span style="color:#f92672">.</span><span style="color:#111">db</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">addr</span><span style="color:#111">:</span> 
+</span></span><span style="display:flex;"><span><span style="color:#111">port</span><span style="color:#111">:</span> <span style="color:#ae81ff">5230</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mode</span><span style="color:#111">:</span> <span style="color:#111">prod</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">driver</span><span style="color:#111">:</span> <span style="color:#111">sqlite</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">frontend</span><span style="color:#111">:</span> <span style="color:#111">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这就是一段最简单的代码啦，带尖括号的p标识了hello world是一个段落</p>
-<p>css是控制样式的</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
-</div>
-</div><h1></h1>
-<ul>
-<li>以上内容适用于Chrome 版本 69.0.3445</li>
-</ul>
+</div><p>看来sqlite文件还得定期备份。</p>
+<p>看来今天得好好整一下memos了。我发现之前memos的网页是使用vercel反向代理的，会有一些跨域的小问题，现在改成 cloudflare的 <a href="/posts/synology-cloudflare/">tunnel</a>了。</p>
+<h2 id="美化">美化</h2>
+<p>现在的ui还是23年8月抄immmm的，有点丑了，还好他更新了新的静态前端https://immmmm.com/memobbs-app/
+只不过memos要降级18.0.2，这个简单，<code>docker pull ghcr.io/usememos/memos:0.18.2</code>
+按照他教程的步骤，搞定以后的效果是这样啦。
+<img src="https://r2.csapp.fun/2025/04/20250409195900.png" alt=""></p>
+<p>还留下一个问题，Post Links侧边栏一直在最下方，和当时movies一样，花了1小时也没办法解决，看起来是css冲突了。到现在还是没有解决好。</p>
 </div>
 	</section>
 
@@ -288,7 +303,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 318 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 585 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -305,21 +320,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/os-jyy-5/">
+    <a class="flex-grow-0" href="/posts/2025-4-7-%E6%B7%BB%E5%8A%A0%E6%98%9F%E8%BD%A8%E8%83%8C%E6%99%AF/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        操作系统-jyy-5 多处理器编程
+        添加星轨背景
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/backup-lab/">
-        一个不知名的备份打包程序
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >

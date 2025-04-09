@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | Movie and Book</title>
+	<title>8086  | 为你的静态站点添加一个观影页面</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.145.0">
 	
@@ -125,7 +125,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">Movie and Book</h1>
+<h1 class="pt-2">为你的静态站点添加一个观影页面</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -134,7 +134,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2023-05-10T16:58:12&#43;08:00">2023-5-10</time>
+		datetime="2024-05-01T16:58:12&#43;08:00">2024-5-1</time>
 </div>
 
 <hr />
@@ -149,11 +149,11 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>为你的静态站点添加一个观影页面
 <img src="https://s2.loli.net/2023/05/18/vW2XouUbzfEKxGc.png" alt="">
-效果如 <a href="https://junling.li/movies/">https://junling.li/movies/</a> 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。</p>
+效果如 <a href="https://csapp.fun/movies/">https://csapp.fun/movies/</a> 所示，这是不是也很酷。只需要在自己的豆瓣账号上为自己喜欢的电影评分，即可自动同步到影单，这也太酷辣。</p>
+<p>借助这个 <a href="https://imnerd.org/doumark.html">https://imnerd.org/doumark.html</a> 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。</p>
 <p>使用git管理的好处是，文件修改的<a href="https://github.githistory.xyz/BachWV/BachWV.github.io/blob/master/csv/douban/movie.csv">历史记录</a>能够轻易查看， 顺着时间轴来就能看到添加历史，我超，非常符合我对未来的想象，科技并带着趣味</p>
-<p>借助这个 <a href="https://imnerd.org/doumark.html">https://imnerd.org/doumark.html</a> 提到的工具，可以将豆瓣的评分导出为csv文件，然后再将csv文件放到自己的github仓库中，就可以了。
-如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。</p>
-<p>还记得怎么写<strong>每小说的30分钟执行一下脚本</strong>，可以去复习<a href="/posts/crontab/">crontab</a> 或者直接在（https://crontab.guru/#30_<em>_</em><em>*</em>*）里看一下。</p>
+<p>如何实现自动化，使用Github Actions，每小时的第30分钟执行一下脚本，查看豆瓣数据有没有更新。</p>
+<p>还记得怎么写<strong>每30分钟执行一下脚本</strong>，可以去复习<a href="/posts/crontab/">crontab</a> 或者直接在（https://crontab.guru/#30_<em>_</em><em>*</em>*）里看一下。</p>
 <p>有了定时更新的csv文件，那我们怎么把csv解析成html页面呢？</p>
 <p>Hugo作为静态网页生成工具，早就为你想到了这一点，参考<a href="https://gohugo.io/templates/data-templates/">Hugo文档</a> 只需要<code>{{ $dataC := getCSV &quot;separator&quot; &quot;url&quot; }}</code>一下，即可获得csv里的数据。使用<code>{{index $movie 5}}</code>即可获得csv文件第五列的数据。</p>
 <p>具体过程见<a href="https://github.com/BachWV/BachWV.github.io/blob/master/themes/hugo-theme-tokiwa/layouts/_default/movies.html">movies.html</a></p>
@@ -315,7 +315,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>最后还遇到了csv的跨域问题，改一下nginx配置就好了。</p>
+</div><p>最后本地还遇到了csv的跨域问题，改一下nginx配置就好了。当然我把csv放到github以后，就没有这个问题了。</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -502,7 +502,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2024
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1599 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1625 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -519,17 +519,17 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/life-of-a-pixel/">
+    <a class="flex-grow-0" href="/essay/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        Life of a Pixel
+        我的BB
     </a>
     
     
-    <a class="flex-grow-0" href="/posts/backup-lab/">
-        一个不知名的备份打包程序
+    <a class="flex-grow-0" href="/posts/2024-7-10-rdpwarp/">
+        远程桌面神器RDPWarp
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
