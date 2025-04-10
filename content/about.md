@@ -5,9 +5,9 @@ draft: false
 toc: true
 ---
 
-[电影]({{< ref "movies.md" >}})  的页面内容来自[movie.csv](https://github.com/BachWV/gh-action-movie/blob/main/movie.csv)，它采用github actions每日更新。
+[电影]({{< ref "movies.md" >}})  的页面内容来自[movie.csv](https://github.com/BachWV/gh-action-movie/blob/main/movie.csv)，它采用github actions每日更新。 我花了一点时间构建[展板]({{< relref "posts/movie-diy.md" >}})
 
-[随便BB]({{< ref "essay.md" >}})  的页面来自[memos](http://120.24.176.162:5230/)，它是一个[备忘录](https://github.com/usememos/memos)，采用docker部署。
+[随便BB]({{< ref "essay.md" >}})  的页面来自[memos](https://memos1.csapp.fun/)，它是一个[备忘录](https://github.com/usememos/memos)，采用docker部署。更详细请参见 [我的BB&&memos改造]({{< relref "posts/2025-4-9-我的BB-memos改造.md" >}})
 
 评论系统采用[waline](https://waline.csapp.fun/)，它部署在vercel上。
 
@@ -63,8 +63,7 @@ Jyy's courses are strongly recommended .You can find them on bilibili.
 
 
 ### **Todo list**
-neXt target is cmu15445  
-neXt next is 6.824  
+
 
 ### **Course notes**
 
