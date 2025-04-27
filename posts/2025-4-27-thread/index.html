@@ -147,10 +147,15 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>翻了一下知乎的吃灰收藏夹，看到一个简易线程池项目，拿来学习一下。
+		<div class="c-rich-text"><p>翻了一下知乎的吃灰收藏夹，看到一个简易线程池项目，名字叫<strong>CTPL</strong>拿来学习一下。
 <a href="https://github.com/vit-vit/ctpl">https://github.com/vit-vit/ctpl</a>
-点击github链接，创建codespaces，免去了配置环境的烦恼。
-首先安装boost</p>
+线程池工作原理：
+线程池初始化时会创建一定数量的线程，这些线程会不断从任务队列中取任务并执行。</p>
+<p>每个任务都是一个函数，push 函数放入队列并分配给空闲线程执行。</p>
+<p>线程池支持动态调整线程数量。</p>
+<p>当线程池被停止时，所有线程会安全地停止工作并退出。</p>
+<p>点击github链接，创建codespaces，免去了配置环境的烦恼。</p>
+<p>首先安装boost</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -168,21 +173,80 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>g++ -I. example.cpp -o example <span style="color:#f92672">&amp;&amp;</span> ./example
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>非常顺利，一遍编译通过。</p>
+</div><p>非常顺利，一遍编译通过。这个项目非常短小，只有一个头文件。</p>
 <p>下面，我们具体分析一下这个头文件里写了啥子。</p>
-<p>线程池工作原理：
-线程池初始化时会创建一定数量的线程，这些线程会不断从任务队列中取任务并执行。</p>
-<p>每个任务都是一个函数，它会在 pop 和 push 函数的帮助下，放入队列并分配给空闲线程执行。</p>
-<p>线程池支持动态调整线程数量。</p>
-<p>当线程池被停止时，所有线程会安全地停止工作并退出。</p>
-<p>详细解释一下，
-初始化传来线程数量，执行resize，创建线程，以及每个线程的flag，置为false，注意他的操作：<code>this-&gt;flags[i] = std::make_shared&lt;std::atomic&lt;bool&gt;&gt;(false);</code>·思考一下为什么这么写，能不能用cucurrentshared_ptr?
-为每一个线程set_thread()初始化一下，以从队列中取出任务运行。
-我们来仔细看一下set_thread 的实现，首先定义一个function f，f里有什么？
-从队列中取出任务,运行。
-一个很自然的问题就出现了，队列为空怎么办？python的queue.get是一个阻塞方法，获得不到会一直停在那里，那么c++呢？
-那你只能用cv.wait()了，如果队列为空，线程会进入等待状态，直到有新的任务加入队列。
-在代码中是直到以下条件之一满足：</p>
+<p>初始化传来线程数量，执行resize，创建线程，以及每个线程的flag，置为false，注意他的操作：<code>this-&gt;flags[i] = std::make_shared&lt;std::atomic&lt;bool&gt;&gt;(false);</code>。思考一下为什么这么写?</p>
+<h2 id="set_"><strong>set_thread</strong></h2>
+<p>为每一个线程set_thread()初始化一下，以从队列中取出任务运行。
+我们来仔细看一下set_thread 的实现</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">set_thread</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">shared_ptr</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">atomic</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">bool</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">flag</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">flags</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">]);</span>  <span style="color:#75715e">// a copy of the shared ptr to the flag
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#111">flag</span><span style="color:#75715e">/* a copy of the shared ptr to the flag */</span><span style="color:#111">]()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">atomic</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">bool</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">_flag</span> <span style="color:#f92672">=</span> <span style="color:#f92672">*</span><span style="color:#111">flag</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span> <span style="color:#111">_f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">bool</span> <span style="color:#111">isPop</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#111">true</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">while</span> <span style="color:#111">(</span><span style="color:#111">isPop</span><span style="color:#111">)</span> <span style="color:#111">{</span>  <span style="color:#75715e">// if there is anything in the queue
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_ptr</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">func</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>  <span style="color:#75715e">// at return, delete the function even if an exception occurred
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">_f</span><span style="color:#111">)(</span><span style="color:#111">i</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">_flag</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">return</span><span style="color:#111">;</span>  <span style="color:#75715e">// the thread is wanted to stop, return even if the queue is not empty yet
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#00a8c8">else</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">isPop</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// the queue is empty here, wait for the next command
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_lock</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">mutex</span><span style="color:#f92672">&gt;</span> <span style="color:#111">lock</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">mutex</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">++</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">nWaiting</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">cv</span><span style="color:#111">.</span><span style="color:#111">wait</span><span style="color:#111">(</span><span style="color:#111">lock</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">_f</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">isPop</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">_flag</span><span style="color:#111">](){</span> <span style="color:#111">isPop</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span> <span style="color:#00a8c8">return</span> <span style="color:#111">isPop</span> <span style="color:#f92672">||</span> <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">isDone</span> <span style="color:#f92672">||</span> <span style="color:#111">_flag</span><span style="color:#111">;</span> <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">--</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">nWaiting</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">isPop</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">return</span><span style="color:#111">;</span>  <span style="color:#75715e">// if the queue is empty and this-&gt;isDone == true or *flag then return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">threads</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">].</span><span style="color:#111">reset</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#00a8c8">thread</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">));</span>  <span style="color:#75715e">// compiler may not support std::make_unique()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首先定义一个function f，f里有什么？</p>
+<p>从队列中取出任务,运行。</p>
+<p>一个很自然的问题就出现了，队列为空怎么办？python的queue.get是一个阻塞方法，获得不到会一直停在那里，那么c++呢？</p>
+<p>那你只能用cv.wait()了，如果队列为空，线程会进入等待状态，直到以下条件之一满足：</p>
 <ul>
 <li>有新的任务加入队列（isPop 为 true），</li>
 <li>线程池被标记为完成（this-&gt;isDone 为 true），</li>
@@ -190,6 +254,7 @@ onload='renderMathInElement(document.body);'></script>
 </ul>
 <p>notify_all() 会唤醒所有等待 cv 的线程。</p>
 <p>如果有多个线程在 wait() 上等待，当 notify_all() 被调用时，它们都会被唤醒，然后继续执行。</p>
+<h2 id="push"><strong>push</strong></h2>
 <p>将任务放到队列中：使用push方法。
 说实话，看push确实很吃力。</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -211,19 +276,19 @@ onload='renderMathInElement(document.body);'></script>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">typename</span> <span style="color:#111">F</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">auto</span> <span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">F</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">f</span><span style="color:#111">)</span> <span style="color:#f92672">-&gt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">future</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">auto</span> <span style="color:#111">pck</span> <span style="color:#f92672">=</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">make_shared</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">packaged_task</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span><span style="color:#111">(</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">forward</span><span style="color:#f92672">&lt;</span><span style="color:#111">F</span><span style="color:#f92672">&gt;</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">auto</span> <span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">F</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">f</span><span style="color:#111">)</span> <span style="color:#f92672">-&gt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">future</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">pck</span> <span style="color:#f92672">=</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">make_shared</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">packaged_task</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span><span style="color:#111">(</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">forward</span><span style="color:#f92672">&lt;</span><span style="color:#111">F</span><span style="color:#f92672">&gt;</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">));</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">auto</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span><span style="color:#111">([</span><span style="color:#111">pck</span><span style="color:#111">](</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">pck</span><span style="color:#111">)(</span><span style="color:#111">id</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">auto</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span><span style="color:#111">([</span><span style="color:#111">pck</span><span style="color:#111">](</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">pck</span><span style="color:#111">)(</span><span style="color:#111">id</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_lock</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">mutex</span><span style="color:#f92672">&gt;</span> <span style="color:#111">lock</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">mutex</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">cv</span><span style="color:#111">.</span><span style="color:#111">notify_one</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_lock</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">mutex</span><span style="color:#f92672">&gt;</span> <span style="color:#111">lock</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">mutex</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">cv</span><span style="color:#111">.</span><span style="color:#111">notify_one</span><span style="color:#111">();</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">pck</span><span style="color:#f92672">-&gt;</span><span style="color:#111">get_future</span><span style="color:#111">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">pck</span><span style="color:#f92672">-&gt;</span><span style="color:#111">get_future</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>首先是一个模版，
@@ -231,12 +296,13 @@ onload='renderMathInElement(document.body);'></script>
 返回值是一个future，也可以理解。
 第一步：创建一个packaged_task&lt;decltype(f(0))(int)&gt;(std::forward<F>(f)),我看不懂了。
 gpt说std::packaged_task：这是一个封装了可调用对象（如函数、lambda 或者其他可调用对象）的模板类。它的目的是提供一个异步执行的任务，并且能够通过 std::future 来获取任务的结果。看起来封装了很多，那我们封装了什么呢？不知道，似懂非懂继续看。</p>
-<p>std::forward<F>(f)：std::forward<F>(f) 用于完美转发 f 参数。这样可以确保传递给 std::packaged_task 的 f 函数类型和调用 push 时传入的类型一致。如果 f 是一个右值，它会被作为右值转发，如果是左值，则作为左值转发。</p>
+<p>std::forward<F>(f) 用于完美转发 f 参数。这样可以确保传递给 std::packaged_task 的 f 函数类型和调用 push 时传入的类型一致。如果 f 是一个右值，它会被作为右值转发，如果是左值，则作为左值转发。</p>
 <p>第二步：创建 std::function 并包装 pck，我不懂了，为什么还要包装pck。</p>
 <p>第三步，放到队列里，ok这样空队列就会变成有一个元素的队列里，这样我们只需要通知一个监听cv的线程，让他把这个任务领走就好了。</p>
 <p>最后，返回一个future。std::packaged_task 将任务的结果与 future 关联。</p>
 <p>回到问题，pck和function为什么要包装两次，因为是两种不同的东西，pck为了获取future，使得异步执行后的结果可以通过 future 获取。而function为了将封装的任务与线程池的工作机制相结合，并传递线程id。</p>
 <p>所以push造成的结果就是：队列里多了一个function，一个线程被唤醒 取出队列并执行这个function，很合理！</p>
+<h2 id="pop"><strong>pop</strong></h2>
 <p>再来看一下pop：</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -254,19 +320,109 @@ gpt说std::packaged_task：这是一个封装了可调用对象（如函数、la
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// pops a functional wraper to the original function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">pop</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">nullptr</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_ptr</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">func</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>  <span style="color:#75715e">// at return, delete the function even if an exception occurred
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">f</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#f92672">*</span><span style="color:#111">_f</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">f</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">pop</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">nullptr</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_ptr</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">func</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>  <span style="color:#75715e">// at return, delete the function even if an exception occurred
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#f92672">*</span><span style="color:#111">_f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>赋值构造函数复制一个function到f中，这里发生一次深拷贝。这里还利用 std::unique_ptr 管理 _f 指向的内存，确保内存的自动释放。</p>
+<p>最后，我们来看看stop函数。</p>
+<h2 id="stop"><strong>stop</strong></h2>
+<p>立即结束，和运行完再结束两种选择。
+区别在于给每一个线程发送一个结束指令，还是全部直接this-&gt;isDone = true;
+之前我们不是说过cv条件变量，这就是停止的两种条件，都是会停止？！
+那干嘛不用一种？
+测试一下：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;chrono&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;thread&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;ctpl.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">task</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Task %d started</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">id</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">this_thread</span><span style="color:#f92672">::</span><span style="color:#111">sleep_for</span><span style="color:#111">(</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">chrono</span><span style="color:#f92672">::</span><span style="color:#111">seconds</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">));</span> <span style="color:#75715e">// 模拟一个耗时任务
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Task %d finished</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">id</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 创建一个包含 3 个线程的线程池
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">ctpl</span><span style="color:#f92672">::</span><span style="color:#111">thread_pool</span> <span style="color:#111">pool</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 向线程池提交 5 个任务
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span> <span style="color:#111">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span><span style="color:#111">;</span> <span style="color:#f92672">++</span><span style="color:#111">i</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">pool</span><span style="color:#111">.</span><span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">task</span><span style="color:#111">);</span>  <span style="color:#75715e">// 添加任务时传递 id 参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Calling stop(false), waiting for tasks to finish...</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">this_thread</span><span style="color:#f92672">::</span><span style="color:#111">sleep_for</span><span style="color:#111">(</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">chrono</span><span style="color:#f92672">::</span><span style="color:#111">seconds</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">));</span> <span style="color:#75715e">// 模拟一个耗时任务
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">pool</span><span style="color:#111">.</span><span style="color:#111">stop</span><span style="color:#111">(</span><span style="color:#111">false</span><span style="color:#111">);</span> <span style="color:#75715e">// stop(false) 表示不等待任务完成，直接停止线程池
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Thread pool stopped.</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 2 started
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Calling stop(false), waiting for tasks to finish...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 0 started
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 1 started
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 2 finished
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 0 finished
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Task 1 finished
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Thread pool stopped.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>stop(false)还是需要等待所有task运行完了再结束。</p>
 </div>
 	</section>
 
@@ -379,7 +535,7 @@ gpt说std::packaged_task：这是一个封装了可调用对象（如函数、la
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1643 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2118 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
