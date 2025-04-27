@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>8086  | 简易线程池：CTPL Modern and efficient C&#43;&#43; Thread Pool Library</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.147.0">
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/favicon-32x32.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('/fonts/exampleFont.woff2') format('woff2'),
+				url('/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+
+		
+	
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap bg-black">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div style="background-color:transparent" 
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="/" title="8086" class="heading font-cursive icon">8086</a>
+	</h2>
+</div>
+<h1 class="pt-2">简易线程池：CTPL Modern and efficient C&#43;&#43; Thread Pool Library</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2025-04-27T16:41:56&#43;08:00">2025-4-27</time>
+</div>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>翻了一下知乎的吃灰收藏夹，看到一个简易线程池项目，拿来学习一下。
+<a href="https://github.com/vit-vit/ctpl">https://github.com/vit-vit/ctpl</a>
+点击github链接，创建codespaces，免去了配置环境的烦恼。
+首先安装boost</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install libboost-all-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后编译运行</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>g++ -I. example.cpp -o example <span style="color:#f92672">&amp;&amp;</span> ./example
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>非常顺利，一遍编译通过。</p>
+<p>下面，我们具体分析一下这个头文件里写了啥子。</p>
+<p>线程池工作原理：
+线程池初始化时会创建一定数量的线程，这些线程会不断从任务队列中取任务并执行。</p>
+<p>每个任务都是一个函数，它会在 pop 和 push 函数的帮助下，放入队列并分配给空闲线程执行。</p>
+<p>线程池支持动态调整线程数量。</p>
+<p>当线程池被停止时，所有线程会安全地停止工作并退出。</p>
+<p>详细解释一下，
+初始化传来线程数量，执行resize，创建线程，以及每个线程的flag，置为false，注意他的操作：<code>this-&gt;flags[i] = std::make_shared&lt;std::atomic&lt;bool&gt;&gt;(false);</code>·思考一下为什么这么写，能不能用cucurrentshared_ptr?
+为每一个线程set_thread()初始化一下，以从队列中取出任务运行。
+我们来仔细看一下set_thread 的实现，首先定义一个function f，f里有什么？
+从队列中取出任务,运行。
+一个很自然的问题就出现了，队列为空怎么办？python的queue.get是一个阻塞方法，获得不到会一直停在那里，那么c++呢？
+那你只能用cv.wait()了，如果队列为空，线程会进入等待状态，直到有新的任务加入队列。
+在代码中是直到以下条件之一满足：</p>
+<ul>
+<li>有新的任务加入队列（isPop 为 true），</li>
+<li>线程池被标记为完成（this-&gt;isDone 为 true），</li>
+<li>或者该线程的停止标志已经被设置（_flag 为 true）。</li>
+</ul>
+<p>notify_all() 会唤醒所有等待 cv 的线程。</p>
+<p>如果有多个线程在 wait() 上等待，当 notify_all() 被调用时，它们都会被唤醒，然后继续执行。</p>
+<p>将任务放到队列中：使用push方法。
+说实话，看push确实很吃力。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#00a8c8">template</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">typename</span> <span style="color:#111">F</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">auto</span> <span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">F</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">f</span><span style="color:#111">)</span> <span style="color:#f92672">-&gt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">future</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">auto</span> <span style="color:#111">pck</span> <span style="color:#f92672">=</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">make_shared</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">packaged_task</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">decltype</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">))(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span><span style="color:#111">(</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">forward</span><span style="color:#f92672">&lt;</span><span style="color:#111">F</span><span style="color:#f92672">&gt;</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">auto</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span><span style="color:#111">([</span><span style="color:#111">pck</span><span style="color:#111">](</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">pck</span><span style="color:#111">)(</span><span style="color:#111">id</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">push</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_lock</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">mutex</span><span style="color:#f92672">&gt;</span> <span style="color:#111">lock</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">mutex</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">cv</span><span style="color:#111">.</span><span style="color:#111">notify_one</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">pck</span><span style="color:#f92672">-&gt;</span><span style="color:#111">get_future</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首先是一个模版，
+先找我能看懂的部分：f是一个可调用对象（如函数、lambda 或者函数指针），表示用户传入的函数。ok
+返回值是一个future，也可以理解。
+第一步：创建一个packaged_task&lt;decltype(f(0))(int)&gt;(std::forward<F>(f)),我看不懂了。
+gpt说std::packaged_task：这是一个封装了可调用对象（如函数、lambda 或者其他可调用对象）的模板类。它的目的是提供一个异步执行的任务，并且能够通过 std::future 来获取任务的结果。看起来封装了很多，那我们封装了什么呢？不知道，似懂非懂继续看。</p>
+<p>std::forward<F>(f)：std::forward<F>(f) 用于完美转发 f 参数。这样可以确保传递给 std::packaged_task 的 f 函数类型和调用 push 时传入的类型一致。如果 f 是一个右值，它会被作为右值转发，如果是左值，则作为左值转发。</p>
+<p>第二步：创建 std::function 并包装 pck，我不懂了，为什么还要包装pck。</p>
+<p>第三步，放到队列里，ok这样空队列就会变成有一个元素的队列里，这样我们只需要通知一个监听cv的线程，让他把这个任务领走就好了。</p>
+<p>最后，返回一个future。std::packaged_task 将任务的结果与 future 关联。</p>
+<p>回到问题，pck和function为什么要包装两次，因为是两种不同的东西，pck为了获取future，使得异步执行后的结果可以通过 future 获取。而function为了将封装的任务与线程池的工作机制相结合，并传递线程id。</p>
+<p>所以push造成的结果就是：队列里多了一个function，一个线程被唤醒 取出队列并执行这个function，很合理！</p>
+<p>再来看一下pop：</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// pops a functional wraper to the original function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">pop</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span> <span style="color:#111">_f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">nullptr</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#f92672">-&gt;</span><span style="color:#111">q</span><span style="color:#111">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">unique_ptr</span><span style="color:#f92672">&lt;</span><span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#111">)</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#111">func</span><span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">);</span>  <span style="color:#75715e">// at return, delete the function even if an exception occurred
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">function</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">void</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span><span style="color:#111">)</span><span style="color:#f92672">&gt;</span> <span style="color:#111">f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">_f</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#f92672">*</span><span style="color:#111">_f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">f</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>赋值构造函数复制一个function到f中，这里发生一次深拷贝。这里还利用 std::unique_ptr 管理 _f 指向的内存，确保内存的自动释放。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/posts/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/movies/" title="电影 page" >
+			电影
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/links/" title="友链 page" >
+			友链
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/essay/" title="随便BB page" >
+			随便BB
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 style="background-color:transparent" 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+  
+  
+  
+  <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start  max-h-16">
+    
+      <a href="https://github.com/bachwv" target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+        aria-label="follow on github —— Opens in a new window">
+        
+        
+        <div class="fill-current h-8 w-8">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+        </div>
+      </a>
+    
+      <a href="mailto:lijunling2077@gmail.com" target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+        aria-label="follow on mail —— Opens in a new window">
+        
+        
+        <div class="fill-current h-8 w-8">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+        </div>
+      </a>
+    
+  </div>
+
+	<div class="text-sm text-white leading-tight a-gray">
+		Copyright © 2021-2025
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1643 words in this page.
+	</div>
+	<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		  </span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/posts/2025-4-9-%E6%88%91%E7%9A%84bb-memos%E6%94%B9%E9%80%A0/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        我的BB &amp;&amp; memos改造
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/>
+<div id="wcomments"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+  
+  window.onload = () => 
+                  init({
+                  el: '#wcomments',
+                  serverURL: 'https://waline.csapp.fun/',
+                });
+                
+</script>
+<hr />
+
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>
