@@ -7,7 +7,7 @@ lastmod: 2023-04-25T00:00:00+08:00
 
 这里讲记录一些自己使用git时候的一些注意事项和小tips
 
-# git push到别人的分支如何回退
+# git push如何回退
 
 ## 1.备份战场
 
@@ -43,15 +43,6 @@ lastmod: 2023-04-25T00:00:00+08:00
 --hard HEAD^ 表示最近一次提交
 ```
 
-## 3.暗度陈仓
-
-
-
-``git push --force``
-
- 要用force因为push的版本小于远程仓库的版本
-
-这样别人就察觉不到你push错了
 
 ## 将最近的13次提交合并
  git rebase -i HEAD~13
@@ -107,12 +98,6 @@ $ git push origin master
 
 ```
 $ git push origin master:master
-```
-
-如果本地版本与远程版本有差异，但又要强制推送可以使用 --force 参数：
-
-```
-git push --force origin master
 ```
 
 删除主机但分支可以使用 --delete 参数，以下命令表示删除 origin 主机的 master 分支：
@@ -226,23 +211,6 @@ README        test.txt
 如你所见，我们创建了一个分支，在该分支的上移除了一些文件 test.txt，并添加了 runoob.php 文件，然后切换回我们的主分支，删除的 test.txt 文件又回来了，且新增加的 runoob.php 不存在主分支中。
 
 使用分支将工作切分开来，从而让我们能够在不同开发环境中做事，并来回切换。
-
-#### 删除分支
-
-删除分支命令：
-
-```
-git branch -d (branchname)
-```
-
-例如我们要删除 testing 分支：
-
-```
-$ git branch* master  testing
-$ git branch -d testing
-Deleted branch testing (was 85fc7e7).
-$ git branch* master
-```
 
 #### 分支合并
 
