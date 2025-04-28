@@ -148,7 +148,7 @@ onload='renderMathInElement(document.body);'></script>
 <article>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><p>这里讲记录一些自己使用git时候的一些注意事项和小tips</p>
-<h1 id="git-push到别人的分支如何回退">git push到别人的分支如何回退</h1>
+<h1 id="git-push如何回退">git push如何回退</h1>
 <h2 id="1备份战场">1.备份战场</h2>
 <p>建立新分支</p>
 <p><code>git branch imsb</code></p>
@@ -185,11 +185,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>--hard HEAD^ 表示最近一次提交
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="3暗度陈仓">3.暗度陈仓</h2>
-<p><code>git push --force</code></p>
-<p>要用force因为push的版本小于远程仓库的版本</p>
-<p>这样别人就察觉不到你push错了</p>
-<h2 id="将最近的13次提交合并">将最近的13次提交合并</h2>
+</div><h2 id="将最近的13次提交合并">将最近的13次提交合并</h2>
 <p>git rebase -i HEAD~13</p>
 <p>pick 保留该commit
 squash将该commit和前一个commit合并</p>
@@ -243,15 +239,6 @@ squash将该commit和前一个commit合并</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ git push origin master:master
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果本地版本与远程版本有差异，但又要强制推送可以使用 &ndash;force 参数：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git push --force origin master
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除主机但分支可以使用 &ndash;delete 参数，以下命令表示删除 origin 主机的 master 分支：</p>
@@ -406,32 +393,7 @@ squash将该commit和前一个commit合并</p>
 </div>
 </div><p>如你所见，我们创建了一个分支，在该分支的上移除了一些文件 test.txt，并添加了 runoob.php 文件，然后切换回我们的主分支，删除的 test.txt 文件又回来了，且新增加的 runoob.php 不存在主分支中。</p>
 <p>使用分支将工作切分开来，从而让我们能够在不同开发环境中做事，并来回切换。</p>
-<h4 id="删除分支">删除分支</h4>
-<p>删除分支命令：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git branch -d (branchname)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>例如我们要删除 testing 分支：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ git branch* master  testing
-</span></span><span style="display:flex;"><span>$ git branch -d testing
-</span></span><span style="display:flex;"><span>Deleted branch testing (was 85fc7e7).
-</span></span><span style="display:flex;"><span>$ git branch* master
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="分支合并">分支合并</h4>
+<h4 id="分支合并">分支合并</h4>
 <p>一旦某分支有了独立内容，你终究会希望将它合并回到你的主分支。 你可以使用以下命令将任何分支合并到当前分支中去：</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1105,7 +1067,7 @@ squash将该commit和前一个commit合并</p>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3458 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 3316 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
