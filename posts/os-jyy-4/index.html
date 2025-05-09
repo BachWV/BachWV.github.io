@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-4 Python 实现操作系统模型</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.147.0">
+	<meta name="generator" content="Hugo 0.147.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -229,7 +229,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">class</span> <span style="color:#75af00">Thread</span><span style="color:#111">:</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;&#34;&#34;A &#34;freezed&#34; thread state.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">func</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">args</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">def</span> <span style="color:#75af00">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">func</span><span style="color:#111">,</span> <span style="color:#f92672">*</span><span style="color:#111">args</span><span style="color:#111">):</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">_func</span> <span style="color:#f92672">=</span> <span style="color:#111">func</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">args</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">retval</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">None</span>
 </span></span><span style="display:flex;"><span>
@@ -240,7 +240,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">retval</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">None</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">syscall</span><span style="color:#111">,</span> <span style="color:#111">args</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">src</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">src</span><span style="color:#111">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">variables</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">exec</span><span style="color:#111">(</span><span style="color:#111">src</span><span style="color:#111">,</span> <span style="color:#111">variables</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">_main</span> <span style="color:#f92672">=</span> <span style="color:#111">variables</span><span style="color:#111">[</span><span style="color:#d88200">&#39;main&#39;</span><span style="color:#111">]</span>
