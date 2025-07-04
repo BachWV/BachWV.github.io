@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-17</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.147.2">
+	<meta name="generator" content="Hugo 0.147.9">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -164,6 +164,8 @@ onload='renderMathInElement(document.body);'></script>
 <h2 id="动态链接">动态链接</h2>
 <p>自然有运行时链接的需求</p>
 <p>jyy表示elf内容很多，由于咱们的短时记忆能力有限，一灌输就会让我们栈溢出，导致咱们跟不少老师的思路</p>
+<p>-fPIC: 位置无关代码，编译器会把代码编译成相对地址，来自阿里面试官的拷打
+<code>gcc -fPIC -shared -o libfoo.so foo.c</code></p>
 <p>我们需要实现什么?</p>
 <ul>
 <li>加载动态库</li>
@@ -319,7 +321,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 486 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 525 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>8086  | 远程桌面神器RDPWarp</title>
+	<title>8086  | 远程桌面最佳实践</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.147.2">
+	<meta name="generator" content="Hugo 0.147.9">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -125,7 +125,7 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="/" title="8086" class="heading font-cursive icon">8086</a>
 	</h2>
 </div>
-<h1 class="pt-2">远程桌面神器RDPWarp</h1>
+<h1 class="pt-2">远程桌面最佳实践</h1>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
@@ -134,7 +134,7 @@ onload='renderMathInElement(document.body);'></script>
 
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2024-07-10T12:32:41&#43;08:00">2024-7-10</time>
+		datetime="2025-07-03T12:32:41&#43;08:00">2025-7-3</time>
 </div>
 
 <hr />
@@ -147,7 +147,8 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。</p>
+		<div class="c-rich-text"><h1 id="rdpwarp多用户登陆">RDPWarp：多用户登陆</h1>
+<p>作为mstc微软远程桌面的狂粉，最近发现了一个神器，RDPWarp，解决了远程桌面的一个痛点：单账户无法开多个session。具体来说，在教研室的远程主机作为服务器，我用笔记本连上去，然后再用同一个账户连上去，会把前一个session挤下线。这个问题困扰了我很久，直到发现了RDPWarp。只有Windows Server才能开多个session，而RDPWarp可以让Windows 10/11开多个session。</p>
 <p>RDPWarp的原理是修改termsrv.dll，然后用termsrv.dll替换系统自带的termsrv.dll。</p>
 <p>RDPWarp上次更新是17年，不过凭借Windows 强大的稳定性，RDPWarp依然能用。</p>
 <p><a href="https://github.com/stascorp/rdpwrap/releases">github</a>可以下载zip包，解压后运行install.bat，然后运行 RDPConfig.exe 工具。</p>
@@ -160,6 +161,23 @@ onload='renderMathInElement(document.body);'></script>
 取消勾选single session per user，然后重启电脑，就大功告成了。</p>
 <p>全程不需要打开组策略管理器，重启即可生效。</p>
 <p>如果你有一台配置强大的电脑，通过这种方式即可实现多人单账户使用一台电脑，互相看不到对方的窗口，大大提高了资源利用率。</p>
+<h1 id="结合-ssh-tunnel-增强安全性">结合 ssh tunnel 增强安全性</h1>
+<p>一直以来都是通过 frp 将 3389 端口暴露到公网中，这样太危险。</p>
+<p>看了一下事件查看器，每分钟都有几十条登陆尝试，我甚至都不知道这台电脑是否已经被攻破了。
+<img src="https://r2.csapp.fun/2025/07/20250704135117.png" alt="">
+迅速在小主机上关闭了对应端口的访问。</p>
+<p>简单调研了一下，在windows rdp 并没有很容易支持密钥对认证，而且任何引入其他认证方式或者修改注册表的配置都是一个心智负担。</p>
+<p>改为通过 ssh tunnel 进行访问应该是最简单的方式。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 13389:127.0.0.1:23389 user@vps-ip
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样就可以通过本地的 13389 端口访问远程的 23389 端口了。而 ssh 禁止了密码登陆，只有密钥对认证。</p>
+<p>最大的劣势是关闭公网访问以后，手机直接远程桌面会麻烦点。</p>
 </div>
 	</section>
 
@@ -272,7 +290,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 651 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 916 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -289,21 +307,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/posts/movie-diy/">
+    <a class="flex-grow-0" href="/posts/2025-5-9-explicit/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        为你的静态站点添加一个观影页面
+        聊聊 C&#43;&#43; 的关键字 explicit
     </a>
     
-    
-    <a class="flex-grow-0" href="/posts/git-bare-server/">
-        git 局域网同步
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
