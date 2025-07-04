@@ -163,7 +163,8 @@ onload='renderMathInElement(document.body);'></script>
 <p>如果你有一台配置强大的电脑，通过这种方式即可实现多人单账户使用一台电脑，互相看不到对方的窗口，大大提高了资源利用率。</p>
 <h1 id="结合-ssh-tunnel-增强安全性">结合 ssh tunnel 增强安全性</h1>
 <p>一直以来都是通过 frp 将 3389 端口暴露到公网中，这样太危险。</p>
-<p>看了一下事件查看器，每分钟都有几十条登陆尝试，我甚至都不知道这台电脑是否已经被攻破了。
+<p>win+R secpol.msc 打开本地策略-&gt; 审核策略-&gt; 审核登录事件 和 审核账户登录事件，开启成功和失败的登录事件。
+看了一下事件查看器，每分钟都有几十条登陆尝试，我甚至都不知道这台电脑是否已经被攻破了。
 <img src="https://r2.csapp.fun/2025/07/20250704135117.png" alt="">
 迅速在小主机上关闭了对应端口的访问。</p>
 <p>简单调研了一下，在windows rdp 并没有很容易支持密钥对认证，而且任何引入其他认证方式或者修改注册表的配置都是一个心智负担。</p>
@@ -290,7 +291,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 916 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 967 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
