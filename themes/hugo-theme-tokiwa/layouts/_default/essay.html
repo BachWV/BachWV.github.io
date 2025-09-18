@@ -7,19 +7,66 @@
 {{ define "main" }}
 {{ $section := .Site.GetPage "section" .Section }}
 <article>
-	<section class="mx-auto content">
-		<div class="c-rich-text">
-      <div class="post">
+    <section class="mx-auto content">
+        <div class="c-rich-text">
+      <div class="post memos-container">
         <h2 class="post-title">{{.Title}}</h2>
 <div id="memos"></div>
 <div id="memo-list"></div>
+
+<style>
+/* 将 memobbs 样式限制在 .memos-container 内 */
+.memos-container {
+    isolation: isolate; /* CSS isolation */
+}
+
+/* 重置可能影响布局的样式 */
+.memos-container * {
+    box-sizing: border-box;
+}
+
+/* 强制保护布局 - 针对 baseof.html 中的布局结构 */
+body > div.p-6 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+/* 保护 header */
+body > div.p-6 > header {
+    width: 40% !important;
+    order: 1 !important;
+}
+
+/* 保护 main */
+body > div.p-6 > main {
+    width: 60% !important;
+    order: 2 !important;
+}
+
+/* 保护 aside */
+body > div.p-6 > aside {
+    width: 40% !important;
+    order: 3 !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    align-self: flex-end !important;
+}
+
+/* 保护 footer */
+body > div.p-6 > footer {
+    width: 60% !important;
+    order: 4 !important;
+}
+</style>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.css">
 
+<!-- 直接引入原始 CSS，用上面的保护性样式覆盖 -->
 <link rel="stylesheet" href="https://memobbs.app/grid.css">
 <link rel="stylesheet" href="https://memobbs.app/memos.css">
+
       <script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
       <script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
       <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
