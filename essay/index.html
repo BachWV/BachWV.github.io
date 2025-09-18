@@ -197,6 +197,23 @@ body > div.p-6 > footer {
     width: 60% !important;
     order: 4 !important;
 }
+
+ 
+html, body {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+.memos-container {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+ 
+#memos, #memo-list {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
 </style>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
@@ -226,6 +243,18 @@ body > div.p-6 > footer {
              
             },
           ]
+      </script>
+      
+      
+      <script type="text/javascript">
+      
+      document.addEventListener('DOMContentLoaded', function() {
+          
+          window.localStorage.setItem("theme", "dark");
+          
+          
+          document.body.classList.add("dark-theme", "dark");
+      });
       </script>
       </div>
       </div>
