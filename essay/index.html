@@ -7,7 +7,7 @@
 	
 	<title>8086  | 我的BB</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.147.9">
+	<meta name="generator" content="Hugo 0.150.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -147,19 +147,66 @@ onload='renderMathInElement(document.body);'></script>
 			
 
 <article>
-	<section class="mx-auto content">
-		<div class="c-rich-text">
-      <div class="post">
+    <section class="mx-auto content">
+        <div class="c-rich-text">
+      <div class="post memos-container">
         <h2 class="post-title">我的BB</h2>
 <div id="memos"></div>
 <div id="memo-list"></div>
+
+<style>
+ 
+.memos-container {
+    isolation: isolate;  
+}
+
+ 
+.memos-container * {
+    box-sizing: border-box;
+}
+
+ 
+body > div.p-6 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+ 
+body > div.p-6 > header {
+    width: 40% !important;
+    order: 1 !important;
+}
+
+ 
+body > div.p-6 > main {
+    width: 60% !important;
+    order: 2 !important;
+}
+
+ 
+body > div.p-6 > aside {
+    width: 40% !important;
+    order: 3 !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    align-self: flex-end !important;
+}
+
+ 
+body > div.p-6 > footer {
+    width: 60% !important;
+    order: 4 !important;
+}
+</style>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.css">
 
+
 <link rel="stylesheet" href="https://memobbs.app/grid.css">
 <link rel="stylesheet" href="https://memobbs.app/memos.css">
+
       <script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
       <script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
       <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
