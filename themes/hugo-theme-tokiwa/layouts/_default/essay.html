@@ -57,6 +57,23 @@ body > div.p-6 > footer {
     width: 60% !important;
     order: 4 !important;
 }
+
+/* 黑暗模式基础样式 */
+html, body {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+.memos-container {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+/* 预设 memos 相关元素的黑暗模式样式 */
+#memos, #memo-list {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
 </style>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
@@ -86,6 +103,18 @@ body > div.p-6 > footer {
              
             },
           ]
+      </script>
+      
+      <!-- 黑暗模式控制脚本 -->
+      <script type="text/javascript">
+      // 页面加载时设置为黑暗模式
+      document.addEventListener('DOMContentLoaded', function() {
+          // 设置 localStorage 为 dark 主题，让 memos.js 的主题系统应用黑暗模式
+          window.localStorage.setItem("theme", "dark");
+          
+          // 添加 dark 和 dark-theme 类到 body
+          document.body.classList.add("dark-theme", "dark");
+      });
       </script>
       </div>
       </div>
