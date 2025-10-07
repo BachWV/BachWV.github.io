@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-5 多处理器编程</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.150.0">
+	<meta name="generator" content="Hugo 0.151.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -260,7 +260,231 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 </div><p>你可能得不到200000000这个答案，为什么？</p>
 <p>哦，这该死的编译器</p>
-<h2 id="其他意想不到的问题">其他意想不到的问题：</h2>
+<h2 id="2025年jyy又升级了sum">2025年jyy又升级了sum</h2>
+<p><a href="https://jyywiki.cn/OS/2025/lect13.md">https://jyywiki.cn/OS/2025/lect13.md</a></p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">T_sum</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">for</span> <span style="color:#111">_</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">t</span> <span style="color:#f92672">=</span> <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">sum</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">sys_sched</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">t</span> <span style="color:#f92672">=</span> <span style="color:#111">t</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> <span style="color:#111">t</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">sys_sched</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">done</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">main</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">done</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">sys_spawn</span><span style="color:#111">(</span><span style="color:#111">T_sum</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">sys_spawn</span><span style="color:#111">(</span><span style="color:#111">T_sum</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">sys_spawn</span><span style="color:#111">(</span><span style="color:#111">T_sum</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">while</span> <span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">done</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">3</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">sys_sched</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">sys_write</span><span style="color:#111">(</span><span style="color:#d88200">f</span><span style="color:#d88200">&#39;sum = </span><span style="color:#d88200">{</span><span style="color:#111">heap</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#d88200">}</span><span style="color:#8045ff">\n</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里有一个循环3次的load和store，多进程的条件下，sum最终结果的最小值是2</p>
+<p>原因如下，可以找到这样一个极端情况。</p>
+<table>
+  <thead>
+      <tr>
+          <th>T1</th>
+          <th>T2</th>
+          <th>T3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Load 0</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Load 0</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Store 1</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Load 1</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Store 2</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Store 1</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Load 1</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Load 1</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Store 2</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Load 2</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Store 3</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Load 3</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Store 4</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Load 4</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Store 5</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Load 5</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Store 6</td>
+      </tr>
+      <tr>
+          <td>Store 2</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>使用jyy的model checker 测试一下，确实会出现</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#111">time</span> uv run  ./mosaic.py -c ../sum-model/sum.py <span style="color:#111">|</span> uv run ./collect.py 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 2⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 3⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 4⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 5⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 6⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 7⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 8⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 9⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">|</span>V<span style="color:#111">|</span> <span style="color:#f92672">=</span> 92565, <span style="color:#111">|</span>E<span style="color:#111">|</span> <span style="color:#f92672">=</span> 333826.
+</span></span><span style="display:flex;"><span>There are <span style="color:#ae81ff">8</span> distinct outputs.
+</span></span><span style="display:flex;"><span>real    0m28.018s
+</span></span><span style="display:flex;"><span>user    0m27.243s
+</span></span><span style="display:flex;"><span>sys     0m0.796s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在多处理器并行调度的情况下，找到这个解似乎也是np complete的问题。</p>
+<p>将循环次数改为4次：验证的时间就过长了。</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#111">time</span> uv run  ./mosaic.py -c ../sum-model/sum.py <span style="color:#111">|</span> uv run ./collect.py 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 10⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 11⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 12⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 2⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 3⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 4⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 5⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 6⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 7⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 8⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">sum</span> <span style="color:#f92672">=</span> 9⏎ 
+</span></span><span style="display:flex;"><span><span style="color:#111">|</span>V<span style="color:#111">|</span> <span style="color:#f92672">=</span> 489052, <span style="color:#111">|</span>E<span style="color:#111">|</span> <span style="color:#f92672">=</span> 1814000.
+</span></span><span style="display:flex;"><span>There are <span style="color:#ae81ff">11</span> distinct outputs.
+</span></span><span style="display:flex;"><span>real    2m51.901s
+</span></span><span style="display:flex;"><span>user    2m47.937s
+</span></span><span style="display:flex;"><span>sys     0m3.937s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="其他意想不到的问题">其他意想不到的问题：</h2>
 <ul>
 <li>处理器指令重排</li>
 </ul>
@@ -442,7 +666,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1051 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1468 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
