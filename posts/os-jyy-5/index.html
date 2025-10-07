@@ -554,6 +554,15 @@ onload='renderMathInElement(document.body);'></script>
 <blockquote>
 <blockquote>
 <p>然而，人类本质上是物理世界 (宏观时间) 中的 “sequential creature”，因此我们在编程时，也 “只能” 习惯单线程的顺序/选择/循环结构，真实多处理器上的并发编程是非常具有挑战性的 “底层技术”，例如 Ad hoc synchronization 引发了很多系统软件中的 bugs。因此，我们需要并发控制技术 (之后的课程涉及)，使得程序能在不共享内存的时候并行执行，并且在需要共享内存时的行为能够 “容易理解”。</p></blockquote></blockquote>
+<h2 id="最后一部分">最后一部分</h2>
+<p>如果我 munmap/mprotect 改变一段内存？
+有另外一个线程在另一个 CPU 上执行
+内存都没了，它还在执行？</p>
+<p>不会“继续正常执行”——它会立即（或很快）收到异常（如 SIGSEGV），因为操作系统会通过 “TLB（Translation Lookaside Buffer） shootdown” 机制强制所有 CPU 核心同步页表变更。会向所有正在运行该进程的 CPU 核心发送 IPI（Inter-Processor Interrupt）。
+收到 IPI 的 CPU 会：
+刷新（invalidate）本地 TLB （每个 CPU 核心都有自己的 TLB，用于缓存虚拟地址 → 物理地址的映射。）中对应的条目；
+下次再访问该虚拟地址时，会重新查页表 → 发现映射已无效 → 触发 page fault。</p>
+<p>Linux 内核源码中 flush_tlb_page()、flush_tlb_mm() 等函数实现了 TLB shootdown；x86 上通过 invlpg 指令或写 CR3 触发局部刷新，跨核靠 IPI。</p>
 </div>
 	</section>
 
@@ -666,7 +675,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1468 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1833 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次
