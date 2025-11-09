@@ -61,7 +61,8 @@
 &lt;li&gt;&lt;code&gt;1 &amp;lt;= s.length &amp;lt;= 25&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;s&lt;/code&gt; 由小写英文字母以及括号 &lt;code&gt;&#39;(&#39;&lt;/code&gt; 和 &lt;code&gt;&#39;)&#39;&lt;/code&gt; 组成&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;s&lt;/code&gt; 中至多含 &lt;code&gt;20&lt;/code&gt; 个括号&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;今天也是一个dfs，暴力搜索，照着模板写就可以了，需要注意&lt;/p&gt;
 &lt;p&gt;剪枝技巧&lt;/p&gt;
 &lt;ol&gt;
@@ -270,7 +271,8 @@
 &lt;p&gt;作者：liweiwei1419
 链接：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/
 来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;&lt;/blockquote&gt;
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic.leetcode-cn.com/1e4f3f1c9a6fb37c2aa515069508f5f3ef9d72cc55b586790f9bec9705052d17-0041-14.png&#34; alt=&#34;dsds&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;

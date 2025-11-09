@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-5 多处理器编程</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.152.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -553,7 +553,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>所以，当我们写并发程序时，请不要相信直觉、编译器、处理器，请加锁。</p>
 <blockquote>
 <blockquote>
-<p>然而，人类本质上是物理世界 (宏观时间) 中的 “sequential creature”，因此我们在编程时，也 “只能” 习惯单线程的顺序/选择/循环结构，真实多处理器上的并发编程是非常具有挑战性的 “底层技术”，例如 Ad hoc synchronization 引发了很多系统软件中的 bugs。因此，我们需要并发控制技术 (之后的课程涉及)，使得程序能在不共享内存的时候并行执行，并且在需要共享内存时的行为能够 “容易理解”。</p></blockquote></blockquote>
+<p>然而，人类本质上是物理世界 (宏观时间) 中的 “sequential creature”，因此我们在编程时，也 “只能” 习惯单线程的顺序/选择/循环结构，真实多处理器上的并发编程是非常具有挑战性的 “底层技术”，例如 Ad hoc synchronization 引发了很多系统软件中的 bugs。因此，我们需要并发控制技术 (之后的课程涉及)，使得程序能在不共享内存的时候并行执行，并且在需要共享内存时的行为能够 “容易理解”。</p>
+</blockquote>
+</blockquote>
 <h2 id="最后一部分">最后一部分</h2>
 <p>如果我 munmap/mprotect 改变一段内存？
 有另外一个线程在另一个 CPU 上执行

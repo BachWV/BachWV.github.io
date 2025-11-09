@@ -7,7 +7,7 @@
 	
 	<title>8086  | LeetCode-Hot100</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.152.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -193,7 +193,8 @@ onload='renderMathInElement(document.body);'></script>
 键 为v（即当前的字符计数向量）。
 值 为该类型的默认构造对象（对于<code>vector&lt;string&gt;</code>，默认构造一个空向量）
 因此，<code>m[v].push_back(s)</code>的含义是：
-若v不存在于map中，先插入一个键值对<code>{v, vector&lt;string&gt;{}}</code>，得到空vector。然后将字符串s添加到此向量中。 这种机制避免了手动初始化的繁琐，使得代码简洁高效。最终，所有相同字符构成的字符串会被自动归入同一分组。</p></blockquote>
+若v不存在于map中，先插入一个键值对<code>{v, vector&lt;string&gt;{}}</code>，得到空vector。然后将字符串s添加到此向量中。 这种机制避免了手动初始化的繁琐，使得代码简洁高效。最终，所有相同字符构成的字符串会被自动归入同一分组。</p>
+</blockquote>
 <h2 id="128-最长连续序列">128. 最长连续序列</h2>
 <p>遍历集合时要遍历哈希集合</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1508,7 +1509,8 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>学习lambda的写法<code>auto dfs = [&amp;](this auto&amp;&amp; dfs, ListNode* node, TreeNode* root)</code>
 C++23 借助Deducing this实现lambda递归，最好只能在lc上写，版本太新了。</p>
 <blockquote>
-<p>本来以为 C++23 要整个狠活，把 executor、network 甚至 reflection 都搞全了，结果全军覆没。现在来看 23 更多的还是对 C++20 的补全，甚至增加的特性里不少都是 DR20 的。核心语言方面，deducing this 应该是最有用的特性了，终于不用一个成员函数写 &amp; / const &amp; / &amp;&amp; / const &amp;&amp; 四个重载了。同时它也允许按值传递对象本身，在一些特殊场景下可以规避生命周期带来的一系列 Bug，典型的情景就是 coroutine lambda</p></blockquote>
+<p>本来以为 C++23 要整个狠活，把 executor、network 甚至 reflection 都搞全了，结果全军覆没。现在来看 23 更多的还是对 C++20 的补全，甚至增加的特性里不少都是 DR20 的。核心语言方面，deducing this 应该是最有用的特性了，终于不用一个成员函数写 &amp; / const &amp; / &amp;&amp; / const &amp;&amp; 四个重载了。同时它也允许按值传递对象本身，在一些特殊场景下可以规避生命周期带来的一系列 Bug，典型的情景就是 coroutine lambda</p>
+</blockquote>
 <p>作者：江东某人
 链接：https://www.zhihu.com/question/637538344/answer/3348309130
 来源：知乎

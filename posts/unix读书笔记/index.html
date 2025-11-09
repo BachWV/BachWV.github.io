@@ -7,7 +7,7 @@
 	
 	<title>8086  | Unix笔记</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.152.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -378,7 +378,8 @@ Linux       开放源代码</p>
 <p>内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。</p>
 <blockquote>
 <p>注意：系统工具和UNIX命令不是内核组件。</p>
-<p>用户应用程序得到保护，避免被其他用户的无意写操作破坏。</p></blockquote>
+<p>用户应用程序得到保护，避免被其他用户的无意写操作破坏。</p>
+</blockquote>
 <p>常驻模块层：提供执行用户请求服务的例程，包括IO控制服务，文件/磁盘访问服务，以及进程创建和终止服务。</p>
 <p>工具层：是UNIX的用户接口，通常成为shell在后面会详细讲到shell</p>
 <p>虚拟计算机：UNIX操作系统向系统中的<strong>每个用户指定一个执行环境</strong>，这个环境成为虚拟计算机，包括一个<strong>用户终端</strong>和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。</p>
@@ -403,7 +404,8 @@ Linux       开放源代码</p>
 <p>who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义</p>
 <p>但在wsl里/init does not create /var/run/utmp</p>
 <p>解决方案： Use &rsquo;touch /var/run/utmp&rsquo; in some &ldquo;system startup script&rdquo;</p>
-<p>来源：https://github.com/Microsoft/WSL/issues/573</p></blockquote>
+<p>来源：https://github.com/Microsoft/WSL/issues/573</p>
+</blockquote>
 <p>who还有一些的选项：-q -H -b。</p>
 <p>3.显示日历：cal</p>
 <p><img src="https://r2.csapp.fun/2023/12/image-20220616104917751.png" alt="image-20220616104917751"></p>
@@ -436,7 +438,8 @@ Linux       开放源代码</p>
 <p>故shell命令解释器在执行命令时，是应先执行内部指令，若要执行的指令不是内部指令，则应是调用的外部指令。
 ————————————————
 版权声明：本文为CSDN博主「JustDo-IT」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/taohuaxinmu123/article/details/10845001</p></blockquote>
+原文链接：https://blog.csdn.net/taohuaxinmu123/article/details/10845001</p>
+</blockquote>
 <h3 id="352-更改用户shell">3.5.2 更改用户shell</h3>
 <p>可以在 /etc/passwd里查看用户登录的shell</p>
 <p>例如第一行：<code>root:x:0:0:root:/root:/bin/bash</code>
@@ -710,7 +713,8 @@ Linux       开放源代码</p>
 <p>/dev设备文件，代表物理设备的抽象，如终端是/dev/tty文件。/dev/null是一个特殊设备，即空设备，所有发给空设备的信息都被删除。</p>
 <p>/sbin 存放系统文件，在3.5章讲到：</p>
 <blockquote>
-<p>外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&hellip;&hellip;等等</p></blockquote>
+<p>外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&hellip;&hellip;等等</p>
+</blockquote>
 <p>/etc 存放unix配置文件，通常是文本，只要特权用户才有权限编辑。</p>
 <h3 id="532-路径">5.3.2 路径</h3>
 <p>绝对路径名：从根目录到该文件的路径，以/开始</p>
@@ -1156,7 +1160,8 @@ Linux       开放源代码</p>
 <p>[[:digit:]]表示数字</p>
 <p>[[:lower:]]表示小写字符</p>
 <p>[[:upper:]]大写字符</p>
-<p>[[:space:]]空字符：空格、tab</p></blockquote>
+<p>[[:space:]]空字符：空格、tab</p>
+</blockquote>
 <p>a{3}匹配aaa,aaaaaa</p>
 <p>a{3,}匹配aaa，aaaa，aaaaaa</p>
 <h2 id="例子">例子</h2>
@@ -1174,7 +1179,8 @@ Linux       开放源代码</p>
 <p>987-123-4567
 (123) 456-7890</p>
 <p>来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/valid-phone-numbers</p></blockquote>
+链接：https://leetcode-cn.com/problems/valid-phone-numbers</p>
+</blockquote>
 <p>首先当然是匹配行首到行尾，^和$不能少</p>
 <p>三位数字怎么弄：<code>[0-9]{3}</code></p>
 <p><code>^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) [0-9]{3}-[0-9]{4})$</code>

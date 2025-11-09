@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-7</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.152.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -146,6 +146,7 @@ onload='renderMathInElement(document.body);'></script>
   <ul>
     <li><a href="#自旋锁">自旋锁</a></li>
     <li><a href="#互斥锁">互斥锁</a></li>
+    <li><a href="#优化">优化</a></li>
   </ul>
 </nav>
 </div>
@@ -163,11 +164,71 @@ onload='renderMathInElement(document.body);'></script>
 	<section class="mx-auto content">
 		<div class="c-rich-text"><h1 id="第七讲-并发控制-互斥">第七讲 并发控制 互斥</h1>
 <h2 id="自旋锁">自旋锁</h2>
-<h2 id="互斥锁">互斥锁</h2>
+<p>前提：cpu提供原子的cmpxchg指令</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">typedef</span> <span style="color:#00a8c8">struct</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span> <span style="color:#00a8c8">lock_t</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#00a8c8">lock_t</span> <span style="color:#f92672">*</span><span style="color:#111">lk</span><span style="color:#111">);</span>  <span style="color:#75715e">// 可以有多组 can_go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">void</span> <span style="color:#75af00">spin_unlock</span><span style="color:#111">(</span><span style="color:#00a8c8">lock_t</span> <span style="color:#f92672">*</span><span style="color:#111">lk</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#00a8c8">lock_t</span> <span style="color:#f92672">*</span><span style="color:#111">lk</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">retry</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#75af00">atomic_cmpxchg</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">lk</span><span style="color:#f92672">-&gt;</span><span style="color:#111">status</span><span style="color:#111">,</span> <span style="color:#960050;background-color:#1e0010">✅</span><span style="color:#111">,</span> <span style="color:#960050;background-color:#1e0010">❌</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">goto</span> <span style="color:#111">retry</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">spin_unlock</span><span style="color:#111">(</span><span style="color:#00a8c8">lock_t</span> <span style="color:#f92672">*</span><span style="color:#111">lk</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">lk</span><span style="color:#f92672">-&gt;</span><span style="color:#111">status</span> <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">✅</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">__sync_synchronize</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="互斥锁">互斥锁</h2>
 <p>把锁的实现放到操作系统里</p>
 <ul>
 <li>syscall(SYSCALL_lock,&amp;lk); 试图获得lk，如果失败，就切换到其他线程</li>
 <li>syscall(SYSCALL_unlock,&amp;lk);释放lk，如果有等待锁的线程，就唤醒它</li>
+</ul>
+<p>剩下的复杂工作都交给内核：</p>
+<p>关中断 + 自旋
+自旋锁只用来保护操作系统中非常短的代码块
+成功获得锁 → 返回
+获得失败 → 设置线程为 “不可执行” 并切换</p>
+<h2 id="优化">优化</h2>
+<p>Futex: Fast Userspace muTexes
+小孩子才做选择。操作系统当然是全都要啦！
+性能优化的最常见技巧：优化 fast path</p>
+<ul>
+<li>Fast Path: 自旋一次
+一条原子指令，成功直接进入临界区</li>
+<li>Slow Path: 自旋失败
+请求系统调用 futex_wait
+请操作系统帮我达到自旋的效果
+(实际上并不真的自旋)</li>
 </ul>
 </div>
 	</section>
@@ -281,7 +342,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-white leading-tight a-gray">
 		Copyright © 2021-2025
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 99 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 350 words in this page.
 	</div>
 	<span id="busuanzi_container_page_pv">
 			本文总阅读量<span id="busuanzi_value_page_pv"></span>次

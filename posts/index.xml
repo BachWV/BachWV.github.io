@@ -851,7 +851,8 @@ hugo提供了一个变量来判断当前页面是否是首页，&lt;code&gt;{{ i
 键 为v（即当前的字符计数向量）。
 值 为该类型的默认构造对象（对于&lt;code&gt;vector&amp;lt;string&amp;gt;&lt;/code&gt;，默认构造一个空向量）
 因此，&lt;code&gt;m[v].push_back(s)&lt;/code&gt;的含义是：
-若v不存在于map中，先插入一个键值对&lt;code&gt;{v, vector&amp;lt;string&amp;gt;{}}&lt;/code&gt;，得到空vector。然后将字符串s添加到此向量中。 这种机制避免了手动初始化的繁琐，使得代码简洁高效。最终，所有相同字符构成的字符串会被自动归入同一分组。&lt;/p&gt;&lt;/blockquote&gt;
+若v不存在于map中，先插入一个键值对&lt;code&gt;{v, vector&amp;lt;string&amp;gt;{}}&lt;/code&gt;，得到空vector。然后将字符串s添加到此向量中。 这种机制避免了手动初始化的繁琐，使得代码简洁高效。最终，所有相同字符构成的字符串会被自动归入同一分组。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;128-最长连续序列&#34;&gt;128. 最长连续序列&lt;/h2&gt;
 &lt;p&gt;遍历集合时要遍历哈希集合&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
@@ -2166,7 +2167,8 @@ hugo提供了一个变量来判断当前页面是否是首页，&lt;code&gt;{{ i
 &lt;/div&gt;&lt;p&gt;学习lambda的写法&lt;code&gt;auto dfs = [&amp;amp;](this auto&amp;amp;&amp;amp; dfs, ListNode* node, TreeNode* root)&lt;/code&gt;
 C++23 借助Deducing this实现lambda递归，最好只能在lc上写，版本太新了。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本来以为 C++23 要整个狠活，把 executor、network 甚至 reflection 都搞全了，结果全军覆没。现在来看 23 更多的还是对 C++20 的补全，甚至增加的特性里不少都是 DR20 的。核心语言方面，deducing this 应该是最有用的特性了，终于不用一个成员函数写 &amp;amp; / const &amp;amp; / &amp;amp;&amp;amp; / const &amp;amp;&amp;amp; 四个重载了。同时它也允许按值传递对象本身，在一些特殊场景下可以规避生命周期带来的一系列 Bug，典型的情景就是 coroutine lambda&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本来以为 C++23 要整个狠活，把 executor、network 甚至 reflection 都搞全了，结果全军覆没。现在来看 23 更多的还是对 C++20 的补全，甚至增加的特性里不少都是 DR20 的。核心语言方面，deducing this 应该是最有用的特性了，终于不用一个成员函数写 &amp;amp; / const &amp;amp; / &amp;amp;&amp;amp; / const &amp;amp;&amp;amp; 四个重载了。同时它也允许按值传递对象本身，在一些特殊场景下可以规避生命周期带来的一系列 Bug，典型的情景就是 coroutine lambda&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;作者：江东某人
 链接：https://www.zhihu.com/question/637538344/answer/3348309130
 来源：知乎
@@ -3417,7 +3419,8 @@ luci-wol安装以后一直见不到，不知道是什么原因。
       <description>&lt;p&gt;这几天每天邮箱都会收到Github Actions执行错误的邮件：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[BachWV/BachWV.github.io] Deploy Hugo workflow run
-Deploy Hugo: All jobs have failed&lt;/p&gt;&lt;/blockquote&gt;
+Deploy Hugo: All jobs have failed&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;点开一看&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -3471,7 +3474,8 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;2024-11-26更新：
 今天github actions又报错了，这次是同样是social-follow.html的问题。hugo版本是0.139，不支持原来的social写法，&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ERROR deprecated: .Site.Social was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.140.0. Implement taxonomy &amp;lsquo;social&amp;rsquo; or use .Site.Params.Social instead.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;ERROR deprecated: .Site.Social was deprecated in Hugo v0.124.0 and will be removed in Hugo 0.140.0. Implement taxonomy &amp;lsquo;social&amp;rsquo; or use .Site.Params.Social instead.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;使用&lt;code&gt;.Site.Params.Social&lt;/code&gt;替换以后还是错，因为格式不对，盯着social-follow.html看了半天，搜到几个issue，不知道哪里的问题。
 遂打开一个example项目：https://github.com/luizdepra/hugo-coder/，一下子就清晰明了。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3479,7 +3483,8 @@ Deploy Hugo: All jobs have failed&lt;/p&gt;&lt;/blockquote&gt;
 name = &amp;ldquo;Github&amp;rdquo;
 icon = &amp;ldquo;fa-brands fa-github fa-2x&amp;rdquo;
 weight = 1
-url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://github.com/johndoe/&amp;quot;&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://github.com/johndoe/&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;又在copilot的帮助下完成了social-follow.html的修改。收工！&lt;/p&gt;
 </description>
     </item>
@@ -4028,7 +4033,9 @@ url = &amp;ldquo;&lt;a href=&#34;https://github.com/johndoe/%22&#34;&gt;https://
 &lt;p&gt;所以，当我们写并发程序时，请不要相信直觉、编译器、处理器，请加锁。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;然而，人类本质上是物理世界 (宏观时间) 中的 “sequential creature”，因此我们在编程时，也 “只能” 习惯单线程的顺序/选择/循环结构，真实多处理器上的并发编程是非常具有挑战性的 “底层技术”，例如 Ad hoc synchronization 引发了很多系统软件中的 bugs。因此，我们需要并发控制技术 (之后的课程涉及)，使得程序能在不共享内存的时候并行执行，并且在需要共享内存时的行为能够 “容易理解”。&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;然而，人类本质上是物理世界 (宏观时间) 中的 “sequential creature”，因此我们在编程时，也 “只能” 习惯单线程的顺序/选择/循环结构，真实多处理器上的并发编程是非常具有挑战性的 “底层技术”，例如 Ad hoc synchronization 引发了很多系统软件中的 bugs。因此，我们需要并发控制技术 (之后的课程涉及)，使得程序能在不共享内存的时候并行执行，并且在需要共享内存时的行为能够 “容易理解”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;最后一部分&#34;&gt;最后一部分&lt;/h2&gt;
 &lt;p&gt;如果我 munmap/mprotect 改变一段内存？
 有另外一个线程在另一个 CPU 上执行
@@ -6965,7 +6972,8 @@ PrimaryColour为字幕颜色，&lt;/p&gt;
 &lt;p&gt;这时候就有人要来杠了，谁用浏览器查天气啊，不都是用系统自带的天气应用。确实，咱们的系统也考虑过对系统层面的位置信息做替换，比如乐健打卡、钉钉假签到类似的，但是看到虚拟位置的app被打击入刑。所以头到尾也没想过做应用内的信息修改。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2021 年 10 月 8 日，北京市海淀区人民法院披露了一起破坏计算机信息系统罪的案件，犯罪人被判处有期徒刑 5 年 6 个月。该软件是一款名叫“大牛助手”的 APP，其通过虚拟定位技术，将虚假的位置传送至钉钉系统，以达到“打卡”的效果，主要供上班族和学生使用。该软件为收费软件，年费为 89 元，月费 25 元。截止案发，用户近10万余人/次，收取费用四五百万元。犯罪人已于 2019 年 5 月 31 日被羁押，同年 7 月 4 日被逮捕。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/491806902/answer/2168531030&#34;&gt;https://www.zhihu.com/question/491806902/answer/2168531030&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/491806902/answer/2168531030&#34;&gt;https://www.zhihu.com/question/491806902/answer/2168531030&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;所以我们做的东东的应用范围很狭窄，只能通过浏览器层面做处理。什么点外卖，定酒店就别想了。现在这个&lt;/p&gt;
 &lt;p&gt;那又有人要问了，简单替换也没啥技术含量啊，随便用一个城市替代轻而易举啊。&lt;/p&gt;
 &lt;p&gt;确实，大概在1月初的时候，简单的位置替换的demo就做好了。&lt;/p&gt;
@@ -7103,7 +7111,8 @@ uest.xyz 2021-3-15 godaddy&lt;/p&gt;
 &lt;li&gt;解决：QEMU源码根目录下的Makefile文件最后加上一行 QEMU_CFLAGS+=-w优化&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;如果遇到&lt;code&gt;undefined reference to &#39;major&#39;&lt;/code&gt;，在报错的源文件中添加&lt;code&gt;#include &amp;lt;sys/sysmacros.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;模拟loongarch&#34;&gt;模拟loongarch&lt;/h2&gt;
 &lt;p&gt;下面是大佬的启动脚本，但是它没有给出源文件&lt;/p&gt;
@@ -7210,7 +7219,8 @@ C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a&lt;/p&gt;
 打开工程配置，找到编译器选项，加入-DWINVER=0x0500。
 ————————————————
 版权声明：本文为CSDN博主「sandonz」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/sandonz/article/details/118385519&lt;/p&gt;&lt;/blockquote&gt;
+原文链接：https://blog.csdn.net/sandonz/article/details/118385519&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;虽然很奇怪，为什么gcc不能给我自动引用呢？&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -9696,7 +9706,8 @@ update&lt;/p&gt;
 &lt;p&gt;哦，但是我的CNAME去哪了，把&lt;code&gt;ls pubilc&lt;/code&gt;加入jobs检查CNAME是在public里面啊。&lt;/p&gt;
 &lt;p&gt;然后看到官方文档&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;此外，如果您的 Github Pages 需要使用 CNAME 文件&lt;strong&gt;自定义域名&lt;/strong&gt;，请将 CNAME 文件置于 &lt;code&gt;source&lt;/code&gt; 目录下，只有这样 &lt;code&gt;hexo deploy&lt;/code&gt; 才能将 CNAME 文件一并推送至部署分支。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;此外，如果您的 Github Pages 需要使用 CNAME 文件&lt;strong&gt;自定义域名&lt;/strong&gt;，请将 CNAME 文件置于 &lt;code&gt;source&lt;/code&gt; 目录下，只有这样 &lt;code&gt;hexo deploy&lt;/code&gt; 才能将 CNAME 文件一并推送至部署分支。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;温馨提示：如非必要，别用&amp;ndash;force&lt;/p&gt;
 &lt;h3 id=&#34;扩展&#34;&gt;扩展&lt;/h3&gt;
 &lt;p&gt;上一期提到了crontab这个工具，workflow也支持时间触发，使用的语法，就是上一期提到的POSIX cron语法&lt;/p&gt;
@@ -9765,11 +9776,71 @@ update&lt;/p&gt;
       <guid>/posts/os-jyy-7/</guid>
       <description>&lt;h1 id=&#34;第七讲-并发控制-互斥&#34;&gt;第七讲 并发控制 互斥&lt;/h1&gt;
 &lt;h2 id=&#34;自旋锁&#34;&gt;自旋锁&lt;/h2&gt;
-&lt;h2 id=&#34;互斥锁&#34;&gt;互斥锁&lt;/h2&gt;
+&lt;p&gt;前提：cpu提供原子的cmpxchg指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#111&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;lock_t&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spin_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;lock_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// 可以有多组 can_go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spin_unlock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;lock_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spin_lock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;lock_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;retry&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#75af00&#34;&gt;atomic_cmpxchg&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;✅&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;❌&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#00a8c8&#34;&gt;goto&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;retry&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;spin_unlock&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;lock_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;lk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;✅&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75af00&#34;&gt;__sync_synchronize&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;互斥锁&#34;&gt;互斥锁&lt;/h2&gt;
 &lt;p&gt;把锁的实现放到操作系统里&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;syscall(SYSCALL_lock,&amp;amp;lk); 试图获得lk，如果失败，就切换到其他线程&lt;/li&gt;
 &lt;li&gt;syscall(SYSCALL_unlock,&amp;amp;lk);释放lk，如果有等待锁的线程，就唤醒它&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;剩下的复杂工作都交给内核：&lt;/p&gt;
+&lt;p&gt;关中断 + 自旋
+自旋锁只用来保护操作系统中非常短的代码块
+成功获得锁 → 返回
+获得失败 → 设置线程为 “不可执行” 并切换&lt;/p&gt;
+&lt;h2 id=&#34;优化&#34;&gt;优化&lt;/h2&gt;
+&lt;p&gt;Futex: Fast Userspace muTexes
+小孩子才做选择。操作系统当然是全都要啦！
+性能优化的最常见技巧：优化 fast path&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast Path: 自旋一次
+一条原子指令，成功直接进入临界区&lt;/li&gt;
+&lt;li&gt;Slow Path: 自旋失败
+请求系统调用 futex_wait
+请操作系统帮我达到自旋的效果
+(实际上并不真的自旋)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -9792,7 +9863,8 @@ update&lt;/p&gt;
 &lt;p&gt;我们需要做的是写这个配置文件&lt;/p&gt;
 &lt;p&gt;配置文件基本格式&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;分 时 日 月 星期 命令&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;分 时 日 月 星期 命令&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;分 的值为0到59&lt;/p&gt;
 &lt;p&gt;时 的值为0到23&lt;/p&gt;
 &lt;p&gt;日 的值为1到31&lt;/p&gt;
@@ -12124,12 +12196,14 @@ inline assembly也可以参与优化&lt;/p&gt;
 &lt;p&gt;list-&amp;gt;list+digit
 list-&amp;gt;list-digit
 list-&amp;gt;digit
-digit-&amp;gt;0|1|2|3|4|5|6|7|8|9&lt;/p&gt;&lt;/blockquote&gt;
+digit-&amp;gt;0|1|2|3|4|5|6|7|8|9&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;以非终结符号list为头部的三个产生式可以等价得组合为：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;list-&amp;gt;list+digit|list-digit|digit
 根据我们的习惯，该文法的终结符号包括以下符号：
-+ - 1 2 3 4 5 6 7 8 9&lt;/p&gt;&lt;/blockquote&gt;
++ - 1 2 3 4 5 6 7 8 9&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;该文法的非终结符号是斜体名字list和digit。因为list的产生式首先被列出，所以我们知道list是该文法的开始符号。
 如果某个nonterminal是某个productive的头部，我们就说该产生式是该nontermial的产生式。
 一个终结符号串是由0个或多个&lt;/p&gt;
@@ -12182,7 +12256,8 @@ ALGOL 称为结构&lt;/p&gt;
 &lt;p&gt;是一种选择对象结构的机制，规定在两个不同选择对象之间作出适当的选择，每一选择对象结构称为变体Variant&lt;/p&gt;
 &lt;p&gt;c和algol中的union联合&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;union不同于struct，&lt;code&gt;union {int a;char b;} u1&lt;/code&gt; 表示变量u1是一个union，它的值是int类型的a或char类型的b，sizeof(u1)会得到int&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;union不同于struct，&lt;code&gt;union {int a;char b;} u1&lt;/code&gt; 表示变量u1是一个union，它的值是int类型的a或char类型的b，sizeof(u1)会得到int&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;pascal和ada中的变体&lt;/p&gt;
 &lt;h3 id=&#34;6幂集&#34;&gt;6.幂集&lt;/h3&gt;
 &lt;p&gt;类型T的元素的所有子集的集合，称为幂集
@@ -12329,7 +12404,8 @@ F-&amp;gt;I|(E)&lt;/p&gt;
 &lt;p&gt;q_文法不允许右部以非终结符开始，所以我们还需要功能更加强大的文法&lt;/p&gt;
 &lt;p&gt;串首终结符集，&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;串首终结符:串首第一个符号，并且是终结符&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;串首终结符:串首第一个符号，并且是终结符&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;img src=&#34;https://r2.csapp.fun/2023/12/Pasted%20image%2020220327203357.png&#34; alt=&#34;Pasted image 20220327203357&#34; style=&#34;zoom:33%;&#34; /&gt;
 FIRST(\alpha)
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/12/12/5x9F26Algw3bjvV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -13273,11 +13349,13 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“理解了死锁的原因，尤其是产生死锁的四个必要条件，就可以最大可能地避免、预防和解除死锁。所以，在系统设计、进程调度等方面注意如何不让这四个必要条件成立，如何确定资源的合理分配算法，避免进程永久占据系统资源。此外，也要防止进程在处于等待状态的情况下占用资源。因此，对资源的分配要给予合理的规划。” ——Bullshit.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“理解了死锁的原因，尤其是产生死锁的四个必要条件，就可以最大可能地避免、预防和解除死锁。所以，在系统设计、进程调度等方面注意如何不让这四个必要条件成立，如何确定资源的合理分配算法，避免进程永久占据系统资源。此外，也要防止进程在处于等待状态的情况下占用资源。因此，对资源的分配要给予合理的规划。” ——Bullshit.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;按照规定的顺序获得锁&lt;/p&gt;
 &lt;h2 id=&#34;数据竞争&#34;&gt;数据竞争&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;不同的线程同时访问同一段内存，且至少有一个是写。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;不同的线程同时访问同一段内存，且至少有一个是写。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;两个内存访问在 “赛跑”，“跑赢” 的操作先执行&lt;/p&gt;
@@ -13389,7 +13467,8 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 &lt;hr&gt;
 &lt;h2 id=&#34;完全一样的基本思路否定你自己&#34;&gt;完全一样的基本思路：否定你自己&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;还是得始终假设自己的代码是错的。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;还是得始终假设自己的代码是错的。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;然后呢？&lt;/p&gt;
 &lt;ul&gt;
@@ -13583,7 +13662,8 @@ cache块中包含了由cpu确定的要执行指令的动态踪迹，而不是仅
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;手持两把锟斤拷，口中疾呼烫烫烫&lt;/p&gt;
 &lt;p&gt;脚踏千朵屯屯屯，笑看万物锘锘锘&lt;/p&gt;
-&lt;p&gt;(它们一直在无形中保护你)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;(它们一直在无形中保护你)&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;防御性编程低配版-lockdep&#34;&gt;防御性编程：低配版 Lockdep&lt;/h2&gt;
 &lt;p&gt;不必大费周章记录什么上锁顺序&lt;/p&gt;
@@ -13903,7 +13983,8 @@ Enter the container (optional)&lt;/p&gt;
 14.clear 清空当前的vector
 15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)
 16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)
-17.empty 判断vector是否为空18.swap 与另一个vector交换数据&lt;/p&gt;&lt;/blockquote&gt;
+17.empty 判断vector是否为空18.swap 与另一个vector交换数据&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;vector&amp;lt; vector&amp;lt; int&amp;gt; &amp;gt;v; 二维向量//这里最外的&amp;lt;&amp;gt;要有空格。否则在比较旧的编译器下无法通过&lt;/p&gt;
 &lt;h2 id=&#34;vector使用实例&#34;&gt;vector使用实例&lt;/h2&gt;
 &lt;p&gt;排序sort(v.begin(),v.end())默认升序&lt;/p&gt;
@@ -13948,7 +14029,8 @@ Enter the container (optional)&lt;/p&gt;
 &lt;h2 id=&#34;vector对象动态增长&#34;&gt;vector对象动态增长：&lt;/h2&gt;
 &lt;p&gt;vector 对象（以及其他标准库容器对象）的重要属性就在于可以在运行时高效地添加元素。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意：因为 vector 增长的效率高，在元素值已知的情况下，最好是动态地添加元素。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;注意：因为 vector 增长的效率高，在元素值已知的情况下，最好是动态地添加元素。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;vector&lt;int&gt;test;//建立一个vector，int为数组元素的数据类型，test为动态数组名&lt;/p&gt;
 &lt;p&gt;简单的使用方法如下：&lt;/p&gt;
@@ -14652,7 +14734,8 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
           &lt;td&gt;&lt;code&gt;containsAll, equals, hashCode, isEmpty, removeAll, retainAll&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;&lt;/blockquote&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     
@@ -14676,7 +14759,8 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;p&gt;前几天看到一个回答，&lt;a href=&#34;https://www.zhihu.com/question/19860051/answer/27240346&#34;&gt;《超级&lt;em&gt;马里奥&lt;/em&gt;3》使用了什么样的技术可以在128KB中写进这么多东西？&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;128KB兄弟们，1MB是8086的寻址空间，除去接口，中断向量的地址，128KB能不能放得下还说不定呢。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;声音部分: FC有两路方波生成器，一路&lt;a href=&#34;https://www.zhihu.com/search?q=%E4%B8%89%E8%A7%92%E6%B3%A2&amp;amp;search_source=Entity&amp;amp;hybrid_search_source=Entity&amp;amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D&#34;&gt;三角波&lt;/a&gt;生成器，一路随机噪声，一路PCM。PCM采样可以实现很好的效果，但数据量巨大，所以大多数游戏没用。用方波/三角波来发声就类似最简单的MIDI音乐，数据量很小。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;声音部分: FC有两路方波生成器，一路&lt;a href=&#34;https://www.zhihu.com/search?q=%E4%B8%89%E8%A7%92%E6%B3%A2&amp;amp;search_source=Entity&amp;amp;hybrid_search_source=Entity&amp;amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D&#34;&gt;三角波&lt;/a&gt;生成器，一路随机噪声，一路PCM。PCM采样可以实现很好的效果，但数据量巨大，所以大多数游戏没用。用方波/三角波来发声就类似最简单的MIDI音乐，数据量很小。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;一看到方波生成器就来劲了，这不就可以通过8253的方式3来生成方波。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;图形部分: 这是主要占卡带容量的部分，下面简单说一下&lt;/p&gt;
@@ -14692,7 +14776,8 @@ $${\displaystyle y= year \bmod {100}}$$&lt;/p&gt;
 &lt;li&gt;因为调色板的存在，形状一样而颜色不同的图案也不需要占额外的空间，只要设置一下调色板就行了，包括变色的效果也是这样做的。红色的Mario和绿色的Luigi就是同一套Sprite。&lt;/li&gt;
 &lt;li&gt;透明、滚动、前后景叠加、碰撞检测都是PPU完成，不需要另外写程序。&lt;/li&gt;
 &lt;li&gt;sprite的数据也不存在由CPU从卡带读入到RAM的过程（除了后期的磁碟机），而是直接由卡带映射到FC的64KB地址空间进行访问。不同的卡带硬件（所谓的mapper）支持由程序控制将卡带上的不同地址映射到FC的同一&lt;a href=&#34;https://www.zhihu.com/search?q=%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4&amp;amp;search_source=Entity&amp;amp;hybrid_search_source=Entity&amp;amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D&#34;&gt;地址空间&lt;/a&gt;，所以尽管8位的FC只有64KB寻址能力，但卡带容量可以做到256KB甚至更大。&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;1 微型计算机基础概论&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203182036501.png&#34; alt=&#34;image-20211203182036501&#34;&gt;&lt;/p&gt;
 &lt;p&gt;2.微处理器8086和8088&lt;/p&gt;
@@ -15533,7 +15618,8 @@ http://localhost:1313/leetcode/，里面是leetcode文件夹中的文章&lt;/p&g
 &lt;/div&gt;&lt;p&gt;解释一下为什么要这么写：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;/dev/null
-这条命令的作用是将标准输出1重定向到/dev/null中。 /dev/null代表linux的空设备文件，所有往这个文件里面写入的内容都会丢失，俗称“黑洞”。那么执行了&amp;gt;/dev/null之后，标准输出就会不再存在，没有任何地方能够找到输出的内容。&lt;/p&gt;&lt;/blockquote&gt;
+这条命令的作用是将标准输出1重定向到/dev/null中。 /dev/null代表linux的空设备文件，所有往这个文件里面写入的内容都会丢失，俗称“黑洞”。那么执行了&amp;gt;/dev/null之后，标准输出就会不再存在，没有任何地方能够找到输出的内容。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;2&amp;gt;&amp;amp;1
 这条命令用到了重定向绑定，采用&amp;amp;可以将两个输出绑定在一起。这条命令的作用是错误输出将和标准输出同用一个文件描述符，说人话就是错误输出将会和标准输出输出到同一个地方。&lt;/p&gt;
 &lt;p&gt;linux在执行shell命令之前，就会确定好所有的输入输出位置，并且从左到右依次执行重定向的命令，所以&amp;gt;/dev/null 2&amp;gt;&amp;amp;1的作用就是让标准输出重定向到/dev/null中（丢弃标准输出），然后错误输出由于重用了标准输出的描述符，所以错误输出也被定向到了/dev/null中，错误输出同样也被丢弃了。执行了这条命令之后，该条shell命令将不会输出任何信息到控制台，也不会有任何信息输出到文件中。&lt;/p&gt;
@@ -15707,7 +15793,8 @@ bash /home/frp/start.sh&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;腾讯企业邮箱要求设置的MX记录如下：
 邮件服务器名：mxbiz1.qq.com 优先级：5
-邮件服务器名：mxbiz2.qq.com 优先级：10&lt;/p&gt;&lt;/blockquote&gt;
+邮件服务器名：mxbiz2.qq.com 优先级：10&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;之后就能自由地管理域名下的邮箱了。&lt;/p&gt;
 &lt;p&gt;2022.8.22更新&lt;/p&gt;
 &lt;p&gt;最近尝试了 网易的域名邮箱，还行，就是发Gmail的时候容易进入垃圾箱&lt;/p&gt;
@@ -16117,7 +16204,8 @@ i=0010010100101011&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;encoded.length == n - 1&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;0 &amp;lt;= encoded[i] &amp;lt;= 105&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;0 &amp;lt;= first &amp;lt;= 105&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -16166,7 +16254,8 @@ i=0010010100101011&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;通过次数54,177&lt;/p&gt;
-&lt;p&gt;提交次数93,386&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;提交次数93,386&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
@@ -16276,7 +16365,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;内核：负责管理所有与硬件相关的功能，这些功能由UNIX内核中的各个模块实现。内核包括直接控制硬件的各个模块，这样能够极大程度上保护这些硬件，以避免应用程序直接操作而导致混乱。用户不能直接访问内核。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：系统工具和UNIX命令不是内核组件。&lt;/p&gt;
-&lt;p&gt;用户应用程序得到保护，避免被其他用户的无意写操作破坏。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;用户应用程序得到保护，避免被其他用户的无意写操作破坏。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;常驻模块层：提供执行用户请求服务的例程，包括IO控制服务，文件/磁盘访问服务，以及进程创建和终止服务。&lt;/p&gt;
 &lt;p&gt;工具层：是UNIX的用户接口，通常成为shell在后面会详细讲到shell&lt;/p&gt;
 &lt;p&gt;虚拟计算机：UNIX操作系统向系统中的&lt;strong&gt;每个用户指定一个执行环境&lt;/strong&gt;，这个环境成为虚拟计算机，包括一个&lt;strong&gt;用户终端&lt;/strong&gt;和共享的其他的计算机资源。而UNIX上可以存在多个用户，所以每一个用户都有自己的专用虚拟计算机。不同的用户的虚拟计算机共享CPU和其他计算机资源，所以虚拟计算机比真实的计算机要慢。&lt;/p&gt;
@@ -16301,7 +16391,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;who程序跟Linux内核无关，只是读取Unix里约定俗成的utmp,wtmp登录文件。你第一次打开wsl2的终端，或者通过其他方式运行wsl2的这个系统，就是第一次登录。但是wsl2子系统不会用utmp/wtmp记录这些，没有任何意义&lt;/p&gt;
 &lt;p&gt;但在wsl里/init does not create /var/run/utmp&lt;/p&gt;
 &lt;p&gt;解决方案： Use &amp;rsquo;touch /var/run/utmp&amp;rsquo; in some &amp;ldquo;system startup script&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;来源：https://github.com/Microsoft/WSL/issues/573&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;来源：https://github.com/Microsoft/WSL/issues/573&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;who还有一些的选项：-q -H -b。&lt;/p&gt;
 &lt;p&gt;3.显示日历：cal&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://r2.csapp.fun/2023/12/image-20220616104917751.png&#34; alt=&#34;image-20220616104917751&#34;&gt;&lt;/p&gt;
@@ -16334,7 +16425,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;故shell命令解释器在执行命令时，是应先执行内部指令，若要执行的指令不是内部指令，则应是调用的外部指令。
 ————————————————
 版权声明：本文为CSDN博主「JustDo-IT」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/taohuaxinmu123/article/details/10845001&lt;/p&gt;&lt;/blockquote&gt;
+原文链接：https://blog.csdn.net/taohuaxinmu123/article/details/10845001&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;352-更改用户shell&#34;&gt;3.5.2 更改用户shell&lt;/h3&gt;
 &lt;p&gt;可以在 /etc/passwd里查看用户登录的shell&lt;/p&gt;
 &lt;p&gt;例如第一行：&lt;code&gt;root:x:0:0:root:/root:/bin/bash&lt;/code&gt;
@@ -16608,7 +16700,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;/dev设备文件，代表物理设备的抽象，如终端是/dev/tty文件。/dev/null是一个特殊设备，即空设备，所有发给空设备的信息都被删除。&lt;/p&gt;
 &lt;p&gt;/sbin 存放系统文件，在3.5章讲到：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&amp;hellip;&amp;hellip;等等&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;外部命令是在bash之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin&amp;hellip;&amp;hellip;等等&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;/etc 存放unix配置文件，通常是文本，只要特权用户才有权限编辑。&lt;/p&gt;
 &lt;h3 id=&#34;532-路径&#34;&gt;5.3.2 路径&lt;/h3&gt;
 &lt;p&gt;绝对路径名：从根目录到该文件的路径，以/开始&lt;/p&gt;
@@ -17054,7 +17147,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;[[:digit:]]表示数字&lt;/p&gt;
 &lt;p&gt;[[:lower:]]表示小写字符&lt;/p&gt;
 &lt;p&gt;[[:upper:]]大写字符&lt;/p&gt;
-&lt;p&gt;[[:space:]]空字符：空格、tab&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;[[:space:]]空字符：空格、tab&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;a{3}匹配aaa,aaaaaa&lt;/p&gt;
 &lt;p&gt;a{3,}匹配aaa，aaaa，aaaaaa&lt;/p&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
@@ -17072,7 +17166,8 @@ Linux       开放源代码&lt;/p&gt;
 &lt;p&gt;987-123-4567
 (123) 456-7890&lt;/p&gt;
 &lt;p&gt;来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/valid-phone-numbers&lt;/p&gt;&lt;/blockquote&gt;
+链接：https://leetcode-cn.com/problems/valid-phone-numbers&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;首先当然是匹配行首到行尾，^和$不能少&lt;/p&gt;
 &lt;p&gt;三位数字怎么弄：&lt;code&gt;[0-9]{3}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^(\([0-9]{3}\) [0-9]{3}-[0-9]{4})$&lt;/code&gt;

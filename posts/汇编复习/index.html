@@ -7,7 +7,7 @@
 	
 	<title>8086  | 汇编不会编</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.152.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -161,7 +161,8 @@ onload='renderMathInElement(document.body);'></script>
 <p>前几天看到一个回答，<a href="https://www.zhihu.com/question/19860051/answer/27240346">《超级<em>马里奥</em>3》使用了什么样的技术可以在128KB中写进这么多东西？</a></p>
 <p>128KB兄弟们，1MB是8086的寻址空间，除去接口，中断向量的地址，128KB能不能放得下还说不定呢。</p>
 <blockquote>
-<p>声音部分: FC有两路方波生成器，一路<a href="https://www.zhihu.com/search?q=%E4%B8%89%E8%A7%92%E6%B3%A2&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D">三角波</a>生成器，一路随机噪声，一路PCM。PCM采样可以实现很好的效果，但数据量巨大，所以大多数游戏没用。用方波/三角波来发声就类似最简单的MIDI音乐，数据量很小。</p></blockquote>
+<p>声音部分: FC有两路方波生成器，一路<a href="https://www.zhihu.com/search?q=%E4%B8%89%E8%A7%92%E6%B3%A2&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D">三角波</a>生成器，一路随机噪声，一路PCM。PCM采样可以实现很好的效果，但数据量巨大，所以大多数游戏没用。用方波/三角波来发声就类似最简单的MIDI音乐，数据量很小。</p>
+</blockquote>
 <p>一看到方波生成器就来劲了，这不就可以通过8253的方式3来生成方波。</p>
 <blockquote>
 <p>图形部分: 这是主要占卡带容量的部分，下面简单说一下</p>
@@ -177,7 +178,8 @@ onload='renderMathInElement(document.body);'></script>
 <li>因为调色板的存在，形状一样而颜色不同的图案也不需要占额外的空间，只要设置一下调色板就行了，包括变色的效果也是这样做的。红色的Mario和绿色的Luigi就是同一套Sprite。</li>
 <li>透明、滚动、前后景叠加、碰撞检测都是PPU完成，不需要另外写程序。</li>
 <li>sprite的数据也不存在由CPU从卡带读入到RAM的过程（除了后期的磁碟机），而是直接由卡带映射到FC的64KB地址空间进行访问。不同的卡带硬件（所谓的mapper）支持由程序控制将卡带上的不同地址映射到FC的同一<a href="https://www.zhihu.com/search?q=%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A%2227240346%22%7D">地址空间</a>，所以尽管8位的FC只有64KB寻址能力，但卡带容量可以做到256KB甚至更大。</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <p>1 微型计算机基础概论</p>
 <p><img src="C:%5CUsers%5CCharon%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203182036501.png" alt="image-20211203182036501"></p>
 <p>2.微处理器8086和8088</p>
