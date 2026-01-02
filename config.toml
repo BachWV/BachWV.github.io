@@ -1,7 +1,7 @@
 DefaultContentLanguage = "en"
 author = "bach"
 #baseURL = "https://csapp.fun/"
-copyright = "Copyright © 2021-2025"
+copyright = "Copyright © 2021-2026"
 
 # disqusShortname = "BachWV"
 enableInlineShortcodes = true
