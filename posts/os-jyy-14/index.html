@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-14</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.152.2">
+	<meta name="generator" content="Hugo 0.154.1">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -179,7 +179,7 @@ onload='renderMathInElement(document.body);'></script>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">FILE</span> <span style="color:#f92672">*</span><span style="color:#111">fp</span><span style="color:#f92672">=</span><span style="color:#75af00">fopen</span><span style="color:#111">(</span><span style="color:#d88200">&#34;a.txt&#34;</span><span style="color:#111">,</span><span style="color:#d88200">&#34;w&#34;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75af00">fprintf</span><span style="color:#111">(</span><span style="color:#111">fp</span><span style="color:#111">,</span><span style="color:#d88200">&#34;Hello os&#34;</span><span style="color:#111">);</span>
@@ -264,7 +264,7 @@ onload='renderMathInElement(document.body);'></script>
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;err.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">(){</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">const</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">*</span><span style="color:#111">fname</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;xxx.c&#34;</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">FILE</span> <span style="color:#f92672">*</span><span style="color:#111">fp</span><span style="color:#f92672">=</span><span style="color:#75af00">fopen</span><span style="color:#111">(</span><span style="color:#111">fname</span><span style="color:#111">,</span><span style="color:#d88200">&#34;r&#34;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">fp</span><span style="color:#111">){</span>
@@ -302,7 +302,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">extern</span> <span style="color:#00a8c8">char</span> <span style="color:#f92672">**</span><span style="color:#111">environ</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">char</span> <span style="color:#f92672">**</span><span style="color:#111">env</span> <span style="color:#f92672">=</span> <span style="color:#111">environ</span><span style="color:#111">;</span> <span style="color:#f92672">*</span><span style="color:#111">env</span><span style="color:#111">;</span> <span style="color:#111">env</span><span style="color:#f92672">++</span><span style="color:#111">)</span> <span style="color:#111">{</span>
@@ -539,7 +539,7 @@ Buddy system (1963)</p>
   </div>
 
 	<div class="text-sm text-white leading-tight a-gray">
-		Copyright © 2021-2025
+		Copyright © 2021-2026
 		<br />
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1617 words in this page.
 	</div>

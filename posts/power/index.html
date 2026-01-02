@@ -7,7 +7,7 @@
 	
 	<title>8086  | UESTC-电费查询</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.152.2">
+	<meta name="generator" content="Hugo 0.154.1">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -365,27 +365,27 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>           
 </span></span><span style="display:flex;"><span>             
 </span></span><span style="display:flex;"><span>            <span style="color:#75af00">data</span> <span style="color:#f92672">+=</span> <span style="color:#75af00">chunk</span><span style="color:#111">;</span> <span style="color:#75715e">//Append each chunk of data received to this variable.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">});</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#111">});</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75af00">response</span><span style="color:#111">.</span><span style="color:#75af00">on</span><span style="color:#111">(</span><span style="color:#d88200">&#39;end&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>            
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">jsonParsed</span> <span style="color:#f92672">=</span> <span style="color:#75af00">JSON</span><span style="color:#111">.</span><span style="color:#75af00">parse</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>           <span style="color:#75715e">// console.log(data);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">vals</span><span style="color:#f92672">=</span><span style="color:#75af00">jsonParsed</span><span style="color:#111">[</span><span style="color:#d88200">&#39;data&#39;</span><span style="color:#111">]</span>
+</span></span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">vals</span><span style="color:#f92672">=</span><span style="color:#75af00">jsonParsed</span><span style="color:#111">[</span><span style="color:#d88200">&#39;data&#39;</span><span style="color:#111">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">roomName</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;roomName&#39;</span><span style="color:#111">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">dl</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;sydl&#39;</span><span style="color:#111">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">var</span> <span style="color:#75af00">je</span><span style="color:#f92672">=</span><span style="color:#75af00">vals</span><span style="color:#111">[</span><span style="color:#d88200">&#39;syje&#39;</span><span style="color:#111">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#34;房间号：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">roomName</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;\n剩余电量：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">dl</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;kWh\n剩余金额：&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">je</span><span style="color:#f92672">+</span><span style="color:#d88200">&#34;元&#34;</span><span style="color:#111">);</span> <span style="color:#75715e">//Display the server&#39;s response, if any.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#111">});</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#111">});</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#75af00">request</span> <span style="color:#f92672">=</span> <span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">request</span><span style="color:#111">(</span><span style="color:#75af00">urlparams</span><span style="color:#111">,</span> <span style="color:#75af00">OnResponse</span><span style="color:#111">);</span> <span style="color:#75715e">//Create a request object.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">request</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#75af00">datatosend</span><span style="color:#111">);</span> <span style="color:#75715e">//Send off the request.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75af00">request</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span> <span style="color:#75715e">//End the request.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75af00">request</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span> <span style="color:#75715e">//End the request.
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#75af00">SendRequest</span><span style="color:#111">(</span><span style="color:#d88200">&#34;roomCode=&#34;</span><span style="color:#f92672">+</span><span style="color:#75af00">crynum</span><span style="color:#111">);</span> <span style="color:#75715e">//Execute the function the request is in.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>既然nodejs入门了（不是），那我们是不是能看懂加密的过程了</p>
@@ -467,7 +467,7 @@ onload='renderMathInElement(document.body);'></script>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">CryptoJS</span>  <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;crypto-js&#39;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">cryptoEncryption</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">,</span><span style="color:#75af00">message</span><span style="color:#111">){</span> <span style="color:#75715e">//aseKey为密钥（必须为：8/16/32位），message为要加密的密文
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">encrypt</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">AES</span><span style="color:#111">.</span><span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">message</span><span style="color:#111">,</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">enc</span><span style="color:#111">.</span><span style="color:#75af00">Utf8</span><span style="color:#111">.</span><span style="color:#75af00">parse</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">),{</span>
+</span></span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">encrypt</span> <span style="color:#f92672">=</span> <span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">AES</span><span style="color:#111">.</span><span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">message</span><span style="color:#111">,</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">enc</span><span style="color:#111">.</span><span style="color:#75af00">Utf8</span><span style="color:#111">.</span><span style="color:#75af00">parse</span><span style="color:#111">(</span><span style="color:#75af00">aseKey</span><span style="color:#111">),{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">mode</span><span style="color:#f92672">:</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">mode</span><span style="color:#111">.</span><span style="color:#75af00">ECB</span><span style="color:#111">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">padding</span><span style="color:#f92672">:</span><span style="color:#75af00">CryptoJS</span><span style="color:#111">.</span><span style="color:#75af00">pad</span><span style="color:#111">.</span><span style="color:#75af00">Pkcs7</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#111">}).</span><span style="color:#75af00">toString</span><span style="color:#111">();</span>
@@ -693,7 +693,7 @@ onload='renderMathInElement(document.body);'></script>
   </div>
 
 	<div class="text-sm text-white leading-tight a-gray">
-		Copyright © 2021-2025
+		Copyright © 2021-2026
 		<br />
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2572 words in this page.
 	</div>

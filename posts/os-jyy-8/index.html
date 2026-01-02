@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-8 调试理论与实践</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.152.2">
+	<meta name="generator" content="Hugo 0.154.1">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -260,11 +260,11 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">list_lock</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">xxx</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">spin_unlock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">xxx</span><span style="color:#111">);</span> <span style="color:#75715e">// ---------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>                          <span style="color:#75715e">//    |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                           <span style="color:#75715e">//    |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">void</span> <span style="color:#75af00">on_interrupt</span><span style="color:#111">()</span> <span style="color:#111">{</span>      <span style="color:#75715e">//    |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">list_lock</span><span style="color:#111">);</span>   <span style="color:#75715e">// &lt;--+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75af00">spin_unlock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">list_lock</span><span style="color:#111">);</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#111">}</span>                          <span style="color:#75715e">//    |
+</span></span></span><span style="display:flex;"><span>                           <span style="color:#75715e">//    |
+</span></span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">on_interrupt</span><span style="color:#111">()</span> <span style="color:#111">{</span>      <span style="color:#75715e">//    |
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75af00">spin_lock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">list_lock</span><span style="color:#111">);</span>   <span style="color:#75715e">// &lt;--+
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75af00">spin_unlock</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">list_lock</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -883,7 +883,7 @@ onload='renderMathInElement(document.body);'></script>
   </div>
 
 	<div class="text-sm text-white leading-tight a-gray">
-		Copyright © 2021-2025
+		Copyright © 2021-2026
 		<br />
 		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2410 words in this page.
 	</div>
