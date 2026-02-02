@@ -7,7 +7,7 @@
 	
 	<title>8086  | 415.字符串相加</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.154.1">
+	<meta name="generator" content="Hugo 0.155.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -171,9 +171,9 @@ onload='renderMathInElement(document.body);'></script>
 </blockquote>
 <p>根据朴素的加法思想，关键在于模拟竖式计算，用一个字符串存储进位，每一列超过十进位。</p>
 <p>注意要对齐，在短的字符串首部补零。字符串的生成使用拼接的方法。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -207,7 +207,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">addStrings</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">num1</span><span style="color:#111">,</span> <span style="color:#111">String</span> <span style="color:#111">num2</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#111">String</span> <span style="color:#75af00">addStrings</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">num1</span><span style="color:#111">,</span> <span style="color:#111">String</span> <span style="color:#111">num2</span><span style="color:#111">)</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>   
 </span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">numjinwei</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">addsum</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&#34;</span><span style="color:#111">;</span>

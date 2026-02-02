@@ -7,7 +7,7 @@
 	
 	<title>8086  | hugo update</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.154.1">
+	<meta name="generator" content="Hugo 0.155.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -153,15 +153,15 @@ onload='renderMathInElement(document.body);'></script>
 Deploy Hugo: All jobs have failed</p>
 </blockquote>
 <p>点开一看</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Run hugo
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Run hugo
 </span></span><span style="display:flex;"><span>Start building sites … 
 </span></span><span style="display:flex;"><span>hugo v0.112.0-0a95d6704a8ac8d41cc5ca8fffaad8c5c7a3754a linux/amd64 BuildDate=2023-05-23T08:14:20Z VendorInfo=gohugoio
 </span></span><span style="display:flex;"><span>ERROR 2023/05/23 23:17:26 render of &#34;page&#34; failed: &#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/_default/single.html:19:4&#34;: execute of template failed: template: _default/single.html:19:4: executing &#34;aside&#34; at &lt;partial &#34;page-aside.html&#34; .&gt;: error calling partial: &#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/page-aside.html:3:4&#34;: execute of template failed: template: partials/page-aside.html:3:4: executing &#34;partials/page-aside.html&#34; at &lt;partial &#34;social-follow.html&#34; .&gt;: error calling partial: &#34;/home/runner/work/BachWV.github.io/BachWV.github.io/themes/hugo-theme-tokiwa/layouts/partials/social-follow.html:10:6&#34;: execute of template failed: template: partials/social-follow.html:10:6: executing &#34;partials/social-follow.html&#34; at &lt;partial (printf &#34;%s%s%s&#34; &#34;svg/&#34; $key &#34;-line.svg&#34;) .&gt;: error calling partial: partial &#34;svg/_merge-line.svg&#34; not found
@@ -171,9 +171,9 @@ Deploy Hugo: All jobs have failed</p>
 <p>把hugo下载到本地，发现同样的错误，可以定位是hugo升级带来的不兼容问题了。</p>
 <p>定位bug文件</p>
 <p>partials/social-follow.html</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -185,7 +185,7 @@ Deploy Hugo: All jobs have failed</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>	{{ range $key,$value:=.Site.Social }}
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>	{{ range $key,$value:=.Site.Social }}
 </span></span><span style="display:flex;"><span>	<span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;{{$value}}&#39;</span> <span style="color:#75af00">target</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;_blank&#34;</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;{{- $key}} icon pl-1 text-eucalyptus-400 hover:text-java-400&#34;</span> <span style="color:#75af00">title</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;{{- $key}} link&#34;</span> <span style="color:#75af00">rel</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;noopener&#34;</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#75af00">aria-label</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;follow on {{$key}}——Opens in a new window&#34;</span><span style="color:#111">&gt;</span>
 </span></span><span style="display:flex;"><span>		{{/*  <span style="color:#111">&lt;</span><span style="color:#f92672">object</span> <span style="color:#75af00">type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;image/svg+xml&#34;</span> <span style="color:#75af00">data</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;{{ relURL (printf &#34;%s%s%s&#34; &#34;svg/&#34; $key &#34;.svg&#34;) }}&#39;</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;w-12 h-12

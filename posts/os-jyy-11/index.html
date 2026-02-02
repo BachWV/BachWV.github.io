@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-11</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.154.1">
+	<meta name="generator" content="Hugo 0.155.2">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -216,9 +216,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>fib.go 轮番打印字符 ，实现了一个进度条</p>
 <p>为什么进度条在算出fib后终止了？</p>
 <p>因为运行的协程spinner在主协程main终止后就终止了</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -247,7 +247,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#d88200">&#34;fmt&#34;</span>
@@ -283,9 +283,9 @@ onload='renderMathInElement(document.body);'></script>
 <p><code>stream &lt;- i</code>把i丢进channel</p>
 <p><code>x:=&lt;- stream</code> 从channel拉出</p>
 <p>通过别人为我们提供的模型，我们能轻易写出生产者-消费者模型的代码</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -314,7 +314,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#d88200">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -361,9 +361,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>标准I/O函数库提供了popen函数，它启动另外一个进程去执行一个shell命令行。</p>
 <p>这里我们称<strong>调用popen的进程为父进程，由popen启动的进程称为子进程。</strong></p>
 <p>popen函数还**创建一个管道用于父子进程间通信。**父进程要么从管道读信息，要么向管道写信息，至于是读还是写取决于父进程调用popen时传递的参数。下在给出popen、pclose的定义：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -379,7 +379,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">函数功能：popen（）会调用fork（）产生子进程，然后从子进程中调用/bin/sh -c来执行参数command的指令。
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">参数type可使用“r”代表读取，“w”代表写入。
@@ -397,18 +397,18 @@ onload='renderMathInElement(document.body);'></script>
 </div>
 </div><p>下面通过例子看下popen的使用：</p>
 <p>假如我们想取得当前目录下的文件个数，在shell下我们可以使用：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1	ls <span style="color:#111">|</span> wc -l
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1	ls <span style="color:#111">|</span> wc -l
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们可以在程序中这样写：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -449,7 +449,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">/*取得当前目录下的文件个数*/</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">/*取得当前目录下的文件个数*/</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
@@ -536,9 +536,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>makefile也十分简单</p>
 <p>make run 直接进入这个 qemu</p>
 <p>qemu 甚至没有图形界面 ctrl+a c退出sh</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -560,7 +560,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/linux-minimal$ cat Makefile
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/linux-minimal$ cat Makefile
 </span></span><span style="display:flex;"><span>.PHONY: initramfs run clean
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$(shell mkdir -p build)
@@ -582,9 +582,9 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span>        @rm -rf build
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -607,7 +607,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(qemu) info registers
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(qemu) info registers
 </span></span><span style="display:flex;"><span>RAX=ffffffffb62d5260 RBX=0000000000000000 RCX=0000000000000001 RDX=0000000000000f92
 </span></span><span style="display:flex;"><span>RSI=0000000000000087 RDI=0000000000000087 RBP=ffffffffb6e03e38 RSP=ffffffffb6e03e18
 </span></span><span style="display:flex;"><span>R8 =ffff9a834781df80 R9 =0000000000000200 R10=0000000000000000 R11=0000000000000000
@@ -642,9 +642,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>新进程返回0，执行fork的进程返回子进程的进程号</p>
 <p>理解fork的两个例子</p>
 <h3 id="fork-democ">fork-demo.c</h3>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -655,7 +655,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
@@ -666,9 +666,9 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -680,7 +680,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ gcc fork-demo.c
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ gcc fork-demo.c
 </span></span><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out
 </span></span><span style="display:flex;"><span>Hello World from (133, 134, 136)
 </span></span><span style="display:flex;"><span>Hello World from (0, 135, 137)
@@ -696,9 +696,9 @@ onload='renderMathInElement(document.body);'></script>
 <p><img src="https://s2.loli.net/2022/09/06/KTU2bQsg1CFAikn.jpg" alt="os-jyy-11.jpg"></p>
 <h3 id="fork-printfc">fork-printf.c</h3>
 <p>神奇的事情出现了</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -716,7 +716,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ ./a.out
 </span></span><span style="display:flex;"><span>Hello
 </span></span><span style="display:flex;"><span>Hello
 </span></span><span style="display:flex;"><span>Hello
@@ -735,9 +735,9 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是printf的缓冲区导致的，fork会把缓冲区复制一份，等于虽然调用了printf，但是此时还没有执行系统调用。</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -759,7 +759,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/wait.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span>
@@ -804,9 +804,9 @@ onload='renderMathInElement(document.body);'></script>
 <p>The argv and envp arrays must each include a null pointer at the end of the array.</p>
 <p>gcc strace结果</p>
 <p>gcc会在PATH下寻找as汇编器，找不到就g，我们可以指定PATH让找不到as</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -820,7 +820,7 @@ onload='renderMathInElement(document.body);'></script>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">PATH</span><span style="color:#f92672">=</span><span style="color:#111">bb</span><span style="color:#111">:</span><span style="color:#111">Dsds</span> <span style="color:#f92672">/</span><span style="color:#111">bin</span><span style="color:#f92672">/</span><span style="color:#111">strace</span> <span style="color:#f92672">-</span><span style="color:#111">f</span> <span style="color:#f92672">/</span><span style="color:#111">bin</span><span style="color:#f92672">/</span><span style="color:#111">gcc</span> <span style="color:#111">execve</span><span style="color:#f92672">-</span><span style="color:#111">demo</span><span style="color:#f92672">.</span><span style="color:#111">c</span> <span style="color:#f92672">|&amp;</span> <span style="color:#111">grep</span> <span style="color:#d88200">&#34;exec&#34;</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">PATH</span><span style="color:#f92672">=</span><span style="color:#111">bb</span><span style="color:#111">:</span><span style="color:#111">Dsds</span> <span style="color:#f92672">/</span><span style="color:#111">bin</span><span style="color:#f92672">/</span><span style="color:#111">strace</span> <span style="color:#f92672">-</span><span style="color:#111">f</span> <span style="color:#f92672">/</span><span style="color:#111">bin</span><span style="color:#f92672">/</span><span style="color:#111">gcc</span> <span style="color:#111">execve</span><span style="color:#f92672">-</span><span style="color:#111">demo</span><span style="color:#f92672">.</span><span style="color:#111">c</span> <span style="color:#f92672">|&amp;</span> <span style="color:#111">grep</span> <span style="color:#d88200">&#34;exec&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/bin/gcc&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;/bin/gcc&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;execve-demo.c&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x7ffeb064f200</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">27</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">access</span><span style="color:#111">(</span><span style="color:#d88200">&#34;execve-demo.c&#34;</span><span style="color:#111">,</span> <span style="color:#111">F_OK</span><span style="color:#111">)</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">506</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/lib/gcc/x86_64-linux-gnu/9/cc1&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;/usr/lib/gcc/x86_64-linux-gnu/9/&#34;</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-quiet&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-imultiarch&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;x86_64-linux-gnu&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;execve-demo.c&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-quiet&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-dumpbase&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;execve-demo.c&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-mtune=generic&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-march=x86-64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-auxbase&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;execve-demo&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-fasynchronous-unwind-tables&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-fstack-protector-strong&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-Wformat&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-Wformat-security&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-fstack-clash-protection&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-fcf-protection&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccfJr8oo.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x149cf70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span> <span style="color:#f92672">&lt;</span><span style="color:#111">unfinished</span> <span style="color:#f92672">...&gt;</span>
@@ -835,15 +835,15 @@ onload='renderMathInElement(document.body);'></script>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>正常是：</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">465</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/local/sbin/as&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;as&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccZ9qp1b.o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccYUOsnc.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x1166f70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">ENOENT</span> <span style="color:#111">(</span><span style="color:#111">No</span> <span style="color:#111">such</span> <span style="color:#111">file</span> <span style="color:#f92672">or</span> <span style="color:#111">directory</span><span style="color:#111">)</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">465</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/local/sbin/as&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;as&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccZ9qp1b.o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccYUOsnc.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x1166f70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">ENOENT</span> <span style="color:#111">(</span><span style="color:#111">No</span> <span style="color:#111">such</span> <span style="color:#111">file</span> <span style="color:#f92672">or</span> <span style="color:#111">directory</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">465</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/local/bin/as&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;as&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccZ9qp1b.o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccYUOsnc.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x1166f70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">ENOENT</span> <span style="color:#111">(</span><span style="color:#111">No</span> <span style="color:#111">such</span> <span style="color:#111">file</span> <span style="color:#f92672">or</span> <span style="color:#111">directory</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">465</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/sbin/as&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;as&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccZ9qp1b.o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccYUOsnc.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x1166f70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">ENOENT</span> <span style="color:#111">(</span><span style="color:#111">No</span> <span style="color:#111">such</span> <span style="color:#111">file</span> <span style="color:#f92672">or</span> <span style="color:#111">directory</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#111">pid</span>   <span style="color:#ae81ff">465</span><span style="color:#111">]</span> <span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/usr/bin/as&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;as&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--64&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccZ9qp1b.o&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/tmp/ccYUOsnc.s&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x1166f70</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">32</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span> <span style="color:#f92672">&lt;</span><span style="color:#111">unfinished</span> <span style="color:#f92672">...&gt;</span>
@@ -858,9 +858,9 @@ onload='renderMathInElement(document.body);'></script>
 registration.</li>
 <li>thread safety</li>
 </ul>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -878,7 +878,7 @@ registration.</li>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ strace ./a.out <span style="color:#111">exit</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bach@LAPTOP-U1E6STIA:~/jyy/11$ strace ./a.out <span style="color:#111">exit</span>
 </span></span><span style="display:flex;"><span>execve<span style="color:#f92672">(</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#f92672">[</span><span style="color:#d88200">&#34;./a.out&#34;</span>, <span style="color:#d88200">&#34;exit&#34;</span><span style="color:#f92672">]</span>, 0x7ffeba56b798 /* <span style="color:#ae81ff">27</span> vars */<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>arch_prctl<span style="color:#f92672">(</span>0x3001 /* ARCH_??? */, 0x7fff21d63de0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> -1 EINVAL <span style="color:#f92672">(</span>Invalid argument<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>brk<span style="color:#f92672">(</span>NULL<span style="color:#f92672">)</span>                               <span style="color:#f92672">=</span> 0x2282000
@@ -900,9 +900,9 @@ registration.</li>
 <p>glibc的syscall wrapper</p>
 <p>所有的线程都会被终止</p>
 <p>如果此时有一个还未fflush的buffer的话，将不会输出</p>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -926,7 +926,7 @@ registration.</li>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#111">cat</span> <span style="color:#111">exit</span><span style="color:#f92672">-</span><span style="color:#111">demo</span><span style="color:#111">.</span><span style="color:#111">c</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#111">cat</span> <span style="color:#111">exit</span><span style="color:#f92672">-</span><span style="color:#111">demo</span><span style="color:#111">.</span><span style="color:#111">c</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
@@ -950,9 +950,9 @@ registration.</li>
 </span></span><span style="display:flex;"><span><span style="color:#111">unfflush</span> <span style="color:#111">buffer</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -967,7 +967,7 @@ registration.</li>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">strace</span> <span style="color:#f92672">./</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">out</span> <span style="color:#111">_exit</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">strace</span> <span style="color:#f92672">./</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">out</span> <span style="color:#111">_exit</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;_exit&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x7ffee2ba8958</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">27</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">arch_prctl</span><span style="color:#111">(</span><span style="color:#ae81ff">0x3001</span> <span style="color:#f92672">/*</span> <span style="color:#111">ARCH_</span><span style="color:#960050;background-color:#1e0010">???</span> <span style="color:#f92672">*/</span><span style="color:#111">,</span> <span style="color:#ae81ff">0x7fff5f104010</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">EINVAL</span> <span style="color:#111">(</span><span style="color:#111">Invalid</span> <span style="color:#111">argument</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">brk</span><span style="color:#111">(</span><span style="color:#111">NULL</span><span style="color:#111">)</span>                               <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x1407000</span>
@@ -983,9 +983,9 @@ registration.</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="__syscallsys_exit0">__syscall(SYS_exit,0)</h4>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1000,7 +1000,7 @@ registration.</li>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">strace</span> <span style="color:#f92672">./</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">out</span> <span style="color:#111">_exit</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#111">bach</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#111">LAPTOP</span><span style="color:#f92672">-</span><span style="color:#111">U1E6STIA</span><span style="color:#111">:</span><span style="color:#f92672">~/</span><span style="color:#111">jyy</span><span style="color:#f92672">/</span><span style="color:#ae81ff">11</span><span style="color:#f92672">$</span> <span style="color:#111">strace</span> <span style="color:#f92672">./</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">out</span> <span style="color:#111">_exit</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">execve</span><span style="color:#111">(</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;./a.out&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;_exit&#34;</span><span style="color:#111">],</span> <span style="color:#ae81ff">0x7ffee2ba8958</span> <span style="color:#f92672">/*</span> <span style="color:#ae81ff">27</span> <span style="color:#111">vars</span> <span style="color:#f92672">*/</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">arch_prctl</span><span style="color:#111">(</span><span style="color:#ae81ff">0x3001</span> <span style="color:#f92672">/*</span> <span style="color:#111">ARCH_</span><span style="color:#960050;background-color:#1e0010">???</span> <span style="color:#f92672">*/</span><span style="color:#111">,</span> <span style="color:#ae81ff">0x7fff5f104010</span><span style="color:#111">)</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">EINVAL</span> <span style="color:#111">(</span><span style="color:#111">Invalid</span> <span style="color:#111">argument</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">brk</span><span style="color:#111">(</span><span style="color:#111">NULL</span><span style="color:#111">)</span>                               <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x1407000</span>
