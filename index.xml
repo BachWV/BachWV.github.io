@@ -18,10 +18,10 @@
       <pubDate>Wed, 24 Dec 2025 14:58:12 +0800</pubDate>
       
       <guid>/posts/2025-12-25-%E5%A2%A8%E6%B0%B4%E5%B1%8F%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/BachWV/2fa-helper&#34;&gt;https://github.com/BachWV/2fa-helper&lt;/a&gt;
-这是一个适配 Quote 的 2FA 小工具，可以轻松推送多达两个验证码&lt;/p&gt;
+      <description>&lt;p&gt;因为最近太频繁的使用2FA，每次都掏手机实在是太麻烦了，于是写了一个小工具，可以把2FA验证码推送到Quote电子墨水屏上，方便查看。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/BachWV/2fa-helper&#34;&gt;https://github.com/BachWV/2fa-helper&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://r2.csapp.fun/2025/12/image-20251222220208045.png&#34; alt=&#34;image-20251222220208045&#34;&gt;&lt;/p&gt;
-&lt;p&gt;用来取代你手机上不知道为何占用空间巨大的 Microsoft Authenticator&lt;/p&gt;
+&lt;p&gt;可以轻松推送&lt;strong&gt;多达&lt;/strong&gt;两个验证码，用来取代手机上不知道为何占用空间巨大的 Microsoft Authenticator&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://dot.mindreset.tech/&#34;&gt;https://dot.mindreset.tech/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://r2.csapp.fun/2025/12/image-20251222213044952.png&#34; alt=&#34;image-20251222213044952&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;效果演示&#34;&gt;效果演示：&lt;/h1&gt;
