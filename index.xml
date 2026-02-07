@@ -18357,9 +18357,8 @@ i=0010010100101011&lt;/p&gt;
 &lt;p&gt;评论系统采用&lt;a href=&#34;https://waline.csapp.fun/&#34;&gt;waline&lt;/a&gt;，它部署在vercel上。&lt;/p&gt;
 &lt;p&gt;图床采用Cloudflare R2，它兼容Amazon S3协议。&lt;/p&gt;
 &lt;p&gt;博客采用hugo构建，使用&lt;a href=&#34;https://github.com/BachWV/BachWV.github.io/blob/master/.github/workflows/main.yml&#34;&gt;Github actions&lt;/a&gt;生成静态文件。&lt;/p&gt;
-&lt;p&gt;我也不知道我是谁&lt;/p&gt;
-&lt;p&gt;定义自己是一项很难的工作&lt;/p&gt;
-&lt;p&gt;我没有信心用这么一段话来介绍我自己&lt;/p&gt;
+&lt;p&gt;很多时候会被问到我有什么爱好，我想了很久，发现确实没有了，这真是有一些可悲，比玩充电头的还要可悲。
+如果换手机也算一个，那我就有一个爱好了。如果薅羊毛也能算一个爱好的话，那就有两个了。新的一年要多多发展，多多培养爱好才是。&lt;/p&gt;
 &lt;h3 id=&#34;about-gnulinux&#34;&gt;&lt;strong&gt;about GNU/Linux&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;/posts/gdb%E8%B0%83%E8%AF%95/&#34;&gt;gdb&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;/posts/qemu/&#34;&gt;qemu&lt;/a&gt;&lt;br&gt;
@@ -18402,7 +18401,7 @@ Jyy&amp;rsquo;s courses are strongly recommended .You can find them on bilibili.
 &lt;p&gt;&lt;a href=&#34;mailto:lijunling2077@gmail.com&#34;&gt;lijunling2077@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;find-me-on&#34;&gt;Find me on&lt;/h2&gt;
 &lt;p&gt;Github: &lt;a href=&#34;https://github.com/BachWV&#34;&gt;https://github.com/BachWV&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This site used to have a lot of content about life, and I removed it. Of course you can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find the site).This site will only share technical content for now.&lt;/p&gt;
+&lt;p&gt;如果还能看到这里，或许你还可以来看看 &lt;a href=&#34;https://bb.csapp.fun&#34;&gt;https://bb.csapp.fun&lt;/a&gt; ,会不定期更新一些无关技术的内容，欢迎来看看。&lt;/p&gt;
 &lt;p&gt;Weixin Official Account : 一行瑠璃&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2021/12/04/9waly3vRBjW7Y28.jpg&#34; alt=&#34;一行瑠璃&#34;&gt;&lt;/p&gt;
 &lt;p&gt;New about-me is building ,you can find a demo on &lt;a href=&#34;https://csapp.fun/about-me.html&#34;&gt;New about me&lt;/a&gt;&lt;/p&gt;
