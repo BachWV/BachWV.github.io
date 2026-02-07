@@ -15,13 +15,8 @@ toc: true
 
 博客采用hugo构建，使用[Github actions](https://github.com/BachWV/BachWV.github.io/blob/master/.github/workflows/main.yml)生成静态文件。
 
-
-我也不知道我是谁
-
-定义自己是一项很难的工作
-
-我没有信心用这么一段话来介绍我自己
-
+很多时候会被问到我有什么爱好，我想了很久，发现确实没有了，这真是有一些可悲，比玩充电头的还要可悲。
+如果换手机也算一个，那我就有一个爱好了。如果薅羊毛也能算一个爱好的话，那就有两个了。新的一年要多多发展，多多培养爱好才是。
 
 ### **about GNU/Linux**
 
@@ -83,7 +78,7 @@ lijunling2077@gmail.com
 
 Github: https://github.com/BachWV
 
-This site used to have a lot of content about life, and I removed it. Of course you can still find it in my git commit(you know it is Github pages). Now my life insights have been published on the Weixin Official Account and a private site (you can dig my GitHub to find the site).This site will only share technical content for now.
+如果还能看到这里，或许你还可以来看看 https://bb.csapp.fun ,会不定期更新一些无关技术的内容，欢迎来看看。
 
 Weixin Official Account : 一行瑠璃
 
