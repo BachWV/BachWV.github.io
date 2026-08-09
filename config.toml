@@ -1,5 +1,4 @@
 DefaultContentLanguage = "en"
-author = "bach"
 #baseURL = "https://csapp.fun/"
 copyright = "Copyright © 2021-2026"
 
@@ -8,7 +7,7 @@ enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 # googleAnalytics = "UA-FAKE"
 hasCJKLanguage = true
-languageCode = "en"
+locale = "en"
 theme = "hugo-theme-tokiwa"
 #paginate might no use
 
@@ -31,6 +30,7 @@ tabWidth = 4
 unsafe = true
 
 [params]
+author = { name = "bach" }
 bannerFont = "fonts/exampleFont" 
 description = """
 Men always remember love because of romance only.

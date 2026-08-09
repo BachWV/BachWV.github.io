@@ -92,7 +92,7 @@
 {{ define "main" }}
 {{ $section := .Site.GetPage "section" .Section }}
 
-{{- $essayList := .Site.Data.essay -}}
+{{- $essayList := hugo.Data.essay -}}
 
 <div>
    
