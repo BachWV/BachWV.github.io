@@ -76,34 +76,31 @@ html, body {
 }
 </style>
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.css">
+<link rel="stylesheet" href='{{ "lib/essay/APlayer.min.css" | relURL }}'>
+<link rel="stylesheet" href='{{ "lib/essay/animate.min.css" | relURL }}'>
+<link rel="stylesheet" href='{{ "lib/essay/ArtalkLite.css" | relURL }}'>
 
-<!-- 直接引入原始 CSS，用上面的保护性样式覆盖 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmm214/memobbs@main/grid.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmm214/memobbs@main/memos.css">
+<!-- 引入本地 CSS，用上面的保护性样式覆盖 -->
+<link rel="stylesheet" href='{{ "lib/essay/grid.css" | relURL }}'>
+<link rel="stylesheet" href='{{ "lib/essay/memos.css" | relURL }}'>
 
-      <script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
-      <script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
-      <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+      <script src='{{ "lib/essay/ArtalkLite.js" | relURL }}'></script>
+      <script src='{{ "lib/essay/marked.min.js" | relURL }}'></script>
+      <script src='{{ "lib/essay/APlayer.min.js" | relURL }}'></script>
       <script>
       var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
       </script>
-      <script src="https://cdn.staticfile.org/meting/2.0.1/Meting.min.js"></script>
-      <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/gh/lmm214/memobbs@main/memos.js"></script>
+      <script src='{{ "lib/essay/Meting.min.js" | relURL }}'></script>
+      <script src='{{ "lib/essay/lozad.min.js" | relURL }}'></script>
       <script type="text/javascript">
-         var memosMyList = [
-            {
-              "creatorName" : "charon",
-              "website" : "https://csapp.fun",
-              "link" : "https://memos1.csapp.fun/",
-              "creatorId" : "1",
-             
-            },
-          ]
+         var memosOwner = {
+           "creatorName": "charon",
+           "website": "https://csapp.fun",
+           "link": "https://memos1.csapp.fun/",
+           "creatorId": "1"
+         };
       </script>
+      <script src='{{ "lib/essay/memos.js" | relURL }}'></script>
       
       <!-- 黑暗模式控制脚本 -->
       <script type="text/javascript">
