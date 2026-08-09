@@ -7,7 +7,7 @@
 	
 	<title>8086  | C&#43;&#43; vector使用方法</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -242,26 +242,26 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>vector 是一个类模板（class template）。使用模板可以编写一个类定义或函数定义，而用于多个不同的数据类型。因此，我们可以定义保存 string 对象的 vector，或保存 int 值的 vector，又或是保存自定义的类类型对象（如 Sales_items 对象）的 vector。
 声明从类模板产生的某种类型的对象，需要提供附加信息，信息的种类取决于模板。以 vector 为例，必须说明 vector 保存何种对象的类型，通过将类型放在类型放在类模板名称后面的尖括号中来指定类型：</p>
 <table>
-  <thead>
-      <tr>
-          <th>vector<T> v1;</th>
-          <th>保存类型为 T 对象。默认构造函数 v1 为空。</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>vector<T> v2(v1);</td>
-          <td>v2 是 v1 的一个副本。</td>
-      </tr>
-      <tr>
-          <td>vector<T> v3(n, i);</td>
-          <td>v3 包含 n 个值为 i 的元素。</td>
-      </tr>
-      <tr>
-          <td>vector<T> v4(n);</td>
-          <td>v4 含有值初始化的元素的 n 个副本。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>vector<T> v1;</th>
+					<th>保存类型为 T 对象。默认构造函数 v1 为空。</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>vector<T> v2(v1);</td>
+					<td>v2 是 v1 的一个副本。</td>
+			</tr>
+			<tr>
+					<td>vector<T> v3(n, i);</td>
+					<td>v3 包含 n 个值为 i 的元素。</td>
+			</tr>
+			<tr>
+					<td>vector<T> v4(n);</td>
+					<td>v4 含有值初始化的元素的 n 个副本。</td>
+			</tr>
+	</tbody>
 </table>
 <p>【注意：1、若要创建非空的 vector 对象，必须给出初始化元素的值；2、当把一个 vector 对象复制到另一个 vector 对象时，新复制的 vector 中每一个元素都初始化为原 vectors 中相应元素的副本。但这两个 vector 对象必须保存同一种元素类型；3、可以用元素个数和元素值对 vector 对象进行初始化。构造函数用元素个数来决定 vector 对象保存元素的
 个数，元素值指定每个元素的初始值】</p>
@@ -683,6 +683,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>

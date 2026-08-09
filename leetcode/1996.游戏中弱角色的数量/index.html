@@ -7,7 +7,7 @@
 	
 	<title>8086  | 1996.游戏中弱角色的数量</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -305,106 +305,106 @@ properties[i].length == 2
 </span></span></code></pre></td></tr></table>
 </div>
 </div><table>
-  <thead>
-      <tr>
-          <th>0</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>9-&gt;10</td>
-      </tr>
-      <tr>
-          <td>8</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>9</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>10</td>
-          <td>7</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>0</th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>5</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>6</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>7</td>
+					<td>9-&gt;10</td>
+			</tr>
+			<tr>
+					<td>8</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>9</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>10</td>
+					<td>7</td>
+			</tr>
+	</tbody>
 </table>
 <p>知道每个攻击值对应的最大值的话，对于每个角色比如[7,1]，搜索比他攻击值大的，比如10.然后判断角色[7,1]的防御值（1）是否小于10对应 的最大防御值（7），满足弱角色的定义。</p>
 <p>那么如何简化这个搜索的过程呢？可以想到类似前缀和的思路，在table中每个攻击值对应比他大或他的最大防御值</p>
 <table>
-  <thead>
-      <tr>
-          <th>0</th>
-          <th>9</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>9</td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>10</td>
-      </tr>
-      <tr>
-          <td>8</td>
-          <td>7</td>
-      </tr>
-      <tr>
-          <td>9</td>
-          <td>7</td>
-      </tr>
-      <tr>
-          <td>10</td>
-          <td>7</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>0</th>
+					<th>9</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>5</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>6</td>
+					<td>9</td>
+			</tr>
+			<tr>
+					<td>7</td>
+					<td>10</td>
+			</tr>
+			<tr>
+					<td>8</td>
+					<td>7</td>
+			</tr>
+			<tr>
+					<td>9</td>
+					<td>7</td>
+			</tr>
+			<tr>
+					<td>10</td>
+					<td>7</td>
+			</tr>
+	</tbody>
 </table>
 <p>然后对每一个角色按照这张表做判断</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
@@ -603,6 +603,7 @@ properties[i].length == 2
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>

@@ -7,7 +7,7 @@
 	
 	<title>8086  | Java 优先队列</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -325,137 +325,137 @@ onload='renderMathInElement(document.body);'></script>
 <blockquote>
 <p><strong>PriorityQueue的API文档说明：</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>构造方法摘要</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>**PriorityQueue**()</code>      使用默认的初始容量（11）创建一个 <code>PriorityQueue</code>，并根据其自然顺序对元素进行排序。</td>
-      </tr>
-      <tr>
-          <td><code>**PriorityQueue**(Collection&lt;? extends E&gt; c)</code>      创建包含指定 collection 中元素的 <code>PriorityQueue</code>。</td>
-      </tr>
-      <tr>
-          <td><code>**PriorityQueue**(int initialCapacity)</code>      使用指定的初始容量创建一个 <code>PriorityQueue</code>，并根据其自然顺序对元素进行排序。</td>
-      </tr>
-      <tr>
-          <td><code>**PriorityQueue**(int initialCapacity, Comparator&lt;? super E&gt; comparator)</code>      使用指定的初始容量创建一个 <code>PriorityQueue</code>，并根据指定的比较器对元素进行排序。</td>
-      </tr>
-      <tr>
-          <td><code>**PriorityQueue**(PriorityQueue&lt;? extends E&gt; c)</code>      创建包含指定优先级队列元素的 <code>PriorityQueue</code>。</td>
-      </tr>
-      <tr>
-          <td><code>**PriorityQueue**(SortedSet&lt;? extends E&gt; c)</code>      创建包含指定有序 set 元素的 <code>PriorityQueue</code>。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>构造方法摘要</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>**PriorityQueue**()</code>      使用默认的初始容量（11）创建一个 <code>PriorityQueue</code>，并根据其自然顺序对元素进行排序。</td>
+			</tr>
+			<tr>
+					<td><code>**PriorityQueue**(Collection&lt;? extends E&gt; c)</code>      创建包含指定 collection 中元素的 <code>PriorityQueue</code>。</td>
+			</tr>
+			<tr>
+					<td><code>**PriorityQueue**(int initialCapacity)</code>      使用指定的初始容量创建一个 <code>PriorityQueue</code>，并根据其自然顺序对元素进行排序。</td>
+			</tr>
+			<tr>
+					<td><code>**PriorityQueue**(int initialCapacity, Comparator&lt;? super E&gt; comparator)</code>      使用指定的初始容量创建一个 <code>PriorityQueue</code>，并根据指定的比较器对元素进行排序。</td>
+			</tr>
+			<tr>
+					<td><code>**PriorityQueue**(PriorityQueue&lt;? extends E&gt; c)</code>      创建包含指定优先级队列元素的 <code>PriorityQueue</code>。</td>
+			</tr>
+			<tr>
+					<td><code>**PriorityQueue**(SortedSet&lt;? extends E&gt; c)</code>      创建包含指定有序 set 元素的 <code>PriorityQueue</code>。</td>
+			</tr>
+	</tbody>
 </table>
 <table>
-  <thead>
-      <tr>
-          <th>方法摘要</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code> boolean</code></td>
-          <td><code>**add**(E e)</code>      将指定的元素插入此优先级队列。</td>
-      </tr>
-      <tr>
-          <td><code> void</code></td>
-          <td><code>**clear**()</code>      从此优先级队列中移除所有元素。</td>
-      </tr>
-      <tr>
-          <td><code> Comparator&lt;? super E&gt;</code></td>
-          <td><code>**comparator**()</code>      返回用来对此队列中的元素进行排序的比较器；如果此队列根据其元素的自然顺序进行排序，则返回 <code>null</code>。</td>
-      </tr>
-      <tr>
-          <td><code> boolean</code></td>
-          <td><code>**contains**(Object o)</code>      如果此队列包含指定的元素，则返回 <code>true</code>。</td>
-      </tr>
-      <tr>
-          <td><code> Iterator&lt;E&gt;</code></td>
-          <td><code>**iterator**()</code>      返回在此队列中的元素上进行迭代的迭代器。</td>
-      </tr>
-      <tr>
-          <td><code> boolean</code></td>
-          <td><code>**offer**(E e)</code>      将指定的元素插入此优先级队列。</td>
-      </tr>
-      <tr>
-          <td><code> E</code></td>
-          <td><code>**peek**()</code>      获取但不移除此队列的头；如果此队列为空，则返回 <code>null</code>。</td>
-      </tr>
-      <tr>
-          <td><code> E</code></td>
-          <td><code>**poll**()</code>      获取并移除此队列的头，如果此队列为空，则返回 <code>null</code>。</td>
-      </tr>
-      <tr>
-          <td><code> boolean</code></td>
-          <td><code>**remove**(Object o)</code>      从此队列中移除指定元素的单个实例（如果存在）。</td>
-      </tr>
-      <tr>
-          <td><code> int</code></td>
-          <td><code>**size**()</code>      返回此 collection 中的元素数。</td>
-      </tr>
-      <tr>
-          <td><code> Object[]</code></td>
-          <td><code>**toArray**()</code>      返回一个包含此队列所有元素的数组。</td>
-      </tr>
-      <tr>
-          <td><code>&lt;T&gt; T[]</code></td>
-          <td><code>**toArray**(T[] a)</code>      返回一个包含此队列所有元素的数组；返回数组的运行时类型是指定数组的类型。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>方法摘要</th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code> boolean</code></td>
+					<td><code>**add**(E e)</code>      将指定的元素插入此优先级队列。</td>
+			</tr>
+			<tr>
+					<td><code> void</code></td>
+					<td><code>**clear**()</code>      从此优先级队列中移除所有元素。</td>
+			</tr>
+			<tr>
+					<td><code> Comparator&lt;? super E&gt;</code></td>
+					<td><code>**comparator**()</code>      返回用来对此队列中的元素进行排序的比较器；如果此队列根据其元素的自然顺序进行排序，则返回 <code>null</code>。</td>
+			</tr>
+			<tr>
+					<td><code> boolean</code></td>
+					<td><code>**contains**(Object o)</code>      如果此队列包含指定的元素，则返回 <code>true</code>。</td>
+			</tr>
+			<tr>
+					<td><code> Iterator&lt;E&gt;</code></td>
+					<td><code>**iterator**()</code>      返回在此队列中的元素上进行迭代的迭代器。</td>
+			</tr>
+			<tr>
+					<td><code> boolean</code></td>
+					<td><code>**offer**(E e)</code>      将指定的元素插入此优先级队列。</td>
+			</tr>
+			<tr>
+					<td><code> E</code></td>
+					<td><code>**peek**()</code>      获取但不移除此队列的头；如果此队列为空，则返回 <code>null</code>。</td>
+			</tr>
+			<tr>
+					<td><code> E</code></td>
+					<td><code>**poll**()</code>      获取并移除此队列的头，如果此队列为空，则返回 <code>null</code>。</td>
+			</tr>
+			<tr>
+					<td><code> boolean</code></td>
+					<td><code>**remove**(Object o)</code>      从此队列中移除指定元素的单个实例（如果存在）。</td>
+			</tr>
+			<tr>
+					<td><code> int</code></td>
+					<td><code>**size**()</code>      返回此 collection 中的元素数。</td>
+			</tr>
+			<tr>
+					<td><code> Object[]</code></td>
+					<td><code>**toArray**()</code>      返回一个包含此队列所有元素的数组。</td>
+			</tr>
+			<tr>
+					<td><code>&lt;T&gt; T[]</code></td>
+					<td><code>**toArray**(T[] a)</code>      返回一个包含此队列所有元素的数组；返回数组的运行时类型是指定数组的类型。</td>
+			</tr>
+	</tbody>
 </table>
 <table>
-  <thead>
-      <tr>
-          <th><strong>从类 java.util.AbstractQueue 继承的方法</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>addAll, element, remove</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>从类 java.util.AbstractQueue 继承的方法</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>addAll, element, remove</code></td>
+			</tr>
+	</tbody>
 </table>
 <table>
-  <thead>
-      <tr>
-          <th><strong>从类 java.util.AbstractCollection 继承的方法</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>containsAll, isEmpty, removeAll, retainAll, toString</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>从类 java.util.AbstractCollection 继承的方法</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>containsAll, isEmpty, removeAll, retainAll, toString</code></td>
+			</tr>
+	</tbody>
 </table>
 <table>
-  <thead>
-      <tr>
-          <th><strong>从类 java.lang.Object 继承的方法</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>从类 java.lang.Object 继承的方法</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></td>
+			</tr>
+	</tbody>
 </table>
 <table>
-  <thead>
-      <tr>
-          <th><strong>从接口 java.util.Collection 继承的方法</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>containsAll, equals, hashCode, isEmpty, removeAll, retainAll</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>从接口 java.util.Collection 继承的方法</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>containsAll, equals, hashCode, isEmpty, removeAll, retainAll</code></td>
+			</tr>
+	</tbody>
 </table>
 </blockquote>
 </div>
@@ -640,6 +640,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>

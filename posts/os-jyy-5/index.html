@@ -7,7 +7,7 @@
 	
 	<title>8086  | 操作系统-jyy-5 多处理器编程</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -307,105 +307,105 @@ onload='renderMathInElement(document.body);'></script>
 </div><p>这里有一个循环3次的load和store，多进程的条件下，sum最终结果的最小值是2</p>
 <p>原因如下，可以找到这样一个极端情况。</p>
 <table>
-  <thead>
-      <tr>
-          <th>T1</th>
-          <th>T2</th>
-          <th>T3</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Load 0</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Load 0</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Store 1</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Load 1</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Store 2</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Store 1</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Load 1</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Load 1</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Store 2</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Load 2</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Store 3</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Load 3</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Store 4</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Load 4</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Store 5</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Load 5</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td></td>
-          <td>Store 6</td>
-      </tr>
-      <tr>
-          <td>Store 2</td>
-          <td></td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>T1</th>
+					<th>T2</th>
+					<th>T3</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Load 0</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Load 0</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Store 1</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Load 1</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Store 2</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Store 1</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Load 1</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Load 1</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Store 2</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Load 2</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Store 3</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Load 3</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Store 4</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Load 4</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Store 5</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Load 5</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td></td>
+					<td>Store 6</td>
+			</tr>
+			<tr>
+					<td>Store 2</td>
+					<td></td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p>使用jyy的model checker 测试一下，确实会出现</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
@@ -747,6 +747,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>

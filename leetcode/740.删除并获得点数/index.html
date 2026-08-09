@@ -7,7 +7,7 @@
 	
 	<title>8086  | 740.删除并获得点数</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -210,36 +210,36 @@ onload='renderMathInElement(document.body);'></script>
 <p>打家劫舍中，挨着的是数组，nums[1]和nums[2]不能同时存在；这一题中，nums[x]+1和nums[x]不能同时存在，怎么办呢？</p>
 <p>可以把点数映射到另一个数组中，比如 1 1 3 3 3 4 6 8 8 10这9个数，稍微处理一下</p>
 <table>
-  <thead>
-      <tr>
-          <th>值</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>个数</td>
-          <td>2</td>
-          <td>0</td>
-          <td>3</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>2</td>
-          <td>0</td>
-          <td>1</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>值</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>个数</td>
+					<td>2</td>
+					<td>0</td>
+					<td>3</td>
+					<td>1</td>
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0</td>
+					<td>1</td>
+			</tr>
+	</tbody>
 </table>
 <p>这样就变成了打家劫舍的题目了，不能同时存在相邻的值</p>
 <p>dp[i]=Math.max(dp[i-2]+a[i]*i,dp[i-3]+a[i]*i);</p>
@@ -529,6 +529,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>

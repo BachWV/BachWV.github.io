@@ -7,7 +7,7 @@
 	
 	<title>8086  | kaggle</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<meta name="generator" content="Hugo 0.155.2">
+	<meta name="generator" content="Hugo 0.164.0">
 	
 	
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -167,50 +167,50 @@ onload='renderMathInElement(document.body);'></script>
 <p><img src="https://s2.loli.net/2022/09/12/b26u1H5OeGnoNcq.png" alt="image-20220912230441358"></p>
 <p>接下来就是调参了，最后的结果还是很不错滴。</p>
 <table>
-  <thead>
-      <tr>
-          <th><strong>模型及参数</strong></th>
-          <th><strong>RMSE</strong></th>
-          <th><strong>排名</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>决策树模型</strong></td>
-          <td>20.48770</td>
-          <td>1929</td>
-      </tr>
-      <tr>
-          <td><strong>RAPIDS SVR Boost</strong></td>
-          <td>18.02751</td>
-          <td>762</td>
-      </tr>
-      <tr>
-          <td><strong>Swin transformer模型Batch size=32，n fold=10</strong></td>
-          <td>17.94193</td>
-          <td>411</td>
-      </tr>
-      <tr>
-          <td><strong>Batch  size=8，n fold=5</strong></td>
-          <td>17.90508</td>
-          <td>291</td>
-      </tr>
-      <tr>
-          <td><strong>Batch size=8，n fold=8</strong></td>
-          <td>17.83858</td>
-          <td>106</td>
-      </tr>
-      <tr>
-          <td><strong>Batch size=8，n fold=7</strong></td>
-          <td>17.81823</td>
-          <td>66</td>
-      </tr>
-      <tr>
-          <td><strong>Batch size=8，n fold=7更改seed</strong></td>
-          <td>17.79984</td>
-          <td>46</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>模型及参数</strong></th>
+					<th><strong>RMSE</strong></th>
+					<th><strong>排名</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>决策树模型</strong></td>
+					<td>20.48770</td>
+					<td>1929</td>
+			</tr>
+			<tr>
+					<td><strong>RAPIDS SVR Boost</strong></td>
+					<td>18.02751</td>
+					<td>762</td>
+			</tr>
+			<tr>
+					<td><strong>Swin transformer模型Batch size=32，n fold=10</strong></td>
+					<td>17.94193</td>
+					<td>411</td>
+			</tr>
+			<tr>
+					<td><strong>Batch  size=8，n fold=5</strong></td>
+					<td>17.90508</td>
+					<td>291</td>
+			</tr>
+			<tr>
+					<td><strong>Batch size=8，n fold=8</strong></td>
+					<td>17.83858</td>
+					<td>106</td>
+			</tr>
+			<tr>
+					<td><strong>Batch size=8，n fold=7</strong></td>
+					<td>17.81823</td>
+					<td>66</td>
+			</tr>
+			<tr>
+					<td><strong>Batch size=8，n fold=7更改seed</strong></td>
+					<td>17.79984</td>
+					<td>46</td>
+			</tr>
+	</tbody>
 </table>
 <p>好吧，transform不是用在nlp的吗？怎么能做cv了？</p>
 <p>先复习一下Transformer吧</p>
@@ -427,6 +427,7 @@ onload='renderMathInElement(document.body);'></script>
 
 <script src="/lib/fuse.min.js"></script> 
 <script src="/lib/fastsearch.js"></script>
+
 
 	</div>
 </body>
